@@ -1,0 +1,20 @@
+<module>
+	<rawname>sipsettings</rawname>
+	<name>SIP Settings</name>
+	<version>2.6.0alpha1.0</version>
+	<type>tool</type>
+	<category>System Administration</category>
+	<menuitems>
+		<sipsettings>SIP Settings</sipsettings>
+	</menuitems>
+	<description>
+		Use to configure Various Asterisk SIP Settings in the General section of sip.conf. Also includes an auto-configuration tool to determine NAT settings.
+	</description>
+	<publisher>Bandwidth.com</publisher>
+	<license>AGPLv3</license>
+	<changelog>
+		*2.6.0alpha1.0* Incomplete screen mockup
+	</changelog>
+	<location>release/2.6/sipsettings-2.6.0alpha1.0.tgz</location>
+	<md5sum>4ace1579cc9fbfc035bff76e42865dcb</md5sum>
+</module>
