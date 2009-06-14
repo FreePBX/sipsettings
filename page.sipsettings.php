@@ -26,6 +26,9 @@ $dispnum = "sipsettings"; //used for switch on config.php
 //
 switch ($action) {
 	case "edit":  //just delete and re-add
+		echo "<pre>";
+		print_r($_POST);
+		echo "</pre>";
 	break;
 }
 ?>
@@ -78,7 +81,7 @@ switch ($action) {
 		);
 
 	// Video Codecs
-	$videosupport = "checked";
+	$videosupport = "no";
 	$maxcallbitrate=384;
 	$video_codecs = array(
 		'h261' => 'checked',
@@ -302,11 +305,22 @@ END;
 
 	<tr>
 		<td><a href="#" class="info"><?php echo _("Video Support")?><span><?php echo _("Check to enable and then choose allowed codecs.")?></span></a></td>
-		<td>
-		<table width="100%"><tr><td>
-			<input type="checkbox" value="1" name="videosupport" id="videosupport" class="videosupport" tabindex="<?php echo ++$tabindex; ?>" <?php echo $videosupport ?> />
-			<label id="videosupport" for="videosupport"><?php echo _("enable") ?></label>
-		</tr></td></table>
+		<td> 
+			<table width="100%">
+				<tr>
+					<td width="25%">
+						<input id="videosupport-yes" type="radio" name="videosupport" value="yes" tabindex="<?php echo ++$tabindex;?>"<?php echo $videosupport=="yes"?"checked=\"yes\"":""?>/>
+						<label for="videosupport-yes"><?php echo _("Enabled") ?></label>
+					</td>
+
+					<td width="25%">
+						<input id="videosupport-no" type="radio" name="videosupport" value="no" tabindex="<?php echo ++$tabindex;?>"<?php echo $videosupport=="no"?"checked=\"no\"":""?>/>
+						<label for="videosupport-no"><?php echo _("Disabled") ?></label>
+					</td>
+
+					<td width="25%"> </td><td width="25%"></td>
+				</tr>
+			</table>
 		</td>
 	</tr>
 	<tr>
@@ -388,13 +402,13 @@ END;
 			<table width="100%">
 				<tr>
 					<td>
-						<input id="nat-none" type="radio" name="nat_mode" value="none" tabindex="<?php echo ++$tabindex;?>"<?php echo $nat_mode=="none"?"checked=\"$nat_mode\"":""?>/>
+						<input id="nat-none" type="radio" name="nat_mode" value="public" tabindex="<?php echo ++$tabindex;?>"<?php echo $nat_mode=="public"?"checked=\"public\"":""?>/>
 						<label for="nat-none"><?php echo _("Public") ?></label>
 
-						<input id="externip" type="radio" name="nat_mode" value="externip" tabindex="<?php echo ++$tabindex;?>"<?php echo $nat_mode=="externip"?"checked=\"$nat_mode\"":""?>/>
+						<input id="externip" type="radio" name="nat_mode" value="externip" tabindex="<?php echo ++$tabindex;?>"<?php echo $nat_mode=="externip"?"checked=\"externip\"":""?>/>
 						<label for="externip"><?php echo _("Static") ?></label>
 
-						<input id="externhost" type="radio" name="nat_mode" value="externhost" tabindex="<?php echo ++$tabindex;?>"<?php echo $nat_mode=="externhost"?"checked=\"$nat_mode\"":""?>/>
+						<input id="externhost" type="radio" name="nat_mode" value="externhost" tabindex="<?php echo ++$tabindex;?>"<?php echo $nat_mode=="externhost"?"checked=\"externhost\"":""?>/>
 						<label for="externhost"><?php echo _("Dynamic") ?></label>
 					</td>
 					<td align="right">
@@ -509,38 +523,103 @@ END;
 		</td>
 	</tr>
 
-<?/*
-;------------------------------ JITTER BUFFER CONFIGURATION --------------------------
-; jbenable = yes              ; Enables the use of a jitterbuffer on the receiving side of a
-                              ; SIP channel. Defaults to "no". An enabled jitterbuffer will
-                              ; be used only if the sending side can create and the receiving
-                              ; side can not accept jitter. The SIP channel can accept jitter,
-                              ; thus a jitterbuffer on the receive SIP side will be used only
-                              ; if it is forced and enabled.
-
-; jbforce = no                ; Forces the use of a jitterbuffer on the receive side of a SIP
-                              ; channel. Defaults to "no".
-
-; jbmaxsize = 200             ; Max length of the jitterbuffer in milliseconds.
-
-; jbresyncthreshold = 1000    ; Jump in the frame timestamps over which the jitterbuffer is
-                              ; resynchronized. Useful to improve the quality of the voice, with
-                              ; big jumps in/broken timestamps, usually sent from exotic devices
-                              ; and programs. Defaults to 1000.
-
-; jbimpl = fixed              ; Jitterbuffer implementation, used on the receiving side of a SIP
-                              ; channel. Two implementations are currently available - "fixed"
-                              ; (with size always equals to jbmaxsize) and "adaptive" (with
-                              ; variable size, actually the new jb of IAX2). Defaults to fixed.
-
-; jblog = no                  ; Enables jitterbuffer frame logging. Defaults to "no".
-;-----------------------------------------------------------------------------------
-*/?>
 	<tr>
 		<td colspan="2"><h5><?php echo _("Jitter Buffer Settings") ?><hr></h5></td>
 	</tr>
 
+	<tr>
+		<td><a href="#" class="info"><?php echo _("Jitter Buffer")?><span><?php echo _("Asterisk: jbenable. Enables the use of a jitterbuffer on the receiving side of a SIP channel. An enabled jitterbuffer will be used only if the sending side can create and the receiving side can not accept jitter. The SIP channel can accept jitter, thus a jitterbuffer on the receive SIP side will be used only if it is forced and enabled. An example is if receiving from a jittery channel to voicemail, the jitter buffer will be used if enabled. However, it will not be used when sending to a SIP endpoint since they usually have their own jitter buffers. See jbforce to force it's use always.")?></span></a></td>
+		<td> 
+			<table width="100%">
+				<tr>
+					<td width="25%">
+						<input id="jbenable-yes" type="radio" name="jbenable" value="yes" tabindex="<?php echo ++$tabindex;?>"<?php echo $jbenable=="yes"?"checked=\"yes\"":""?>/>
+						<label for="jbenable-yes"><?php echo _("Enabled") ?></label>
+					</td>
+
+					<td width="25%">
+						<input id="jbenable-no" type="radio" name="jbenable" value="no" tabindex="<?php echo ++$tabindex;?>"<?php echo $jbenable=="no"?"checked=\"no\"":""?>/>
+						<label for="jbenable-no"><?php echo _("Disabled") ?></label>
+					</td>
+
+					<td width="25%"> </td><td width="25%"></td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+
+	<tr>
+		<td><a href="#" class="info"><?php echo _("Force Jitter Buffer")?><span><?php echo _("Asterisk: jbforce. Forces the use of a jitterbuffer on the receive side of a SIP channel. Normally the jitter buffer will not be used if receiving a jittery channel but sending it off to another channel such as another SIP channel to an endpoint, since there is typically a jitter buffer at the far end. This will force the use of the jitter buffer before sending the stream on. This is not typically desired as it adds additional latency into the stream.")?></span></a></td>
+		<td> 
+			<table width="100%">
+				<tr>
+					<td width="25%">
+						<input id="jbforce-yes" type="radio" name="jbforce" class="jitter-buffer" value="yes" tabindex="<?php echo ++$tabindex;?>"<?php echo $jbforce=="yes"?"checked=\"yes\"":""?>/>
+						<label for="jbforce-yes"><?php echo _("Yes") ?></label>
+					</td>
+
+					<td width="25%">
+						<input id="jbforce-no" type="radio" name="jbforce" class="jitter-buffer" value="no" tabindex="<?php echo ++$tabindex;?>"<?php echo $jbforce=="no"?"checked=\"no\"":""?>/>
+						<label for="jbforce-no"><?php echo _("No") ?></label>
+					</td>
+
+					<td width="25%"> </td><td width="25%"></td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+
+	<tr>
+		<td><a href="#" class="info"><?php echo _("Implementation")?><span><?php echo _("Asterisk: jbimpl. Jitterbuffer implementation, used on the receiving side of a SIP channel. Two implementations are currently available:<br /> fixed: size always equals to jbmaxsize;<br />) adaptive: with variable size (the new jb of IAX2).")?></span></a></td>
+		<td> 
+			<table width="100%">
+				<tr>
+					<td width="25%">
+						<input id="jbimpl-fixed" type="radio" name="jbimpl" class="jitter-buffer" value="fixed" tabindex="<?php echo ++$tabindex;?>"<?php echo $jbimpl=="fixed"?"checked=\"fixed\"":""?>/>
+						<label for="jbimpl-fixed"><?php echo _("Fixed") ?></label>
+					</td>
+
+					<td width="25%">
+						<input id="jbimpl-adaptive" type="radio" name="jbimpl" class="jitter-buffer" value="adaptive" tabindex="<?php echo ++$tabindex;?>"<?php echo $jbimpl=="adaptive"?"checked=\"adaptive\"":""?>/>
+						<label for="jbimpl-adaptive"><?php echo _("Adaptive") ?></label>
+					</td>
+
+					<td width="25%"> </td><td width="25%"></td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+
+	<tr>
+		<td><a href="#" class="info"><?php echo _("Jitter Buffer Logging")?><span><?php echo _("Asterisk: jblog. Enables jitter buffer frame logging.")?></span></a></td>
+		<td> 
+			<table width="100%">
+				<tr>
+					<td width="25%">
+						<input id="jblog-yes" type="radio" name="jblog" class="jitter-buffer" value="yes" tabindex="<?php echo ++$tabindex;?>"<?php echo $jblog=="yes"?"checked=\"yes\"":""?>/>
+						<label for="jblog-yes"><?php echo _("Enable") ?></label>
+					</td>
+
+					<td width="25%">
+						<input id="jblog-no" type="radio" name="jblog" class="jitter-buffer" value="no" tabindex="<?php echo ++$tabindex;?>"<?php echo $jblog=="no"?"checked=\"no\"":""?>/>
+						<label for="jblog-no"><?php echo _("Disable") ?></label>
+					</td>
+
+					<td width="25%"> </td><td width="25%"></td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+
+	<tr>
+		<td><a href="#" class="info"><?php echo _("Jitter Buffer Size")?><span><?php echo _("Asterisk: jbmaxsize. Max length of the jitterbuffer in milliseconds.<br /> Asterisk: jbresyncthreshold. Jump in the frame timestamps over which the jitterbuffer is resynchronized. Useful to improve the quality of the voice, with big jumps in/broken timestamps, usually sent from exotic devices and programs.")?></span></a></td>
+		<td>
+				<input type="text" size="3" id="jbmaxsize" name="jbmaxsize" class="jitter-buffer" value="<?php echo $jbmaxsize ?>" tabindex="<?php echo ++$tabindex;?>"><small>(jbmaxsize)</small>&nbsp;
+				<input type="text" size="3" id="jbresyncthreshold" name="jbresyncthreshold" class="jitter-buffer" value="<?php echo $jbresyncthreshold ?>" tabindex="<?php echo ++$tabindex;?>"><small>(jbresyncthreshold)</small>&nbsp;
+		</td>
+	</tr>
 <?/*
+;-----------------------------------------------------------------------------------
 ;-------------- ADVANCED -----------
 context=default                 ; Default context for incoming calls
 bindaddr=0.0.0.0                ; IP address to bind to (0.0.0.0 binds to all)
@@ -601,8 +680,6 @@ $(document).ready(function(){
 		return false;
 	});
 
-	$(".video-codecs").attr("disabled",!$("#videosupport").attr("checked"));
-
 	if (document.getElementById("externhost").checked) {
 		$(".externip").hide();
 	} else if (document.getElementById("externip").checked) {
@@ -611,8 +688,20 @@ $(document).ready(function(){
 		$(".nat-settings").hide();
 	}
 
-	$("#videosupport").click(function(){
-		$(".video-codecs").attr("disabled",!this.checked);
+	$(".video-codecs").attr("disabled",$("#videosupport-no").attr("checked"));
+	$("#videosupport-yes").click(function(){
+		$(".video-codecs").attr("disabled",false);
+	});
+	$("#videosupport-no").click(function(){
+		$(".video-codecs").attr("disabled",true);
+	});
+
+	$(".jitter-buffer").attr("disabled",$("#jbenable-no").attr("checked"));
+	$("#jbenable-yes").click(function(){
+		$(".jitter-buffer").attr("disabled",false);
+	});
+	$("#jbenable-no").click(function(){
+		$(".jitter-buffer").attr("disabled",true);
 	});
 
 	$("#nat-none").click(function(){
@@ -629,7 +718,7 @@ $(document).ready(function(){
 });
 
 var theForm = document.editSip;
-theForm.name.focus();
+theForm.sip-language.focus();
 
 function checkConf()
 {
