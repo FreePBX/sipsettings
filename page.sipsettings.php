@@ -22,12 +22,10 @@
 $action = isset($_REQUEST['action'])?$_REQUEST['action']:'';
 $dispnum = "sipsettings"; //used for switch on config.php
 
-// TODO: Doesn't do anything yet, just initial screen mockup
-//
 switch ($action) {
 	case "edit":  //just delete and re-add
 		echo "<pre>";
-		print_r($_POST);
+		print_r($_POST); // TODO: DEBUG
 		echo "</pre>";
 	break;
 }
@@ -92,10 +90,16 @@ switch ($action) {
 
 	// NAT Settings
 	$nat= "route";
-	$nat_mode = "externhost";
+	$nat_mode = "externip";
 	$externip_val = "";
 	$externhost_val = "";
 	$externrefresh = "60";
+	$localnet_0 = "10.200.4.0";
+	$netmask_0 = "255.255.255.0";
+	$localnet_1 = "10.200.12.0";
+	$netmask_1 = "255.255.254.0";
+	$localnet_2 = "192.168.3.0";
+	$netmask_2 = "255.255.248.0";
 
 	// Media & RTP Settings
 	$canreinvite = "no";
@@ -127,10 +131,17 @@ switch ($action) {
 	$contactpermit="";
 	$t1min="100";
 
+	$sip_custom_key_0 = "relaxdtmf";
+	$sip_custom_val_0 = "yes";
+	$sip_custom_key_1 = "allevents";
+	$sip_custom_val_1 = "yes";
+	$sip_custom_key_2 = "progressinband";
+	$sip_custom_val_2 = "never";
+
 ?>
 	<form autocomplete="off" name="editSip" action="<?php $_SERVER['PHP_SELF'] ?>" method="post" onsubmit="return checkConf();">
 	<input type="hidden" name="action" value="edit">
-	<table width="560px">
+	<table width="570px">
 	<tr>
 		<td colspan="2"><h5><?php echo _("General Settings")?><hr></h5></td>
 	</tr>
@@ -242,7 +253,7 @@ switch ($action) {
 		echo <<< END
 				<td width="$width%">
 					<input type="checkbox" value="1" name="$codec" id="$codec" class="audio-codecs" tabindex="$tabindex" $codec_state />
-					<label for="$codec"> $codec_trans </label>
+					<label for="$codec"> <small>$codec_trans</small> </label>
 				</td>
 END;
 	}
@@ -323,7 +334,7 @@ END;
 			</table>
 		</td>
 	</tr>
-	<tr>
+	<tr class="video-codecs">
 		<td></td>
 		<td>
 		<table width="100%">
@@ -332,7 +343,7 @@ END;
 	$cols = $cols_per_row;
 	foreach ($video_codecs as $codec => $codec_state) {
 		if ($cols == 0) {
-			echo "</tr><tr>\n";
+			echo "</tr><tr class=\"video-codecs\">\n";
 			$cols = $cols_per_row;
 		}
 		$cols--;
@@ -341,7 +352,7 @@ END;
 		echo <<< END
 				<td width="$width%">
 					<input type="checkbox" value="1" name="$codec" id="$codec" class="video-codecs" tabindex="$tabindex" $codec_state />
-					<label for="$codec"> $codec_trans </label>
+					<label for="$codec"><small> $codec_trans </small></label>
 				</td>
 END;
 	}
@@ -352,11 +363,11 @@ END;
 		</td>
 	</tr>
 
-	<tr>
+	<tr class="video-codecs">
 		<td>
 			<a href="#" class="info"><?php echo _("Max Bit Rate")?><span><?php echo _("Maximum bitrate for video calls in kb/s")?></span></a>
 		</td>
-		<td><input type="text" size="3" id="maxcallbitrate" name="maxcallbitrate" class="video-codecs" value="<?php echo $maxcallbitrate ?>" tabindex="<?php echo ++$tabindex;?>"></td>
+		<td><input type="text" size="3" id="maxcallbitrate" name="maxcallbitrate" class="video-codecs" value="<?php echo $maxcallbitrate ?>" tabindex="<?php echo ++$tabindex;?>"> <small><?php echo _("kb/s") ?></small></td>
 	</tr>
 
 	<tr>
@@ -411,9 +422,6 @@ END;
 						<input id="externhost" type="radio" name="nat_mode" value="externhost" tabindex="<?php echo ++$tabindex;?>"<?php echo $nat_mode=="externhost"?"checked=\"externhost\"":""?>/>
 						<label for="externhost"><?php echo _("Dynamic") ?></label>
 					</td>
-					<td align="right">
-						<input align="right" type="button" id="nat-auto-configure"  value="<?php echo _("Auto Configure")?>" class="nat-settings" />
-					</td>
 				</tr>
 			</table>
 		</td>
@@ -436,19 +444,45 @@ END;
 	</tr>
 	<tr class="nat-settings">
 		<td>
-			<a href="#" class="info"><?php echo _("Local Neworks")?><span><?php echo _("Local network settings (Asterisk: localnet) in the form of ip/mask such as 192.168.1.0/255.255.255.0. For networks with more than 2 lan subnets, use the Additional SIP settings below to define them.")?></span></a>
+			<a href="#" class="info"><?php echo _("Local Networks")?><span><?php echo _("Local network settings (Asterisk: localnet) in the form of ip/mask such as 192.168.1.0/255.255.255.0. For networks with more 1 lan subnets, use the Add Local Network button for more fields.")?></span></a>
 		</td>
 		<td>
-			<input type="text" id="localnet-0" name="localnet-0"  value="<?php echo $localnet_0 ?>" tabindex="<?php echo ++$tabindex;?>"> /
+			<input type="text" id="localnet-0" name="localnet-0" class="localnet" value="<?php echo $localnet_0 ?>" tabindex="<?php echo ++$tabindex;?>"> /
 			<input type="text" id="netmask-0" name="netmask-0" value="<?php echo $netmask_0 ?>" tabindex="<?php echo ++$tabindex;?>">
 		</td>
 	</tr>
+
+<?php
+	$idx = 1;
+	$var_localnet = "localnet_$idx";
+	$var_netmask = "netmask_$idx";
+	while (isset($$var_localnet)) {
+		if ($$var_localnet != '') {
+			$tabindex++;
+			echo <<< END
 	<tr class="nat-settings">
 		<td>
 		</td>
 		<td>
-			<input type="text" id="localnet-1" name="localnet-1"  value="<?php echo $localnet_1 ?>" tabindex="<?php echo ++$tabindex;?>"> /
-			<input type="text" id="netmask-1" name="netmask-1" value="<?php echo $netmask_1 ?>" tabindex="<?php echo ++$tabindex;?>">
+			<input type="text" id="localnet-$idx" name="localnet-$idx" class="localnet" value="{$$var_localnet}" tabindex="$tabindex"> /
+END;
+			$tabindex++;
+			echo <<< END
+			<input type="text" id="netmask-$idx" name="netmask-1" value="{$$var_netmask}" tabindex="$tabindex">
+		</td>
+	</tr>
+END;
+	}
+	$idx++;
+	$var_localnet = "localnet_$idx";
+	$var_netmask = "netmask_$idx";
+	}
+?>
+	<tr class="nat-settings" id="auto-configure-buttons">
+		<td></td>
+		<td><br \>
+			<input type="button" id="nat-auto-configure"  value="<?php echo _("Auto Configure")?>" class="nat-settings" />
+			<input type="button" id="localnet-add"  value="<?php echo _("Add Local Network")?>" class="nat-settings" />
 		</td>
 	</tr>
 
@@ -489,12 +523,12 @@ END;
 
 	<tr>
 		<td>
-			<a href="#" class="info"><?php echo _("RTP Timers")?><span><?php echo _("Asterisk: rtptimeout. Terminate call if rtptimeout seconds of no RTP or RTCP activity on the audio channel when we're not on hold. This is to be able to hangup a call in the case of a phone disappearing from the net, like a powerloss or grandma tripping over a cable.<br /> Asterisk: rtpholdtimeout. Terminate call if rtpholdtimeout seconds of no RTP or RTCP activity on the audio channel when we're on hold (must be > rtptimeout). <br /> Asterisk: rtpkeepalive. Send keepalives in the RTP stream to keep NAT open during periods where no RTP stream may be flowing (like on hold).")?></span></a>
+			<a href="#" class="info"><?php echo _("RTP Timers")?><span><?php echo _("Asterisk: rtptimeout. Terminate call if rtptimeout seconds of no RTP or RTCP activity on the audio channel when we're not on hold. This is to be able to hangup a call in the case of a phone disappearing from the net, like a powerloss or someone tripping over a cable.<br /> Asterisk: rtpholdtimeout. Terminate call if rtpholdtimeout seconds of no RTP or RTCP activity on the audio channel when we're on hold (must be > rtptimeout). <br /> Asterisk: rtpkeepalive. Send keepalives in the RTP stream to keep NAT open during periods where no RTP stream may be flowing (like on hold).")?></span></a>
 		</td>
 		<td>
-				<input type="text" size="1" id="rtptimeout" name="rtptimeout" value="<?php echo $rtptimeout ?>" tabindex="<?php echo ++$tabindex;?>"><small>(rtptimeout)</small>&nbsp;
-				<input type="text" size="1" id="rtpholdtimeout" name="rtpholdtimeout" value="<?php echo $rtpholdtimeout ?>" tabindex="<?php echo ++$tabindex;?>"><small>(rtpholdtimeout)</small>&nbsp;
-				<input type="text" size="1" id="rtpkeepalive" name="rtpkeepalive" value="<?php echo $rtpkeepalive ?>" tabindex="<?php echo ++$tabindex;?>"><small>(rtpkeepalive)</small>
+				<input type="text" size="2" id="rtptimeout" name="rtptimeout" value="<?php echo $rtptimeout ?>" tabindex="<?php echo ++$tabindex;?>"><small>(rtptimeout)</small>&nbsp;
+				<input type="text" size="2" id="rtpholdtimeout" name="rtpholdtimeout" value="<?php echo $rtpholdtimeout ?>" tabindex="<?php echo ++$tabindex;?>"><small>(rtpholdtimeout)</small>&nbsp;
+				<input type="text" size="2" id="rtpkeepalive" name="rtpkeepalive" value="<?php echo $rtpkeepalive ?>" tabindex="<?php echo ++$tabindex;?>"><small>(rtpkeepalive)</small>
 		</td>
 	</tr>
 
@@ -518,8 +552,8 @@ END;
 		</td>
 		<td>
 				<input type="text" size="2" id="minexpiry" name="minexpiry" value="<?php echo $minexpiry ?>" tabindex="<?php echo ++$tabindex;?>"><small>(minexpiry)</small>&nbsp;
-				<input type="text" size="2" id="maxexpiry" name="maxexpiry" value="<?php echo $maxexpiry ?>" tabindex="<?php echo ++$tabindex;?>"><small>(maxexpiry)</small>&nbsp;
-				<input type="text" size="2" id="defaultexpiry" name="defaultexpiry" value="<?php echo $defaultexpiry ?>" tabindex="<?php echo ++$tabindex;?>"><small>(defaultexpiry)</small>
+				<input type="text" size="3" id="maxexpiry" name="maxexpiry" value="<?php echo $maxexpiry ?>" tabindex="<?php echo ++$tabindex;?>"><small>(maxexpiry)</small>&nbsp;
+				<input type="text" size="3" id="defaultexpiry" name="defaultexpiry" value="<?php echo $defaultexpiry ?>" tabindex="<?php echo ++$tabindex;?>"><small>(defaultexpiry)</small>
 		</td>
 	</tr>
 
@@ -548,7 +582,7 @@ END;
 		</td>
 	</tr>
 
-	<tr>
+	<tr class="jitter-buffer">
 		<td><a href="#" class="info"><?php echo _("Force Jitter Buffer")?><span><?php echo _("Asterisk: jbforce. Forces the use of a jitterbuffer on the receive side of a SIP channel. Normally the jitter buffer will not be used if receiving a jittery channel but sending it off to another channel such as another SIP channel to an endpoint, since there is typically a jitter buffer at the far end. This will force the use of the jitter buffer before sending the stream on. This is not typically desired as it adds additional latency into the stream.")?></span></a></td>
 		<td> 
 			<table width="100%">
@@ -569,7 +603,7 @@ END;
 		</td>
 	</tr>
 
-	<tr>
+	<tr class="jitter-buffer">
 		<td><a href="#" class="info"><?php echo _("Implementation")?><span><?php echo _("Asterisk: jbimpl. Jitterbuffer implementation, used on the receiving side of a SIP channel. Two implementations are currently available:<br /> fixed: size always equals to jbmaxsize;<br />) adaptive: with variable size (the new jb of IAX2).")?></span></a></td>
 		<td> 
 			<table width="100%">
@@ -590,7 +624,7 @@ END;
 		</td>
 	</tr>
 
-	<tr>
+	<tr class="jitter-buffer">
 		<td><a href="#" class="info"><?php echo _("Jitter Buffer Logging")?><span><?php echo _("Asterisk: jblog. Enables jitter buffer frame logging.")?></span></a></td>
 		<td> 
 			<table width="100%">
@@ -611,33 +645,105 @@ END;
 		</td>
 	</tr>
 
-	<tr>
+	<tr class="jitter-buffer">
 		<td><a href="#" class="info"><?php echo _("Jitter Buffer Size")?><span><?php echo _("Asterisk: jbmaxsize. Max length of the jitterbuffer in milliseconds.<br /> Asterisk: jbresyncthreshold. Jump in the frame timestamps over which the jitterbuffer is resynchronized. Useful to improve the quality of the voice, with big jumps in/broken timestamps, usually sent from exotic devices and programs.")?></span></a></td>
 		<td>
-				<input type="text" size="3" id="jbmaxsize" name="jbmaxsize" class="jitter-buffer" value="<?php echo $jbmaxsize ?>" tabindex="<?php echo ++$tabindex;?>"><small>(jbmaxsize)</small>&nbsp;
-				<input type="text" size="3" id="jbresyncthreshold" name="jbresyncthreshold" class="jitter-buffer" value="<?php echo $jbresyncthreshold ?>" tabindex="<?php echo ++$tabindex;?>"><small>(jbresyncthreshold)</small>&nbsp;
+				<input type="text" size="4" id="jbmaxsize" name="jbmaxsize" class="jitter-buffer" value="<?php echo $jbmaxsize ?>" tabindex="<?php echo ++$tabindex;?>"><small>(jbmaxsize)</small>&nbsp;
+				<input type="text" size="4" id="jbresyncthreshold" name="jbresyncthreshold" class="jitter-buffer" value="<?php echo $jbresyncthreshold ?>" tabindex="<?php echo ++$tabindex;?>"><small>(jbresyncthreshold)</small>&nbsp;
 		</td>
 	</tr>
-<?/*
-;-----------------------------------------------------------------------------------
-;-------------- ADVANCED -----------
-context=default                 ; Default context for incoming calls
-bindaddr=0.0.0.0                ; IP address to bind to (0.0.0.0 binds to all)
-;allowguest=no                  ; Allow or reject guest calls (default is yes)
 
-bindport=5060                   ; UDP Port to bind to (SIP standard port is 5060)
-                                ; bindport is the local UDP port that Asterisk will listen on
-;t1min=100                      ; Minimum roundtrip time for messages to monitored hosts
-
-;contactdeny=0.0.0.0/0.0.0.0           ; Use contactpermit and contactdeny to
-;contactpermit=172.16.0.0/255.255.0.0  ; restrict at what IPs your users may
-                                       ; register their phones.
-
-TODO: Add generic textarea for freeform addition of more obscure settings 
-TODO: if data.count > 2 then dynamically add more localnet or put in text area (js below)
-*/?>
 	<tr>
 		<td colspan="2"><h5><?php echo _("Advanced General Settings") ?><hr></h5></td>
+	</tr>
+
+	<tr>
+		<td>
+			<a href="#" class="info"><?php echo _("Default Context")?><span><?php echo _("Asterisk: context. Default context for incoming calls if not specified. FreePBX sets this to from-sip-extenral which is used in conjunction with the Allow Anonymous SIP calls. If you change this you will effect that behavior.")?></span></a>
+		</td>
+		<td><input type="text" id="default-context" name="default-context" value="<?php echo $context ?>" tabindex="<?php echo ++$tabindex;?>"></td>
+	</tr>
+
+	<tr>
+		<td>
+			<a href="#" class="info"><?php echo _("Bind Address")?><span><?php echo _("Asterisk: bindaddr. The IP adderss to bind to and listen for calls on the Bind Port. If set to 0.0.0.0 Asterisk will listen on all addresses.")?></span></a>
+		</td>
+		<td><input type="text" id="bindaddr" name="bindaddr" value="<?php echo $bindaddr ?>" tabindex="<?php echo ++$tabindex;?>"></td>
+	</tr>
+
+	<tr>
+		<td>
+			<a href="#" class="info"><?php echo _("Bind Port")?><span><?php echo _("Asterisk: bindport. Local incoming UDP Port that Asterisk will bind to and listen for SIP messages. The SIP standard is 5060 and in most cases this is what you want.")?></span></a>
+		</td>
+		<td><input type="text" id="bindaddr" name="bindaddr" value="<?php echo $bindaddr ?>" tabindex="<?php echo ++$tabindex;?>"></td>
+	</tr>
+
+	<tr>
+		<td>
+			<a href="#" class="info"><?php echo _("Allow SIP Guests")?><span><?php echo _("Asterisk: allowguest. When set Asterisk will allow Guest SIP calls and send them to the Default SIP context. Turning this off will keep anonymous SIP calls from entering the system. However, the Allow Anonymous SIP calls from the General Settings section will not function. Allowing guest calls but rejecting the Anonymous SIP calls in the General Section will enable you to see the call attempts and debug incoming calls that may be mis-configured and appearing as guests.")?></span></a>
+		</td>
+		<td> 
+			<table width="100%">
+				<tr>
+					<td width="25%">
+						<input id="allowguest-yes" type="radio" name="allowguest" value="yes" tabindex="<?php echo ++$tabindex;?>"<?php echo $allowguest=="yes"?"checked=\"yes\"":""?>/>
+						<label for="allowguest-yes"><?php echo _("Yes") ?></label>
+					</td>
+
+					<td width="25%">
+						<input id="allowguest-no" type="radio" name="allowguest" value="no" tabindex="<?php echo ++$tabindex;?>"<?php echo $allowguest=="no"?"checked=\"no\"":""?>/>
+						<label for="allowguest-no"><?php echo _("No") ?></label>
+					</td>
+
+					<td width="25%"> </td><td width="25%"></td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+
+	<tr><td colspan="2"><br /></td></tr>
+
+	<tr>
+		<td>
+			<a href="#" class="info"><?php echo _("Other SIP Settings")?><span><?php echo _("You may set any other SIP settings not present here that are allowed to be configured in the General section of sip.conf. There will be no error checking against these settings so check them carefully. They should be entered as:<br /> [setting] = [value]<br /> in the boxes below. Click the Add Field box to add additional fields.")?></span></a>
+		</td>
+		<td>
+			<input type="text" id="sip-custom-key-0" name="sip-custom-key-0" class="sip-custom" value="<?php echo $sip_custom_key_0 ?>" tabindex="<?php echo ++$tabindex;?>"> =
+			<input type="text" id="sip-custom-val-0" name="sip-custom-val-0" value="<?php echo $sip_custom_val_0 ?>" tabindex="<?php echo ++$tabindex;?>">
+		</td>
+	</tr>
+
+<?php
+	$idx = 1;
+	$var_sip_custom_key = "sip_custom_key_$idx";
+	$var_sip_custom_val = "sip_custom_val_$idx";
+	while (isset($$var_sip_custom_key)) {
+		if ($$var_sip_custom_key != '') {
+			$tabindex++;
+			echo <<< END
+	<tr>
+		<td>
+		</td>
+		<td>
+			<input type="text" id="sip-custom-key-$idx" name="sip-custom-key-$idx" class="sip-custom" value="{$$var_sip_custom_key}" tabindex="$tabindex"> =
+END;
+			$tabindex++;
+			echo <<< END
+			<input type="text" id="sip-custom-val-$idx" name="sip-custom-val-1" value="{$$var_sip_custom_val}" tabindex="$tabindex">
+		</td>
+	</tr>
+END;
+		}
+		$idx++;
+		$var_sip_custom_key = "sip_custom_key_$idx";
+		$var_sip_custom_val = "sip_custom_val_$idx";
+	}
+?>
+	<tr id="sip-custom-buttons">
+		<td></td>
+		<td><br \>
+			<input type="button" id="sip-custom-add"  value="<?php echo _("Add Field")?>" />
+		</td>
 	</tr>
 
 	<tr>
@@ -647,39 +753,54 @@ TODO: if data.count > 2 then dynamically add more localnet or put in text area (
 <script language="javascript">
 <!--
 $(document).ready(function(){
-
+	/* On click ajax to pbx and determine extenral network and localnet settings */
 	$.ajaxTimeout( 10000 );
 	$("#nat-auto-configure").click(function(){
-
 		$.ajax({
 			type: 'POST',
 			url: "<?php echo $_SERVER["PHP_SELF"]; ?>",
 			data: "quietmode=1&skip_astman=1&handler=file&module=sipsettings&file=natget.html.php",
 			dataType: 'json',
 			success: function(data) {
-				//alert("Got a Response for");
 				if (data.status == 'success') {
 					$('#externip_val').attr("value",data.externip);
 					$('#externhost_val').attr("value",data.externhost);
-					$('#localnet-0').attr("value",data.localnet_0);
-					$('#localnet-1').attr("value",data.localnet_1);
-					$('#netmask-0').attr("value",data.netmask_0);
-					$('#netmask-1').attr("value",data.netmask_1);
-
-					// TODO: if data.count > 2 then dynamically add more or put in text area
-
+					/*  Iterate through each localnet:netmask pair. Put them into any fields on the form
+					 *  until we have no more, than create new ones
+					 */
+					var fields = $(".localnet").size();
+					var cnt = 0;
+					$.each(data.localnet, function(loc,mask){
+						if (cnt < fields) {
+							$('#localnet-'+cnt).attr("value",loc);
+							$('#netmask-'+cnt).attr("value",mask);
+						} else {
+							addLocalnet(loc,mask);
+						}
+						cnt++;
+					});
 				} else {
 					alert(data.status);
 				}
 			},
 			error: function(data) {
-				alert("<?php echo _("An Error occured trying to fetch Bandwidth.com trunk information")?>");
+				alert("<?php echo _("An Error occured trying fetch network configuration and external IP address")?>");
 			},
 		});
-
 		return false;
 	});
 
+	/* Add a Local Network / Mask textbox */
+	$("#localnet-add").click(function(){
+		addLocalnet("","");
+	});
+
+	/* Add a Custom Var / Val textbox */
+	$("#sip-custom-add").click(function(){
+		addCustomField("","");
+	});
+
+	/* Initialize Nat GUI and respond to radio button presses */
 	if (document.getElementById("externhost").checked) {
 		$(".externip").hide();
 	} else if (document.getElementById("externip").checked) {
@@ -687,23 +808,6 @@ $(document).ready(function(){
 	} else {
 		$(".nat-settings").hide();
 	}
-
-	$(".video-codecs").attr("disabled",$("#videosupport-no").attr("checked"));
-	$("#videosupport-yes").click(function(){
-		$(".video-codecs").attr("disabled",false);
-	});
-	$("#videosupport-no").click(function(){
-		$(".video-codecs").attr("disabled",true);
-	});
-
-	$(".jitter-buffer").attr("disabled",$("#jbenable-no").attr("checked"));
-	$("#jbenable-yes").click(function(){
-		$(".jitter-buffer").attr("disabled",false);
-	});
-	$("#jbenable-no").click(function(){
-		$(".jitter-buffer").attr("disabled",true);
-	});
-
 	$("#nat-none").click(function(){
 		$(".nat-settings").hide();
 	});
@@ -715,10 +819,64 @@ $(document).ready(function(){
 		$(".nat-settings").show();
 		$(".externip").hide();
 	});
+
+	/* Initialize Video Support settings and show/hide */
+	if (document.getElementById("videosupport-no").checked) {
+		$(".video-codecs").hide();
+	}
+	$("#videosupport-yes").click(function(){
+		$(".video-codecs").show();
+	});
+	$("#videosupport-no").click(function(){
+		$(".video-codecs").hide();
+	});
+
+	/* Initialize Jitter Buffer settings and show/hide */
+	if (document.getElementById("jbenable-no").checked) {
+		$(".jitter-buffer").hide();
+	}
+	$("#jbenable-yes").click(function(){
+		$(".jitter-buffer").show();
+	});
+	$("#jbenable-no").click(function(){
+		$(".jitter-buffer").hide();
+	});
 });
 
 var theForm = document.editSip;
 theForm.sip-language.focus();
+
+/* Insert a localnet/netmask pair of text boxes */
+function addLocalnet(localnet, netmask) {
+	var idx = $(".localnet").size();
+
+	$("#auto-configure-buttons").before('\
+	<tr class="nat-settings">\
+		<td>\
+		</td>\
+		<td>\
+			<input type="text" id="localnet-'+idx+'" name="localnet-'+idx+'" class="localnet" value="'+localnet+'"> /\
+			<input type="text" id="netmask-'+idx+'" name="netmask-'+idx+'" value="'+netmask+'">\
+		</td>\
+	</tr>\
+	');
+}
+
+/* Insert a sip_setting/sip_value pair of text boxes */
+function addCustomField(key, val) {
+	var idx = $(".sip-custom").size();
+
+	$("#sip-custom-buttons").before('\
+	<tr>\
+		<td>\
+		</td>\
+		<td>\
+			<input type="text" id="sip-custom-key-'+idx+'" name="sip-custom-key-'+idx+'" class="sip-custom" value="'+key+'"> =\
+			<input type="text" id="sip-custom-val-'+idx+'" name="sip-custom-val-'+idx+'" value="'+val+'">\
+		</td>\
+	</tr>\
+	');
+}
 
 function checkConf()
 {

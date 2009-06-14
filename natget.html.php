@@ -32,14 +32,15 @@
 
 	$json_array['status'] = _('Failed to auto-detect settinggs');
 	$json_array['externip'] = '';
-	$json_array["localnet_0"] = '';
-	$json_array["netmask_0"] = '';
-	$json_array["localnet_1"] = '';
-	$json_array["netmask_1"] = '';
 
+	/* Fetch the IP address of this system, expects xml formatted as:
+	<xml>
+	  <ipaddress>
+			nnn.nnn.nnn.nnn
+	  </ipaddress>
+	</xml>
+	*/
 
-	//TODO: check wget stuff which means parse, argh
-	//
 	if (!$amp_conf['MODULEADMINWGET']) {
 		$ip_xml = @file_get_contents($fn);
 	}
@@ -48,7 +49,6 @@
 		$ip_xml = implode("\n",$data_arr);
 	}
 
-	$i=0;
 	preg_match('|^<xml><ipaddress>(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})</ipaddress></xml>$|',$ip_xml,$matches);
 	if (isset($matches[1])) {
 		$json_array['externip'] = $matches[1];
@@ -60,16 +60,14 @@
 		foreach ($output as $line) {
 			preg_match('/^\s*(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})\s*(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})\s*(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})/',$line,$matches);
 			if (isset($matches[3]) && $matches[2] == '0.0.0.0' && substr($matches[1],0,4) != '169.') {
-				$json_array["localnet_$i"] = $matches[1];
-				$json_array["netmask_$i"] = $matches[3];
+				$localnet[$matches[1]] = $matches[3];
 				$json_array['status'] = 'success';
-				$i++;
 			}
 		}
 	} else {
 		$json_array['status'] = _('Failed to auto-detect settinggs');
 	}
-	$json_array["count"] = $i;
+	$json_array['localnet'] = $localnet;
 
 	$json = new Services_JSON();
 	sleep(0);
