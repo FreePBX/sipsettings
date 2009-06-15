@@ -22,6 +22,15 @@
 // Use hookGet_config so that everyone (like core) will have written their
 // SIP settings and then we can remove any that we are going to override
 //
+
+// Field Values for type field
+// NORMAL = 0
+// CODEC =  1
+// CUSTOM = 2
+define('NORMAL','0');
+define('CODEC','1');
+define('CUSTOM','2');
+
 function sipsettings_hookGet_config($engine) {
 	global $ext;
 	switch($engine) {
@@ -108,14 +117,69 @@ function sipsettings_get() {
 	$sip_settings['srvlookup']         = 'no';
 
 	$sip_settings['sip_custom_key_0']  = '';
-	$sip_settings['sip_custom_val_0']  = '255.255.255.0';
+	$sip_settings['sip_custom_val_0']  = '';
+
+	// TODO: Query from the DB now and reset where it has chnaged
 
 	return $sip_settings;
 }
 
 // Add a sipsettings
 function sipsettings_edit($sip_settings) {
-	freepbx_debug($sip_settings);
+	global $db;
+	$save_settings = array();
+
+	$codecs = $sip_settings['codecs'];
+	$video_codecs = $sip_settings['video_codecs'];
+	unset($sip_settings['codecs']);
+	unset($sip_settings['video_codecs']);
+
+	// TODO: this is where I will build validation before saving
+	//
+	foreach ($sip_settings as $key => $val) {
+		switch ($key) {
+			case 'bindaddr':
+				// ip validate this and store
+				$save_settings[] = array($key,$db->escapeSimple($val),'0',NORMAL); 
+			break;
+		default:
+			if (substr($key,0,9) == "localnet_") {
+				// ip validate this and store
+				$seq = substr($key,9);
+				$save_settings[] = array($key,$db->escapeSimple($val),$seq,NORMAL); 
+			} else if (substr($key,0,8) == "netmask_") {
+				// ip validate this and store
+				$seq = substr($key,8);
+				$save_settings[] = array($key,$db->escapeSimple($val),$seq,NORMAL); 
+			} else if (substr($key,0,15) == "sip_custom_key_") {
+				$seq = substr($key,15);
+				$save_settings[] = array($db->escapeSimple($val),$db->escapeSimple($sip_settings["sip_custom_val_$seq"]),$seq,CUSTOM); 
+			} else if (substr($key,0,15) == "sip_custom_val_") {
+				// skip it, we will seek it out when we see the sip_custom_key
+			} else {
+				$save_settings[] = array($key,$val,'0',NORMAL); 
+			}
+		}
+	}
+	$seq = 0;
+	foreach ($codecs as $key => $val) {
+		$save_settings[] = array($db->escapeSimple($key),$db->escapeSimple($val),$seq++,CODEC); 
+	}
+	$seq = 0;
+	foreach ($video_codecs as $key => $val) {
+		$save_settings[] = array($db->escapeSimple($key),$db->escapeSimple($val),$seq++,CODEC); 
+	}
+
+	// TODO: shouldn't do DELETE/INSERT but for now ...
+	//
+	sql("DELETE FROM `sipsettings` WHERE 1");
+
+	$compiled = $db->prepare('INSERT INTO sipsettings (keyword, data, seq, type) values (?,?,?,?)');
+	$result = $db->executeMultiple($compiled,$save_settings);
+	if(DB::IsError($result)) {
+		die_freepbx($result->getDebugInfo()."<br><br>".'error adding to sipsettings table');	
+	}
+	freepbx_debug($save_settings);
 }
 
 ?>

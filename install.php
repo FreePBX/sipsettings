@@ -22,6 +22,15 @@
 global $db;
 global $amp_conf;
 
-$autoincrement = (($amp_conf["AMPDBENGINE"] == "sqlite") || ($amp_conf["AMPDBENGINE"] == "sqlite3")) ? "AUTOINCREMENT":"AUTO_INCREMENT";
+$sql = <<< END
+CREATE TABLE `sipsettings` (
+  `keyword` VARCHAR (50) NOT NULL default '',
+  `data`    VARCHAR (255) NOT NULL default '',
+  `seq`     TINYINT (1) NOT NULL default '',
+  `type`    TINYINT (1) NOT NULL default '0',
+  PRIMARY KEY (`keyword`,`seq`,`type`)
+)
+END;
+sql($sql);
 
 ?>
