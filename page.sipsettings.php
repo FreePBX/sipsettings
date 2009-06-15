@@ -729,7 +729,7 @@ END;
 END;
 			$tabindex++;
 			echo <<< END
-			<input type="text" id="sip-custom-val-$idx" name="sip-custom-val-1" value="{$$var_sip_custom_val}" tabindex="$tabindex">
+			<input type="text" id="sip-custom-val-$idx" name="sip-custom-val-$idx" value="{$$var_sip_custom_val}" tabindex="$tabindex">
 		</td>
 	</tr>
 END;
