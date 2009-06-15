@@ -23,30 +23,135 @@
 // SIP settings and then we can remove any that we are going to override
 //
 
-// Field Values for type field
-// NORMAL = 0
-// CODEC =  1
-// CUSTOM = 2
+/* Field Values for type field */
 define('NORMAL','0');
 define('CODEC','1');
-define('CUSTOM','2');
+define('VIDEO_CODEC','2');
+define('CUSTOM','9');
 
 function sipsettings_hookGet_config($engine) {
-	global $ext;
+	global $core_conf;
+
 	switch($engine) {
 		case "asterisk":
+			if (isset($core_conf) && is_a($core_conf, "core_conf")) {
+				$raw_settings = sipsettings_get(true);
+
+				/* TODO: This is example concept code
+
+				   The only real conflicts are codecs (mainly cause
+					 it will look ugly. So we should strip those but
+					 leave the rest. If we overrite it, oh well
+
+				 */
+				$idx = 0;
+				foreach ($core_conf->_sip_general as $entry) {
+					switch (strtolower($entry['key'])) {
+						case 'allow':
+						case 'disallow':
+							unset($core_conf->_sip_general[$idx]);
+						break;
+					default:
+						// do nothing
+					}
+					$idx++;
+				}
+
+				foreach ($raw_settings as $var) {
+					switch ($var['type']) {
+						case NORMAL:
+							$interim_settings[$var['keyword']] = $var['data'];
+						break;
+
+						case CODEC:
+						case VIDEO_CODEC:
+							$codecs[$var['keyword']] = $var['data'];
+						break;
+
+						case CUSTOM:
+							$sip_settings[] = array($var['keyword'], $var['data']);
+						break;
+					default:
+						// Error should be above
+					}
+				}
+				unset($raw_settings);
+
+				/* Codecs First */
+				$core_conf->addSipGeneral('disallow','all');
+				foreach ($codecs as $codec => $enabled) {
+					if ($enabled == '1') {
+						$core_conf->addSipGeneral('allow',$codec);
+					}
+				}
+				unset($codecs);
+
+				/* next figure out what we need to write out (deal with things like nat combos, etc. */
+
+				$nat_mode = $interim_settings['nat_mode'];
+				foreach ($interim_settings as $key => $value) {
+					switch ($key) {
+						case 'nat_mode':
+						break;
+						case 'externhost_val':
+							if ($nat_mode == 'externhost' && $key != '') {
+								$sip_settings[] = array('externhost', $value);
+							}
+						break;
+						case 'externrefresh':
+							if ($nat_mode == 'externhost' && $key != '') {
+								$sip_settings[] = array($key, $value);
+							}
+						break;
+						case 'externip_val':
+							if ($nat_mode == 'externip' && $key != '') {
+								$sip_settings[] = array('externip', $value);
+							}
+						break;
+						case 'sip_language':
+							if ($key != '') {
+								$sip_settings[] = array('language', $value);
+							}
+						break;
+						default:
+							if (substr($key,0,9) == "localnet_" && $value != '') {
+								if ($nat_mode != 'public') {
+									$seq = substr($key,9);
+									$network = "$value/".$interim_settings["netmask_$seq"];
+									$sip_settings[] = array('localnet', $network);
+								}
+							} else if (substr($key,0,8) == "netmask_") {
+								// do nothing, handled above
+							} else {
+								$sip_settings[] = array($key, $value);
+							}
+						}
+					}
+					unset($interim_settings);
+					freepbx_debug($sip_settings);
+					foreach ($sip_settings as $entry) {
+						if ($entry[1] != '') {
+							$core_conf->addSipGeneral($entry[0],$entry[1]);
+						}
+					}
+			}
 		break;
 	}
 
 	return true;
 }
 
-function sipsettings_get() {
+function sipsettings_get($raw=false) {
 
-	/* TODO: Initialize all these settings as here and then query them
-	 *       from the DB that way we get default values in case they
-	 *       are not set in the db or missing.
-	 */
+	$sql = "SELECT `keyword`, `data`, `type`, `seq` FROM `sipsettings` ORDER BY `type`, `seq`";
+	$raw_settings = sql($sql,"getAll",DB_FETCHMODE_ASSOC);
+
+	/* Just give the SQL table if more convenient (such as in hookGet_config */
+	if ($raw) {
+		return $raw_settings;
+	}
+
+	/* Initialize first, then replace with DB, to make sure we have defaults */
 
 	$sip_settings['nat']               = 'yes';
 	$sip_settings['nat_mode']          = 'externip';
@@ -119,7 +224,29 @@ function sipsettings_get() {
 	$sip_settings['sip_custom_key_0']  = '';
 	$sip_settings['sip_custom_val_0']  = '';
 
-	// TODO: Query from the DB now and reset where it has chnaged
+	foreach ($raw_settings as $var) {
+		switch ($var['type']) {
+			case NORMAL:
+				$sip_settings[$var['keyword']]                 = $var['data'];
+			break;
+
+			case CODEC:
+				$sip_settings['codecs'][$var['keyword']]       = $var['data'];
+			break;
+
+			case VIDEO_CODEC:
+				$sip_settings['video_codecs'][$var['keyword']] = $var['data'];
+			break;
+
+			case CUSTOM:
+				$sip_settings['sip_custom_key_'.$var['seq']]   = $var['keyword'];
+				$sip_settings['sip_custom_val_'.$var['seq']]   = $var['data'];
+			break;
+		default:
+			// Error should be above
+		}
+	}
+	unset($raw_settings);
 
 	return $sip_settings;
 }
@@ -140,6 +267,10 @@ function sipsettings_edit($sip_settings) {
 		switch ($key) {
 			case 'bindaddr':
 				// ip validate this and store
+				$save_settings[] = array($key,$db->escapeSimple($val),'0',NORMAL); 
+			break;
+			case 'rtpholdtimeout':
+				// validation: must be > $sip_settings['rtptimeout'] (and of course a proper number)
 				$save_settings[] = array($key,$db->escapeSimple($val),'0',NORMAL); 
 			break;
 		default:
@@ -167,7 +298,7 @@ function sipsettings_edit($sip_settings) {
 	}
 	$seq = 0;
 	foreach ($video_codecs as $key => $val) {
-		$save_settings[] = array($db->escapeSimple($key),$db->escapeSimple($val),$seq++,CODEC); 
+		$save_settings[] = array($db->escapeSimple($key),$db->escapeSimple($val),$seq++,VIDEO_CODEC); 
 	}
 
 	// TODO: shouldn't do DELETE/INSERT but for now ...
@@ -179,7 +310,7 @@ function sipsettings_edit($sip_settings) {
 	if(DB::IsError($result)) {
 		die_freepbx($result->getDebugInfo()."<br><br>".'error adding to sipsettings table');	
 	}
-	freepbx_debug($save_settings);
+	return true;
 }
 
 ?>

@@ -122,15 +122,12 @@
 
 switch ($action) {
 	case "edit":  //just delete and re-add
-		if (($errors = sipsettings_edit($sip_settings)) !== false) {
+		if (($errors = sipsettings_edit($sip_settings)) !== true) {
 			sippsettings_process_errors($errors);
+		} else {
+			needreload();
+			//redirect_standard();
 		}
-		/*
-		echo "<pre>";
-		//print_r($_POST); // TODO: DEBUG
-		print_r($sip_settings); // TODO: DEBUG
-		echo "</pre>";
-		*/
 	break;
 	default:
 		$sip_settings = sipsettings_get();
