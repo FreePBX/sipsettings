@@ -1,5 +1,4 @@
-<?php
-/* $Id:$ */
+<?php /* $Id:$ */
 
 // Original Release by Philippe Lindheimer
 // Copyright Philippe Lindheimer (2009)
@@ -19,356 +18,147 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-$action = isset($_REQUEST['action'])?$_REQUEST['action']:'';
-$dispnum = "sipsettings"; //used for switch on config.php
+	/* Determines how many columns per row for the codecs and formats the table */
+	$cols_per_row  = 4;
+	$width         = (100.0 / $cols_per_row);
+	$tabindex      = 0;
+	$dispnum       = "sipsettings";
+
+	$action                            = isset($_POST['action'])?$_POST['action']:'';
+
+	$sip_settings['nat']               = isset($_POST['nat']) ? $_POST['nat'] : 'yes';
+	$sip_settings['nat_mode']          = isset($_POST['nat_mode']) ? $_POST['nat_mode'] : 'externip';
+	$sip_settings['externip_val']      = isset($_POST['externip_val']) ? htmlspecialchars($_POST['externip_val']) : '';
+	$sip_settings['externhost_val']    = isset($_POST['externhost_val']) ? htmlspecialchars($_POST['externhost_val']) : '';
+	$sip_settings['externrefresh']     = isset($_POST['externrefresh']) ? htmlspecialchars($_POST['externrefresh']) : '120';
+
+	$p_idx = 0;
+	$n_idx = 0;
+	while (isset($_POST["localnet-$p_idx"])) {
+		if ($_POST["localnet-$p_idx"] != '') {
+			$sip_settings["localnet_$n_idx"] = htmlspecialchars($_POST["localnet-$p_idx"]);
+			$sip_settings["netmask_$n_idx"]  = htmlspecialchars($_POST["netmask-$p_idx"]);
+			$n_idx++;
+		} 
+		$p_idx++;
+	}
+
+	$codecs = array(
+		'ulaw'     => '',
+		'alaw'     => '',
+		'slin'     => '',
+		'g726'     => '',
+		'gsm'      => '',
+		'g729'     => '',
+		'ilbc'     => '',
+		'g723'     => '',
+		'g726aal2' => '',
+		'adpcm'    => '',
+		'lpc10'    => '',
+		'speex'    => '',
+		'g722'     => '',
+		'jpeg'     => '',
+		'png'      => '',
+		);
+	foreach (array_keys($codecs) as $codec) {
+		$codecs[$codec] = isset($_POST[$codec]) ? $_POST[$codec] : '';
+	}
+	$sip_settings['codecs']            = $codecs;
+	$sip_settings['g726nonstandard']   = isset($_POST['g726nonstandard']) ? $_POST['g726nonstandard'] : 'no';
+	$sip_settings['t38pt_udptl']       = isset($_POST['t38pt_udptl']) ? $_POST['t38pt_udptl'] : 'no';
+
+	$video_codecs = array(
+		'h261'  => '',
+		'h263'  => '',
+		'h263p' => '',
+		'h264'  => '',
+		);
+	foreach (array_keys($video_codecs) as $codec) {
+		$video_codecs[$codec] = isset($_POST[$codec]) ? $_POST[$codec] : '';
+	}
+	$sip_settings['video_codecs']      = $video_codecs;
+	$sip_settings['videosupport']      = isset($_POST['videosupport']) ? $_POST['videosupport'] : 'no';
+	$sip_settings['maxcallbitrate']    = isset($_POST['maxcallbitrate']) ? htmlspecialchars($_POST['maxcallbitrate']) : '384';
+
+	$sip_settings['canreinvite']       = isset($_POST['canreinvite']) ? $_POST['canreinvite'] : 'no';
+	$sip_settings['rtptimeout']        = isset($_POST['rtptimeout']) ? htmlspecialchars($_POST['rtptimeout']) : '30';
+	$sip_settings['rtpholdtimeout']    = isset($_POST['rtpholdtimeout']) ? htmlspecialchars($_POST['rtpholdtimeout']) : '300';
+	$sip_settings['rtpkeepalive']      = isset($_POST['rtpkeepalive']) ? htmlspecialchars($_POST['rtpkeepalive']) : '';
+
+	$sip_settings['checkmwi']          = isset($_POST['checkmwi']) ? htmlspecialchars($_POST['checkmwi']) : '';
+	$sip_settings['notifyringing']     = isset($_POST['notifyringing']) ? $_POST['notifyringing'] : 'no';
+	$sip_settings['notifyhold']        = isset($_POST['notifyhold']) ? $_POST['notifyhold'] : 'no';
+
+	$sip_settings['registertimeout']   = isset($_POST['registertimeout']) ? htmlspecialchars($_POST['registertimeout']) : '20';
+	$sip_settings['registerattempts']  = isset($_POST['registerattempts']) ? htmlspecialchars($_POST['registerattempts']) : '0';
+	$sip_settings['maxexpiry']         = isset($_POST['maxexpiry']) ? htmlspecialchars($_POST['maxexpiry']) : '3600';
+	$sip_settings['minexpiry']         = isset($_POST['minexpiry']) ? htmlspecialchars($_POST['minexpiry']) : '60';
+	$sip_settings['defaultexpiry']     = isset($_POST['defaultexpiry']) ? htmlspecialchars($_POST['defaultexpiry']) : '120';
+
+	$sip_settings['jbenable']          = isset($_POST['jbenable']) ? $_POST['jbenable'] : 'no';
+	$sip_settings['jbforce']           = isset($_POST['jbforce']) ? $_POST['jbforce'] : 'no';
+	$sip_settings['jpimpl']            = isset($_POST['jpimpl']) ? $_POST['jpimpl'] : 'fixed';
+	$sip_settings['jbmaxsize']         = isset($_POST['jbmaxsize']) ? htmlspecialchars($_POST['jbmaxsize']) : '200';
+	$sip_settings['jbresyncthreshold'] = isset($_POST['jbresyncthreshold']) ? htmlspecialchars($_POST['jbresyncthreshold']) : '1000';
+	$sip_settings['jblog']             = isset($_POST['jblog']) ? $_POST['jblog'] : 'no';
+
+	$sip_settings['sip_language']      = isset($_POST['sip-language']) ? htmlspecialchars($_POST['sip-language']) : '';
+	$sip_settings['context']           = isset($_POST['context']) ? htmlspecialchars($_POST['context']) : 'from-sip-external';
+	$sip_settings['bindaddr']          = isset($_POST['bindaddr']) ? htmlspecialchars($_POST['bindaddr']) : '0.0.0.0';
+	$sip_settings['bindport']          = isset($_POST['bindport']) ? htmlspecialchars($_POST['bindport']) : '5060';
+	$sip_settings['allowguest']        = isset($_POST['allowguest']) ? $_POST['allowguest'] : 'yes';
+	$sip_settings['srvlookup']         = isset($_POST['srvlookup']) ? $_POST['srvlookup'] : 'no';
+
+	$p_idx = 0;
+	$n_idx = 0;
+	while (isset($_POST["sip-custom-key-$p_idx"])) {
+		if ($_POST["sip-custom-key-$p_idx"] != '') {
+			$sip_settings["sip_custom_key_$n_idx"] = htmlspecialchars($_POST["sip-custom-key-$p_idx"]);
+			$sip_settings["sip_custom_val_$n_idx"] = htmlspecialchars($_POST["sip-custom-val-$p_idx"]);
+			$n_idx++;
+		} 
+		$p_idx++;
+	}
 
 switch ($action) {
 	case "edit":  //just delete and re-add
+		if (($errors = sipsettings_edit($sip_settings)) !== false) {
+			sippsettings_process_errors($errors);
+		}
+		/*
 		echo "<pre>";
-		print_r($_POST); // TODO: DEBUG
+		//print_r($_POST); // TODO: DEBUG
+		print_r($sip_settings); // TODO: DEBUG
 		echo "</pre>";
+		*/
 	break;
+	default:
+		$sip_settings = sipsettings_get();
 }
 ?>
 
 </div>
 
 <div class="content">
-<?php
-	//TODO: Pull these out os sipsettings_get(). These are just to test the GUI right now.
-?>
 	<h2><?php echo _("Edit Settings"); ?></h2>
 <?php
 
-	// Determines how many columns per row for the codecs and formats the table
+	/* We massaged these above or they came from sipsettings_get() if this is not
+	 * from and edit. So extract them after sorting out the codec sub arrays.
+	 */
+	$codecs = $sip_settings['codecs'];
+	$video_codecs = $sip_settings['video_codecs'];
+	unset($sip_settings['codecs']);
+	unset($sip_settings['video_codecs']);
+
+	/* EXTRACT THE VARIABLE HERE - MAKE SURE THEY ARE ALL MASSAGED ABOVE */
 	//
-	$cols_per_row = 4;
-	$width = (100.0 / $cols_per_row);
-	$tabindex = 0;
-
-	$sip_settings = sipsettings_get();
-
-	// General Settings
-	$language = "";
-	$srvlookup = "no";
-
-	// Notification and MWI
-	$checkmwi=10;
-	$notifyringing = 'no';
-	$notifyhold = 'no';
-
-	// Audio Codecs
-	$g726nonstandard = 'no';
-	$t38pt_udptl = 'no';
-	$codecs = array(
-		'ulaw' => 'checked',
-		'alaw' => 'checked',
-		'slin' => 'checked',
-		'g726' => '',
-		'gsm' => 'checked',
-		'g729' => '',
-		'ilbc' => 'checked',
-		'g723' => '',
-		'g726aal2' => '',
-		'adpcm' => '',
-		'lpc10' => '',
-		'speex' => '',
-		'g722' => 'checked',
-		'jpeg' => '',
-		'png' => '',
-		);
-
-	// Video Codecs
-	$videosupport = "no";
-	$maxcallbitrate=384;
-	$video_codecs = array(
-		'h261' => 'checked',
-		'h263' => 'checked',
-		'h263p' => 'checked',
-		'h264' => '',
-		);
-
-	// NAT Settings
-	$nat= "route";
-	$nat_mode = "externip";
-	$externip_val = "";
-	$externhost_val = "";
-	$externrefresh = "60";
-	$localnet_0 = "10.200.4.0";
-	$netmask_0 = "255.255.255.0";
-	$localnet_1 = "10.200.12.0";
-	$netmask_1 = "255.255.254.0";
-	$localnet_2 = "192.168.3.0";
-	$netmask_2 = "255.255.248.0";
-
-	// Media & RTP Settings
-	$canreinvite = "no";
-	$rtptimeout = "30";
-	$rtpholdtimeout = "300";
-	$rtpkeepalive = "";
-
-	// Registration Settings
-	$registertimeout=20;
-	$registerattempts=10;
-	$maxexpiry=3600;
-	$minexpiry=60;
-	$defaultexpiry=120;
-
-	// Jitter Buffer Settings
-	$jbenable = "yes";
-	$jbforce = "no";
-	$jbimpl = "fixed";
-	$jbmaxsize = 200;
-	$jbresyncthreshold = 1000;
-	$jblog = "no";
-
-	// Advanced Settings
-	$context = "from-sip-external";
-	$allowguest = "yes";
-	$bindaddr="0.0.0.0";
-	$bindport="5060";
-	$contactdeny="";
-	$contactpermit="";
-	$t1min="100";
-
-	$sip_custom_key_0 = "relaxdtmf";
-	$sip_custom_val_0 = "yes";
-	$sip_custom_key_1 = "allevents";
-	$sip_custom_val_1 = "yes";
-	$sip_custom_key_2 = "progressinband";
-	$sip_custom_val_2 = "never";
+	extract($sip_settings);
 
 ?>
 	<form autocomplete="off" name="editSip" action="<?php $_SERVER['PHP_SELF'] ?>" method="post" onsubmit="return checkConf();">
 	<input type="hidden" name="action" value="edit">
 	<table width="570px">
-	<tr>
-		<td colspan="2"><h5><?php echo _("General Settings")?><hr></h5></td>
-	</tr>
-	<tr>
-		<td>
-			<a href="#" class="info"><?php echo _("Language")?><span><?php echo _("Default Language for a channel, Asterisk: language")?></span></a>
-		</td>
-		<td><input type="text" id="sip-language" name="sip-language" value="<?php echo $language ?>" tabindex="<?php echo ++$tabindex;?>"></td>
-	</tr>
-
-	<tr>
-		<td>
-			<a href="#" class="info"><?php echo _("SRV Lookup")?><span><?php echo _("Enable Asterisk srvlookup. See current version of Asterisk for limitations on SRV functionality.")?></span></a>
-		</td>
-		<td> 
-			<table width="100%">
-				<tr>
-					<td width="25%">
-						<input id="srvlookup-yes" type="radio" name="srvlookup" value="yes" tabindex="<?php echo ++$tabindex;?>"<?php echo $srvlookup=="yes"?"checked=\"yes\"":""?>/>
-						<label for="srvlookup-yes"><?php echo _("Enabled") ?></label>
-					</td>
-
-					<td width="25%">
-						<input id="srvlookup-no" type="radio" name="srvlookup" value="no" tabindex="<?php echo ++$tabindex;?>"<?php echo $srvlookup=="no"?"checked=\"no\"":""?>/>
-						<label for="srvlookup-no"><?php echo _("Disabled") ?></label>
-					</td>
-
-					<td width="25%"> </td><td width="25%"></td>
-				</tr>
-			</table>
-		</td>
-	</tr>
-
-	<tr>
-		<td colspan="2"><h5><?php echo _("Notification & MWI")?><hr></h5></td>
-	</tr>
-
-	<tr>
-		<td>
-			<a href="#" class="info"><?php echo _("MWI Polling Freq")?><span><?php echo _("Frequency in seconds to check if MWI state has changed and inform peers.")?></span></a>
-		</td>
-		<td><input type="text" size="3" id="checkmwi" name="checkmwi" value="<?php echo $checkmwi ?>" tabindex="<?php echo ++$tabindex;?>"></td>
-	</tr>
-
-	<tr>
-		<td>
-			<a href="#" class="info"><?php echo _("Notify Ringing")?><span><?php echo _("Control whether subscriptions already INUSE get sent RINGING when another call is sent. Useful when using BLF.")?></span></a>
-		</td>
-		<td> 
-			<table width="100%">
-				<tr>
-					<td width="25%">
-						<input id="notifyringing-yes" type="radio" name="notifyringing" value="yes" tabindex="<?php echo ++$tabindex;?>"<?php echo $notifyringing=="yes"?"checked=\"yes\"":""?>/>
-						<label for="notifyringing-yes"><?php echo _("Yes") ?></label>
-					</td>
-
-					<td width="25%">
-						<input id="notifyringing-no" type="radio" name="notifyringing" value="no" tabindex="<?php echo ++$tabindex;?>"<?php echo $notifyringing=="no"?"checked=\"no\"":""?>/>
-						<label for="notifyringing-no"><?php echo _("No") ?></label>
-					</td>
-
-					<td width="25%"> </td><td width="25%"></td>
-				</tr>
-			</table>
-		</td>
-	</tr>
-
-	<tr>
-		<td>
-			<a href="#" class="info"><?php echo _("Notify Hold")?><span><?php echo _("Control whether subscriptions INUSE get sent ONHOLD when call is placed on hold. Useful when using BLF.")?></span></a>
-		</td>
-		<td> 
-			<table width="100%">
-				<tr>
-					<td width="25%">
-						<input id="notifyhold-yes" type="radio" name="notifyhold" value="yes" tabindex="<?php echo ++$tabindex;?>"<?php echo $notifyhold=="yes"?"checked=\"yes\"":""?>/>
-						<label for="notifyhold-yes"><?php echo _("Yes") ?></label>
-					</td>
-
-					<td width="25%">
-						<input id="notifyhold-no" type="radio" name="notifyhold" value="no" tabindex="<?php echo ++$tabindex;?>"<?php echo $notifyhold=="no"?"checked=\"no\"":""?>/>
-						<label for="notifyhold-no"><?php echo _("No") ?></label>
-					</td>
-
-					<td width="25%"> </td><td width="25%"></td>
-				</tr>
-			</table>
-		</td>
-	</tr>
-
-	<tr>
-		<td colspan="2"><h5><?php echo _("Audio Codecs")?><hr></h5></td>
-	</tr>
-	<tr>
-		<td valign='top'><a href="#" class="info"><?php echo _("Codecs")?><span><?php echo _("Check the desired codecs, all others will be disabled unless explicitly enabled in a device or trunks configuration.")?></span></a></td>
-		<td>
-		<table width="100%">
-			<tr>
-<?php
-	$cols = $cols_per_row;
-	foreach ($codecs as $codec => $codec_state) {
-		if ($cols == 0) {
-			echo "</tr><tr>\n";
-			$cols = $cols_per_row;
-		}
-		$cols--;
-		$tabindex++;
-		$codec_trans = _($codec);
-		echo <<< END
-				<td width="$width%">
-					<input type="checkbox" value="1" name="$codec" id="$codec" class="audio-codecs" tabindex="$tabindex" $codec_state />
-					<label for="$codec"> <small>$codec_trans</small> </label>
-				</td>
-END;
-	}
-?>
-			</tr>
-		</table>
-
-		</td>
-	</tr>
-
-	<tr>
-		<td>
-			<a href="#" class="info"><?php echo _("Non-Standard g726")?><span><?php echo _("Asterisk: g726nonstandard. If the peer negotiates G726-32 audio, use AAL2 packing order instead of RFC3551 packing order (this is required for Sipura and Grandstream ATAs, among others). This is contrary to the RFC3551 specification, the peer _should_ be negotiating AAL2-G726-32 instead.")?></span></a>
-		</td>
-		<td> 
-			<table width="100%">
-				<tr>
-					<td width="25%">
-						<input id="g726nonstandard-yes" type="radio" name="g726nonstandard" value="yes" tabindex="<?php echo ++$tabindex;?>"<?php echo $g726nonstandard=="yes"?"checked=\"yes\"":""?>/>
-						<label for="g726nonstandard-yes"><?php echo _("Yes") ?></label>
-					</td>
-
-					<td width="25%">
-						<input id="g726nonstandard-no" type="radio" name="g726nonstandard" value="no" tabindex="<?php echo ++$tabindex;?>"<?php echo $g726nonstandard=="no"?"checked=\"no\"":""?>/>
-						<label for="g726nonstandard-no"><?php echo _("No") ?></label>
-					</td>
-
-					<td width="25%"> </td><td width="25%"></td>
-				</tr>
-			</table>
-		</td>
-	</tr>
-
-	<tr>
-		<td>
-			<a href="#" class="info"><?php echo _("T38 Pass-Through")?><span><?php echo _("Asterisk: t38pt_udptl. Enables T38 passthrough if enabled. This SIP channels that support sending/receiving T38 Fax codecs to pass the call. Asterisk can not process the media.")?></span></a>
-		</td>
-		<td> 
-			<table width="100%">
-				<tr>
-					<td width="25%">
-						<input id="t38pt_udptl-yes" type="radio" name="t38pt_udptl" value="yes" tabindex="<?php echo ++$tabindex;?>"<?php echo $t38pt_udptl=="yes"?"checked=\"yes\"":""?>/>
-						<label for="t38pt_udptl-yes"><?php echo _("Yes") ?></label>
-					</td>
-
-					<td width="25%">
-						<input id="t38pt_udptl-no" type="radio" name="t38pt_udptl" value="no" tabindex="<?php echo ++$tabindex;?>"<?php echo $t38pt_udptl=="no"?"checked=\"no\"":""?>/>
-						<label for="t38pt_udptl-no"><?php echo _("No") ?></label>
-					</td>
-
-					<td width="25%"> </td><td width="25%"></td>
-				</tr>
-			</table>
-		</td>
-	</tr>
-
-	<tr>
-		<td colspan="2"><h5><?php echo _("Video Codecs")?><hr></h5></td>
-	</tr>
-
-	<tr>
-		<td><a href="#" class="info"><?php echo _("Video Support")?><span><?php echo _("Check to enable and then choose allowed codecs.")?></span></a></td>
-		<td> 
-			<table width="100%">
-				<tr>
-					<td width="25%">
-						<input id="videosupport-yes" type="radio" name="videosupport" value="yes" tabindex="<?php echo ++$tabindex;?>"<?php echo $videosupport=="yes"?"checked=\"yes\"":""?>/>
-						<label for="videosupport-yes"><?php echo _("Enabled") ?></label>
-					</td>
-
-					<td width="25%">
-						<input id="videosupport-no" type="radio" name="videosupport" value="no" tabindex="<?php echo ++$tabindex;?>"<?php echo $videosupport=="no"?"checked=\"no\"":""?>/>
-						<label for="videosupport-no"><?php echo _("Disabled") ?></label>
-					</td>
-
-					<td width="25%"> </td><td width="25%"></td>
-				</tr>
-			</table>
-		</td>
-	</tr>
-	<tr class="video-codecs">
-		<td></td>
-		<td>
-		<table width="100%">
-			<tr>
-<?php
-	$cols = $cols_per_row;
-	foreach ($video_codecs as $codec => $codec_state) {
-		if ($cols == 0) {
-			echo "</tr><tr class=\"video-codecs\">\n";
-			$cols = $cols_per_row;
-		}
-		$cols--;
-		$tabindex++;
-		$codec_trans = _($codec);
-		echo <<< END
-				<td width="$width%">
-					<input type="checkbox" value="1" name="$codec" id="$codec" class="video-codecs" tabindex="$tabindex" $codec_state />
-					<label for="$codec"><small> $codec_trans </small></label>
-				</td>
-END;
-	}
-?>
-			</tr>
-		</table>
-
-		</td>
-	</tr>
-
-	<tr class="video-codecs">
-		<td>
-			<a href="#" class="info"><?php echo _("Max Bit Rate")?><span><?php echo _("Maximum bitrate for video calls in kb/s")?></span></a>
-		</td>
-		<td><input type="text" size="3" id="maxcallbitrate" name="maxcallbitrate" class="video-codecs" value="<?php echo $maxcallbitrate ?>" tabindex="<?php echo ++$tabindex;?>"> <small><?php echo _("kb/s") ?></small></td>
-	</tr>
 
 	<tr>
 		<td colspan="2"><h5><?php echo _("NAT Settings") ?><hr></h5></td>
@@ -468,7 +258,7 @@ END;
 END;
 			$tabindex++;
 			echo <<< END
-			<input type="text" id="netmask-$idx" name="netmask-1" value="{$$var_netmask}" tabindex="$tabindex">
+			<input type="text" id="netmask-$idx" name="netmask-$idx" value="{$$var_netmask}" tabindex="$tabindex">
 		</td>
 	</tr>
 END;
@@ -484,6 +274,145 @@ END;
 			<input type="button" id="nat-auto-configure"  value="<?php echo _("Auto Configure")?>" class="nat-settings" />
 			<input type="button" id="localnet-add"  value="<?php echo _("Add Local Network")?>" class="nat-settings" />
 		</td>
+	</tr>
+
+	<tr>
+		<td colspan="2"><h5><?php echo _("Audio Codecs")?><hr></h5></td>
+	</tr>
+	<tr>
+		<td valign='top'><a href="#" class="info"><?php echo _("Codecs")?><span><?php echo _("Check the desired codecs, all others will be disabled unless explicitly enabled in a device or trunks configuration.")?></span></a></td>
+		<td>
+		<table width="100%">
+			<tr>
+<?php
+	$cols = $cols_per_row;
+	foreach ($codecs as $codec => $codec_state) {
+		if ($cols == 0) {
+			echo "</tr><tr>\n";
+			$cols = $cols_per_row;
+		}
+		$cols--;
+		$tabindex++;
+		$codec_trans = _($codec);
+		$codec_checked = $codec_state ? 'checked' : '';
+		echo <<< END
+				<td width="$width%">
+					<input type="checkbox" value="1" name="$codec" id="$codec" class="audio-codecs" tabindex="$tabindex" $codec_checked />
+					<label for="$codec"> <small>$codec_trans</small> </label>
+				</td>
+END;
+	}
+?>
+			</tr>
+		</table>
+		</td>
+	</tr>
+
+	<tr>
+		<td>
+			<a href="#" class="info"><?php echo _("Non-Standard g726")?><span><?php echo _("Asterisk: g726nonstandard. If the peer negotiates G726-32 audio, use AAL2 packing order instead of RFC3551 packing order (this is required for Sipura and Grandstream ATAs, among others). This is contrary to the RFC3551 specification, the peer _should_ be negotiating AAL2-G726-32 instead.")?></span></a>
+		</td>
+		<td> 
+			<table width="100%">
+				<tr>
+					<td width="25%">
+						<input id="g726nonstandard-yes" type="radio" name="g726nonstandard" value="yes" tabindex="<?php echo ++$tabindex;?>"<?php echo $g726nonstandard=="yes"?"checked=\"yes\"":""?>/>
+						<label for="g726nonstandard-yes"><?php echo _("Yes") ?></label>
+					</td>
+
+					<td width="25%">
+						<input id="g726nonstandard-no" type="radio" name="g726nonstandard" value="no" tabindex="<?php echo ++$tabindex;?>"<?php echo $g726nonstandard=="no"?"checked=\"no\"":""?>/>
+						<label for="g726nonstandard-no"><?php echo _("No") ?></label>
+					</td>
+
+					<td width="25%"> </td><td width="25%"></td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+
+	<tr>
+		<td>
+			<a href="#" class="info"><?php echo _("T38 Pass-Through")?><span><?php echo _("Asterisk: t38pt_udptl. Enables T38 passthrough if enabled. This SIP channels that support sending/receiving T38 Fax codecs to pass the call. Asterisk can not process the media.")?></span></a>
+		</td>
+		<td> 
+			<table width="100%">
+				<tr>
+					<td width="25%">
+						<input id="t38pt_udptl-yes" type="radio" name="t38pt_udptl" value="yes" tabindex="<?php echo ++$tabindex;?>"<?php echo $t38pt_udptl=="yes"?"checked=\"yes\"":""?>/>
+						<label for="t38pt_udptl-yes"><?php echo _("Yes") ?></label>
+					</td>
+
+					<td width="25%">
+						<input id="t38pt_udptl-no" type="radio" name="t38pt_udptl" value="no" tabindex="<?php echo ++$tabindex;?>"<?php echo $t38pt_udptl=="no"?"checked=\"no\"":""?>/>
+						<label for="t38pt_udptl-no"><?php echo _("No") ?></label>
+					</td>
+
+					<td width="25%"> </td><td width="25%"></td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+
+	<tr>
+		<td colspan="2"><h5><?php echo _("Video Codecs")?><hr></h5></td>
+	</tr>
+
+	<tr>
+		<td><a href="#" class="info"><?php echo _("Video Support")?><span><?php echo _("Check to enable and then choose allowed codecs.")?></span></a></td>
+		<td> 
+			<table width="100%">
+				<tr>
+					<td width="25%">
+						<input id="videosupport-yes" type="radio" name="videosupport" value="yes" tabindex="<?php echo ++$tabindex;?>"<?php echo $videosupport=="yes"?"checked=\"yes\"":""?>/>
+						<label for="videosupport-yes"><?php echo _("Enabled") ?></label>
+					</td>
+
+					<td width="25%">
+						<input id="videosupport-no" type="radio" name="videosupport" value="no" tabindex="<?php echo ++$tabindex;?>"<?php echo $videosupport=="no"?"checked=\"no\"":""?>/>
+						<label for="videosupport-no"><?php echo _("Disabled") ?></label>
+					</td>
+
+					<td width="25%"> </td><td width="25%"></td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	<tr class="video-codecs">
+		<td></td>
+		<td>
+		<table width="100%">
+			<tr>
+<?php
+	$cols = $cols_per_row;
+	foreach ($video_codecs as $codec => $codec_state) {
+		if ($cols == 0) {
+			echo "</tr><tr class=\"video-codecs\">\n";
+			$cols = $cols_per_row;
+		}
+		$cols--;
+		$tabindex++;
+		$codec_trans = _($codec);
+		$codec_checked = $codec_state ? 'checked' : '';
+		echo <<< END
+				<td width="$width%">
+					<input type="checkbox" value="1" name="$codec" id="$codec" class="video-codecs" tabindex="$tabindex" $codec_checked />
+					<label for="$codec"><small> $codec_trans </small></label>
+				</td>
+END;
+	}
+?>
+			</tr>
+		</table>
+
+		</td>
+	</tr>
+
+	<tr class="video-codecs">
+		<td>
+			<a href="#" class="info"><?php echo _("Max Bit Rate")?><span><?php echo _("Maximum bitrate for video calls in kb/s")?></span></a>
+		</td>
+		<td><input type="text" size="3" id="maxcallbitrate" name="maxcallbitrate" class="video-codecs" value="<?php echo $maxcallbitrate ?>" tabindex="<?php echo ++$tabindex;?>"> <small><?php echo _("kb/s") ?></small></td>
 	</tr>
 
 	<tr>
@@ -526,9 +455,66 @@ END;
 			<a href="#" class="info"><?php echo _("RTP Timers")?><span><?php echo _("Asterisk: rtptimeout. Terminate call if rtptimeout seconds of no RTP or RTCP activity on the audio channel when we're not on hold. This is to be able to hangup a call in the case of a phone disappearing from the net, like a powerloss or someone tripping over a cable.<br /> Asterisk: rtpholdtimeout. Terminate call if rtpholdtimeout seconds of no RTP or RTCP activity on the audio channel when we're on hold (must be > rtptimeout). <br /> Asterisk: rtpkeepalive. Send keepalives in the RTP stream to keep NAT open during periods where no RTP stream may be flowing (like on hold).")?></span></a>
 		</td>
 		<td>
-				<input type="text" size="2" id="rtptimeout" name="rtptimeout" value="<?php echo $rtptimeout ?>" tabindex="<?php echo ++$tabindex;?>"><small>&nbsp;(rtptimeout)</small>&nbsp;
-				<input type="text" size="2" id="rtpholdtimeout" name="rtpholdtimeout" value="<?php echo $rtpholdtimeout ?>" tabindex="<?php echo ++$tabindex;?>"><small>&nbsp;(rtpholdtimeout)</small>&nbsp;
-				<input type="text" size="2" id="rtpkeepalive" name="rtpkeepalive" value="<?php echo $rtpkeepalive ?>" tabindex="<?php echo ++$tabindex;?>"><small>&nbsp;(rtpkeepalive)</small>
+				<input type="text" size="2" id="rtptimeout" name="rtptimeout" value="<?php echo $rtptimeout ?>" tabindex="<?php echo ++$tabindex;?>"><small>(rtptimeout)</small>&nbsp;
+				<input type="text" size="2" id="rtpholdtimeout" name="rtpholdtimeout" value="<?php echo $rtpholdtimeout ?>" tabindex="<?php echo ++$tabindex;?>"><small>(rtpholdtimeout)</small>&nbsp;
+				<input type="text" size="2" id="rtpkeepalive" name="rtpkeepalive" value="<?php echo $rtpkeepalive ?>" tabindex="<?php echo ++$tabindex;?>"><small>(rtpkeepalive)</small>
+		</td>
+	</tr>
+
+	<tr>
+		<td colspan="2"><h5><?php echo _("Notification & MWI")?><hr></h5></td>
+	</tr>
+
+	<tr>
+		<td>
+			<a href="#" class="info"><?php echo _("MWI Polling Freq")?><span><?php echo _("Frequency in seconds to check if MWI state has changed and inform peers.")?></span></a>
+		</td>
+		<td><input type="text" size="3" id="checkmwi" name="checkmwi" value="<?php echo $checkmwi ?>" tabindex="<?php echo ++$tabindex;?>"></td>
+	</tr>
+
+	<tr>
+		<td>
+			<a href="#" class="info"><?php echo _("Notify Ringing")?><span><?php echo _("Control whether subscriptions already INUSE get sent RINGING when another call is sent. Useful when using BLF.")?></span></a>
+		</td>
+		<td> 
+			<table width="100%">
+				<tr>
+					<td width="25%">
+						<input id="notifyringing-yes" type="radio" name="notifyringing" value="yes" tabindex="<?php echo ++$tabindex;?>"<?php echo $notifyringing=="yes"?"checked=\"yes\"":""?>/>
+						<label for="notifyringing-yes"><?php echo _("Yes") ?></label>
+					</td>
+
+					<td width="25%">
+						<input id="notifyringing-no" type="radio" name="notifyringing" value="no" tabindex="<?php echo ++$tabindex;?>"<?php echo $notifyringing=="no"?"checked=\"no\"":""?>/>
+						<label for="notifyringing-no"><?php echo _("No") ?></label>
+					</td>
+
+					<td width="25%"> </td><td width="25%"></td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+
+	<tr>
+		<td>
+			<a href="#" class="info"><?php echo _("Notify Hold")?><span><?php echo _("Control whether subscriptions INUSE get sent ONHOLD when call is placed on hold. Useful when using BLF.")?></span></a>
+		</td>
+		<td> 
+			<table width="100%">
+				<tr>
+					<td width="25%">
+						<input id="notifyhold-yes" type="radio" name="notifyhold" value="yes" tabindex="<?php echo ++$tabindex;?>"<?php echo $notifyhold=="yes"?"checked=\"yes\"":""?>/>
+						<label for="notifyhold-yes"><?php echo _("Yes") ?></label>
+					</td>
+
+					<td width="25%">
+						<input id="notifyhold-no" type="radio" name="notifyhold" value="no" tabindex="<?php echo ++$tabindex;?>"<?php echo $notifyhold=="no"?"checked=\"no\"":""?>/>
+						<label for="notifyhold-no"><?php echo _("No") ?></label>
+					</td>
+
+					<td width="25%"> </td><td width="25%"></td>
+				</tr>
+			</table>
 		</td>
 	</tr>
 
@@ -541,8 +527,8 @@ END;
 			<a href="#" class="info"><?php echo _("Registration Attempts")?><span><?php echo _("Asterisk: registertimeout. Retry registration attempts every registertimeout seconds until successful or until registrationattempts tries have been made.<br /> Asterisk: registrationattempts. Number of times to try and register before giving up. A value of 0 means keep trying forever. Normally this should be set to 0 so that Asterisk will continue to register until successful in the case of network or gateway outagages.")?></span></a>
 		</td>
 		<td>
-				<input type="text" size="2" id="registertimeout" name="registertimeout" value="<?php echo $registertimeout ?>" tabindex="<?php echo ++$tabindex;?>"><small>&nbsp;(registertimeout)</small>&nbsp;
-				<input type="text" size="2" id="registerattempts" name="registerattempts" value="<?php echo $registerattempts ?>" tabindex="<?php echo ++$tabindex;?>"><small>&nbsp;(registerattempts)</small>&nbsp;
+				<input type="text" size="2" id="registertimeout" name="registertimeout" value="<?php echo $registertimeout ?>" tabindex="<?php echo ++$tabindex;?>"><small>(registertimeout)</small>&nbsp;
+				<input type="text" size="2" id="registerattempts" name="registerattempts" value="<?php echo $registerattempts ?>" tabindex="<?php echo ++$tabindex;?>"><small>(registerattempts)</small>
 		</td>
 	</tr>
 
@@ -648,13 +634,19 @@ END;
 	<tr class="jitter-buffer">
 		<td><a href="#" class="info"><?php echo _("Jitter Buffer Size")?><span><?php echo _("Asterisk: jbmaxsize. Max length of the jitterbuffer in milliseconds.<br /> Asterisk: jbresyncthreshold. Jump in the frame timestamps over which the jitterbuffer is resynchronized. Useful to improve the quality of the voice, with big jumps in/broken timestamps, usually sent from exotic devices and programs.")?></span></a></td>
 		<td>
-				<input type="text" size="4" id="jbmaxsize" name="jbmaxsize" class="jitter-buffer" value="<?php echo $jbmaxsize ?>" tabindex="<?php echo ++$tabindex;?>"><small>&nbsp;(jbmaxsize)</small>&nbsp;
-				<input type="text" size="4" id="jbresyncthreshold" name="jbresyncthreshold" class="jitter-buffer" value="<?php echo $jbresyncthreshold ?>" tabindex="<?php echo ++$tabindex;?>"><small>&nbsp;(jbresyncthreshold)</small>&nbsp;
+			<input type="text" size="4" id="jbmaxsize" name="jbmaxsize" class="jitter-buffer" value="<?php echo $jbmaxsize ?>" tabindex="<?php echo ++$tabindex;?>"><small>(jbmaxsize)</small>&nbsp;
+			<input type="text" size="4" id="jbresyncthreshold" name="jbresyncthreshold" class="jitter-buffer" value="<?php echo $jbresyncthreshold ?>" tabindex="<?php echo ++$tabindex;?>"><small>(jbresyncthreshold)</small>&nbsp;
 		</td>
 	</tr>
 
 	<tr>
 		<td colspan="2"><h5><?php echo _("Advanced General Settings") ?><hr></h5></td>
+	</tr>
+	<tr>
+		<td>
+			<a href="#" class="info"><?php echo _("Language")?><span><?php echo _("Default Language for a channel, Asterisk: language")?></span></a>
+		</td>
+		<td><input type="text" id="sip-language" name="sip-language" value="<?php echo $sip_language ?>" tabindex="<?php echo ++$tabindex;?>"></td>
 	</tr>
 
 	<tr>
@@ -675,7 +667,7 @@ END;
 		<td>
 			<a href="#" class="info"><?php echo _("Bind Port")?><span><?php echo _("Asterisk: bindport. Local incoming UDP Port that Asterisk will bind to and listen for SIP messages. The SIP standard is 5060 and in most cases this is what you want.")?></span></a>
 		</td>
-		<td><input type="text" id="bindaddr" name="bindaddr" value="<?php echo $bindaddr ?>" tabindex="<?php echo ++$tabindex;?>"></td>
+		<td><input type="text" id="bindaddr" name="bindport" value="<?php echo $bindport ?>" tabindex="<?php echo ++$tabindex;?>"></td>
 	</tr>
 
 	<tr>
@@ -693,6 +685,29 @@ END;
 					<td width="25%">
 						<input id="allowguest-no" type="radio" name="allowguest" value="no" tabindex="<?php echo ++$tabindex;?>"<?php echo $allowguest=="no"?"checked=\"no\"":""?>/>
 						<label for="allowguest-no"><?php echo _("No") ?></label>
+					</td>
+
+					<td width="25%"> </td><td width="25%"></td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+
+	<tr>
+		<td>
+			<a href="#" class="info"><?php echo _("SRV Lookup")?><span><?php echo _("Enable Asterisk srvlookup. See current version of Asterisk for limitations on SRV functionality.")?></span></a>
+		</td>
+		<td> 
+			<table width="100%">
+				<tr>
+					<td width="25%">
+						<input id="srvlookup-yes" type="radio" name="srvlookup" value="yes" tabindex="<?php echo ++$tabindex;?>"<?php echo $srvlookup=="yes"?"checked=\"yes\"":""?>/>
+						<label for="srvlookup-yes"><?php echo _("Enabled") ?></label>
+					</td>
+
+					<td width="25%">
+						<input id="srvlookup-no" type="radio" name="srvlookup" value="no" tabindex="<?php echo ++$tabindex;?>"<?php echo $srvlookup=="no"?"checked=\"no\"":""?>/>
+						<label for="srvlookup-no"><?php echo _("Disabled") ?></label>
 					</td>
 
 					<td width="25%"> </td><td width="25%"></td>
@@ -844,7 +859,6 @@ $(document).ready(function(){
 });
 
 var theForm = document.editSip;
-theForm.sip-language.focus();
 
 /* Insert a localnet/netmask pair of text boxes */
 function addLocalnet(localnet, netmask) {
@@ -878,6 +892,7 @@ function addCustomField(key, val) {
 	');
 }
 
+/* TODO: All The ERROR Checking client side */
 function checkConf()
 {
 	return true;
@@ -887,4 +902,8 @@ function checkConf()
 </script>
 	</form>
 <?php		
+		
+function sippsettings_process_errors($errors) {
+	/* TODO: process the array of errors and show issues somewhere */
+}
 ?>
