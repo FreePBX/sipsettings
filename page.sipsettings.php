@@ -526,9 +526,9 @@ END;
 			<a href="#" class="info"><?php echo _("RTP Timers")?><span><?php echo _("Asterisk: rtptimeout. Terminate call if rtptimeout seconds of no RTP or RTCP activity on the audio channel when we're not on hold. This is to be able to hangup a call in the case of a phone disappearing from the net, like a powerloss or someone tripping over a cable.<br /> Asterisk: rtpholdtimeout. Terminate call if rtpholdtimeout seconds of no RTP or RTCP activity on the audio channel when we're on hold (must be > rtptimeout). <br /> Asterisk: rtpkeepalive. Send keepalives in the RTP stream to keep NAT open during periods where no RTP stream may be flowing (like on hold).")?></span></a>
 		</td>
 		<td>
-				<input type="text" size="2" id="rtptimeout" name="rtptimeout" value="<?php echo $rtptimeout ?>" tabindex="<?php echo ++$tabindex;?>"><small>(rtptimeout)</small>&nbsp;
-				<input type="text" size="2" id="rtpholdtimeout" name="rtpholdtimeout" value="<?php echo $rtpholdtimeout ?>" tabindex="<?php echo ++$tabindex;?>"><small>(rtpholdtimeout)</small>&nbsp;
-				<input type="text" size="2" id="rtpkeepalive" name="rtpkeepalive" value="<?php echo $rtpkeepalive ?>" tabindex="<?php echo ++$tabindex;?>"><small>(rtpkeepalive)</small>
+				<input type="text" size="2" id="rtptimeout" name="rtptimeout" value="<?php echo $rtptimeout ?>" tabindex="<?php echo ++$tabindex;?>"><small>&nbsp;(rtptimeout)</small>&nbsp;
+				<input type="text" size="2" id="rtpholdtimeout" name="rtpholdtimeout" value="<?php echo $rtpholdtimeout ?>" tabindex="<?php echo ++$tabindex;?>"><small>&nbsp;(rtpholdtimeout)</small>&nbsp;
+				<input type="text" size="2" id="rtpkeepalive" name="rtpkeepalive" value="<?php echo $rtpkeepalive ?>" tabindex="<?php echo ++$tabindex;?>"><small>&nbsp;(rtpkeepalive)</small>
 		</td>
 	</tr>
 
@@ -541,8 +541,8 @@ END;
 			<a href="#" class="info"><?php echo _("Registration Attempts")?><span><?php echo _("Asterisk: registertimeout. Retry registration attempts every registertimeout seconds until successful or until registrationattempts tries have been made.<br /> Asterisk: registrationattempts. Number of times to try and register before giving up. A value of 0 means keep trying forever. Normally this should be set to 0 so that Asterisk will continue to register until successful in the case of network or gateway outagages.")?></span></a>
 		</td>
 		<td>
-				<input type="text" size="2" id="registertimeout" name="registertimeout" value="<?php echo $registertimeout ?>" tabindex="<?php echo ++$tabindex;?>"><small>(registertimeout)</small>&nbsp;
-				<input type="text" size="2" id="registerattempts" name="registerattempts" value="<?php echo $registerattempts ?>" tabindex="<?php echo ++$tabindex;?>"><small>(registerattempts)</small>&nbsp;
+				<input type="text" size="2" id="registertimeout" name="registertimeout" value="<?php echo $registertimeout ?>" tabindex="<?php echo ++$tabindex;?>"><small>&nbsp;(registertimeout)</small>&nbsp;
+				<input type="text" size="2" id="registerattempts" name="registerattempts" value="<?php echo $registerattempts ?>" tabindex="<?php echo ++$tabindex;?>"><small>&nbsp;(registerattempts)</small>&nbsp;
 		</td>
 	</tr>
 
@@ -551,9 +551,9 @@ END;
 			<a href="#" class="info"><?php echo _("Registration Times")?><span><?php echo _("Asterisk: minexpiry. Minimum length of registrations/subscriptions.<br /> Asterisk: maxepiry. Maximum allowed time of incoming registrations<br /> Asterisk: defaultexpiry. Default length of incoming and outgoing registrations.")?></span></a>
 		</td>
 		<td>
-				<input type="text" size="2" id="minexpiry" name="minexpiry" value="<?php echo $minexpiry ?>" tabindex="<?php echo ++$tabindex;?>"><small>(minexpiry)</small>&nbsp;
-				<input type="text" size="3" id="maxexpiry" name="maxexpiry" value="<?php echo $maxexpiry ?>" tabindex="<?php echo ++$tabindex;?>"><small>(maxexpiry)</small>&nbsp;
-				<input type="text" size="3" id="defaultexpiry" name="defaultexpiry" value="<?php echo $defaultexpiry ?>" tabindex="<?php echo ++$tabindex;?>"><small>(defaultexpiry)</small>
+				<input type="text" size="2" id="minexpiry" name="minexpiry" value="<?php echo $minexpiry ?>" tabindex="<?php echo ++$tabindex;?>"><small>&nbsp;(minexpiry)</small>&nbsp;
+				<input type="text" size="3" id="maxexpiry" name="maxexpiry" value="<?php echo $maxexpiry ?>" tabindex="<?php echo ++$tabindex;?>"><small>&nbsp;(maxexpiry)</small>&nbsp;
+				<input type="text" size="3" id="defaultexpiry" name="defaultexpiry" value="<?php echo $defaultexpiry ?>" tabindex="<?php echo ++$tabindex;?>"><small>&nbsp;(defaultexpiry)</small>
 		</td>
 	</tr>
 
@@ -648,8 +648,8 @@ END;
 	<tr class="jitter-buffer">
 		<td><a href="#" class="info"><?php echo _("Jitter Buffer Size")?><span><?php echo _("Asterisk: jbmaxsize. Max length of the jitterbuffer in milliseconds.<br /> Asterisk: jbresyncthreshold. Jump in the frame timestamps over which the jitterbuffer is resynchronized. Useful to improve the quality of the voice, with big jumps in/broken timestamps, usually sent from exotic devices and programs.")?></span></a></td>
 		<td>
-				<input type="text" size="4" id="jbmaxsize" name="jbmaxsize" class="jitter-buffer" value="<?php echo $jbmaxsize ?>" tabindex="<?php echo ++$tabindex;?>"><small>(jbmaxsize)</small>&nbsp;
-				<input type="text" size="4" id="jbresyncthreshold" name="jbresyncthreshold" class="jitter-buffer" value="<?php echo $jbresyncthreshold ?>" tabindex="<?php echo ++$tabindex;?>"><small>(jbresyncthreshold)</small>&nbsp;
+				<input type="text" size="4" id="jbmaxsize" name="jbmaxsize" class="jitter-buffer" value="<?php echo $jbmaxsize ?>" tabindex="<?php echo ++$tabindex;?>"><small>&nbsp;(jbmaxsize)</small>&nbsp;
+				<input type="text" size="4" id="jbresyncthreshold" name="jbresyncthreshold" class="jitter-buffer" value="<?php echo $jbresyncthreshold ?>" tabindex="<?php echo ++$tabindex;?>"><small>&nbsp;(jbresyncthreshold)</small>&nbsp;
 		</td>
 	</tr>
 
