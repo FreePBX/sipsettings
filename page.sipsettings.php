@@ -221,9 +221,9 @@ switch ($action) {
       <a href="#" class="info"><?php echo _("Dynamic Host")?><span><?php echo _("External FQDN as seen on the WAN side of the router and updated dynamically, e.g. mydomain.dyndns.com. (asterisk: externhost)")?></span></a>
     </td>
     <td>
-      <input type="text" id="externhost_val" name="externhost_val" size="34" value="<?php echo $externhost_val ?>" tabindex="<?php echo ++$tabindex;?>">
+      <input type="text" id="externhost_val" name="externhost_val" size="30" value="<?php echo $externhost_val ?>" tabindex="<?php echo ++$tabindex;?>">
       <input type="text" id="externrefresh" name="externrefresh" size="3" class="validate-int" value="<?php echo $externrefresh ?>" tabindex="<?php echo ++$tabindex;?>">
-      <a href="#" class="info"><small><?php echo _("External Refresh")?><span><?php echo _("How often to refresh the External Host FQDN.")?></span></small></a>
+      <a href="#" class="info"><small><?php echo _("Refresh Rate")?><span><?php echo _("Asterisk: externrefresh. How often to lookup and refresh the External Host FQDN, in seconds.")?></span></small></a>
     </td>
   </tr>
   <tr class="nat-settings">
