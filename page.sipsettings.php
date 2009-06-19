@@ -198,13 +198,13 @@ switch ($action) {
         <tr>
           <td>
             <input id="nat-none" type="radio" name="nat_mode" value="public" tabindex="<?php echo ++$tabindex;?>"<?php echo $nat_mode=="public"?"checked=\"public\"":""?>/>
-            <label for="nat-none"><?php echo _("Public") ?></label>
+            <label for="nat-none"><?php echo _("Public IP") ?></label>
 
             <input id="externip" type="radio" name="nat_mode" value="externip" tabindex="<?php echo ++$tabindex;?>"<?php echo $nat_mode=="externip"?"checked=\"externip\"":""?>/>
-            <label for="externip"><?php echo _("Static") ?></label>
+            <label for="externip"><?php echo _("Static IP") ?></label>
 
             <input id="externhost" type="radio" name="nat_mode" value="externhost" tabindex="<?php echo ++$tabindex;?>"<?php echo $nat_mode=="externhost"?"checked=\"externhost\"":""?>/>
-            <label for="externhost"><?php echo _("Dynamic") ?></label>
+            <label for="externhost"><?php echo _("Dynamic IP") ?></label>
           </td>
         </tr>
       </table>
