@@ -137,21 +137,10 @@ switch ($action) {
 ?>
 
 </div>
-
 <div class="content">
   <h2><?php echo _("Edit Settings"); ?></h2>
+
 <?php
-  if (!empty($error_displays)) {
-?>
-    <div class="sip-errors">
-<?php
-    foreach ($error_displays as $div_disp) {
-      echo "<p>".$div_disp['div']."</p>";
-    }
-?>
-    </div>
-<?php
-  }
 
   /* We massaged these above or they came from sipsettings_get() if this is not
    * from and edit. So extract them after sorting out the codec sub arrays.
@@ -166,9 +155,31 @@ switch ($action) {
   extract($sip_settings);
 
 ?>
-  <form autocomplete="off" name="editSip" action="<?php $_SERVER['PHP_SELF'] ?>" method="post" onsubmit="return checkConf();">
+  <form autocomplete="off" name="editSip" action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
   <input type="hidden" name="action" value="edit">
   <table width="570px">
+
+<?php
+  /* if there were erros on the submit then create error box */
+  if (!empty($error_displays)) {
+?>
+  <tr>
+    <td colspan="2">
+      <div class="sip-errors">
+        <p><?php echo _("ERRORS") ?></p>
+        <ul>
+<?php
+    foreach ($error_displays as $div_disp) {
+      echo "<li>".$div_disp['div']."</li>";
+    }
+?>
+        </ul>
+      </div>
+    </td>
+  </tr>
+<?php
+  }
+?>
 
   <tr>
     <td colspan="2"><h5><?php echo _("NAT Settings") ?><hr></h5></td>
@@ -280,7 +291,7 @@ END;
     <td></td>
     <td><br \>
       <input type="button" id="nat-auto-configure"  value="<?php echo _("Auto Configure")?>" class="nat-settings" />
-      <input type="button" id="localnet-add"  value="<?php echo _("Add Local Network")?>" class="nat-settings" />
+      <input type="button" id="localnet-add"  value="<?php echo _("Add Local Network Field")?>" class="nat-settings" />
     </td>
   </tr>
 
@@ -908,70 +919,13 @@ function addCustomField(key, val) {
   </tr>\
   ');
 }
-
-/* TODO: All The ERROR Checking client side */
-
-/* Validation classes: (blanks all ok)
-  *
-  * validate-int
-  * is integer only, can be 0
-  *
-  * validate-ip
-  * is proper ip format: \d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}
-  *
-  * validate-ip-port
-  * warning if is integer between 0-1023 TODO: or do we just error this out?
-  * error if not integer or > 65535
-  *
-  * validate-netmask
-  * is integer 8-24 or is proper ip format 255\.\d{1,3}\.\d{1,3}\.\d{1,3}
-  *
-  * validate-alphanumeric
-  * valid alphanumerics that asterisk is ok with (probably no punctuations)
-  *
- */
-function checkConf()
-{
-
-  /*
-     TODO: look at jquery validate and/or finish below
-
-  $('validation-error').removeClass('validation-error');
-
-  $('validate-int').each(function(){
-    // regex this.value for integer
-    if (!is_integer(this.value)) {
-      $('#'+this.id).addClass('validation-error');
-    }
-  });
-  $('validate-ip').each(function(){
-    // regex this.value for ip
-    $('#'+this.id).addClass('validation-error');
-  });
-  $('validate-ip-port').each(function(){
-    // number 1024 <= this.value < 65536
-    $('#'+this.id).addClass('validation-error');
-  });
-  $('validate-netmask').each(function(){
-    // number 8 <= this.value <= 24
-    // or regex ip format 255\.\d{1,3}\.\d{1,3}\.\d{1,3}
-    $('#'+this.id).addClass('validation-error');
-  });
-  $('validate-alphanumeric').each(function(){
-    // regex this.value for alphanumeric
-    $('#'+this.id).addClass('validation-error');
-  });
-   */
-
-  return true;
-}
-
-
 //-->
 </script>
 </form>
 <?php		
-		
+
+/********** UTILITY FUNCTIONS **********/
+
 function process_errors($errors) {
   foreach($errors as $error) {
     $error_display[] = array(

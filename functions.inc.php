@@ -327,12 +327,12 @@ function sipsettings_edit($sip_settings) {
   foreach ($sip_settings as $key => $val) {
     switch ($key) {
       case 'bindaddr':
-        $msg = _("Bind Address (bindaddr) must be a properly formatted IP address.");
+        $msg = _("Bind Address (bindaddr) must be an IP address.");
         $save_settings[] = array($key,$db->escapeSimple($vd->is_ip($val,$key,$msg)),'0',NORMAL);
       break;
 
       case 'bindport':
-        $msg = _("Bind Port (bindport) must be a proper IP port from 1024 to 65535, typically 5060.");
+        $msg = _("Bind Port (bindport) must be between 1024..65535, default 5060");
         $save_settings[] = array($key,$db->escapeSimple($vd->is_ip_port($val, $key, $msg)),'0',NORMAL);
       break;
 
@@ -340,10 +340,10 @@ function sipsettings_edit($sip_settings) {
         // validation: must be > $sip_settings['rtptimeout'] (and of course a proper number)
         //$vd->log_error();
         if ($val < $sip_settings['rtptimeout']) {
-          $msg = _("The rtpholdtimeout must be bigger than the rtptimeout");
+          $msg = _("rtpholdtimeout must be higher than rtptimeout");
           $vd->log_error($val, $key, $msg);
         }
-        $msg = _("The rtptimeout settng must be a non-negative interger value of seconds");
+        $msg = _("rtptimeout must be a non-negative interger");
         $save_settings[] = array($key,$db->escapeSimple($vd->is_int($val, $key, $msg)),'0',NORMAL);
       break;
 
@@ -355,7 +355,7 @@ function sipsettings_edit($sip_settings) {
       case 'minexpiry':
       case 'maxexpiry':
       case 'defaultexpiry':
-        $msg = sprintf(_("The Asterisk setting: %s must be a non-negative interger value in seconds."),$key);
+        $msg = sprintf(_("%s must be a non-negative interger"),$key);
         $save_settings[] = array($key,$db->escapeSimple($vd->is_int($val,$key,$msg)),'0',NORMAL);
       break;
 
@@ -363,12 +363,12 @@ function sipsettings_edit($sip_settings) {
       case 'registerattempts':
       case 'jbmaxsize':
       case 'jbresyncthreshold':
-        $msg = sprintf(_("The Asterisk setting: %s must be a non-negative interger value."),$key);
+        $msg = sprintf(_("%s must be a non-negative interger"),$key);
         $save_settings[] = array($key,$db->escapeSimple($vd->is_int($val,$key,$msg)),'0',NORMAL);
       break;
 
       case 'sip_language':
-        $msg = sprintf(_("The language value must be alphanumeric and should be a supported and installed language."),$key);
+        $msg = sprintf(_("Language must be alphanumeric and installed"),$key);
         $save_settings[] = array($key,$db->escapeSimple($vd->is_alphanumeric($val,$key,$msg)),'0',NORMAL);
       break;
 
@@ -395,12 +395,12 @@ function sipsettings_edit($sip_settings) {
       if (substr($key,0,9) == "localnet_") {
         // ip validate this and store
         $seq = substr($key,9);
-        $msg = _("Localnet setting must be a valid IP address format.");
+        $msg = _("Localnet setting must be an IP address");
         $save_settings[] = array($key,$db->escapeSimple($vd->is_ip($val,$key,$msg)),$seq,NORMAL); 
       } else if (substr($key,0,8) == "netmask_") {
         // ip validate this and store
         $seq = substr($key,8);
-        $msg = _("Localnet mask must be in a proper netmask format such as 255.255.255.0 or 24.");
+        $msg = _("Localnet netmask must be formated properly (e.g. 255.255.255.0 or 24)");
         $save_settings[] = array($key,$db->escapeSimple($vd->is_netmask($val,$key,$msg)),$seq,NORMAL); 
       } else if (substr($key,0,15) == "sip_custom_key_") {
         $seq = substr($key,15);
