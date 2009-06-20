@@ -103,7 +103,7 @@
   $sip_settings['jbresyncthreshold'] = isset($_POST['jbresyncthreshold']) ? htmlspecialchars($_POST['jbresyncthreshold']) : '1000';
   $sip_settings['jblog']             = isset($_POST['jblog']) ? $_POST['jblog'] : 'no';
 
-  $sip_settings['sip_language']      = isset($_POST['sip-language']) ? htmlspecialchars($_POST['sip-language']) : '';
+  $sip_settings['sip_language']      = isset($_POST['sip_language']) ? htmlspecialchars($_POST['sip_language']) : '';
   $sip_settings['context']           = isset($_POST['context']) ? htmlspecialchars($_POST['context']) : '';
   $sip_settings['bindaddr']          = isset($_POST['bindaddr']) ? htmlspecialchars($_POST['bindaddr']) : '';
   $sip_settings['bindport']          = isset($_POST['bindport']) ? htmlspecialchars($_POST['bindport']) : '';
@@ -655,7 +655,7 @@ END;
       <a href="#" class="info"><?php echo _("Language")?><span><?php echo _("Default Language for a channel, Asterisk: language")?></span></a>
     </td>
     <td>
-      <input type="text" id="sip-language" name="sip-language" class="validate-alphanumeric" value="<?php echo $sip_language ?>" tabindex="<?php echo ++$tabindex;?>">
+      <input type="text" id="sip_language" name="sip_language" class="validate-alphanumeric" value="<?php echo $sip_language ?>" tabindex="<?php echo ++$tabindex;?>">
     </td>
   </tr>
 
