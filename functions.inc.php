@@ -347,16 +347,17 @@ function sipsettings_edit($sip_settings) {
 
   // TODO: this is where I will build validation before saving
 	//
+  $integer_msg = _("%s must be a non-negative integer");
   foreach ($sip_settings as $key => $val) {
     switch ($key) {
       case 'bindaddr':
         $msg = _("Bind Address (bindaddr) must be an IP address.");
-        $save_settings[] = array($key,$db->escapeSimple($vd->is_ip($val,$key,$msg)),'0',NORMAL);
+        $save_settings[] = array($key,$db->escapeSimple($vd->is_ip($val,$key,$msg)),'2',NORMAL);
       break;
 
       case 'bindport':
         $msg = _("Bind Port (bindport) must be between 1024..65535, default 5060");
-        $save_settings[] = array($key,$db->escapeSimple($vd->is_ip_port($val, $key, $msg)),'0',NORMAL);
+        $save_settings[] = array($key,$db->escapeSimple($vd->is_ip_port($val, $key, $msg)),'1',NORMAL);
       break;
 
       case 'rtpholdtimeout':
@@ -366,11 +367,10 @@ function sipsettings_edit($sip_settings) {
           $msg = _("rtpholdtimeout must be higher than rtptimeout");
           $vd->log_error($val, $key, $msg);
         }
-        $msg = _("rtptimeout must be a non-negative interger");
-        $save_settings[] = array($key,$db->escapeSimple($vd->is_int($val, $key, $msg)),'0',NORMAL);
+        $msg = sprintf($integer_msg,$key);
+        $save_settings[] = array($key,$db->escapeSimple($vd->is_int($val, $key, $msg)),'10',NORMAL);
       break;
 
-      case 'externrefresh':
       case 'rtptimeout':
       case 'rtpkeepalive':
       case 'checkmwi':
@@ -378,21 +378,29 @@ function sipsettings_edit($sip_settings) {
       case 'minexpiry':
       case 'maxexpiry':
       case 'defaultexpiry':
-        $msg = sprintf(_("%s must be a non-negative interger"),$key);
-        $save_settings[] = array($key,$db->escapeSimple($vd->is_int($val,$key,$msg)),'0',NORMAL);
+        $msg = sprintf($integer_msg,$key);
+        $save_settings[] = array($key,$db->escapeSimple($vd->is_int($val,$key,$msg)),'10',NORMAL);
       break;
 
       case 'maxcallbitrate':
       case 'registerattempts':
-      case 'jbmaxsize':
-      case 'jbresyncthreshold':
-        $msg = sprintf(_("%s must be a non-negative interger"),$key);
-        $save_settings[] = array($key,$db->escapeSimple($vd->is_int($val,$key,$msg)),'0',NORMAL);
+        $msg = sprintf($integer_msg,$key);
+        $save_settings[] = array($key,$db->escapeSimple($vd->is_int($val,$key,$msg)),'10',NORMAL);
       break;
+
 
       case 'sip_language':
         $msg = sprintf(_("Language must be alphanumeric and installed"),$key);
         $save_settings[] = array($key,$db->escapeSimple($vd->is_alphanumeric($val,$key,$msg)),'0',NORMAL);
+      break;
+
+      case 'externrefresh':
+        $msg = sprintf($integer_msg,$key);
+        $save_settings[] = array($key,$db->escapeSimple($vd->is_int($val,$key,$msg)),'41',NORMAL);
+      break;
+
+      case 'nat':
+        $save_settings[] = array($key,$val,'39',NORMAL);
       break;
 
       case 'externip_val':
@@ -400,7 +408,7 @@ function sipsettings_edit($sip_settings) {
           $msg = _("External IP can not be blank");
           $vd->log_error($val, $key, $msg);
          }
-        $save_settings[] = array($key,$val,'0',NORMAL);
+        $save_settings[] = array($key,$val,'40',NORMAL);
       break;
 
       case 'externhost_val':
@@ -408,24 +416,35 @@ function sipsettings_edit($sip_settings) {
           $msg = _("Dynamic Host can not be blank");
           $vd->log_error($val, $key, $msg);
          }
-        $save_settings[] = array($key,$val,'0',NORMAL);
+        $save_settings[] = array($key,$val,'40',NORMAL);
+      break;
+
+      case 'jbenable':
+        $save_settings[] = array($key,$val,'4',NORMAL);
+      break;
+
+      case 'jbforce':
+      case 'jpimpl':
+      case 'jblog':
+        $save_settings[] = array($key,$val,'5',NORMAL);
+      break;
+
+      case 'jbmaxsize':
+      case 'jbresyncthreshold':
+        $msg = sprintf($integer_msg,$key);
+        $save_settings[] = array($key,$db->escapeSimple($vd->is_int($val,$key,$msg)),'5',NORMAL);
       break;
 
       case 'nat_mode':
-      case 'nat':
       case 'g726nonstandard':
       case 't38pt_udptl':
       case 'videosupport':
       case 'canreinvite':
       case 'notifyringing':
       case 'notifyhold':
-      case 'jbenable':
-      case 'jbforce':
-      case 'jpimpl':
-      case 'jblog':
       case 'allowguest':
       case 'srvlookup':
-        $save_settings[] = array($key,$val,'0',NORMAL);
+        $save_settings[] = array($key,$val,'10',NORMAL);
       break;
 
     default:
@@ -433,7 +452,7 @@ function sipsettings_edit($sip_settings) {
         // ip validate this and store
         $seq = substr($key,9);
         $msg = _("Localnet setting must be an IP address");
-        $save_settings[] = array($key,$db->escapeSimple($vd->is_ip($val,$key,$msg)),$seq,NORMAL); 
+        $save_settings[] = array($key,$db->escapeSimple($vd->is_ip($val,$key,$msg)),(42+$seq),NORMAL); 
       } else if (substr($key,0,8) == "netmask_") {
         // ip validate this and store
         $seq = substr($key,8);
@@ -441,7 +460,7 @@ function sipsettings_edit($sip_settings) {
         $save_settings[] = array($key,$db->escapeSimple($vd->is_netmask($val,$key,$msg)),$seq,NORMAL); 
       } else if (substr($key,0,15) == "sip_custom_key_") {
         $seq = substr($key,15);
-        $save_settings[] = array($db->escapeSimple($val),$db->escapeSimple($sip_settings["sip_custom_val_$seq"]),$seq,CUSTOM); 
+        $save_settings[] = array($db->escapeSimple($val),$db->escapeSimple($sip_settings["sip_custom_val_$seq"]),($seq),CUSTOM); 
       } else if (substr($key,0,15) == "sip_custom_val_") {
         // skip it, we will seek it out when we see the sip_custom_key
       } else {
