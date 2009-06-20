@@ -119,8 +119,11 @@ function sipsettings_hookGet_config($engine) {
             break;
 
             case CODEC:
-            case VIDEO_CODEC:
               $codecs[$var['keyword']] = $var['data'];
+            break;
+
+            case VIDEO_CODEC:
+              $video_codecs[$var['keyword']] = $var['data'];
             break;
 
             case CUSTOM:
@@ -141,9 +144,19 @@ function sipsettings_hookGet_config($engine) {
         }
         unset($codecs);
 
+        if ($interim_settings['videosupport'] == 'yes') {
+          foreach ($video_codecs as $codec => $enabled) {
+            if ($enabled == '1') {
+              $core_conf->addSipGeneral('allow',$codec);
+            }
+          }
+        }
+        unset($video_codecs);
+
         /* next figure out what we need to write out (deal with things like nat combos, etc. */
 
         $nat_mode = $interim_settings['nat_mode'];
+        $jbenable = $interim_settings['jbenable'];
         foreach ($interim_settings as $key => $value) {
           switch ($key) {
             case 'nat_mode':
@@ -164,6 +177,16 @@ function sipsettings_hookGet_config($engine) {
             case 'externip_val':
               if ($nat_mode == 'externip' && $key != '') {
                 $sip_settings[] = array('externip', $value);
+              }
+            break;
+
+            case 'jbforce':
+            case 'jpimpl':
+            case 'jbmaxsize':
+            case 'jbresyncthreshold':
+            case 'jblog':
+              if ($jbenable == 'yes' && $key != '') {
+                $sip_settings[] = array($key, $value);
               }
             break;
 
