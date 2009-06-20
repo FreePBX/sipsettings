@@ -661,7 +661,7 @@ END;
 
   <tr>
     <td>
-      <a href="#" class="info"><?php echo _("Default Context")?><span><?php echo _("Asterisk: context. Default context for incoming calls if not specified. FreePBX sets this to from-sip-extenral which is used in conjunction with the Allow Anonymous SIP calls. If you change this you will effect that behavior. It is recommended to leave this blank.")?></span></a>
+      <a href="#" class="info"><?php echo _("Default Context")?><span><?php echo _("Asterisk: context. Default context for incoming calls if not specified. FreePBX sets this to from-sip-external which is used in conjunction with the Allow Anonymous SIP calls. If you change this you will effect that behavior. It is recommended to leave this blank.")?></span></a>
     </td>
     <td>
       <input type="text" id="default-context" name="default-context alpha-numeric" value="<?php echo $context ?>" tabindex="<?php echo ++$tabindex;?>">
