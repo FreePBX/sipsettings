@@ -29,6 +29,61 @@ define('CODEC','1');
 define('VIDEO_CODEC','2');
 define('CUSTOM','9');
 
+class sipsettings_validate {
+  var $errors = array();
+
+  /* checks if value is an integer */
+  function is_int($value, $item, $message) {
+    $value = trim($value);
+    if ($value != '' && !ctype_digit($value) || $value < 0) {
+      $this->errors[] = array('id' => $item, 'value' => $value, 'message' => $message);
+    }
+    return $value;
+  }
+
+  /* checks if value is valid port between 1024 - 6 65535 */
+  function is_ip_port($value, $item, $message) {
+    $value = trim($value);
+    if ($value != '' && ($value < 1024 || $value > 65535)) {
+      $this->errors[] = array('id' => $item, 'value' => $value, 'message' => $message);
+    }
+    return $value;
+  }
+
+  /* checks if value is valid ip format */
+  function is_ip($value, $item, $message) {
+    $value = trim($value);
+    if ($value != '' && !preg_match('|^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$|',$value,$matches)) {
+      $this->errors[] = array('id' => $item, 'value' => $value, 'message' => $message);
+    }
+    return $value;
+  }
+
+  /* checks if value is valid ip netmask format */
+  function is_netmask($value, $item, $message) {
+    $value = trim($value);
+    if ($value != '' && !(preg_match('|^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$|',$value,$matches) || ($value >= 0 && $value <= 24))) {
+      $this->errors[] = array('id' => $item, 'value' => $value, 'message' => $message);
+    }
+    return $value;
+  }
+
+  /* checks if value is valid alpha numeric format */
+  function is_alphanumeric($value, $item, $message) {
+    $value = trim($value);
+	  if ($value != '' && !preg_match("/^\s*([a-zA-Z0-9 .&-@=_!<>!\"\']+)\s*$/",$value,$matches)) {
+      $this->errors[] = array('id' => $item, 'value' => $value, 'message' => $message);
+    }
+    return $value;
+  }
+
+  /* trigger a validation error to be appended to this class */
+  function log_error($value, $item, $message) {
+    $this->errors[] = array('id' => $item, 'value' => $value, 'message' => $message);
+    return $value;
+  }
+}
+
 function sipsettings_hookGet_config($engine) {
   global $core_conf;
 
@@ -260,6 +315,7 @@ function sipsettings_get($raw=false) {
 function sipsettings_edit($sip_settings) {
   global $db;
   $save_settings = array();
+  $vd = new  sipsettings_validate();
 
   $codecs = $sip_settings['codecs'];
   $video_codecs = $sip_settings['video_codecs'];
@@ -271,39 +327,49 @@ function sipsettings_edit($sip_settings) {
   foreach ($sip_settings as $key => $val) {
     switch ($key) {
       case 'bindaddr':
-        // ip validate this and store
-        $save_settings[] = array($key,$db->escapeSimple($val),'0',NORMAL);
+        $msg = _("Bind Address (bindaddr) must be a properly formated IP address.");
+        $save_settings[] = array($key,$db->escapeSimple($vd->is_ip($val,$key,$msg)),'0',NORMAL);
       break;
 
       case 'bindport':
-        // validate-ip-port
-        $save_settings[] = array($key,$db->escapeSimple($val),'0',NORMAL);
+        $msg = _("Bind Port (bindport) must be a proper IP port between 1024 and 65536 inclusive, typically 5060.");
+        $save_settings[] = array($key,$db->escapeSimple($vd->is_ip_port($val, $key, $msg)),'0',NORMAL);
       break;
 
       case 'rtpholdtimeout':
         // validation: must be > $sip_settings['rtptimeout'] (and of course a proper number)
-        $save_settings[] = array($key,$db->escapeSimple($val),'0',NORMAL);
+        //$vd->log_error();
+        if ($val < $sip_settings['rtptimeout']) {
+          $msg = _("The rtpholdtimeout must be bigger than the rtptimeout");
+          $vd->log_error($val, $key, $msg);
+        }
+        $msg = _("The rtptimeout settng must be a non-negative interger value of seconds");
+        $save_settings[] = array($key,$db->escapeSimple($vd->is_int($val, $key, $msg)),'0',NORMAL);
       break;
 
       case 'externrefresh':
-      case 'maxcallbitrate':
       case 'rtptimeout':
       case 'rtpkeepalive':
       case 'checkmwi':
       case 'registertimeout':
-      case 'registerattempts':
       case 'minexpiry':
       case 'maxexpiry':
       case 'defaultexpiry':
+        $msg = sprintf(_("The Asterisk setting: %s must be a non-negative interger value in seconds."),$key);
+        $save_settings[] = array($key,$db->escapeSimple($vd->is_int($val,$key,$msg)),'0',NORMAL);
+      break;
+
+      case 'maxcallbitrate':
+      case 'registerattempts':
       case 'jbmaxsize':
       case 'jbresyncthreshold':
-        // validate-int:
-        $save_settings[] = array($key,$db->escapeSimple($val),'0',NORMAL);
+        $msg = sprintf(_("The Asterisk setting: %s must be a non-negative interger value."),$key);
+        $save_settings[] = array($key,$db->escapeSimple($vd->is_int($val,$key,$msg)),'0',NORMAL);
       break;
 
       case 'sip_language':
-        // validate-alphanumeric
-        $save_settings[] = array($key,$db->escapeSimple($val),'0',NORMAL);
+        $msg = sprintf(_("The language value must be alphanumeric and should be a supported and installed language."),$key);
+        $save_settings[] = array($key,$db->escapeSimple($vd->is_alphanumeric($val,$key,$msg)),'0',NORMAL);
       break;
 
       case 'nat':
@@ -329,11 +395,13 @@ function sipsettings_edit($sip_settings) {
       if (substr($key,0,9) == "localnet_") {
         // ip validate this and store
         $seq = substr($key,9);
-        $save_settings[] = array($key,$db->escapeSimple($val),$seq,NORMAL); 
+        $msg = _("Localnet setting must be a valid IP address format.");
+        $save_settings[] = array($key,$db->escapeSimple($vd->is_ip($val,$key,$msg)),$seq,NORMAL); 
       } else if (substr($key,0,8) == "netmask_") {
         // ip validate this and store
         $seq = substr($key,8);
-        $save_settings[] = array($key,$db->escapeSimple($val),$seq,NORMAL);
+        $msg = _("Localnet mask must be in a proper netmask format such as 255.255.255.0 or 24.");
+        $save_settings[] = array($key,$db->escapeSimple($vd->is_netmask($val,$key,$msg)),$seq,NORMAL); 
       } else if (substr($key,0,15) == "sip_custom_key_") {
         $seq = substr($key,15);
         $save_settings[] = array($db->escapeSimple($val),$db->escapeSimple($sip_settings["sip_custom_val_$seq"]),$seq,CUSTOM); 
@@ -344,23 +412,30 @@ function sipsettings_edit($sip_settings) {
       }
     }
   }
-  $seq = 0;
-  foreach ($codecs as $key => $val) {
-    $save_settings[] = array($db->escapeSimple($key),$db->escapeSimple($val),$seq++,CODEC);
-  }
-  $seq = 0;
-  foreach ($video_codecs as $key => $val) {
-    $save_settings[] = array($db->escapeSimple($key),$db->escapeSimple($val),$seq++,VIDEO_CODEC); 
-  }
 
-  // TODO: shouldn't do DELETE/INSERT (Joel doesn't like it) but for now ...
-	//
-  sql("DELETE FROM `sipsettings` WHERE 1");
+  /* if there were any validation errors, we will return them and not proceed with saving */
+  if (count($vd->errors)) {
+    return $vd->errors;
+  } else {
+    $seq = 0;
+    foreach ($codecs as $key => $val) {
+      $save_settings[] = array($db->escapeSimple($key),$db->escapeSimple($val),$seq++,CODEC);
+    }
+    $seq = 0;
+    foreach ($video_codecs as $key => $val) {
+      $save_settings[] = array($db->escapeSimple($key),$db->escapeSimple($val),$seq++,VIDEO_CODEC); 
+    }
 
-  $compiled = $db->prepare('INSERT INTO `sipsettings` (`keyword`, `data`, `seq`, `type`) VALUES (?,?,?,?)');
-  $result = $db->executeMultiple($compiled,$save_settings);
-  if(DB::IsError($result)) {
-    die_freepbx($result->getDebugInfo()."<br><br>".'error adding to sipsettings table');	}
-  return true;
+    // TODO: normally don't like doing delete/insert but otherwise we would have do update for each
+    //       individual setting and then an insert if there was nothing to update. So this is cleaner
+    //       this time around.
+	  //
+    sql("DELETE FROM `sipsettings` WHERE 1");
+    $compiled = $db->prepare('INSERT INTO `sipsettings` (`keyword`, `data`, `seq`, `type`) VALUES (?,?,?,?)');
+    $result = $db->executeMultiple($compiled,$save_settings);
+    if(DB::IsError($result)) {
+      die_freepbx($result->getDebugInfo()."<br><br>".'error adding to sipsettings table');	}
+    return true;
+  }
 }
 

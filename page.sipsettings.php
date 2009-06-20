@@ -19,10 +19,11 @@
 */
 
   /* Determines how many columns per row for the codecs and formats the table */
-  $cols_per_row  = 4;
-  $width         = (100.0 / $cols_per_row);
-  $tabindex      = 0;
-  $dispnum       = "sipsettings";
+  $cols_per_row   = 4;
+  $width          = (100.0 / $cols_per_row);
+  $tabindex       = 0;
+  $dispnum        = "sipsettings";
+  $error_displays = array();
 
   $action                            = isset($_POST['action'])?$_POST['action']:'';
 
@@ -34,10 +35,10 @@
 
   $p_idx = 0;
   $n_idx = 0;
-  while (isset($_POST["localnet-$p_idx"])) {
-    if ($_POST["localnet-$p_idx"] != '') {
-      $sip_settings["localnet_$n_idx"] = htmlspecialchars($_POST["localnet-$p_idx"]);
-      $sip_settings["netmask_$n_idx"]  = htmlspecialchars($_POST["netmask-$p_idx"]);
+  while (isset($_POST["localnet_$p_idx"])) {
+    if ($_POST["localnet_$p_idx"] != '') {
+      $sip_settings["localnet_$n_idx"] = htmlspecialchars($_POST["localnet_$p_idx"]);
+      $sip_settings["netmask_$n_idx"]  = htmlspecialchars($_POST["netmask_$p_idx"]);
       $n_idx++;
     } 
     $p_idx++;
@@ -111,10 +112,10 @@
 
   $p_idx = 0;
   $n_idx = 0;
-  while (isset($_POST["sip-custom-key-$p_idx"])) {
-    if ($_POST["sip-custom-key-$p_idx"] != '') {
-      $sip_settings["sip_custom_key_$n_idx"] = htmlspecialchars($_POST["sip-custom-key-$p_idx"]);
-      $sip_settings["sip_custom_val_$n_idx"] = htmlspecialchars($_POST["sip-custom-val-$p_idx"]);
+  while (isset($_POST["sip_custom_key_$p_idx"])) {
+    if ($_POST["sip_custom_key_$p_idx"] != '') {
+      $sip_settings["sip_custom_key_$n_idx"] = htmlspecialchars($_POST["sip_custom_key_$p_idx"]);
+      $sip_settings["sip_custom_val_$n_idx"] = htmlspecialchars($_POST["sip_custom_val_$p_idx"]);
       $n_idx++;
     } 
     $p_idx++;
@@ -123,13 +124,14 @@
 switch ($action) {
   case "edit":  //just delete and re-add
     if (($errors = sipsettings_edit($sip_settings)) !== true) {
-      sippsettings_process_errors($errors);
+      $error_displays = process_errors($errors);
     } else {
       needreload();
       //redirect_standard();
     }
   break;
   default:
+    /* only get them if first time load, if they pressed submit, use values from POST */
     $sip_settings = sipsettings_get();
 }
 ?>
@@ -139,6 +141,17 @@ switch ($action) {
 <div class="content">
   <h2><?php echo _("Edit Settings"); ?></h2>
 <?php
+  if (!empty($error_displays)) {
+?>
+    <div class="sip-errors">
+<?php
+    foreach ($error_displays as $div_disp) {
+      echo "<p>".$div_disp['message']."</p>";
+    }
+?>
+    </div>
+<?php
+  }
 
   /* We massaged these above or they came from sipsettings_get() if this is not
    * from and edit. So extract them after sorting out the codec sub arrays.
@@ -231,8 +244,8 @@ switch ($action) {
       <a href="#" class="info"><?php echo _("Local Networks")?><span><?php echo _("Local network settings (Asterisk: localnet) in the form of ip/mask such as 192.168.1.0/255.255.255.0. For networks with more 1 lan subnets, use the Add Local Network button for more fields.")?></span></a>
     </td>
     <td>
-      <input type="text" id="localnet-0" name="localnet-0" class="localnet validate=ip" value="<?php echo $localnet_0 ?>" tabindex="<?php echo ++$tabindex;?>"> /
-      <input type="text" id="netmask-0" name="netmask-0" class="validate-netmask" value="<?php echo $netmask_0 ?>" tabindex="<?php echo ++$tabindex;?>">
+      <input type="text" id="localnet_0" name="localnet_0" class="localnet validate=ip" value="<?php echo $localnet_0 ?>" tabindex="<?php echo ++$tabindex;?>"> /
+      <input type="text" id="netmask_0" name="netmask_0" class="validate-netmask" value="<?php echo $netmask_0 ?>" tabindex="<?php echo ++$tabindex;?>">
     </td>
   </tr>
 
@@ -248,11 +261,11 @@ switch ($action) {
     <td>
     </td>
     <td>
-      <input type="text" id="localnet-$idx" name="localnet-$idx" class="localnet validate-ip" value="{$$var_localnet}" tabindex="$tabindex"> /
+      <input type="text" id="localnet_$idx" name="localnet_$idx" class="localnet validate-ip" value="{$$var_localnet}" tabindex="$tabindex"> /
 END;
       $tabindex++;
       echo <<< END
-      <input type="text" id="netmask-$idx" name="netmask-$idx" class="validate-netmask" value="{$$var_netmask}" tabindex="$tabindex">
+      <input type="text" id="netmask_$idx" name="netmask_$idx" class="validate-netmask" value="{$$var_netmask}" tabindex="$tabindex">
     </td>
   </tr>
 END;
@@ -711,8 +724,8 @@ END;
       <a href="#" class="info"><?php echo _("Other SIP Settings")?><span><?php echo _("You may set any other SIP settings not present here that are allowed to be configured in the General section of sip.conf. There will be no error checking against these settings so check them carefully. They should be entered as:<br /> [setting] = [value]<br /> in the boxes below. Click the Add Field box to add additional fields.")?></span></a>
     </td>
     <td>
-      <input type="text" id="sip-custom-key-0" name="sip-custom-key-0" class="sip-custom" value="<?php echo $sip_custom_key_0 ?>" tabindex="<?php echo ++$tabindex;?>"> =
-      <input type="text" id="sip-custom-val-0" name="sip-custom-val-0" value="<?php echo $sip_custom_val_0 ?>" tabindex="<?php echo ++$tabindex;?>">
+      <input type="text" id="sip_custom_key_0" name="sip_custom_key_0" class="sip-custom" value="<?php echo $sip_custom_key_0 ?>" tabindex="<?php echo ++$tabindex;?>"> =
+      <input type="text" id="sip_custom_val_0" name="sip_custom_val_0" value="<?php echo $sip_custom_val_0 ?>" tabindex="<?php echo ++$tabindex;?>">
     </td>
   </tr>
 
@@ -728,11 +741,11 @@ END;
     <td>
     </td>
     <td>
-      <input type="text" id="sip-custom-key-$idx" name="sip-custom-key-$idx" class="sip-custom" value="{$$var_sip_custom_key}" tabindex="$tabindex"> =
+      <input type="text" id="sip_custom_key_$idx" name="sip_custom_key_$idx" class="sip-custom" value="{$$var_sip_custom_key}" tabindex="$tabindex"> =
 END;
       $tabindex++;
       echo <<< END
-      <input type="text" id="sip-custom-val-$idx" name="sip-custom-val-$idx" value="{$$var_sip_custom_val}" tabindex="$tabindex">
+      <input type="text" id="sip_custom_val_$idx" name="sip_custom_val_$idx" value="{$$var_sip_custom_val}" tabindex="$tabindex">
     </td>
   </tr>
 END;
@@ -776,8 +789,8 @@ $(document).ready(function(){
           var cnt = 0;
           $.each(data.localnet, function(loc,mask){
             if (cnt < fields) {
-              $('#localnet-'+cnt).attr("value",loc);
-              $('#netmask-'+cnt).attr("value",mask);
+              $('#localnet_'+cnt).attr("value",loc);
+              $('#netmask_'+cnt).attr("value",mask);
             } else {
               addLocalnet(loc,mask);
             }
@@ -845,6 +858,14 @@ $(document).ready(function(){
   $("#jbenable-no").click(function(){
     $(".jitter-buffer").hide();
   });
+<?php
+  /* this will insert the addClass jquery calls to all id's in error */
+  if (!empty($error_displays)) {
+    foreach ($error_displays as $js_disp) {
+      echo "  ".$js_disp['js'];
+    }
+  }
+?>
 });
 
 var theForm = document.editSip;
@@ -853,7 +874,7 @@ var theForm = document.editSip;
 function addLocalnet(localnet, netmask) {
   var idx = $(".localnet").size();
   var idxp = idx - 1;
-  var tabindex = parseInt($("#netmask-"+idxp).attr('tabindex')) + 1;
+  var tabindex = parseInt($("#netmask_"+idxp).attr('tabindex')) + 1;
   var tabindexp = tabindex + 1;
 
   $("#auto-configure-buttons").before('\
@@ -861,8 +882,8 @@ function addLocalnet(localnet, netmask) {
     <td>\
     </td>\
     <td>\
-      <input type="text" id="localnet-'+idx+'" name="localnet-'+idx+'" class="localnet" value="'+localnet+'" tabindex="'+tabindex+'"> /\
-      <input type="text" id="netmask-'+idx+'" name="netmask-'+idx+'" value="'+netmask+'" tabindex="'+tabindexp+'">\
+      <input type="text" id="localnet_'+idx+'" name="localnet_'+idx+'" class="localnet" value="'+localnet+'" tabindex="'+tabindex+'"> /\
+      <input type="text" id="netmask_'+idx+'" name="netmask_'+idx+'" value="'+netmask+'" tabindex="'+tabindexp+'">\
     </td>\
   </tr>\
   ');
@@ -872,7 +893,7 @@ function addLocalnet(localnet, netmask) {
 function addCustomField(key, val) {
   var idx = $(".sip-custom").size();
   var idxp = idx - 1;
-  var tabindex = parseInt($("#sip-custom-val-"+idxp).attr('tabindex')) + 1;
+  var tabindex = parseInt($("#sip_custom_val_"+idxp).attr('tabindex')) + 1;
   var tabindexp = tabindex + 1;
 
   $("#sip-custom-buttons").before('\
@@ -880,8 +901,8 @@ function addCustomField(key, val) {
     <td>\
     </td>\
     <td>\
-      <input type="text" id="sip-custom-key-'+idx+'" name="sip-custom-key-'+idx+'" class="sip-custom" value="'+key+'" tabindex="'+tabindex+'"> =\
-      <input type="text" id="sip-custom-val-'+idx+'" name="sip-custom-val-'+idx+'" value="'+val+'" tabindex="'+tabindexp+'">\
+      <input type="text" id="sip_custom_key_'+idx+'" name="sip_custom_key_'+idx+'" class="sip-custom" value="'+key+'" tabindex="'+tabindex+'"> =\
+      <input type="text" id="sip_custom_val_'+idx+'" name="sip_custom_val_'+idx+'" value="'+val+'" tabindex="'+tabindexp+'">\
     </td>\
   </tr>\
   ');
@@ -950,7 +971,13 @@ function checkConf()
 </form>
 <?php		
 		
-function sippsettings_process_errors($errors) {
-  /* TODO: process the array of errors and show issues somewhere */
+function process_errors($errors) {
+  foreach($errors as $error) {
+    $error_display[] = array(
+      'js' => "$('#".$error['id']."').addClass('validation-error');\n",
+      'div' => $error['message'],
+    );
+  }
+  return $error_display;
 }
 ?>
