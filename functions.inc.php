@@ -33,10 +33,17 @@ class sipsettings_validate {
   var $errors = array();
 
   /* checks if value is an integer */
-  function is_int($value, $item, $message) {
+  function is_int($value, $item, $message, $negative=false) {
     $value = trim($value);
-    if ($value != '' && !ctype_digit($value) || $value < 0) {
-      $this->errors[] = array('id' => $item, 'value' => $value, 'message' => $message);
+    if ($value != '' && $negative) {
+      $tmp_value = substr($value,0,1) == '-' ? substr($value,1) : $value;
+      if (!ctype_digit($tmp_value)) {
+        $this->errors[] = array('id' => $item, 'value' => $value, 'message' => $message);
+      }
+    } elseif (!$negative) {
+      if (!ctype_digit($value) || ($value < 0 )) {
+        $this->errors[] = array('id' => $item, 'value' => $value, 'message' => $message);
+      }
     }
     return $value;
   }

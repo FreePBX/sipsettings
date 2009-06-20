@@ -638,7 +638,7 @@ END;
 
   <tr class="jitter-buffer">
     <td>
-      <a href="#" class="info"><?php echo _("Jitter Buffer Size")?><span><?php echo _("Asterisk: jbmaxsize. Max length of the jitterbuffer in milliseconds.<br /> Asterisk: jbresyncthreshold. Jump in the frame timestamps over which the jitterbuffer is resynchronized. Useful to improve the quality of the voice, with big jumps in/broken timestamps, usually sent from exotic devices and programs.")?></span></a>
+      <a href="#" class="info"><?php echo _("Jitter Buffer Size")?><span><?php echo _("Asterisk: jbmaxsize. Max length of the jitterbuffer in milliseconds.<br /> Asterisk: jbresyncthreshold. Jump in the frame timestamps over which the jitterbuffer is resynchronized. Useful to improve the quality of the voice, with big jumps in/broken timestamps, usually sent from exotic devices and programs. Can be set to -1 to disable.")?></span></a>
     </td>
     <td>
       <input type="text" size="4" id="jbmaxsize" name="jbmaxsize" class="jitter-buffer validate-int" value="<?php echo $jbmaxsize ?>" tabindex="<?php echo ++$tabindex;?>"><small>(jbmaxsize)</small>&nbsp;
