@@ -397,7 +397,12 @@ function sipsettings_edit($sip_settings) {
 
 
       case 'sip_language':
-        $msg = sprintf(_("Language must be alphanumeric and installed"),$key);
+        $msg = ("Language must be alphanumeric and installed");
+        $save_settings[] = array($key,$db->escapeSimple($vd->is_alphanumeric($val,$key,$msg)),'0',NORMAL);
+      break;
+
+      case 'context':
+        $msg = sprintf(_("%s must be alphanumeric"),$key);
         $save_settings[] = array($key,$db->escapeSimple($vd->is_alphanumeric($val,$key,$msg)),'0',NORMAL);
       break;
 

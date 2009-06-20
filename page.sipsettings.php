@@ -98,7 +98,7 @@
 
   $sip_settings['jbenable']          = isset($_POST['jbenable']) ? $_POST['jbenable'] : 'no';
   $sip_settings['jbforce']           = isset($_POST['jbforce']) ? $_POST['jbforce'] : 'no';
-  $sip_settings['jpimpl']            = isset($_POST['jpimpl']) ? $_POST['jpimpl'] : 'fixed';
+  $sip_settings['jbimpl']            = isset($_POST['jbimpl']) ? $_POST['jbimpl'] : 'fixed';
   $sip_settings['jbmaxsize']         = isset($_POST['jbmaxsize']) ? htmlspecialchars($_POST['jbmaxsize']) : '200';
   $sip_settings['jbresyncthreshold'] = isset($_POST['jbresyncthreshold']) ? htmlspecialchars($_POST['jbresyncthreshold']) : '1000';
   $sip_settings['jblog']             = isset($_POST['jblog']) ? $_POST['jblog'] : 'no';
