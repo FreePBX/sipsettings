@@ -245,7 +245,7 @@ switch ($action) {
     </td>
     <td>
       <input type="text" id="localnet_0" name="localnet_0" class="localnet validate=ip" value="<?php echo $localnet_0 ?>" tabindex="<?php echo ++$tabindex;?>"> /
-      <input type="text" id="netmask_0" name="netmask_0" class="validate-netmask" value="<?php echo $netmask_0 ?>" tabindex="<?php echo ++$tabindex;?>">
+      <input type="text" id="netmask_0" name="netmask_0" class="netmask validate-netmask" value="<?php echo $netmask_0 ?>" tabindex="<?php echo ++$tabindex;?>">
     </td>
   </tr>
 
@@ -265,7 +265,7 @@ switch ($action) {
 END;
       $tabindex++;
       echo <<< END
-      <input type="text" id="netmask_$idx" name="netmask_$idx" class="validate-netmask" value="{$$var_netmask}" tabindex="$tabindex">
+      <input type="text" id="netmask_$idx" name="netmask_$idx" class="netmask validate-netmask" value="{$$var_netmask}" tabindex="$tabindex">
     </td>
   </tr>
 END;
@@ -780,8 +780,9 @@ $(document).ready(function(){
       dataType: 'json',
       success: function(data) {
         if (data.status == 'success') {
+          $('.netmask').attr("value","");
+          $('.localnet').attr("value","");
           $('#externip_val').attr("value",data.externip);
-          $('#externhost_val').attr("value",data.externhost);
           /*  Iterate through each localnet:netmask pair. Put them into any fields on the form
            *  until we have no more, than create new ones
 					 */
@@ -883,7 +884,7 @@ function addLocalnet(localnet, netmask) {
     </td>\
     <td>\
       <input type="text" id="localnet_'+idx+'" name="localnet_'+idx+'" class="localnet" value="'+localnet+'" tabindex="'+tabindex+'"> /\
-      <input type="text" id="netmask_'+idx+'" name="netmask_'+idx+'" value="'+netmask+'" tabindex="'+tabindexp+'">\
+      <input type="text" id="netmask_'+idx+'" name="netmask_'+idx+'" class="netmask validate-netmask" value="'+netmask+'" tabindex="'+tabindexp+'">\
     </td>\
   </tr>\
   ');
