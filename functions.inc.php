@@ -257,8 +257,8 @@ function sipsettings_get($raw=false) {
   $sip_settings['rtpkeepalive']      = '';
 
   $sip_settings['checkmwi']          = '';
-  $sip_settings['notifyringing']     = 'no';
-  $sip_settings['notifyhold']        = 'no';
+  $sip_settings['notifyringing']     = 'yes';
+  $sip_settings['notifyhold']        = 'yes';
 
   $sip_settings['registertimeout']   = '20';
   $sip_settings['registerattempts']  = '0';
@@ -274,9 +274,9 @@ function sipsettings_get($raw=false) {
   $sip_settings['jblog']             = 'no';
 
   $sip_settings['sip_language']      = '';
-  $sip_settings['context']           = 'from-sip-external';
-  $sip_settings['bindaddr']          = '0.0.0.0';
-  $sip_settings['bindport']          = '5060';
+  $sip_settings['context']           = '';
+  $sip_settings['bindaddr']          = '';
+  $sip_settings['bindport']          = '';
   $sip_settings['allowguest']        = 'yes';
   $sip_settings['srvlookup']         = 'no';
 
@@ -372,10 +372,24 @@ function sipsettings_edit($sip_settings) {
         $save_settings[] = array($key,$db->escapeSimple($vd->is_alphanumeric($val,$key,$msg)),'0',NORMAL);
       break;
 
-      case 'nat':
-      case 'nat_mode':
       case 'externip_val':
+        if (trim($val) == '' && $sip_settings['nat_mode'] == 'externip') {
+          $msg = _("External IP can not be blank");
+          $vd->log_error($val, $key, $msg);
+         }
+        $save_settings[] = array($key,$val,'0',NORMAL);
+      break;
+
       case 'externhost_val':
+        if (trim($val) == '' && $sip_settings['nat_mode'] == 'externhost') {
+          $msg = _("Dynamic Host can not be blank");
+          $vd->log_error($val, $key, $msg);
+         }
+        $save_settings[] = array($key,$val,'0',NORMAL);
+      break;
+
+      case 'nat_mode':
+      case 'nat':
       case 'g726nonstandard':
       case 't38pt_udptl':
       case 'videosupport':
