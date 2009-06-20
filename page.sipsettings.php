@@ -146,7 +146,7 @@ switch ($action) {
     <div class="sip-errors">
 <?php
     foreach ($error_displays as $div_disp) {
-      echo "<p>".$div_disp['message']."</p>";
+      echo "<p>".$div_disp['div']."</p>";
     }
 ?>
     </div>
@@ -671,7 +671,7 @@ END;
       <a href="#" class="info"><?php echo _("Bind Port")?><span><?php echo _("Asterisk: bindport. Local incoming UDP Port that Asterisk will bind to and listen for SIP messages. The SIP standard is 5060 and in most cases this is what you want.")?></span></a>
     </td>
     <td>
-      <input type="text" id="bindaddr" name="bindport" class="validate-ip-port" value="<?php echo $bindport ?>" tabindex="<?php echo ++$tabindex;?>">
+      <input type="text" id="bindport" name="bindport" class="validate-ip-port" value="<?php echo $bindport ?>" tabindex="<?php echo ++$tabindex;?>">
     </td>
   </tr>
 

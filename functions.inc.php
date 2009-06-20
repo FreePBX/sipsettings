@@ -44,7 +44,7 @@ class sipsettings_validate {
   /* checks if value is valid port between 1024 - 6 65535 */
   function is_ip_port($value, $item, $message) {
     $value = trim($value);
-    if ($value != '' && ($value < 1024 || $value > 65535)) {
+    if ($value != '' && (!ctype_digit($value) || $value < 1024 || $value > 65535)) {
       $this->errors[] = array('id' => $item, 'value' => $value, 'message' => $message);
     }
     return $value;
@@ -62,7 +62,7 @@ class sipsettings_validate {
   /* checks if value is valid ip netmask format */
   function is_netmask($value, $item, $message) {
     $value = trim($value);
-    if ($value != '' && !(preg_match('|^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$|',$value,$matches) || ($value >= 0 && $value <= 24))) {
+    if ($value != '' && !(preg_match('|^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$|',$value,$matches) || (ctype_digit($value) && $value >= 0 && $value <= 24))) {
       $this->errors[] = array('id' => $item, 'value' => $value, 'message' => $message);
     }
     return $value;
@@ -327,12 +327,12 @@ function sipsettings_edit($sip_settings) {
   foreach ($sip_settings as $key => $val) {
     switch ($key) {
       case 'bindaddr':
-        $msg = _("Bind Address (bindaddr) must be a properly formated IP address.");
+        $msg = _("Bind Address (bindaddr) must be a properly formatted IP address.");
         $save_settings[] = array($key,$db->escapeSimple($vd->is_ip($val,$key,$msg)),'0',NORMAL);
       break;
 
       case 'bindport':
-        $msg = _("Bind Port (bindport) must be a proper IP port between 1024 and 65536 inclusive, typically 5060.");
+        $msg = _("Bind Port (bindport) must be a proper IP port from 1024 to 65535, typically 5060.");
         $save_settings[] = array($key,$db->escapeSimple($vd->is_ip_port($val, $key, $msg)),'0',NORMAL);
       break;
 
