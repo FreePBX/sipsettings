@@ -78,7 +78,7 @@ class sipsettings_validate {
   /* checks if value is valid alpha numeric format */
   function is_alphanumeric($value, $item, $message) {
     $value = trim($value);
-	  if ($value != '' && !preg_match("/^\s*([a-zA-Z0-9 .&-@=_!<>!\"\']+)\s*$/",$value,$matches)) {
+	  if ($value != '' && !preg_match("/^\s*([a-zA-Z0-9.&\-@_!<>!\"\']+)\s*$/",$value,$matches)) {
       $this->errors[] = array('id' => $item, 'value' => $value, 'message' => $message);
     }
     return $value;
