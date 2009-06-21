@@ -30,7 +30,7 @@
 	$output = array();
 	$fn = "http://mirror.freepbx.org/whatismyip.php";
 
-	$json_array['status'] = _('Failed to auto-detect settinggs');
+	$json_array['status'] = _('Failed to auto-detect settings');
 	$json_array['externip'] = '';
 
 	/* Fetch the IP address of this system, expects xml formatted as:
