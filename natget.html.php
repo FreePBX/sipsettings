@@ -45,7 +45,7 @@
 		$ip_xml = @file_get_contents($fn);
 	}
 	if (empty($ip_xml)) {
-		exec("wget -O - $fn 2> /dev/null", $data_arr, $retcode);
+		exec("wget -O - '$fn' 2> /dev/null", $data_arr, $retcode);
 		$ip_xml = implode("\n",$data_arr);
 	}
 
