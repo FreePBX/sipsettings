@@ -782,7 +782,9 @@ END;
 <!--
 $(document).ready(function(){
   /* On click ajax to pbx and determine extenral network and localnet settings */
-  $.ajaxTimeout( 10000 );
+  $.ajaxSetup({
+    timeout:10000
+  });
   $("#nat-auto-configure").click(function(){
     $.ajax({
       type: 'POST',
