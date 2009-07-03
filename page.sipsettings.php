@@ -134,6 +134,8 @@ switch ($action) {
     /* only get them if first time load, if they pressed submit, use values from POST */
     $sip_settings = sipsettings_get();
 }
+$error_displays = array_merge($error_displays,sipsettings_check_custom_files());
+
 ?>
 
 </div>
@@ -937,4 +939,31 @@ function process_errors($errors) {
   }
   return $error_display;
 }
+
+function sipsettings_check_custom_files() {
+  global $amp_conf;
+  $errors = array();
+
+  $custom_files[] = $amp_conf['ASTETCDIR']."/sip_nat.conf";
+  $custom_files[] = $amp_conf['ASTETCDIR']."/sip_general_custom.conf";
+  $custom_files[] = $amp_conf['ASTETCDIR']."/sip_custom.conf";
+
+  foreach ($custom_files as $file) {
+    if (file_exists($file)) {
+      $sip_conf = parse_ini_file($file,true);
+      foreach ($sip_conf as $item) {
+        // If setting is an array, then it is a subsection
+        //
+        if (!is_array($item)) {
+          $msg =  sprintf(_("Settings in %s may override these, they should be removed"),"<b>$file</b>");
+          $errors[] = array( 'js' => '', 'div' => $msg);
+          break;
+        }
+      }
+    }
+  }
+  return $errors;
+}
+
+
 ?>
