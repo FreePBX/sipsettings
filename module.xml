@@ -1,7 +1,9 @@
 <module>
 	<rawname>sipsettings</rawname>
 	<name>Asterisk SIP Settings</name>
-	<version>2.6.0beta1.2</version>
+	<version>2.6.0.0</version>
+	<publisher>Bandwidth.com</publisher>
+	<license>GPLv2+</license>
 	<type>tool</type>
 	<category>System Administration</category>
 	<menuitems>
@@ -13,6 +15,7 @@
 	<publisher>Bandwidth.com</publisher>
 	<license>AGPLv3</license>
 	<changelog>
+		*2.6.0.0* localizations, misc
 		*2.6.0beta1.2* install script 'if not exists' missing
 		*2.6.0beta1.1* misc bugs, typos
 		*2.6.0beta1.0* lots of tweaks, fixed install.php error
