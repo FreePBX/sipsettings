@@ -284,9 +284,9 @@ function sipsettings_get($raw=false) {
   $sip_settings['canreinvite']       = 'no';
   $sip_settings['rtptimeout']        = '30';
   $sip_settings['rtpholdtimeout']    = '300';
-  $sip_settings['rtpkeepalive']      = '';
+  $sip_settings['rtpkeepalive']      = '0';
 
-  $sip_settings['checkmwi']          = '';
+  $sip_settings['checkmwi']          = '10';
   $sip_settings['notifyringing']     = 'yes';
   $sip_settings['notifyhold']        = 'yes';
 
