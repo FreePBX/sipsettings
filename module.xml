@@ -13,7 +13,7 @@
 		Use to configure Various Asterisk SIP Settings in the General section of sip.conf. Also includes an auto-configuration tool to determine NAT settings. The module assumes Asterisk version 1.4 or higher. Some settings may not exist in Asterisk 1.2 and will be ignored by Asterisk.
 	</description>
 	<changelog>
-		*2.6.0.2* #3808
+		*2.6.0.2* #3808, #3809, #3810
 		*2.6.0.1* corrected publisher/lic
 		*2.6.0.0* localizations, misc
 		*2.6.0beta1.2* install script 'if not exists' missing

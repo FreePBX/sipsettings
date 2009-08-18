@@ -187,7 +187,7 @@ $error_displays = array_merge($error_displays,sipsettings_check_custom_files());
 
   <tr>
     <td>
-      <a href="#" class="info"><?php echo _("Nat")?><span><?php echo _("Asterisk nat setting:<br /> yes = Always ignore info and assume NAT<br /> no = Use NAT mode only according to RFC3581 <br /> never = Never attempt NAT mode or RFC3581 <br /> route = Assume NAT, don't send rport")?></span></a>
+      <a href="#" class="info"><?php echo _("NAT")?><span><?php echo _("Asterisk NAT setting:<br /> yes = Always ignore info and assume NAT<br /> no = Use NAT mode only according to RFC3581 <br /> never = Never attempt NAT mode or RFC3581 <br /> route = Assume NAT, don't send rport")?></span></a>
     </td>
     <td>
       <table width="100%">
@@ -442,15 +442,15 @@ END;
         <tr>
           <td width="25%">
             <input id="canreinvite-yes" type="radio" name="canreinvite" value="yes" tabindex="<?php echo ++$tabindex;?>"<?php echo $canreinvite=="yes"?"checked=\"yes\"":""?>/>
-            <label for="canreinvite-yes"><?php echo _("Yes") ?></label>
+            <label for="canreinvite-yes"><?php echo _("yes") ?></label>
           </td>
           <td width="25%">
             <input id="canreinvite-no" type="radio" name="canreinvite" value="no" tabindex="<?php echo ++$tabindex;?>"<?php echo $canreinvite=="no"?"checked=\"no\"":""?>/>
-            <label for="canreinvite-no"><?php echo _("No") ?></label>
+            <label for="canreinvite-no"><?php echo _("no") ?></label>
           </td>
           <td width="25%">
             <input id="canreinvite-nonat" type="radio" name="canreinvite" value="nonat" tabindex="<?php echo ++$tabindex;?>"<?php echo $canreinvite=="nonat"?"checked=\"nonat\"":""?>/>
-            <label for="canreinvite-nonat">never</label>
+            <label for="canreinvite-nonat">nonat</label>
           </td>
           <td width="25%">
             <input id="canreinvite-update" type="radio" name="canreinvite" value="update" tabindex="<?php echo ++$tabindex;?>"<?php echo $canreinvite=="update"?"checked=\"update\"":""?>/>
@@ -596,7 +596,7 @@ END;
 
   <tr class="jitter-buffer">
     <td>
-      <a href="#" class="info"><?php echo _("Implementation")?><span><?php echo _("Asterisk: jbimpl. Jitterbuffer implementation, used on the receiving side of a SIP channel. Two implementations are currently available:<br /> fixed: size always equals to jbmaxsize;<br />) adaptive: with variable size (the new jb of IAX2).")?></span></a>
+      <a href="#" class="info"><?php echo _("Implementation")?><span><?php echo _("Asterisk: jbimpl. Jitterbuffer implementation, used on the receiving side of a SIP channel. Two implementations are currently available:<br /> fixed: size always equals to jbmaxsize;<br /> adaptive: with variable size (the new jb of IAX2).")?></span></a>
     </td>
     <td>
       <table width="100%">
@@ -955,11 +955,11 @@ function sipsettings_check_custom_files() {
         // If setting is an array, then it is a subsection
         //
         if (!is_array($item)) {
-          $msg =  sprintf(_("Settings in %s may override these, the settings should be removed"),"<b>$file</b>");
+          $msg =  sprintf(_("Settings in %s may override these. Those settings should be removed."),"<b>$file</b>");
           $errors[] = array( 'js' => '', 'div' => $msg);
           break;
         } elseif ($main && is_array($item) && strtolower($section) == 'general' && !empty($item)) {
-          $msg =  sprintf(_("File %s should not have any settings in it, the settings should be removed"),"<b>$file</b>");
+          $msg =  sprintf(_("File %s should not have any settings in it. Those settings should be removed."),"<b>$file</b>");
           $errors[] = array( 'js' => '', 'div' => $msg);
           break;
         }
