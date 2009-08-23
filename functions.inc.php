@@ -188,7 +188,7 @@ function sipsettings_hookGet_config($engine) {
             break;
 
             case 'jbforce':
-            case 'jpimpl':
+            case 'jbimpl':
             case 'jbmaxsize':
             case 'jbresyncthreshold':
             case 'jblog':
@@ -298,7 +298,7 @@ function sipsettings_get($raw=false) {
 
   $sip_settings['jbenable']          = 'no';
   $sip_settings['jbforce']           = 'no';
-  $sip_settings['jpimpl']            = 'fixed';
+  $sip_settings['jbimpl']            = 'fixed';
   $sip_settings['jbmaxsize']         = '200';
   $sip_settings['jbresyncthreshold'] = '1000';
   $sip_settings['jblog']             = 'no';
@@ -436,7 +436,7 @@ function sipsettings_edit($sip_settings) {
       break;
 
       case 'jbforce':
-      case 'jpimpl':
+      case 'jbimpl':
       case 'jblog':
         $save_settings[] = array($key,$val,'5',NORMAL);
       break;
