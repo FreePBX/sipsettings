@@ -781,7 +781,7 @@ END;
 <script language="javascript">
 <!--
 $(document).ready(function(){
-  /* On click ajax to pbx and determine extenral network and localnet settings */
+  /* On click ajax to pbx and determine external network and localnet settings */
   $.ajaxSetup({
     timeout:10000
   });
@@ -815,7 +815,7 @@ $(document).ready(function(){
         }
       },
       error: function(data) {
-        alert("<?php echo _("An Error occured trying fetch network configuration and external IP address")?>");
+        alert("<?php echo _("An Error occurred trying fetch network configuration and external IP address")?>");
       },
     });
     return false;
