@@ -1,6 +1,4 @@
 # This file is part of FreePBX.
-# Original Release by Philippe Lindheimer
-# Copyright Philippe Lindheimer (2009)
 # Copyright Bandwidth.com (2009)
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -16,12 +14,13 @@
 #    You should have received a copy of the GNU Affero General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
+#
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-06-21 14:16+0200\n"
+"POT-Creation-Date: 2009-08-29 22:01+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -67,16 +66,37 @@ msgstr ""
 msgid "Localnet netmask must be formated properly (e.g. 255.255.255.0 or 24)"
 msgstr ""
 
+#: install.php:47
+msgid "checking for sipsettings table.."
+msgstr ""
+
+#: install.php:51
+msgid "none, creating table"
+msgstr ""
+
+#: install.php:55
+msgid "populating default codecs.."
+msgstr ""
+
+#: install.php:76
+msgid "fatal error occurred populating defaults, check module"
+msgstr ""
+
+#: install.php:78
+msgid "ulaw, alaw, gsm added"
+msgstr ""
+
+#: install.php:81
+msgid "already exists"
+msgstr ""
+
 #: natget.html.php:33
+#: natget.html.php:68
 msgid "Failed to auto-detect settings"
 msgstr ""
 
 #: natget.html.php:55
 msgid "Failed to auto-detect local network settings"
-msgstr ""
-
-#: natget.html.php:68
-msgid "Failed to auto-detect settinggs"
 msgstr ""
 
 #: page.sipsettings.php:141
@@ -92,12 +112,12 @@ msgid "NAT Settings"
 msgstr ""
 
 #: page.sipsettings.php:190
-msgid "Nat"
+msgid "NAT"
 msgstr ""
 
 #: page.sipsettings.php:190
 msgid ""
-"Asterisk nat setting:<br /> yes = Always ignore info and assume NAT<br /> no "
+"Asterisk NAT setting:<br /> yes = Always ignore info and assume NAT<br /> no "
 "= Use NAT mode only according to RFC3581 <br /> never = Never attempt NAT "
 "mode or RFC3581 <br /> route = Assume NAT, don't send rport"
 msgstr ""
@@ -192,15 +212,13 @@ msgid ""
 "specification, the peer _should_ be negotiating AAL2-G726-32 instead."
 msgstr ""
 
-#: page.sipsettings.php:339 page.sipsettings.php:360 page.sipsettings.php:445
-#: page.sipsettings.php:495 page.sipsettings.php:516 page.sipsettings.php:585
-#: page.sipsettings.php:698
+#: page.sipsettings.php:339 page.sipsettings.php:360 page.sipsettings.php:495
+#: page.sipsettings.php:516 page.sipsettings.php:585 page.sipsettings.php:698
 msgid "Yes"
 msgstr ""
 
-#: page.sipsettings.php:343 page.sipsettings.php:364 page.sipsettings.php:449
-#: page.sipsettings.php:499 page.sipsettings.php:520 page.sipsettings.php:589
-#: page.sipsettings.php:702
+#: page.sipsettings.php:343 page.sipsettings.php:364 page.sipsettings.php:499
+#: page.sipsettings.php:520 page.sipsettings.php:589 page.sipsettings.php:702
 msgid "No"
 msgstr ""
 
@@ -263,6 +281,14 @@ msgid ""
 "(as the RTP core can determine it based on the apparent IP address the media "
 "arrives from; update: use UPDATE for media path redirection, instead of "
 "INVITE. (yes = update + nonat)"
+msgstr ""
+
+#: page.sipsettings.php:445
+msgid "yes"
+msgstr ""
+
+#: page.sipsettings.php:449
+msgid "no"
 msgstr ""
 
 #: page.sipsettings.php:466
@@ -387,8 +413,8 @@ msgstr ""
 msgid ""
 "Asterisk: jbimpl. Jitterbuffer implementation, used on the receiving side of "
 "a SIP channel. Two implementations are currently available:<br /> fixed: "
-"size always equals to jbmaxsize;<br />) adaptive: with variable size (the "
-"new jb of IAX2)."
+"size always equals to jbmaxsize;<br /> adaptive: with variable size (the new "
+"jb of IAX2)."
 msgstr ""
 
 #: page.sipsettings.php:606
@@ -512,3 +538,27 @@ msgid ""
 "Add Field box to add additional fields. Blank boxes will be deleted when "
 "submitted."
 msgstr ""
+
+#: page.sipsettings.php:958
+#, php-format
+msgid "Settings in %s may override these. Those settings should be removed."
+msgstr ""
+
+#: page.sipsettings.php:962
+#, php-format
+msgid ""
+"File %s should not have any settings in it. Those settings should be removed."
+msgstr ""
+
+msgid "Auto Configure"
+msgstr ""
+
+msgid "Add Local Network Field"
+msgstr ""
+
+msgid "Add Field"
+msgstr ""
+
+msgid "Submit Changes"
+msgstr ""
+
