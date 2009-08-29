@@ -65,7 +65,7 @@
 			}
 		}
 	} else {
-		$json_array['status'] = _('Failed to auto-detect settinggs');
+		$json_array['status'] = _('Failed to auto-detect settings');
 	}
 	$json_array['localnet'] = $localnet;
 

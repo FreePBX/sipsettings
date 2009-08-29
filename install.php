@@ -73,7 +73,7 @@ if(DB::IsError($check)) {
 	$compiled = $db->prepare("INSERT INTO sipsettings (keyword, data, seq, type) values (?,?,?,'1')");
 	$result = $db->executeMultiple($compiled,$sip_settings);
 	if(DB::IsError($result)) {
-		out(_("fatal error occured populating defaults, check module"));
+		out(_("fatal error occurred populating defaults, check module"));
 	} else {
 		out(_("ulaw, alaw, gsm added"));
 	}
