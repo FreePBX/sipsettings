@@ -164,7 +164,7 @@ function sipsettings_hookGet_config($engine) {
 
         $nat_mode = $interim_settings['nat_mode'];
         $jbenable = $interim_settings['jbenable'];
-        foreach ($interim_settings as $key => $value) {
+        if (is_array($interim_settings)) foreach ($interim_settings as $key => $value) {
           switch ($key) {
             case 'nat_mode':
             break;
@@ -218,7 +218,7 @@ function sipsettings_hookGet_config($engine) {
             }
           }
           unset($interim_settings);
-          foreach ($sip_settings as $entry) {
+          if (is_array($sip_settings)) foreach ($sip_settings as $entry) {
             if ($entry[1] != '') {
               $core_conf->addSipGeneral($entry[0],$entry[1]);
             }
