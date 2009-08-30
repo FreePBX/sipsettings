@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: FreePBX sipsettings\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-08-29 22:01+0200\n"
-"PO-Revision-Date: 2009-08-30 00:03+0100\n"
+"PO-Revision-Date: 2009-08-30 09:51+0100\n"
 "Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
 "Language-Team: Swedish\n"
 "MIME-Version: 1.0\n"
@@ -264,7 +264,7 @@ msgstr "Beteende för reinvite"
 
 #: page.sipsettings.php:438
 msgid "Asterisk: canreinvite. yes: standard reinvites; no: never; nonat: An additional option is to allow media path redirection (reinvite) but only when the peer where the media is being sent is known to not be behind a NAT (as the RTP core can determine it based on the apparent IP address the media arrives from; update: use UPDATE for media path redirection, instead of INVITE. (yes = update + nonat)"
-msgstr "Asterisk: canreinvite. yes: standard reinvites; no: aldrig; nonat: Ett extra val för att tillåta omstyrning av mediaströmmen (reinvite) men endast när peer där strömmen skickas till är känd att inte vara bakom NAT (eftersom RTP kan bestämma det baserat på den synbara IP-adressen strömmen kommer från; update: använd UPDATE för mediaomstyrning i stället för INVITE. (yes = update + nonat)"
+msgstr "Asterisk: canreinvite. ja: standard reinvites; nej: aldrig; nonat: Ett extra val för att tillåta omstyrning av mediaströmmen (reinvite) men endast när peer där strömmen skickas till är känd att inte vara bakom NAT (eftersom RTP kan bestämma det baserat på den synbara IP-adressen strömmen kommer från; update: använd UPDATE för mediaomstyrning i stället för INVITE. (yes = update + nonat)"
 
 #: page.sipsettings.php:445
 msgid "yes"
@@ -324,7 +324,7 @@ msgstr "Asterisk: registertimeout. Försök registrera igen efter det antal seku
 
 #: page.sipsettings.php:544
 msgid "Registration Times"
-msgstr ""
+msgstr "Registreringstider"
 
 #: page.sipsettings.php:544
 msgid "Asterisk: minexpiry. Minimum length of registrations/subscriptions.<br /> Asterisk: maxepiry. Maximum allowed time of incoming registrations<br /> Asterisk: defaultexpiry. Default length of incoming and outgoing registrations."
@@ -348,15 +348,15 @@ msgstr "Forcera jitterbuffer"
 
 #: page.sipsettings.php:578
 msgid "Asterisk: jbforce. Forces the use of a jitterbuffer on the receive side of a SIP channel. Normally the jitter buffer will not be used if receiving a jittery channel but sending it off to another channel such as another SIP channel to an endpoint, since there is typically a jitter buffer at the far end. This will force the use of the jitter buffer before sending the stream on. This is not typically desired as it adds additional latency into the stream."
-msgstr ""
+msgstr "Asterisk: jbforce. Tvingar användandet av en jitterbuffer på mottagande sidan av en SIP-kanal. Normalt kommer inte jitterbuffern att användas vid mottagande av en jittery-kanal men skickar den till en anna kanal såsom en SIP-kanal till en ändutrusting eftersom det typiskt finns en jitterbuffer i slutet av kedjan. Detta tvingar användandet av en jitterbuffer innan mediaströmmen skickas vidare. Detta används inte normal då det ökar fördröjningen i mediaströmmen."
 
 #: page.sipsettings.php:599
 msgid "Implementation"
-msgstr ""
+msgstr "Implementation"
 
 #: page.sipsettings.php:599
 msgid "Asterisk: jbimpl. Jitterbuffer implementation, used on the receiving side of a SIP channel. Two implementations are currently available:<br /> fixed: size always equals to jbmaxsize;<br /> adaptive: with variable size (the new jb of IAX2)."
-msgstr ""
+msgstr "Asterisk: jbimpl. Jitterbuffer implementation, används på den mottagande SIP-kanalen. Två implementationer finns för närvarande:<br /> fast: storleken alltid lika med jbmaxsize;<br /> adaptiv: med variabel storlek (den nya jb på IAX2)."
 
 #: page.sipsettings.php:606
 msgid "Fixed"
@@ -364,7 +364,7 @@ msgstr "Fast"
 
 #: page.sipsettings.php:610
 msgid "Adaptive"
-msgstr ""
+msgstr "Adaptiv"
 
 #: page.sipsettings.php:620
 msgid "Jitter Buffer Logging"
@@ -388,7 +388,7 @@ msgstr "Storlek på jitterbuffer"
 
 #: page.sipsettings.php:641
 msgid "Asterisk: jbmaxsize. Max length of the jitterbuffer in milliseconds.<br /> Asterisk: jbresyncthreshold. Jump in the frame timestamps over which the jitterbuffer is resynchronized. Useful to improve the quality of the voice, with big jumps in/broken timestamps, usually sent from exotic devices and programs. Can be set to -1 to disable."
-msgstr ""
+msgstr "Asterisk: jbmaxsize. Max längd på jitterbuffern i storlek.<br /> Asterisk: jbresyncthreshold. Hopp i tiden inom ramen där jitterbuffern återsynkroniseras. Användbart för att öka kvaliteten på rösten med stora hopp i / eller brutna tidsstämplar, vanligtvis skickat från exotiska enheter och program. Kan sättas till -1 för att avaktiveras."
 
 #: page.sipsettings.php:650
 msgid "Advanced General Settings"
@@ -408,7 +408,7 @@ msgstr "Standard sammanhang"
 
 #: page.sipsettings.php:664
 msgid "Asterisk: context. Default context for incoming calls if not specified. FreePBX sets this to from-sip-external which is used in conjunction with the Allow Anonymous SIP calls. If you change this you will effect that behavior. It is recommended to leave this blank."
-msgstr ""
+msgstr "Asterisk: context. Standard sammanhang för inkommande samtal om det inte sätts här. FreePBX sätter detta till from-sip-external som används i samband med Tillåt SIP-gäster. Om du ändrar detta kommer du att påverka den inställningen. Det är rekommenderat att lämna detta fält tomt."
 
 #: page.sipsettings.php:673
 msgid "Bind Address"
@@ -416,7 +416,7 @@ msgstr "Bindadress"
 
 #: page.sipsettings.php:673
 msgid "Asterisk: bindaddr. The IP address to bind to and listen for calls on the Bind Port. If set to 0.0.0.0 Asterisk will listen on all addresses. It is recommended to leave this blank."
-msgstr ""
+msgstr "Asterisk: bindaddr. IP-adressen att binda till och lyssna efter samtal på Bindporten. Om detta sätts till 0.0.0.0 kommer Asterisk att lyssna på alla adresser. Det är rekommenderat att lämna detta fält tomt."
 
 #: page.sipsettings.php:682
 msgid "Bind Port"
@@ -424,7 +424,7 @@ msgstr "Bindport"
 
 #: page.sipsettings.php:682
 msgid "Asterisk: bindport. Local incoming UDP Port that Asterisk will bind to and listen for SIP messages. The SIP standard is 5060 and in most cases this is what you want. It is recommended to leave this blank."
-msgstr ""
+msgstr "Asterisk: bindport. Lokal inkommande UDP-port som Asterisk binder sig till och lyssnar efter SIP-meddelanden. Standardporten för SIP är 5060 och i de flesta fall är vad du vill ha. Det är rekommenderat att lämna detta fält tomt."
 
 #: page.sipsettings.php:691
 msgid "Allow SIP Guests"
@@ -432,7 +432,7 @@ msgstr "Tillåt SIP-gäster"
 
 #: page.sipsettings.php:691
 msgid "Asterisk: allowguest. When set Asterisk will allow Guest SIP calls and send them to the Default SIP context. Turning this off will keep anonymous SIP calls from entering the system. However, the Allow Anonymous SIP calls from the General Settings section will not function. Allowing guest calls but rejecting the Anonymous SIP calls in the General Section will enable you to see the call attempts and debug incoming calls that may be mis-configured and appearing as guests."
-msgstr ""
+msgstr "Asterisk: allowguest. När denna inställning är satt till Ja kommer Asterisk att tillåta gästsamtal och skicka dom till standard SIP-sammanhanget. Om detta sätts till Nej kommer inga gästsamtal att tillåtas. Emellertid kommer då inställningen i Generella inställningar, Tillåt anonyma samtal, att sluta fungera. Att tillåta gäster men inte anonyma samtal ger dig möjlighet att se alla samtalsförsök och avlusa inkommande samtal som kan vara felaktigt konfigurerade och uppträda som gäst."
 
 #: page.sipsettings.php:712
 msgid "SRV Lookup"
@@ -440,7 +440,7 @@ msgstr "SRV-uppslag"
 
 #: page.sipsettings.php:712
 msgid "Enable Asterisk srvlookup. See current version of Asterisk for limitations on SRV functionality."
-msgstr ""
+msgstr "Aktivera Asterisk srvlookup. Läs i dokumentationen för din version av Asterisk för att de begränsningar som finns i funktionen SRV."
 
 #: page.sipsettings.php:735
 msgid "Other SIP Settings"
@@ -448,17 +448,17 @@ msgstr "Andra SIP-inställningar"
 
 #: page.sipsettings.php:735
 msgid "You may set any other SIP settings not present here that are allowed to be configured in the General section of sip.conf. There will be no error checking against these settings so check them carefully. They should be entered as:<br /> [setting] = [value]<br /> in the boxes below. Click the Add Field box to add additional fields. Blank boxes will be deleted when submitted."
-msgstr ""
+msgstr "Du kan göra fler SIP-inställningar som inte visas här men som är tillåtna att konfigurera i den generella sektionen av sip.conf. Ingen felkontroll kommer att göras mot dessa inställningar så kontrollera dom noga. Syntaxen för värdena är <br /> [inställning] = [värde]<br />  i fälten nedan. Klicka på Lägg till fält för att lägga till fler. Toma fält kommer att tas bort näs sidan sparas."
 
 #: page.sipsettings.php:958
 #, php-format
 msgid "Settings in %s may override these. Those settings should be removed."
-msgstr "Inställningar i %s kan åsidosätta dessa. Du bör ta bort dom."
+msgstr "Inställningar i %s kan åsidosätta inställningarna du gör här. Du bör ta bort dom."
 
 #: page.sipsettings.php:962
 #, php-format
 msgid "File %s should not have any settings in it. Those settings should be removed."
-msgstr ""
+msgstr "Filen %s ska inte ha några inställningar alls. Dessa inställningar måste tas bort."
 
 msgid "Auto Configure"
 msgstr "Automatisk konfiguration"
