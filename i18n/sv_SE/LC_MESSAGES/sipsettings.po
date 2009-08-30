@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: FreePBX sipsettings\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-08-29 22:01+0200\n"
-"PO-Revision-Date: 2009-08-30 10:34+0100\n"
+"PO-Revision-Date: 2009-08-30 10:42+0100\n"
 "Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
 "Language-Team: Swedish\n"
 "MIME-Version: 1.0\n"
@@ -348,7 +348,7 @@ msgstr "Forcera jitterbuffer"
 
 #: page.sipsettings.php:578
 msgid "Asterisk: jbforce. Forces the use of a jitterbuffer on the receive side of a SIP channel. Normally the jitter buffer will not be used if receiving a jittery channel but sending it off to another channel such as another SIP channel to an endpoint, since there is typically a jitter buffer at the far end. This will force the use of the jitter buffer before sending the stream on. This is not typically desired as it adds additional latency into the stream."
-msgstr "Asterisk: jbforce. Tvingar användandet av en jitterbuffer på mottagande sidan av en SIP-kanal. Normalt kommer inte jitterbuffern att användas vid mottagande av en jittery-kanal men skickar den till en anna kanal såsom en SIP-kanal till en ändutrusting eftersom det typiskt finns en jitterbuffer i slutet av kedjan. Detta tvingar användandet av en jitterbuffer innan mediaströmmen skickas vidare. Detta används inte normal då det ökar fördröjningen i mediaströmmen."
+msgstr "Asterisk: jbforce. Tvingar användandet av en jitterbuffer på mottagande sidan av en SIP-kanal. Normalt kommer inte jitterbuffern att användas vid mottagande av en jittery-kanal men skickar den till en annan kanal såsom en SIP-kanal till en ändutrusting eftersom det typiskt finns en jitterbuffer i slutet av kedjan. Detta tvingar användandet av en jitterbuffer innan mediaströmmen skickas vidare. Detta används inte normal då det ökar fördröjningen i mediaströmmen."
 
 #: page.sipsettings.php:599
 msgid "Implementation"
