@@ -93,6 +93,7 @@ class sipsettings_validate {
 
 function sipsettings_hookGet_config($engine) {
   global $core_conf;
+	global $ext;  // is this the best way to pass this?
 
   switch($engine) {
     case "asterisk":
@@ -200,6 +201,7 @@ function sipsettings_hookGet_config($engine) {
             case 'sip_language':
               if ($key != '') {
                 $sip_settings[] = array('language', $value);
+                $ext->addGlobal('SIPLANG',$value);
               }
             break;
 
