@@ -170,19 +170,19 @@ function sipsettings_hookGet_config($engine) {
             break;
 
             case 'externhost_val':
-              if ($nat_mode == 'externhost' && $key != '') {
+              if ($nat_mode == 'externhost' && $value != '') {
                 $sip_settings[] = array('externhost', $value);
               }
             break;
 
             case 'externrefresh':
-              if ($nat_mode == 'externhost' && $key != '') {
+              if ($nat_mode == 'externhost' && $value != '') {
                 $sip_settings[] = array($key, $value);
               }
             break;
 
             case 'externip_val':
-              if ($nat_mode == 'externip' && $key != '') {
+              if ($nat_mode == 'externip' && $value != '') {
                 $sip_settings[] = array('externip', $value);
               }
             break;
@@ -192,7 +192,7 @@ function sipsettings_hookGet_config($engine) {
             case 'jbmaxsize':
             case 'jbresyncthreshold':
             case 'jblog':
-              if ($jbenable == 'yes' && $key != '') {
+              if ($jbenable == 'yes' && $value != '') {
                 $sip_settings[] = array($key, $value);
               }
             break;
