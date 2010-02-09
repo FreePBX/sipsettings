@@ -55,10 +55,10 @@ if(DB::IsError($check)) {
 	outn(_("populating default codecs.."));
   $sip_settings =  array(
     array('ulaw'    ,'1', '0'),
-    array('alaw'    ,'1', '1'),
+    array('alaw'    ,'2', '1'),
     array('slin'    ,'' , '2'),
     array('g726'    ,'' , '3'),
-    array('gsm'     ,'1', '4'),
+    array('gsm'     ,'3', '4'),
     array('g729'    ,'' , '5'),
     array('ilbc'    ,'' , '6'),
     array('g723'    ,'' , '7'),

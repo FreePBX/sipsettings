@@ -43,6 +43,18 @@
     } 
     $p_idx++;
   }
+  function cmp($a, $b) {
+    if ($a == $b) {
+      return 0;
+    }
+    if ($a == '') {
+      return 1;
+    } elseif ($b == '') {
+      return -1;
+    } else {
+      return ($a > $b) ? 1 : -1;
+    }
+  }
 
   $codecs = array(
     'ulaw'     => '',
@@ -62,6 +74,7 @@
   foreach (array_keys($codecs) as $codec) {
     $codecs[$codec] = isset($_POST[$codec]) ? $_POST[$codec] : '';
   }
+  uasort($codecs, 'cmp');
   $sip_settings['codecs']            = $codecs;
   $sip_settings['g726nonstandard']   = isset($_POST['g726nonstandard']) ? $_POST['g726nonstandard'] : 'no';
   $sip_settings['t38pt_udptl']       = isset($_POST['t38pt_udptl']) ? $_POST['t38pt_udptl'] : 'no';
@@ -75,6 +88,7 @@
   foreach (array_keys($video_codecs) as $codec) {
     $video_codecs[$codec] = isset($_POST[$codec]) ? $_POST[$codec] : '';
   }
+  uasort($video_codecs, 'cmp');
   $sip_settings['video_codecs']      = $video_codecs;
   $sip_settings['videosupport']      = isset($_POST['videosupport']) ? $_POST['videosupport'] : 'no';
   $sip_settings['maxcallbitrate']    = isset($_POST['maxcallbitrate']) ? htmlspecialchars($_POST['maxcallbitrate']) : '384';
@@ -146,9 +160,12 @@ $error_displays = array_merge($error_displays,sipsettings_check_custom_files());
    * from and edit. So extract them after sorting out the codec sub arrays.
 	 */
   $codecs = $sip_settings['codecs'];
-  $video_codecs = $sip_settings['video_codecs'];
   unset($sip_settings['codecs']);
+  uasort($codecs, 'cmp');
+
+  $video_codecs = $sip_settings['video_codecs'];
   unset($sip_settings['video_codecs']);
+  uasort($video_codecs, 'cmp');
 
   /* EXTRACT THE VARIABLE HERE - MAKE SURE THEY ARE ALL MASSAGED ABOVE */
 	//
@@ -299,12 +316,13 @@ END;
     <td colspan="2"><h5><?php echo _("Audio Codecs")?><hr></h5></td>
   </tr>
   <tr>
-    <td valign='top'><a href="#" class="info"><?php echo _("Codecs")?><span><?php echo _("Check the desired codecs, all others will be disabled unless explicitly enabled in a device or trunks configuration.")?></span></a></td>
+    <td valign='top'><a href="#" class="info"><?php echo _("Codecs")?><span><?php echo _("Check the desired codecs, all others will be disabled unless explicitly enabled in a device or trunks configuration.")._(" If you clear each codec and then add them one at a time, submitting with each addition, they will be added in order which will effect the codec priority.")?></span></a></td>
     <td>
       <table width="100%">
         <tr>
 <?php
   $cols = $cols_per_row;
+  $seq = 1;
   foreach ($codecs as $codec => $codec_state) {
     if ($cols == 0) {
       echo "</tr><tr>\n";
@@ -316,10 +334,11 @@ END;
     $codec_checked = $codec_state ? 'checked' : '';
     echo <<< END
           <td width="$width%">
-            <input type="checkbox" value="1" name="$codec" id="$codec" class="audio-codecs" tabindex="$tabindex" $codec_checked />
+            <input type="checkbox" value="$seq" name="$codec" id="$codec" class="audio-codecs" tabindex="$tabindex" $codec_checked />
             <label for="$codec"> <small>$codec_trans</small> </label>
           </td>
 END;
+    $seq++;
   }
 ?>
         </tr>
@@ -375,7 +394,7 @@ END;
 
   <tr>
     <td>
-      <a href="#" class="info"><?php echo _("Video Support")?><span><?php echo _("Check to enable and then choose allowed codecs.")?></span></a>
+      <a href="#" class="info"><?php echo _("Video Support")?><span><?php echo _("Check to enable and then choose allowed codecs.")._(" If you clear each codec and then add them one at a time, submitting with each addition, they will be added in order which will effect the codec priority.")?></span></a>
     </td>
     <td>
       <table width="100%">
@@ -400,6 +419,7 @@ END;
         <tr>
 <?php
   $cols = $cols_per_row;
+  $seq = 1;
   foreach ($video_codecs as $codec => $codec_state) {
     if ($cols == 0) {
       echo "</tr><tr class=\"video-codecs\">\n";
@@ -411,10 +431,11 @@ END;
     $codec_checked = $codec_state ? 'checked' : '';
     echo <<< END
           <td width="$width%">
-            <input type="checkbox" value="1" name="$codec" id="$codec" class="video-codecs" tabindex="$tabindex" $codec_checked />
+            <input type="checkbox" value="$seq" name="$codec" id="$codec" class="video-codecs" tabindex="$tabindex" $codec_checked />
             <label for="$codec"><small> $codec_trans </small></label>
           </td>
 END;
+  $seq++;
   }
 ?>
         </tr>
