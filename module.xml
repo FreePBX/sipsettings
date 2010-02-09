@@ -28,6 +28,6 @@
 		*2.6.0alpha1.1* Added db
 		*2.6.0alpha1.0* Incomplete screen mockup
 	</changelog>
-	<location>release/2.6/sipsettings-2.6.0.7.tgz</location>
-	<md5sum>b12ca3f1b891db35a42c8ca3142d77df</md5sum>
+	<location>release/2.7/sipsettings-2.7.0.0.tgz</location>
+	<md5sum>876f29750d02a9a35147757f5fcaad01</md5sum>
 </module>
