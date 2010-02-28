@@ -1,7 +1,7 @@
 <module>
 	<rawname>sipsettings</rawname>
 	<name>Asterisk SIP Settings</name>
-	<version>2.7.0.0</version>
+	<version>2.7.0.1</version>
 	<publisher>Bandwidth.com</publisher>
 	<license>AGPLv3</license>
 	<type>tool</type>
@@ -13,6 +13,7 @@
 		Use to configure Various Asterisk SIP Settings in the General section of sip.conf. Also includes an auto-configuration tool to determine NAT settings. The module assumes Asterisk version 1.4 or higher. Some settings may not exist in Asterisk 1.2 and will be ignored by Asterisk.
 	</description>
 	<changelog>
+		*2.7.0.1* localizations
 		*2.7.0.0* #3976 allows codec priorities
 		*2.6.0.7* #3866
 		*2.6.0.6* #3722, localizations
@@ -28,6 +29,6 @@
 		*2.6.0alpha1.1* Added db
 		*2.6.0alpha1.0* Incomplete screen mockup
 	</changelog>
-	<location>release/2.7/sipsettings-2.7.0.0.tgz</location>
-	<md5sum>876f29750d02a9a35147757f5fcaad01</md5sum>
+	<location>release/2.7/sipsettings-2.7.0.1.tgz</location>
+	<md5sum>254a01e15caa4099e20ffab9fdd15a2f</md5sum>
 </module>
