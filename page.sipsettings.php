@@ -121,6 +121,7 @@
   $sip_settings['bindport']          = isset($_POST['bindport']) ? htmlspecialchars($_POST['bindport']) : '';
   $sip_settings['allowguest']        = isset($_POST['allowguest']) ? $_POST['allowguest'] : 'yes';
   $sip_settings['srvlookup']         = isset($_POST['srvlookup']) ? $_POST['srvlookup'] : 'no';
+  $sip_settings['callevents']        = isset($_POST['callevents']) ? $_POST['callevents'] : 'no'; 
 
   $p_idx = 0;
   $n_idx = 0;
@@ -742,6 +743,27 @@ END;
           <td width="25%">
             <input id="srvlookup-no" type="radio" name="srvlookup" value="no" tabindex="<?php echo ++$tabindex;?>"<?php echo $srvlookup=="no"?"checked=\"no\"":""?>/>
             <label for="srvlookup-no"><?php echo _("Disabled") ?></label>
+          </td>
+          <td width="25%"> </td><td width="25%"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      <a href="#" class="info"><?php echo _("Call Events")?><span><?php echo _("Generate manager events when sip ua performs events (e.g. hold).")?></span></a>
+    </td>
+    <td>
+      <table width="100%">
+        <tr>
+          <td width="25%">
+            <input id="callevents-yes" type="radio" name="callevents" value="yes" tabindex="<?php echo ++$tabindex;?>"<?php echo $callevents=="yes"?"checked=\"yes\"":""?>/>
+            <label for="callevents-yes"><?php echo _("Yes") ?></label>
+          </td>
+          <td width="25%">
+            <input id="callevents-no" type="radio" name="callevents" value="no" tabindex="<?php echo ++$tabindex;?>"<?php echo $callevents=="no"?"checked=\"no\"":""?>/>
+            <label for="callevents-no"><?php echo _("No") ?></label>
           </td>
           <td width="25%"> </td><td width="25%"></td>
         </tr>
