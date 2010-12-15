@@ -992,7 +992,7 @@ function sipsettings_check_custom_files() {
 
   foreach ($custom_files as $file) {
     if (file_exists($file)) {
-      $sip_conf = parse_ini_file($file,true);
+      $sip_conf = @parse_ini_file($file,true);
       $main = true; // 1 is sip.conf, after that don't care
       foreach ($sip_conf as $section => $item) {
         // If setting is an array, then it is a subsection
