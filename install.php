@@ -22,18 +22,6 @@
 global $db;
 global $amp_conf;
 
-if (! function_exists("out")) {
-	function out($text) {
-		echo $text."<br />";
-	}
-}
-
-if (! function_exists("outn")) {
-	function outn($text) {
-		echo $text;
-	}
-}
-
 $sql = <<< END
 CREATE TABLE IF NOT EXISTS `sipsettings` (
   `keyword` VARCHAR (50) NOT NULL default '',
