@@ -41,13 +41,8 @@
 	</xml>
 	*/
 
-	if (!$amp_conf['MODULEADMINWGET']) {
-		$ip_xml = @file_get_contents($fn);
-	}
-	if (empty($ip_xml)) {
-		exec("wget -O - '$fn' 2> /dev/null", $data_arr, $retcode);
-		$ip_xml = implode("\n",$data_arr);
-	}
+  $ip_xml = file_get_contents_url($fn);
+  //TODO: check for === false and deal with detected error
 
 	preg_match('|^<xml><ipaddress>(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})</ipaddress></xml>$|',$ip_xml,$matches);
 	if (isset($matches[1])) {
