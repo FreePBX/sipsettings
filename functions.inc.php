@@ -311,6 +311,7 @@ function sipsettings_get($raw=false) {
   $sip_settings['bindport']          = '';
   $sip_settings['allowguest']        = 'yes';
   $sip_settings['srvlookup']         = 'no';
+  $sip_settings['callevents']		= 'no';
 
   $sip_settings['sip_custom_key_0']  = '';
   $sip_settings['sip_custom_val_0']  = '';

@@ -24,7 +24,7 @@
   $tabindex       = 0;
   $dispnum        = "sipsettings";
   $error_displays = array();
-
+dbug('request', $_REQUEST);
   $action                            = isset($_POST['action'])?$_POST['action']:'';
 
   $sip_settings['nat']               = isset($_POST['nat']) ? $_POST['nat'] : 'yes';
@@ -56,6 +56,8 @@
     }
   }
 
+	$post_codec = isset($_POST['codec']) ? $_POST['codec'] : ''; 
+	
   $codecs = array(
     'ulaw'     => '',
     'alaw'     => '',
@@ -72,8 +74,9 @@
     'g722'     => '',
     );
   foreach (array_keys($codecs) as $codec) {
-    $codecs[$codec] = isset($_POST[$codec]) ? $_POST[$codec] : '';
+    $codecs[$codec] = isset($post_codec[$codec]) ? $post_codec[$codec] + 1 : '';
   }
+
   uasort($codecs, 'cmp');
   $sip_settings['codecs']            = $codecs;
   $sip_settings['g726nonstandard']   = isset($_POST['g726nonstandard']) ? $_POST['g726nonstandard'] : 'no';
@@ -317,33 +320,31 @@ END;
     <td colspan="2"><h5><?php echo _("Audio Codecs")?><hr></h5></td>
   </tr>
   <tr>
-    <td valign='top'><a href="#" class="info"><?php echo _("Codecs")?><span><?php echo _("Check the desired codecs, all others will be disabled unless explicitly enabled in a device or trunks configuration.")._(" If you clear each codec and then add them one at a time, submitting with each addition, they will be added in order which will effect the codec priority.")?></span></a></td>
+    <td valign='top'><a href="#" class="info"><?php echo _("Codecs")?><span><?php echo _("Check the desired codecs, all others will be disabled unless explicitly enabled in a device or trunks configuration.")?></span></a></td>
     <td>
-      <table width="100%">
-        <tr>
 <?php
-  $cols = $cols_per_row;
   $seq = 1;
+echo '<ul id="codec_list">';
   foreach ($codecs as $codec => $codec_state) {
-    if ($cols == 0) {
-      echo "</tr><tr>\n";
-      $cols = $cols_per_row;
-    }
-    $cols--;
     $tabindex++;
     $codec_trans = _($codec);
     $codec_checked = $codec_state ? 'checked' : '';
-    echo <<< END
-          <td width="$width%">
-            <input type="checkbox" value="$seq" name="$codec" id="$codec" class="audio-codecs" tabindex="$tabindex" $codec_checked />
-            <label for="$codec"> <small>$codec_trans</small> </label>
-          </td>
-END;
-    $seq++;
+	echo '<li>'
+		. '<img src="assets/sipsettings/images/arrow_up_down.png" height="16" width="16" border="0" alt="move" style="float:none; margin-left:-6px; margin-bottom:-3px;cursor:move" /> '
+		. '<input type="checkbox" '
+		. ($codec_checked ? 'value="'. $seq++ . '" ' : '')
+		. 'name="codec[' . $codec . ']" '
+		. 'id="'. $codec . '" '
+		. 'class="audio-codecs" tabindex="' . $tabindex. '" '
+		. $codec_checked
+		. ' />'
+		. '<label for="'. $codec . '"> '
+		. '<small>' . $codec_trans . '</small>'
+		. ' </label></li>';
   }
+echo '</ul>';
 ?>
-        </tr>
-      </table>
+
     </td>
   </tr>
 
