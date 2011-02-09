@@ -24,7 +24,6 @@
   $tabindex       = 0;
   $dispnum        = "sipsettings";
   $error_displays = array();
-dbug('request', $_REQUEST);
   $action                            = isset($_POST['action'])?$_POST['action']:'';
 
   $sip_settings['nat']               = isset($_POST['nat']) ? $_POST['nat'] : 'yes';
