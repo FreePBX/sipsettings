@@ -25,7 +25,7 @@
   $dispnum        = "sipsettings";
   $error_displays = array();
   $action                            = isset($_POST['action'])?$_POST['action']:'';
-
+dbug('request', $_REQUEST);
   $sip_settings['nat']               = isset($_POST['nat']) ? $_POST['nat'] : 'yes';
   $sip_settings['nat_mode']          = isset($_POST['nat_mode']) ? $_POST['nat_mode'] : 'externip';
   $sip_settings['externip_val']      = isset($_POST['externip_val']) ? htmlspecialchars($_POST['externip_val']) : '';
@@ -56,6 +56,7 @@
   }
 
 	$post_codec = isset($_POST['codec']) ? $_POST['codec'] : ''; 
+	$post_vcodec = isset($_POST['vcodec']) ? $_POST['vcodec'] : ''; 
 	
   $codecs = array(
     'ulaw'     => '',
@@ -88,7 +89,7 @@
     'h264'  => '',
     );
   foreach (array_keys($video_codecs) as $codec) {
-    $video_codecs[$codec] = isset($_POST[$codec]) ? $_POST[$codec] : '';
+    $video_codecs[$codec] = isset($post_vcodec[$codec]) ? $post_vcodec[$codec] + 1 : '';
   }
   uasort($video_codecs, 'cmp');
   $sip_settings['video_codecs']      = $video_codecs;
@@ -319,11 +320,11 @@ END;
     <td colspan="2"><h5><?php echo _("Audio Codecs")?><hr></h5></td>
   </tr>
   <tr>
-    <td valign='top'><a href="#" class="info"><?php echo _("Codecs")?><span><?php echo _("Check the desired codecs, all others will be disabled unless explicitly enabled in a device or trunks configuration.")?></span></a></td>
+    <td valign='top'><a href="#" class="info"><?php echo _("Codecs")?><span><?php echo _("Check the desired codecs, all others will be disabled unless explicitly enabled in a device or trunks configuration. Drag to re-order.")?></span></a></td>
     <td>
 <?php
   $seq = 1;
-echo '<ul id="codec_list">';
+echo '<ul class="sortable">';
   foreach ($codecs as $codec => $codec_state) {
     $tabindex++;
     $codec_trans = _($codec);
@@ -419,25 +420,26 @@ echo '</ul>';
       <table width="100%">
         <tr>
 <?php
-  $cols = $cols_per_row;
-  $seq = 1;
-  foreach ($video_codecs as $codec => $codec_state) {
-    if ($cols == 0) {
-      echo "</tr><tr class=\"video-codecs\">\n";
-      $cols = $cols_per_row;
-    }
-    $cols--;
+echo '<ul  class="sortable video-codecs">';
+   foreach ($video_codecs as $codec => $codec_state) {
     $tabindex++;
     $codec_trans = _($codec);
     $codec_checked = $codec_state ? 'checked' : '';
-    echo <<< END
-          <td width="$width%">
-            <input type="checkbox" value="$seq" name="$codec" id="$codec" class="video-codecs" tabindex="$tabindex" $codec_checked />
-            <label for="$codec"><small> $codec_trans </small></label>
-          </td>
-END;
-  $seq++;
-  }
+	echo '<li>'
+		. '<img src="assets/sipsettings/images/arrow_up_down.png" height="16" width="16" border="0" alt="move" style="float:none; margin-left:-6px; margin-bottom:-3px;cursor:move" /> '
+		. '<input type="checkbox" '
+		. ($codec_checked ? 'value="'. $seq++ . '" ' : '')
+		. 'name="vcodec[' . $codec . ']" '
+		. 'id="'. $codec . '" '
+		. 'class="audio-codecs" tabindex="' . $tabindex. '" '
+		. $codec_checked
+		. ' />'
+		. '<label for="'. $codec . '"> '
+		. '<small>' . $codec_trans . '</small>'
+		. ' </label></li>';
+  	}
+echo '</ul>';
+
 ?>
         </tr>
       </table>
