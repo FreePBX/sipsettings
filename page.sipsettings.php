@@ -25,7 +25,6 @@
   $dispnum        = "sipsettings";
   $error_displays = array();
   $action                            = isset($_POST['action'])?$_POST['action']:'';
-dbug('request', $_REQUEST);
   $sip_settings['nat']               = isset($_POST['nat']) ? $_POST['nat'] : 'yes';
   $sip_settings['nat_mode']          = isset($_POST['nat_mode']) ? $_POST['nat_mode'] : 'externip';
   $sip_settings['externip_val']      = isset($_POST['externip_val']) ? htmlspecialchars($_POST['externip_val']) : '';
@@ -73,11 +72,13 @@ dbug('request', $_REQUEST);
     'speex'    => '',
     'g722'     => '',
     );
-  foreach (array_keys($codecs) as $codec) {
-    $codecs[$codec] = isset($post_codec[$codec]) ? $post_codec[$codec] + 1 : '';
-  }
 
-  uasort($codecs, 'cmp');
+  // With the new sorting, the vars should come to us in the sorted order so just use that
+  //
+  $pri = 1;
+  foreach (array_keys($post_codec) as $codec) {
+    $codecs[$codec] = $pri++;
+  }
   $sip_settings['codecs']            = $codecs;
   $sip_settings['g726nonstandard']   = isset($_POST['g726nonstandard']) ? $_POST['g726nonstandard'] : 'no';
   $sip_settings['t38pt_udptl']       = isset($_POST['t38pt_udptl']) ? $_POST['t38pt_udptl'] : 'no';
@@ -88,10 +89,13 @@ dbug('request', $_REQUEST);
     'h263p' => '',
     'h264'  => '',
     );
-  foreach (array_keys($video_codecs) as $codec) {
-    $video_codecs[$codec] = isset($post_vcodec[$codec]) ? $post_vcodec[$codec] + 1 : '';
+
+  // With the new sorting, the vars should come to us in the sorted order so just use that
+  //
+  $pri = 1;
+  foreach (array_keys($post_vcodec) as $vcodec) {
+    $video_codecs[$vcodec] = $pri++;
   }
-  uasort($video_codecs, 'cmp');
   $sip_settings['video_codecs']      = $video_codecs;
   $sip_settings['videosupport']      = isset($_POST['videosupport']) ? $_POST['videosupport'] : 'no';
   $sip_settings['maxcallbitrate']    = isset($_POST['maxcallbitrate']) ? htmlspecialchars($_POST['maxcallbitrate']) : '384';

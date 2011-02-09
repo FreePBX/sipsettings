@@ -145,6 +145,7 @@ function sipsettings_hookGet_config($engine) {
 
         /* Codecs First */
         $core_conf->addSipGeneral('disallow','all');
+        asort($codecs);
         foreach ($codecs as $codec => $enabled) {
           if ($enabled != '') {
             $core_conf->addSipGeneral('allow',$codec);
@@ -153,6 +154,7 @@ function sipsettings_hookGet_config($engine) {
         unset($codecs);
 
         if ($interim_settings['videosupport'] == 'yes') {
+          asort($video_codecs);
           foreach ($video_codecs as $codec => $enabled) {
             if ($enabled != '') {
               $core_conf->addSipGeneral('allow',$codec);
