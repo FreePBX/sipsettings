@@ -5,7 +5,4 @@ $(document).ready(function() {
 			ui.item.find('input').val(ui.item.index())
 		}
 	})
-	
-
-
 });

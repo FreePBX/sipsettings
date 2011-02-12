@@ -334,7 +334,7 @@ echo '<ul class="sortable">';
     $codec_trans = _($codec);
     $codec_checked = $codec_state ? 'checked' : '';
 	echo '<li>'
-		. '<img src="assets/sipsettings/images/arrow_up_down.png" height="16" width="16" border="0" alt="move" style="float:none; margin-left:-6px; margin-bottom:-3px;cursor:move" /> '
+		. '<img src="assets/'.$dispnum.'/images/arrow_up_down.png" height="16" width="16" border="0" alt="move" style="float:none; margin-left:-6px; margin-bottom:-3px;cursor:move" /> '
 		. '<input type="checkbox" '
 		. ($codec_checked ? 'value="'. $seq++ . '" ' : '')
 		. 'name="codec[' . $codec . ']" '
@@ -430,7 +430,7 @@ echo '<ul  class="sortable video-codecs">';
     $codec_trans = _($codec);
     $codec_checked = $codec_state ? 'checked' : '';
 	echo '<li>'
-		. '<img src="assets/sipsettings/images/arrow_up_down.png" height="16" width="16" border="0" alt="move" style="float:none; margin-left:-6px; margin-bottom:-3px;cursor:move" /> '
+		. '<img src="assets/'.$dispnum.'/images/arrow_up_down.png" height="16" width="16" border="0" alt="move" style="float:none; margin-left:-6px; margin-bottom:-3px;cursor:move" /> '
 		. '<input type="checkbox" '
 		. ($codec_checked ? 'value="'. $seq++ . '" ' : '')
 		. 'name="vcodec[' . $codec . ']" '
