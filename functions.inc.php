@@ -58,10 +58,15 @@ class sipsettings_validate {
   }
 
   /* checks if value is valid ip format */
-  function is_ip($value, $item, $message) {
+  function is_ip($value, $item, $message, $ipv6_ok=false) {
     $value = trim($value);
     if ($value != '' && !preg_match('|^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$|',$value,$matches)) {
-      $this->errors[] = array('id' => $item, 'value' => $value, 'message' => $message);
+      $regex = '/^\s*((?=.*::.*)(::)?([0-9A-F]{1,4}(:(?=[0-9A-F])|(?!\2)(?!\5)(::)|\z)){0,7}|((?=.*::.*)(::)?([0-9A-F]{1,4}(:(?=[0-9A-F])|(?!\7)(?!\10)(::))){0,5}|([0-9A-F]{1,4}:){6})((25[0-5]|(2[0-4]|1[0-9]|[1-9]?)[0-9])(\.(?=.)|\z)){4}|([0-9A-F]{1,4}:){7}[0-9A-F]{1,4})\s*$/i';
+      if ($ipv6_ok && ($value == '::' || preg_match($regex,$value, $matches))) {
+        return $value;
+      } else {
+        $this->errors[] = array('id' => $item, 'value' => $value, 'message' => $message);
+      }
     }
     return $value;
   }
@@ -349,6 +354,7 @@ function sipsettings_get($raw=false) {
 // Add a sipsettings
 function sipsettings_edit($sip_settings) {
   global $db;
+  global $amp_conf;
   $save_settings = array();
   $vd = new  sipsettings_validate();
 
@@ -364,7 +370,8 @@ function sipsettings_edit($sip_settings) {
     switch ($key) {
       case 'bindaddr':
         $msg = _("Bind Address (bindaddr) must be an IP address.");
-        $save_settings[] = array($key,$db->escapeSimple($vd->is_ip($val,$key,$msg)),'2',SIP_NORMAL);
+        $ipv6_ok = version_compare($amp_conf['ASTVERSION'],'1.8','ge');
+        $save_settings[] = array($key,$db->escapeSimple($vd->is_ip($val,$key,$msg,$ipv6_ok)),'2',SIP_NORMAL);
       break;
 
       case 'bindport':

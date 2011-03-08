@@ -696,9 +696,16 @@ echo '</ul>';
     </td>
   </tr>
 
+<?php
+$tt = _("Asterisk: bindaddr. The IP address to bind to and listen for calls on the Bind Port. If set to 0.0.0.0 Asterisk will listen on all addresses. It is recommended to leave this blank.");
+if (version_compare($amp_conf['ASTVERSION'],'1.8','ge')) {
+  $tt .= ' ' . _("Asterisk 1.8 all supports IPv6. An address of '::' will listen on both IPv4 and IPv6.");
+}
+
+?>
   <tr>
     <td>
-      <a href="#" class="info"><?php echo _("Bind Address")?><span><?php echo _("Asterisk: bindaddr. The IP address to bind to and listen for calls on the Bind Port. If set to 0.0.0.0 Asterisk will listen on all addresses. It is recommended to leave this blank.")?></span></a>
+      <a href="#" class="info"><?php echo _("Bind Address")?><span><?php echo $tt?></span></a>
     </td>
     <td>
       <input type="text" id="bindaddr" name="bindaddr" class="validate-ip" value="<?php echo $bindaddr ?>" tabindex="<?php echo ++$tabindex;?>">
