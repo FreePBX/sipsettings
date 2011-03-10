@@ -480,7 +480,7 @@ function sipsettings_edit($sip_settings) {
       } else if (substr($key,0,8) == "netmask_") {
         // ip validate this and store
         $seq = substr($key,8);
-        $msg = _("Localnet netmask must be formated properly (e.g. 255.255.255.0 or 24)");
+        $msg = _("Localnet netmask must be formatted properly (e.g. 255.255.255.0 or 24)");
         $save_settings[] = array($key,$db->escapeSimple($vd->is_netmask($val,$key,$msg)),$seq,SIP_NORMAL); 
       } else if (substr($key,0,15) == "sip_custom_key_") {
         $seq = substr($key,15);
