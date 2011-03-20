@@ -30,6 +30,11 @@
   $sip_settings['externip_val']      = isset($_POST['externip_val']) ? htmlspecialchars($_POST['externip_val']) : '';
   $sip_settings['externhost_val']    = isset($_POST['externhost_val']) ? htmlspecialchars($_POST['externhost_val']) : '';
   $sip_settings['externrefresh']     = isset($_POST['externrefresh']) ? htmlspecialchars($_POST['externrefresh']) : '120';
+  // QaD fix for localization, xgettext does not pickup the localization string in the code
+	$add_field = _("Add Field");
+	$auto_configure = _("Auto Configure");
+	$add_local_network_field = _("Add Local Network Field");
+	$submit_changes = _("Submit Changes");
 
   $p_idx = 0;
   $n_idx = 0;
@@ -315,8 +320,8 @@ END;
   <tr class="nat-settings" id="auto-configure-buttons">
     <td></td>
     <td><br \>
-      <input type="button" id="nat-auto-configure"  value="<?php echo _("Auto Configure")?>" class="nat-settings" />
-      <input type="button" id="localnet-add"  value="<?php echo _("Add Local Network Field")?>" class="nat-settings" />
+      <input type="button" id="nat-auto-configure"  value="<?php echo $auto_configure ?>" class="nat-settings" />
+      <input type="button" id="localnet-add"  value="<?php echo $add_local_network_field ?>" class="nat-settings" />
     </td>
   </tr>
 
@@ -826,12 +831,12 @@ END;
   <tr id="sip-custom-buttons">
     <td></td>
     <td><br \>
-      <input type="button" id="sip-custom-add"  value="<?php echo _("Add Field")?>" />
+      <input type="button" id="sip-custom-add"  value="<?php echo $add_field ?>" />
     </td>
   </tr>
 
   <tr>
-    <td colspan="2"><br><h6><input name="Submit" type="submit" value="<?php echo _("Submit Changes")?>" tabindex="<?php echo ++$tabindex;?>"></h6></td>
+    <td colspan="2"><br><h6><input name="Submit" type="submit" value="<?php echo $submit_changes ?>" tabindex="<?php echo ++$tabindex;?>"></h6></td>
   </tr>
 </table>
 <script language="javascript">
