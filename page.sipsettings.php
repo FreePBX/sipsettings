@@ -222,7 +222,7 @@ $error_displays = array_merge($error_displays,sipsettings_check_custom_files());
     <td>
       <table width="100%">
         <tr>
-          <td width="25%">
+          <td>
 			<span class="radioset">
             <input id="nat-yes" type="radio" name="nat" value="yes" tabindex="<?php echo ++$tabindex;?>"<?php echo $nat=="yes"?"checked=\"yes\"":""?>/>
             <label for="nat-yes">yes</label>
@@ -360,7 +360,7 @@ echo '</ul>';
     <td>
       <table width="100%">
         <tr>
-          <td width="25%">
+          <td >
 			<span class="radioset">
             <input id="g726nonstandard-yes" type="radio" name="g726nonstandard" value="yes" tabindex="<?php echo ++$tabindex;?>"<?php echo $g726nonstandard=="yes"?"checked=\"yes\"":""?>/>
             <label for="g726nonstandard-yes"><?php echo _("Yes") ?></label>
@@ -368,7 +368,6 @@ echo '</ul>';
             <label for="g726nonstandard-no"><?php echo _("No") ?></label>
 			</span>
           </td>
-          <td width="25%"> </td><td width="25%"></td>
         </tr>
       </table>
     </td>
@@ -381,7 +380,7 @@ echo '</ul>';
     <td>
       <table width="100%">
         <tr>
-          <td width="25%">
+          <td>
 			<span class="radioset">
             <input id="t38pt_udptl-yes" type="radio" name="t38pt_udptl" value="yes" tabindex="<?php echo ++$tabindex;?>"<?php echo $t38pt_udptl=="yes"?"checked=\"yes\"":""?>/>
             <label for="t38pt_udptl-yes"><?php echo _("Yes") ?></label>
@@ -389,7 +388,6 @@ echo '</ul>';
             <label for="t38pt_udptl-no"><?php echo _("No") ?></label>
 			</span>
           </td>
-          <td width="25%"> </td><td width="25%"></td>
         </tr>
       </table>
     </td>
@@ -406,7 +404,7 @@ echo '</ul>';
     <td>
       <table width="100%">
         <tr>
-          <td width="25%">
+          <td>
 			<span class="radioset">
             <input id="videosupport-yes" type="radio" name="videosupport" value="yes" tabindex="<?php echo ++$tabindex;?>"<?php echo $videosupport=="yes"?"checked=\"yes\"":""?>/>
             <label for="videosupport-yes"><?php echo _("Enabled") ?></label>
@@ -414,7 +412,6 @@ echo '</ul>';
             <label for="videosupport-no"><?php echo _("Disabled") ?></label>
 			</span>
           </td>
-          <td width="25%"> </td><td width="25%"></td>
         </tr>
       </table>
     </td>
@@ -469,7 +466,7 @@ echo '</ul>';
     <td>
       <table width="100%">
         <tr>
-          <td width="25%">
+          <td>
 			<span class="radioset">
             <input id="canreinvite-yes" type="radio" name="canreinvite" value="yes" tabindex="<?php echo ++$tabindex;?>"<?php echo $canreinvite=="yes"?"checked=\"yes\"":""?>/>
             <label for="canreinvite-yes"><?php echo _("yes") ?></label>
@@ -515,7 +512,7 @@ echo '</ul>';
     <td>
       <table width="100%">
         <tr>
-          <td width="25%">
+          <td>
 			<span class="radioset">
             <input id="notifyringing-yes" type="radio" name="notifyringing" value="yes" tabindex="<?php echo ++$tabindex;?>"<?php echo $notifyringing=="yes"?"checked=\"yes\"":""?>/>
             <label for="notifyringing-yes"><?php echo _("Yes") ?></label>
@@ -523,7 +520,6 @@ echo '</ul>';
             <label for="notifyringing-no"><?php echo _("No") ?></label>
 			</span>
           </td>
-          <td width="25%"> </td><td width="25%"></td>
         </tr>
       </table>
     </td>
@@ -536,7 +532,7 @@ echo '</ul>';
     <td>
       <table width="100%">
         <tr>
-          <td width="25%">
+          <td>
 			<span class="radioset">
             <input id="notifyhold-yes" type="radio" name="notifyhold" value="yes" tabindex="<?php echo ++$tabindex;?>"<?php echo $notifyhold=="yes"?"checked=\"yes\"":""?>/>
             <label for="notifyhold-yes"><?php echo _("Yes") ?></label>
@@ -544,7 +540,6 @@ echo '</ul>';
             <label for="notifyhold-no"><?php echo _("No") ?></label>
 			</span>
           </td>
-          <td width="25%"> </td><td width="25%"></td>
         </tr>
       </table>
     </td>
@@ -584,7 +579,7 @@ echo '</ul>';
     <td>
       <table width="100%">
         <tr>
-          <td width="25%">
+          <td>
 			<span class="radioset">
             <input id="jbenable-yes" type="radio" name="jbenable" value="yes" tabindex="<?php echo ++$tabindex;?>"<?php echo $jbenable=="yes"?"checked=\"yes\"":""?>/>
             <label for="jbenable-yes"><?php echo _("Enabled") ?></label>
@@ -592,7 +587,6 @@ echo '</ul>';
             <label for="jbenable-no"><?php echo _("Disabled") ?></label>
 			</span>
           </td>
-          <td width="25%"> </td><td width="25%"></td>
         </tr>
       </table>
     </td>
@@ -605,7 +599,7 @@ echo '</ul>';
     <td>
       <table width="100%">
         <tr>
-          <td width="25%">
+          <td>
 			<span class="radioset">
             <input id="jbforce-yes" type="radio" name="jbforce" class="jitter-buffer" value="yes" tabindex="<?php echo ++$tabindex;?>"<?php echo $jbforce=="yes"?"checked=\"yes\"":""?>/>
             <label for="jbforce-yes"><?php echo _("Yes") ?></label>
@@ -613,7 +607,6 @@ echo '</ul>';
             <label for="jbforce-no"><?php echo _("No") ?></label>
 			</span>
           </td>
-          <td width="25%"> </td><td width="25%"></td>
         </tr>
       </table>
     </td>
@@ -626,7 +619,7 @@ echo '</ul>';
     <td>
       <table width="100%">
         <tr>
-          <td width="25%">
+          <td>
 			<span class="radioset">
             <input id="jbimpl-fixed" type="radio" name="jbimpl" class="jitter-buffer" value="fixed" tabindex="<?php echo ++$tabindex;?>"<?php echo $jbimpl=="fixed"?"checked=\"fixed\"":""?>/>
             <label for="jbimpl-fixed"><?php echo _("Fixed") ?></label>
@@ -634,7 +627,6 @@ echo '</ul>';
             <label for="jbimpl-adaptive"><?php echo _("Adaptive") ?></label>
 			</span>
           </td>
-          <td width="25%"> </td><td width="25%"></td>
         </tr>
       </table>
     </td>
@@ -647,7 +639,7 @@ echo '</ul>';
     <td>
       <table width="100%">
         <tr>
-          <td width="25%">
+          <td>
 			<span class="radioset">
             <input id="jblog-yes" type="radio" name="jblog" class="jitter-buffer" value="yes" tabindex="<?php echo ++$tabindex;?>"<?php echo $jblog=="yes"?"checked=\"yes\"":""?>/>
             <label for="jblog-yes"><?php echo _("Enable") ?></label>
@@ -655,7 +647,6 @@ echo '</ul>';
             <label for="jblog-no"><?php echo _("Disable") ?></label>
 			</span>
           </td>
-          <td width="25%"> </td><td width="25%"></td>
         </tr>
       </table>
     </td>
@@ -725,7 +716,7 @@ if (version_compare($amp_conf['ASTVERSION'],'1.8','ge')) {
     <td>
       <table width="100%">
         <tr>
-          <td width="25%">
+          <td>
 			<span class="radioset">
             <input id="allowguest-yes" type="radio" name="allowguest" value="yes" tabindex="<?php echo ++$tabindex;?>"<?php echo $allowguest=="yes"?"checked=\"yes\"":""?>/>
             <label for="allowguest-yes"><?php echo _("Yes") ?></label>
@@ -733,7 +724,6 @@ if (version_compare($amp_conf['ASTVERSION'],'1.8','ge')) {
             <label for="allowguest-no"><?php echo _("No") ?></label>
 			</span>
           </td>
-          <td width="25%"> </td><td width="25%"></td>
         </tr>
       </table>
     </td>
@@ -746,7 +736,7 @@ if (version_compare($amp_conf['ASTVERSION'],'1.8','ge')) {
     <td>
       <table width="100%">
         <tr>
-          <td width="25%">
+          <td>
 			<span class="radioset">
             <input id="srvlookup-yes" type="radio" name="srvlookup" value="yes" tabindex="<?php echo ++$tabindex;?>"<?php echo $srvlookup=="yes"?"checked=\"yes\"":""?>/>
             <label for="srvlookup-yes"><?php echo _("Enabled") ?></label>
@@ -754,7 +744,6 @@ if (version_compare($amp_conf['ASTVERSION'],'1.8','ge')) {
             <label for="srvlookup-no"><?php echo _("Disabled") ?></label>
 			</span>
           </td>
-          <td width="25%"> </td><td width="25%"></td>
         </tr>
       </table>
     </td>
@@ -767,7 +756,7 @@ if (version_compare($amp_conf['ASTVERSION'],'1.8','ge')) {
     <td>
       <table width="100%">
         <tr>
-          <td width="25%">
+          <td>
 			<span class="radioset">
             <input id="callevents-yes" type="radio" name="callevents" value="yes" tabindex="<?php echo ++$tabindex;?>"<?php echo $callevents=="yes"?"checked=\"yes\"":""?>/>
             <label for="callevents-yes"><?php echo _("Yes") ?></label>
@@ -775,7 +764,6 @@ if (version_compare($amp_conf['ASTVERSION'],'1.8','ge')) {
             <label for="callevents-no"><?php echo _("No") ?></label>
 			</span>
           </td>
-          <td width="25%"> </td><td width="25%"></td>
         </tr>
       </table>
     </td>
