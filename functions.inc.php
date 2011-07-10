@@ -273,8 +273,8 @@ function sipsettings_get($raw=false) {
     'lpc10'    => '',
     'speex'    => '',
     'g722'     => '',
-    'jpeg'     => '',
-    'png'      => '',
+    'siren7'   => '',
+    'siren14'  => '',
     );
 
   $sip_settings['g726nonstandard']   = 'no';
