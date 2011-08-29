@@ -164,9 +164,6 @@ switch ($action) {
 $error_displays = array_merge($error_displays,sipsettings_check_custom_files());
 
 ?>
-
-</div>
-<div class="content">
   <h2><?php echo _("Edit Settings"); ?></h2>
 
 <?php
@@ -336,7 +333,7 @@ echo '<ul class="sortable">';
     $tabindex++;
     $codec_trans = _($codec);
     $codec_checked = $codec_state ? 'checked' : '';
-	echo '<li>'
+	echo '<li><a href="#">'
 		. '<img src="assets/'.$dispnum.'/images/arrow_up_down.png" height="16" width="16" border="0" alt="move" style="float:none; margin-left:-6px; margin-bottom:-3px;cursor:move" /> '
 		. '<input type="checkbox" '
 		. ($codec_checked ? 'value="'. $seq++ . '" ' : '')
@@ -347,7 +344,7 @@ echo '<ul class="sortable">';
 		. ' />'
 		. '<label for="'. $codec . '"> '
 		. '<small>' . $codec_trans . '</small>'
-		. ' </label></li>';
+		. ' </label></a></li>';
   }
 echo '</ul>';
 ?>
@@ -429,7 +426,7 @@ echo '<ul  class="sortable video-codecs">';
     $tabindex++;
     $codec_trans = _($codec);
     $codec_checked = $codec_state ? 'checked' : '';
-	echo '<li>'
+	echo '<li><a href="#">'
 		. '<img src="assets/'.$dispnum.'/images/arrow_up_down.png" height="16" width="16" border="0" alt="move" style="float:none; margin-left:-6px; margin-bottom:-3px;cursor:move" /> '
 		. '<input type="checkbox" '
 		. ($codec_checked ? 'value="'. $seq++ . '" ' : '')
@@ -440,7 +437,7 @@ echo '<ul  class="sortable video-codecs">';
 		. ' />'
 		. '<label for="'. $codec . '"> '
 		. '<small>' . $codec_trans . '</small>'
-		. ' </label></li>';
+		. ' </label></a></li>';
   	}
 echo '</ul>';
 

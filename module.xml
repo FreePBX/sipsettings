@@ -5,10 +5,9 @@
 	<version>2.9.0.5</version>
 	<publisher>Bandwidth.com</publisher>
 	<license>AGPLv3</license>
-	<type>tool</type>
-	<category>Advanced Administration</category>
+	<category>Settings</category>
 	<menuitems>
-		<sipsettings sort="-6">Asterisk SIP Settings</sipsettings>
+		<sipsettings>Asterisk SIP Settings</sipsettings>
 	</menuitems>
 	<description>
 		Use to configure Various Asterisk SIP Settings in the General section of sip.conf. Also includes an auto-configuration tool to determine NAT settings. The module assumes Asterisk version 1.4 or higher. Some settings may not exist in Asterisk 1.2 and will be ignored by Asterisk.
