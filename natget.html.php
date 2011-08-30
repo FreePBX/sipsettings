@@ -19,13 +19,6 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-	/* For testing:
-	if (! @include_once("common/json.inc.php")) {
-		include_once("/var/www/html/admin/common/json.inc.php");
-	}
-	*/
-	include_once("common/json.inc.php");
-
 	global $amp_conf;
 	$output = array();
 	$fn = "http://mirror.freepbx.org/whatismyip.php";
@@ -64,7 +57,5 @@
 	}
 	$json_array['localnet'] = $localnet;
 
-	$json = new Services_JSON();
-	sleep(0);
 	header("Content-type: application/json"); 
-	echo $json->encode($json_array);
+	echo json_encode($json_array);
