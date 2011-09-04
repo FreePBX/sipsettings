@@ -14,13 +14,13 @@
 #    along with FreePBX.  If not, see <http://www.gnu.org/licenses/>.
 #
 # FreePBX language template for sipsettings
-# Copyright (C) 2008, 2009, 2010 Bandwith.com
+# Copyright (C) 2008, 2009, 2010, 2011 Bandwith.com
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: FreePBX sipsettings\n"
+"Project-Id-Version: FreePBX\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-03-20 20:24+0100\n"
+"POT-Creation-Date: 2011-09-04 18:42+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -476,7 +476,7 @@ msgstr ""
 msgid "Asterisk SIP Settings"
 msgstr ""
 
-msgid "Advanced Administration"
+msgid "Settings"
 msgstr ""
 
 msgid ""
