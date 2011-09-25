@@ -275,6 +275,8 @@ function sipsettings_get($raw=false) {
     'g722'     => '',
     'siren7'   => '',
     'siren14'  => '',
+    'jpeg'     => '',
+    'png'      => '',
     );
 
   $sip_settings['g726nonstandard']   = 'no';

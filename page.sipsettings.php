@@ -78,6 +78,8 @@
     'g722'     => '',
     'siren7'   => '',
     'siren14'  => '',
+    'jpeg'   => '',
+    'png'  => '',
     );
 
   // With the new sorting, the vars should come to us in the sorted order so just use that
