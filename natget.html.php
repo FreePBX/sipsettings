@@ -1,5 +1,6 @@
 <?php
 /* $Id:$ */
+if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 
 // Original Release by Philippe Lindheimer
 // Copyright Philippe Lindheimer (2009)
