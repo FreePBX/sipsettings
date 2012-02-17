@@ -22,7 +22,7 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 
 	global $amp_conf;
 	$output = array();
-	$fn = "http://mirror.freepbx.org/whatismyip.php";
+	$fn = "http://myip.freepbx.org:5060/whatismyip.php";
 
 	$json_array['status'] = _('Failed to auto-detect settings');
 	$json_array['externip'] = '';
