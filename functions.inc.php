@@ -213,6 +213,10 @@ function sipsettings_hookGet_config($engine) {
               }
             break;
 
+            case 'ALLOW_SIP_ANON':
+							$ext->addGlobal($key,$value);
+						break;
+
             default:
               if (substr($key,0,9) == "localnet_" && $value != '') {
                 if ($nat_mode != 'public') {
@@ -244,6 +248,16 @@ function sipsettings_get($raw=false) {
 
   $sql = "SELECT `keyword`, `data`, `type`, `seq` FROM `sipsettings` ORDER BY `type`, `seq`";
   $raw_settings = sql($sql,"getAll",DB_FETCHMODE_ASSOC);
+
+	// Pull this out of admin table where it is special cased because of migration from General Settings
+	//
+	$sql = "SELECT `variable` keyword, `value` data FROM `admin` WHERE `variable` = 'ALLOW_SIP_ANON'";
+  $sip_anon = sql($sql,"getRow",DB_FETCHMODE_ASSOC);
+	if (!empty($sip_anon)) {
+		$sip_anon['type'] = SIP_NORMAL;
+		$sip_anon['seq'] = 10;
+		$raw_settings[] = $sip_anon;
+	}
 
   /* Just give the SQL table if more convenient (such as in hookGet_config */
   if ($raw) {
@@ -315,6 +329,7 @@ function sipsettings_get($raw=false) {
 
   $sip_settings['sip_language']      = '';
   $sip_settings['context']           = '';
+  $sip_settings['ALLOW_SIP_ANON']    = 'no';
   $sip_settings['bindaddr']          = '';
   $sip_settings['bindport']          = '';
   $sip_settings['allowguest']        = 'yes';
@@ -357,6 +372,7 @@ function sipsettings_edit($sip_settings) {
   global $db;
   global $amp_conf;
   $save_settings = array();
+	$save_to_admin = array(); // Used only by ALLOW_SIP_ANON for now
   $vd = new  sipsettings_validate();
 
   $codecs = $sip_settings['codecs'];
@@ -471,7 +487,10 @@ function sipsettings_edit($sip_settings) {
       case 'srvlookup':
         $save_settings[] = array($key,$val,'10',SIP_NORMAL);
       break;
-
+ 
+			case 'ALLOW_SIP_ANON':
+				$save_to_admin[] = array($key,$val);
+			break;
     default:
       if (substr($key,0,9) == "localnet_") {
         // ip validate this and store
@@ -515,7 +534,15 @@ function sipsettings_edit($sip_settings) {
     $compiled = $db->prepare('INSERT INTO `sipsettings` (`keyword`, `data`, `seq`, `type`) VALUES (?,?,?,?)');
     $result = $db->executeMultiple($compiled,$save_settings);
     if(DB::IsError($result)) {
-      die_freepbx($result->getDebugInfo()."<br><br>".'error adding to sipsettings table');	}
+			die_freepbx($result->getDebugInfo()."<br><br>".'error adding to sipsettings table');	
+		}
+		if (!empty($save_to_admin)) {
+			$compiled = $db->prepare("REPLACE INTO `admin` (`variable`, `value`) VALUES (?,?)");
+			$result = $db->executeMultiple($compiled,$save_to_admin);
+			if(DB::IsError($result)) {
+				die_freepbx($result->getDebugInfo()."<br><br>".'error adding to sipsettings table');	
+			}
+		}
     return true;
   }
 }

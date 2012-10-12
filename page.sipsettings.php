@@ -132,6 +132,7 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 
   $sip_settings['sip_language']      = isset($_POST['sip_language']) ? htmlspecialchars($_POST['sip_language']) : '';
   $sip_settings['context']           = isset($_POST['context']) ? htmlspecialchars($_POST['context']) : '';
+  $sip_settings['ALLOW_SIP_ANON']    = isset($_POST['ALLOW_SIP_ANON']) ? $_POST['ALLOW_SIP_ANON'] : 'no';
   $sip_settings['bindaddr']          = isset($_POST['bindaddr']) ? htmlspecialchars($_POST['bindaddr']) : '';
   $sip_settings['bindport']          = isset($_POST['bindport']) ? htmlspecialchars($_POST['bindport']) : '';
   $sip_settings['allowguest']        = isset($_POST['allowguest']) ? $_POST['allowguest'] : 'yes';
@@ -711,7 +712,7 @@ if (version_compare($amp_conf['ASTVERSION'],'1.8','ge')) {
 
   <tr>
     <td>
-      <a href="#" class="info"><?php echo _("Allow SIP Guests")?><span><?php echo _("Asterisk: allowguest. When set Asterisk will allow Guest SIP calls and send them to the Default SIP context. Turning this off will keep anonymous SIP calls from entering the system. However, the Allow Anonymous SIP calls from the General Settings section will not function. Allowing guest calls but rejecting the Anonymous SIP calls in the General Section will enable you to see the call attempts and debug incoming calls that may be mis-configured and appearing as guests.")?></span></a>
+      <a href="#" class="info"><?php echo _("Allow SIP Guests")?><span><?php echo _("Asterisk: allowguest. When set Asterisk will allow Guest SIP calls and send them to the Default SIP context. Turning this off will keep anonymous SIP calls from entering the system. Doing such will also stop 'Allow Anonymous Inbound SIP Calls' from functioning. Allowing guest calls but rejecting the Anonymous SIP calls below will enable you to see the call attempts and debug incoming calls that may be mis-configured and appearing as guests.")?></span></a>
     </td>
     <td>
       <table width="100%">
@@ -728,6 +729,27 @@ if (version_compare($amp_conf['ASTVERSION'],'1.8','ge')) {
       </table>
     </td>
   </tr>
+
+  <tr>
+    <td>
+      <a href="#" class="info"><?php echo _("Allow Anonymous Inbound SIP Calls")?><span><?php echo _("Allowing Inbound Anonymous SIP calls means that you will allow any call coming in form an un-known IP source to be directed to the 'from-pstn' side of your dialplan. This is where inbound calls come in. Although FreePBX severely restricts access to the internal dialplan, allowing Anonymous SIP calls does introduced additional security risks. If you allow SIP URI dialing to your PBX or use services like ENUM, you will be required to set this to Yes for Inbound traffic to work. This is NOT an Asterisk sip.conf setting, it is used in the dialplan in conjuction with the Default Context. If that context is changed above to something custom this setting may be rendered useless as well as if 'Allow SIP Guests' is set to no.")?></span></a>
+    </td>
+    <td>
+      <table width="100%">
+        <tr>
+          <td>
+			<span class="radioset">
+            <input id="ALLOW_SIP_ANON-YES" type="radio" name="ALLOW_SIP_ANON" value="yes" tabindex="<?php echo ++$tabindex;?>"<?php echo $ALLOW_SIP_ANON=="yes"?"checked=\"yes\"":""?>/>
+            <label for="ALLOW_SIP_ANON-YES"><?php echo _("Yes") ?></label>
+            <input id="ALLOW_SIP_ANON-NO" type="radio" name="ALLOW_SIP_ANON" value="no" tabindex="<?php echo ++$tabindex;?>"<?php echo $ALLOW_SIP_ANON=="no"?"checked=\"no\"":""?>/>
+            <label for="ALLOW_SIP_ANON-NO"><?php echo _("No") ?></label>
+			</span>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+
 
   <tr>
     <td>
