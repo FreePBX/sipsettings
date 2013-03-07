@@ -3,7 +3,7 @@
 	<repo>standard</repo>
 	<name>Asterisk SIP Settings</name>
 	<version>2.11.0.1</version>
-	<publisher>Bandwidth.com</publisher>
+	<publisher>schmoozecom.com</publisher>
 	<license>AGPLv3</license>
 	<category>Settings</category>
 	<menuitems>

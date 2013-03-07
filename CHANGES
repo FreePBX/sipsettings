@@ -1,0 +1,4 @@
+[2.11.0.1]
+ * Adds rtpstart and rptend to list of controlled settings (#6397)
+[2.11.0.0]
+ * Moved the Allow Anonymous SIP Calls settings from general settings to this module
