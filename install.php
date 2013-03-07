@@ -69,3 +69,38 @@ if(DB::IsError($check)) {
 } else {
 	out(_("already exists"));
 }
+
+if(file_exists($amp_conf['ASTETCDIR'].'/rtp.conf') || file_exists($amp_conf['ASTETCDIR'].'/rtp_custom.conf')) {
+    $rtp_contents = (file_exists($amp_conf['ASTETCDIR'].'/rtp.conf')) ? file_get_contents($amp_conf['ASTETCDIR'].'/rtp.conf') : '';
+	$rtp_custom_contents = (file_exists($amp_conf['ASTETCDIR'].'/rtp_custom.conf')) ? file_get_contents($amp_conf['ASTETCDIR'].'/rtp_custom.conf') : '';
+    
+	$rtpstart = '10000';
+	$rtpend = '20000';
+	if(preg_match('/rtpstart=(.*)/i',$rtp_contents)) {
+		$rtpstart = preg_match('/rtpstart=(.*)/i',$rtp_contents,$m) ? $m[1] : '10000';
+	    $rtpend = preg_match('/rtpend=(.*)/i',$rtp_contents,$m) ? $m[1] : '20000';
+		$rtp_contents = preg_replace('/rtpstart=.*/i', '', $rtp_contents);
+		$rtp_contents = preg_replace('/rtpend=.*/i', '', $rtp_contents);
+		file_put_contents($amp_conf['ASTETCDIR'].'/rtp.conf', $rtp_contents);
+	} elseif(preg_match('/rtpstart=(.*)/i',$rtp_custom_contents)) {
+		$rtpstart = preg_match('/rtpstart=(.*)/i',$rtp_custom_contents,$m) ? $m[1] : '10000';
+	    $rtpend = preg_match('/rtpend=(.*)/i',$rtp_custom_contents,$m) ? $m[1] : '20000';
+		$rtp_custom_contents = preg_replace('/rtpstart=.*/i', '', $rtp_custom_contents);
+		$rtp_custom_contents = preg_replace('/rtpend=.*/i', '', $rtp_custom_contents);
+		file_put_contents($amp_conf['ASTETCDIR'].'/rtp_custom.conf', $rtp_custom_contents);
+	}
+		
+    $rtp_settings =  array(
+      array('rtpstart'	,$rtpstart, '0'),
+      array('rtpend'	,$rtpend, '1')
+      );
+
+  	// Now insert rtp codec rows
+  	$compiled = $db->prepare("INSERT INTO sipsettings (keyword, data, seq, type) values (?,?,?,'0')");
+  	$result = $db->executeMultiple($compiled,$rtp_settings);
+  	if(DB::IsError($result)) {
+  		out(_("fatal error occurred populating defaults, check module"));
+  	} else {
+  		out(_("rtpstart, rtpend added"));
+  	}
+}

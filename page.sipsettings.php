@@ -112,6 +112,8 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
   $sip_settings['rtptimeout']        = isset($_POST['rtptimeout']) ? htmlspecialchars($_POST['rtptimeout']) : '30';
   $sip_settings['rtpholdtimeout']    = isset($_POST['rtpholdtimeout']) ? htmlspecialchars($_POST['rtpholdtimeout']) : '300';
   $sip_settings['rtpkeepalive']      = isset($_POST['rtpkeepalive']) ? htmlspecialchars($_POST['rtpkeepalive']) : '0';
+  $sip_settings['rtpstart']      = isset($_POST['rtpstart']) ? htmlspecialchars($_POST['rtpstart']) : '1000';
+  $sip_settings['rtpend']      = isset($_POST['rtpend']) ? htmlspecialchars($_POST['rtpend']) : '2000';
 
   $sip_settings['checkmwi']          = isset($_POST['checkmwi']) ? htmlspecialchars($_POST['checkmwi']) : '10';
   $sip_settings['notifyringing']     = isset($_POST['notifyringing']) ? $_POST['notifyringing'] : 'yes';
@@ -493,6 +495,16 @@ echo '</ul>';
       <input type="text" size="2" id="rtpholdtimeout" name="rtpholdtimeout" class="validate-int" value="<?php echo $rtpholdtimeout ?>" tabindex="<?php echo ++$tabindex;?>"><small>&nbsp;(rtpholdtimeout)</small>&nbsp;
       <input type="text" size="2" id="rtpkeepalive" name="rtpkeepalive" class="validate-int" value="<?php echo $rtpkeepalive ?>" tabindex="<?php echo ++$tabindex;?>"><small>&nbsp;(rtpkeepalive)</small>
     </td>
+  </tr>
+  
+  <tr>
+	  <td>
+		  <a href="#" class="info"><?php echo _("RTP Port Ranges")?><span><?php echo _("Asterisk: rtpstart. The starting RTP port range.<br /> Asterisk: rtpend. The ending RTP port range.")?></span></a>
+	  </td>
+	  <td>
+		  <input type="text" size="3" id="rtpstart" name="rtpstart" class="validate-int" value="<?php echo $rtpstart ?>" tabindex="<?php echo ++$tabindex;?>"><small>&nbsp;(rtpstart)</small>&nbsp;
+		  <input type="text" size="3" id="rtpend" name="rtpend" class="validate-int" value="<?php echo $rtpend ?>" tabindex="<?php echo ++$tabindex;?>"><small>&nbsp;(rtpend)</small>&nbsp;
+	  </td>
   </tr>
 
   <tr>
