@@ -43,9 +43,16 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 		$json_array['externip'] = $matches[1];
 		$json_array['status'] = _('Failed to auto-detect local network settings');
 
-		// TODO: path to route?
+		// TODO: Still find a better way to find patch to route command?
 		//
-		exec('route -nv',$output,$retcode);
+		if (is_executable('/sbin/route')) {
+			$routecmd = "/sbin/route -nv";
+		} elseif (is_executable('/bin/route')) {
+			$routecmd = "/bin/route -nv";
+		} else {
+			$routecmd = "route -nv";
+		}
+		exec($routecmd,$output,$retcode);
 		foreach ($output as $line) {
 			preg_match('/^\s*(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})\s*(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})\s*(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})/',$line,$matches);
 			if (isset($matches[3]) && $matches[2] == '0.0.0.0' && substr($matches[1],0,4) != '169.') {
