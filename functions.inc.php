@@ -217,7 +217,9 @@ function sipsettings_hookGet_config($engine) {
                 $ext->addGlobal('SIPLANG',$value);
               }
             break;
-
+			case 't38pt_udptl':
+				$sip_settings[] = array('t38pt_udptl', 'yes,redundancy,maxdatagram=400');
+				break;
             case 'ALLOW_SIP_ANON':
 							$ext->addGlobal($key,$value);
 						break;
