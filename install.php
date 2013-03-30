@@ -70,24 +70,28 @@ if(DB::IsError($check)) {
 	out(_("already exists"));
 }
 
-if(file_exists($amp_conf['ASTETCDIR'].'/rtp.conf') || file_exists($amp_conf['ASTETCDIR'].'/rtp_custom.conf')) {
+if((file_exists($amp_conf['ASTETCDIR'].'/rtp.conf') && !is_link($amp_conf['ASTETCDIR'].'/rtp.conf')) || file_exists($amp_conf['ASTETCDIR'].'/rtp_custom.conf')) {
     $rtp_contents = (file_exists($amp_conf['ASTETCDIR'].'/rtp.conf')) ? file_get_contents($amp_conf['ASTETCDIR'].'/rtp.conf') : '';
 	$rtp_custom_contents = (file_exists($amp_conf['ASTETCDIR'].'/rtp_custom.conf')) ? file_get_contents($amp_conf['ASTETCDIR'].'/rtp_custom.conf') : '';
     
 	$rtpstart = '10000';
 	$rtpend = '20000';
-	if(preg_match('/rtpstart=(.*)/i',$rtp_contents)) {
+	if(preg_match('/rtpstart=(.*)/i',$rtp_contents) && !is_link($amp_conf['ASTETCDIR'].'/rtp.conf')) {
+		out(_("Found RTP Values in rtp.conf"));
 		$rtpstart = preg_match('/rtpstart=(.*)/i',$rtp_contents,$m) ? $m[1] : '10000';
 	    $rtpend = preg_match('/rtpend=(.*)/i',$rtp_contents,$m) ? $m[1] : '20000';
 		$rtp_contents = preg_replace('/rtpstart=.*/i', '', $rtp_contents);
 		$rtp_contents = preg_replace('/rtpend=.*/i', '', $rtp_contents);
 		file_put_contents($amp_conf['ASTETCDIR'].'/rtp.conf', $rtp_contents);
 	} elseif(preg_match('/rtpstart=(.*)/i',$rtp_custom_contents)) {
+		out(_("Found RTP Values in rtp_custom.conf"));
 		$rtpstart = preg_match('/rtpstart=(.*)/i',$rtp_custom_contents,$m) ? $m[1] : '10000';
 	    $rtpend = preg_match('/rtpend=(.*)/i',$rtp_custom_contents,$m) ? $m[1] : '20000';
 		$rtp_custom_contents = preg_replace('/rtpstart=.*/i', '', $rtp_custom_contents);
 		$rtp_custom_contents = preg_replace('/rtpend=.*/i', '', $rtp_custom_contents);
 		file_put_contents($amp_conf['ASTETCDIR'].'/rtp_custom.conf', $rtp_custom_contents);
+	} else {
+		out(_("Using Default RTP Values"));
 	}
 		
     $rtp_settings =  array(
