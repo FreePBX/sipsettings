@@ -107,4 +107,20 @@ if((file_exists($amp_conf['ASTETCDIR'].'/rtp.conf') && !is_link($amp_conf['ASTET
   	} else {
   		out(_("rtpstart, rtpend added"));
   	}
+} else {
+	out(_("No legacy RTP Values in rtp.conf"));
+	$sql = "SELECT data FROM sipsettings WHERE keyword = 'rtpstart'";
+	$rtpstart = sql($sql,'getOne');
+	$sql = "SELECT data FROM sipsettings WHERE keyword = 'rtpend'";
+	$rtpend = sql($sql,'getOne');
+	if(!$rtpstart || empty($rtpstart)) {
+		out(_("Could not find rtpstart in database so adding"));
+		$rtpstart = '10000';
+		sql("REPLACE INTO sipsettings (keyword, data, seq, type) VALUES ('rtpstart',$rtpstart,'0','0')");
+	}
+	if(!$rtpend || empty($rtpend)) {
+		out(_("Could not find rtpend in database so adding"));
+		$rtpend = '20000';
+	  	sql("REPLACE INTO sipsettings (keyword, data, seq, type) values ('rtpend',$rtpend,'0','0')");
+	}
 }
