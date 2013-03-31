@@ -503,7 +503,7 @@ echo '</ul>';
 	  </td>
 	  <td>
 		  <input type="text" size="3" id="rtpstart" name="rtpstart" class="validate-int" value="<?php echo !empty($rtpstart) ? $rtpstart : '10000' ?>" tabindex="<?php echo ++$tabindex;?>"><small>&nbsp;(rtpstart)</small>&nbsp;
-		  <input type="text" size="3" id="rtpend" name="rtpend" class="validate-int" value="<?php echo empty($rtpend) ? $rtpend : '20000' ?>" tabindex="<?php echo ++$tabindex;?>"><small>&nbsp;(rtpend)</small>&nbsp;
+		  <input type="text" size="3" id="rtpend" name="rtpend" class="validate-int" value="<?php echo !empty($rtpend) ? $rtpend : '20000' ?>" tabindex="<?php echo ++$tabindex;?>"><small>&nbsp;(rtpend)</small>&nbsp;
 	  </td>
   </tr>
 
