@@ -50,6 +50,6 @@
     <depends>
         <module>core ge 2.11.0.0beta2.4</module>
     </depends>
-	<location>release/2.11/sipsettings-2.11.0.4.tgz</location>
-	<md5sum>253d455a7ce22321388693bfc67f5c7f</md5sum>
+	<location>release/2.11/sipsettings-2.11.0.5.tgz</location>
+	<md5sum>c50d3190671b70c09aebb6ceed4e6c88</md5sum>
 </module>
