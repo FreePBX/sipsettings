@@ -218,7 +218,7 @@ function sipsettings_hookGet_config($engine) {
               }
             break;
             case 't38pt_udptl':
-                if ($value != 'no') {}
+                if ($value != 'no') {
                     $sip_settings[] = array('t38pt_udptl', 'yes,redundancy,maxdatagram=400');
                 }
             break;
