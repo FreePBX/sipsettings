@@ -1,3 +1,5 @@
+[2.11.0.6]
+ * #6473 - Check t38pt_udptl value before writing to sip_general_additional.conf 
 [2.11.0.2]
  * Set t38pt_udptl to 'yes,redundancy,maxdatagram=400' when set to yes, as per Digiums recomendation
 [2.11.0.1]
