@@ -195,7 +195,7 @@ function sipsettings_hookGet_config($engine) {
                 $sip_settings[] = array('externip', $value);
               }
             break;
-			
+
 			case 'rtpstart':
 			case 'rtpend':
 	    	  $core_conf->addRtpAdditional('general', array($key => $value));
@@ -217,12 +217,14 @@ function sipsettings_hookGet_config($engine) {
                 $ext->addGlobal('SIPLANG',$value);
               }
             break;
-			case 't38pt_udptl':
-				$sip_settings[] = array('t38pt_udptl', 'yes,redundancy,maxdatagram=400');
-				break;
+            case 't38pt_udptl':
+                if ($value != 'no') {}
+                    $sip_settings[] = array('t38pt_udptl', 'yes,redundancy,maxdatagram=400');
+                }
+            break;
             case 'ALLOW_SIP_ANON':
-							$ext->addGlobal($key,$value);
-						break;
+                $ext->addGlobal($key,$value);
+            break;
 
             default:
               if (substr($key,0,9) == "localnet_" && $value != '') {
@@ -494,7 +496,7 @@ function sipsettings_edit($sip_settings) {
       case 'srvlookup':
         $save_settings[] = array($key,$val,'10',SIP_NORMAL);
       break;
- 
+
 			case 'ALLOW_SIP_ANON':
 				$save_to_admin[] = array($key,$val);
 			break;
@@ -503,15 +505,15 @@ function sipsettings_edit($sip_settings) {
         // ip validate this and store
         $seq = substr($key,9);
         $msg = _("Localnet setting must be an IP address");
-        $save_settings[] = array($key,$db->escapeSimple($vd->is_ip($val,$key,$msg)),(42+$seq),SIP_NORMAL); 
+        $save_settings[] = array($key,$db->escapeSimple($vd->is_ip($val,$key,$msg)),(42+$seq),SIP_NORMAL);
       } else if (substr($key,0,8) == "netmask_") {
         // ip validate this and store
         $seq = substr($key,8);
         $msg = _("Localnet netmask must be formatted properly (e.g. 255.255.255.0 or 24)");
-        $save_settings[] = array($key,$db->escapeSimple($vd->is_netmask($val,$key,$msg)),$seq,SIP_NORMAL); 
+        $save_settings[] = array($key,$db->escapeSimple($vd->is_netmask($val,$key,$msg)),$seq,SIP_NORMAL);
       } else if (substr($key,0,15) == "sip_custom_key_") {
         $seq = substr($key,15);
-        $save_settings[] = array($db->escapeSimple($val),$db->escapeSimple($sip_settings["sip_custom_val_$seq"]),($seq),SIP_CUSTOM); 
+        $save_settings[] = array($db->escapeSimple($val),$db->escapeSimple($sip_settings["sip_custom_val_$seq"]),($seq),SIP_CUSTOM);
       } else if (substr($key,0,15) == "sip_custom_val_") {
         // skip it, we will seek it out when we see the sip_custom_key
       } else {
@@ -530,7 +532,7 @@ function sipsettings_edit($sip_settings) {
     }
     $seq = 0;
     foreach ($video_codecs as $key => $val) {
-      $save_settings[] = array($db->escapeSimple($key),$db->escapeSimple($val),$seq++,SIP_VIDEO_CODEC); 
+      $save_settings[] = array($db->escapeSimple($key),$db->escapeSimple($val),$seq++,SIP_VIDEO_CODEC);
     }
 
     // TODO: normally don't like doing delete/insert but otherwise we would have do update for each
@@ -541,13 +543,13 @@ function sipsettings_edit($sip_settings) {
     $compiled = $db->prepare('INSERT INTO `sipsettings` (`keyword`, `data`, `seq`, `type`) VALUES (?,?,?,?)');
     $result = $db->executeMultiple($compiled,$save_settings);
     if(DB::IsError($result)) {
-			die_freepbx($result->getDebugInfo()."<br><br>".'error adding to sipsettings table');	
+			die_freepbx($result->getDebugInfo()."<br><br>".'error adding to sipsettings table');
 		}
 		if (!empty($save_to_admin)) {
 			$compiled = $db->prepare("REPLACE INTO `admin` (`variable`, `value`) VALUES (?,?)");
 			$result = $db->executeMultiple($compiled,$save_to_admin);
 			if(DB::IsError($result)) {
-				die_freepbx($result->getDebugInfo()."<br><br>".'error adding to sipsettings table');	
+				die_freepbx($result->getDebugInfo()."<br><br>".'error adding to sipsettings table');
 			}
 		}
     return true;
