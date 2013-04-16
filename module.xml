@@ -1,6 +1,8 @@
 <module>
 	<rawname>sipsettings</rawname>
 	<repo>standard</repo>
+	<candisable>no</candisable>
+	<canuninstall>no</canuninstall>
 	<name>Asterisk SIP Settings</name>
 	<version>2.11.0.6</version>
 	<publisher>schmoozecom.com</publisher>
