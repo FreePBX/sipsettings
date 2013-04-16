@@ -70,71 +70,35 @@ if(DB::IsError($check)) {
 	out(_("already exists"));
 }
 
-if((file_exists($amp_conf['ASTETCDIR'].'/rtp.conf') && !is_link($amp_conf['ASTETCDIR'].'/rtp.conf')) || file_exists($amp_conf['ASTETCDIR'].'/rtp_custom.conf')) {
-	$sql = "SELECT data FROM sipsettings WHERE keyword = 'rtpstart'";
-	$rtpstart = sql($sql,'getOne');
-	$sql = "SELECT data FROM sipsettings WHERE keyword = 'rtpend'";
-	$rtpend = sql($sql,'getOne');
-	if(!$rtpstart || empty($rtpstart)) {
-	    $rtp_contents = (file_exists($amp_conf['ASTETCDIR'].'/rtp.conf')) ? file_get_contents($amp_conf['ASTETCDIR'].'/rtp.conf') : '';
-		$rtp_custom_contents = (file_exists($amp_conf['ASTETCDIR'].'/rtp_custom.conf')) ? file_get_contents($amp_conf['ASTETCDIR'].'/rtp_custom.conf') : '';
-    
-		$rtpstart = '10000';
-		$rtpend = '20000';
-		if(preg_match('/rtpstart=(.*)/i',$rtp_contents) && !is_link($amp_conf['ASTETCDIR'].'/rtp.conf')) {
-			out(_("Found RTP Values in rtp.conf"));
-			$rtpstart = preg_match('/rtpstart=(.*)/i',$rtp_contents,$m) ? $m[1] : '10000';
-		    $rtpend = preg_match('/rtpend=(.*)/i',$rtp_contents,$m) ? $m[1] : '20000';
-			$rtp_contents = preg_replace('/rtpstart=.*/i', '', $rtp_contents);
-			$rtp_contents = preg_replace('/rtpend=.*/i', '', $rtp_contents);
-			file_put_contents($amp_conf['ASTETCDIR'].'/rtp.conf', $rtp_contents);
-		} elseif(preg_match('/rtpstart=(.*)/i',$rtp_custom_contents)) {
-			out(_("Found RTP Values in rtp_custom.conf"));
-			$rtpstart = preg_match('/rtpstart=(.*)/i',$rtp_custom_contents,$m) ? $m[1] : '10000';
-		    $rtpend = preg_match('/rtpend=(.*)/i',$rtp_custom_contents,$m) ? $m[1] : '20000';
-			$rtp_custom_contents = preg_replace('/rtpstart=.*/i', '', $rtp_custom_contents);
-			$rtp_custom_contents = preg_replace('/rtpend=.*/i', '', $rtp_custom_contents);
-			file_put_contents($amp_conf['ASTETCDIR'].'/rtp_custom.conf', $rtp_custom_contents);
-		} else {
-			out(_("Using Default RTP Values"));
-		}
-		
-	    $rtp_settings =  array(
-	      array('rtpstart'	,$rtpstart, '0',$rtpstart),
-	      array('rtpend'	,$rtpend, '1',$rtpend)
-	      );
+out(_("Migrate rtp.conf values if needed and initialize"));
 
-	  	// Now insert rtp codec rows
-		$compiled = $db->prepare("INSERT INTO sipsettings (keyword, data, seq, type) values (?,?,?,'0') ON DUPLICATE KEY UPDATE data=?");
-	  	$result = $db->executeMultiple($compiled,$rtp_settings);
-	  	if(DB::IsError($result)) {
-	  		out(_("fatal error occurred populating defaults, check module"));
-	  	} else {
-	  		out(_("rtpstart, rtpend added/updated"));
-	  	}
-	} else {
-		out(_("Detected Previous Values in Database for rtp migration...skipping"));
-	}
-} else {
-	out(_("No legacy RTP Values in rtp.conf"));
-}
-
-out(_("Checking for existence for RTP values and blank status"));
 $sql = "SELECT data FROM sipsettings WHERE keyword = 'rtpstart'";
 $rtpstart = sql($sql,'getOne');
+if (!$rtpstart) {
+	$sql = "SELECT value FROM admin WHERE variable = 'RTPSTART'";
+	$rtpstart = sql($sql,'getOne');
+	if ($rtpstart) {
+		out(sprintf(_("saving previous value of %s"), $rtpstart));
+	} else {
+		$rtpstart = '10000';
+		out(sprintf(_("setting default value of %s"), $rtpstart));
+	}
+	sql("REPLACE INTO sipsettings (keyword, data, seq, type) VALUES ('rtpstart','$rtpstart','0','0')");
+}
+
 $sql = "SELECT data FROM sipsettings WHERE keyword = 'rtpend'";
 $rtpend = sql($sql,'getOne');
-if(!$rtpstart || empty($rtpstart)) {
-	$rtpstarting = '10000';
-	out(_("Could not find rtpstart in database so adding ".$rtpstarting));
-	sql("REPLACE INTO sipsettings (keyword, data, seq, type) VALUES ('rtpstart',$rtpstarting,'0','0')");
-} else {
-	out(_("rtpstart is fully fullied"));
+if (!$rtpend) {
+	$sql = "SELECT value FROM admin WHERE variable = 'RTPEND'";
+	$rtpend = sql($sql,'getOne');
+	if ($rtpend) {
+		out(sprintf(_("saving previous value of %s"), $rtpend));
+	} else {
+		$rtpend = '20000';
+		out(sprintf(_("setting default value of %s"), $rtpend));
+	}
+ 	sql("REPLACE INTO sipsettings (keyword, data, seq, type) values ('rtpend','$rtpend','1','0')");
 }
-if(!$rtpend || empty($rtpend)) {
-	$rtpend = isset($rtpstarting) ? ($rtpstarting + 10000) : '20000';
-	out(_("Could not find rtpend in database so adding ".$rtpend));
-  	sql("REPLACE INTO sipsettings (keyword, data, seq, type) values ('rtpend',$rtpend,'1','0')");
-} else {
-	out(_("rtpend is fully fullied"));
-}
+
+// One way or another we've converted so we remove the interim variable from admin
+sql("DELETE FROM admin WHERE variable IN ('RTPSTART', 'RTPEND')");
