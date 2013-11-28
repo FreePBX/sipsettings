@@ -44,4 +44,4 @@
 	</changelog>
 	<location>release/2.11/sipsettings-2.11.0.0.tgz</location>
 	<md5sum>2719a689ffaa8966cf3044f57f5d2824</md5sum>
-</module>
+<supported><version>2.11</version></supported></module>
