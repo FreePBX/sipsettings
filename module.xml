@@ -48,4 +48,4 @@
     </depends>
 	<location>release/2.11/sipsettings-2.11.0.1.tgz</location>
 	<md5sum>47e47c28fbfac43027693ece66a53ade</md5sum>
-</module>
+<supported><version>2.11</version></supported></module>
