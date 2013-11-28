@@ -42,4 +42,4 @@
 	</changelog>
 	<location>release/2.10/sipsettings-2.10.0.2.tgz</location>
 	<md5sum>a6e6a8e8c9afcee68401af9f9f6d5645</md5sum>
-</module>
+<supported><version>2.10</version></supported></module>
