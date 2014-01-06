@@ -5,7 +5,7 @@ class Sipsettings extends DB_Helper {
 
 	private $pagename = null;
 
-	public static $dbDefaults = array( "rtpstart" => "10000", "rtpend" => "20000" );
+	public static $dbDefaults = array( "rtpstart" => "10000", "rtpend" => "20000", "protocols" => array("udp", "tcp", "ws") );
 
 	public function __construct($freepbx) {
 		$this->FreePBX = $freepbx;
@@ -90,14 +90,16 @@ class Sipsettings extends DB_Helper {
 		if (!isset($_REQUEST['Submit']))
 			return;
 
+		//print_r($_REQUEST);
+
 		// As we nuke the binds, we want to make sure we DON'T nuke them
 		// if no binds were given to us (eg, different sub-page)
 		$binds = false;
 		foreach ($_REQUEST as $key => $var) {
 			// Check for bindip-* posts
-			if (preg_match("/bindip-(.+)$/", $key, $match)) {
-				$ip = str_replace("_", ".", $match[1]);
-				$binds[$ip] = "on";
+			if (preg_match("/(.+)bindip-(.+)$/", $key, $match)) {
+				$ip = str_replace("_", ".", $match[2]);
+				$binds[$match[1]][$ip] = "on";
 				continue;  // Don't save them
 			}
 			// Now, just save everything else we've been given, excluding a couple of unneeded things
