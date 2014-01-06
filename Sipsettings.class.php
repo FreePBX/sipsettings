@@ -20,6 +20,7 @@ class Sipsettings extends DB_Helper {
 				$this->pagename = "chansip";
 			} elseif ($_REQUEST['category'] == "pjsip") {
 				$this->pagename = "pjsip";
+				$this->doPJSipPost();
 			} else {
 				// Unknown pagename?
 				// thow new Exception("WTF. You suck");
@@ -64,7 +65,8 @@ class Sipsettings extends DB_Helper {
 		} elseif ($this->pagename == "chansip") {
 			include 'chansip.page.php';
 		} elseif ($this->pagename == "pjsip") {
-			return "PJSip stuff here\n";
+			$this->getConfig('foop');
+			include 'chanpj.page.php';
 		} else {
 			return "I DON'T KNOW\n";
 		}
@@ -81,4 +83,30 @@ class Sipsettings extends DB_Helper {
 		return $str;
 	}
 
+
+	// PJSIp POST
+	public function doPJSipPost() {
+		// Nothing's been submitted, continue along, nothing to see here.
+		if (!isset($_REQUEST['Submit']))
+			return;
+
+		// As we nuke the binds, we want to make sure we DON'T nuke them
+		// if no binds were given to us (eg, different sub-page)
+		$binds = false;
+		foreach ($_REQUEST as $key => $var) {
+			// Check for bindip-* posts
+			if (preg_match("/bindip-(.+)$/", $key, $match)) {
+				$ip = str_replace("_", ".", $match[1]);
+				$binds[$ip] = "on";
+				continue;  // Don't save them
+			}
+			// Now, just save everything else we've been given, excluding a couple of unneeded things
+			if ($key == "display" || $key == "type" || $key == "category" || $key == "Submit")
+				continue;
+
+			$key = str_replace("_", ".", $key);
+			$this->setConfig($key, $var);
+		}
+		if ($binds) $this->setConfig("binds", $binds);
+	}
 }
