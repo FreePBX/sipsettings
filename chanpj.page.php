@@ -64,6 +64,7 @@ foreach ($protocols as $p) {
 			$p."port-$ip" => "Port to Listen On",
 			$p."domain-$ip" => "Domain the transport comes from",
 			$p."extip-$ip" => "External IP Address (used for NAT)",
+			$p."localnet-$ip" => "Local network",
 		);
 
 		foreach ($vars as $v => $t) {
