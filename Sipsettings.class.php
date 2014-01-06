@@ -62,7 +62,7 @@ class Sipsettings extends DB_Helper {
 		if (!$this->pagename) {
 			return $this->getRTPSettings();
 		} elseif ($this->pagename == "chansip") {
-			return "Chan_Sip stuff here\n";
+			include 'chansip.page.php';
 		} elseif ($this->pagename == "pjsip") {
 			return "PJSip stuff here\n";
 		} else {
