@@ -61,7 +61,7 @@ class Sipsettings extends DB_Helper {
 
 	public function showPage() {
 		if (!$this->pagename) {
-			return $this->getRTPSettings();
+			include 'general.page.php';
 		} elseif ($this->pagename == "chansip") {
 			include 'chansip.page.php';
 		} elseif ($this->pagename == "pjsip") {
@@ -71,18 +71,6 @@ class Sipsettings extends DB_Helper {
 			return "I DON'T KNOW\n";
 		}
 	}
-
-	public function getRTPSettings() {
-		// This is messy. Copied and pasted. Sorry.
-		$str = "<h4>"._("RTP Settings")."</h4><p><a href='#' class='info'>"._("RTP Port Ranges")."<span>"._("The starting and ending RTP port range")."</span></a>";
-		$str .= "<input type='text' size='5' id='rtpstart' name='rtpstart' class='validate-int' value='".$this->getConfig('rtpstart')."' tabindex=".++$tabindex.">";
-		$str .= "<small>&nbsp;(rtpstart)</small>&nbsp;<input type='text' size='5' id='rtpend' name='rtpend' class='validate-int' value='".$this->getConfig('rtpend');
-		$str .=	"' tabindex=".++$tabindex."><small>&nbsp;(rtpend)</small>&nbsp;</p>\n";
-		$str .= "<p>RTP Checksums</p> <p>Strict RTP</p> <p>ICE Support</p> <p>STUN Server</p> <p>TURN server + User + Password</p>\n";
-
-		return $str;
-	}
-
 
 	// PJSIp POST
 	public function doPJSipPost() {
