@@ -1,7 +1,7 @@
 <?php
 // vim: set ai ts=4 sw=4 ft=php:
 
-class Sipsettings extends DB_Helper {
+class Sipsettings extends DB_Helper implements BMO {
 
 	private $pagename = null;
 
@@ -11,6 +11,7 @@ class Sipsettings extends DB_Helper {
 		"rtpchecksums" => "Yes",
 		"icesupport" => "False",
 		"strictrtp" => "Yes",
+		"allowguest" => "no",
 	);
 
 	public function __construct($freepbx) {
@@ -67,7 +68,7 @@ class Sipsettings extends DB_Helper {
 		return $str;
 	}
 
-	public function showPage() {
+	public function myShowPage() {
 		if (!$this->pagename) {
 			include 'general.page.php';
 		} elseif ($this->pagename == "chansip") {
@@ -158,4 +159,39 @@ class Sipsettings extends DB_Helper {
 
 		return $out;
 	}
+
+	public function genConfig() {
+
+		// RTP Configuration
+		$ss = $this->FreePBX->Sipsettings;
+		$ssvars = array("rtpstart", "rtpend", "rtpchecksums", "dtmftimeout", "icesupport", "probation", "stunaddr", "turnaddr", "turnusername", "turnpassword");
+		foreach ($ssvars as $v) {
+			$res = $ss->getConfig($v);
+			if ($res) {
+				$retvar['rtp_additional2.conf']['general'][$v] = strtolower($res);
+			}
+		}
+
+		return $retvar;
+	}
+
+	public function writeConfig($config) {
+		$this->FreePBX->WriteConfig($config);
+	}
+
+
+	// BMO Hooks.
+
+	public function install() {
+	}
+
+	public function uninstall() {
+	}
+
+	public function backup() {
+	}
+
+	public function restore($backup) {
+	}
+
 }
