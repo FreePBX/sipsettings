@@ -10,6 +10,7 @@
 //
 
 $ss = FreePBX::create()->Sipsettings;
+
 print $ss->getRnav();
 
 print " <h2>"._("SIP Settings")."</h2>\n";

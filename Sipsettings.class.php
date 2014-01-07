@@ -5,7 +5,13 @@ class Sipsettings extends DB_Helper {
 
 	private $pagename = null;
 
-	public static $dbDefaults = array( "rtpstart" => "10000", "rtpend" => "20000", "protocols" => array("udp", "tcp", "ws") );
+	public static $dbDefaults = array(
+		"rtpstart" => "10000", "rtpend" => "20000",
+		"protocols" => array("udp", "tcp", "ws"),
+		"rtpchecksums" => "Yes",
+		"icesupport" => "False",
+		"strictrtp" => "Yes",
+	);
 
 	public function __construct($freepbx) {
 		$this->FreePBX = $freepbx;
@@ -98,5 +104,20 @@ class Sipsettings extends DB_Helper {
 			$this->setConfig($key, $var);
 		}
 		if ($binds) $this->setConfig("binds", $binds);
+	}
+
+	private function radioset($id, $name, $help = "", $values, $current) {
+		$out =  "<tr><td><a class='info'>$name<span>$help</span></a></td>\n";
+		$out .= "<td><span class='radioset'>\n";
+		foreach ($values as $v) {
+			$out .= "<input id='$id-$v' name='$id' value='$v' type='radio'";
+			if ($current === $v) {
+				$out .= " checked";
+			}
+			$out .= "><label for='$id-$v'>$v</label>\n";
+		}
+		$out .= "</span></td></tr>\n";
+
+		return $out;
 	}
 }
