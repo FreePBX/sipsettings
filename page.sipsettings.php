@@ -17,7 +17,7 @@ print " <h2>"._("SIP Settings")."</h2>\n";
 
 print $ss->getActiveModules();
 
-print $ss->showPage();
+print $ss->myShowPage();
 
 ?>
 

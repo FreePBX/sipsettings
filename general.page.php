@@ -31,6 +31,15 @@ $submit_changes = _("Submit Changes");
 <input type="hidden" name="category" value="general">
 <table width="690px"> <!-- FIXME: Fixed Width -->
   <tr>
+	<td colspan="2"><h5><?php echo _("Security Settings") ?><hr></h5></td>
+  </tr>
+<?php
+$anonhelp = _("Allowing Inbound Anonymous SIP calls means that you will allow any call coming in form an un-known IP source to be directed to the 'from-pstn' side of your dialplan. This is where inbound calls come in. Although FreePBX severely restricts access to the internal dialplan, allowing Anonymous SIP calls does introduced additional security risks. If you allow SIP URI dialing to your PBX or use services like ENUM, you will be required to set this to Yes for Inbound traffic to work. This is NOT an Asterisk sip.conf setting, it is used in the dialplan in conjuction with the Default Context. If that context is changed above to something custom this setting may be rendered useless as well as if 'Allow SIP Guests' is set to no.");
+
+echo $this->radioset("allowanon", _("Allow Anonymous Inbound SIP Calls"), $anonhelp, array("Yes", "No"), $this->getConfig("allowanon"));
+?>
+
+  <tr>
 	<td colspan="2"><h5><?php echo _("NAT Settings") ?><hr></h5></td>
   </tr>
 

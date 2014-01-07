@@ -279,81 +279,9 @@ $error_displays = array_merge($error_displays,sipsettings_check_custom_files());
       <a href="#" class="info"><small><?php echo _("Refresh Rate")?><span><?php echo _("Asterisk: externrefresh. How often to lookup and refresh the External Host FQDN, in seconds.")?></span></small></a>
     </td>
   </tr>
-  <tr class="nat-settings">
-    <td>
-      <a href="#" class="info"><?php echo _("Local Networks")?><span><?php echo _("Local network settings (Asterisk: localnet) in the form of ip/mask such as 192.168.1.0/255.255.255.0. For networks with more 1 lan subnets, use the Add Local Network Field button for more fields. Blank fields will be removed upon submitting.")?></span></a>
-    </td>
-    <td>
-      <input type="text" id="localnet_0" name="localnet_0" class="localnet validate=ip" value="<?php echo $localnet_0 ?>" tabindex="<?php echo ++$tabindex;?>"> /
-      <input type="text" id="netmask_0" name="netmask_0" class="netmask validate-netmask" value="<?php echo $netmask_0 ?>" tabindex="<?php echo ++$tabindex;?>">
-    </td>
-  </tr>
-
-<?php
-  $idx = 1;
-  $var_localnet = "localnet_$idx";
-  $var_netmask = "netmask_$idx";
-  while (isset($$var_localnet)) {
-    if ($$var_localnet != '') {
-      $tabindex++;
-      echo <<< END
-  <tr class="nat-settings">
-    <td>
-    </td>
-    <td>
-      <input type="text" id="localnet_$idx" name="localnet_$idx" class="localnet validate-ip" value="{$$var_localnet}" tabindex="$tabindex"> /
-END;
-      $tabindex++;
-      echo <<< END
-      <input type="text" id="netmask_$idx" name="netmask_$idx" class="netmask validate-netmask" value="{$$var_netmask}" tabindex="$tabindex">
-    </td>
-  </tr>
-END;
-    }
-    $idx++;
-    $var_localnet = "localnet_$idx";
-    $var_netmask = "netmask_$idx";
-  }
-  $tabindex += 40; // make room for dynamic insertion of new fields so we can add tabindexes
-?>
-  <tr class="nat-settings" id="auto-configure-buttons">
-    <td></td>
-    <td><br \>
-      <input type="button" id="nat-auto-configure"  value="<?php echo $auto_configure ?>" class="nat-settings" />
-      <input type="button" id="localnet-add"  value="<?php echo $add_local_network_field ?>" class="nat-settings" />
-    </td>
-  </tr>
 
   <tr>
     <td colspan="2"><h5><?php echo _("Audio Codecs")?><hr></h5></td>
-  </tr>
-  <tr>
-    <td valign='top'><a href="#" class="info"><?php echo _("Codecs")?><span><?php echo _("Check the desired codecs, all others will be disabled unless explicitly enabled in a device or trunks configuration. Drag to re-order.")?></span></a></td>
-    <td>
-<?php
-  $seq = 1;
-echo '<ul class="sortable">';
-  foreach ($codecs as $codec => $codec_state) {
-    $tabindex++;
-    $codec_trans = _($codec);
-    $codec_checked = $codec_state ? 'checked' : '';
-	echo '<li><a href="#">'
-		. '<img src="assets/'.$dispnum.'/images/arrow_up_down.png" height="16" width="16" border="0" alt="move" style="float:none; margin-left:-6px; margin-bottom:-3px;cursor:move" /> '
-		. '<input type="checkbox" '
-		. ($codec_checked ? 'value="'. $seq++ . '" ' : '')
-		. 'name="codec[' . $codec . ']" '
-		. 'id="'. $codec . '" '
-		. 'class="audio-codecs" tabindex="' . $tabindex. '" '
-		. $codec_checked
-		. ' />'
-		. '<label for="'. $codec . '"> '
-		. '<small>' . $codec_trans . '</small>'
-		. ' </label></a></li>';
-  }
-echo '</ul>';
-?>
-
-    </td>
   </tr>
 
   <tr>
@@ -497,16 +425,6 @@ echo '</ul>';
     </td>
   </tr>
   
-  <tr>
-	  <td>
-		  <a href="#" class="info"><?php echo _("RTP Port Ranges")?><span><?php echo _("Asterisk: rtpstart. The starting RTP port range.<br /> Asterisk: rtpend. The ending RTP port range.")?></span></a>
-	  </td>
-	  <td>
-		  <input type="text" size="3" id="rtpstart" name="rtpstart" class="validate-int" value="<?php echo !empty($rtpstart) ? $rtpstart : '10000' ?>" tabindex="<?php echo ++$tabindex;?>"><small>&nbsp;(rtpstart)</small>&nbsp;
-		  <input type="text" size="3" id="rtpend" name="rtpend" class="validate-int" value="<?php echo !empty($rtpend) ? $rtpend : '20000' ?>" tabindex="<?php echo ++$tabindex;?>"><small>&nbsp;(rtpend)</small>&nbsp;
-	  </td>
-  </tr>
-
   <tr>
     <td colspan="2"><h5><?php echo _("Notification & MWI")?><hr></h5></td>
   </tr>
@@ -744,27 +662,6 @@ if (version_compare($amp_conf['ASTVERSION'],'1.8','ge')) {
 
   <tr>
     <td>
-      <a href="#" class="info"><?php echo _("Allow Anonymous Inbound SIP Calls")?><span><?php echo _("Allowing Inbound Anonymous SIP calls means that you will allow any call coming in form an un-known IP source to be directed to the 'from-pstn' side of your dialplan. This is where inbound calls come in. Although FreePBX severely restricts access to the internal dialplan, allowing Anonymous SIP calls does introduced additional security risks. If you allow SIP URI dialing to your PBX or use services like ENUM, you will be required to set this to Yes for Inbound traffic to work. This is NOT an Asterisk sip.conf setting, it is used in the dialplan in conjuction with the Default Context. If that context is changed above to something custom this setting may be rendered useless as well as if 'Allow SIP Guests' is set to no.")?></span></a>
-    </td>
-    <td>
-      <table width="100%">
-        <tr>
-          <td>
-			<span class="radioset">
-            <input id="ALLOW_SIP_ANON-YES" type="radio" name="ALLOW_SIP_ANON" value="yes" tabindex="<?php echo ++$tabindex;?>"<?php echo $ALLOW_SIP_ANON=="yes"?"checked=\"yes\"":""?>/>
-            <label for="ALLOW_SIP_ANON-YES"><?php echo _("Yes") ?></label>
-            <input id="ALLOW_SIP_ANON-NO" type="radio" name="ALLOW_SIP_ANON" value="no" tabindex="<?php echo ++$tabindex;?>"<?php echo $ALLOW_SIP_ANON=="no"?"checked=\"no\"":""?>/>
-            <label for="ALLOW_SIP_ANON-NO"><?php echo _("No") ?></label>
-			</span>
-          </td>
-        </tr>
-      </table>
-    </td>
-  </tr>
-
-
-  <tr>
-    <td>
       <a href="#" class="info"><?php echo _("SRV Lookup")?><span><?php echo _("Enable Asterisk srvlookup. See current version of Asterisk for limitations on SRV functionality.")?></span></a>
     </td>
     <td>
@@ -802,8 +699,6 @@ if (version_compare($amp_conf['ASTVERSION'],'1.8','ge')) {
       </table>
     </td>
   </tr>
-
-  <tr><td colspan="2"><br /></td></tr>
 
   <tr>
     <td>

@@ -12,6 +12,7 @@ class Sipsettings extends DB_Helper implements BMO {
 		"icesupport" => "False",
 		"strictrtp" => "Yes",
 		"allowguest" => "no",
+		"allowanon" => "No",
 	);
 
 	public function __construct($freepbx) {

@@ -2,8 +2,17 @@
 
 global $currentcomponent;
 
-$currentcomponent->addguielem('_top', new gui_pageheading('_top', _("Transports"), false), 0);
 $currentcomponent->addguielem('_top', new gui_hidden('category', 'pjsip'));
+
+$currentcomponent->addoptlistitem("yn", "yes", _("Yes"));
+$currentcomponent->addoptlistitem("yn", "no", _("No"));
+$currentcomponent->setoptlistopts("yn", "sort", false);
+
+$allowhelp = _("When set Asterisk will allow Guest SIP calls and send them to the Default SIP context. Turning this off will keep anonymous SIP calls from entering the system. Doing such will also stop 'Allow Anonymous Inbound SIP Calls' from functioning. Allowing guest calls but rejecting the Anonymous SIP calls below will enable you to see the call attempts and debug incoming calls that may be mis-configured and appearing as guests.");
+
+$currentcomponent->addguielem("", new gui_pageheading(null, _("Misc PJSip Settings"), false), 1);
+$currentcomponent->addguielem("", new gui_radio("label", $currentcomponent->getoptlist("yn"), $this->getConfig("allowguest"), _("Allow SIP Guests"), $allowhelp), 1);
+
 
 // Discover all interfaces.
 exec("/sbin/ip -o addr", $result, $ret);
@@ -39,8 +48,9 @@ foreach ($result as $line) {
 }
 
 
-$currentcomponent->addguielem("_top", new gui_label(null, "Note that the interface is only displayed for your information, and is not referenced by asterisk."));
-$currentcomponent->addguielem("_top", new gui_label(null, "Also be warned: After you enable/disable a transport, asterisk needs to be <strong>restarted</strong>, not just reloaded."));
+$currentcomponent->addguielem("", new gui_pageheading('_top', _("Transports"), false), 2);
+$currentcomponent->addguielem("", new gui_label(null, "Note that the interface is only displayed for your information, and is not referenced by asterisk."));
+$currentcomponent->addguielem("", new gui_label(null, "Also be warned: After you enable/disable a transport, asterisk needs to be <strong>restarted</strong>, not just reloaded."));
 
 $protocols = $this->getConfig("protocols");
 
