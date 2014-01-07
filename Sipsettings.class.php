@@ -169,7 +169,7 @@ class Sipsettings extends DB_Helper implements BMO {
 		foreach ($ssvars as $v) {
 			$res = $ss->getConfig($v);
 			if ($res) {
-				$retvar['rtp_additional2.conf']['general'][$v] = strtolower($res);
+				$retvar['rtp_additional.conf']['general'][$v] = strtolower($res);
 			}
 		}
 

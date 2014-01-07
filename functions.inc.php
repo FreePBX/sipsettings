@@ -196,11 +196,6 @@ function sipsettings_hookGet_config($engine) {
               }
             break;
 
-			case 'rtpstart':
-			case 'rtpend':
-	    	  $core_conf->addRtpAdditional('general', array($key => $value));
-			break;
-
             case 'jbforce':
             case 'jbimpl':
             case 'jbmaxsize':
