@@ -10,8 +10,8 @@ $currentcomponent->setoptlistopts("yn", "sort", false);
 
 $allowhelp = _("When set Asterisk will allow Guest SIP calls and send them to the Default SIP context. Turning this off will keep anonymous SIP calls from entering the system. Doing such will also stop 'Allow Anonymous Inbound SIP Calls' from functioning. Allowing guest calls but rejecting the Anonymous SIP calls below will enable you to see the call attempts and debug incoming calls that may be mis-configured and appearing as guests.");
 
-$currentcomponent->addguielem("", new gui_pageheading(null, _("Misc PJSip Settings"), false), 1);
-$currentcomponent->addguielem("", new gui_radio("label", $currentcomponent->getoptlist("yn"), $this->getConfig("allowguest"), _("Allow SIP Guests"), $allowhelp), 1);
+$currentcomponent->addguielem("_top", new gui_pageheading(null, _("Misc PJSip Settings"), false), 1);
+$currentcomponent->addguielem("_top", new gui_radio("label", $currentcomponent->getoptlist("yn"), $this->getConfig("allowguest"), _("Allow SIP Guests"), $allowhelp), 1);
 
 
 // Discover all interfaces.
