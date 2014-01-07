@@ -15,6 +15,14 @@ class Sipsettings extends DB_Helper implements BMO {
 		"allowanon" => "No",
 	);
 
+	public static function myDialplanHooks() {
+		// Yes, we want to hook into dialplan generation,
+		// and we don't care where.
+		return true;
+		// When we define this, you also need to create a function
+		// 'doDialplanHook()', to actually do the hooking.
+	}
+
 	public function __construct($freepbx) {
 		$this->FreePBX = $freepbx;
 	}
@@ -180,6 +188,10 @@ class Sipsettings extends DB_Helper implements BMO {
 		$this->FreePBX->WriteConfig($config);
 	}
 
+
+	public function doDialplanHook(&$ext, $null, $null) {
+		$ext->addGlobal('ALLOW_SIP_ANON', strtolower($this->getConfig("allowanon")));
+	}
 
 	// BMO Hooks.
 
