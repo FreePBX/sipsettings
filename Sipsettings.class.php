@@ -26,7 +26,9 @@ class Sipsettings extends DB_Helper {
 				$this->pagename = "chansip";
 			} elseif ($_REQUEST['category'] == "pjsip") {
 				$this->pagename = "pjsip";
-				$this->doPJSipPost();
+				$this->doGeneralPost();
+			} elseif ($_REQUEST['category'] == "general") {
+				$this->doGeneralPost();
 			} else {
 				// Unknown pagename?
 				// thow new Exception("WTF. You suck");
@@ -78,17 +80,50 @@ class Sipsettings extends DB_Helper {
 		}
 	}
 
-	// PJSIp POST
-	public function doPJSipPost() {
-		// Nothing's been submitted, continue along, nothing to see here.
+	public function doGeneralPost() {
 		if (!isset($_REQUEST['Submit']))
 			return;
 
-		//print_r($_REQUEST);
+		// Codecs
+		if (isset($_REQUEST['voicecodecs'])) {
+			// Go through all the codecs that were handed back to
+			// us, and create a new array with what they want.
+			// Note we trust the browser to return the array in the correct
+			// order here.
+			$codecs = array_keys($_REQUEST['voicecodecs']);
 
-		// As we nuke the binds, we want to make sure we DON'T nuke them
-		// if no binds were given to us (eg, different sub-page)
+			// Just in case they don't turn on ANY codecs..
+			$codecsValid = false;
+
+			$seq = 1;
+			foreach ($codecs as $c) {
+				$newcodecs[$c] = $seq++;
+				$codecsValid = true;
+			}
+
+			if ($codecsValid) {
+				$this->setConfig("voicecodecs", $newcodecs);
+			} else {
+				// They turned off ALL the codecs. Set them back to default.
+				$this->setConfig("voicecodecs", $this->FreePBX->Codecs->getAudio(true));
+			}
+
+			// Finished. Unset it, and continue on.
+			unset($_REQUEST['voicecodecs']);
+		}
+
+		// Ignore empty/invalid localnet settings
+		if (isset($_REQUEST['localnets'])) {
+			foreach ($_REQUEST['localnets'] as $i => $arr) {
+				if (empty($arr['net']) || empty($arr['mask'])) {
+					unset($_REQUEST['localnets'][$i]);
+				}
+			}
+		}
+
+		// Contining on.. Binds on chan_pjsip page need to be handled
 		$binds = false;
+
 		foreach ($_REQUEST as $key => $var) {
 			// Check for bindip-* posts
 			if (preg_match("/(.+)bindip-(.+)$/", $key, $match)) {
@@ -103,7 +138,10 @@ class Sipsettings extends DB_Helper {
 			$key = str_replace("_", ".", $key);
 			$this->setConfig($key, $var);
 		}
-		if ($binds) $this->setConfig("binds", $binds);
+
+		if ($binds) {
+			$this->setConfig("binds", $binds);
+		}
 	}
 
 	private function radioset($id, $name, $help = "", $values, $current) {

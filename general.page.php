@@ -1,11 +1,18 @@
 <?php 
 // vim: set ai ts=4 sw=4 ft=phtml:
 
-$codecs =  $this->getConfig('codecs');
+$codecs =  $this->getConfig('voicecodecs');
 
 if (!$codecs) {
-	$allcodecs = $this->FreePBX->Codecs->getAll();
-	$codecs = $allcodecs['audio'];
+	$codecs = $this->FreePBX->Codecs->getAudio(true);
+}
+
+// Update the $codecs array by adding un-selected codecs to the end of it.
+$allCodecs = array_keys($this->FreePBX->Codecs->getAudio());
+foreach ($allCodecs as $c) {
+	if (!isset($codecs[$c])) {
+		$codecs[$c] = false;
+	}
 }
 
 $localnets = $this->getConfig('localnets');
@@ -27,13 +34,13 @@ $submit_changes = _("Submit Changes");
 	<td colspan="2"><h5><?php echo _("NAT Settings") ?><hr></h5></td>
   </tr>
 
-  <tr class='localnets' data-nextid=1>
+  <tr class='lnet' data-nextid=1>
 	<td>
 	  <?php echo fpbx_label(_("Local Networks"), _("Local network settings in the form of ip/cidr or ip/netmask. For networks with more than 1 LAN subnets, use the Add Local Network Field button for more fields. Blank fields will be ignored.")); ?>
 	</td>
 	<td>
-	  <input type="text" id="localnet_0_net" name="localnet_0_net" class="localnet validate=ip" value="<?php echo $localnets[0]['net'] ?>"> /
-	  <input type="text" id="localnet_0_mask" name="localnet_0_mask" class="netmask validate-netmask" value="<?php echo $localnets[0]['mask'] ?>">
+	  <input type="text" name="localnets[0][net]" class="localnet validate=ip" value="<?php echo $localnets[0]['net'] ?>"> /
+	  <input type="text" name="localnets[0][mask]" class="netmask validate-netmask" value="<?php echo $localnets[0]['mask'] ?>">
 	</td>
   </tr>
 
@@ -44,9 +51,9 @@ unset ($localnets[0]);
 
 // Now loop through any more, if they exist.
 foreach ($localnets as $id => $arr) {
-	print "<tr class='localnets' data-nextid=".($id+1)."><td></td><td>";
-	print "<input type='text' name='localnet_{$id}_net' class='localnet validate-ip' value='{$arr['net']}''> / ";
-	print "<input type='text' name='localnet_{$id}_mask' class='localnet validate-netmask' value='{$arr['mask']}'>\n";
+	print "<tr class='lnet' data-nextid=".($id+1)."><td></td><td>";
+	print "<input type='text' name='localnets[{$id}][net]' class='localnet validate-ip' value='{$arr['net']}''> / ";
+	print "<input type='text' name='localnets[{$id}][mask]' class='localnet validate-netmask' value='{$arr['mask']}'>\n";
 	print "</td></tr>\n";
 }
 ?>
@@ -86,6 +93,7 @@ echo $this->radioset("icesupport", _("ICE Support"), "", array("True", "False"),
 	<td valign='top'><a href="#" class="info"><?php echo _("Codecs")?><span><?php echo _("This is the default Codec setting for new Trunks and Extensions.")?></span></a></td>
 	<td>
 <?php
+$seq = 1;
 echo '<ul class="sortable">';
 foreach ($codecs as $codec => $codec_state) {
 	$codec_trans = _($codec);
@@ -94,14 +102,14 @@ foreach ($codecs as $codec => $codec_state) {
 		. '<img src="assets/sipsettings/images/arrow_up_down.png" height="16" width="16" border="0" alt="move" style="float:none; margin-left:-6px; margin-bottom:-3px;cursor:move" /> '
 		. '<input type="checkbox" '
 		. ($codec_checked ? 'value="'. $seq++ . '" ' : '')
-		. 'name="codec[' . $codec . ']" '
+		. 'name="voicecodecs[' . $codec . ']" '
 		. 'id="'. $codec . '" '
 		. 'class="audio-codecs" '
 		. $codec_checked
 		. ' />'
 		. '<label for="'. $codec . '"> '
 		. '<small>' . $codec_trans . '</small>'
-		. ' </label></a></li>';
+		. " </label></a></li>\n";
 }
 echo '</ul>';
 
@@ -122,13 +130,13 @@ $(document).ready(function(){
 
 function addLocalnet() {
 	// We'd like a new one, please.
-	var last = $(".localnets:last");
+	var last = $(".lnet:last");
 	var ourid = last.data('nextid');
 	var nextid = ourid + 1;
 
-	var html = "<tr class='localnets' data-nextid="+nextid+"><td></td><td>";
-	html += "<input type='text' name='localnet_"+ourid+"_net' class='localnet validate-ip' value=''> / ";
-	ihtml += "<input type='text' name='localnet_"+ourid+"_mask' class='localnet validate-netmask' value=''>";
+	var html = "<tr class='lnet' data-nextid="+nextid+"><td></td><td>";
+	html += "<input type='text' name='localnets["+ourid+"][net]' class='localnet validate-ip' value=''> / ";
+	html += "<input type='text' name='localnets["+ourid+"][mask]' class='localnet validate-netmask' value=''>";
 	html += "</td></tr>\n";
 
 	last.after(html);
