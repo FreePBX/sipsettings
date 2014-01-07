@@ -217,9 +217,6 @@ function sipsettings_hookGet_config($engine) {
                     $sip_settings[] = array('t38pt_udptl', 'yes,redundancy,maxdatagram=400');
                 }
             break;
-            case 'ALLOW_SIP_ANON':
-                $ext->addGlobal($key,$value);
-            break;
 
             default:
               if (substr($key,0,9) == "localnet_" && $value != '') {
@@ -253,16 +250,6 @@ function sipsettings_get($raw=false) {
   $sql = "SELECT `keyword`, `data`, `type`, `seq` FROM `sipsettings` ORDER BY `type`, `seq`";
   $raw_settings = sql($sql,"getAll",DB_FETCHMODE_ASSOC);
 
-	// Pull this out of admin table where it is special cased because of migration from General Settings
-	//
-	$sql = "SELECT `variable` keyword, `value` data FROM `admin` WHERE `variable` = 'ALLOW_SIP_ANON'";
-  $sip_anon = sql($sql,"getRow",DB_FETCHMODE_ASSOC);
-	if (!empty($sip_anon)) {
-		$sip_anon['type'] = SIP_NORMAL;
-		$sip_anon['seq'] = 10;
-		$raw_settings[] = $sip_anon;
-	}
-
   /* Just give the SQL table if more convenient (such as in hookGet_config */
   if ($raw) {
     return $raw_settings;
@@ -277,24 +264,6 @@ function sipsettings_get($raw=false) {
   $sip_settings['externrefresh']     = '120';
   $sip_settings['localnet_0']        = '';
   $sip_settings['netmask_0']         = '255.255.255.0';
-
-  $sip_settings['codecs']            =  array(
-    'ulaw'     => '1',
-    'alaw'     => '2',
-    'slin'     => '',
-    'g726'     => '',
-    'gsm'      => '3',
-    'g729'     => '',
-    'ilbc'     => '',
-    'g723'     => '',
-    'g726aal2' => '',
-    'adpcm'    => '',
-    'lpc10'    => '',
-    'speex'    => '',
-    'g722'     => '',
-    'siren7'   => '',
-    'siren14'  => '',
-    );
 
   $sip_settings['g726nonstandard']   = 'no';
   $sip_settings['t38pt_udptl']       = 'no';
