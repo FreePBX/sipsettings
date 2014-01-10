@@ -1,7 +1,7 @@
 <?php
 // vim: set ai ts=4 sw=4 ft=php:
 
-class Sipsettings extends DB_Helper implements BMO {
+class Sipsettings extends FreePBX_Helpers implements BMO {
 
 	private $pagename = null;
 
@@ -13,6 +13,7 @@ class Sipsettings extends DB_Helper implements BMO {
 		"strictrtp" => "Yes",
 		"allowguest" => "no",
 		"allowanon" => "No",
+		"showadvanced" => "no",
 	);
 
 	public static function myDialplanHooks() {
@@ -131,22 +132,16 @@ class Sipsettings extends DB_Helper implements BMO {
 			}
 		}
 
-		// Contining on.. Binds on chan_pjsip page need to be handled
-		$binds = false;
+		// This is in Request_Helper.class.php
+		$ignored = $this->importRequest(null, "/(.+)bindip-(.+)$/");
 
-		foreach ($_REQUEST as $key => $var) {
-			// Check for bindip-* posts
+		// There may be binds that matched..
+		foreach ($ignored as $key => $var) {
 			if (preg_match("/(.+)bindip-(.+)$/", $key, $match)) {
 				$ip = str_replace("_", ".", $match[2]);
 				$binds[$match[1]][$ip] = "on";
 				continue;  // Don't save them
 			}
-			// Now, just save everything else we've been given, excluding a couple of unneeded things
-			if ($key == "display" || $key == "type" || $key == "category" || $key == "Submit")
-				continue;
-
-			$key = str_replace("_", ".", $key);
-			$this->setConfig($key, $var);
 		}
 
 		if ($binds) {
