@@ -50,7 +50,7 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 	public function getRnav() { 
 		$str =  "<div class='rnav'><ul>";
 
-		$pages = array( "general" => "General", "chansip" => "Chan_SIP", "pjsip" => "Chan_PJSip");
+		$pages = array( "general" => "General", "chansip" => "Chan SIP", "pjsip" => "Chan PJSip");
 
 		foreach ($pages as $k => $v) {
 			if ($this->pagename == $k) {
