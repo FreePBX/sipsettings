@@ -202,4 +202,10 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 	public function restore($backup) {
 	}
 
+	function mask2cidr($mask){
+		$long = ip2long($mask);
+		$base = ip2long('255.255.255.255');
+		return 32-log(($long ^ $base)+1,2);
+	}
+
 }

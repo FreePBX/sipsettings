@@ -73,7 +73,7 @@ if(DB::IsError($check)) {
 out(_("Migrate rtp.conf values if needed and initialize"));
 //OK let's do some migrating for BMO
 if(!class_exists('Sipsettings')) {
-	require_once(dirname(__FILE__).'/Sipsettings.class.php');
+	include(dirname(__FILE__).'/Sipsettings.class.php');
 }
 $ss = FreePBX::create()->Sipsettings;
 $sql = "SELECT data FROM sipsettings WHERE keyword = 'rtpstart'";
@@ -114,18 +114,18 @@ $sql = "SELECT * from sipsettings where keyword LIKE 'localnet_%'";
 $localnets = sql($sql,'getAll',DB_FETCHMODE_ASSOC);
 foreach($localnets as $nets) {
 	$break = explode("_",$nets['keyword']);
-	$localnetworks[$break[1]]['localnet'] = $nets['data'];
+	$localnetworks[$break[1]]['net'] = $nets['data'];
 }
 $sql = "SELECT * from sipsettings where keyword LIKE 'netmask_%'";
 $netmasks = sql($sql,'getAll',DB_FETCHMODE_ASSOC);
 foreach($netmasks as $nets) {
 	$break = explode("_",$nets['keyword']);
-	$localnetworks[$break[1]]['netmask'] = (preg_match('/\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b/',$nets['data'])) ? $ss->mask2cidr($nets['data']) : $nets['data'];
+	$localnetworks[$break[1]]['mask'] = (preg_match('/\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b/',$nets['data'])) ? $ss->mask2cidr($nets['data']) : $nets['data'];
 }
 
 if(!empty($localnetworks)) {
-	//$this->setConfig('localnets',$nets);
-	//sql("DELETE FROM sipsettings WHERE where keyword LIKE 'netmask_%'");
-	//sql("DELETE FROM sipsettings WHERE where keyword LIKE 'localnet_%'");
+	out(_('Migrating LocalNets and Netmasks'));
+	$ss->setConfig('localnets',$localnetworks);
+	sql("DELETE FROM sipsettings WHERE keyword LIKE 'netmask_%'");
+	sql("DELETE FROM sipsettings WHERE keyword LIKE 'localnet_%'");
 }
-print_r($localnetworks);
