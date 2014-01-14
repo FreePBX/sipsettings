@@ -69,7 +69,7 @@ foreach ($protocols as $p) {
 		} else {
 			$priority = 3;
 		}
-		$currentcomponent->addguielem("$p Protocol", new gui_checkbox($p."bindip-".$i[0], isset($binds[$i[0]]), "$p - ${i[0]} - ${i[1]}", 'help'), $priority);
+		$currentcomponent->addguielem("$p Protocol", new gui_checkbox($p."bindip-".$i[0], isset($binds[$i[0]]), "$p - ${i[0]} - ${i[1]}"), $priority);
 	}
 
 	// Now display a section for each one.
