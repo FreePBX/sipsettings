@@ -78,14 +78,18 @@ foreach ($protocols as $p) {
 		if ($stat != "on")
 			continue;
 		$vars = array(
-			$p."port-$ip" => "Port to Listen On",
-			$p."domain-$ip" => "Domain the transport comes from",
-			$p."extip-$ip" => "External IP Address (used for NAT)",
-			$p."localnet-$ip" => "Local network",
+			$p."port-$ip" => _("Port to Listen On"),
+			$p."domain-$ip" => _("Domain the transport comes from"),
+			$p."extip-$ip" => _("External IP Address (used for NAT)"),
+			$p."localnet-$ip" => array(_("Local network"), _("Local network is provided here to allow distinct local networks per interface.")),
 		);
 
 		foreach ($vars as $v => $t) {
-			$currentcomponent->addguielem("$p - $ip", new gui_textbox($v, $this->getConfig($v), $t, "helptext"), $priority+2);
+			if (is_array($t)) {
+				$currentcomponent->addguielem("$p - $ip", new gui_textbox($v, $this->getConfig($v), $t[0], $t[1]), $priority+2);
+			} else {
+				$currentcomponent->addguielem("$p - $ip", new gui_textbox($v, $this->getConfig($v), $t), $priority+2);
+			}
 		}
 	}
 }
