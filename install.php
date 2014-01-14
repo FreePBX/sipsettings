@@ -71,7 +71,11 @@ if(DB::IsError($check)) {
 }
 
 out(_("Migrate rtp.conf values if needed and initialize"));
-
+//OK let's do some migrating for BMO
+if(!class_exists('Sipsettings')) {
+	require_once(dirname(__FILE__).'/Sipsettings.class.php');
+}
+$ss = FreePBX::create()->Sipsettings;
 $sql = "SELECT data FROM sipsettings WHERE keyword = 'rtpstart'";
 $rtpstart = sql($sql,'getOne');
 if (!$rtpstart) {
@@ -79,11 +83,11 @@ if (!$rtpstart) {
 	$rtpstart = sql($sql,'getOne');
 	if ($rtpstart) {
 		out(sprintf(_("saving previous value of %s"), $rtpstart));
-	} else {
-		$rtpstart = '10000';
-		out(sprintf(_("setting default value of %s"), $rtpstart));
 	}
-	sql("REPLACE INTO sipsettings (keyword, data, seq, type) VALUES ('rtpstart','$rtpstart','0','0')");
+}
+if ($rtpstart) {
+	out(_('Migrating rtpstart Setting from Old Format to BMO Object'));
+	$ss->setConfig('rtpstart',$rtpstart);
 }
 
 $sql = "SELECT data FROM sipsettings WHERE keyword = 'rtpend'";
@@ -93,12 +97,35 @@ if (!$rtpend) {
 	$rtpend = sql($sql,'getOne');
 	if ($rtpend) {
 		out(sprintf(_("saving previous value of %s"), $rtpend));
-	} else {
-		$rtpend = '20000';
-		out(sprintf(_("setting default value of %s"), $rtpend));
 	}
- 	sql("REPLACE INTO sipsettings (keyword, data, seq, type) values ('rtpend','$rtpend','1','0')");
+}
+if ($rtpend) {
+	out(_('Migrating rtpend Setting from Old Format to BMO Object'));
+	$ss->setConfig('rtpend',$rtpend);
 }
 
-// One way or another we've converted so we remove the interim variable from admin
+// One way or another we've converted so we remove the interim variable from admin && sipsettings
 sql("DELETE FROM admin WHERE variable IN ('RTPSTART', 'RTPEND')");
+sql("DELETE FROM sipsettings WHERE keyword IN ('rtpstart', 'rtpend')");
+
+//attempt to migrate all old localnets && netmasks
+$localnetworks = array();
+$sql = "SELECT * from sipsettings where keyword LIKE 'localnet_%'";
+$localnets = sql($sql,'getAll',DB_FETCHMODE_ASSOC);
+foreach($localnets as $nets) {
+	$break = explode("_",$nets['keyword']);
+	$localnetworks[$break[1]]['localnet'] = $nets['data'];
+}
+$sql = "SELECT * from sipsettings where keyword LIKE 'netmask_%'";
+$netmasks = sql($sql,'getAll',DB_FETCHMODE_ASSOC);
+foreach($netmasks as $nets) {
+	$break = explode("_",$nets['keyword']);
+	$localnetworks[$break[1]]['netmask'] = (preg_match('/\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b/',$nets['data'])) ? $ss->mask2cidr($nets['data']) : $nets['data'];
+}
+
+if(!empty($localnetworks)) {
+	//$this->setConfig('localnets',$nets);
+	//sql("DELETE FROM sipsettings WHERE where keyword LIKE 'netmask_%'");
+	//sql("DELETE FROM sipsettings WHERE where keyword LIKE 'localnet_%'");
+}
+print_r($localnetworks);
