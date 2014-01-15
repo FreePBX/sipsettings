@@ -48,9 +48,19 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 	}
 
 	public function getRnav() { 
-		$str =  "<div class='rnav'><ul>";
 
-		$pages = array( "general" => "General", "chansip" => "Chan SIP", "pjsip" => "Chan PJSip");
+		$driver = $this->FreePBX->Config->get_conf_setting('ASTSIPDRIVER');
+		$pages['general'] = _("General SIP Settings");
+
+		if ($driver == "chan_sip" || $driver == "both") {
+			$pages['chansip'] = "Chan SIP";
+		}
+
+		if ($driver == "chan_pjsip" || $driver == "both") {
+			$pages['pjsip'] = "Chan PJSIP";
+		}
+
+		$str =  "<div class='rnav'><ul>";
 
 		foreach ($pages as $k => $v) {
 			if ($this->pagename == $k) {
@@ -84,7 +94,6 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 		} elseif ($this->pagename == "chansip") {
 			include 'chansip.page.php';
 		} elseif ($this->pagename == "pjsip") {
-			$this->getConfig('foop');
 			include 'chanpj.page.php';
 		} else {
 			return "I DON'T KNOW\n";
