@@ -158,6 +158,8 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 		if ($binds) {
 			$this->setConfig("binds", $binds);
 		}
+
+		needreload();
 	}
 
 	private function radioset($id, $name, $help = "", $values, $current) {
