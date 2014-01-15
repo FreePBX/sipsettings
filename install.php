@@ -1,36 +1,36 @@
 <?php
-/* $Id:$ */
+// vim: set ai ts=4 sw=4 ft=php:
 if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 
 // Original Release by Philippe Lindheimer
 // Copyright Philippe Lindheimer (2009)
 // Copyright Bandwidth.com (2009)
 /*
-    This program is free software: you can redistribute it and/or modify
-    it under the terms of the GNU Affero General Public License as
-    published by the Free Software Foundation, either version 3 of the
-    License, or (at your option) any later version.
+	This program is free software: you can redistribute it and/or modify
+	it under the terms of the GNU Affero General Public License as
+	published by the Free Software Foundation, either version 3 of the
+	License, or (at your option) any later version.
 
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU Affero General Public License for more details.
+	This program is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU Affero General Public License for more details.
 
-    You should have received a copy of the GNU Affero General Public License
-    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-*/
+	You should have received a copy of the GNU Affero General Public License
+	along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
 
 global $db;
 global $amp_conf;
 
 $sql = <<< END
-CREATE TABLE IF NOT EXISTS `sipsettings` (
-  `keyword` VARCHAR (50) NOT NULL default '',
-  `data`    VARCHAR (255) NOT NULL default '',
-  `seq`     TINYINT (1),
-  `type`    TINYINT (1) NOT NULL default '0',
-  PRIMARY KEY (`keyword`,`seq`,`type`)
-)
+	CREATE TABLE IF NOT EXISTS `sipsettings` (
+		`keyword` VARCHAR (50) NOT NULL default '',
+		`data`    VARCHAR (255) NOT NULL default '',
+		`seq`     TINYINT (1),
+		`type`    TINYINT (1) NOT NULL default '0',
+		PRIMARY KEY (`keyword`,`seq`,`type`)
+	)
 END;
 
 outn(_("checking for sipsettings table.."));
@@ -42,21 +42,21 @@ if(DB::IsError($check)) {
 	sql($sql);
 
 	outn(_("populating default codecs.."));
-  $sip_settings =  array(
-    array('ulaw'    ,'1', '0'),
-    array('alaw'    ,'2', '1'),
-    array('slin'    ,'' , '2'),
-    array('g726'    ,'' , '3'),
-    array('gsm'     ,'3', '4'),
-    array('g729'    ,'' , '5'),
-    array('ilbc'    ,'' , '6'),
-    array('g723'    ,'' , '7'),
-    array('g726aal2','' , '8'),
-    array('adpcm'   ,'' , '9'),
-    array('lpc10'   ,'' ,'10'),
-    array('speex'   ,'' ,'11'),
-    array('g722'    ,'' ,'12'),
-    );
+	$sip_settings =  array(
+		array('ulaw'    ,'1', '0'),
+		array('alaw'    ,'2', '1'),
+		array('slin'    ,'' , '2'),
+		array('g726'    ,'' , '3'),
+		array('gsm'     ,'3', '4'),
+		array('g729'    ,'' , '5'),
+		array('ilbc'    ,'' , '6'),
+		array('g723'    ,'' , '7'),
+		array('g726aal2','' , '8'),
+		array('adpcm'   ,'' , '9'),
+		array('lpc10'   ,'' ,'10'),
+		array('speex'   ,'' ,'11'),
+		array('g722'    ,'' ,'12'),
+	);
 
 	// Now insert minimal codec rows
 	$compiled = $db->prepare("INSERT INTO sipsettings (keyword, data, seq, type) values (?,?,?,'1')");
