@@ -17,10 +17,7 @@ foreach ($allCodecs as $c) {
 
 $localnets = $this->getConfig('localnets');
 if (!$localnets) {
-	$localnets[0]['net'] = "1.2.3.4";
-	$localnets[0]['mask'] = "24";
-	$localnets[1]['net'] = "2.3.4.5";
-	$localnets[1]['mask'] = "24";
+	$localnets = array();
 }
 
 $add_local_network_field = _("Add Local Network Field");
