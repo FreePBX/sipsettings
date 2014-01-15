@@ -173,73 +173,70 @@ function sipsettings_hookGet_config($engine) {
 
         $nat_mode = $interim_settings['nat_mode'];
         $jbenable = $interim_settings['jbenable'];
-        if (is_array($interim_settings)) foreach ($interim_settings as $key => $value) {
-          switch ($key) {
-            case 'nat_mode':
-            break;
-
-            case 'externhost_val':
-              if ($nat_mode == 'externhost' && $value != '') {
-                $sip_settings[] = array('externhost', $value);
-              }
-            break;
-
-            case 'externrefresh':
-              if ($nat_mode == 'externhost' && $value != '') {
-                $sip_settings[] = array($key, $value);
-              }
-            break;
-
-            case 'externip_val':
-              if ($nat_mode == 'externip' && $value != '') {
-                $sip_settings[] = array('externip', $value);
-              }
-            break;
-
-			case 'rtpstart':
-			case 'rtpend':
-	    	  $core_conf->addRtpAdditional('general', array($key => $value));
+	if (is_array($interim_settings)) foreach ($interim_settings as $key => $value) {
+		switch ($key) {
+		case 'nat_mode':
 			break;
 
-            case 'jbforce':
-            case 'jbimpl':
-            case 'jbmaxsize':
-            case 'jbresyncthreshold':
-            case 'jblog':
-              if ($jbenable == 'yes' && $value != '') {
-                $sip_settings[] = array($key, $value);
-              }
-            break;
+		case 'externhost_val':
+			if ($nat_mode == 'externhost' && $value != '') {
+				$sip_settings[] = array('externhost', $value);
+			}
+			break;
 
-            case 'sip_language':
-              if ($key != '') {
-                $sip_settings[] = array('language', $value);
-                $ext->addGlobal('SIPLANG',$value);
-              }
-            break;
-            case 't38pt_udptl':
-                if ($value != 'no') {
-                    $sip_settings[] = array('t38pt_udptl', 'yes,redundancy,maxdatagram=400');
-                }
-            break;
-            case 'ALLOW_SIP_ANON':
-                $ext->addGlobal($key,$value);
-            break;
+		case 'externrefresh':
+			if ($nat_mode == 'externhost' && $value != '') {
+				$sip_settings[] = array($key, $value);
+			}
+			break;
 
-            default:
-              if (substr($key,0,9) == "localnet_" && $value != '') {
-                if ($nat_mode != 'public') {
-                  $seq = substr($key,9);
-                  $network = "$value/".$interim_settings["netmask_$seq"];
-                  $sip_settings[] = array('localnet', $network);
-                }
-              } else if (substr($key,0,8) == "netmask_") {
-                // do nothing, handled above
-              } else {
-                $sip_settings[] = array($key, $value);
-              }
-            }
-          }
+		case 'externip_val':
+			if ($nat_mode == 'externip' && $value != '') {
+				$sip_settings[] = array('externip', $value);
+			}
+			break;
+
+		case 'jbforce':
+		case 'jbimpl':
+		case 'jbmaxsize':
+		case 'jbresyncthreshold':
+		case 'jblog':
+			if ($jbenable == 'yes' && $value != '') {
+				$sip_settings[] = array($key, $value);
+			}
+		break;
+
+		case 'sip_language':
+			if ($key != '') {
+				$sip_settings[] = array('language', $value);
+				$ext->addGlobal('SIPLANG',$value);
+			}
+		break;
+
+		case 't38pt_udptl':
+			if ($value != 'no') {
+				$sip_settings[] = array('t38pt_udptl', 'yes,redundancy,maxdatagram=400');
+			}
+			break;
+
+		default:
+			// Ignore localnet settings from chansip sipsettings, they're now in general
+			if (substr($key,0,9) == "localnet_" || substr($key,0,8) == "netmask_") {
+				break;
+			}
+
+			$sip_settings[] = array($key, $value);
+			break;
+		}
+	}
+
+	// Now do the localnets
+	$localnets = FreePBX::create()->Sipsettings->getConfig('localnets');
+	foreach ($localnets as $arr) {
+		$sip_settings[] = array("localnet", $arr['net']."/".$arr['mask']);
+	}
+
+
           unset($interim_settings);
           if (is_array($sip_settings)) foreach ($sip_settings as $entry) {
             if ($entry[1] != '') {
@@ -258,16 +255,6 @@ function sipsettings_get($raw=false) {
   $sql = "SELECT `keyword`, `data`, `type`, `seq` FROM `sipsettings` ORDER BY `type`, `seq`";
   $raw_settings = sql($sql,"getAll",DB_FETCHMODE_ASSOC);
 
-	// Pull this out of admin table where it is special cased because of migration from General Settings
-	//
-	$sql = "SELECT `variable` keyword, `value` data FROM `admin` WHERE `variable` = 'ALLOW_SIP_ANON'";
-  $sip_anon = sql($sql,"getRow",DB_FETCHMODE_ASSOC);
-	if (!empty($sip_anon)) {
-		$sip_anon['type'] = SIP_NORMAL;
-		$sip_anon['seq'] = 10;
-		$raw_settings[] = $sip_anon;
-	}
-
   /* Just give the SQL table if more convenient (such as in hookGet_config */
   if ($raw) {
     return $raw_settings;
@@ -282,24 +269,6 @@ function sipsettings_get($raw=false) {
   $sip_settings['externrefresh']     = '120';
   $sip_settings['localnet_0']        = '';
   $sip_settings['netmask_0']         = '255.255.255.0';
-
-  $sip_settings['codecs']            =  array(
-    'ulaw'     => '1',
-    'alaw'     => '2',
-    'slin'     => '',
-    'g726'     => '',
-    'gsm'      => '3',
-    'g729'     => '',
-    'ilbc'     => '',
-    'g723'     => '',
-    'g726aal2' => '',
-    'adpcm'    => '',
-    'lpc10'    => '',
-    'speex'    => '',
-    'g722'     => '',
-    'siren7'   => '',
-    'siren14'  => '',
-    );
 
   $sip_settings['g726nonstandard']   = 'no';
   $sip_settings['t38pt_udptl']       = 'no';
