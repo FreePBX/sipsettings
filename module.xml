@@ -4,7 +4,7 @@
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<name>Asterisk SIP Settings</name>
-	<version>12.0.1alpha1</version>
+	<version>2.11.0.7</version>
 	<publisher>schmoozecom.com</publisher>
 	<license>AGPLv3</license>
 	<category>Settings</category>
@@ -15,7 +15,6 @@
 		Use to configure Various Asterisk SIP Settings in the General section of sip.conf. Also includes an auto-configuration tool to determine NAT settings. The module assumes Asterisk version 1.4 or higher. Some settings may not exist in Asterisk 1.2 and will be ignored by Asterisk.
 	</description>
 	<changelog>
-		*12.0.1alpha1* PJSipsettings and Generalize and breakout the page for sub-navigation
 		*2.11.0.7* rtp.conf cleanup, require this module
 		*2.11.0.6* #6473 - check t38pt_udptl value before setting in sip_general_additional.conf
 		*2.11.0.5* More fixes related to rtpstart and rtpend values
@@ -27,11 +26,7 @@
 	</changelog>
     <depends>
         <module>core ge 2.11.0.0beta2.4</module>
-		<version>12.0.1alpha8</version>
     </depends>
-	<supported>
-		<version>12.0</version>
-	</supported>
 	<location>release/2.11/sipsettings-2.11.0.7.tgz</location>
 	<md5sum>53eee9b5292e354ec3c374e6329a17fe</md5sum>
 </module>
