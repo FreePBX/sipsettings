@@ -33,6 +33,8 @@ $sql = <<< END
 	)
 END;
 
+$ss = FreePBX::create()->Sipsettings;
+
 outn(_("checking for sipsettings table.."));
 $tsql = "SELECT * FROM `sipsettings` limit 1";
 $check = $db->getRow($tsql, DB_FETCHMODE_ASSOC);
@@ -43,29 +45,36 @@ if(DB::IsError($check)) {
 
 	outn(_("populating default codecs.."));
 	$sip_settings =  array(
-		array('ulaw'    ,'1', '0'),
-		array('alaw'    ,'2', '1'),
-		array('slin'    ,'' , '2'),
-		array('g726'    ,'' , '3'),
-		array('gsm'     ,'3', '4'),
-		array('g729'    ,'' , '5'),
-		array('ilbc'    ,'' , '6'),
-		array('g723'    ,'' , '7'),
-		array('g726aal2','' , '8'),
-		array('adpcm'   ,'' , '9'),
-		array('lpc10'   ,'' ,'10'),
-		array('speex'   ,'' ,'11'),
-		array('g722'    ,'' ,'12'),
+		array('ulaw'    ,'1', '0', '1'),
+		array('alaw'    ,'2', '1', '1'),
+		array('slin'    ,'' , '2', '1'),
+		array('g726'    ,'' , '3', '1'),
+		array('gsm'     ,'3', '4', '1'),
+		array('g729'    ,'' , '5', '1'),
+		array('ilbc'    ,'' , '6', '1'),
+		array('g723'    ,'' , '7', '1'),
+		array('g726aal2','' , '8', '1'),
+		array('adpcm'   ,'' , '9', '1'),
+		array('lpc10'   ,'' ,'10', '1'),
+		array('speex'   ,'' ,'11', '1'),
+		array('g722'    ,'' ,'12', '1'),
+		array('bindport','5061', '1', '0'),
 	);
 
 	// Now insert minimal codec rows
-	$compiled = $db->prepare("INSERT INTO sipsettings (keyword, data, seq, type) values (?,?,?,'1')");
+	$compiled = $db->prepare("INSERT INTO sipsettings (keyword, data, seq, type) values (?,?,?,?)");
 	$result = $db->executeMultiple($compiled,$sip_settings);
 	if(DB::IsError($result)) {
 		out(_("fatal error occurred populating defaults, check module"));
 	} else {
 		out(_("ulaw, alaw, gsm added"));
 	}
+
+	// On a new install, we should be using chan_pjsip as a default, buth have both enabled.
+	FreePBX::create()->Config->set_conf_values(array('ASTSIPDRIVER' => 'both'), true, true);
+	$ss->setConfig("udpport-0.0.0.0", "5060");
+	$ss->setConfig("tcpport-0.0.0.0", "5060");
+	$ss->setConfig("binds", array("udp" => array("0.0.0.0" => "on")));
 } else {
 	out(_("already exists"));
 }
@@ -75,7 +84,6 @@ out(_("Migrate rtp.conf values if needed and initialize"));
 if(!class_exists('Sipsettings')) {
 	include(dirname(__FILE__).'/Sipsettings.class.php');
 }
-$ss = FreePBX::create()->Sipsettings;
 $sql = "SELECT data FROM sipsettings WHERE keyword = 'rtpstart'";
 $rtpstart = sql($sql,'getOne');
 if (!$rtpstart) {
