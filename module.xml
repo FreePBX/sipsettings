@@ -4,7 +4,7 @@
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<name>Asterisk SIP Settings</name>
-	<version>12.0.1alpha2</version>
+	<version>12.0.1alpha3</version>
 	<publisher>schmoozecom.com</publisher>
 	<license>AGPLv3</license>
 	<category>Settings</category>
@@ -15,6 +15,7 @@
 		Use to configure Various Asterisk SIP Settings in the General section of sip.conf. Also includes an auto-configuration tool to determine NAT settings. The module assumes Asterisk version 1.4 or higher. Some settings may not exist in Asterisk 1.2 and will be ignored by Asterisk.
 	</description>
 	<changelog>
+		*12.0.1alpha3* Show reload bar when settings change
 		*12.0.1alpha2* Hide PJSIP when disabled or not present in the system
 		*12.0.1alpha1* PJSipsettings and Generalize and breakout the page for sub-navigation
 		*2.11.0.7* rtp.conf cleanup, require this module
