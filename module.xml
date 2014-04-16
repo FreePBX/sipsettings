@@ -4,9 +4,10 @@
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<name>Asterisk SIP Settings</name>
-	<version>2.11.0.7</version>
-	<publisher>schmoozecom.com</publisher>
-	<license>AGPLv3</license>
+	<version>2.11.0.8</version>
+	<publisher>Schmooze Com Inc</publisher>
+	<license>AGPLv3+</license>
+	<licenselink>http://www.gnu.org/licenses/apl-3.0.txt</licenselink>
 	<category>Settings</category>
 	<menuitems>
 		<sipsettings>Asterisk SIP Settings</sipsettings>
@@ -15,6 +16,7 @@
 		Use to configure Various Asterisk SIP Settings in the General section of sip.conf. Also includes an auto-configuration tool to determine NAT settings. The module assumes Asterisk version 1.4 or higher. Some settings may not exist in Asterisk 1.2 and will be ignored by Asterisk.
 	</description>
 	<changelog>
+		*2.11.0.8* update license file
 		*2.11.0.7* rtp.conf cleanup, require this module
 		*2.11.0.6* #6473 - check t38pt_udptl value before setting in sip_general_additional.conf
 		*2.11.0.5* More fixes related to rtpstart and rtpend values
