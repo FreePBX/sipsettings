@@ -3,7 +3,6 @@
 if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 //	License for all code of this FreePBX module can be found in the license file inside the module directory
 //	Copyright 2013 Schmooze Com Inc.
-//  Copyright Philippe Lindheimer (2009)
 //
 // Use hookGet_config so that everyone (like core) will have written their
 // SIP settings and then we can remove any that we are going to override
