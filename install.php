@@ -79,61 +79,112 @@ if(DB::IsError($check)) {
 	out(_("already exists"));
 }
 
-out(_("Migrate rtp.conf values if needed and initialize"));
 //OK let's do some migrating for BMO
-if(!class_exists('Sipsettings')) {
-	include(dirname(__FILE__).'/Sipsettings.class.php');
-}
-$sql = "SELECT data FROM sipsettings WHERE keyword = 'rtpstart'";
-$rtpstart = sql($sql,'getOne');
-if (!$rtpstart) {
-	$sql = "SELECT value FROM admin WHERE variable = 'RTPSTART'";
+$ss = FreePBX::Sipsettings();
+if(!$ss->getConfig('rtpstart') || $ss->getConfig('rtpend')) {
+	out(_("Migrate rtp.conf values if needed and initialize"));
+
+	$sql = "SELECT data FROM sipsettings WHERE keyword = 'rtpstart'";
 	$rtpstart = sql($sql,'getOne');
+	if (!$rtpstart) {
+		$sql = "SELECT value FROM admin WHERE variable = 'RTPSTART'";
+		$rtpstart = sql($sql,'getOne');
+		if ($rtpstart) {
+			out(sprintf(_("saving previous value of %s"), $rtpstart));
+		}
+	}
 	if ($rtpstart) {
-		out(sprintf(_("saving previous value of %s"), $rtpstart));
+		out(_('Migrating rtpstart Setting from Old Format to BMO Object'));
+		$ss->setConfig('rtpstart',$rtpstart);
 	}
-}
-if ($rtpstart) {
-	out(_('Migrating rtpstart Setting from Old Format to BMO Object'));
-	$ss->setConfig('rtpstart',$rtpstart);
-}
 
-$sql = "SELECT data FROM sipsettings WHERE keyword = 'rtpend'";
-$rtpend = sql($sql,'getOne');
-if (!$rtpend) {
-	$sql = "SELECT value FROM admin WHERE variable = 'RTPEND'";
+	$sql = "SELECT data FROM sipsettings WHERE keyword = 'rtpend'";
 	$rtpend = sql($sql,'getOne');
+	if (!$rtpend) {
+		$sql = "SELECT value FROM admin WHERE variable = 'RTPEND'";
+		$rtpend = sql($sql,'getOne');
+		if ($rtpend) {
+			out(sprintf(_("saving previous value of %s"), $rtpend));
+		}
+	}
 	if ($rtpend) {
-		out(sprintf(_("saving previous value of %s"), $rtpend));
+		out(_('Migrating rtpend Setting from Old Format to BMO Object'));
+		$ss->setConfig('rtpend',$rtpend);
 	}
 }
-if ($rtpend) {
-	out(_('Migrating rtpend Setting from Old Format to BMO Object'));
-	$ss->setConfig('rtpend',$rtpend);
-}
-
 // One way or another we've converted so we remove the interim variable from admin && sipsettings
 sql("DELETE FROM admin WHERE variable IN ('RTPSTART', 'RTPEND')");
 sql("DELETE FROM sipsettings WHERE keyword IN ('rtpstart', 'rtpend')");
 
 //attempt to migrate all old localnets && netmasks
-$localnetworks = array();
-$sql = "SELECT * from sipsettings where keyword LIKE 'localnet_%'";
-$localnets = sql($sql,'getAll',DB_FETCHMODE_ASSOC);
-foreach($localnets as $nets) {
-	$break = explode("_",$nets['keyword']);
-	$localnetworks[$break[1]]['net'] = $nets['data'];
-}
-$sql = "SELECT * from sipsettings where keyword LIKE 'netmask_%'";
-$netmasks = sql($sql,'getAll',DB_FETCHMODE_ASSOC);
-foreach($netmasks as $nets) {
-	$break = explode("_",$nets['keyword']);
-	$localnetworks[$break[1]]['mask'] = (preg_match('/\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b/',$nets['data'])) ? $ss->mask2cidr($nets['data']) : $nets['data'];
-}
+if(!$ss->getConfig('localnets')) {
+	$localnetworks = array();
+	$sql = "SELECT * from sipsettings where keyword LIKE 'localnet_%'";
+	$localnets = sql($sql,'getAll',DB_FETCHMODE_ASSOC);
+	foreach($localnets as $nets) {
+		$break = explode("_",$nets['keyword']);
+		$localnetworks[$break[1]]['net'] = $nets['data'];
+	}
+	$sql = "SELECT * from sipsettings where keyword LIKE 'netmask_%'";
+	$netmasks = sql($sql,'getAll',DB_FETCHMODE_ASSOC);
+	foreach($netmasks as $nets) {
+		$break = explode("_",$nets['keyword']);
+		$localnetworks[$break[1]]['mask'] = (preg_match('/\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b/',$nets['data'])) ? $ss->mask2cidr($nets['data']) : $nets['data'];
+	}
 
-if(!empty($localnetworks)) {
-	out(_('Migrating LocalNets and Netmasks'));
-	$ss->setConfig('localnets',$localnetworks);
-	sql("DELETE FROM sipsettings WHERE keyword LIKE 'netmask_%'");
-	sql("DELETE FROM sipsettings WHERE keyword LIKE 'localnet_%'");
+	if(!empty($localnetworks)) {
+		out(_('Migrating LocalNets and Netmasks'));
+		$ss->setConfig('localnets',$localnetworks);
+	}
 }
+sql("DELETE FROM sipsettings WHERE keyword LIKE 'netmask_%'");
+sql("DELETE FROM sipsettings WHERE keyword LIKE 'localnet_%'");
+
+//attempt to migrate audio codecc
+if(!$ss->getConfig('voicecodecs')) {
+	$sql = "SELECT keyword from sipsettings where type = 1 AND data != '' order by seq";
+	$codecs = sql($sql,'getAll',DB_FETCHMODE_ASSOC);
+	// Just in case they don't turn on ANY codecs..
+	$codecsValid = false;
+	$seq = 1;
+	foreach ($codecs as $c) {
+		$newcodecs[$c['keyword']] = $seq++;
+		$codecsValid = true;
+	}
+	if ($codecsValid) {
+		out(_('Migrating Audio Codecs'));
+		$ss->setConfig("voicecodecs", $newcodecs);
+	} else {
+		// They turned off ALL the codecs. Set them back to default.
+		$ss->setConfig("voicecodecs", $ss->FreePBX->Codecs->getAudio(true));
+	}
+}
+sql("DELETE FROM sipsettings WHERE type = 1");
+//attempt to mirgrate video codecs
+if(!$ss->getConfig('videocodecs')) {
+	$sql = "SELECT keyword from sipsettings where type = 2 AND data != '' order by seq";
+	$codecs = sql($sql,'getAll',DB_FETCHMODE_ASSOC);
+	// Just in case they don't turn on ANY codecs..
+	$codecsValid = false;
+	$seq = 1;
+	foreach ($codecs as $c) {
+		$newcodecs[$c['keyword']] = $seq++;
+		$codecsValid = true;
+	}
+	if ($codecsValid) {
+		out(_('Migrating Video Codecs'));
+		$ss->setConfig("videocodecs", $newcodecs);
+	} else {
+		// They turned off ALL the codecs. Set them back to default.
+		$ss->setConfig("videocodecs", $ss->FreePBX->Codecs->getVideo(true));
+	}
+}
+sql("DELETE FROM sipsettings WHERE type = 2");
+
+if(!$ss->getConfig("allowanon")) {
+	$sql = "SELECT `data` FROM `admin` WHERE `variable` = 'ALLOW_SIP_ANON'";
+	$aa = sql($sql,'getOne');
+	$aa = (!empty($aa) && $aa == 'Yes') ? $aa : 'No';
+	$ss->setConfig("allowanon",$aa);
+}
+sql("DELETE FROM admin WHERE variable = 'ALLOW_SIP_ANON'");

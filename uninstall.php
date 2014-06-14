@@ -20,4 +20,5 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-//sql("DROP TABLE `sipsettings`");
+sql("DELETE FROM kvstore WHERE module = 'sipsettings'");
+sql("DROP TABLE `sipsettings`");

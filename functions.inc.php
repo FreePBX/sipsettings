@@ -524,4 +524,3 @@ function sipsettings_edit($sip_settings) {
     return true;
   }
 }
-

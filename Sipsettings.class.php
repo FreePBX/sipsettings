@@ -49,7 +49,7 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 		}
 	}
 
-	public function getRnav() { 
+	public function getRnav() {
 
 		$driver = $this->FreePBX->Config->get_conf_setting('ASTSIPDRIVER');
 		$pages['general'] = _("General SIP Settings");
@@ -199,6 +199,10 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 
 	public function doDialplanHook(&$ext, $null, $null) {
 		$ext->addGlobal('ALLOW_SIP_ANON', strtolower($this->getConfig("allowanon")));
+	}
+
+	public function getCodecConfig() {
+
 	}
 
 	// BMO Hooks.

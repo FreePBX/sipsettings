@@ -1,4 +1,4 @@
-<?php 
+<?php
 // vim: set ai ts=4 sw=4 ft=phtml:
 
 $codecs =  $this->getConfig('voicecodecs');
@@ -72,7 +72,7 @@ foreach ($localnets as $id => $arr) {
   </tr>
 
 <?php
-// RTP Settings 
+// RTP Settings
 ?>
 
   <tr>
@@ -149,4 +149,3 @@ function addLocalnet() {
 }
 
 </script>
-
