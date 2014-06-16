@@ -44,7 +44,7 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
       $sip_settings["localnet_$n_idx"] = htmlspecialchars($_POST["localnet_$p_idx"]);
       $sip_settings["netmask_$n_idx"]  = htmlspecialchars($_POST["netmask_$p_idx"]);
       $n_idx++;
-    } 
+    }
     $p_idx++;
   }
   function cmp($a, $b) {
@@ -60,51 +60,16 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
     }
   }
 
-	$post_codec = isset($_POST['codec']) ? $_POST['codec'] : array(); 
-	$post_vcodec = isset($_POST['vcodec']) ? $_POST['vcodec'] : array(); 
-	
-  $codecs = array(
-    'ulaw'     => '',
-    'alaw'     => '',
-    'slin'     => '',
-    'g726'     => '',
-    'gsm'      => '',
-    'g729'     => '',
-    'ilbc'     => '',
-    'g723'     => '',
-    'g726aal2' => '',
-    'adpcm'    => '',
-    'lpc10'    => '',
-    'speex'    => '',
-    'g722'     => '',
-    'siren7'   => '',
-    'siren14'  => '',
-    );
+	$post_vcodec = isset($_POST['vcodec']) ? $_POST['vcodec'] : array();
 
   // With the new sorting, the vars should come to us in the sorted order so just use that
   //
-  $pri = 1;
-  foreach (array_keys($post_codec) as $codec) {
-    $codecs[$codec] = $pri++;
-  }
-  $sip_settings['codecs']            = $codecs;
   $sip_settings['g726nonstandard']   = isset($_POST['g726nonstandard']) ? $_POST['g726nonstandard'] : 'no';
   $sip_settings['t38pt_udptl']       = isset($_POST['t38pt_udptl']) ? $_POST['t38pt_udptl'] : 'no';
 
-  $video_codecs = array(
-    'h261'  => '',
-    'h263'  => '',
-    'h263p' => '',
-    'h264'  => '',
-    );
-
   // With the new sorting, the vars should come to us in the sorted order so just use that
   //
-  $pri = 1;
-  foreach (array_keys($post_vcodec) as $vcodec) {
-    $video_codecs[$vcodec] = $pri++;
-  }
-  $sip_settings['video_codecs']      = $video_codecs;
+
   $sip_settings['videosupport']      = isset($_POST['videosupport']) ? $_POST['videosupport'] : 'no';
   $sip_settings['maxcallbitrate']    = isset($_POST['maxcallbitrate']) ? htmlspecialchars($_POST['maxcallbitrate']) : '384';
 
@@ -138,7 +103,7 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
   $sip_settings['bindport']          = isset($_POST['bindport']) ? htmlspecialchars($_POST['bindport']) : '';
   $sip_settings['allowguest']        = isset($_POST['allowguest']) ? $_POST['allowguest'] : 'yes';
   $sip_settings['srvlookup']         = isset($_POST['srvlookup']) ? $_POST['srvlookup'] : 'no';
-  $sip_settings['callevents']        = isset($_POST['callevents']) ? $_POST['callevents'] : 'no'; 
+  $sip_settings['callevents']        = isset($_POST['callevents']) ? $_POST['callevents'] : 'no';
 
   $p_idx = 0;
   $n_idx = 0;
@@ -147,7 +112,7 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
       $sip_settings["sip_custom_key_$n_idx"] = htmlspecialchars($_POST["sip_custom_key_$p_idx"]);
       $sip_settings["sip_custom_val_$n_idx"] = htmlspecialchars($_POST["sip_custom_val_$p_idx"]);
       $n_idx++;
-    } 
+    }
     $p_idx++;
   }
 
@@ -174,12 +139,7 @@ $error_displays = array_merge($error_displays,sipsettings_check_custom_files());
   /* We massaged these above or they came from sipsettings_get() if this is not
    * from and edit. So extract them after sorting out the codec sub arrays.
 	 */
-  $codecs = $sip_settings['codecs'];
-  unset($sip_settings['codecs']);
-  uasort($codecs, 'cmp');
-
-  $video_codecs = $sip_settings['video_codecs'];
-  unset($sip_settings['video_codecs']);
+  $video_codecs = FreePBX::Sipsettings()->getCodecs('video',true);
   uasort($video_codecs, 'cmp');
 
   /* EXTRACT THE VARIABLE HERE - MAKE SURE THEY ARE ALL MASSAGED ABOVE */
@@ -423,7 +383,7 @@ echo '</ul>';
       <input type="text" size="2" id="rtpkeepalive" name="rtpkeepalive" class="validate-int" value="<?php echo $rtpkeepalive ?>" tabindex="<?php echo ++$tabindex;?>"><small>&nbsp;(rtpkeepalive)</small>
     </td>
   </tr>
-  
+
   <tr>
     <td colspan="2"><h5><?php echo _("Notification & MWI")?><hr></h5></td>
   </tr>
@@ -678,7 +638,7 @@ if (version_compare($amp_conf['ASTVERSION'],'1.8','ge')) {
       </table>
     </td>
   </tr>
-  
+
   <tr>
     <td>
       <a href="#" class="info"><?php echo _("Call Events")?><span><?php echo _("Generate manager events when sip ua performs events (e.g. hold).")?></span></a>
@@ -893,7 +853,7 @@ function addCustomField(key, val) {
 //-->
 </script>
 </form>
-<?php		
+<?php
 
 /********** UTILITY FUNCTIONS **********/
 

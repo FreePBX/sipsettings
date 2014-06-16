@@ -124,10 +124,10 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 			}
 
 			if ($codecsValid) {
-				$this->setConfig("voicecodecs", $newcodecs);
+				$this->setCodecs('audio',$newcodecs);
 			} else {
 				// They turned off ALL the codecs. Set them back to default.
-				$this->setConfig("voicecodecs", $this->FreePBX->Codecs->getAudio(true));
+				$this->setCodecs('audio');
 			}
 
 			// Finished. Unset it, and continue on.
@@ -201,8 +201,112 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 		$ext->addGlobal('ALLOW_SIP_ANON', strtolower($this->getConfig("allowanon")));
 	}
 
-	public function getCodecConfig() {
+	/**
+	 * Retrieve Active Codecs
+	 * @param {string} $type               The Codec Type
+	 * @param {bool} $showDefaults=false Whether to show defaults or not
+	 */
+	public function getCodecs($type,$showDefaults=false) {
+		switch($type) {
+			case 'audio':
+				$codecs = $this->getConfig('voicecodecs');
+			break;
+			case 'video':
+				$codecs = $this->getConfig('videocodecs');
+			break;
+			case 'text':
+				$codecs = $this->getConfig('textcodecs');
+			break;
+			case 'image':
+				$codecs = $this->getConfig('imagecodecs');
+			break;
+			default:
+				throw new Exception(_('Unknown Type'));
+			break;
+		}
 
+		if(empty($codecs) || !is_array($codecs)) {
+			switch($type) {
+				case 'audio':
+					$codecs = $this->FreePBX->Codecs->getAudio(true);
+				break;
+				case 'video':
+					$codecs = $this->FreePBX->Codecs->getVideo(true);
+				break;
+				case 'text':
+					$codecs = $this->FreePBX->Codecs->getText(true);
+				break;
+				case 'image':
+					$codecs = $this->FreePBX->Codecs->getImage(true);
+				break;
+			}
+		}
+
+		if($showDefaults) {
+			switch($type) {
+				case 'audio':
+					$allCodecs = $this->FreePBX->Codecs->getAudio();
+				break;
+				case 'video':
+					$allCodecs = $this->FreePBX->Codecs->getVideo();
+				break;
+				case 'text':
+					$allCodecs = $this->FreePBX->Codecs->getText();
+				break;
+				case 'image':
+					$allCodecs = $this->FreePBX->Codecs->getImage();
+				break;
+			}
+			// Update the $codecs array by adding un-selected codecs to the end of it.
+			foreach ($allCodecs as $c => $v) {
+				if (!isset($codecs[$c])) {
+					$codecs[$c] = false;
+				}
+			}
+			return $codecs;
+		} else {
+			//Remove all non digits
+			$final = array();
+			foreach($codecs as $codec => $order) {
+				$order = trim($order);
+				if(ctype_digit($order)) {
+					$final[$codec] = $order;
+				}
+			}
+			asort($final);
+			return $final;
+		}
+	}
+
+	/**
+	 * Update or Set Codecs
+	 * @param {string} $type           Codec Type
+	 * @param {array} $codecs=array() The codecs with order, if blank set defaults
+	 */
+	public function setCodecs($type,$codecs=array()) {
+		$default = empty($codecs) ? true : false;
+		switch($type) {
+			case 'audio':
+				$codecs = $default ? $this->FreePBX->Codecs->getAudio(true) : $codecs;
+				$this->setConfig("voicecodecs", $codecs);
+			break;
+			case 'video':
+				$codecs = $default ? $this->FreePBX->Codecs->getVideo(true) : $codecs;
+				$this->setConfig("videocodecs", $codecs);
+			break;
+			case 'text':
+				$codecs = $default ? $this->FreePBX->Codecs->getText(true) : $codecs;
+				$this->setConfig("textcodecs", $codecs);
+			break;
+			case 'image':
+				$codecs = $default ? $this->FreePBX->Codecs->getImage(true) : $codecs;
+				$this->setConfig("imagecodecs", $codecs);
+			break;
+			default:
+				throw new Exception(_('Unknown Type'));
+			break;
+		}
+		return true;
 	}
 
 	// BMO Hooks.

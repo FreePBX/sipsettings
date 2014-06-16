@@ -1,20 +1,5 @@
 <?php
 // vim: set ai ts=4 sw=4 ft=phtml:
-
-$codecs =  $this->getConfig('voicecodecs');
-
-if (!$codecs) {
-	$codecs = $this->FreePBX->Codecs->getAudio(true);
-}
-
-// Update the $codecs array by adding un-selected codecs to the end of it.
-$allCodecs = array_keys($this->FreePBX->Codecs->getAudio());
-foreach ($allCodecs as $c) {
-	if (!isset($codecs[$c])) {
-		$codecs[$c] = false;
-	}
-}
-
 $localnets = $this->getConfig('localnets');
 if (!$localnets) {
 	$localnets = array();
@@ -101,7 +86,7 @@ echo $this->radioset("icesupport", _("ICE Support"), "", array("True", "False"),
 <?php
 $seq = 1;
 echo '<ul class="sortable">';
-foreach ($codecs as $codec => $codec_state) {
+foreach (FreePBX::Sipsettings()->getCodecs('audio',true) as $codec => $codec_state) {
 	$codec_trans = _($codec);
 	$codec_checked = $codec_state ? 'checked' : '';
 	echo '<li><a href="#">'

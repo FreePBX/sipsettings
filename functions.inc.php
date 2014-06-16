@@ -131,15 +131,6 @@ function sipsettings_hookGet_config($engine) {
             case SIP_NORMAL:
               $interim_settings[$var['keyword']] = $var['data'];
             break;
-
-            case SIP_CODEC:
-              $codecs[$var['keyword']] = $var['data'];
-            break;
-
-            case SIP_VIDEO_CODEC:
-              $video_codecs[$var['keyword']] = $var['data'];
-            break;
-
             case SIP_CUSTOM:
               $sip_settings[] = array($var['keyword'], $var['data']);
             break;
@@ -151,8 +142,7 @@ function sipsettings_hookGet_config($engine) {
 
         /* Codecs First */
         $core_conf->addSipGeneral('disallow','all');
-        asort($codecs);
-        foreach ($codecs as $codec => $enabled) {
+        foreach (FreePBX::Sipsettings()->getCodecs('audio') as $codec => $enabled) {
           if ($enabled != '') {
             $core_conf->addSipGeneral('allow',$codec);
           }
@@ -160,8 +150,7 @@ function sipsettings_hookGet_config($engine) {
         unset($codecs);
 
         if ($interim_settings['videosupport'] == 'yes') {
-          asort($video_codecs);
-          foreach ($video_codecs as $codec => $enabled) {
+          foreach (FreePBX::Sipsettings()->getCodecs('video') as $codec => $enabled) {
             if ($enabled != '') {
               $core_conf->addSipGeneral('allow',$codec);
             }
@@ -252,7 +241,7 @@ function sipsettings_hookGet_config($engine) {
 
 function sipsettings_get($raw=false) {
 
-  $sql = "SELECT `keyword`, `data`, `type`, `seq` FROM `sipsettings` ORDER BY `type`, `seq`";
+  $sql = "SELECT `keyword`, `data`, `type`, `seq` FROM `sipsettings` WHERE type != 1 AND type != 2 ORDER BY `type`, `seq`";
   $raw_settings = sql($sql,"getAll",DB_FETCHMODE_ASSOC);
 
   /* Just give the SQL table if more convenient (such as in hookGet_config */
@@ -272,13 +261,6 @@ function sipsettings_get($raw=false) {
 
   $sip_settings['g726nonstandard']   = 'no';
   $sip_settings['t38pt_udptl']       = 'no';
-
-  $sip_settings['video_codecs']      = array(
-    'h261'  => '',
-    'h263'  => '',
-    'h263p' => '',
-    'h264'  => '',
-    );
 
   $sip_settings['videosupport']      = 'no';
   $sip_settings['maxcallbitrate']    = '384';
@@ -322,15 +304,6 @@ function sipsettings_get($raw=false) {
       case SIP_NORMAL:
         $sip_settings[$var['keyword']]                 = $var['data'];
       break;
-
-      case SIP_CODEC:
-        $sip_settings['codecs'][$var['keyword']]       = $var['data'];
-      break;
-
-      case SIP_VIDEO_CODEC:
-        $sip_settings['video_codecs'][$var['keyword']] = $var['data'];
-      break;
-
       case SIP_CUSTOM:
         $sip_settings['sip_custom_key_'.$var['seq']]   = $var['keyword'];
         $sip_settings['sip_custom_val_'.$var['seq']]   = $var['data'];
@@ -352,11 +325,6 @@ function sipsettings_edit($sip_settings) {
   $save_settings = array();
 	$save_to_admin = array(); // Used only by ALLOW_SIP_ANON for now
   $vd = new  sipsettings_validate();
-
-  $codecs = $sip_settings['codecs'];
-  $video_codecs = $sip_settings['video_codecs'];
-  unset($sip_settings['codecs']);
-  unset($sip_settings['video_codecs']);
 
   // TODO: this is where I will build validation before saving
 	//
@@ -495,14 +463,12 @@ function sipsettings_edit($sip_settings) {
   if (count($vd->errors)) {
     return $vd->errors;
   } else {
-    $seq = 0;
-    foreach ($codecs as $key => $val) {
-      $save_settings[] = array($db->escapeSimple($key),$db->escapeSimple($val),$seq++,SIP_CODEC);
+     $fvcodecs = array();
+     $seq = 1;
+    foreach($_REQUEST['vcodec'] as $codec => $v) {
+        $fvcodecs[$codec] = $seq++;
     }
-    $seq = 0;
-    foreach ($video_codecs as $key => $val) {
-      $save_settings[] = array($db->escapeSimple($key),$db->escapeSimple($val),$seq++,SIP_VIDEO_CODEC);
-    }
+    FreePBX::Sipsettings()->setCodecs('video',$fvcodecs);
 
     // TODO: normally don't like doing delete/insert but otherwise we would have do update for each
     //       individual setting and then an insert if there was nothing to update. So this is cleaner

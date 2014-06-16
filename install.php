@@ -160,7 +160,7 @@ if(!$ss->getConfig('voicecodecs')) {
 	}
 }
 sql("DELETE FROM sipsettings WHERE type = 1");
-//attempt to mirgrate video codecs
+//attempt to migrate video codecs
 if(!$ss->getConfig('videocodecs')) {
 	$sql = "SELECT keyword from sipsettings where type = 2 AND data != '' order by seq";
 	$codecs = sql($sql,'getAll',DB_FETCHMODE_ASSOC);
@@ -180,6 +180,7 @@ if(!$ss->getConfig('videocodecs')) {
 	}
 }
 sql("DELETE FROM sipsettings WHERE type = 2");
+
 
 if(!$ss->getConfig("allowanon")) {
 	$sql = "SELECT `data` FROM `admin` WHERE `variable` = 'ALLOW_SIP_ANON'";
