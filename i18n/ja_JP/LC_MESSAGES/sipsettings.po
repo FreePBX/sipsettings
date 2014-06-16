@@ -1,0 +1,664 @@
+# CREDITS for JAPANESE TRANSLATION
+# ================================
+# Current translation & maintenance: QLOOG, Inc. (Kobe, Japan)
+# Inquiries: info@qloog.com / www.qloog.com
+# 
+# This translation is a culmination of the hard work of
+# several outstanding individuals, which started in 2009 with the 
+# first-ever Japanese localization of FreePBX by Kenichi Fukaumi 
+# and Kazuhiro Tokuyama (FreePBX Japanized Project).
+#
+# Beginning in 2013, with the approval of the original authors, 
+# QLOOG undertook a large scale overhaul of the translation to 
+# expand it for compatibility with FreePBX 2.11. Our work is, 
+# of course, released under the same GPLv2 license as FreePBX. 
+# We only ask that you kindly retain these credits in honor of 
+# the time and effort that all of us have contributed. Enjoy!
+# 
+# This file is part of FreePBX.
+#
+#    FreePBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    FreePBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with FreePBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+# FreePBX language template for sipsettings
+# Copyright (C) 2008, 2009, 2010 Bandwith.com
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: FreePBX\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-11-05 19:32+0900\n"
+"PO-Revision-Date: 2014-02-20 21:47+0200\n"
+"Last-Translator: Chise Mishima <c.mishima@qloog.com>\n"
+"Language-Team: Japanese "
+"<http://example.com/projects/freepbx/sipsettings/ja/>\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 1.8\n"
+
+msgid "Failed to auto-detect settings"
+msgstr "自動検知設定に失敗"
+
+msgid "Failed to auto-detect local network settings"
+msgstr "ローカルネットワークの自動検知設定に失敗"
+
+msgid "checking for sipsettings table.."
+msgstr "sipsettings テーブルをチェック中.."
+
+msgid "none, creating table"
+msgstr "なし、テーブルを作成"
+
+msgid "populating default codecs.."
+msgstr "デフォルトコーデックを設定中.."
+
+msgid "fatal error occurred populating defaults, check module"
+msgstr ""
+"デフォルトのコーデックを設定中に致命的なエラーが発生、モジュールをチェックし"
+"てください"
+
+msgid "ulaw, alaw, gsm added"
+msgstr "ulaw, alaw, gsm が追加されました"
+
+msgid "already exists"
+msgstr "既存します"
+
+msgid "Migrate rtp.conf values if needed and initialize"
+msgstr "必要に応じてrtf.confの値を移行して初期化する"
+
+#, php-format
+msgid "saving previous value of %s"
+msgstr "%sの前の値を保存中…"
+
+#, php-format
+msgid "setting default value of %s"
+msgstr "%sのデフォルト値を設定中…"
+
+msgid "Asterisk SIP Settings"
+msgstr "Asterisk SIP 設定"
+
+msgid "Settings"
+msgstr "設定"
+
+msgid ""
+"Use to configure Various Asterisk SIP Settings in the General section of sip."
+"conf. Also includes an auto-configuration tool to determine NAT settings. "
+"The module assumes Asterisk version 1.4 or higher. Some settings may not "
+"exist in Asterisk 1.2 and will be ignored by Asterisk."
+msgstr ""
+"sip.conf内のGeneralセクションの様々なAsterisk SIP設定を行うために使用します。"
+"NATの設定を決定するための自動設定ツールも含まれています。モジュールは、"
+"Asteriskのバージョン1.4以降を前提としています。いくつかの設定は、Asterisk1.2"
+"では存在しない場合があり、Asteriskに無視されます。"
+
+msgid "Add Field"
+msgstr "フィールドを追加"
+
+msgid "Auto Configure"
+msgstr "自動設定"
+
+msgid "Add Local Network Field"
+msgstr "ローカルネットワークフィールドを追加"
+
+msgid "Submit Changes"
+msgstr "変更を適用"
+
+msgid "Edit Settings"
+msgstr "設定を編集"
+
+msgid "ERRORS"
+msgstr "エラー"
+
+msgid "NAT Settings"
+msgstr "NAT設定"
+
+msgid "NAT"
+msgstr "NAT"
+
+msgid ""
+"Asterisk NAT setting:<br /> yes = Always ignore info and assume NAT<br /> no "
+"= Use NAT mode only according to RFC3581 <br /> never = Never attempt NAT "
+"mode or RFC3581 <br /> route = Assume NAT, don't send rport"
+msgstr ""
+"Asterisk NAT 設定:<br /> yes = 常に情報を無視しNATとみなします<br /> no = "
+"RFC3581に従ってのみNATモードを使用する<br /> never = NATモードや RFC3581 をい"
+"かなるときも行いません<br /> route = NATを想定し、rportを送信しません。"
+
+msgid "IP Configuration"
+msgstr "IP設定"
+
+msgid ""
+"Indicate whether the box has a public IP or requires NAT settings. Automatic "
+"configuration of what is often put in sip_nat.conf"
+msgstr ""
+"ボックスがパブリックIPを持つのか、NAT設定を要求するのかを指定します。自動設定"
+"はsip_nat.confにセットされます。"
+
+msgid "Public IP"
+msgstr "パブリックIP"
+
+msgid "Static IP"
+msgstr "スタティックIP"
+
+msgid "Dynamic IP"
+msgstr "ダイナミックIP"
+
+msgid "External IP"
+msgstr "外部IP"
+
+msgid ""
+"External Static IP or FQDN as seen on the WAN side of the router. (asterisk: "
+"externip)"
+msgstr "ルーターのWAN側で見られる外部の静的なIP又はFQDN。(asterisk: externip)"
+
+msgid "Dynamic Host"
+msgstr "ダイナミックホスト"
+
+msgid ""
+"External FQDN as seen on the WAN side of the router and updated dynamically, "
+"e.g. mydomain.dyndns.com. (asterisk: externhost)"
+msgstr ""
+"ルーターのWAN側で見られる外部の外部FQDNで、動的に更新されます、例: mydomain."
+"dyndns.com. (asterisk: externhost)"
+
+msgid "Refresh Rate"
+msgstr "レートを更新"
+
+msgid ""
+"Asterisk: externrefresh. How often to lookup and refresh the External Host "
+"FQDN, in seconds."
+msgstr ""
+"Asterisk: externrefresh. どのぐらいの頻度で外部ホストFQDNを調査し更新するかの"
+"秒指定。"
+
+msgid "Local Networks"
+msgstr "ローカルネットワーク"
+
+msgid ""
+"Local network settings (Asterisk: localnet) in the form of ip/mask such as "
+"192.168.1.0/255.255.255.0. For networks with more 1 lan subnets, use the Add "
+"Local Network Field button for more fields. Blank fields will be removed "
+"upon submitting."
+msgstr ""
+"192.168.1.0/255.255.255.0といったように、ip/maskという形式でのローカルネット"
+"ワーク設定 (Asterisk: localnet) もう１つのLANサブネットを持つネットワークの場"
+"合は、ローカルネットワークフィールドを追加ボタンを使用してフィールドを追加し"
+"てください。空白フィールドは投稿時に削除されます。"
+
+msgid "Audio Codecs"
+msgstr "オーディオコーデック"
+
+msgid "Codecs"
+msgstr "コーデック"
+
+msgid ""
+"Check the desired codecs, all others will be disabled unless explicitly "
+"enabled in a device or trunks configuration. Drag to re-order."
+msgstr ""
+"使用したいコーデックをチェックしてください、デバイスやトランク設定で明示的に"
+"有効にされない限り、他の全てのものは無効となります。順序の再設定をするにはド"
+"ラッグしてください。"
+
+msgid "Non-Standard g726"
+msgstr "標準でないg726"
+
+msgid ""
+"Asterisk: g726nonstandard. If the peer negotiates G726-32 audio, use AAL2 "
+"packing order instead of RFC3551 packing order (this is required for Sipura "
+"and Grandstream ATAs, among others). This is contrary to the RFC3551 "
+"specification, the peer _should_ be negotiating AAL2-G726-32 instead."
+msgstr ""
+"Asterisk: g726nonstandard. もしピアがG726-32をネゴシエートした場合は、RFC3551"
+"パッキング順の代わりにAAL2パッキング順を使用してください。(これは、Sipuraや"
+"Grandstream ATAs, その他で必要となります)。これはRFC3551定義とは正反対で、ピ"
+"アは代わりにAAL2-G726-32をネゴシエートします。"
+
+msgid "Yes"
+msgstr "はい"
+
+msgid "No"
+msgstr "いいえ"
+
+msgid "T38 Pass-Through"
+msgstr "T38 パススルー"
+
+msgid ""
+"Asterisk: t38pt_udptl. Enables T38 passthrough if enabled. This SIP channels "
+"that support sending/receiving T38 Fax codecs to pass the call. Asterisk can "
+"not process the media."
+msgstr ""
+"Asterisk: t38pt_udptl.有効にした場合、T38パススルーが有効になります。このSIP"
+"チャネルはコールをパスしてT38 FAXコーデックをサポートします。Asteriskはメディ"
+"アを処理することはできません。"
+
+msgid "Video Codecs"
+msgstr "ビデオコーデック"
+
+msgid "Video Support"
+msgstr "ビデオサポート"
+
+msgid "Check to enable and then choose allowed codecs."
+msgstr "有効にチェックし、許可されたコーデックを選択します。"
+
+msgid ""
+" If you clear each codec and then add them one at a time, submitting with "
+"each addition, they will be added in order which will effect the codec "
+"priority."
+msgstr ""
+"もし各コーデックをクリアした後に、それらを一つずつ追加し更新した場合、コー"
+"デックの優先度順として追加されます"
+
+msgid "Enabled"
+msgstr "有効"
+
+msgid "Disabled"
+msgstr "無効"
+
+msgid "Max Bit Rate"
+msgstr "最大ビットレート"
+
+msgid "Maximum bitrate for video calls in kb/s"
+msgstr "ビデオ会議の最大ビットレート kb/s"
+
+msgid "kb/s"
+msgstr "kb/s"
+
+msgid "MEDIA & RTP Settings"
+msgstr "MEDIA & RTP 設定"
+
+msgid "Reinvite Behavior"
+msgstr "re-INVITEの挙動"
+
+msgid ""
+"Asterisk: canreinvite. yes: standard reinvites; no: never; nonat: An "
+"additional option is to allow media path redirection (reinvite) but only "
+"when the peer where the media is being sent is known to not be behind a NAT "
+"(as the RTP core can determine it based on the apparent IP address the media "
+"arrives from; update: use UPDATE for media path redirection, instead of "
+"INVITE. (yes = update + nonat)"
+msgstr ""
+"Asterisk: canreinvite. はい: 標準のreinvites; いいえ: しない; NATなし: 追加の"
+"オプションによってメディアパスのリダイレクション(reinvite)が許可されますが、"
+"メディアが送信されたピアがNATの配下でないとわかった時だけとなります。(RTPコア"
+"がメディアが到着した元の明白なIPアドレスに基づいて決定します; 更新: メディア"
+"パスリダイレクションのために、INVITEの代わりにUPDATEを使用します。 (はい = "
+"update + nonat)"
+
+msgid "yes"
+msgstr "はい"
+
+msgid "no"
+msgstr "いいえ"
+
+msgid "RTP Timers"
+msgstr "RTPタイマー"
+
+msgid ""
+"Asterisk: rtptimeout. Terminate call if rtptimeout seconds of no RTP or RTCP "
+"activity on the audio channel when we're not on hold. This is to be able to "
+"hangup a call in the case of a phone disappearing from the net, like a "
+"powerloss or someone tripping over a cable.<br /> Asterisk: rtpholdtimeout. "
+"Terminate call if rtpholdtimeout seconds of no RTP or RTCP activity on the "
+"audio channel when we're on hold (must be > rtptimeout). <br /> Asterisk: "
+"rtpkeepalive. Send keepalives in the RTP stream to keep NAT open during "
+"periods where no RTP stream may be flowing (like on hold)."
+msgstr ""
+"Asterisk: rtptimeout. 保留中でない時に音声チャネル上にRTPもしくはRTCPの活動が"
+"rtptimeout秒数存在しない場合に通話を切断します。これにより、電源が切れた場合"
+"やケーブルが抜けてしまった場合などのように通話が消失した際に通話を切断するこ"
+"とができます。<br /> Asterisk: rtpholdtimeout. 保留中に音声チャネル上にRTPも"
+"しくはRTCPの活動がrtpholdtimeout秒数存在しない場合に通話を切断します。 "
+"(rtptimeoutより大きな値でなければなりません). <br /> Asterisk: rtpkeepalive. "
+"RTPストリームが流れていない期間(保留中など)でもNATがオープンしている状態を"
+"キープするためにRTPストリーム内でキープアライブを送信します。"
+
+msgid "RTP Port Ranges"
+msgstr "RTPポート範囲"
+
+msgid ""
+"Asterisk: rtpstart. The starting RTP port range.<br /> Asterisk: rtpend. The "
+"ending RTP port range."
+msgstr ""
+"Asterisk: rtpstart. 最初のRTPポート範囲。</br> Asterisk: rtpend. 最後のRTP"
+"ポート範囲。"
+
+msgid "Notification & MWI"
+msgstr "通知 & MWI"
+
+msgid "MWI Polling Freq"
+msgstr "MWIポーリング間隔"
+
+msgid ""
+"Frequency in seconds to check if MWI state has changed and inform peers."
+msgstr "MWI状態が変更されているかのチェックを行いピアに通知する秒数間隔"
+
+msgid "Notify Ringing"
+msgstr "着信中を通知"
+
+msgid ""
+"Control whether subscriptions already INUSE get sent RINGING when another "
+"call is sent. Useful when using BLF."
+msgstr ""
+"既に使用中(INUSE)のサブスクリプションが、他のコールが送信された際に、送られて"
+"きたRINGINGを受け取るかどうかを制御します。BLFを使用中に役に立ちます。"
+
+msgid "Notify Hold"
+msgstr "保留を通知"
+
+msgid ""
+"Control whether subscriptions INUSE get sent ONHOLD when call is placed on "
+"hold. Useful when using BLF."
+msgstr ""
+"使用中(INUSE)のサブスクリプションが、コールが保留された際に、送られてきた"
+"ONHOLDを受け取るかどうかを制御します。BLFを使用中に役に立ちます。"
+
+msgid "Registration Settings"
+msgstr "レジスト設定"
+
+msgid "Registrations"
+msgstr "レジスト"
+
+msgid ""
+"Asterisk: registertimeout. Retry registration attempts every registertimeout "
+"seconds until successful or until registrationattempts tries have been made."
+"<br /> Asterisk: registrationattempts. Number of times to try and register "
+"before giving up. A value of 0 means keep trying forever. Normally this "
+"should be set to 0 so that Asterisk will continue to register until "
+"successful in the case of network or gateway outages."
+msgstr ""
+"Asterisk: registertimeout. 登録の試みを登録タイムアウト秒毎に成功するまで、又"
+"はregistrationattemptsが試行されるまでリトライします。<br /> Asterisk: "
+"registrationattempts. 登録をあきらめるまでの回数。0は永久にトライすることを意"
+"味します。通常、ネットワークやゲートウェイの停電の際にAsteriskが成功するまで"
+"登録し続けるように、この数字は0に設定されるべきです。"
+
+msgid "Registration Times"
+msgstr "レジスト時間"
+
+msgid ""
+"Asterisk: minexpiry. Minimum length of registrations/subscriptions.<br /> "
+"Asterisk: maxepiry. Maximum allowed time of incoming registrations<br /> "
+"Asterisk: defaultexpiry. Default length of incoming and outgoing "
+"registrations."
+msgstr ""
+"Asterisk: minexpiry. 登録/サブスクリプションの最小長。<br /> Asterisk: "
+"maxepiry. 中に入ってくる登録の最大許可時間。<br /> Asterisk: defaultexpiry. "
+"中に入ってくる登録と外に出ていく登録のデフォルト長。"
+
+msgid "Jitter Buffer Settings"
+msgstr "ジッタバッファ設定"
+
+msgid "Jitter Buffer"
+msgstr "ジッタバッファ"
+
+msgid ""
+"Asterisk: jbenable. Enables the use of a jitterbuffer on the receiving side "
+"of a SIP channel. An enabled jitterbuffer will be used only if the sending "
+"side can create and the receiving side can not accept jitter. The SIP "
+"channel can accept jitter, thus a jitterbuffer on the receive SIP side will "
+"be used only if it is forced and enabled. An example is if receiving from a "
+"jittery channel to voicemail, the jitter buffer will be used if enabled. "
+"However, it will not be used when sending to a SIP endpoint since they "
+"usually have their own jitter buffers. See jbforce to force it's use always."
+msgstr ""
+"Asterisk: jbenable. SIPチャンネルの片側を受信した際にジッタバッファの使用を有"
+"効にします。有効にされたジッタバッファは送信側がジッタを作成可能で受信側が"
+"ジッタを受け入れることができない時のみ使用されます。SIPチャネルはジッタを受け"
+"入れることが可能で、この場合は受け取りSIP側のジッタバッファはそれが強制され有"
+"効な時のみ使用されます。例として、ジッタチャネルからボイスメールへ受信した場"
+"合、ジッタバッファはそれが有効になっている場合は使用されます。しかしながら、"
+"SIPエンドポイントに送信する際はジッタバッファは使用されません、なぜならSIPエ"
+"ンドポイントはいつも独自のジッタバッファを持っているからです。常に強制した場"
+"合は jbforce を確認してください。"
+
+msgid "Force Jitter Buffer"
+msgstr "強制的なジッタバッファ"
+
+msgid ""
+"Asterisk: jbforce. Forces the use of a jitterbuffer on the receive side of a "
+"SIP channel. Normally the jitter buffer will not be used if receiving a "
+"jittery channel but sending it off to another channel such as another SIP "
+"channel to an endpoint, since there is typically a jitter buffer at the far "
+"end. This will force the use of the jitter buffer before sending the stream "
+"on. This is not typically desired as it adds additional latency into the "
+"stream."
+msgstr ""
+"Asterisk: jbforce. 強制的にSIPチャネルの受信側でのジッタバッファを使用しま"
+"す。通常ジッタチャネルを受信した場合はジッタバッファは使用されず、別のSIPチャ"
+"ネルからエンドポイントへといったように、他のチャネルに送信します、というのも"
+"一般的に遠隔のエンドにはジッタバッファがあるからです。この設定により、スト"
+"リームを送信する前に強制的にジッタバッファを使用します。これによって、スト"
+"リームにレイテンシーが追加されてしまうため、一般的には望まれません。"
+
+msgid "Implementation"
+msgstr "実装"
+
+msgid ""
+"Asterisk: jbimpl. Jitterbuffer implementation, used on the receiving side of "
+"a SIP channel. Two implementations are currently available:<br /> fixed: "
+"size always equals to jbmaxsize;<br /> adaptive: with variable size (the new "
+"jb of IAX2)."
+msgstr ""
+"Asterisk: jbimpl. SIPチャネルの受信側で使用されるジッタバッファの実装。２つの"
+"実装が現在使用可能です:<br /> 固定: 常にjbmaxsizeと同じサイズ;<br /> 適用: 可"
+"変サイズ"
+
+msgid "Fixed"
+msgstr "固定"
+
+msgid "Adaptive"
+msgstr "適応"
+
+msgid "Jitter Buffer Logging"
+msgstr "ジッタバッファロギング"
+
+msgid "Asterisk: jblog. Enables jitter buffer frame logging."
+msgstr "Asterisk: jblog. ジッタバッファフレームのログを有効にします。"
+
+msgid "Enable"
+msgstr "有効"
+
+msgid "Disable"
+msgstr "無効"
+
+msgid "Jitter Buffer Size"
+msgstr "ジッタバッファサイズ"
+
+msgid ""
+"Asterisk: jbmaxsize. Max length of the jitterbuffer in milliseconds.<br /> "
+"Asterisk: jbresyncthreshold. Jump in the frame timestamps over which the "
+"jitterbuffer is resynchronized. Useful to improve the quality of the voice, "
+"with big jumps in/broken timestamps, usually sent from exotic devices and "
+"programs. Can be set to -1 to disable."
+msgstr ""
+"Asterisk: jbmaxsize. ジッタバッファの最大長ミリ秒。<br /> Asterisk: "
+"jbresyncthreshold. ジッタバッファが再同期したフレームタイムスタンプにジャンプ"
+"します。外国産のデバイスやプログラムから通常送られてくる壊れたタイムスタンプ"
+"を飛び越えることで、音声の品質を改善するのに役立ちます。-1に設定することで無"
+"効にすることができます。"
+
+msgid "Advanced General Settings"
+msgstr "高度な一般設定"
+
+msgid "Language"
+msgstr "言語"
+
+msgid "Default Language for a channel, Asterisk: language"
+msgstr "チャネルのデフォルト言語 Asterisk: language"
+
+msgid "Default Context"
+msgstr "デフォルトコンテキスト"
+
+msgid ""
+"Asterisk: context. Default context for incoming calls if not specified. "
+"FreePBX sets this to from-sip-external which is used in conjunction with the "
+"Allow Anonymous SIP calls. If you change this you will effect that behavior. "
+"It is recommended to leave this blank."
+msgstr ""
+"Asterisk: context. コンテキストが指定されていないときの着信コールのデフォルト"
+"のコンテキスト。FreePBXは、匿名のSIP呼び出しの許可と組み合わせて使用されてい"
+"る from-sip-external にこれを設定します。 この設定を変更すると、これらの挙動"
+"に影響を与えます。空白にしておくことを推奨します。"
+
+msgid ""
+"Asterisk: bindaddr. The IP address to bind to and listen for calls on the "
+"Bind Port. If set to 0.0.0.0 Asterisk will listen on all addresses. It is "
+"recommended to leave this blank."
+msgstr ""
+"Asterisk: bindaddr. バインドポートで通話をbindしlistenするIPアドレス。 "
+"0.0.0.0 に設定された場合、Asteriskは全てのアドレスでlistenします。空白にして"
+"おくことを推奨します。"
+
+msgid ""
+"Asterisk 1.8 all supports IPv6. An address of '::' will listen on both IPv4 "
+"and IPv6."
+msgstr ""
+"Asterisk 1.8 は全てIPv6をサポートします。 '::'のアドレスはIPv4とIPv6両方で"
+"listenします。"
+
+msgid "Bind Address"
+msgstr "待ち受けアドレス"
+
+msgid "Bind Port"
+msgstr "待ち受けポート"
+
+msgid ""
+"Asterisk: bindport. Local incoming UDP Port that Asterisk will bind to and "
+"listen for SIP messages. The SIP standard is 5060 and in most cases this is "
+"what you want. It is recommended to leave this blank."
+msgstr ""
+"Asterisk: bindport. SIPメッセージのためにAsteriskがbindしlistenするローカルの"
+"受信UDPポート。SIP標準では5060で、たいていのケースではこれで事足ります。空白"
+"にしておくことを推奨します。"
+
+msgid "Allow SIP Guests"
+msgstr "SIPゲストを許可"
+
+msgid ""
+"Asterisk: allowguest. When set Asterisk will allow Guest SIP calls and send "
+"them to the Default SIP context. Turning this off will keep anonymous SIP "
+"calls from entering the system. Doing such will also stop 'Allow Anonymous "
+"Inbound SIP Calls' from functioning. Allowing guest calls but rejecting the "
+"Anonymous SIP calls below will enable you to see the call attempts and debug "
+"incoming calls that may be mis-configured and appearing as guests."
+msgstr ""
+"Asterisk: allowguest. 設定された場合、AsteriskはゲストSIPコールを許可してデ"
+"フォルトのSIPコンテキストへ送信します。これをoffにしておくことで、匿名SIPコー"
+"ルがシステムに入ってくることを防ぎます。匿名SIPコール許可が機能しなくなりま"
+"す。ゲストコールを許可し匿名SIPコールを拒絶することで、コールしようと試みてい"
+"る状態を確認することができ、設定ミスでゲストが現れるような受信コールをデバッ"
+"グすることができます。"
+
+msgid "Allow Anonymous Inbound SIP Calls"
+msgstr "匿名のインバウンドSIP着信を許可する"
+
+msgid ""
+"Allowing Inbound Anonymous SIP calls means that you will allow any call "
+"coming in form an un-known IP source to be directed to the 'from-pstn' side "
+"of your dialplan. This is where inbound calls come in. Although FreePBX "
+"severely restricts access to the internal dialplan, allowing Anonymous SIP "
+"calls does introduced additional security risks. If you allow SIP URI "
+"dialing to your PBX or use services like ENUM, you will be required to set "
+"this to Yes for Inbound traffic to work. This is NOT an Asterisk sip.conf "
+"setting, it is used in the dialplan in conjuction with the Default Context. "
+"If that context is changed above to something custom this setting may be "
+"rendered useless as well as if 'Allow SIP Guests' is set to no."
+msgstr ""
+"「匿名のインバウンドSIP着信を許可する」とは、未知のIPからの着信を、ダイヤルプランのfrom-pstn側へ向けた接続を許可する、という意味です。イン"
+"バウンド着信はここから入ります。FreePBXは、内部のダイヤルプランへのアクセスを厳しく制限していますが、匿名のSIP着信を許可する事により、セキュリ"
+"ティ上のリスクが増える可能性があります。PBXではSIP URIダイヤルや、ENUMなどのサービス利用する場合、着信を受けるためにはここをYesに設定す"
+"る必要があります。これはAsteriskのsip.conf設定ではなく、ダイヤルプランでデフォルトコンテキストと合わせて使用される設定です。前述の様にコ"
+"ンテキストが何かしらカスタム設定になっていると、「SIPゲストを許可する」がnoに設定されると同様に、この設定は無効になる可能性があります。"
+
+msgid "SRV Lookup"
+msgstr "SRVルックアップ"
+
+msgid ""
+"Enable Asterisk srvlookup. See current version of Asterisk for limitations "
+"on SRV functionality."
+msgstr ""
+"Asterisk srvlookupを有効にします。現AsteriskバージョンのSRV機能の制限を確認し"
+"てください。"
+
+msgid "Call Events"
+msgstr "コールイベント"
+
+msgid "Generate manager events when sip ua performs events (e.g. hold)."
+msgstr ""
+"sip ua がイベント(保留等)を実行した際にマネージャーイベントを生成します。"
+
+msgid "Other SIP Settings"
+msgstr "その他SIP設定"
+
+msgid ""
+"You may set any other SIP settings not present here that are allowed to be "
+"configured in the General section of sip.conf. There will be no error "
+"checking against these settings so check them carefully. They should be "
+"entered as:<br /> [setting] = [value]<br /> in the boxes below. Click the "
+"Add Field box to add additional fields. Blank boxes will be deleted when "
+"submitted."
+msgstr ""
+"sip.conf内のGeneralセクションで設定することが許されている、ここにない他のあら"
+"ゆるSIP設定をすることができます。これらの設定に対してはエラーチェックが走らな"
+"いため十分注意してチェックしてください。下のボックスに<br /> [setting] = "
+"[value]<br />という形で入力します。フィールドボックスを追加をクリックして"
+"フィールドを追加します。ボックスがブランクの場合は更新時に無視されます。\""
+
+msgid ""
+"An Error occurred trying fetch network configuration and external IP address"
+msgstr "ネットワーク設定及び外部IPアドレスを取出し中にエラーが発生しました。"
+
+#, php-format
+msgid "Settings in %s may override these. Those settings should be removed."
+msgstr "%s 内の設定はこれらを上書きします。それらの設定は削除されます。"
+
+#, php-format
+msgid ""
+"File %s should not have any settings in it. Those settings should be removed."
+msgstr ""
+"ファイル %s 内に設定が直接書かれています。これらの設定は削除してください。"
+
+#, php-format
+msgid "%s must be a non-negative integer"
+msgstr "%s は負でない整数でなければなりません"
+
+msgid "Bind Address (bindaddr) must be an IP address."
+msgstr "バインドアドレス (bindaddr) はIPアドレスでなければなりません"
+
+msgid "Bind Port (bindport) must be between 1024..65535, default 5060"
+msgstr ""
+"バインドポート (bindport)は1024..65535の間でなければなりません、デフォルト"
+"5060"
+
+msgid "rtpholdtimeout must be higher than rtptimeout"
+msgstr "rtpholdtimeout は rtptimeout より高くなければなりません"
+
+#, php-format
+msgid "%s must be alphanumeric"
+msgstr "%s はアルファベットか数字でなければなりません"
+
+msgid "External IP can not be blank"
+msgstr "外部IPを空白にすることはできません。"
+
+msgid "Dynamic Host can not be blank"
+msgstr "ダイナミックホストを空白にすることはできません。"
+
+msgid "Localnet setting must be an IP address"
+msgstr "ローカルネット設定はIPアドレスでなければなりません"
+
+msgid "Localnet netmask must be formatted properly (e.g. 255.255.255.0 or 24)"
+msgstr ""
+"ローカルネットのネットマスクは適切なフォーマットでなければなりません(例. "
+"255.255.255.0 または 24)"

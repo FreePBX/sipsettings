@@ -2,11 +2,12 @@
 	<rawname>sipsettings</rawname>
 	<repo>standard</repo>
 	<candisable>no</candisable>
-	<canuninstall>yes</canuninstall>
+	<canuninstall>no</canuninstall>
 	<name>Asterisk SIP Settings</name>
 	<version>12.0.1alpha5</version>
-	<publisher>schmoozecom.com</publisher>
-	<license>AGPLv3</license>
+	<publisher>Schmooze Com Inc</publisher>
+	<license>AGPLv3+</license>
+	<licenselink>http://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
 	<category>Settings</category>
 	<menuitems>
 		<sipsettings>Asterisk SIP Settings</sipsettings>
@@ -19,6 +20,7 @@
 		*12.0.1alpha3* Show reload bar when settings change
 		*12.0.1alpha2* Hide PJSIP when disabled or not present in the system
 		*12.0.1alpha1* PJSipsettings and Generalize and breakout the page for sub-navigation
+		*2.11.0.9* update license file
 		*2.11.0.7* rtp.conf cleanup, require this module
 		*2.11.0.6* #6473 - check t38pt_udptl value before setting in sip_general_additional.conf
 		*2.11.0.5* More fixes related to rtpstart and rtpend values
