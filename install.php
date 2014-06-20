@@ -4,6 +4,7 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 
 global $db;
 global $amp_conf;
+global $version;
 
 $sql = <<< END
 	CREATE TABLE IF NOT EXISTS `sipsettings` (
@@ -25,42 +26,29 @@ if(DB::IsError($check)) {
 	// table does not exist, create it
 	sql($sql);
 
-	// Figure out if we're using asterisk 11 or 12. This only happens at
-	// install time, and it's likely that asterisk isn't even running at
-	// this point. So, we're going to have to cheat.
-	exec("rpm -qa | grep asterisk", $out, $res);
-	if ($res != 0) {
-		// Well, the RPM command failed. Let's assume asterisk 11 for the moment.
-		$haspjsip = false;
-		$chansip_port = 5060;
-		$pjsip_port = 5061;
-	} else {
-		// It worked!
-		$haspjsip = true;
-		// Can we see versions of asterisk that we know don't have pjsip?
-		foreach ($out as $line) {
-			if (strpos("asterisk11-core", $line) === 0) {
-				$haspjsip = false;
-			} elseif (strpos("asterisk18-core", $line) === 0) { 
-				// This is for Asterisk 1.8. When Asterisk 18 is released, someone's
-				// going to look at this code, and swear quietly under their breath.
-				// Sorry.
-				$haspjsip = false;
-			}
-		}
-		if ($haspjsip) {
-			$pjsip_port = 5060;
-			$chansip_port = 5061;
+	// Figure out if we're using asterisk 11 or 12.
+	$version = FreePBX::Config()->get('ASTVERSION');
+	if ($version) {
+		// Woo, we have a version
+		if (version_compare($version, "12.2.0", ">=")) {
+			$haspjsip = true;
 		} else {
-			$pjsip_port = 5061;
-			$chansip_port = 5060;
+			$haspjsip = false;
 		}
+	} else {
+		// Well. I don't know what version of Asterisk I'm running.
+		// Assume less than 12.
+		$haspjsip = false;
 	}
 
 	if ($haspjsip) {
 		out(_("chan_pjsip support detected. Enabling."));
+		$pjsip_port = 5060;
+		$chansip_port = 5061;
 	} else {
 		out(_("chan_pjsip support NOT FOUND."));
+		$pjsip_port = 5061;
+		$chansip_port = 5060;
 	}
 
 	outn(_("populating default codecs.."));
