@@ -25,13 +25,51 @@ if(DB::IsError($check)) {
 	// table does not exist, create it
 	sql($sql);
 
+	// Figure out if we're using asterisk 11 or 12. This only happens at
+	// install time, and it's likely that asterisk isn't even running at
+	// this point. So, we're going to have to cheat.
+	exec("rpm -qa | grep asterisk", $out, $res);
+	if ($res != 0) {
+		// Well, the RPM command failed. Let's assume asterisk 11 for the moment.
+		$haspjsip = false;
+		$chansip_port = 5060;
+		$pjsip_port = 5061;
+	} else {
+		// It worked!
+		$haspjsip = true;
+		// Can we see versions of asterisk that we know don't have pjsip?
+		foreach ($out as $line) {
+			if (strpos("asterisk11-core", $line) === 0) {
+				$haspjsip = false;
+			} elseif (strpos("asterisk18-core", $line) === 0) { 
+				// This is for Asterisk 1.8. When Asterisk 18 is released, someone's
+				// going to look at this code, and swear quietly under their breath.
+				// Sorry.
+				$haspjsip = false;
+			}
+		}
+		if ($haspjsip) {
+			$pjsip_port = 5060;
+			$chansip_port = 5061;
+		} else {
+			$pjsip_port = 5061;
+			$chansip_port = 5060;
+		}
+	}
+
+	if ($haspjsip) {
+		out(_("chan_pjsip support detected. Enabling."));
+	} else {
+		out(_("chan_pjsip support NOT FOUND."));
+	}
+
 	outn(_("populating default codecs.."));
 	$sip_settings =  array(
 		array('ulaw'    ,'1', '0', '1'),
 		array('alaw'    ,'2', '1', '1'),
 		array('slin'    ,'' , '2', '1'),
-		array('g726'    ,'' , '3', '1'),
-		array('gsm'     ,'3', '4', '1'),
+		array('gsm'     ,'3', '3', '1'),
+		array('g726'    ,'4', '4', '1'),
 		array('g729'    ,'' , '5', '1'),
 		array('ilbc'    ,'' , '6', '1'),
 		array('g723'    ,'' , '7', '1'),
@@ -40,7 +78,7 @@ if(DB::IsError($check)) {
 		array('lpc10'   ,'' ,'10', '1'),
 		array('speex'   ,'' ,'11', '1'),
 		array('g722'    ,'' ,'12', '1'),
-		array('bindport','5061', '1', '0'),
+		array('bindport',$chansip_port, '1', '0'),
 	);
 
 	// Now insert minimal codec rows
@@ -49,13 +87,17 @@ if(DB::IsError($check)) {
 	if(DB::IsError($result)) {
 		out(_("fatal error occurred populating defaults, check module"));
 	} else {
-		out(_("ulaw, alaw, gsm added"));
+		out(_("ulaw, alaw, gsm, g726 added"));
 	}
 
-	// On a new install, we should be using chan_pjsip as a default, buth have both enabled.
-	FreePBX::create()->Config->set_conf_values(array('ASTSIPDRIVER' => 'both'), true, true);
-	$ss->setConfig("udpport-0.0.0.0", "5060");
-	$ss->setConfig("tcpport-0.0.0.0", "5060");
+	if ($haspjsip) {
+		FreePBX::create()->Config->set_conf_values(array('ASTSIPDRIVER' => 'both'), true, true);
+	} else {
+		FreePBX::create()->Config->set_conf_values(array('ASTSIPDRIVER' => 'chansip'), true, true);
+	}
+
+	$ss->setConfig("udpport-0.0.0.0", $pjsip_port);
+	$ss->setConfig("tcpport-0.0.0.0", $pjsip_port);
 	$ss->setConfig("binds", array("udp" => array("0.0.0.0" => "on")));
 } else {
 	out(_("already exists"));
