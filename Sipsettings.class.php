@@ -49,6 +49,17 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 		}
 	}
 
+	public function getBinds() {
+		$binds = array();
+		foreach($this->getConfig("binds") as $protocol => $bind) {
+			foreach($bind as $ip => $state) {
+				$p = $this->getConfig($protocol."port-".$ip);
+				$binds[] = $protocol.':'.$ip.':'.$p;
+			}
+		}
+		return $binds;
+	}
+
 	public function getRnav() {
 
 		$driver = $this->FreePBX->Config->get_conf_setting('ASTSIPDRIVER');
