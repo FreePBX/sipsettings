@@ -147,7 +147,7 @@ $error_displays = array_merge($error_displays,sipsettings_check_custom_files());
   extract($sip_settings);
 
 ?>
-  <form autocomplete="off" name="editSip" action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
+  <form autocomplete="off" name="editSip" action="" method="post">
   <input type="hidden" name="action" value="edit">
   <table width="690px">
 

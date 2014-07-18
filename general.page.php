@@ -9,7 +9,7 @@ $add_local_network_field = _("Add Local Network Field");
 $submit_changes = _("Submit Changes");
 
 ?>
-<form autocomplete="off" action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
+<form autocomplete="off" action="" method="post">
 <input type="hidden" name="category" value="general">
 <table width="690px"> <!-- FIXME: Fixed Width -->
   <tr>
