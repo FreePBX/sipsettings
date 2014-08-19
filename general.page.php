@@ -74,7 +74,6 @@ foreach ($localnets as $id => $arr) {
 <?php
 echo $this->radioset("rtpchecksums", _("RTP Checksums"), _("Whether to enable or disable UDP checksums on RTP traffic"), array("Yes", "No"), $this->getConfig("rtpchecksums"));
 echo $this->radioset("strictrtp", _("Strict RTP"), _("This will drop RTP packets that do not come from the source of the RTP stream. It is unusual to turn this off"), array("Yes", "No"), $this->getConfig("strictrtp"));
-echo $this->radioset("icesupport", _("ICE Support"), "", array("True", "False"), $this->getConfig("icesupport"));
 ?>
 
   <tr>
