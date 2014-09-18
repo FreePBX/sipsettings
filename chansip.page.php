@@ -224,8 +224,14 @@ $error_displays = array_merge($error_displays,sipsettings_check_custom_files());
   </tr>
 
   <tr class="nat-settings externip">
-    <td><a href="#" class="info"><?php echo _("External IP")?><span><?php echo _("External Static IP or FQDN as seen on the WAN side of the router. (asterisk: externip)")?></span></a></td>
-    <td><input type="text" id="externip_val" name="externip_val" value="<?php echo $externip_val ?>" tabindex="<?php echo ++$tabindex;?>"></td>
+    <td><a href="#" class="info"><?php echo _("Override External IP")?><span><?php echo _("External Static IP or FQDN as seen on the WAN side of the router. (asterisk: externip)")." &nbsp; "._("Note that this will, by default, inherit the settings from the General page"); ?></span></a></td>
+<?php
+  $placeholder = FreePBX::Sipsettings()->getConfig('externip');
+  if (!$placeholder) {
+	  $placeholder = "Enter IP Address";
+  }
+?>
+    <td><input type="text" id="externip_val" name="externip_val" value="<?php echo $externip_val ?>" placeholder="<?php echo $placeholder; ?>" tabindex="<?php echo ++$tabindex;?>"></td>
   </tr>
 
   <tr class="nat-settings externhost">

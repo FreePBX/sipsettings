@@ -146,6 +146,8 @@ function sipsettings_hookGet_config($engine) {
 
         $nat_mode = $interim_settings['nat_mode'];
         $jbenable = $interim_settings['jbenable'];
+
+	$foundexternip = false;
 	if (is_array($interim_settings)) foreach ($interim_settings as $key => $value) {
 		switch ($key) {
 		case 'nat_mode':
@@ -165,6 +167,7 @@ function sipsettings_hookGet_config($engine) {
 
 		case 'externip_val':
 			if ($nat_mode == 'externip' && $value != '') {
+				$foundexternip = true;
 				$sip_settings[] = array('externip', $value);
 			}
 			break;
@@ -200,6 +203,15 @@ function sipsettings_hookGet_config($engine) {
 
 			$sip_settings[] = array($key, $value);
 			break;
+		}
+	}
+
+	// Is there a global external IP settings? If there wasn't one specified
+	// as part of the chan_sip settings, check to see if there's one here.
+	if (!$foundexternip && $nat_mode == "externip") {
+		$externip = FreePBX::create()->Sipsettings->getConfig('externip');
+		if ($externip) {
+			$sip_settings[] = array("externip", $externip);
 		}
 	}
 
@@ -376,10 +388,13 @@ function sipsettings_edit($sip_settings) {
 
       case 'externip_val':
         if (trim($val) == '' && $sip_settings['nat_mode'] == 'externip') {
-          $msg = _("External IP can not be blank");
-          $vd->log_error($val, $key, $msg);
-         }
-        $save_settings[] = array($key,$val,'40',SIP_NORMAL);
+          $externip = FreePBX::create()->Sipsettings->getConfig('externip');
+	  if (!$externip) {
+            $msg = _("External IP can not be blank when NAT Mode is set to Static and no default IP address provided on the main page");
+            $vd->log_error($val, $key, $msg);
+          }
+          $save_settings[] = array($key,$val,'40',SIP_NORMAL);
+        }
       break;
 
       case 'externhost_val':
