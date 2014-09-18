@@ -80,8 +80,8 @@ foreach ($protocols as $p) {
 		$vars = array(
 			$p."port-$ip" => _("Port to Listen On"),
 			$p."domain-$ip" => _("Domain the transport comes from"),
-			$p."extip-$ip" => _("External IP Address (used for NAT)"),
-			$p."localnet-$ip" => array(_("Local network"), _("Local network is provided here to allow distinct local networks per interface.")),
+			$p."extip-$ip" => array(_("External IP Address"), _("If blank, will use the default settings")),
+			$p."localnet-$ip" => array(_("Local network"), _("You may use this to to define an additional local network per interface.")),
 		);
 
 		foreach ($vars as $v => $t) {
