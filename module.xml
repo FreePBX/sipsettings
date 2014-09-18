@@ -16,7 +16,7 @@
 		Use to configure Various Asterisk SIP Settings in the General section of sip.conf. Also includes an auto-configuration tool to determine NAT settings. The module assumes Asterisk version 1.4 or higher. Some settings may not exist in Asterisk 1.2 and will be ignored by Asterisk.
 	</description>
 	<changelog>
-		*12.0.3* Finally replace the 'Detect External IP' button.
+		*12.0.3* #7971 - Return the 'Detect External IP' button
 		*12.0.2* Fixes the few remaining bugs
 		*12.0.1alpha7* Provide a function that shows pjsip binds
 		*12.0.1alpha6* Fix a non-glaring issue - only enable pjsip when pjsip is available.
