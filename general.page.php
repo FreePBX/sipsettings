@@ -5,6 +5,11 @@ if (!$localnets) {
 	$localnets = array();
 }
 
+$externip = $this->getConfig('externip');
+if (!$externip) {
+	$externip = ""; // Ensure any failure is always an empty string
+}
+
 $add_local_network_field = _("Add Local Network Field");
 $submit_changes = _("Submit Changes");
 
@@ -25,13 +30,27 @@ echo $this->radioset("allowanon", _("Allow Anonymous Inbound SIP Calls"), $anonh
 	<td colspan="2"><h5><?php echo _("NAT Settings") ?><hr></h5></td>
   </tr>
 
+  <tr>
+    <td colspan="2"><?php echo _("These settings apply to both chan_sip and chan_pjsip."); ?></td>
+  </tr>
+
+  <tr>
+    <td>
+	  <?php echo fpbx_label(_("External Address"), _("This address will be provided to clients if NAT is enabled and detected")); ?>
+	</td>
+	<td>
+	  <input type="text" name="externip" id="externip" class="localnet validate=ip" value="<?php echo $externip ?>"> &nbsp;
+	  <button id='autodetect'>Detect External IP</button>
+	</td>
+  </tr>
+
   <tr class='lnet' data-nextid=1>
 	<td>
 	  <?php echo fpbx_label(_("Local Networks"), _("Local network settings in the form of ip/cidr or ip/netmask. For networks with more than 1 LAN subnets, use the Add Local Network Field button for more fields. Blank fields will be ignored.")); ?>
 	</td>
 	<td>
-	  <input type="text" name="localnets[0][net]" class="localnet validate=ip" value="<?php echo $localnets[0]['net'] ?>"> /
-	  <input type="text" name="localnets[0][mask]" class="netmask validate-netmask" value="<?php echo $localnets[0]['mask'] ?>">
+	  <input type="text" name="localnets[0][net]" class="localnet network validate=ip" value="<?php echo $localnets[0]['net'] ?>"> /
+	  <input type="text" name="localnets[0][mask]" class="netmask cidr validate-netmask" value="<?php echo $localnets[0]['mask'] ?>">
 	</td>
   </tr>
 
@@ -43,8 +62,8 @@ unset ($localnets[0]);
 // Now loop through any more, if they exist.
 foreach ($localnets as $id => $arr) {
 	print "<tr class='lnet' data-nextid=".($id+1)."><td></td><td>";
-	print "<input type='text' name='localnets[{$id}][net]' class='localnet validate-ip' value='{$arr['net']}''> / ";
-	print "<input type='text' name='localnets[{$id}][mask]' class='localnet validate-netmask' value='{$arr['mask']}'>\n";
+	print "<input type='text' name='localnets[{$id}][net]' class='localnet network validate-ip' value='{$arr['net']}''> / ";
+	print "<input type='text' name='localnets[{$id}][mask]' class='localnet cidr validate-netmask' value='{$arr['mask']}'>\n";
 	print "</td></tr>\n";
 }
 ?>
@@ -115,18 +134,56 @@ echo '</ul>';
 
 <script type="text/javascript">
 $(document).ready(function(){
-	$("#localnet-add").click(function() { addLocalnet() });
+	$("#localnet-add").click(function() { addLocalnet("", "") });
+	$("#autodetect").click(function(e) { e.preventDefault(); detectExtern() });
+	var path = window.location.pathname.toString().split('/');
+	path[path.length - 1] = 'ajax.php';
+	// Oh look, IE. Hur Dur, I'm a bwowsah.
+	if (typeof(window.location.origin) == 'undefined') {
+		window.location.origin = window.location.protocol+'//'+window.location.host;
+	}
+	window.ajaxurl = window.location.origin + path.join('/');
+	// This assumes the module name is the first param.
+	window.modulename = window.location.search.split(/\?|&/)[1].split('=')[1];
 });
 
-function addLocalnet() {
+function detectExtern() {
+	$("#externip").val("").attr("placeholder", "Loading...").attr("disabled", true);
+	$.ajax({
+		url: window.ajaxurl,
+		data: { command: 'getnetworking', module: window.modulename },
+		success: function(data) { updateAddrAndRoutes(data); },
+	});
+}
+
+function updateAddrAndRoutes(data) {
+	console.log(data);
+	window.d = data;
+	$("#externip").val("").attr("placeholder", "Enter IP Address").attr("disabled", false);
+	if (data.externip != false) {
+		$("#externip").val(data.externip);
+	}
+
+	// Now, go through our detected networks, and see if we need to add them.
+	$.each(d.routes, function() {
+		var sel = ".network[value='"+this[0]+"']";
+		if (!$(sel).length) {
+			// Add it
+			addLocalnet(this[0], this[1]);
+		}
+	});
+}
+
+
+function addLocalnet(net, cidr) {
 	// We'd like a new one, please.
 	var last = $(".lnet:last");
 	var ourid = last.data('nextid');
 	var nextid = ourid + 1;
 
 	var html = "<tr class='lnet' data-nextid="+nextid+"><td></td><td>";
-	html += "<input type='text' name='localnets["+ourid+"][net]' class='localnet validate-ip' value=''> / ";
-	html += "<input type='text' name='localnets["+ourid+"][mask]' class='localnet validate-netmask' value=''>";
+	html += "<input type='text' name='localnets["+ourid+"][net]' class='localnet network validate-ip' value='"+net+"'> / ";
+	html += "<input type='text' name='localnets["+ourid+"][mask]' class='localnet cidr validate-netmask' value='"+cidr+"'>";
 	html += "</td></tr>\n";
 
 	last.after(html);

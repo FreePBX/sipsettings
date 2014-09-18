@@ -17,6 +17,23 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 		"udpport-0.0.0.0" => "5061",
 	);
 
+	public function ajaxRequest($req, &$setting) {
+		// We're happy to do Ajax
+		return true;
+	}
+
+	public function ajaxHandler() {
+		if ($_REQUEST['command'] == "getnetworking") {
+			if (!class_exists('FreePBX\Modules\Sipsettings\NatGet')) {
+				include __DIR__."/Natget.class.php";
+			}
+			$nat = new FreePBX\Modules\Sipsettings\NatGet();
+			$retarr = array("externip" => $nat->getVisibleIP(), "routes" => $nat->getRoutes());
+			return $retarr;
+		}
+		return false;
+	}
+
 	public static function myDialplanHooks() {
 		// Yes, we want to hook into dialplan generation,
 		// and we don't care where.
