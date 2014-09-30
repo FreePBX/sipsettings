@@ -152,6 +152,17 @@ if(!$ss->getConfig('localnets')) {
 sql("DELETE FROM sipsettings WHERE keyword LIKE 'netmask_%'");
 sql("DELETE FROM sipsettings WHERE keyword LIKE 'localnet_%'");
 
+// Move the old chan_sip externip into the general setting
+$sql = "SELECT * from sipsettings where keyword='externip_val'";
+$extip = sql($sql,'getAll',DB_FETCHMODE_ASSOC);
+if (isset($extip[0])) {
+	// If it's unset, overwrite it. If it's set, DON'T clobber it
+	// as this is likely to be an upgrade after pjsip was added.
+	if (!$ss->getConfig('externip')) {
+		$ss->setConfig('externip', $extip[0]['data']);
+	}
+}
+
 //attempt to migrate audio codecc
 if(!$ss->getConfig('voicecodecs')) {
 	$sql = "SELECT keyword from sipsettings where type = 1 AND data != '' order by seq";

@@ -221,7 +221,6 @@ function sipsettings_hookGet_config($engine) {
 		$sip_settings[] = array("localnet", $arr['net']."/".$arr['mask']);
 	}
 
-
           unset($interim_settings);
           if (is_array($sip_settings)) foreach ($sip_settings as $entry) {
             if ($entry[1] != '') {
@@ -387,13 +386,13 @@ function sipsettings_edit($sip_settings) {
       break;
 
       case 'externip_val':
-        if (trim($val) == '' && $sip_settings['nat_mode'] == 'externip') {
-          $externip = FreePBX::create()->Sipsettings->getConfig('externip');
-	  if (!$externip) {
-            $msg = _("External IP can not be blank when NAT Mode is set to Static and no default IP address provided on the main page");
-            $vd->log_error($val, $key, $msg);
-          }
-          $save_settings[] = array($key,$val,'40',SIP_NORMAL);
+	if ($sip_settings['nat_mode'] == 'externip') {
+		if (trim($val) == "" && !FreePBX::create()->Sipsettings->getConfig('externip')) {
+			$msg = _("External IP can not be blank when NAT Mode is set to Static and no default IP address provided on the main page");
+			$vd->log_error($val, $key, $msg);
+		} else {
+			$save_settings[] = array($key,$val,'40',SIP_NORMAL);
+		}
         }
       break;
 
