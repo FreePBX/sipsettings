@@ -168,6 +168,10 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 					unset($_REQUEST['localnets'][$i]);
 				}
 			}
+			// Renumber the array
+			if (!empty($_REQUEST['localnets'])) {
+				$_REQUEST['localnets'] = array_values($_REQUEST['localnets']);
+			}
 		}
 
 		// Grab the global externalip, if it's there
