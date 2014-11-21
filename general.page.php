@@ -16,7 +16,10 @@ $submit_changes = _("Submit Changes");
 ?>
 <form autocomplete="off" action="" method="post">
 <input type="hidden" name="category" value="general">
-<table width="690px"> <!-- FIXME: Fixed Width -->
+<table width="80%"> <!-- FIXME: Fixed Width -->
+	<tr>
+		<td colspan="2"><div class="alert alert-info" role="alert"><strong><?php echo _("Items may moved! Please use the navigation on the right")?> <i class="fa fa-arrow-right pull-right"></i></strong></div></td>
+	</tr>
   <tr>
 	<td colspan="2"><h5><?php echo _("Security Settings") ?><hr></h5></td>
   </tr>
@@ -31,7 +34,7 @@ echo $this->radioset("allowanon", _("Allow Anonymous Inbound SIP Calls"), $anonh
   </tr>
 
   <tr>
-    <td colspan="2"><?php echo _("These settings apply to both chan_sip and chan_pjsip."); ?></td>
+    <td colspan="2"><div class="alert alert-info" role="alert"><?php echo _("These settings apply to both chan_sip and chan_pjsip."); ?></div></td>
   </tr>
 
   <tr>
