@@ -149,7 +149,7 @@ $error_displays = array_merge($error_displays,sipsettings_check_custom_files());
 ?>
   <form autocomplete="off" name="editSip" action="" method="post">
   <input type="hidden" name="action" value="edit">
-  <table width="690px">
+  <table width="690px" class="sipsettings-wrapper">
 
 <?php
   /* if there were erros on the submit then create error box */
