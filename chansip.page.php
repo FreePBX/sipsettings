@@ -348,7 +348,7 @@ echo '</ul>';
     <td>
       <a href="#" class="info"><?php echo _("Max Bit Rate")?><span><?php echo _("Maximum bitrate for video calls in kb/s")?></span></a>
     </td>
-    <td><input type="number" min="1" size="4" id="maxcallbitrate" name="maxcallbitrate" class="video-codecs validate-int" value="<?php echo $maxcallbitrate ?>" tabindex="<?php echo ++$tabindex;?>"> <small><?php echo _("kb/s") ?></small></td>
+    <td><input type="number" size="4" id="maxcallbitrate" name="maxcallbitrate" class="video-codecs validate-int" value="<?php echo $maxcallbitrate ?>" tabindex="<?php echo ++$tabindex;?>"> <small><?php echo _("kb/s") ?></small></td>
   </tr>
 
   <tr>
@@ -384,9 +384,9 @@ echo '</ul>';
       <a href="#" class="info"><?php echo _("RTP Timers")?><span><?php echo _("Asterisk: rtptimeout. Terminate call if rtptimeout seconds of no RTP or RTCP activity on the audio channel when we're not on hold. This is to be able to hangup a call in the case of a phone disappearing from the net, like a powerloss or someone tripping over a cable.<br /> Asterisk: rtpholdtimeout. Terminate call if rtpholdtimeout seconds of no RTP or RTCP activity on the audio channel when we're on hold (must be > rtptimeout). <br /> Asterisk: rtpkeepalive. Send keepalives in the RTP stream to keep NAT open during periods where no RTP stream may be flowing (like on hold).")?></span></a>
     </td>
     <td>
-      <input type="number" min="1" size="2" id="rtptimeout" name="rtptimeout" class="validate-int" value="<?php echo $rtptimeout ?>" tabindex="<?php echo ++$tabindex;?>"><small>&nbsp;(rtptimeout)</small>&nbsp;
-      <input type="number" min="1" size="2" id="rtpholdtimeout" name="rtpholdtimeout" class="validate-int" value="<?php echo $rtpholdtimeout ?>" tabindex="<?php echo ++$tabindex;?>"><small>&nbsp;(rtpholdtimeout)</small>&nbsp;
-      <input type="number" min="1" size="2" id="rtpkeepalive" name="rtpkeepalive" class="validate-int" value="<?php echo $rtpkeepalive ?>" tabindex="<?php echo ++$tabindex;?>"><small>&nbsp;(rtpkeepalive)</small>
+      <input type="number"  size="2" id="rtptimeout" name="rtptimeout" class="validate-int" value="<?php echo $rtptimeout ?>" tabindex="<?php echo ++$tabindex;?>"><small>&nbsp;(rtptimeout)</small>&nbsp;
+      <input type="number"  size="2" id="rtpholdtimeout" name="rtpholdtimeout" class="validate-int" value="<?php echo $rtpholdtimeout ?>" tabindex="<?php echo ++$tabindex;?>"><small>&nbsp;(rtpholdtimeout)</small>&nbsp;
+      <input type="number"  size="2" id="rtpkeepalive" name="rtpkeepalive" class="validate-int" value="<?php echo $rtpkeepalive ?>" tabindex="<?php echo ++$tabindex;?>"><small>&nbsp;(rtpkeepalive)</small>
     </td>
   </tr>
 
@@ -398,7 +398,7 @@ echo '</ul>';
     <td>
       <a href="#" class="info"><?php echo _("MWI Polling Freq")?><span><?php echo _("Frequency in seconds to check if MWI state has changed and inform peers.")?></span></a>
     </td>
-    <td><input type="number" min="1" size="3" id="checkmwi" name="checkmwi" class="validate-int" value="<?php echo $checkmwi ?>" tabindex="<?php echo ++$tabindex;?>"></td>
+    <td><input type="number" size="3" id="checkmwi" name="checkmwi" class="validate-int" value="<?php echo $checkmwi ?>" tabindex="<?php echo ++$tabindex;?>"></td>
   </tr>
 
   <tr>
@@ -450,8 +450,8 @@ echo '</ul>';
       <a href="#" class="info"><?php echo _("Registrations")?><span><?php echo _("Asterisk: registertimeout. Retry registration attempts every registertimeout seconds until successful or until registrationattempts tries have been made.<br /> Asterisk: registrationattempts. Number of times to try and register before giving up. A value of 0 means keep trying forever. Normally this should be set to 0 so that Asterisk will continue to register until successful in the case of network or gateway outages.")?></span></a>
     </td>
     <td>
-      <input type="number" min="1" size="4" id="registertimeout" name="registertimeout" class="validate-int" value="<?php echo $registertimeout ?>" tabindex="<?php echo ++$tabindex;?>"><small>&nbsp;(registertimeout)</small>&nbsp;
-      <input type="number" min="1" size="4" id="registerattempts" name="registerattempts" class="validate-int" value="<?php echo $registerattempts ?>" tabindex="<?php echo ++$tabindex;?>"><small>&nbsp;(registerattempts)</small>
+      <input type="number" size="4" id="registertimeout" name="registertimeout" class="validate-int" value="<?php echo $registertimeout ?>" tabindex="<?php echo ++$tabindex;?>"><small>&nbsp;(registertimeout)</small>&nbsp;
+      <input type="number" size="4" id="registerattempts" name="registerattempts" class="validate-int" value="<?php echo $registerattempts ?>" tabindex="<?php echo ++$tabindex;?>"><small>&nbsp;(registerattempts)</small>
     </td>
   </tr>
 
@@ -460,7 +460,7 @@ echo '</ul>';
       <a href="#" class="info"><?php echo _("Registration Times")?><span><?php echo _("Asterisk: minexpiry. Minimum length of registrations/subscriptions.<br /> Asterisk: maxepiry. Maximum allowed time of incoming registrations<br /> Asterisk: defaultexpiry. Default length of incoming and outgoing registrations.")?></span></a>
     </td>
     <td>
-      <input type="number" min="1" size="4" id="minexpiry" name="minexpiry" class="validate-int" value="<?php echo $minexpiry ?>" tabindex="<?php echo ++$tabindex;?>"><small>&nbsp;(minexpiry)</small>&nbsp;
+      <input type="number" size="4" id="minexpiry" name="minexpiry" class="validate-int" value="<?php echo $minexpiry ?>" tabindex="<?php echo ++$tabindex;?>"><small>&nbsp;(minexpiry)</small>&nbsp;
       <input type="number" size="4" id="maxexpiry" name="maxexpiry" class="validate-int" value="<?php echo $maxexpiry ?>" tabindex="<?php echo ++$tabindex;?>"><small>&nbsp;(maxexpiry)</small>&nbsp;
       <input type="number" size="4" id="defaultexpiry" name="defaultexpiry" class="validate-int" value="<?php echo $defaultexpiry ?>" tabindex="<?php echo ++$tabindex;?>"><small>&nbsp;(defaultexpiry)</small>
     </td>
