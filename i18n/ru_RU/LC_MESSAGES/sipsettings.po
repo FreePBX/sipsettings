@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-20 12:24-0500\n"
+"POT-Creation-Date: 2015-02-20 14:08-0500\n"
 "PO-Revision-Date: 2011-04-06 17:27+0100\n"
 "Last-Translator: Alexander Kozyrev <ceo@postmet.com>\n"
 "Language-Team: Russian <faq@postmet.com>\n"
@@ -31,7 +31,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: page.sipsettings.php:387
+#: chansip.page.php:298
 msgid ""
 " If you clear each codec and then add them one at a time, submitting with "
 "each addition, they will be added in order which will effect the codec "
@@ -40,41 +40,41 @@ msgstr ""
 "Если очистите таблицу кодеков и затем добавите по одному, они будут "
 "использоваться в таком же порядке в приоритетах выбора кодеков."
 
-#: functions.inc.php:378
+#: functions.inc.php:326
 #, php-format
 msgid "%s must be a non-negative integer"
 msgstr "%s должен быть неотрицательным целым числом"
 
-#: functions.inc.php:427
+#: functions.inc.php:375
 #, php-format
 msgid "%s must be alphanumeric"
 msgstr "%s должен быть буквенным"
 
-#: page.sipsettings.php:622
+#: chansip.page.php:523
 msgid "Adaptive"
 msgstr "Адаптивный"
 
-#: page.sipsettings.php:17
+#: chansip.page.php:35
 msgid "Add Field"
 msgstr "Добавить поле"
 
-#: page.sipsettings.php:19
+#: chansip.page.php:37 general.page.php:13
 msgid "Add Local Network Field"
 msgstr "Добавить параметр 'Адреса локальной сети'"
 
-#: page.sipsettings.php:661
+#: chansip.page.php:562
 msgid "Advanced General Settings"
 msgstr "Дополнительные основные настройки"
 
-#: page.sipsettings.php:729
+#: general.page.php:29
 msgid "Allow Anonymous Inbound SIP Calls"
 msgstr ""
 
-#: page.sipsettings.php:709
+#: chanpj.page.php:14 chansip.page.php:610
 msgid "Allow SIP Guests"
 msgstr "Разрешить неавторизованные SIP вызовы"
 
-#: page.sipsettings.php:729
+#: general.page.php:27
 msgid ""
 "Allowing Inbound Anonymous SIP calls means that you will allow any call "
 "coming in form an un-known IP source to be directed to the 'from-pstn' side "
@@ -88,12 +88,12 @@ msgid ""
 "rendered useless as well as if 'Allow SIP Guests' is set to no."
 msgstr ""
 
-#: page.sipsettings.php:875
+#: chansip.page.php:753
 msgid ""
 "An Error occurred trying fetch network configuration and external IP address"
 msgstr ""
 
-#: page.sipsettings.php:685
+#: chansip.page.php:586
 msgid ""
 "Asterisk 1.8 all supports IPv6. An address of '::' will listen on both IPv4 "
 "and IPv6."
@@ -101,7 +101,7 @@ msgstr ""
 "Asterisk 1.8 поддерживает IPv6. Адрес '::' используется для одноврменной "
 "работы IPv4 и IPv6."
 
-#: page.sipsettings.php:205
+#: chansip.page.php:182
 msgid ""
 "Asterisk NAT setting:<br /> yes = Always ignore info and assume NAT<br /> no "
 "= Use NAT mode only according to RFC3581 <br /> never = Never attempt NAT "
@@ -117,7 +117,7 @@ msgstr ""
 msgid "Asterisk SIP Settings"
 msgstr "Установки Asterisk для SIP"
 
-#: page.sipsettings.php:709
+#: chansip.page.php:610
 msgid ""
 "Asterisk: allowguest. When set Asterisk will allow Guest SIP calls and send "
 "them to the Default SIP context. Turning this off will keep anonymous SIP "
@@ -127,7 +127,7 @@ msgid ""
 "incoming calls that may be mis-configured and appearing as guests."
 msgstr ""
 
-#: page.sipsettings.php:683
+#: chansip.page.php:584
 msgid ""
 "Asterisk: bindaddr. The IP address to bind to and listen for calls on the "
 "Bind Port. If set to 0.0.0.0 Asterisk will listen on all addresses. It is "
@@ -137,7 +137,7 @@ msgstr ""
 "вызовы на выбранном порту. Если установлено в 0.0.0.0 Asterisk будет слушать "
 "на всех доступных ИП адресах. Рекомендуем оставить это поле пустым."
 
-#: page.sipsettings.php:700
+#: chansip.page.php:601
 msgid ""
 "Asterisk: bindport. Local incoming UDP Port that Asterisk will bind to and "
 "listen for SIP messages. The SIP standard is 5060 and in most cases this is "
@@ -147,7 +147,7 @@ msgstr ""
 "слушать сообщения SIP. Стандартный для SIP порт 5060, в большинстве случаев "
 "его достаточно. Рекомендуем также оставить поле пустым."
 
-#: page.sipsettings.php:449
+#: chansip.page.php:360
 msgid ""
 "Asterisk: canreinvite. yes: standard reinvites; no: never; nonat: An "
 "additional option is to allow media path redirection (reinvite) but only "
@@ -163,7 +163,7 @@ msgstr ""
 "пакет UPDATE для приняти решения о перенаправлении вместо пакета INVITE. "
 "(Значение yes соответствует = update + nonat)"
 
-#: page.sipsettings.php:675
+#: chansip.page.php:576
 msgid ""
 "Asterisk: context. Default context for incoming calls if not specified. "
 "FreePBX sets this to from-sip-external which is used in conjunction with the "
@@ -174,7 +174,7 @@ msgstr ""
 "указан во FreePBX на from-sip-external, в котором обрабатываются входяшие в "
 "соответствии с опцией Разрешить анонимные SIP звонки."
 
-#: page.sipsettings.php:261
+#: chansip.page.php:244
 msgid ""
 "Asterisk: externrefresh. How often to lookup and refresh the External Host "
 "FQDN, in seconds."
@@ -182,7 +182,7 @@ msgstr ""
 "Параметр Аsterisk: externrefresh. Как часто происходит обновление информации "
 "резольвера по имени FQDN, в секундах."
 
-#: page.sipsettings.php:343
+#: chansip.page.php:254
 msgid ""
 "Asterisk: g726nonstandard. If the peer negotiates G726-32 audio, use AAL2 "
 "packing order instead of RFC3551 packing order (this is required for Sipura "
@@ -195,7 +195,7 @@ msgstr ""
 "спецификации RFC3551, где установлено распознавание устройствами "
 "специального типа payload AAL2-G726-32 вместо G726-32."
 
-#: page.sipsettings.php:573
+#: chansip.page.php:474
 msgid ""
 "Asterisk: jbenable. Enables the use of a jitterbuffer on the receiving side "
 "of a SIP channel. An enabled jitterbuffer will be used only if the sending "
@@ -217,7 +217,7 @@ msgstr ""
 "если посылающая SIP сторона уже имеет свой собственный джиттер-буфер. "
 "Смотрите опцию jbforce форсировать использование буфера во всех случаях."
 
-#: page.sipsettings.php:592
+#: chansip.page.php:493
 msgid ""
 "Asterisk: jbforce. Forces the use of a jitterbuffer on the receive side of a "
 "SIP channel. Normally the jitter buffer will not be used if receiving a "
@@ -236,7 +236,7 @@ msgstr ""
 "потока в канал. Это не типичная ситуация, и выбирая её понимаем, что тем "
 "самым вносим дополнительную задержку в поток."
 
-#: page.sipsettings.php:612
+#: chansip.page.php:513
 msgid ""
 "Asterisk: jbimpl. Jitterbuffer implementation, used on the receiving side of "
 "a SIP channel. Two implementations are currently available:<br /> fixed: "
@@ -249,12 +249,12 @@ msgstr ""
 "размер буфера имеет динамически изменяемый размер (это новая реализация "
 "джиттер-буфера в протоколе IAX2)"
 
-#: page.sipsettings.php:632
+#: chansip.page.php:533
 msgid "Asterisk: jblog. Enables jitter buffer frame logging."
 msgstr ""
 "Параметр Asterisk: jblog. Включает журналирование фреймов джиттер-буфера"
 
-#: page.sipsettings.php:652
+#: chansip.page.php:553
 msgid ""
 "Asterisk: jbmaxsize. Max length of the jitterbuffer in milliseconds.<br /> "
 "Asterisk: jbresyncthreshold. Jump in the frame timestamps over which the "
@@ -270,7 +270,7 @@ msgstr ""
 "экзотические устройства и программы. Можно установить значение -1 для "
 "выключения опции."
 
-#: page.sipsettings.php:559
+#: chansip.page.php:460
 msgid ""
 "Asterisk: minexpiry. Minimum length of registrations/subscriptions.<br /> "
 "Asterisk: maxepiry. Maximum allowed time of incoming registrations<br /> "
@@ -282,7 +282,7 @@ msgstr ""
 "действия вхоядщих регистраций.<br />Параметр Asterisk: defaultexpiry. "
 "Дефолтное значение действия входящих и исходящих регистраций."
 
-#: page.sipsettings.php:549
+#: chansip.page.php:450
 msgid ""
 "Asterisk: registertimeout. Retry registration attempts every registertimeout "
 "seconds until successful or until registrationattempts tries have been made."
@@ -299,13 +299,7 @@ msgstr ""
 "для того, чтобы Астериск продолжал попытки зарегистрироваться при пропадании "
 "локальной сети или маршрута в публичных сетях."
 
-#: page.sipsettings.php:484
-msgid ""
-"Asterisk: rtpstart. The starting RTP port range.<br /> Asterisk: rtpend. The "
-"ending RTP port range."
-msgstr ""
-
-#: page.sipsettings.php:473
+#: chansip.page.php:384
 msgid ""
 "Asterisk: rtptimeout. Terminate call if rtptimeout seconds of no RTP or RTCP "
 "activity on the audio channel when we're not on hold. This is to be able to "
@@ -328,7 +322,7 @@ msgstr ""
 "поток для поддержки открытых динамических трансляций NAT в то время, когда "
 "RTP поток может идти (например на удержании)."
 
-#: page.sipsettings.php:363
+#: chansip.page.php:274
 msgid ""
 "Asterisk: t38pt_udptl. Enables T38 passthrough if enabled. This SIP channels "
 "that support sending/receiving T38 Fax codecs to pass the call. Asterisk can "
@@ -338,54 +332,45 @@ msgstr ""
 "Данный канал SIP поддерживает посылку/приём факс-протокола Т38 для "
 "прохождения вызова. Сам Астериск не обрабатывает при этом медиа поток."
 
-#: page.sipsettings.php:310
+#: chansip.page.php:249 general.page.php:126
 msgid "Audio Codecs"
 msgstr "Аудио кодеки"
 
-#: page.sipsettings.php:18
+#: chansip.page.php:36
 msgid "Auto Configure"
 msgstr "Автоматическая конфигурация"
 
-#: page.sipsettings.php:691
+#: chansip.page.php:592
 msgid "Bind Address"
 msgstr "Связывание с адресом"
 
-#: functions.inc.php:382
+#: functions.inc.php:330
 msgid "Bind Address (bindaddr) must be an IP address."
 msgstr "Адрес (bindaddr) должен быть в виде четырёх октетов ИП адреса"
 
-#: page.sipsettings.php:700
+#: chansip.page.php:601
 msgid "Bind Port"
 msgstr "Порт"
 
-#: functions.inc.php:388
+#: functions.inc.php:336
 msgid "Bind Port (bindport) must be between 1024..65535, default 5060"
 msgstr ""
 "Порт (bindport) должен быть иметь значение между 1024 и 65535, дефолтное "
 "значение - 5060"
 
-#: page.sipsettings.php:770
+#: chansip.page.php:650
 msgid "Call Events"
 msgstr "События вызова"
 
-#: page.sipsettings.php:313
-msgid ""
-"Check the desired codecs, all others will be disabled unless explicitly "
-"enabled in a device or trunks configuration. Drag to re-order."
-msgstr ""
-"Проверьте выбранные кодеки, все другие будут отключены без специального "
-"разрешения в конфигурации устройства или внешней линий. Перетащите для "
-"изменения приоритетов."
-
-#: page.sipsettings.php:387
+#: chansip.page.php:298
 msgid "Check to enable and then choose allowed codecs."
 msgstr "Отметить если необходимо, и затем выбрать разрешаемые кодеки."
 
-#: page.sipsettings.php:313
+#: general.page.php:129
 msgid "Codecs"
 msgstr "Кодеки"
 
-#: page.sipsettings.php:525
+#: chansip.page.php:426
 msgid ""
 "Control whether subscriptions INUSE get sent ONHOLD when call is placed on "
 "hold. Useful when using BLF."
@@ -394,7 +379,7 @@ msgstr ""
 "ONHOLD если звонок поставлен на ожидание Удобно при использовании BLF - Busy "
 "Lamp Functionality."
 
-#: page.sipsettings.php:505
+#: chansip.page.php:406
 msgid ""
 "Control whether subscriptions already INUSE get sent RINGING when another "
 "call is sent. Useful when using BLF."
@@ -403,47 +388,51 @@ msgstr ""
 "RINGING если уже принят один звонок. Удобно при использовании BLF - Busy "
 "Lamp Functionality."
 
-#: page.sipsettings.php:675
+#: chansip.page.php:576
 msgid "Default Context"
 msgstr "Дефолтный контекст"
 
-#: page.sipsettings.php:666
+#: chansip.page.php:567
 msgid "Default Language for a channel, Asterisk: language"
 msgstr "Дефолтный язык в канале, параметр Asterisk: language"
 
-#: page.sipsettings.php:642
+#: chansip.page.php:543
 msgid "Disable"
 msgstr "Выключить"
 
-#: page.sipsettings.php:397 page.sipsettings.php:582 page.sipsettings.php:760
+#: chansip.page.php:308 chansip.page.php:483 chansip.page.php:640
 msgid "Disabled"
 msgstr "Выключено"
 
-#: page.sipsettings.php:256
+#: chanpj.page.php:82
+msgid "Domain the transport comes from"
+msgstr ""
+
+#: chansip.page.php:239
 msgid "Dynamic Host"
 msgstr "Динамический хост"
 
-#: functions.inc.php:450
+#: functions.inc.php:401
 msgid "Dynamic Host can not be blank"
 msgstr "Динамическое значение имени хоста не может быть пустым"
 
-#: page.sipsettings.php:241
+#: chansip.page.php:218
 msgid "Dynamic IP"
 msgstr "Динамический ИП"
 
-#: page.sipsettings.php:184
+#: chansip.page.php:161
 msgid "ERRORS"
 msgstr "ОШИБКИ"
 
-#: page.sipsettings.php:153
+#: chansip.page.php:135
 msgid "Edit Settings"
 msgstr "Редактировать настройки"
 
-#: page.sipsettings.php:640
+#: chansip.page.php:541
 msgid "Enable"
 msgstr "Включить"
 
-#: page.sipsettings.php:750
+#: chansip.page.php:630
 msgid ""
 "Enable Asterisk srvlookup. See current version of Asterisk for limitations "
 "on SRV functionality."
@@ -451,11 +440,19 @@ msgstr ""
 "Включение параметра Asterisk srvlookup. Смотрите в описание вашей текущей "
 "версии Asterisk для информации об ограничениях функциональности SRV."
 
-#: page.sipsettings.php:395 page.sipsettings.php:580 page.sipsettings.php:758
+#: chansip.page.php:306 chansip.page.php:481 chansip.page.php:638
 msgid "Enabled"
 msgstr "Включено"
 
-#: page.sipsettings.php:256
+#: general.page.php:92
+msgid "End"
+msgstr ""
+
+#: general.page.php:42
+msgid "External Address"
+msgstr ""
+
+#: chansip.page.php:239
 msgid ""
 "External FQDN as seen on the WAN side of the router and updated dynamically, "
 "e.g. mydomain.dyndns.com. (asterisk: externhost)"
@@ -464,15 +461,17 @@ msgstr ""
 "обновляемое динамически, например mydomain.dyndns.com. (Параметр Аsterisk: "
 "externhost)"
 
-#: page.sipsettings.php:250
-msgid "External IP"
-msgstr "Внешний ИП"
+#: chanpj.page.php:83
+msgid "External IP Address"
+msgstr ""
 
-#: functions.inc.php:442
-msgid "External IP can not be blank"
-msgstr "Внешний ИП адрес не может быть пустым"
+#: functions.inc.php:391
+msgid ""
+"External IP can not be blank when NAT Mode is set to Static and no default "
+"IP address provided on the main page"
+msgstr ""
 
-#: page.sipsettings.php:250
+#: chansip.page.php:227
 msgid ""
 "External Static IP or FQDN as seen on the WAN side of the router. (asterisk: "
 "externip)"
@@ -480,50 +479,66 @@ msgstr ""
 "Внешний статический ИП или полное доменное имя FQDN в качестве WAN "
 "интерфейса маршрутизатора. (Параметр asterisk: externip)"
 
-#: natget.html.php:26
-msgid "Failed to auto-detect local network settings"
-msgstr "Не удалось распознать сетевые настройки автоматически"
-
-#: natget.html.php:9 natget.html.php:46
-msgid "Failed to auto-detect settings"
-msgstr "Не удалось распознать настройки автоматически"
-
-#: page.sipsettings.php:1019
+#: chansip.page.php:897
 #, php-format
 msgid ""
 "File %s should not have any settings in it. Those settings should be removed."
 msgstr ""
 "Файл %s не имеет каких либо значений. Такие параметры должны быть удалены."
 
-#: page.sipsettings.php:620
+#: chansip.page.php:521
 msgid "Fixed"
 msgstr "Фиксированный"
 
-#: page.sipsettings.php:592
+#: chansip.page.php:493
 msgid "Force Jitter Buffer"
 msgstr "Форсировать использование джиттер-буфера"
 
-#: page.sipsettings.php:498
+#: chansip.page.php:399
 msgid ""
 "Frequency in seconds to check if MWI state has changed and inform peers."
 msgstr ""
 "Частота в секундах, когда состояние индикатора MWI будет изменяться и "
 "информировать пиры."
 
-#: page.sipsettings.php:770
+#: Sipsettings.class.php:86
+msgid "General SIP Settings"
+msgstr ""
+
+#: chansip.page.php:650
 msgid "Generate manager events when sip ua performs events (e.g. hold)."
 msgstr ""
 "Генерировать события AMI при событиях sip абонентов (например call hold)."
 
-#: page.sipsettings.php:229
+#: general.page.php:101
+msgid ""
+"Hostname or address for the STUN server used when determining the external "
+"IP address and port an RTP session can be reached at. The port number is "
+"optional. If omitted the default value of 3478 will be used. This option is "
+"blank by default. (A list of STUN servers: https://gist.github.com/"
+"zziuni/3741933)"
+msgstr ""
+
+#: general.page.php:107
+msgid ""
+"Hostname or address for the TURN server to be used as a relay. The port "
+"number is optional. If omitted the default value of 3478 will be used. This "
+"option is blank by default."
+msgstr ""
+
+#: chansip.page.php:206
 msgid "IP Configuration"
 msgstr "Конфигурация ИП"
 
-#: page.sipsettings.php:612
+#: chanpj.page.php:83
+msgid "If blank, will use the default settings"
+msgstr ""
+
+#: chansip.page.php:513
 msgid "Implementation"
 msgstr "Применение"
 
-#: page.sipsettings.php:229
+#: chansip.page.php:206
 msgid ""
 "Indicate whether the box has a public IP or requires NAT settings. Automatic "
 "configuration of what is often put in sip_nat.conf"
@@ -531,164 +546,284 @@ msgstr ""
 "Указывается: стоит ли станция на публичном ИП адресе или требуются настройки "
 "NAT. Автоматическая настройка сохраняется как правило в sip_nat.conf"
 
-#: page.sipsettings.php:573
+#: general.page.php:21
+msgid "Items may moved! Please use the navigation on the right"
+msgstr ""
+
+#: chansip.page.php:474
 msgid "Jitter Buffer"
 msgstr "Джиттер-буфер"
 
-#: page.sipsettings.php:632
+#: chansip.page.php:533
 msgid "Jitter Buffer Logging"
 msgstr "Журналирование джиттер-буфера"
 
-#: page.sipsettings.php:569
+#: chansip.page.php:470
 msgid "Jitter Buffer Settings"
 msgstr "Установки джиттер-буфера"
 
-#: page.sipsettings.php:652
+#: chansip.page.php:553
 msgid "Jitter Buffer Size"
 msgstr "Размер джиттер-буфера"
 
-#: page.sipsettings.php:666
+#: chansip.page.php:567
 msgid "Language"
 msgstr "Язык"
 
-#: page.sipsettings.php:266
+#: general.page.php:52
 msgid "Local Networks"
 msgstr "Локальные сети"
 
-#: page.sipsettings.php:266
-msgid ""
-"Local network settings (Asterisk: localnet) in the form of ip/mask such as "
-"192.168.1.0/255.255.255.0. For networks with more 1 lan subnets, use the Add "
-"Local Network Field button for more fields. Blank fields will be removed "
-"upon submitting."
+#: chanpj.page.php:84
+msgid "Local network"
 msgstr ""
-"Настройка локальных сетей (Параметр Asterisk: localnet) в форме ИП/маска, "
-"например 192.168.1.0/255.255.255.0. Для сетей с более чем одной подсетью "
-"используйте кнопку Добавить поле для локальной сети. Пустые поля будут "
-"удалены после добавления."
 
-#: functions.inc.php:496
+#: general.page.php:52
+msgid ""
+"Local network settings in the form of ip/cidr or ip/netmask. For networks "
+"with more than 1 LAN subnets, use the Add Local Network Field button for "
+"more fields. Blank fields will be ignored."
+msgstr ""
+
+#: functions.inc.php:447
 msgid "Localnet netmask must be formatted properly (e.g. 255.255.255.0 or 24)"
 msgstr ""
 "Маска локальной сети должна быть указана в правильном формате (например "
 "255.255.255.0 или 24)"
 
-#: functions.inc.php:491
+#: functions.inc.php:442
 msgid "Localnet setting must be an IP address"
 msgstr "Параметр Localnet должен быть в виде ИП адреса сети"
 
-#: page.sipsettings.php:444
+#: chansip.page.php:355
 msgid "MEDIA & RTP Settings"
 msgstr "Установки Медиа и RTP"
 
-#: page.sipsettings.php:498
+#: chansip.page.php:399
 msgid "MWI Polling Freq"
 msgstr "Частота запросов MWI"
 
-#: page.sipsettings.php:438
+#: chansip.page.php:349
 msgid "Max Bit Rate"
 msgstr "Макимальная полоса пропускания"
 
-#: page.sipsettings.php:438
+#: chansip.page.php:349
 msgid "Maximum bitrate for video calls in kb/s"
 msgstr "Максимальная полоса пропускания для видео звонков в кбит/сек"
 
-#: install.php:55
+#: install.php:97
 msgid "Migrate rtp.conf values if needed and initialize"
 msgstr ""
 
-#: page.sipsettings.php:205
+#: install.php:178
+msgid "Migrating Audio Codecs"
+msgstr ""
+
+#: install.php:148
+msgid "Migrating LocalNets and Netmasks"
+msgstr ""
+
+#: install.php:198
+msgid "Migrating Video Codecs"
+msgstr ""
+
+#: install.php:123
+msgid "Migrating rtpend Setting from Old Format to BMO Object"
+msgstr ""
+
+#: install.php:109
+msgid "Migrating rtpstart Setting from Old Format to BMO Object"
+msgstr ""
+
+#: chanpj.page.php:13
+msgid "Misc PJSip Settings"
+msgstr ""
+
+#: chansip.page.php:182
 msgid "NAT"
 msgstr "NAT"
 
-#: page.sipsettings.php:200
+#: chansip.page.php:177 general.page.php:33
 msgid "NAT Settings"
 msgstr "Настройки NAT"
 
-#: page.sipsettings.php:353 page.sipsettings.php:373 page.sipsettings.php:515
-#: page.sipsettings.php:535 page.sipsettings.php:602 page.sipsettings.php:719
-#: page.sipsettings.php:739 page.sipsettings.php:780
+#: chanpj.page.php:8 chansip.page.php:264 chansip.page.php:284
+#: chansip.page.php:416 chansip.page.php:436 chansip.page.php:503
+#: chansip.page.php:620 chansip.page.php:660
 msgid "No"
 msgstr "Нет"
 
-#: page.sipsettings.php:343
+#: chansip.page.php:254
 msgid "Non-Standard g726"
 msgstr "Нестандартный g726"
 
-#: page.sipsettings.php:493
+#: chansip.page.php:227
+msgid ""
+"Note that this will, by default, inherit the settings from the General page"
+msgstr ""
+
+#: chansip.page.php:394
 msgid "Notification & MWI"
 msgstr "Уведомления и Индикатор ожидающих сообщений (MWI)"
 
-#: page.sipsettings.php:525
+#: chansip.page.php:426
 msgid "Notify Hold"
 msgstr "Информация о статусе ожидания"
 
-#: page.sipsettings.php:505
+#: chansip.page.php:406
 msgid "Notify Ringing"
 msgstr "Информация о наличии звонка"
 
-#: page.sipsettings.php:792
+#: chansip.page.php:670
 msgid "Other SIP Settings"
 msgstr "Другие настройки SIP"
 
-#: page.sipsettings.php:237
+#: chansip.page.php:227
+msgid "Override External IP"
+msgstr ""
+
+#: general.page.php:119
+msgid ""
+"Password used to authenticate with TURN relay server. This option is "
+"disabled by default."
+msgstr ""
+
+#: chanpj.page.php:81
+msgid "Port to Listen On"
+msgstr ""
+
+#: chansip.page.php:214
 msgid "Public IP"
 msgstr "Публичный ИП"
 
-#: page.sipsettings.php:484
+#: general.page.php:97
+msgid "RTP Checksums"
+msgstr ""
+
+#: general.page.php:89
 msgid "RTP Port Ranges"
 msgstr ""
 
-#: page.sipsettings.php:473
+#: general.page.php:86
+msgid "RTP Settings"
+msgstr ""
+
+#: chansip.page.php:384
 msgid "RTP Timers"
 msgstr "RTP таймеры"
 
-#: page.sipsettings.php:261
+#: chansip.page.php:244
 msgid "Refresh Rate"
 msgstr "Частота обновления"
 
-#: page.sipsettings.php:544
+#: chansip.page.php:445
 msgid "Registration Settings"
 msgstr "Установки регистрации"
 
-#: page.sipsettings.php:559
+#: chansip.page.php:460
 msgid "Registration Times"
 msgstr "Количество регистраций"
 
-#: page.sipsettings.php:549
+#: chansip.page.php:450
 msgid "Registrations"
 msgstr "Регистрация"
 
-#: page.sipsettings.php:449
+#: chansip.page.php:360
 msgid "Reinvite Behavior"
 msgstr "Поведение Reinvite"
 
-#: page.sipsettings.php:750
+#: page.sipsettings.php:16
+msgid "SIP Settings"
+msgstr ""
+
+#: chansip.page.php:630
 msgid "SRV Lookup"
 msgstr "Поиск записей SRV"
+
+#: general.page.php:101
+msgid "STUN Server Address"
+msgstr ""
+
+#: general.page.php:24
+msgid "Security Settings"
+msgstr ""
 
 #: sipsettings.i18n.php:4 sipsettings.i18n.php:10
 msgid "Settings"
 msgstr "Настройки"
 
-#: page.sipsettings.php:1015
+#: chansip.page.php:893
 #, php-format
 msgid "Settings in %s may override these. Those settings should be removed."
 msgstr ""
 "Параметры, установленные в %s будет перебивать указанные здесь ниже. Они "
 "должны быть удалены."
 
-#: page.sipsettings.php:239
+#: chanpj.page.php:15
+msgid "Show Advanced Settings"
+msgstr ""
+
+#: general.page.php:91
+msgid "Start"
+msgstr ""
+
+#: chansip.page.php:216
 msgid "Static IP"
 msgstr "Статический ИП"
 
-#: page.sipsettings.php:20
+#: general.page.php:98
+msgid "Strict RTP"
+msgstr ""
+
+#: chansip.page.php:38 general.page.php:14
 msgid "Submit Changes"
 msgstr "Сохранить изменения"
 
-#: page.sipsettings.php:363
+#: chansip.page.php:274
 msgid "T38 Pass-Through"
 msgstr "Прозрачное пропускание T38 "
+
+#: general.page.php:107
+msgid "TURN Server Address"
+msgstr ""
+
+#: general.page.php:119
+msgid "TURN Server Password"
+msgstr ""
+
+#: general.page.php:113
+msgid "TURN Server Username"
+msgstr ""
+
+#: general.page.php:89
+msgid "The starting and ending RTP port range"
+msgstr ""
+
+#: general.page.php:37
+msgid "These settings apply to both chan_sip and chan_pjsip."
+msgstr ""
+
+#: general.page.php:42
+msgid "This address will be provided to clients if NAT is enabled and detected"
+msgstr ""
+
+#: general.page.php:129
+msgid "This is the default Codec setting for new Trunks and Extensions."
+msgstr ""
+
+#: general.page.php:98
+msgid ""
+"This will drop RTP packets that do not come from the source of the RTP "
+"stream. It is unusual to turn this off"
+msgstr ""
+
+#: chanpj.page.php:53
+msgid "Transports"
+msgstr ""
+
+#: Sipsettings.class.php:263 Sipsettings.class.php:345
+msgid "Unknown Type"
+msgstr ""
 
 #: sipsettings.i18n.php:5 sipsettings.i18n.php:12
 msgid ""
@@ -703,21 +838,41 @@ msgstr ""
 "и выше. Некоторые параметры просто не существуют в версии 1.2 и будут "
 "игнорироваться Asterisk."
 
-#: page.sipsettings.php:382
+#: general.page.php:113
+msgid ""
+"Username used to authenticate with TURN relay server. This option is "
+"disabled by default."
+msgstr ""
+
+#: chansip.page.php:293
 msgid "Video Codecs"
 msgstr "Видео кодеки"
 
-#: page.sipsettings.php:387
+#: chansip.page.php:298
 msgid "Video Support"
 msgstr "Поддержка видео"
 
-#: page.sipsettings.php:351 page.sipsettings.php:371 page.sipsettings.php:513
-#: page.sipsettings.php:533 page.sipsettings.php:600 page.sipsettings.php:717
-#: page.sipsettings.php:737 page.sipsettings.php:778
+#: chanpj.page.php:11
+msgid ""
+"When set Asterisk will allow Guest SIP calls and send them to the Default "
+"SIP context. Turning this off will keep anonymous SIP calls from entering "
+"the system. Doing such will also stop 'Allow Anonymous Inbound SIP Calls' "
+"from functioning. Allowing guest calls but rejecting the Anonymous SIP calls "
+"below will enable you to see the call attempts and debug incoming calls that "
+"may be mis-configured and appearing as guests."
+msgstr ""
+
+#: general.page.php:97
+msgid "Whether to enable or disable UDP checksums on RTP traffic"
+msgstr ""
+
+#: chanpj.page.php:7 chansip.page.php:262 chansip.page.php:282
+#: chansip.page.php:414 chansip.page.php:434 chansip.page.php:501
+#: chansip.page.php:618 chansip.page.php:658
 msgid "Yes"
 msgstr "Да"
 
-#: page.sipsettings.php:792
+#: chansip.page.php:670
 msgid ""
 "You may set any other SIP settings not present here that are allowed to be "
 "configured in the General section of sip.conf. There will be no error "
@@ -733,57 +888,99 @@ msgstr ""
 "поле ниже. Кликните на Добавить поле чтобы указать ещё параметры. Пустые "
 "поля будут удалены при применении."
 
-#: install.php:52
+#: chanpj.page.php:84
+msgid ""
+"You may use this to to define an additional local network per interface."
+msgstr ""
+
+#: install.php:91
 msgid "already exists"
 msgstr "уже существует"
 
-#: install.php:18
+#: install.php:49
+msgid "chan_pjsip support NOT FOUND."
+msgstr ""
+
+#: install.php:45
+msgid "chan_pjsip support detected. Enabling."
+msgstr ""
+
+#: install.php:21
 msgid "checking for sipsettings table.."
 msgstr "проверяем таблицу sipsettings.."
 
-#: install.php:47
+#: install.php:76
 msgid "fatal error occurred populating defaults, check module"
 msgstr ""
 "произошла неустранимая ошибка при указании дефолтных значений, проверьте "
 "модуль"
 
-#: page.sipsettings.php:440
+#: chansip.page.php:351
 msgid "kb/s"
 msgstr "кбит/сек"
 
-#: page.sipsettings.php:459
+#: chansip.page.php:370
 msgid "no"
 msgstr "нет"
 
-#: install.php:22
+#: install.php:25
 msgid "none, creating table"
 msgstr "отсутствует, создание таблицы"
 
-#: install.php:26
+#: install.php:54
 msgid "populating default codecs.."
 msgstr "указание кодеков по умолчанию.."
 
-#: functions.inc.php:396
+#: functions.inc.php:344
 msgid "rtpholdtimeout must be higher than rtptimeout"
 msgstr "rtpholdtimeout должен быть больше чем rtptimeout"
 
-#: install.php:63 install.php:77
+#: install.php:105 install.php:119
 #, php-format
 msgid "saving previous value of %s"
 msgstr ""
 
-#: install.php:66 install.php:80
-#, php-format
-msgid "setting default value of %s"
+#: install.php:78
+msgid "ulaw, alaw, gsm, g726 added"
 msgstr ""
 
-#: install.php:49
-msgid "ulaw, alaw, gsm added"
-msgstr "добавлены ulaw, alaw, gsm"
-
-#: page.sipsettings.php:457
+#: chansip.page.php:368
 msgid "yes"
 msgstr "да"
+
+#~ msgid ""
+#~ "Check the desired codecs, all others will be disabled unless explicitly "
+#~ "enabled in a device or trunks configuration. Drag to re-order."
+#~ msgstr ""
+#~ "Проверьте выбранные кодеки, все другие будут отключены без специального "
+#~ "разрешения в конфигурации устройства или внешней линий. Перетащите для "
+#~ "изменения приоритетов."
+
+#~ msgid "External IP"
+#~ msgstr "Внешний ИП"
+
+#~ msgid "External IP can not be blank"
+#~ msgstr "Внешний ИП адрес не может быть пустым"
+
+#~ msgid "Failed to auto-detect local network settings"
+#~ msgstr "Не удалось распознать сетевые настройки автоматически"
+
+#~ msgid "Failed to auto-detect settings"
+#~ msgstr "Не удалось распознать настройки автоматически"
+
+#~ msgid ""
+#~ "Local network settings (Asterisk: localnet) in the form of ip/mask such "
+#~ "as 192.168.1.0/255.255.255.0. For networks with more 1 lan subnets, use "
+#~ "the Add Local Network Field button for more fields. Blank fields will be "
+#~ "removed upon submitting."
+#~ msgstr ""
+#~ "Настройка локальных сетей (Параметр Asterisk: localnet) в форме ИП/маска, "
+#~ "например 192.168.1.0/255.255.255.0. Для сетей с более чем одной подсетью "
+#~ "используйте кнопку Добавить поле для локальной сети. Пустые поля будут "
+#~ "удалены после добавления."
+
+#~ msgid "ulaw, alaw, gsm added"
+#~ msgstr "добавлены ulaw, alaw, gsm"
 
 #~ msgid ""
 #~ "Asterisk: allowguest. When set Asterisk will allow Guest SIP calls and "
