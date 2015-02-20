@@ -97,6 +97,30 @@ foreach ($localnets as $id => $arr) {
 echo $this->radioset("rtpchecksums", _("RTP Checksums"), _("Whether to enable or disable UDP checksums on RTP traffic"), array("Yes", "No"), $this->getConfig("rtpchecksums"));
 echo $this->radioset("strictrtp", _("Strict RTP"), _("This will drop RTP packets that do not come from the source of the RTP stream. It is unusual to turn this off"), array("Yes", "No"), $this->getConfig("strictrtp"));
 ?>
+<tr>
+<td><a href='#' class='info'><?php echo _("STUN Server Address") ?><span><?php echo _("Hostname or address for the STUN server used when determining the external IP address and port an RTP session can be reached at. The port number is optional. If omitted the default value of 3478 will be used. This option is blank by default. (A list of STUN servers: https://gist.github.com/zziuni/3741933)") ?></span></a></td>
+<td>
+<input type='text' name='stunaddr' value='<?php echo $this->getConfig('stunaddr') ?>'>
+</td>
+</tr>
+<tr>
+<td><a href='#' class='info'><?php echo _("TURN Server Address") ?><span><?php echo _("Hostname or address for the TURN server to be used as a relay. The port number is optional. If omitted the default value of 3478 will be used. This option is blank by default.") ?></span></a></td>
+<td>
+<input type='text' name='turnaddr' value='<?php echo $this->getConfig('turnaddr') ?>'>
+</td>
+</tr>
+<tr>
+<td><a href='#' class='info'><?php echo _("TURN Server Username") ?><span><?php echo _("Username used to authenticate with TURN relay server. This option is disabled by default.") ?></span></a></td>
+<td>
+<input type='text' name='turnusername' value='<?php echo $this->getConfig('turnusername') ?>'>
+</td>
+</tr>
+<tr>
+<td><a href='#' class='info'><?php echo _("TURN Server Password") ?><span><?php echo _("Password used to authenticate with TURN relay server. This option is disabled by default.") ?></span></a></td>
+<td>
+<input type='text' name='turnpassword' value='<?php echo $this->getConfig('turnpassword') ?>'>
+</td>
+</tr>
 
   <tr>
 	<td colspan="2"><h5><?php echo _("Audio Codecs")?><hr></h5></td>

@@ -7,6 +7,10 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 
 	public static $dbDefaults = array(
 		"rtpstart" => "10000", "rtpend" => "20000",
+		"stunaddr" => "",
+		"turnaddr" => "",
+		"turnusername" => "",
+		"turnpassword" => "",
 		"protocols" => array("udp", "tcp", "ws"),
 		"rtpchecksums" => "Yes",
 		"strictrtp" => "Yes",
@@ -216,11 +220,10 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 	public function genConfig() {
 
 		// RTP Configuration
-		$ss = $this->FreePBX->Sipsettings;
 		$ssvars = array("rtpstart", "rtpend", "rtpchecksums", "strictrtp", "dtmftimeout", "probation", "stunaddr", "turnaddr", "turnusername", "turnpassword");
 		foreach ($ssvars as $v) {
-			$res = $ss->getConfig($v);
-			if ($res) {
+			$res = $this->getConfig($v);
+			if ($res && trim($res) != "") {
 				$retvar['rtp_additional.conf']['general'][$v] = strtolower($res);
 			}
 		}
