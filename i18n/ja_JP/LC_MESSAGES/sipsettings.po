@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-20 12:24-0500\n"
+"POT-Creation-Date: 2015-02-20 20:00-0500\n"
 "PO-Revision-Date: 2014-10-02 14:45+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
 "Language-Team: Japanese <http://git.freepbx.org/projects/freepbx/sipsettings/"
@@ -138,8 +138,7 @@ msgstr ""
 "RFC3581に従って、NATモードを使用 <br/> never = RFC3581とNATモードを使わない "
 "<br/> route = NATを前提として、rportを送信しない"
 
-#: sipsettings.i18n.php:3 sipsettings.i18n.php:6 sipsettings.i18n.php:8
-#: sipsettings.i18n.php:14
+#: sipsettings.i18n.php:3 sipsettings.i18n.php:6
 msgid "Asterisk SIP Settings"
 msgstr "Asterisk SIP 設定"
 
@@ -687,7 +686,7 @@ msgstr "Re-Inviteの挙動"
 msgid "SRV Lookup"
 msgstr "SRVルックアップ"
 
-#: sipsettings.i18n.php:4 sipsettings.i18n.php:10
+#: sipsettings.i18n.php:4
 msgid "Settings"
 msgstr "設定"
 
@@ -710,7 +709,7 @@ msgstr "変更を適用"
 msgid "T38 Pass-Through"
 msgstr "T38パススルー"
 
-#: sipsettings.i18n.php:5 sipsettings.i18n.php:12
+#: sipsettings.i18n.php:5
 msgid ""
 "Use to configure Various Asterisk SIP Settings in the General section of sip."
 "conf. Also includes an auto-configuration tool to determine NAT settings. "

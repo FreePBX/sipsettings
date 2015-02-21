@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-20 12:24-0500\n"
+"POT-Creation-Date: 2015-02-20 20:00-0500\n"
 "PO-Revision-Date: 2011-04-06 17:27+0100\n"
 "Last-Translator: Alexander Kozyrev <ceo@postmet.com>\n"
 "Language-Team: Russian <faq@postmet.com>\n"
@@ -112,8 +112,7 @@ msgstr ""
 "<br /> never = Никогда не пытаться использовать NAT или RFC3581 <br /> route "
 "= предполагая NAT не указывать rport"
 
-#: sipsettings.i18n.php:3 sipsettings.i18n.php:6 sipsettings.i18n.php:8
-#: sipsettings.i18n.php:14
+#: sipsettings.i18n.php:3 sipsettings.i18n.php:6
 msgid "Asterisk SIP Settings"
 msgstr "Установки Asterisk для SIP"
 
@@ -667,7 +666,7 @@ msgstr "Поведение Reinvite"
 msgid "SRV Lookup"
 msgstr "Поиск записей SRV"
 
-#: sipsettings.i18n.php:4 sipsettings.i18n.php:10
+#: sipsettings.i18n.php:4
 msgid "Settings"
 msgstr "Настройки"
 
@@ -690,7 +689,7 @@ msgstr "Сохранить изменения"
 msgid "T38 Pass-Through"
 msgstr "Прозрачное пропускание T38 "
 
-#: sipsettings.i18n.php:5 sipsettings.i18n.php:12
+#: sipsettings.i18n.php:5
 msgid ""
 "Use to configure Various Asterisk SIP Settings in the General section of sip."
 "conf. Also includes an auto-configuration tool to determine NAT settings. "

@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-20 12:24-0500\n"
+"POT-Creation-Date: 2015-02-20 20:00-0500\n"
 "PO-Revision-Date: 2014-07-22 16:07+0200\n"
 "Last-Translator: Chavdar <chavdar_75@yahoo.com>\n"
 "Language-Team: Bulgarian <http://git.freepbx.org/projects/freepbx/"
@@ -105,8 +105,7 @@ msgid ""
 "mode or RFC3581 <br /> route = Assume NAT, don't send rport"
 msgstr ""
 
-#: sipsettings.i18n.php:3 sipsettings.i18n.php:6 sipsettings.i18n.php:8
-#: sipsettings.i18n.php:14
+#: sipsettings.i18n.php:3 sipsettings.i18n.php:6
 msgid "Asterisk SIP Settings"
 msgstr ""
 
@@ -552,7 +551,7 @@ msgstr ""
 msgid "SRV Lookup"
 msgstr ""
 
-#: sipsettings.i18n.php:4 sipsettings.i18n.php:10
+#: sipsettings.i18n.php:4
 msgid "Settings"
 msgstr ""
 
@@ -573,7 +572,7 @@ msgstr ""
 msgid "T38 Pass-Through"
 msgstr ""
 
-#: sipsettings.i18n.php:5 sipsettings.i18n.php:12
+#: sipsettings.i18n.php:5
 msgid ""
 "Use to configure Various Asterisk SIP Settings in the General section of sip."
 "conf. Also includes an auto-configuration tool to determine NAT settings. "

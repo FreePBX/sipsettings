@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX sipsettings\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-20 12:24-0500\n"
+"POT-Creation-Date: 2015-02-20 20:00-0500\n"
 "PO-Revision-Date: 2011-03-20 00:00+0100\n"
 "Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
 "Language-Team: Swedish\n"
@@ -110,8 +110,7 @@ msgstr ""
 "NAT<br /> no = Använd NAT-läge enligt RFC3581 <br /> never = Använd aldrig "
 "NAT-läge eller RFC3581 <br /> route = Förutsätt NAT, sänd inte rport "
 
-#: sipsettings.i18n.php:3 sipsettings.i18n.php:6 sipsettings.i18n.php:8
-#: sipsettings.i18n.php:14
+#: sipsettings.i18n.php:3 sipsettings.i18n.php:6
 msgid "Asterisk SIP Settings"
 msgstr "Asterisk SIP-inställningar"
 
@@ -652,7 +651,7 @@ msgstr "Beteende för reinvite"
 msgid "SRV Lookup"
 msgstr "SRV-uppslag"
 
-#: sipsettings.i18n.php:4 sipsettings.i18n.php:10
+#: sipsettings.i18n.php:4
 msgid "Settings"
 msgstr ""
 
@@ -675,7 +674,7 @@ msgstr "Spara ändringar"
 msgid "T38 Pass-Through"
 msgstr "T38 Pass-Through"
 
-#: sipsettings.i18n.php:5 sipsettings.i18n.php:12
+#: sipsettings.i18n.php:5
 msgid ""
 "Use to configure Various Asterisk SIP Settings in the General section of sip."
 "conf. Also includes an auto-configuration tool to determine NAT settings. "
