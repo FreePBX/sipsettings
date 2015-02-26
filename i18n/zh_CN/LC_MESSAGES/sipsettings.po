@@ -13,6 +13,7 @@ msgstr ""
 "PO-Revision-Date: 2015-02-20 20:00-0500\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
+"Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -36,27 +37,27 @@ msgstr ""
 
 #: page.sipsettings.php:622
 msgid "Adaptive"
-msgstr ""
+msgstr "可调整"
 
 #: page.sipsettings.php:17
 msgid "Add Field"
-msgstr ""
+msgstr "添加域"
 
 #: page.sipsettings.php:19
 msgid "Add Local Network Field"
-msgstr ""
+msgstr "推荐内网域"
 
 #: page.sipsettings.php:661
 msgid "Advanced General Settings"
-msgstr ""
+msgstr "高级基本设置"
 
 #: page.sipsettings.php:729
 msgid "Allow Anonymous Inbound SIP Calls"
-msgstr ""
+msgstr "支持匿名SIP呼入"
 
 #: page.sipsettings.php:709
 msgid "Allow SIP Guests"
-msgstr ""
+msgstr "允许SIP Guests"
 
 #: page.sipsettings.php:729
 msgid ""
@@ -92,7 +93,7 @@ msgstr ""
 
 #: sipsettings.i18n.php:3 sipsettings.i18n.php:6
 msgid "Asterisk SIP Settings"
-msgstr ""
+msgstr "Asterisk SIP设置"
 
 #: page.sipsettings.php:709
 msgid ""
@@ -239,15 +240,15 @@ msgstr ""
 
 #: page.sipsettings.php:310
 msgid "Audio Codecs"
-msgstr ""
+msgstr "语音编码"
 
 #: page.sipsettings.php:18
 msgid "Auto Configure"
-msgstr ""
+msgstr "自动配置"
 
 #: page.sipsettings.php:691
 msgid "Bind Address"
-msgstr ""
+msgstr "绑定地址"
 
 #: functions.inc.php:382
 msgid "Bind Address (bindaddr) must be an IP address."
@@ -255,7 +256,7 @@ msgstr ""
 
 #: page.sipsettings.php:700
 msgid "Bind Port"
-msgstr ""
+msgstr "绑定端口"
 
 #: functions.inc.php:388
 msgid "Bind Port (bindport) must be between 1024..65535, default 5060"
@@ -277,7 +278,7 @@ msgstr ""
 
 #: page.sipsettings.php:313
 msgid "Codecs"
-msgstr ""
+msgstr "编码"
 
 #: page.sipsettings.php:525
 msgid ""
@@ -301,15 +302,15 @@ msgstr ""
 
 #: page.sipsettings.php:642
 msgid "Disable"
-msgstr ""
+msgstr "关闭"
 
 #: page.sipsettings.php:397 page.sipsettings.php:582 page.sipsettings.php:760
 msgid "Disabled"
-msgstr ""
+msgstr "关闭"
 
 #: page.sipsettings.php:256
 msgid "Dynamic Host"
-msgstr ""
+msgstr "动态主机"
 
 #: functions.inc.php:450
 msgid "Dynamic Host can not be blank"
@@ -317,19 +318,19 @@ msgstr ""
 
 #: page.sipsettings.php:241
 msgid "Dynamic IP"
-msgstr ""
+msgstr "动态IP"
 
 #: page.sipsettings.php:184
 msgid "ERRORS"
-msgstr ""
+msgstr "错误"
 
 #: page.sipsettings.php:153
 msgid "Edit Settings"
-msgstr ""
+msgstr "编辑设置"
 
 #: page.sipsettings.php:640
 msgid "Enable"
-msgstr ""
+msgstr "启用"
 
 #: page.sipsettings.php:750
 msgid ""
@@ -339,7 +340,7 @@ msgstr ""
 
 #: page.sipsettings.php:395 page.sipsettings.php:580 page.sipsettings.php:758
 msgid "Enabled"
-msgstr ""
+msgstr "启用"
 
 #: page.sipsettings.php:256
 msgid ""
@@ -349,7 +350,7 @@ msgstr ""
 
 #: page.sipsettings.php:250
 msgid "External IP"
-msgstr ""
+msgstr "外部IP"
 
 #: functions.inc.php:442
 msgid "External IP can not be blank"
@@ -377,11 +378,11 @@ msgstr ""
 
 #: page.sipsettings.php:620
 msgid "Fixed"
-msgstr ""
+msgstr "固定"
 
 #: page.sipsettings.php:592
 msgid "Force Jitter Buffer"
-msgstr ""
+msgstr "强制使用缓存"
 
 #: page.sipsettings.php:498
 msgid ""
@@ -394,11 +395,11 @@ msgstr ""
 
 #: page.sipsettings.php:229
 msgid "IP Configuration"
-msgstr ""
+msgstr "IP配置"
 
 #: page.sipsettings.php:612
 msgid "Implementation"
-msgstr ""
+msgstr "实施"
 
 #: page.sipsettings.php:229
 msgid ""
@@ -408,27 +409,27 @@ msgstr ""
 
 #: page.sipsettings.php:573
 msgid "Jitter Buffer"
-msgstr ""
+msgstr "缓存"
 
 #: page.sipsettings.php:632
 msgid "Jitter Buffer Logging"
-msgstr ""
+msgstr "缓存日志"
 
 #: page.sipsettings.php:569
 msgid "Jitter Buffer Settings"
-msgstr ""
+msgstr "缓存设置"
 
 #: page.sipsettings.php:652
 msgid "Jitter Buffer Size"
-msgstr ""
+msgstr "缓存大小"
 
 #: page.sipsettings.php:666
 msgid "Language"
-msgstr ""
+msgstr "语言"
 
 #: page.sipsettings.php:266
 msgid "Local Networks"
-msgstr ""
+msgstr "内网"
 
 #: page.sipsettings.php:266
 msgid ""
@@ -448,7 +449,7 @@ msgstr ""
 
 #: page.sipsettings.php:444
 msgid "MEDIA & RTP Settings"
-msgstr ""
+msgstr "媒体和RTP设置"
 
 #: page.sipsettings.php:498
 msgid "MWI Polling Freq"
@@ -468,11 +469,11 @@ msgstr ""
 
 #: page.sipsettings.php:205
 msgid "NAT"
-msgstr ""
+msgstr "NAT"
 
 #: page.sipsettings.php:200
 msgid "NAT Settings"
-msgstr ""
+msgstr "NAT设置"
 
 #: page.sipsettings.php:353 page.sipsettings.php:373 page.sipsettings.php:515
 #: page.sipsettings.php:535 page.sipsettings.php:602 page.sipsettings.php:719
@@ -498,11 +499,11 @@ msgstr ""
 
 #: page.sipsettings.php:792
 msgid "Other SIP Settings"
-msgstr ""
+msgstr "其他SIP设置"
 
 #: page.sipsettings.php:237
 msgid "Public IP"
-msgstr ""
+msgstr "公网IP"
 
 #: page.sipsettings.php:484
 msgid "RTP Port Ranges"
@@ -510,23 +511,23 @@ msgstr ""
 
 #: page.sipsettings.php:473
 msgid "RTP Timers"
-msgstr ""
+msgstr "RTP定时器"
 
 #: page.sipsettings.php:261
 msgid "Refresh Rate"
-msgstr ""
+msgstr "刷新速率"
 
 #: page.sipsettings.php:544
 msgid "Registration Settings"
-msgstr ""
+msgstr "注册设置"
 
 #: page.sipsettings.php:559
 msgid "Registration Times"
-msgstr ""
+msgstr "注册时间"
 
 #: page.sipsettings.php:549
 msgid "Registrations"
-msgstr ""
+msgstr "注册"
 
 #: page.sipsettings.php:449
 msgid "Reinvite Behavior"
@@ -538,7 +539,7 @@ msgstr ""
 
 #: sipsettings.i18n.php:4
 msgid "Settings"
-msgstr ""
+msgstr "设置"
 
 #: page.sipsettings.php:1015
 #, php-format
@@ -547,15 +548,15 @@ msgstr ""
 
 #: page.sipsettings.php:239
 msgid "Static IP"
-msgstr ""
+msgstr "静态IP"
 
 #: page.sipsettings.php:20
 msgid "Submit Changes"
-msgstr ""
+msgstr "提交修改"
 
 #: page.sipsettings.php:363
 msgid "T38 Pass-Through"
-msgstr ""
+msgstr "T38 透传"
 
 #: sipsettings.i18n.php:5
 msgid ""
@@ -567,11 +568,11 @@ msgstr ""
 
 #: page.sipsettings.php:382
 msgid "Video Codecs"
-msgstr ""
+msgstr "视频编码"
 
 #: page.sipsettings.php:387
 msgid "Video Support"
-msgstr ""
+msgstr "视频支持"
 
 #: page.sipsettings.php:351 page.sipsettings.php:371 page.sipsettings.php:513
 #: page.sipsettings.php:533 page.sipsettings.php:600 page.sipsettings.php:717
@@ -595,7 +596,7 @@ msgstr ""
 
 #: install.php:18
 msgid "checking for sipsettings table.."
-msgstr ""
+msgstr "检查SIP设置表"
 
 #: install.php:47
 msgid "fatal error occurred populating defaults, check module"
@@ -633,7 +634,7 @@ msgstr ""
 
 #: install.php:49
 msgid "ulaw, alaw, gsm added"
-msgstr ""
+msgstr "添加的ulaw, alaw, gsm"
 
 #: page.sipsettings.php:457
 msgid "yes"
