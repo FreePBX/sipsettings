@@ -86,25 +86,23 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 		$pages['general'] = _("General SIP Settings");
 
 		if ($driver == "chan_sip" || $driver == "both") {
-			$pages['chansip'] = "Chan SIP";
+			$pages['chansip'] = _("Chan SIP");
 		}
 
 		if ($driver == "chan_pjsip" || $driver == "both") {
-			$pages['pjsip'] = "Chan PJSIP";
+			$pages['pjsip'] = _("Chan PJSIP");
 		}
-
-		$str =  "<div class='rnav'><ul>";
-
 		foreach ($pages as $k => $v) {
 			if ($this->pagename == $k) {
-				$id = "id='current'";
+				$id = "id='active'";
+				$class = "current";
 				$v = $v." (A)";
 			} else {
 				$id = "";
+				$class="";
 			}
-			$str .= "<li $id><a href='config.php?display=sipsettings&category=$k'>$v</a></li>\n";
+			$str .= '<a href="config.php?display=sipsettings&category='.$k.'" class="list-group-item $class">'.$v.'</a>'."\n";
 		}
-		$str .= "</ul> </div>";
 		return $str;
 	}
 
@@ -185,12 +183,11 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 
 		// This is in Request_Helper.class.php
 		$ignored = $this->importRequest(null, "/(.+)bindip-(.+)$/");
-
 		// There may be binds that matched..
 		foreach ($ignored as $key => $var) {
 			if (preg_match("/(.+)bindip-(.+)$/", $key, $match)) {
 				$ip = str_replace("_", ".", $match[2]);
-				$binds[$match[1]][$ip] = "on";
+				$binds[$match[1]][$ip] = $var;
 				continue;  // Don't save them
 			}
 		}
@@ -366,6 +363,26 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 		$long = ip2long($mask);
 		$base = ip2long('255.255.255.255');
 		return 32-log(($long ^ $base)+1,2);
+	}
+	public function getActionBar($request) {
+		$buttons = array();
+		switch($request['display']) {
+			case 'sipsettings':
+				$buttons = array(
+					'reset' => array(
+						'name' => 'reset',
+						'id' => 'reset',
+						'value' => _('Reset')
+					),
+					'submit' => array(
+						'name' => 'submit',
+						'id' => 'submit',
+						'value' => _('Submit')
+					)
+				);
+			break;
+		}
+		return $buttons;
 	}
 
 }

@@ -1,19 +1,5 @@
 <?php
-
 global $currentcomponent;
-
-$currentcomponent->addguielem('_top', new gui_hidden('category', 'pjsip'));
-
-$currentcomponent->addoptlistitem("yn", "yes", _("Yes"));
-$currentcomponent->addoptlistitem("yn", "no", _("No"));
-$currentcomponent->setoptlistopts("yn", "sort", false);
-
-$allowhelp = _("When set Asterisk will allow Guest SIP calls and send them to the Default SIP context. Turning this off will keep anonymous SIP calls from entering the system. Doing such will also stop 'Allow Anonymous Inbound SIP Calls' from functioning. Allowing guest calls but rejecting the Anonymous SIP calls below will enable you to see the call attempts and debug incoming calls that may be mis-configured and appearing as guests.");
-
-$currentcomponent->addguielem("_top", new gui_pageheading(null, _("Misc PJSip Settings"), false), 1);
-$currentcomponent->addguielem("_top", new gui_radio("allowguest", $currentcomponent->getoptlist("yn"), $this->getConfig("allowguest"), _("Allow SIP Guests"), $allowhelp), 1);
-$currentcomponent->addguielem("_top", new gui_radio("showadvanced", $currentcomponent->getoptlist("yn"), $this->getConfig("showadvanced"), _("Show Advanced Settings"), ''), 1);
-
 $sa = $this->getConfig('showadvanced');
 
 $interfaces['auto'] = array('0.0.0.0', 'All', '0');
@@ -48,17 +34,12 @@ if ($sa != "no") {
 		$interfaces[$vals[$int]] = array($ip[1], $vals[$int], $ip[2]);
 	}
 }
-
-
-$currentcomponent->addguielem("", new gui_pageheading('_top', _("Transports"), false), 2);
-$currentcomponent->addguielem("", new gui_label(null, "Note that the interface is only displayed for your information, and is not referenced by asterisk."));
-$currentcomponent->addguielem("", new gui_label(null, "Also be warned: After you enable/disable a transport, asterisk needs to be <strong>restarted</strong>, not just reloaded."));
-
 $protocols = $this->getConfig("protocols");
-
 foreach ($protocols as $p) {
 	$allBinds = $this->getConfig("binds");
 	$binds = $allBinds[$p];
+	$cbs = '';
+	$lastproto="";
 	foreach ($interfaces as $i) {
 		// Skip interfaces without an IP address.
 		if (empty($i))
@@ -69,11 +50,55 @@ foreach ($protocols as $p) {
 		} else {
 			$priority = 3;
 		}
-		$currentcomponent->addguielem("$p Protocol", new gui_checkbox($p."bindip-".$i[0], isset($binds[$i[0]]), "$p - ${i[0]} - ${i[1]}"), $priority);
+		$thisTitle = "$p - ${i[0]} - ${i[1]}";
+		$thisID = $p."bindip-".$i[0];
+		if($lastproto != $p){
+			if($lastproto != ""){
+				$cbs .= '</div>';
+			}
+			$cbs .= '
+				<div class="section-title" data-for="pjs.'.$p.'"><h3>
+					<i class="fa fa-minus"></i> '.$p.'</h3>
+				</div>
+				<div class="section" data-id="pjs.'.$p.'">
+			';
+		}
+		$cbs .= '
+		<!--'.$thisTitle.'-->
+		<div class="element-container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="row">
+						<div class="form-group">
+							<div class="col-md-3">
+								<label class="control-label" for="'.$thisID.'">'. $thisTitle .'</label>
+								<i class="fa fa-question-circle fpbx-help-icon" data-for="'.$thisID.'"></i>
+							</div>
+							<div class="col-md-9 radioset">
+								<input type="radio" name="'.$thisID.'" id="'.$thisID.'yes" value="on" '. ($binds[$i[0]] == "on"?"CHECKED":"") .'>
+								<label for="'.$thisID.'yes">'. _("Yes").'</label>
+								<input type="radio" name="'.$thisID.'" id="'.$thisID.'no" value="off" '.($binds[$i[0]] == "on"?"":"CHECKED") .'>
+								<label for="'.$thisID.'no">'. _("No").'</label>
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<span id="'.$thisID.'-help" class="help-block fpbx-help-block">'. _("Use "). $thisTitle .'</span>
+				</div>
+			</div>
+		</div>
+		<!--END '.$thisTitle.'-->
+		';
+		$lastproto = $p;
 	}
+	$cbs .= '</div>';
+	$protohtml .= $cbs;
 
 	// Now display a section for each one.
-
 	foreach ($binds as $ip => $stat) {
 		if ($stat != "on")
 			continue;
@@ -83,13 +108,141 @@ foreach ($protocols as $p) {
 			$p."extip-$ip" => array(_("External IP Address"), _("If blank, will use the default settings")),
 			$p."localnet-$ip" => array(_("Local network"), _("You may use this to to define an additional local network per interface.")),
 		);
-
 		foreach ($vars as $v => $t) {
+			$thisID = str_replace(array('.', '-'), '' , $v);
 			if (is_array($t)) {
-				$currentcomponent->addguielem("$p - $ip", new gui_textbox($v, $this->getConfig($v), $t[0], $t[1]), $priority+2);
+				$udphtml  .= '
+				<!--'.$t[0].'-->
+				<div class="element-container">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="row">
+								<div class="form-group">
+									<div class="col-md-3">
+										<label class="control-label" for="'.$thisID.'">'. $t[0] .'</label>
+										<i class="fa fa-question-circle fpbx-help-icon '.(empty($t[1])?'hidden':'').'" data-for="'.$thisID.'"></i>
+									</div>
+									<div class="col-md-9">
+										<input type="text" class="form-control" id="'.$thisID.'" name="'.$v.'" value="'.$this->getConfig($v).'">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<span id="'.$thisID.'-help" class="help-block fpbx-help-block  '.(empty($t[1])?'hidden':'').'">'.$t[1].'</span>
+						</div>
+					</div>
+				</div>
+				<!--END '.$t[0].'-->
+				';
 			} else {
-				$currentcomponent->addguielem("$p - $ip", new gui_textbox($v, $this->getConfig($v), $t), $priority+2);
+				$udphtml  .= '
+				<!--'.$t.'-->
+				<div class="element-container">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="row">
+								<div class="form-group">
+									<div class="col-md-3">
+										<label class="control-label" for="'.$thisID.'">'. $t .'</label>
+									</div>
+									<div class="col-md-9">
+										<input type="text" class="form-control" id="'.$thisID.'" name="'.$v.'" value="'.$this->getConfig($v).'">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--END '.$t.'-->
+				';	
 			}
 		}
+		$bindthml .= '
+			<div class="section-title" data-for="pjsbind.'.$p.'"><h3>
+				<i class="fa fa-minus"></i> '.$p.'</h3>
+			</div>
+			<div class="section" data-id="pjsbind.'.$p.'">
+			'.$udphtml.'
+			</div>
+		';
+		unset($udphtml);
 	}
 }
+?>
+<form name="pjsipform" id="pjsipform" class="fpbx-submit" action="" method="POST">
+<input type="hidden" name="category" value="pjsip">
+<input type="hidden" name="Submit" value="Submit">
+<div class="section-title" data-for="pjsmisc"><h3>
+	<i class="fa fa-minus"></i> <?php echo _("Misc PJSip Settings")?></h3>
+</div>
+<div class="section" data-id="pjsmisc">
+	<!--Allow Guests-->
+	<div class="element-container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="row">
+					<div class="form-group">
+						<div class="col-md-3">
+							<label class="control-label" for="allowguests"><?php echo _("Allow Guests") ?></label>
+							<i class="fa fa-question-circle fpbx-help-icon" data-for="allowguests"></i>
+						</div>
+						<div class="col-md-9 radioset">
+							<input type="radio" name="allowguests" id="allowguestsyes" value="yes" <?php echo ($this->getConfig("allowguest") == "yes"?"CHECKED":"") ?>>
+							<label for="allowguestsyes"><?php echo _("Yes");?></label>
+							<input type="radio" name="allowguests" id="allowguestsno" value="no" <?php echo ($this->getConfig("allowguest") == "yes"?"":"CHECKED") ?>>
+							<label for="allowguestsno"><?php echo _("No");?></label>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<span id="allowguests-help" class="help-block fpbx-help-block"><?php echo _("When set Asterisk will allow Guest SIP calls and send them to the Default SIP context. Turning this off will keep anonymous SIP calls from entering the system. Doing such will also stop 'Allow Anonymous Inbound SIP Calls' from functioning. Allowing guest calls but rejecting the Anonymous SIP calls below will enable you to see the call attempts and debug incoming calls that may be mis-configured and appearing as guests.")?></span>
+			</div>
+		</div>
+	</div>
+	<!--END Allow Guests-->
+	<!--Show Advanced Settings-->
+	<div class="element-container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="row">
+					<div class="form-group">
+						<div class="col-md-3">
+							<label class="control-label" for="showadvanced"><?php echo _("Show Advanced Settings") ?></label>
+							<i class="fa fa-question-circle fpbx-help-icon" data-for="showadvanced"></i>
+						</div>
+						<div class="col-md-9 radioset">
+							<input type="radio" name="showadvanced" id="showadvancedyes" value="yes" <?php echo ( $this->getConfig("showadvanced") == "yes"?"CHECKED":"") ?>>
+							<label for="showadvancedyes"><?php echo _("Yes");?></label>
+							<input type="radio" name="showadvanced" id="showadvancedno" value="no" <?php echo ( $this->getConfig("showadvanced") == "yes"?"":"CHECKED") ?>>
+							<label for="showadvancedno"><?php echo _("No");?></label>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<span id="showadvanced-help" class="help-block fpbx-help-block"><?php echo _("Show Advanced Settings")?></span>
+			</div>
+		</div>
+	</div>
+	<!--END Show Advanced Settings-->
+</div>
+<div class="section-title" data-for="pjstx"><h3>
+	<i class="fa fa-minus"></i> <?php echo _("Transports")?></h3>
+</div>
+<div class="section" data-id="pjstx">
+	<div class="well well-info">
+		<?php echo _("Note that the interface is only displayed for your information, and is not referenced by asterisk.")?>
+		<?php echo _("Also be warned: After you enable/disable a transport, asterisk needs to be <strong>restarted</strong>, not just reloaded.")?>
+	</div>
+</div>
+<?php echo $protohtml?>
+<?php echo $bindthml?>
+</form>
