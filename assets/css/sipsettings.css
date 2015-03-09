@@ -11,3 +11,7 @@ div.sip-errors p {
 	font-weight:bold;
 	text-decoration:underline;
 }
+
+.sipsettings-wrapper input[type="number"] {
+	width:60px;
+}

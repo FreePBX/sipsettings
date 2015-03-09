@@ -4,7 +4,7 @@
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<name>Asterisk SIP Settings</name>
-	<version>2.11.0.9</version>
+	<version>12.0.9</version>
 	<publisher>Schmooze Com Inc</publisher>
 	<license>AGPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
@@ -16,6 +16,20 @@
 		Use to configure Various Asterisk SIP Settings in the General section of sip.conf. Also includes an auto-configuration tool to determine NAT settings. The module assumes Asterisk version 1.4 or higher. Some settings may not exist in Asterisk 1.2 and will be ignored by Asterisk.
 	</description>
 	<changelog>
+		*12.0.9* FREEPBX-8808 Add STUN and TURN server settings
+		*12.0.8* FREEPBX-8561 + Linked bugs, Remove minimums on number fields.
+		*12.0.7* FREEPBX-8240 fields not wide enough to display input
+		*12.0.6* Point people to the right location
+		*12.0.5* FREEPBX-8237 Fix interface parse regexp to make netmask optional
+		*12.0.4* #8061 - Let IP addresses for NAT be inherited properly.
+		*12.0.3* #7971 - Return the 'Detect External IP' button
+		*12.0.2* Fixes the few remaining bugs
+		*12.0.1alpha7* Provide a function that shows pjsip binds
+		*12.0.1alpha6* Fix a non-glaring issue - only enable pjsip when pjsip is available.
+		*12.0.1alpha5* Fix all glaring codec and migrate issues
+		*12.0.1alpha3* Show reload bar when settings change
+		*12.0.1alpha2* Hide PJSIP when disabled or not present in the system
+		*12.0.1alpha1* PJSipsettings and Generalize and breakout the page for sub-navigation
 		*2.11.0.9* update license file
 		*2.11.0.7* rtp.conf cleanup, require this module
 		*2.11.0.6* #6473 - check t38pt_udptl value before setting in sip_general_additional.conf
@@ -26,12 +40,13 @@
 		*2.11.0.1* Adds rtp controlled settings (rtpstart,rtpend), re #6397
 		*2.11.0.0* #6019
 	</changelog>
-    <depends>
-        <module>core ge 2.11.0.0beta2.4</module>
-    </depends>
+	<depends>
+		<module>core ge 12.0.1beta2</module>
+		<version>12.0.1beta17</version>
+	</depends>
 	<supported>
-		<version>2.11</version>
+		<version>12.0</version>
 	</supported>
-	<location>release/2.11/sipsettings-2.11.0.6.tgz</location>
-	<md5sum>a4c4581ad637d58944a51678a0cda811</md5sum>
+	<location>release/2.11/sipsettings-2.11.0.7.tgz</location>
+	<md5sum>53eee9b5292e354ec3c374e6329a17fe</md5sum>
 </module>
