@@ -376,11 +376,12 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 				throw new \Exception("Unknown type in sipsettings - ".$var['type']);
 			}
 		}
+
 		return $sip_settings;
 	}
 
 	public function getChanSipDefaults() {
-		$arr = array ( 'nat' => 'yes', 'nat_mode' => 'public', 'externrefresh' => '120', 'g726nonstandard' => 'no',
+		$arr = array ( 'nat' => 'yes', 'nat_mode' => 'externip', 'externrefresh' => '120', 'g726nonstandard' => 'no',
 			't38pt_udptl' => 'no', 'videosupport' => 'no', 'maxcallbitrate' => '384', 'canreinvite' => 'no', 'rtptimeout' => '30',
 			'rtpholdtimeout' => '300', 'rtpkeepalive' => '0', 'checkmwi' => '10', 'notifyringing' => 'yes', 'notifyhold' => 'yes', 
 			'registertimeout' => '20', 'registerattempts' => '0', 'maxexpiry' => '3600', 'minexpiry' => '60', 'defaultexpiry' => '120', 
