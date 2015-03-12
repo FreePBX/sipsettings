@@ -147,7 +147,7 @@ $error_displays = array_merge($error_displays,sipsettings_check_custom_files());
 	extract($sip_settings);
 
 ?>
-	<form autocomplete="off" name="editSip" action="" method="post">
+	<form autocomplete="off" name="editSip" id="editSip" class="fpbx-submit" action="" method="post">
 	<input type="hidden" name="action" value="edit">
 <?php
 	/* if there were erros on the submit then create error box */
