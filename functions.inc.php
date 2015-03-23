@@ -124,6 +124,14 @@ function sipsettings_hookGet_config($engine) {
         }
         unset($raw_settings);
 
+	// Add any defaults that should be in there
+	$def = FreePBX::Sipsettings()->getChanSipDefaults();
+	foreach ($def as $k => $v) {
+		if (!isset($interim_settings[$k]) && $v) {
+			$interim_settings[$k] = $v;
+		}
+	}
+
         /* Codecs First */
         $core_conf->addSipGeneral('disallow','all');
         foreach (FreePBX::Sipsettings()->getCodecs('audio') as $codec => $enabled) {
@@ -235,82 +243,7 @@ function sipsettings_hookGet_config($engine) {
 }
 
 function sipsettings_get($raw=false) {
-
-  $sql = "SELECT `keyword`, `data`, `type`, `seq` FROM `sipsettings` WHERE type != 1 AND type != 2 ORDER BY `type`, `seq`";
-  $raw_settings = sql($sql,"getAll",DB_FETCHMODE_ASSOC);
-
-  /* Just give the SQL table if more convenient (such as in hookGet_config */
-  if ($raw) {
-    return $raw_settings;
-  }
-
-  /* Initialize first, then replace with DB, to make sure we have defaults */
-
-  $sip_settings['nat']               = 'yes';
-  $sip_settings['nat_mode']          = 'externip';
-  $sip_settings['externip_val']      = '';
-  $sip_settings['externhost_val']    = '';
-  $sip_settings['externrefresh']     = '120';
-  $sip_settings['localnet_0']        = '';
-  $sip_settings['netmask_0']         = '255.255.255.0';
-
-  $sip_settings['g726nonstandard']   = 'no';
-  $sip_settings['t38pt_udptl']       = 'no';
-
-  $sip_settings['videosupport']      = 'no';
-  $sip_settings['maxcallbitrate']    = '384';
-
-  $sip_settings['canreinvite']       = 'no';
-  $sip_settings['rtptimeout']        = '30';
-  $sip_settings['rtpholdtimeout']    = '300';
-  $sip_settings['rtpkeepalive']      = '0';
-
-  $sip_settings['checkmwi']          = '10';
-  $sip_settings['notifyringing']     = 'yes';
-  $sip_settings['notifyhold']        = 'yes';
-
-  $sip_settings['registertimeout']   = '20';
-  $sip_settings['registerattempts']  = '0';
-  $sip_settings['maxexpiry']         = '3600';
-  $sip_settings['minexpiry']         = '60';
-  $sip_settings['defaultexpiry']     = '120';
-
-  $sip_settings['jbenable']          = 'no';
-  $sip_settings['jbforce']           = 'no';
-  $sip_settings['jbimpl']            = 'fixed';
-  $sip_settings['jbmaxsize']         = '200';
-  $sip_settings['jbresyncthreshold'] = '1000';
-  $sip_settings['jblog']             = 'no';
-
-  $sip_settings['sip_language']      = '';
-  $sip_settings['context']           = '';
-  $sip_settings['ALLOW_SIP_ANON']    = 'no';
-  $sip_settings['bindaddr']          = '';
-  $sip_settings['bindport']          = '';
-  $sip_settings['allowguest']        = 'yes';
-  $sip_settings['srvlookup']         = 'no';
-  $sip_settings['callevents']		= 'no';
-
-  $sip_settings['sip_custom_key_0']  = '';
-  $sip_settings['sip_custom_val_0']  = '';
-
-  foreach ($raw_settings as $var) {
-    switch ($var['type']) {
-      case SIP_NORMAL:
-        $sip_settings[$var['keyword']]                 = $var['data'];
-      break;
-      case SIP_CUSTOM:
-        $sip_settings['sip_custom_key_'.$var['seq']]   = $var['keyword'];
-        $sip_settings['sip_custom_val_'.$var['seq']]   = $var['data'];
-      break;
-
-    default:
-      // Error should be above
-    }
-  }
-  unset($raw_settings);
-
-  return $sip_settings;
+	return FreePBX::Sipsettings()->getChanSipSettings($raw);
 }
 
 // Add a sipsettings

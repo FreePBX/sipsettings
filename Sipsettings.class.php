@@ -3,6 +3,11 @@
 
 class Sipsettings extends FreePBX_Helpers implements BMO {
 
+	const SIP_NORMAL = 0;
+	const SIP_CODEC = 1;
+	const SIP_VIDEO_CODEC = 2;
+	const SIP_CUSTOM = 9;
+
 	private $pagename = null;
 
 	public static $dbDefaults = array(
@@ -343,6 +348,45 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 			break;
 		}
 		return true;
+	}
+
+	public function getChanSipSettings($returnraw = false) {
+		$sql = "SELECT `keyword`, `data`, `type`, `seq` FROM `sipsettings` WHERE type != 1 AND type != 2 ORDER BY `type`, `seq`";
+		$raw_settings = sql($sql,"getAll",DB_FETCHMODE_ASSOC);
+
+		if ($returnraw === true) {
+			return $raw_settings;
+		}
+
+		$sip_settings = $this->getChanSipDefaults();
+
+		foreach ($raw_settings as $var) {
+			switch ($var['type']) {
+			case SIP_NORMAL:
+				$sip_settings[$var['keyword']]                 = $var['data'];
+				break;
+			case SIP_CUSTOM:
+				$sip_settings['sip_custom_key_'.$var['seq']]   = $var['keyword'];
+				$sip_settings['sip_custom_val_'.$var['seq']]   = $var['data'];
+				break;
+			default:
+				throw new \Exception("Unknown type in sipsettings - ".$var['type']);
+			}
+		}
+
+		return $sip_settings;
+	}
+
+	public function getChanSipDefaults() {
+		$arr = array ( 'nat' => 'yes', 'nat_mode' => 'externip', 'externrefresh' => '120', 'g726nonstandard' => 'no',
+			't38pt_udptl' => 'no', 'videosupport' => 'no', 'maxcallbitrate' => '384', 'canreinvite' => 'no', 'rtptimeout' => '30',
+			'rtpholdtimeout' => '300', 'rtpkeepalive' => '0', 'checkmwi' => '10', 'notifyringing' => 'yes', 'notifyhold' => 'yes', 
+			'registertimeout' => '20', 'registerattempts' => '0', 'maxexpiry' => '3600', 'minexpiry' => '60', 'defaultexpiry' => '120', 
+			'jbenable' => 'no', 'jbforce' => 'no', 'jbimpl' => 'fixed', 'jbmaxsize' => '200', 'jbresyncthreshold' => '1000', 'jblog' => 'no',
+			'sip_language' => '', 'context' => '', 'ALLOW_SIP_ANON' => 'no', 'bindaddr' => '', 'bindport' => '', 'allowguest' => 'yes', 
+			'srvlookup' => 'no', 'callevents' => 'no', 'sip_custom_key_0' => '', 'sip_custom_val_0' => '');
+
+		return $arr;
 	}
 
 	// BMO Hooks.
