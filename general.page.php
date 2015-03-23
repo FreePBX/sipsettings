@@ -16,6 +16,7 @@ $submit_changes = _("Submit Changes");
 ?>
 <form autocomplete="off" action="" method="post" class="fpbx-submit" id="sipsettings" name="sipsettings">
 <input type="hidden" name="category" value="general">
+<input type="hidden" name="Submit" value="Submit">
 <div class="alert alert-info" role="alert"><strong><?php echo _("Items may moved! Please use the navigation on the right")?> <i class="fa fa-arrow-right pull-right"></i></strong></div>
 <div class="section-title" data-for="sssecurity">
 	<h3><i class="fa fa-minus"></i><?php echo _("Security Settings") ?></h3>
@@ -88,7 +89,7 @@ $submit_changes = _("Submit Changes");
 	foreach ($localnets as $id => $arr) {
 		$lnhtm .= '<div class = "lnet form-group form-inline" data-nextid='.($id+1).'>';
 		$lnhtm .= '	<input type="text" name="localnets['.$id.'][net]" class="form-control localnet network validate=ip" value="'.$arr['net'].'">/';
-		$lnhtm .= '	<input type="text" name="localnets['.$id.'][mask]" class="form-control netmask cidr validate-netmask" value="'.$arr['mask'].'">';	
+		$lnhtm .= '	<input type="text" name="localnets['.$id.'][mask]" class="form-control netmask cidr validate-netmask" value="'.$arr['mask'].'"><br/>';	
 		$lnhtm .= '</div>';
 	}
 	?>
