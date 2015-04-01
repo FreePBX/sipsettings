@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-23 13:18-0400\n"
+"POT-Creation-Date: 2015-04-01 16:06-0400\n"
 "PO-Revision-Date: 2015-02-20 20:00-0500\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -174,11 +174,11 @@ msgstr ""
 msgid "Call Events"
 msgstr ""
 
-#: Sipsettings.class.php:98
+#: Sipsettings.class.php:102
 msgid "Chan PJSIP"
 msgstr ""
 
-#: Sipsettings.class.php:94
+#: Sipsettings.class.php:98
 msgid "Chan SIP"
 msgstr ""
 
@@ -345,7 +345,7 @@ msgid ""
 "Frequency in seconds to check if MWI state has changed and inform peers."
 msgstr ""
 
-#: Sipsettings.class.php:91
+#: Sipsettings.class.php:95
 msgid "General SIP Settings"
 msgstr ""
 
@@ -638,7 +638,7 @@ msgstr ""
 msgid "Reinvite Behavior"
 msgstr ""
 
-#: Sipsettings.class.php:419
+#: Sipsettings.class.php:422
 msgid "Reset"
 msgstr ""
 
@@ -695,7 +695,7 @@ msgstr "静态IP"
 msgid "Strict RTP"
 msgstr ""
 
-#: Sipsettings.class.php:424
+#: Sipsettings.class.php:427
 msgid "Submit"
 msgstr ""
 
@@ -759,7 +759,7 @@ msgstr ""
 msgid "Transports"
 msgstr ""
 
-#: Sipsettings.class.php:265 Sipsettings.class.php:347
+#: Sipsettings.class.php:268 Sipsettings.class.php:350
 msgid "Unknown Type"
 msgstr ""
 
