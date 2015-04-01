@@ -16,7 +16,7 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 		"turnaddr" => "",
 		"turnusername" => "",
 		"turnpassword" => "",
-		"protocols" => array("udp", "tcp", "ws"),
+		"protocols" => array("udp", "tcp", "ws", "wss"),
 		"rtpchecksums" => "Yes",
 		"strictrtp" => "Yes",
 		"allowguest" => "no",
@@ -66,6 +66,7 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 				$this->pagename = "pjsip";
 				$this->doGeneralPost();
 			} elseif ($_REQUEST['category'] == "general") {
+				$this->pagename = "general";
 				$this->doGeneralPost();
 			} else {
 				// Unknown pagename?
@@ -86,6 +87,9 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 	}
 
 	public function getRnav() {
+		if(empty($this->pagename)) {
+			$this->pagename = "general";
+		}
 
 		$driver = $this->FreePBX->Config->get_conf_setting('ASTSIPDRIVER');
 		$pages['general'] = _("General SIP Settings");
@@ -100,13 +104,12 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 		foreach ($pages as $k => $v) {
 			if ($this->pagename == $k) {
 				$id = "id='active'";
-				$class = "current";
-				$v = $v." (A)";
+				$class = "active";
 			} else {
 				$id = "";
 				$class="";
 			}
-			$str .= '<a href="config.php?display=sipsettings&category='.$k.'" class="list-group-item $class">'.$v.'</a>'."\n";
+			$str .= '<a href="config.php?display=sipsettings&category='.$k.'" class="list-group-item '.$class.'">'.$v.'</a>'."\n";
 		}
 		return $str;
 	}
@@ -125,7 +128,7 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 	}
 
 	public function myShowPage() {
-		if (!$this->pagename) {
+		if (!$this->pagename || $this->pagename == "general") {
 			include 'general.page.php';
 		} elseif ($this->pagename == "chansip") {
 			include 'chansip.page.php';
@@ -380,10 +383,10 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 	public function getChanSipDefaults() {
 		$arr = array ( 'nat' => 'yes', 'nat_mode' => 'externip', 'externrefresh' => '120', 'g726nonstandard' => 'no',
 			't38pt_udptl' => 'no', 'videosupport' => 'no', 'maxcallbitrate' => '384', 'canreinvite' => 'no', 'rtptimeout' => '30',
-			'rtpholdtimeout' => '300', 'rtpkeepalive' => '0', 'checkmwi' => '10', 'notifyringing' => 'yes', 'notifyhold' => 'yes', 
-			'registertimeout' => '20', 'registerattempts' => '0', 'maxexpiry' => '3600', 'minexpiry' => '60', 'defaultexpiry' => '120', 
+			'rtpholdtimeout' => '300', 'rtpkeepalive' => '0', 'checkmwi' => '10', 'notifyringing' => 'yes', 'notifyhold' => 'yes',
+			'registertimeout' => '20', 'registerattempts' => '0', 'maxexpiry' => '3600', 'minexpiry' => '60', 'defaultexpiry' => '120',
 			'jbenable' => 'no', 'jbforce' => 'no', 'jbimpl' => 'fixed', 'jbmaxsize' => '200', 'jbresyncthreshold' => '1000', 'jblog' => 'no',
-			'sip_language' => '', 'context' => '', 'ALLOW_SIP_ANON' => 'no', 'bindaddr' => '', 'bindport' => '', 'allowguest' => 'yes', 
+			'sip_language' => '', 'context' => '', 'ALLOW_SIP_ANON' => 'no', 'bindaddr' => '', 'bindport' => '', 'allowguest' => 'yes',
 			'srvlookup' => 'no', 'callevents' => 'no', 'sip_custom_key_0' => '', 'sip_custom_val_0' => '');
 
 		return $arr;
