@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-03-10 13:26+1000\n"
-"PO-Revision-Date: 2015-04-02 10:13+0200\n"
-"Last-Translator: Daver Jorge <daverjorge46@gmail.com>\n"
+"PO-Revision-Date: 2015-04-02 10:16+0200\n"
+"Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish "
 "<http://weblate.freepbx.org/projects/freepbx/sipsettings/es_ES/>\n"
 "Language: es_ES\n"
@@ -119,7 +119,6 @@ msgid "Asterisk SIP Settings"
 msgstr "Configuraciones Asterisk SIP"
 
 #: chansip.page.php:610
-#, fuzzy
 msgid ""
 "Asterisk: allowguest. When set Asterisk will allow Guest SIP calls and send "
 "them to the Default SIP context. Turning this off will keep anonymous SIP "
@@ -576,7 +575,7 @@ msgstr "Tamaño Jitter Buffer"
 
 #: chansip.page.php:567
 msgid "Language"
-msgstr "Lenguaje"
+msgstr "Idioma"
 
 #: general.page.php:52
 msgid "Local Networks"
@@ -874,7 +873,6 @@ msgid "Video Support"
 msgstr "Soporte Vídeo"
 
 #: chanpj.page.php:11
-#, fuzzy
 msgid ""
 "When set Asterisk will allow Guest SIP calls and send them to the Default "
 "SIP context. Turning this off will keep anonymous SIP calls from entering "
