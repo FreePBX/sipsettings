@@ -51,8 +51,8 @@ if ($sa != "no") {
 
 
 $currentcomponent->addguielem("", new gui_pageheading('_top', _("Transports"), false), 2);
-$currentcomponent->addguielem("", new gui_label(null, "Note that the interface is only displayed for your information, and is not referenced by asterisk."));
-$currentcomponent->addguielem("", new gui_label(null, "Also be warned: After you enable/disable a transport, asterisk needs to be <strong>restarted</strong>, not just reloaded."));
+$currentcomponent->addguielem("", new gui_label(null, _("Note that the interface is only displayed for your information, and is not referenced by asterisk.")));
+$currentcomponent->addguielem("", new gui_label(null, _("Also be warned: After you enable/disable a transport, asterisk needs to be <strong>restarted</strong>, not just reloaded.")));
 
 $protocols = $this->getConfig("protocols");
 
