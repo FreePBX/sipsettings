@@ -118,11 +118,13 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 
 		$driver = $this->FreePBX->Config->get_conf_setting('ASTSIPDRIVER');
 
+		$str = _("Asterisk is currently using %s for SIP Traffic.");
 		if ($driver == "both") {
-			$str = "Asterisk is currently using <strong>chan_sip AND chan_pjsip</strong> for SIP Traffic.<br />You can change this on the Advanced Settings Page<br />\n";
+			$str = sprintf($str,"chan_sip, chan_pjsip");
 		} else {
-			$str = "Asterisk is currently using <strong>$driver</strong> for SIP Traffic.<br />You can change this on the Advanced Settings Page<br />\n";
+			$str = sprintf($str,$driver);
 		}
+		$str .= "<br />"._("You can change this on the Advanced Settings Page");
 
 		return $str;
 	}
@@ -210,12 +212,12 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 	private function radioset($id, $name, $help = "", $values, $current) {
 		$out =  "<tr><td><a class='info'>$name<span>$help</span></a></td>\n";
 		$out .= "<td><span class='radioset'>\n";
-		foreach ($values as $v) {
-			$out .= "<input id='$id-$v' name='$id' value='$v' type='radio'";
-			if ($current === $v) {
+		foreach ($values as $k => $v) {
+			$out .= "<input id='$id-$k' name='$id' value='$v' type='radio'";
+			if ($current === $k) {
 				$out .= " checked";
 			}
-			$out .= "><label for='$id-$v'>$v</label>\n";
+			$out .= "><label for='$id-$k'>$v</label>\n";
 		}
 		$out .= "</span></td></tr>\n";
 
