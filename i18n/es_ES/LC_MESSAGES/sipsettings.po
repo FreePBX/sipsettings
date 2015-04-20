@@ -9,15 +9,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-10 13:26+1000\n"
+"POT-Creation-Date: 2015-04-20 14:06-0400\n"
 "PO-Revision-Date: 2015-04-02 10:16+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
-"Language-Team: Spanish "
-"<http://weblate.freepbx.org/projects/freepbx/sipsettings/es_ES/>\n"
-"Language: es_ES\n"
+"Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/"
+"sipsettings/es_ES/>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: es_ES\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
@@ -89,6 +89,12 @@ msgstr ""
 "cambia de arriba a algo personalizado esta configuración puede ser inútil, "
 "así como si 'Permitir Invitados SIP' se establecer en NO."
 
+#: chanpj.page.php:55
+msgid ""
+"Also be warned: After you enable/disable a transport, asterisk needs to be "
+"<strong>restarted</strong>, not just reloaded."
+msgstr ""
+
 #: chansip.page.php:753
 msgid ""
 "An Error occurred trying fetch network configuration and external IP address"
@@ -117,6 +123,11 @@ msgstr ""
 #: sipsettings.i18n.php:4 sipsettings.i18n.php:10
 msgid "Asterisk SIP Settings"
 msgstr "Configuraciones Asterisk SIP"
+
+#: Sipsettings.class.php:120
+#, php-format
+msgid "Asterisk is currently using %s for SIP Traffic."
+msgstr ""
 
 #: chansip.page.php:610
 msgid ""
@@ -248,9 +259,9 @@ msgid ""
 "jb of IAX2)."
 msgstr ""
 "Asterisk: jbimpl. Implementación Jitterbuffer, que se utiliza en el lado "
-"receptor de un canal SIP. Dos implementaciones están disponibles "
-"actualmente:<br /> fixed: el tamaño es siempre igual a jbmaxsize;<br /> "
-"adaptive: con un tamaño variable (la nueva jb de IAX2)."
+"receptor de un canal SIP. Dos implementaciones están disponibles actualmente:"
+"<br /> fixed: el tamaño es siempre igual a jbmaxsize;<br /> adaptive: con un "
+"tamaño variable (la nueva jb de IAX2)."
 
 #: chansip.page.php:533
 msgid "Asterisk: jblog. Enables jitter buffer frame logging."
@@ -392,6 +403,10 @@ msgstr "Contexto Por Defecto"
 msgid "Default Language for a channel, Asterisk: language"
 msgstr "Lenguaje por defecto para un Canal, Asterisk: language"
 
+#: general.page.php:46
+msgid "Detect External IP"
+msgstr ""
+
 #: chansip.page.php:543
 msgid "Disable"
 msgstr "Deshabilitar"
@@ -519,8 +534,8 @@ msgstr ""
 "Nombre de host o dirección del servidor STUN utilizado para determinar la "
 "dirección IP externa y el puerto de una sesión RTP pueda ser alcanzado. El "
 "número de puerto es opcional. Si se omite se utilizará el valor "
-"predeterminado 3478. Esta opción está en blanco de forma predeterminada. ("
-"Lista de servidores TUN: https://gist.github.com/zziuni/3741933)"
+"predeterminado 3478. Esta opción está en blanco de forma predeterminada. "
+"(Lista de servidores TUN: https://gist.github.com/zziuni/3741933)"
 
 #: general.page.php:107
 msgid ""
@@ -659,13 +674,20 @@ msgstr "Configuraciones NAT"
 
 #: chanpj.page.php:8 chansip.page.php:264 chansip.page.php:284
 #: chansip.page.php:416 chansip.page.php:436 chansip.page.php:503
-#: chansip.page.php:620 chansip.page.php:660
+#: chansip.page.php:620 chansip.page.php:660 general.page.php:29
+#: general.page.php:97 general.page.php:98
 msgid "No"
 msgstr "No"
 
 #: chansip.page.php:254
 msgid "Non-Standard g726"
 msgstr "g726 no estándar"
+
+#: chanpj.page.php:54
+msgid ""
+"Note that the interface is only displayed for your information, and is not "
+"referenced by asterisk."
+msgstr ""
 
 #: chansip.page.php:227
 msgid ""
@@ -787,6 +809,10 @@ msgstr "IP Estática"
 msgid "Strict RTP"
 msgstr "Estricto RTP"
 
+#: general.page.php:156
+msgid "Submit"
+msgstr ""
+
 #: chansip.page.php:38 general.page.php:14
 msgid "Submit Changes"
 msgstr "Aplicar Cambios"
@@ -839,7 +865,7 @@ msgstr ""
 msgid "Transports"
 msgstr "Transportes"
 
-#: Sipsettings.class.php:268 Sipsettings.class.php:350
+#: Sipsettings.class.php:270 Sipsettings.class.php:352
 msgid "Unknown Type"
 msgstr "Tipo Desconocido"
 
@@ -897,9 +923,14 @@ msgstr ""
 
 #: chanpj.page.php:7 chansip.page.php:262 chansip.page.php:282
 #: chansip.page.php:414 chansip.page.php:434 chansip.page.php:501
-#: chansip.page.php:618 chansip.page.php:658
+#: chansip.page.php:618 chansip.page.php:658 general.page.php:29
+#: general.page.php:97 general.page.php:98
 msgid "Yes"
 msgstr "Si"
+
+#: Sipsettings.class.php:126
+msgid "You can change this on the Advanced Settings Page"
+msgstr ""
 
 #: chansip.page.php:670
 msgid ""
@@ -911,8 +942,8 @@ msgid ""
 "submitted."
 msgstr ""
 "Usted puede configurar cualquier otra configuración de SIP que no esté "
-"presente aquí que se le permite ser configurado en la sección general de "
-"sip.conf. No habrá comprobación de errores en contra de estos valores. Deben "
+"presente aquí que se le permite ser configurado en la sección general de sip."
+"conf. No habrá comprobación de errores en contra de estos valores. Deben "
 "introducirse como:<br /> [setting] = [valor]<br /> en las casillas de abajo. "
 "Haga clic en la casilla Agregar Campo para agregar campos adicionales. Las "
 "casillas en blanco se eliminarán cuando se aplique."

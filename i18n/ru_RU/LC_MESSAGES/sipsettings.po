@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-10 13:26+1000\n"
+"POT-Creation-Date: 2015-04-20 14:06-0400\n"
 "PO-Revision-Date: 2011-04-06 17:27+0100\n"
 "Last-Translator: Alexander Kozyrev <ceo@postmet.com>\n"
 "Language-Team: Russian <faq@postmet.com>\n"
@@ -88,6 +88,12 @@ msgid ""
 "rendered useless as well as if 'Allow SIP Guests' is set to no."
 msgstr ""
 
+#: chanpj.page.php:55
+msgid ""
+"Also be warned: After you enable/disable a transport, asterisk needs to be "
+"<strong>restarted</strong>, not just reloaded."
+msgstr ""
+
 #: chansip.page.php:753
 msgid ""
 "An Error occurred trying fetch network configuration and external IP address"
@@ -115,6 +121,11 @@ msgstr ""
 #: sipsettings.i18n.php:4 sipsettings.i18n.php:10
 msgid "Asterisk SIP Settings"
 msgstr "Установки Asterisk для SIP"
+
+#: Sipsettings.class.php:120
+#, php-format
+msgid "Asterisk is currently using %s for SIP Traffic."
+msgstr ""
 
 #: chansip.page.php:610
 msgid ""
@@ -395,6 +406,10 @@ msgstr "Дефолтный контекст"
 msgid "Default Language for a channel, Asterisk: language"
 msgstr "Дефолтный язык в канале, параметр Asterisk: language"
 
+#: general.page.php:46
+msgid "Detect External IP"
+msgstr ""
+
 #: chansip.page.php:543
 msgid "Disable"
 msgstr "Выключить"
@@ -648,13 +663,20 @@ msgstr "Настройки NAT"
 
 #: chanpj.page.php:8 chansip.page.php:264 chansip.page.php:284
 #: chansip.page.php:416 chansip.page.php:436 chansip.page.php:503
-#: chansip.page.php:620 chansip.page.php:660
+#: chansip.page.php:620 chansip.page.php:660 general.page.php:29
+#: general.page.php:97 general.page.php:98
 msgid "No"
 msgstr "Нет"
 
 #: chansip.page.php:254
 msgid "Non-Standard g726"
 msgstr "Нестандартный g726"
+
+#: chanpj.page.php:54
+msgid ""
+"Note that the interface is only displayed for your information, and is not "
+"referenced by asterisk."
+msgstr ""
 
 #: chansip.page.php:227
 msgid ""
@@ -774,6 +796,10 @@ msgstr "Статический ИП"
 msgid "Strict RTP"
 msgstr ""
 
+#: general.page.php:156
+msgid "Submit"
+msgstr ""
+
 #: chansip.page.php:38 general.page.php:14
 msgid "Submit Changes"
 msgstr "Сохранить изменения"
@@ -820,7 +846,7 @@ msgstr ""
 msgid "Transports"
 msgstr ""
 
-#: Sipsettings.class.php:268 Sipsettings.class.php:350
+#: Sipsettings.class.php:270 Sipsettings.class.php:352
 msgid "Unknown Type"
 msgstr ""
 
@@ -867,9 +893,14 @@ msgstr ""
 
 #: chanpj.page.php:7 chansip.page.php:262 chansip.page.php:282
 #: chansip.page.php:414 chansip.page.php:434 chansip.page.php:501
-#: chansip.page.php:618 chansip.page.php:658
+#: chansip.page.php:618 chansip.page.php:658 general.page.php:29
+#: general.page.php:97 general.page.php:98
 msgid "Yes"
 msgstr "Да"
+
+#: Sipsettings.class.php:126
+msgid "You can change this on the Advanced Settings Page"
+msgstr ""
 
 #: chansip.page.php:670
 msgid ""
