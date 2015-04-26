@@ -24,7 +24,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-04-20 14:06-0400\n"
-"PO-Revision-Date: 2015-04-25 21:59+0200\n"
+"PO-Revision-Date: 2015-04-25 22:28+0200\n"
 "Last-Translator: Yuriy <alliancesko@gmail.com>\n"
 "Language-Team: Russian "
 "<http://weblate.freepbx.org/projects/freepbx/sipsettings/ru_RU/>\n"
@@ -689,7 +689,7 @@ msgstr "Перемещение настроек rtpstart из старого ф�
 
 #: chanpj.page.php:13
 msgid "Misc PJSip Settings"
-msgstr ""
+msgstr "Разные настройки PJSip"
 
 #: chansip.page.php:182
 msgid "NAT"
@@ -715,11 +715,13 @@ msgid ""
 "Note that the interface is only displayed for your information, and is not "
 "referenced by asterisk."
 msgstr ""
+"Обратите внимание на то, что интерфейс только показан для информации и не "
+"ссылается на Астериск."
 
 #: chansip.page.php:227
 msgid ""
 "Note that this will, by default, inherit the settings from the General page"
-msgstr ""
+msgstr "Заметим, что это, по умолчанию, наследует параметры со страницы Общие"
 
 #: chansip.page.php:394
 msgid "Notification & MWI"
@@ -739,17 +741,19 @@ msgstr "Другие настройки SIP"
 
 #: chansip.page.php:227
 msgid "Override External IP"
-msgstr ""
+msgstr "Переопределить внешний IP"
 
 #: general.page.php:119
 msgid ""
 "Password used to authenticate with TURN relay server. This option is "
 "disabled by default."
 msgstr ""
+"Пароль, используемый для аутентификации на TURN релей сервере. Эта опция "
+"отключена по умолчанию."
 
 #: chanpj.page.php:81
 msgid "Port to Listen On"
-msgstr ""
+msgstr "Порт для прослушивания"
 
 #: chansip.page.php:214
 msgid "Public IP"
@@ -757,15 +761,15 @@ msgstr "Публичный ИП"
 
 #: general.page.php:97
 msgid "RTP Checksums"
-msgstr ""
+msgstr "Контрольные суммы RTP"
 
 #: general.page.php:89
 msgid "RTP Port Ranges"
-msgstr ""
+msgstr "Диапазон портов RTP"
 
 #: general.page.php:86
 msgid "RTP Settings"
-msgstr ""
+msgstr "Настройки RTP"
 
 #: chansip.page.php:384
 msgid "RTP Timers"
@@ -793,7 +797,7 @@ msgstr "Поведение Reinvite"
 
 #: page.sipsettings.php:16
 msgid "SIP Settings"
-msgstr ""
+msgstr "Настройки SIP"
 
 #: chansip.page.php:630
 msgid "SRV Lookup"
@@ -801,11 +805,11 @@ msgstr "Поиск записей SRV"
 
 #: general.page.php:101
 msgid "STUN Server Address"
-msgstr ""
+msgstr "Адрес сервера STUN"
 
 #: general.page.php:24
 msgid "Security Settings"
-msgstr ""
+msgstr "Настройки безопасности"
 
 #: sipsettings.i18n.php:6 sipsettings.i18n.php:12
 msgid "Settings"
@@ -820,11 +824,11 @@ msgstr ""
 
 #: chanpj.page.php:15
 msgid "Show Advanced Settings"
-msgstr ""
+msgstr "Показать дополнительные настройки"
 
 #: general.page.php:91
 msgid "Start"
-msgstr ""
+msgstr "Старт"
 
 #: chansip.page.php:216
 msgid "Static IP"
@@ -832,11 +836,11 @@ msgstr "Статический ИП"
 
 #: general.page.php:98
 msgid "Strict RTP"
-msgstr ""
+msgstr "Строгий RTP"
 
 #: general.page.php:156
 msgid "Submit"
-msgstr ""
+msgstr "Сохранить"
 
 #: chansip.page.php:38 general.page.php:14
 msgid "Submit Changes"
@@ -848,45 +852,47 @@ msgstr "Прозрачное пропускание T38"
 
 #: general.page.php:107
 msgid "TURN Server Address"
-msgstr ""
+msgstr "Адрес сервера TURN"
 
 #: general.page.php:119
 msgid "TURN Server Password"
-msgstr ""
+msgstr "Пароль сервера TURN"
 
 #: general.page.php:113
 msgid "TURN Server Username"
-msgstr ""
+msgstr "Имя пользователя сервера TURN"
 
 #: general.page.php:89
 msgid "The starting and ending RTP port range"
-msgstr ""
+msgstr "Начало и окончание диапазона портов RTP"
 
 #: general.page.php:37
 msgid "These settings apply to both chan_sip and chan_pjsip."
-msgstr ""
+msgstr "Эти настройки применяются как для chan_sip, так и chan_pjsip."
 
 #: general.page.php:42
 msgid "This address will be provided to clients if NAT is enabled and detected"
-msgstr ""
+msgstr "Этот адрес будет предоставляться клиентам, если NAT включен и обнаружен"
 
 #: general.page.php:129
 msgid "This is the default Codec setting for new Trunks and Extensions."
-msgstr ""
+msgstr "Это значение кодека по умолчанию для новых внешних и внутренних линий."
 
 #: general.page.php:98
 msgid ""
 "This will drop RTP packets that do not come from the source of the RTP "
 "stream. It is unusual to turn this off"
 msgstr ""
+"Это отбросит пакеты RTP, которые не приходят из источника потока RTP. "
+"Отключить будет странно"
 
 #: chanpj.page.php:53
 msgid "Transports"
-msgstr ""
+msgstr "Транспорты"
 
 #: Sipsettings.class.php:270 Sipsettings.class.php:352
 msgid "Unknown Type"
-msgstr ""
+msgstr "Неизвестный тип"
 
 #: sipsettings.i18n.php:8
 msgid ""
@@ -906,6 +912,8 @@ msgid ""
 "Username used to authenticate with TURN relay server. This option is "
 "disabled by default."
 msgstr ""
+"Имя пользователя, используемое для аутентификации на TRUN сервере. Эта опция "
+"отключена по умолчанию."
 
 #: chansip.page.php:293
 msgid "Video Codecs"
@@ -924,10 +932,17 @@ msgid ""
 "below will enable you to see the call attempts and debug incoming calls that "
 "may be mis-configured and appearing as guests."
 msgstr ""
+"Когда установлено, Астериск разрешит гостям SIP вызовы и отправит их в "
+"контекст по умолчанию SIP. Отключение позволит удержать анонимные SIP звонки "
+"от входа в систему. Это можно так же остановить отключением 'Разрешить "
+"анонимные входящие SIP звонки'. Разрешая гостевые звонки, но отвергая "
+"анонимные SIP звонки, вы можете увидеть попытки вызовов и отладить входящие "
+"вызовы, которые, возможно, вы неправильно настроили и они появляются в "
+"качестве гостей."
 
 #: general.page.php:97
 msgid "Whether to enable or disable UDP checksums on RTP traffic"
-msgstr ""
+msgstr "Если включить или отключить UDP контрольные суммы RTP трафика"
 
 #: chanpj.page.php:7 chansip.page.php:262 chansip.page.php:282
 #: chansip.page.php:414 chansip.page.php:434 chansip.page.php:501
@@ -938,7 +953,7 @@ msgstr "Да"
 
 #: Sipsettings.class.php:126
 msgid "You can change this on the Advanced Settings Page"
-msgstr ""
+msgstr "Вы можете изменить это на странице дополнительных настроек"
 
 #: chansip.page.php:670
 msgid ""
@@ -960,6 +975,8 @@ msgstr ""
 msgid ""
 "You may use this to to define an additional local network per interface."
 msgstr ""
+"Вы можете использовать это, чтобы определить дополнительные локальные сети "
+"на интерфейсе."
 
 #: install.php:91
 msgid "already exists"
@@ -967,11 +984,11 @@ msgstr "уже существует"
 
 #: install.php:49
 msgid "chan_pjsip support NOT FOUND."
-msgstr ""
+msgstr "Поддержка chan_pjsip не найдена."
 
 #: install.php:45
 msgid "chan_pjsip support detected. Enabling."
-msgstr ""
+msgstr "Поддержка chan_pjsip обнаружена. Включено."
 
 #: install.php:21
 msgid "checking for sipsettings table.."
@@ -1006,11 +1023,11 @@ msgstr "rtpholdtimeout должен быть больше чем rtptimeout"
 #: install.php:105 install.php:119
 #, php-format
 msgid "saving previous value of %s"
-msgstr ""
+msgstr "сохранение предыдущего значения из %s"
 
 #: install.php:78
 msgid "ulaw, alaw, gsm, g726 added"
-msgstr ""
+msgstr "ulaw, alaw, gsm, g726 добавлены"
 
 #: chansip.page.php:368
 msgid "yes"
