@@ -24,7 +24,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-04-20 14:06-0400\n"
-"PO-Revision-Date: 2015-04-25 22:28+0200\n"
+"PO-Revision-Date: 2015-04-25 22:29+0200\n"
 "Last-Translator: Yuriy <alliancesko@gmail.com>\n"
 "Language-Team: Russian "
 "<http://weblate.freepbx.org/projects/freepbx/sipsettings/ru_RU/>\n"
@@ -77,7 +77,7 @@ msgstr "Разрешить входящие анонимные SIP звонки"
 
 #: chanpj.page.php:14 chansip.page.php:610
 msgid "Allow SIP Guests"
-msgstr "Разрешить неавторизованные SIP вызовы"
+msgstr "Разрешить гостевые SIP вызовы"
 
 #: general.page.php:27
 msgid ""
