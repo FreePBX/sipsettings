@@ -101,6 +101,7 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 		if ($driver == "chan_pjsip" || $driver == "both") {
 			$pages['pjsip'] = _("Chan PJSIP");
 		}
+		$str = '';
 		foreach ($pages as $k => $v) {
 			if ($this->pagename == $k) {
 				$id = "id='active'";

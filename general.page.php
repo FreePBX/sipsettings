@@ -86,10 +86,11 @@ $submit_changes = _("Submit Changes");
 	unset ($localnets[0]);
 
 	// Now loop through any more, if they exist.
+	$lnhtm = '';
 	foreach ($localnets as $id => $arr) {
 		$lnhtm .= '<div class = "lnet form-group form-inline" data-nextid='.($id+1).'>';
 		$lnhtm .= '	<input type="text" name="localnets['.$id.'][net]" class="form-control localnet network validate=ip" value="'.$arr['net'].'">/';
-		$lnhtm .= '	<input type="text" name="localnets['.$id.'][mask]" class="form-control netmask cidr validate-netmask" value="'.$arr['mask'].'"><br/>';	
+		$lnhtm .= '	<input type="text" name="localnets['.$id.'][mask]" class="form-control netmask cidr validate-netmask" value="'.$arr['mask'].'"><br/>';
 		$lnhtm .= '</div>';
 	}
 	?>
@@ -105,8 +106,8 @@ $submit_changes = _("Submit Changes");
 						</div>
 						<div class="col-md-9">
 							<div class = "lnet form-group form-inline" data-nextid=1>
-								<input type="text" name="localnets[0][net]" class="form-control localnet network validate=ip" value="<?php echo $localnets[0]['net'] ?>"> /
-								<input type="text" name="localnets[0][mask]" class="form-control netmask cidr validate-netmask" value="<?php echo $localnets[0]['mask'] ?>">
+								<input type="text" name="localnets[0][net]" class="form-control localnet network validate=ip" value="<?php echo isset($localnets[0]['net']) ? $localnets[0]['net'] : '' ?>"> /
+								<input type="text" name="localnets[0][mask]" class="form-control netmask cidr validate-netmask" value="<?php echo isset($localnets[0]['mask']) ? $localnets[0]['mask'] : ''?>">
 								<?php echo $lnhtm?>
 							</div>
 							<input type="button" id="localnet-add" value="<?php echo $add_local_network_field ?>" class="nat-settings" />
@@ -148,7 +149,7 @@ $submit_changes = _("Submit Changes");
 							</div>
 							<div class="row">
 								<div class="col-sm-1">
-									<label for="rtpend"><b><?php echo _("End").":"?></b></label> 
+									<label for="rtpend"><b><?php echo _("End").":"?></b></label>
 								</div>
 								<div class="col-sm-11">
 									<input type='number' name='rtpend'   class='form-control validate-int' value='<?php echo $this->getConfig('rtpend') ?>'>

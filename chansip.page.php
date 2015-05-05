@@ -217,7 +217,7 @@ $error_displays = array_merge($error_displays,sipsettings_check_custom_files());
 							<input id="externip" type="radio" name="nat_mode" value="externip" <?php echo $nat_mode=="externip"?"checked=\"externip\"":""?>/>
 							<label for="externip"><?php echo _("Static IP") ?></label>
 							<input id="externhost" type="radio" name="nat_mode" value="externhost" <?php echo $nat_mode=="externhost"?"checked=\"externhost\"":""?>/>
-							<label for="externhost"><?php echo _("Dynamic IP") ?></label>						
+							<label for="externhost"><?php echo _("Dynamic IP") ?></label>
 						</div>
 					</div>
 				</div>
@@ -248,7 +248,7 @@ $error_displays = array_merge($error_displays,sipsettings_check_custom_files());
 										$placeholder = "Enter IP Address";
 									}
 								?>
-								<input type="text" class="form-control" id="externip_val" name="externip_val" value="<?php echo $externip_val ?>" placeholder="<?php echo $placeholder; ?>">
+								<input type="text" class="form-control" id="externip_val" name="externip_val" value="<?php echo isset($externip_val) ? $externip_val : '' ?>" placeholder="<?php echo $placeholder; ?>">
 							</div>
 						</div>
 					</div>
@@ -274,7 +274,7 @@ $error_displays = array_merge($error_displays,sipsettings_check_custom_files());
 								<i class="fa fa-question-circle fpbx-help-icon" data-for="externhost_val"></i>
 							</div>
 							<div class="col-md-9">
-								<input type="text" class="form-control" id="externhost_val" name="externhost_val" value="<?php echo $externhost_val ?>">
+								<input type="text" class="form-control" id="externhost_val" name="externhost_val" value="<?php echo isset($externhost_val) ? $externhost_val : '' ?>">
 							</div>
 						</div>
 					</div>
@@ -299,7 +299,7 @@ $error_displays = array_merge($error_displays,sipsettings_check_custom_files());
 							</div>
 							<div class="col-md-9">
 								<div class="input-group">
-									<input type="number" class="form-control" id="externhostrefresh" name="externhostrefresh" value="<?php echo $externrefresh ?>">
+									<input type="number" class="form-control" id="externhostrefresh" name="externhostrefresh" value="<?php echo isset($externrefresh) ? $externrefresh : ''?>">
 									<span class="input-group-addon"><?php echo _("Seconds")?></span>
 								</div>
 							</div>
@@ -419,6 +419,7 @@ $error_displays = array_merge($error_displays,sipsettings_check_custom_files());
 							</div>
 							<div class="col-md-9">
 								<?php
+								$seq = 0;
 								echo '<ul  class="sortable video-codecs">';
 									 foreach ($video_codecs as $codec => $codec_state) {
 										$tabindex++;
@@ -1149,6 +1150,7 @@ $error_displays = array_merge($error_displays,sipsettings_check_custom_files());
 	$idx = 1;
 	$var_sip_custom_key = "sip_custom_key_$idx";
 	$var_sip_custom_val = "sip_custom_val_$idx";
+	$csotherinputs = '';
 	while (isset($$var_sip_custom_key)) {
 		if ($$var_sip_custom_key != '') {
 			$csotherinputs .= <<< END
@@ -1176,7 +1178,7 @@ END;
 						<div class="col-md-9">
 							<div class="form-group form-inline">
 								<input type="text" id="sip_custom_key_0" name="sip_custom_key_0" class="sip-custom" value="<?php echo $sip_custom_key_0 ?>" > =
-								<input type="text" id="sip_custom_val_0" name="sip_custom_val_0" value="<?php echo $sip_custom_val_0 ?>" >							
+								<input type="text" id="sip_custom_val_0" name="sip_custom_val_0" value="<?php echo $sip_custom_val_0 ?>" >
 							</div>
 							<?php echo $csotherinputs?>
 							<div id="sip-custom-buttons">
@@ -1356,7 +1358,6 @@ function sipsettings_check_custom_files() {
 	global $amp_conf;
 	$errors = array();
 
-	$custom_files[] = $amp_conf['ASTETCDIR']."/sip.conf";
 	$custom_files[] = $amp_conf['ASTETCDIR']."/sip_nat.conf";
 	$custom_files[] = $amp_conf['ASTETCDIR']."/sip_general_custom.conf";
 	$custom_files[] = $amp_conf['ASTETCDIR']."/sip_custom.conf";
@@ -1364,7 +1365,6 @@ function sipsettings_check_custom_files() {
 	foreach ($custom_files as $file) {
 		if (file_exists($file)) {
 			$sip_conf = @parse_ini_file($file,true);
-			$main = true; // 1 is sip.conf, after that don't care
 			foreach ($sip_conf as $section => $item) {
 				// If setting is an array, then it is a subsection
 				//
@@ -1372,12 +1372,7 @@ function sipsettings_check_custom_files() {
 					$msg =  sprintf(_("Settings in %s may override these. Those settings should be removed."),"<b>$file</b>");
 					$errors[] = array( 'js' => '', 'div' => $msg);
 					break;
-				} elseif ($main && is_array($item) && strtolower($section) == 'general' && !empty($item)) {
-					$msg =  sprintf(_("File %s should not have any settings in it. Those settings should be removed."),"<b>$file</b>");
-					$errors[] = array( 'js' => '', 'div' => $msg);
-					break;
 				}
-				$main = false;
 			}
 		}
 	}

@@ -35,6 +35,7 @@ if ($sa != "no") {
 	}
 }
 $protocols = $this->getConfig("protocols");
+$protohtml = $udphtml = $bindthml = '';
 foreach ($protocols as $p) {
 	$allBinds = $this->getConfig("binds");
 	$binds = $allBinds[$p];
@@ -157,7 +158,7 @@ foreach ($protocols as $p) {
 					</div>
 				</div>
 				<!--END '.$t.'-->
-				';	
+				';
 			}
 		}
 		$bindthml .= '
