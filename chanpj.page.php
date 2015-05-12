@@ -38,7 +38,7 @@ $protocols = $this->getConfig("protocols");
 $protohtml = $udphtml = $bindthml = '';
 foreach ($protocols as $p) {
 	$allBinds = $this->getConfig("binds");
-	$binds = $allBinds[$p];
+	$binds = !empty($allBinds[$p])?$allBinds[$p]:array();
 	$cbs = '';
 	$lastproto="";
 	foreach ($interfaces as $i) {
@@ -64,6 +64,7 @@ foreach ($protocols as $p) {
 				<div class="section" data-id="pjs.'.$p.'">
 			';
 		}
+		$binds[$i[0]] = isset($binds[$i[0]])?$binds[$i[0]]:'off';
 		$cbs .= '
 		<!--'.$thisTitle.'-->
 		<div class="element-container">
