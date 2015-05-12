@@ -83,11 +83,11 @@ $submit_changes = _("Submit Changes");
 	<?php
 	// Are there any MORE nets?
 	// Remove the first one that we've displayed
-	unset ($localnets[0]);
-
+	$localnetstmp = $localnets;
+	unset ($localnetstmp[0]);
 	// Now loop through any more, if they exist.
 	$lnhtm = '';
-	foreach ($localnets as $id => $arr) {
+	foreach ($localnetstmp as $id => $arr) {
 		$lnhtm .= '<div class = "lnet form-group form-inline" data-nextid='.($id+1).'>';
 		$lnhtm .= '	<input type="text" name="localnets['.$id.'][net]" class="form-control localnet network validate=ip" value="'.$arr['net'].'">/';
 		$lnhtm .= '	<input type="text" name="localnets['.$id.'][mask]" class="form-control netmask cidr validate-netmask" value="'.$arr['mask'].'"><br/>';
