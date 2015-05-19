@@ -225,9 +225,11 @@ function sipsettings_hookGet_config($engine) {
 
 	// Now do the localnets
 	$localnets = FreePBX::create()->Sipsettings->getConfig('localnets');
-	foreach ($localnets as $arr) {
-		$sip_settings[] = array("localnet", $arr['net']."/".$arr['mask']);
-	}
+  if(!empty($localnets) && is_array($localnets)) {
+  	foreach ($localnets as $arr) {
+  		$sip_settings[] = array("localnet", $arr['net']."/".$arr['mask']);
+  	}
+  }
 
           unset($interim_settings);
           if (is_array($sip_settings)) foreach ($sip_settings as $entry) {

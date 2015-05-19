@@ -38,7 +38,7 @@ $protocols = $this->getConfig("protocols");
 $protohtml = $udphtml = $bindthml = '';
 foreach ($protocols as $p) {
 	$allBinds = $this->getConfig("binds");
-	$binds = !empty($allBinds[$p])?$allBinds[$p]:array();
+	$binds = !empty($allBinds[$p]) && is_array($allBinds[$p]) ? $allBinds[$p] : array();
 	$cbs = '';
 	$lastproto="";
 	foreach ($interfaces as $i) {
