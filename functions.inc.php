@@ -393,9 +393,11 @@ function sipsettings_edit($sip_settings) {
   } else {
      $fvcodecs = array();
      $seq = 1;
-    foreach($_REQUEST['vcodec'] as $codec => $v) {
-        $fvcodecs[$codec] = $seq++;
-    }
+		if(!empty($_REQUEST['vcodec'])) { 
+			foreach($_REQUEST['vcodec'] as $codec => $v) {
+      	  $fvcodecs[$codec] = $seq++;
+			}
+		}
     FreePBX::Sipsettings()->setCodecs('video',$fvcodecs);
 
     // TODO: normally don't like doing delete/insert but otherwise we would have do update for each
