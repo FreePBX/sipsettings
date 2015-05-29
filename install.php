@@ -212,3 +212,9 @@ if(!$ss->getConfig("allowanon")) {
 	$ss->setConfig("allowanon",$aa);
 }
 sql("DELETE FROM admin WHERE variable = 'ALLOW_SIP_ANON'");
+
+/* Convert language to custom field */
+$sql = "SELECT MAX(seq) FROM sipsettings WHERE type = 9";
+$seq = sql($sql,'getOne');
+$sql = "UPDATE sipsettings SET keyword = 'language', type = 9, seq = " . ($seq !== NULL ? $seq + 1 : 0) . " WHERE keyword = 'sip_language'";
+sql($sql);

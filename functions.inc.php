@@ -190,8 +190,8 @@ function sipsettings_hookGet_config($engine) {
 			}
 		break;
 
-		case 'sip_language':
-			if ($key != '') {
+		case 'language':
+			if ($value != '') {
 				$sip_settings[] = array('language', $value);
 				$ext->addGlobal('SIPLANG',$value);
 			}
@@ -300,11 +300,6 @@ function sipsettings_edit($sip_settings) {
         $save_settings[] = array($key,$db->escapeSimple($vd->is_int($val,$key,$msg)),'10',SIP_NORMAL);
       break;
 
-
-      case 'sip_language':
-        $msg = ("Language must be alphanumeric and installed");
-        $save_settings[] = array($key,$db->escapeSimple($vd->is_alphanumeric($val,$key,$msg)),'0',SIP_NORMAL);
-      break;
 
       case 'context':
         $msg = sprintf(_("%s must be alphanumeric"),$key);

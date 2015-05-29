@@ -96,7 +96,6 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 	$sip_settings['jbresyncthreshold'] = isset($_POST['jbresyncthreshold']) ? htmlspecialchars($_POST['jbresyncthreshold']) : '1000';
 	$sip_settings['jblog']             = isset($_POST['jblog']) ? $_POST['jblog'] : 'no';
 
-	$sip_settings['sip_language']      = isset($_POST['sip_language']) ? htmlspecialchars($_POST['sip_language']) : '';
 	$sip_settings['context']           = isset($_POST['context']) ? htmlspecialchars($_POST['context']) : '';
 	$sip_settings['bindaddr']          = isset($_POST['bindaddr']) ? htmlspecialchars($_POST['bindaddr']) : '';
 	$sip_settings['bindport']          = isset($_POST['bindport']) ? htmlspecialchars($_POST['bindport']) : '';
@@ -965,30 +964,6 @@ $error_displays = array_merge($error_displays,sipsettings_check_custom_files());
 	<h3><i class="fa fa-minus"></i> <?php echo _("Advanced General Settings")?></h3>
 </div>
 <div class="section" data-id="sscsadv">
-	<!--Language-->
-	<div class="element-container">
-		<div class="row">
-			<div class="col-md-12">
-				<div class="row">
-					<div class="form-group">
-						<div class="col-md-3">
-							<label class="control-label" for="sip_language"><?php echo _("Language") ?></label>
-							<i class="fa fa-question-circle fpbx-help-icon" data-for="sip_language"></i>
-						</div>
-						<div class="col-md-9">
-							<input type="text" class="form-control validate-alphanumeric" id="sip_language" name="sip_language" value="<?php echo $sip_language ?>">
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-12">
-				<span id="sip_language-help" class="help-block fpbx-help-block"><?php echo _("Default Language for a channel, Asterisk: language")?></span>
-			</div>
-		</div>
-	</div>
-	<!--END Language-->
 	<!--Default Context-->
 	<div class="element-container">
 		<div class="row">
