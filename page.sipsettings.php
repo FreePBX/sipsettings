@@ -13,9 +13,7 @@ $ss = FreePBX::create()->Sipsettings;
 
 <div class="container-fluid">
 	<h1><?php echo _("SIP Settings")?></h1>
-	<div class="well well-info">
-		<?php echo $ss->getActiveModules(); ?>
-	</div>
+		<?php echo \show_help($ss->getActiveModules(),_("SIP driver information")); ?>
 	<div class = "display full-border">
 		<div class="row">
 			<div class="col-sm-9">
@@ -33,5 +31,3 @@ $ss = FreePBX::create()->Sipsettings;
 		</div>
 	</div>
 </div>
-
-

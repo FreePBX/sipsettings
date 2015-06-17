@@ -330,9 +330,9 @@ $submit_changes = _("Submit Changes");
 					<div class="form-group">
 						<div class="col-md-3">
 							<label class="control-label" for="codecw"><?php echo _("Codecs") ?></label>
-							<i class="fa fa-question-circle fpbx-help-icon" data-for="codecw"></i>
 						</div>
 						<div class="col-md-9">
+							<?php echo \show_help(_("This is the default Codec setting for new Trunks and Extensions."))?>
 							<?php
 							$seq = 1;
 							echo '<ul class="sortable">';
@@ -357,11 +357,6 @@ $submit_changes = _("Submit Changes");
 						</div>
 					</div>
 				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-12">
-				<span id="codecw-help" class="help-block fpbx-help-block"><?php echo _("This is the default Codec setting for new Trunks and Extensions.")?></span>
 			</div>
 		</div>
 	</div>
