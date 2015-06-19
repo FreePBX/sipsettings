@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-15 21:01-0400\n"
+"POT-Creation-Date: 2015-06-19 12:06-0400\n"
 "PO-Revision-Date: 2015-02-20 20:00-0500\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -639,6 +639,10 @@ msgstr ""
 msgid "SIP Settings"
 msgstr ""
 
+#: page.sipsettings.php:16
+msgid "SIP driver information"
+msgstr ""
+
 #: general.page.php:231
 msgid "STUN Server Address"
 msgstr ""
@@ -728,7 +732,7 @@ msgstr ""
 msgid "This address will be provided to clients if NAT is enabled and detecte"
 msgstr ""
 
-#: general.page.php:364
+#: general.page.php:335
 msgid "This is the default Codec setting for new Trunks and Extensions."
 msgstr ""
 
