@@ -18,7 +18,7 @@ $submit_changes = _("Submit Changes");
 <input type="hidden" name="category" value="general">
 <table width="80%" class="sipsettings-wrapper"> <!-- FIXME: Fixed Width -->
 	<tr>
-		<td colspan="2"><div class="alert alert-info" role="alert"><strong><?php echo _("Items may moved! Please use the navigation on the right")?> <i class="fa fa-arrow-right pull-right"></i></strong></div></td>
+		<td colspan="2"><div class="alert alert-info" role="alert"><strong><?php echo _("Items may have moved! Please use the navigation on the right")?> <i class="fa fa-arrow-right pull-right"></i></strong></div></td>
 	</tr>
   <tr>
 	<td colspan="2"><h5><?php echo _("Security Settings") ?><hr></h5></td>
