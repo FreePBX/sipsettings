@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-19 12:06-0400\n"
+"POT-Creation-Date: 2015-06-23 21:20-0400\n"
 "PO-Revision-Date: 2015-04-25 22:29+0200\n"
 "Last-Translator: Yuriy <alliancesko@gmail.com>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/"
@@ -223,10 +223,8 @@ msgid "Bind Port"
 msgstr "Порт"
 
 #: functions.inc.php:271
-msgid "Bind Port (bindport) must be between 1024..65535, default 5060"
+msgid "Bind Port (bindport) must be between 1024 and 65535"
 msgstr ""
-"Порт (bindport) должен быть иметь значение между 1024 и 65535, дефолтное "
-"значение - 5060"
 
 #: chansip.page.php:1104
 msgid "Call Events"
@@ -269,6 +267,11 @@ msgstr ""
 #: chansip.page.php:974
 msgid "Default Context"
 msgstr "Дефолтный контекст"
+
+#: install.php:55
+#, php-format
+msgid "Default bind port for CHAN_PJSIP is: %s, CHAN_SIP is: %s"
+msgstr ""
 
 #: chansip.page.php:986
 msgid ""
@@ -553,27 +556,27 @@ msgstr ""
 msgid "Maximum bitrate for video calls in kb/s"
 msgstr "Максимальная полоса пропускания для видео звонков в кбит/сек"
 
-#: install.php:97
+#: install.php:100
 msgid "Migrate rtp.conf values if needed and initialize"
 msgstr "Перенос и инициализация значений rtp.conf, если нужно"
 
-#: install.php:178
+#: install.php:181
 msgid "Migrating Audio Codecs"
 msgstr "Перемещение аудио кодеков"
 
-#: install.php:148
+#: install.php:151
 msgid "Migrating LocalNets and Netmasks"
 msgstr "Перемещение локальных сетей и масок подсети"
 
-#: install.php:198
+#: install.php:201
 msgid "Migrating Video Codecs"
 msgstr "Перемещение видео кодеков"
 
-#: install.php:123
+#: install.php:126
 msgid "Migrating rtpend Setting from Old Format to BMO Object"
 msgstr "Перемещение настроек rtpend из старого формата в объект BMO"
 
-#: install.php:109
+#: install.php:112
 msgid "Migrating rtpstart Setting from Old Format to BMO Object"
 msgstr "Перемещение настроек rtpstart из старого формата в объект BMO"
 
@@ -812,6 +815,14 @@ msgid ""
 "tripping over a cable."
 msgstr ""
 
+#: install.php:55
+#, php-format
+msgid ""
+"The default bind ports for %s have changed. Please keep this is mind while "
+"configuring your devices. You can change this in SIP Settings. CHAN_PJSIP "
+"is: %s, CHAN_SIP is: %s"
+msgstr ""
+
 #: general.page.php:165
 msgid "The starting and ending RTP port range"
 msgstr "Начало и окончание диапазона портов RTP"
@@ -921,7 +932,7 @@ msgstr ""
 "Вы можете использовать это, чтобы определить дополнительные локальные сети "
 "на интерфейсе."
 
-#: install.php:91
+#: install.php:94
 msgid "already exists"
 msgstr "уже существует"
 
@@ -937,7 +948,7 @@ msgstr "Поддержка chan_pjsip обнаружена. Включено."
 msgid "checking for sipsettings table.."
 msgstr "проверяем таблицу sipsettings.."
 
-#: install.php:76
+#: install.php:79
 msgid "fatal error occurred populating defaults, check module"
 msgstr ""
 "произошла неустранимая ошибка при указании дефолтных значений, проверьте "
@@ -959,7 +970,7 @@ msgstr "нет"
 msgid "none, creating table"
 msgstr "отсутствует, создание таблицы"
 
-#: install.php:54
+#: install.php:57
 msgid "populating default codecs.."
 msgstr "указание кодеков по умолчанию.."
 
@@ -971,18 +982,23 @@ msgstr ""
 msgid "rtpholdtimeout must be higher than rtptimeout"
 msgstr "rtpholdtimeout должен быть больше чем rtptimeout"
 
-#: install.php:105 install.php:119
+#: install.php:108 install.php:122
 #, php-format
 msgid "saving previous value of %s"
 msgstr "сохранение предыдущего значения из %s"
 
-#: install.php:78
+#: install.php:81
 msgid "ulaw, alaw, gsm, g726 added"
 msgstr "ulaw, alaw, gsm, g726 добавлены"
 
 #: chansip.page.php:184 chansip.page.php:500
 msgid "yes"
 msgstr "да"
+
+#~ msgid "Bind Port (bindport) must be between 1024..65535, default 5060"
+#~ msgstr ""
+#~ "Порт (bindport) должен быть иметь значение между 1024 и 65535, дефолтное "
+#~ "значение - 5060"
 
 #~ msgid "Default Language for a channel, Asterisk: language"
 #~ msgstr "Дефолтный язык в канале, параметр Asterisk: language"

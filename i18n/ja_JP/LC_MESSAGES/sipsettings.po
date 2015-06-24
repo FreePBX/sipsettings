@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-19 12:06-0400\n"
+"POT-Creation-Date: 2015-06-23 21:20-0400\n"
 "PO-Revision-Date: 2014-10-02 14:45+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
 "Language-Team: Japanese <http://git.freepbx.org/projects/freepbx/sipsettings/"
@@ -230,10 +230,8 @@ msgid "Bind Port"
 msgstr "バインドポート"
 
 #: functions.inc.php:271
-msgid "Bind Port (bindport) must be between 1024..65535, default 5060"
+msgid "Bind Port (bindport) must be between 1024 and 65535"
 msgstr ""
-"バインドポート (bindport)は、1024～65535 でなければなりません。デフォルト: "
-"5060。"
 
 #: chansip.page.php:1104
 msgid "Call Events"
@@ -275,6 +273,11 @@ msgstr ""
 #: chansip.page.php:974
 msgid "Default Context"
 msgstr "デフォルトコンテキスト"
+
+#: install.php:55
+#, php-format
+msgid "Default bind port for CHAN_PJSIP is: %s, CHAN_SIP is: %s"
+msgstr ""
 
 #: chansip.page.php:986
 msgid ""
@@ -546,27 +549,27 @@ msgstr ""
 msgid "Maximum bitrate for video calls in kb/s"
 msgstr "ビデオコールの最大ビットレート (kb/s)"
 
-#: install.php:97
+#: install.php:100
 msgid "Migrate rtp.conf values if needed and initialize"
 msgstr "必要に応じてrtf.confの値を移行して初期化する"
 
-#: install.php:178
+#: install.php:181
 msgid "Migrating Audio Codecs"
 msgstr ""
 
-#: install.php:148
+#: install.php:151
 msgid "Migrating LocalNets and Netmasks"
 msgstr ""
 
-#: install.php:198
+#: install.php:201
 msgid "Migrating Video Codecs"
 msgstr ""
 
-#: install.php:123
+#: install.php:126
 msgid "Migrating rtpend Setting from Old Format to BMO Object"
 msgstr ""
 
-#: install.php:109
+#: install.php:112
 msgid "Migrating rtpstart Setting from Old Format to BMO Object"
 msgstr ""
 
@@ -801,6 +804,14 @@ msgid ""
 "tripping over a cable."
 msgstr ""
 
+#: install.php:55
+#, php-format
+msgid ""
+"The default bind ports for %s have changed. Please keep this is mind while "
+"configuring your devices. You can change this in SIP Settings. CHAN_PJSIP "
+"is: %s, CHAN_SIP is: %s"
+msgstr ""
+
 #: general.page.php:165
 msgid "The starting and ending RTP port range"
 msgstr ""
@@ -896,7 +907,7 @@ msgid ""
 "You may use this to to define an additional local network per interface."
 msgstr ""
 
-#: install.php:91
+#: install.php:94
 msgid "already exists"
 msgstr "既に既存します。"
 
@@ -912,7 +923,7 @@ msgstr ""
 msgid "checking for sipsettings table.."
 msgstr "sipsettings が存在するかどうかをチェック中..."
 
-#: install.php:76
+#: install.php:79
 msgid "fatal error occurred populating defaults, check module"
 msgstr ""
 "コーデック追加中に致命的なエラーが発生しました。モジュールを確認してくださ"
@@ -934,7 +945,7 @@ msgstr "いいえ"
 msgid "none, creating table"
 msgstr "ありません、テーブルを作成しています。"
 
-#: install.php:54
+#: install.php:57
 msgid "populating default codecs.."
 msgstr "デフォールトコーデック追加中..."
 
@@ -946,18 +957,23 @@ msgstr ""
 msgid "rtpholdtimeout must be higher than rtptimeout"
 msgstr "rtpholdtimeoutは、rtptimeoutより大きい値に設定しなければなりません。"
 
-#: install.php:105 install.php:119
+#: install.php:108 install.php:122
 #, php-format
 msgid "saving previous value of %s"
 msgstr "%sの前の値を保存中…"
 
-#: install.php:78
+#: install.php:81
 msgid "ulaw, alaw, gsm, g726 added"
 msgstr ""
 
 #: chansip.page.php:184 chansip.page.php:500
 msgid "yes"
 msgstr "はい"
+
+#~ msgid "Bind Port (bindport) must be between 1024..65535, default 5060"
+#~ msgstr ""
+#~ "バインドポート (bindport)は、1024～65535 でなければなりません。デフォル"
+#~ "ト: 5060。"
 
 #~ msgid "Default Language for a channel, Asterisk: language"
 #~ msgstr "チャネルのデフォルト言語。対応するAsterisk設定：language。"
