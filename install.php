@@ -28,7 +28,7 @@ if(DB::IsError($check)) {
 
 	// Figure out if we're using asterisk 11 or 12.
 	$version = FreePBX::Config()->get('ASTVERSION');
-	if ($version) {
+	if (!empty($version)) {
 		// Woo, we have a version
 		if (version_compare($version, "12.2.0", ">=")) {
 			$haspjsip = true;
@@ -50,6 +50,9 @@ if(DB::IsError($check)) {
 		$pjsip_port = 5061;
 		$chansip_port = 5060;
 	}
+	$brand = FreePBX::Config()->get('DASHBOARD_FREEPBX_BRAND');
+	$nt = notifications::create();
+	$nt->add_notice('sipsettings', 'BINDPORT', sprintf(_("Default bind port for CHAN_PJSIP is: %s, CHAN_SIP is: %s"), $pjsip_port, $chansip_port), sprintf(_("The default bind ports for %s have changed. Please keep this is mind while configuring your devices. You can change this in SIP Settings. CHAN_PJSIP is: %s, CHAN_SIP is: %s"), $brand, $pjsip_port, $chansip_port), "http://wiki.freepbx.org/display/HTGS/CHAN_PJSIP+vs+CHAN_SIP", true, true);
 
 	outn(_("populating default codecs.."));
 	$sip_settings =  array(
