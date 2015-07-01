@@ -240,7 +240,7 @@ $submit_changes = _("Submit Changes");
 		</div>
 		<div class="row">
 			<div class="col-md-12">
-				<span id="stunaddr-help" class="help-block fpbx-help-block"><?php echo _("Hostname or address for the STUN server used when determining the external IP address and port an RTP session can be reached at. The port number is optional. If omitted the default value of 3478 will be used. This option is blank by default. (A list of STUN servers: https://gist.github.com/zziuni/3741933)")?></span>
+				<span id="stunaddr-help" class="help-block fpbx-help-block"><?php echo _("Hostname or address for the STUN server used when determining the external IP address and port an RTP session can be reached at. The port number is optional. If omitted the default value of 3478 will be used. This option is blank by default. (A list of STUN servers: http://wiki.freepbx.org/x/YQCUAg)")?></span>
 			</div>
 		</div>
 	</div>
