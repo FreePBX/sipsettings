@@ -23,8 +23,8 @@ $ss = FreePBX::create()->Sipsettings;
 					</div>
 				</div>
 			</div>
-			<div class="col-sm-3 hidden-xs bootnav">
-				<div class="list-group">
+			<div class="col-sm-3 bootnav">
+				<div class="list-group" id="ssmenu">
 					<?php echo $ss->getRnav(); ?>
 				</div>
 			</div>
