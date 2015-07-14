@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-01 15:28-0400\n"
+"POT-Creation-Date: 2015-07-13 21:29-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -388,8 +388,11 @@ msgstr ""
 
 #: chansip.page.php:227
 msgid ""
-"Indicate whether the box has a public IP or requires NAT settings. Automatic "
-"configuration of what is often put in sip_nat.conf"
+"Indicate whether the box has a public IP or requires NAT settings.<br/>If "
+"the public address is not correctly detected you can supply the external "
+"address manually.<br/>If your IP address is not static you can specify a "
+"dynamicDNS host name under Dynamic IP.<br/> Automatic configuration of what "
+"is often put in sip_nat.conf"
 msgstr ""
 
 #: general.page.php:20
