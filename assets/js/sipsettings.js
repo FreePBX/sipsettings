@@ -1,3 +1,5 @@
+var changed = false;
+
 $(document).ready(function() {
 	$('.sortable').sortable(	{
 	   update: function(event, ui) {
@@ -6,8 +8,21 @@ $(document).ready(function() {
 		}
 	});
 	$("form").submit(function() {
+		if(changed) {
+			alert(_("Port/Bind Address has changed. This requires an Asterisk restart after Apply Config"));
+		}
 		return checkBindConflicts();
 	});
+	$("#editSip #bindaddr").bind('input propertychange', function() {
+		changed = true;
+		console.log(changed);
+	});
+	$("#editSip #bindport").bind('input propertychange', function() {
+		changed = true;
+	})
+	$(".port").bind('input propertychange', function() {
+		changed = true;
+	})
 });
 
 /**
@@ -33,24 +48,4 @@ function checkBindConflicts() {
 		})
 	}
 	return submit;
-	/*
-	var port = field.val(),
-			ip = typeof ip !== "undefined" ? ip : field.data("ip"),
-			orig = field.data("orig"),
-			status = true;
-
-	$.each(binds, function(k, v) {
-		if(k == ip) {
-			$.each(v, function(x, z) {
-				if(z.port == port && port != orig) {
-					status = false;
-					warnInvalid(field, sprintf(_("Port Conflict with Chan %s"),z.type.toUpperCase()));
-					return false;
-				}
-			});
-		}
-	})
-
-	return status;
-	*/
 }
