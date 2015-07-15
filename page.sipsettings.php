@@ -16,16 +16,14 @@ $ss = FreePBX::create()->Sipsettings;
 		<?php echo \show_help($ss->getActiveModules(),_("SIP driver information")); ?>
 	<div class = "display full-border">
 		<div class="row">
-			<div class="col-sm-9">
+			<div class="col-sm-12">
 				<div class="fpbx-container">
 					<div class="display full-border">
+						<?php echo $ss->getRnav(); ?>
+						<br/>
+						<br/>
 						<?php echo $ss->myShowPage();  ?>
 					</div>
-				</div>
-			</div>
-			<div class="col-sm-3 bootnav">
-				<div class="list-group" id="ssmenu">
-					<?php echo $ss->getRnav(); ?>
 				</div>
 			</div>
 		</div>

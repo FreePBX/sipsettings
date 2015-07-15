@@ -17,7 +17,6 @@ $submit_changes = _("Submit Changes");
 <form autocomplete="off" action="" method="post" class="fpbx-submit" id="sipsettings" name="sipsettings">
 <input type="hidden" name="category" value="general">
 <input type="hidden" name="Submit" value="Submit">
-<div class="alert alert-info" role="alert"><strong><?php echo _("Items may moved! Please use the navigation on the right")?> <i class="fa fa-arrow-right pull-right"></i></strong></div>
 <div class="section-title" data-for="sssecurity">
 	<h3><i class="fa fa-minus"></i><?php echo _("Security Settings") ?></h3>
 </div>

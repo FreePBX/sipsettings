@@ -101,7 +101,7 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 		if ($driver == "chan_pjsip" || $driver == "both") {
 			$pages['pjsip'] = _("Chan PJSIP");
 		}
-		$str = '';
+		$str = '<ul class="nav nav-tabs list">';
 		foreach ($pages as $k => $v) {
 			if ($this->pagename == $k) {
 				$id = "id='active'";
@@ -110,8 +110,9 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 				$id = "";
 				$class="";
 			}
-			$str .= '<a href="config.php?display=sipsettings&category='.$k.'" class="list-group-item '.$class.'">'.$v.'</a>'."\n";
+			$str .= '<li><a href="config.php?display=sipsettings&category='.$k.'" class="list-group-item '.$class.'">'.$v.'</a>'."</li>\n";
 		}
+		$str .= '</ul>';
 		return $str;
 	}
 
