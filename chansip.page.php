@@ -46,18 +46,6 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 		}
 		$p_idx++;
 	}
-	function chansip_cmp($a, $b) {
-		if ($a == $b) {
-			return 0;
-		}
-		if ($a == '') {
-			return 1;
-		} elseif ($b == '') {
-			return -1;
-		} else {
-			return ($a > $b) ? 1 : -1;
-		}
-	}
 
 	$post_vcodec = isset($_POST['vcodec']) ? $_POST['vcodec'] : array();
 
@@ -139,7 +127,18 @@ $error_displays = array_merge($error_displays,sipsettings_check_custom_files());
 	 * from and edit. So extract them after sorting out the codec sub arrays.
 	 */
 	$video_codecs = FreePBX::Sipsettings()->getCodecs('video',true);
-	uasort($video_codecs, 'chansip_cmp');
+	uasort($video_codecs, function($a, $b) {
+		if ($a == $b) {
+			return 0;
+		}
+		if ($a == '') {
+			return 1;
+		} elseif ($b == '') {
+			return -1;
+		} else {
+			return ($a > $b) ? 1 : -1;
+		}
+	});
 
 	/* EXTRACT THE VARIABLE HERE - MAKE SURE THEY ARE ALL MASSAGED ABOVE */
 	//
@@ -1035,7 +1034,7 @@ $error_displays = array_merge($error_displays,sipsettings_check_custom_files());
 		</div>
 		<div class="row">
 			<div class="col-md-12">
-				<span id="bindport-help" class="help-block fpbx-help-block"><?php echo _("Local incoming UDP Port that Asterisk will bind to and listen for SIP messages. The SIP standard is 5060 and in most cases this is what you want. It is recommended to leave this blank.")?></span>
+				<span id="bindport-help" class="help-block fpbx-help-block"><?php echo _("Local incoming UDP Port that Asterisk will bind to and listen for SIP messages. In the past CHAN_SIP was defaulted to port 5060, in new installs this is defaulted to 5061")?></span>
 			</div>
 		</div>
 	</div>

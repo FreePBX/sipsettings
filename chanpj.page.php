@@ -105,14 +105,14 @@ foreach ($protocols as $p) {
 		if ($stat != "on")
 			continue;
 		$vars = array(
-			$p."port-$ip" => _("Port to Listen On"),
-			$p."domain-$ip" => _("Domain the transport comes from"),
-			$p."extip-$ip" => array(_("External IP Address"), _("If blank, will use the default settings")),
-			$p."localnet-$ip" => array(_("Local network"), _("You may use this to to define an additional local network per interface.")),
+			$p."port-$ip" => array(_("Port to Listen On"),"","port", $ip),
+			$p."domain-$ip" => array(_("Domain the transport comes from"),"","domain", $ip),
+			$p."extip-$ip" => array(_("External IP Address"), _("If blank, will use the default settings"), "extip", $ip),
+			$p."localnet-$ip" => array(_("Local network"), _("You may use this to to define an additional local network per interface."), "localnet", $ip),
 		);
 		foreach ($vars as $v => $t) {
 			$thisID = str_replace(array('.', '-'), '' , $v);
-			if (is_array($t)) {
+			if (!empty($t[1])) {
 				$udphtml  .= '
 				<!--'.$t[0].'-->
 				<div class="element-container">
@@ -122,10 +122,10 @@ foreach ($protocols as $p) {
 								<div class="form-group">
 									<div class="col-md-3">
 										<label class="control-label" for="'.$thisID.'">'. $t[0] .'</label>
-										<i class="fa fa-question-circle fpbx-help-icon '.(empty($t[1])?'hidden':'').'" data-for="'.$thisID.'"></i>
+										<i class="fa fa-question-circle fpbx-help-icon" data-for="'.$thisID.'"></i>
 									</div>
 									<div class="col-md-9">
-										<input type="text" class="form-control" id="'.$thisID.'" name="'.$v.'" value="'.$this->getConfig($v).'">
+										<input type="text" class="form-control '.$t[2].'" data-orig="'.$this->getConfig($v).'" data-ip="'.$t[3].'" id="'.$thisID.'" name="'.$v.'" value="'.$this->getConfig($v).'">
 									</div>
 								</div>
 							</div>
@@ -148,10 +148,10 @@ foreach ($protocols as $p) {
 							<div class="row">
 								<div class="form-group">
 									<div class="col-md-3">
-										<label class="control-label" for="'.$thisID.'">'. $t .'</label>
+										<label class="control-label" for="'.$thisID.'">'. $t[0] .'</label>
 									</div>
 									<div class="col-md-9">
-										<input type="text" class="form-control" id="'.$thisID.'" name="'.$v.'" value="'.$this->getConfig($v).'">
+										<input type="text" class="form-control '.$t[2].'" data-orig="'.$this->getConfig($v).'" data-ip="'.$t[3].'" id="'.$thisID.'" name="'.$v.'" value="'.$this->getConfig($v).'">
 									</div>
 								</div>
 							</div>

@@ -9,6 +9,7 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 	const SIP_CUSTOM = 9;
 
 	private $pagename = null;
+	private $pagedata = null;
 
 	public static $dbDefaults = array(
 		"rtpstart" => "10000", "rtpend" => "20000",
@@ -86,36 +87,6 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 		return $binds;
 	}
 
-	public function getRnav() {
-		if(empty($this->pagename)) {
-			$this->pagename = "general";
-		}
-
-		$driver = $this->FreePBX->Config->get_conf_setting('ASTSIPDRIVER');
-		$pages['general'] = _("General SIP Settings");
-
-		if ($driver == "chan_sip" || $driver == "both") {
-			$pages['chansip'] = _("Chan SIP");
-		}
-
-		if ($driver == "chan_pjsip" || $driver == "both") {
-			$pages['pjsip'] = _("Chan PJSIP");
-		}
-		$str = '<ul class="nav nav-tabs list">';
-		foreach ($pages as $k => $v) {
-			if ($this->pagename == $k) {
-				$id = "id='active'";
-				$class = "active";
-			} else {
-				$id = "";
-				$class="";
-			}
-			$str .= '<li><a href="config.php?display=sipsettings&category='.$k.'" class="list-group-item '.$class.'">'.$v.'</a>'."</li>\n";
-		}
-		$str .= '</ul>';
-		return $str;
-	}
-
 	public function getActiveModules() {
 
 		$driver = $this->FreePBX->Config->get_conf_setting('ASTSIPDRIVER');
@@ -132,15 +103,39 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 	}
 
 	public function myShowPage() {
-		if (!$this->pagename || $this->pagename == "general") {
-			include 'general.page.php';
-		} elseif ($this->pagename == "chansip") {
-			include 'chansip.page.php';
-		} elseif ($this->pagename == "pjsip") {
-			include 'chanpj.page.php';
-		} else {
-			return "I DON'T KNOW\n";
+		if(empty($this->pagedata)) {
+			$driver = $this->FreePBX->Config->get_conf_setting('ASTSIPDRIVER');
+
+			$this->pagedata = array(
+				"general" => array(
+					"name" => _("General SIP Settings"),
+					"page" => 'general.page.php'
+				)
+			);
+
+			if ($driver == "chan_sip" || $driver == "both") {
+				$this->pagedata['sip'] = array(
+					"name" => _("Chan SIP Settings"),
+					"page" => 'chansip.page.php'
+				);
+			}
+
+			if ($driver == "chan_pjsip" || $driver == "both") {
+				$this->pagedata['pjsip'] = array(
+					"name" => _("Chan PJSIP Settings"),
+					"page" => 'chanpj.page.php'
+				);
+			}
+
+			foreach($this->pagedata as &$page) {
+				ob_start();
+				include($page['page']);
+				$page['content'] = ob_get_contents();
+				ob_end_clean();
+			}
 		}
+
+		return $this->pagedata;
 	}
 
 	public function doGeneralPost() {
