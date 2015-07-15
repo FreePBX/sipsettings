@@ -10,14 +10,14 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-04-20 14:06-0400\n"
-"PO-Revision-Date: 2015-04-02 10:16+0200\n"
+"PO-Revision-Date: 2015-04-23 06:41+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
-"Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/"
-"sipsettings/es_ES/>\n"
+"Language-Team: Spanish "
+"<http://weblate.freepbx.org/projects/freepbx/sipsettings/es_ES/>\n"
+"Language: es_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: es_ES\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
@@ -94,6 +94,8 @@ msgid ""
 "Also be warned: After you enable/disable a transport, asterisk needs to be "
 "<strong>restarted</strong>, not just reloaded."
 msgstr ""
+"También tenga cuidado: Después de habilitar/deshabilitar un transporte, "
+"asterisk tiene que ser <strong>reiniciado </strong>, no sólo vuelto a cargar."
 
 #: chansip.page.php:753
 msgid ""
@@ -127,7 +129,7 @@ msgstr "Configuraciones Asterisk SIP"
 #: Sipsettings.class.php:120
 #, php-format
 msgid "Asterisk is currently using %s for SIP Traffic."
-msgstr ""
+msgstr "Asterisk esta actualmente usando %s para tráfico SIP."
 
 #: chansip.page.php:610
 msgid ""
@@ -405,7 +407,7 @@ msgstr "Lenguaje por defecto para un Canal, Asterisk: language"
 
 #: general.page.php:46
 msgid "Detect External IP"
-msgstr ""
+msgstr "Borrar IP Externa"
 
 #: chansip.page.php:543
 msgid "Disable"
@@ -688,6 +690,8 @@ msgid ""
 "Note that the interface is only displayed for your information, and is not "
 "referenced by asterisk."
 msgstr ""
+"Tenga en cuenta que la interfaz sólo se muestra para su información, y no se "
+"hace referencia desde asterisk."
 
 #: chansip.page.php:227
 msgid ""
@@ -811,7 +815,7 @@ msgstr "Estricto RTP"
 
 #: general.page.php:156
 msgid "Submit"
-msgstr ""
+msgstr "Enviar"
 
 #: chansip.page.php:38 general.page.php:14
 msgid "Submit Changes"
@@ -930,7 +934,7 @@ msgstr "Si"
 
 #: Sipsettings.class.php:126
 msgid "You can change this on the Advanced Settings Page"
-msgstr ""
+msgstr "Usted puede cambiar esto en la pagina Configuración Avanzada"
 
 #: chansip.page.php:670
 msgid ""
