@@ -9,15 +9,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-20 14:06-0400\n"
+"POT-Creation-Date: 2015-07-15 16:04-0400\n"
 "PO-Revision-Date: 2015-04-23 06:41+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
-"Language-Team: Spanish "
-"<http://weblate.freepbx.org/projects/freepbx/sipsettings/es_ES/>\n"
-"Language: es_ES\n"
+"Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/"
+"sipsettings/es_ES/>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: es_ES\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
@@ -97,7 +97,7 @@ msgstr ""
 "También tenga cuidado: Después de habilitar/deshabilitar un transporte, "
 "asterisk tiene que ser <strong>reiniciado </strong>, no sólo vuelto a cargar."
 
-#: chansip.page.php:753
+#: chansip.page.php:750
 msgid ""
 "An Error occurred trying fetch network configuration and external IP address"
 msgstr ""
@@ -121,10 +121,6 @@ msgstr ""
 "NAT<br /> no = Utilizar el modo NAT sólo de acuerdo a RFC3581 <br />Never = "
 "Nunca intentar el modo NAT o RFC3581 <br /> route = Asume NAT , no envía "
 "rport"
-
-#: sipsettings.i18n.php:4 sipsettings.i18n.php:10
-msgid "Asterisk SIP Settings"
-msgstr "Configuraciones Asterisk SIP"
 
 #: Sipsettings.class.php:120
 #, php-format
@@ -493,7 +489,7 @@ msgstr ""
 "IP Estática Externa o el nombre completo como se ve en el lado WAN del "
 "router. (asterisk: externip)"
 
-#: chansip.page.php:897
+#: chansip.page.php:894
 #, php-format
 msgid ""
 "File %s should not have any settings in it. Those settings should be removed."
@@ -570,9 +566,8 @@ msgstr ""
 "Configuración automática de lo que se suele poner en sip_nat.conf"
 
 #: general.page.php:21
-msgid "Items may moved! Please use the navigation on the right"
+msgid "Items may have moved! Please use the navigation on the right"
 msgstr ""
-"Los artículos pueden ser movidos! Por favor, use la navegación a la derecha"
 
 #: chansip.page.php:474
 msgid "Jitter Buffer"
@@ -788,11 +783,7 @@ msgstr "Dirección del servidor STUN"
 msgid "Security Settings"
 msgstr "Configuraciones de seguridad"
 
-#: sipsettings.i18n.php:6 sipsettings.i18n.php:12
-msgid "Settings"
-msgstr "Configuraciones"
-
-#: chansip.page.php:893
+#: chansip.page.php:890
 #, php-format
 msgid "Settings in %s may override these. Those settings should be removed."
 msgstr "Ajustes en %s pueden anular estos. Estos valores deben ser eliminados."
@@ -872,19 +863,6 @@ msgstr "Transportes"
 #: Sipsettings.class.php:270 Sipsettings.class.php:352
 msgid "Unknown Type"
 msgstr "Tipo Desconocido"
-
-#: sipsettings.i18n.php:8
-msgid ""
-"Use to configure Various Asterisk SIP Settings in the General section of sip."
-"conf. Also includes an auto-configuration tool to determine NAT settings. "
-"The module assumes Asterisk version 1.4 or higher. Some settings may not "
-"exist in Asterisk 1.2 and will be ignored by Asterisk."
-msgstr ""
-"Se utiliza para configurar diversas configuraciones de SIP Asterisk en la "
-"sección general de sip.conf. También incluye una herramienta de auto-"
-"configuración para determinar la configuración NAT. El módulo supone la "
-"versión Asterisk 1.4 o superior. Algunos valores no pueden existir en "
-"Asterisk 1.2 y no se interpretarán por Asterisk."
 
 #: general.page.php:113
 msgid ""
@@ -1010,3 +988,26 @@ msgstr "añadido ulaw, alaw, gsm, g726"
 #: chansip.page.php:368
 msgid "yes"
 msgstr "yes"
+
+#~ msgid "Asterisk SIP Settings"
+#~ msgstr "Configuraciones Asterisk SIP"
+
+#~ msgid "Items may moved! Please use the navigation on the right"
+#~ msgstr ""
+#~ "Los artículos pueden ser movidos! Por favor, use la navegación a la "
+#~ "derecha"
+
+#~ msgid "Settings"
+#~ msgstr "Configuraciones"
+
+#~ msgid ""
+#~ "Use to configure Various Asterisk SIP Settings in the General section of "
+#~ "sip.conf. Also includes an auto-configuration tool to determine NAT "
+#~ "settings. The module assumes Asterisk version 1.4 or higher. Some "
+#~ "settings may not exist in Asterisk 1.2 and will be ignored by Asterisk."
+#~ msgstr ""
+#~ "Se utiliza para configurar diversas configuraciones de SIP Asterisk en la "
+#~ "sección general de sip.conf. También incluye una herramienta de auto-"
+#~ "configuración para determinar la configuración NAT. El módulo supone la "
+#~ "versión Asterisk 1.4 o superior. Algunos valores no pueden existir en "
+#~ "Asterisk 1.2 y no se interpretarán por Asterisk."

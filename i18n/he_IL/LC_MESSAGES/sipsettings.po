@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-20 14:06-0400\n"
+"POT-Creation-Date: 2015-07-15 16:04-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -89,7 +89,7 @@ msgid ""
 "<strong>restarted</strong>, not just reloaded."
 msgstr ""
 
-#: chansip.page.php:753
+#: chansip.page.php:750
 msgid ""
 "An Error occurred trying fetch network configuration and external IP address"
 msgstr ""
@@ -105,10 +105,6 @@ msgid ""
 "Asterisk NAT setting:<br /> yes = Always ignore info and assume NAT<br /> no "
 "= Use NAT mode only according to RFC3581 <br /> never = Never attempt NAT "
 "mode or RFC3581 <br /> route = Assume NAT, don't send rport"
-msgstr ""
-
-#: sipsettings.i18n.php:4 sipsettings.i18n.php:10
-msgid "Asterisk SIP Settings"
 msgstr ""
 
 #: Sipsettings.class.php:120
@@ -389,7 +385,7 @@ msgid ""
 "externip)"
 msgstr ""
 
-#: chansip.page.php:897
+#: chansip.page.php:894
 #, php-format
 msgid ""
 "File %s should not have any settings in it. Those settings should be removed."
@@ -451,7 +447,7 @@ msgid ""
 msgstr ""
 
 #: general.page.php:21
-msgid "Items may moved! Please use the navigation on the right"
+msgid "Items may have moved! Please use the navigation on the right"
 msgstr ""
 
 #: chansip.page.php:474
@@ -657,11 +653,7 @@ msgstr ""
 msgid "Security Settings"
 msgstr ""
 
-#: sipsettings.i18n.php:6 sipsettings.i18n.php:12
-msgid "Settings"
-msgstr ""
-
-#: chansip.page.php:893
+#: chansip.page.php:890
 #, php-format
 msgid "Settings in %s may override these. Those settings should be removed."
 msgstr ""
@@ -734,14 +726,6 @@ msgstr ""
 
 #: Sipsettings.class.php:270 Sipsettings.class.php:352
 msgid "Unknown Type"
-msgstr ""
-
-#: sipsettings.i18n.php:8
-msgid ""
-"Use to configure Various Asterisk SIP Settings in the General section of sip."
-"conf. Also includes an auto-configuration tool to determine NAT settings. "
-"The module assumes Asterisk version 1.4 or higher. Some settings may not "
-"exist in Asterisk 1.2 and will be ignored by Asterisk."
 msgstr ""
 
 #: general.page.php:113

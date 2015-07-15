@@ -23,17 +23,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-20 14:06-0400\n"
+"POT-Creation-Date: 2015-07-15 16:04-0400\n"
 "PO-Revision-Date: 2015-04-25 22:29+0200\n"
 "Last-Translator: Yuriy <alliancesko@gmail.com>\n"
-"Language-Team: Russian "
-"<http://weblate.freepbx.org/projects/freepbx/sipsettings/ru_RU/>\n"
-"Language: ru_RU\n"
+"Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/"
+"sipsettings/ru_RU/>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
-"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Language: ru_RU\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
 #: chansip.page.php:298
@@ -111,7 +111,7 @@ msgstr ""
 "Имейте ввиду: После включения / отключения транспорта, Астериск необходимо "
 "<strong>перезапустить</strong>, а не просто перезагрузить."
 
-#: chansip.page.php:753
+#: chansip.page.php:750
 msgid ""
 "An Error occurred trying fetch network configuration and external IP address"
 msgstr "Ошибка получения сетевой конфигурации и внешний IP-адреса"
@@ -134,10 +134,6 @@ msgstr ""
 "предполагать NAT<br /> no = Использовать режим NAT в соостветствии с RFC3581 "
 "<br /> never = Никогда не пытаться использовать NAT или RFC3581 <br /> route "
 "= предполагая NAT не указывать rport"
-
-#: sipsettings.i18n.php:4 sipsettings.i18n.php:10
-msgid "Asterisk SIP Settings"
-msgstr "Установки Asterisk для SIP"
 
 #: Sipsettings.class.php:120
 #, php-format
@@ -519,7 +515,7 @@ msgstr ""
 "Внешний статический ИП или полное доменное имя FQDN в качестве WAN "
 "интерфейса маршрутизатора. (Параметр asterisk: externip)"
 
-#: chansip.page.php:897
+#: chansip.page.php:894
 #, php-format
 msgid ""
 "File %s should not have any settings in it. Those settings should be removed."
@@ -561,8 +557,8 @@ msgstr ""
 "Имя хоста или адрес для STUN сервера, используемого для определения внешнего "
 "IP адреса и порта для сеанса RTP. Номер порта указывать необязательно. Если "
 "опустить, будет использоваться значение по умолчанию - 3478. Этот параметр "
-"пустой по умолчанию. (Список STUN серверов: "
-"https://gist.github.com/zziuni/3741933)"
+"пустой по умолчанию. (Список STUN серверов: https://gist.github.com/"
+"zziuni/3741933)"
 
 #: general.page.php:107
 msgid ""
@@ -595,9 +591,8 @@ msgstr ""
 "NAT. Автоматическая настройка сохраняется как правило в sip_nat.conf"
 
 #: general.page.php:21
-msgid "Items may moved! Please use the navigation on the right"
+msgid "Items may have moved! Please use the navigation on the right"
 msgstr ""
-"Детальные настройки перемещены! Пожалуйста, используйте навигацию справа"
 
 #: chansip.page.php:474
 msgid "Jitter Buffer"
@@ -811,11 +806,7 @@ msgstr "Адрес сервера STUN"
 msgid "Security Settings"
 msgstr "Настройки безопасности"
 
-#: sipsettings.i18n.php:6 sipsettings.i18n.php:12
-msgid "Settings"
-msgstr "Настройки"
-
-#: chansip.page.php:893
+#: chansip.page.php:890
 #, php-format
 msgid "Settings in %s may override these. Those settings should be removed."
 msgstr ""
@@ -872,7 +863,8 @@ msgstr "Эти настройки применяются как для chan_sip,
 
 #: general.page.php:42
 msgid "This address will be provided to clients if NAT is enabled and detected"
-msgstr "Этот адрес будет предоставляться клиентам, если NAT включен и обнаружен"
+msgstr ""
+"Этот адрес будет предоставляться клиентам, если NAT включен и обнаружен"
 
 #: general.page.php:129
 msgid "This is the default Codec setting for new Trunks and Extensions."
@@ -893,19 +885,6 @@ msgstr "Транспорты"
 #: Sipsettings.class.php:270 Sipsettings.class.php:352
 msgid "Unknown Type"
 msgstr "Неизвестный тип"
-
-#: sipsettings.i18n.php:8
-msgid ""
-"Use to configure Various Asterisk SIP Settings in the General section of sip."
-"conf. Also includes an auto-configuration tool to determine NAT settings. "
-"The module assumes Asterisk version 1.4 or higher. Some settings may not "
-"exist in Asterisk 1.2 and will be ignored by Asterisk."
-msgstr ""
-"Используется для конфигурации различных параметров SIP в Астериск в секции "
-"[general] файла sip.conf. Также содержит параметры автоконфигурации для "
-"распознавания настроек NAT. Модуль предполагает наличие Asterisk версий 1.4 "
-"и выше. Некоторые параметры просто не существуют в версии 1.2 и будут "
-"игнорироваться Asterisk."
 
 #: general.page.php:113
 msgid ""
@@ -1032,6 +1011,28 @@ msgstr "ulaw, alaw, gsm, g726 добавлены"
 #: chansip.page.php:368
 msgid "yes"
 msgstr "да"
+
+#~ msgid "Asterisk SIP Settings"
+#~ msgstr "Установки Asterisk для SIP"
+
+#~ msgid "Items may moved! Please use the navigation on the right"
+#~ msgstr ""
+#~ "Детальные настройки перемещены! Пожалуйста, используйте навигацию справа"
+
+#~ msgid "Settings"
+#~ msgstr "Настройки"
+
+#~ msgid ""
+#~ "Use to configure Various Asterisk SIP Settings in the General section of "
+#~ "sip.conf. Also includes an auto-configuration tool to determine NAT "
+#~ "settings. The module assumes Asterisk version 1.4 or higher. Some "
+#~ "settings may not exist in Asterisk 1.2 and will be ignored by Asterisk."
+#~ msgstr ""
+#~ "Используется для конфигурации различных параметров SIP в Астериск в "
+#~ "секции [general] файла sip.conf. Также содержит параметры "
+#~ "автоконфигурации для распознавания настроек NAT. Модуль предполагает "
+#~ "наличие Asterisk версий 1.4 и выше. Некоторые параметры просто не "
+#~ "существуют в версии 1.2 и будут игнорироваться Asterisk."
 
 #~ msgid ""
 #~ "Check the desired codecs, all others will be disabled unless explicitly "

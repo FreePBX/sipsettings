@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX sipsettings\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-20 14:06-0400\n"
+"POT-Creation-Date: 2015-07-15 16:04-0400\n"
 "PO-Revision-Date: 2011-03-20 00:00+0100\n"
 "Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
 "Language-Team: Swedish\n"
@@ -93,7 +93,7 @@ msgid ""
 "<strong>restarted</strong>, not just reloaded."
 msgstr ""
 
-#: chansip.page.php:753
+#: chansip.page.php:750
 msgid ""
 "An Error occurred trying fetch network configuration and external IP address"
 msgstr ""
@@ -115,10 +115,6 @@ msgstr ""
 "Asterisk NAT-inställningar:<br /> yes = Ignorera alltid info och förutsätt "
 "NAT<br /> no = Använd NAT-läge enligt RFC3581 <br /> never = Använd aldrig "
 "NAT-läge eller RFC3581 <br /> route = Förutsätt NAT, sänd inte rport "
-
-#: sipsettings.i18n.php:4 sipsettings.i18n.php:10
-msgid "Asterisk SIP Settings"
-msgstr "Asterisk SIP-inställningar"
 
 #: Sipsettings.class.php:120
 #, php-format
@@ -478,7 +474,7 @@ msgstr ""
 "Extern statisk IP-adress eller FQDN som är på WAN-sidan av routern. "
 "(asterisk: externip)"
 
-#: chansip.page.php:897
+#: chansip.page.php:894
 #, php-format
 msgid ""
 "File %s should not have any settings in it. Those settings should be removed."
@@ -546,7 +542,7 @@ msgstr ""
 "Automatisk konfiguration av vad som oftast skrivs in i sip_nat.conf"
 
 #: general.page.php:21
-msgid "Items may moved! Please use the navigation on the right"
+msgid "Items may have moved! Please use the navigation on the right"
 msgstr ""
 
 #: chansip.page.php:474
@@ -754,11 +750,7 @@ msgstr ""
 msgid "Security Settings"
 msgstr ""
 
-#: sipsettings.i18n.php:6 sipsettings.i18n.php:12
-msgid "Settings"
-msgstr ""
-
-#: chansip.page.php:893
+#: chansip.page.php:890
 #, php-format
 msgid "Settings in %s may override these. Those settings should be removed."
 msgstr ""
@@ -834,19 +826,6 @@ msgstr ""
 #: Sipsettings.class.php:270 Sipsettings.class.php:352
 msgid "Unknown Type"
 msgstr ""
-
-#: sipsettings.i18n.php:8
-msgid ""
-"Use to configure Various Asterisk SIP Settings in the General section of sip."
-"conf. Also includes an auto-configuration tool to determine NAT settings. "
-"The module assumes Asterisk version 1.4 or higher. Some settings may not "
-"exist in Asterisk 1.2 and will be ignored by Asterisk."
-msgstr ""
-"Anänds för att konfigurera inställningar för Asterisk SIP som placeras i "
-"filen sip.conf under sektionen General. Det ingår även en automatisk "
-"konfigurerare som kan detektera NAT-inställningar. Modulen förutsätter att "
-"du använder Asterisk 1.4 eller senare version. Vissa inställningar finns "
-"inte i Asterisk 1.2 och kommer att ignoreras av Asterisk"
 
 #: general.page.php:113
 msgid ""
@@ -961,6 +940,21 @@ msgstr ""
 #: chansip.page.php:368
 msgid "yes"
 msgstr "ja"
+
+#~ msgid "Asterisk SIP Settings"
+#~ msgstr "Asterisk SIP-inställningar"
+
+#~ msgid ""
+#~ "Use to configure Various Asterisk SIP Settings in the General section of "
+#~ "sip.conf. Also includes an auto-configuration tool to determine NAT "
+#~ "settings. The module assumes Asterisk version 1.4 or higher. Some "
+#~ "settings may not exist in Asterisk 1.2 and will be ignored by Asterisk."
+#~ msgstr ""
+#~ "Anänds för att konfigurera inställningar för Asterisk SIP som placeras i "
+#~ "filen sip.conf under sektionen General. Det ingår även en automatisk "
+#~ "konfigurerare som kan detektera NAT-inställningar. Modulen förutsätter "
+#~ "att du använder Asterisk 1.4 eller senare version. Vissa inställningar "
+#~ "finns inte i Asterisk 1.2 och kommer att ignoreras av Asterisk"
 
 #~ msgid ""
 #~ "Check the desired codecs, all others will be disabled unless explicitly "
