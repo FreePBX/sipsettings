@@ -1175,16 +1175,13 @@ END;
 <script language="javascript">
 <!--
 $(document).ready(function(){
-	/* On click ajax to pbx and determine external network and localnet settings */
-	$.ajaxSetup({
-		timeout:10000
-	});
 	$("#nat-auto-configure").click(function(){
 		$.ajax({
 			type: 'POST',
 			url: "<?php echo $_SERVER["PHP_SELF"]; ?>",
 			data: "quietmode=1&skip_astman=1&handler=file&module=sipsettings&file=natget.html.php",
 			dataType: 'json',
+			timeout: 10000,
 			success: function(data) {
 				if (data.status == 'success') {
 					$('.netmask').attr("value","");
