@@ -196,6 +196,15 @@ function sipsettings_hookGet_config($engine) {
 				$ext->addGlobal('SIPLANG',$value);
 			}
 		break;
+    //FREEPBX-9737 AND FREEPBX-6518 In Asterisk 11+ nat=yes is deprecated.
+    case 'nat':
+      global $amp_conf;
+      $astge11 = version_compare($amp_conf['ASTVERSION'],'11.0','ge');
+      if($astge11 && $value == "yes"){
+        $value = "force_rport,comedia";
+      }
+      $sip_settings[] = array($key, $value);
+    break;
 
 		case 't38pt_udptl':
 			if ($value != 'no') {
@@ -393,7 +402,7 @@ function sipsettings_edit($sip_settings) {
   } else {
      $fvcodecs = array();
      $seq = 1;
-		if(!empty($_REQUEST['vcodec'])) { 
+		if(!empty($_REQUEST['vcodec'])) {
 			foreach($_REQUEST['vcodec'] as $codec => $v) {
       	  $fvcodecs[$codec] = $seq++;
 			}
