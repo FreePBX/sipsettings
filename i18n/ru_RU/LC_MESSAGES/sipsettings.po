@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-15 16:05-0400\n"
+"POT-Creation-Date: 2015-07-20 21:45-0400\n"
 "PO-Revision-Date: 2015-04-25 22:29+0200\n"
 "Last-Translator: Yuriy <alliancesko@gmail.com>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/"
@@ -49,12 +49,12 @@ msgstr ""
 msgid " See current version of Asterisk for limitations on SRV functionality."
 msgstr ""
 
-#: functions.inc.php:261
+#: functions.inc.php:280
 #, php-format
 msgid "%s must be a non-negative integer"
 msgstr "%s должен быть неотрицательным целым числом"
 
-#: functions.inc.php:305
+#: functions.inc.php:324
 #, php-format
 msgid "%s must be alphanumeric"
 msgstr "%s должен быть буквенным"
@@ -214,7 +214,7 @@ msgstr "Автоматическая конфигурация"
 msgid "Bind Address"
 msgstr "Связывание с адресом"
 
-#: functions.inc.php:265
+#: functions.inc.php:284
 msgid "Bind Address (bindaddr) must be an IP address."
 msgstr "Адрес (bindaddr) должен быть в виде четырёх октетов ИП адреса."
 
@@ -222,7 +222,7 @@ msgstr "Адрес (bindaddr) должен быть в виде четырёх �
 msgid "Bind Port"
 msgstr "Порт"
 
-#: functions.inc.php:271
+#: functions.inc.php:290
 msgid "Bind Port (bindport) must be between 1024 and 65535"
 msgstr ""
 
@@ -305,7 +305,7 @@ msgstr "Динамический хост"
 msgid "Dynamic Host Refresh"
 msgstr ""
 
-#: functions.inc.php:331
+#: functions.inc.php:350
 msgid "Dynamic Host can not be blank"
 msgstr "Динамическое значение имени хоста не может быть пустым"
 
@@ -367,7 +367,7 @@ msgstr ""
 msgid "External IP Address"
 msgstr "Внешний IP адрес"
 
-#: functions.inc.php:321
+#: functions.inc.php:340
 msgid ""
 "External IP can not be blank when NAT Mode is set to Static and no default "
 "IP address provided on the main page"
@@ -512,13 +512,13 @@ msgstr ""
 "более, чем одной подсетью используйте кнопку 'Добавить локальную сеть', "
 "чтобы добавить полей. Пустые поля будут игнорированы."
 
-#: functions.inc.php:377
+#: functions.inc.php:396
 msgid "Localnet netmask must be formatted properly (e.g. 255.255.255.0 or 24)"
 msgstr ""
 "Маска локальной сети должна быть указана в правильном формате (например "
 "255.255.255.0 или 24)"
 
-#: functions.inc.php:372
+#: functions.inc.php:391
 msgid "Localnet setting must be an IP address"
 msgstr "Параметр Localnet должен быть в виде ИП адреса сети"
 
@@ -988,7 +988,7 @@ msgstr "указание кодеков по умолчанию.."
 msgid "route"
 msgstr ""
 
-#: functions.inc.php:279
+#: functions.inc.php:298
 msgid "rtpholdtimeout must be higher than rtptimeout"
 msgstr "rtpholdtimeout должен быть больше чем rtptimeout"
 
