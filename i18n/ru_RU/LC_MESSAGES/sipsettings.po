@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-24 16:52-0400\n"
+"POT-Creation-Date: 2015-07-28 16:16-0700\n"
 "PO-Revision-Date: 2015-04-25 22:29+0200\n"
 "Last-Translator: Yuriy <alliancesko@gmail.com>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/"
@@ -119,7 +119,7 @@ msgstr ""
 "Имейте ввиду: После включения / отключения транспорта, Астериск необходимо "
 "<strong>перезапустить</strong>, а не просто перезагрузить."
 
-#: chansip.page.php:1209
+#: assets/js/sipsettings.js:122
 msgid ""
 "An Error occurred trying fetch network configuration and external IP address"
 msgstr "Ошибка получения сетевой конфигурации и внешний IP-адреса"
@@ -286,8 +286,8 @@ msgid "Default length of incoming and outgoing registrations."
 msgstr ""
 
 #: general.page.php:69
-msgid "Detect External IP"
-msgstr "Определить внешний IP"
+msgid "Detect Network Settings"
+msgstr ""
 
 #: chansip.page.php:394
 msgid "Disabled"
@@ -352,6 +352,10 @@ msgstr ""
 #: general.page.php:151
 msgid "End"
 msgstr "Конец"
+
+#: assets/js/sipsettings.js:191
+msgid "Enter IP Address"
+msgstr ""
 
 #: general.page.php:64
 msgid "External Address"
@@ -485,6 +489,10 @@ msgid ""
 "Useful to improve the quality of the voice, with big jumps in/broken "
 "timestamps, usually sent from exotic devices and programs. Can be set to -1 "
 "to disable."
+msgstr ""
+
+#: assets/js/sipsettings.js:175
+msgid "Loading"
 msgstr ""
 
 #: general.page.php:103
@@ -640,7 +648,7 @@ msgstr "Другие настройки SIP"
 msgid "Override External IP"
 msgstr "Переопределить внешний IP"
 
-#: assets/js/sipsettings.js:45
+#: assets/js/sipsettings.js:163
 msgid "PJSIP transport port conflicts with SIP port"
 msgstr ""
 
@@ -656,7 +664,7 @@ msgstr ""
 msgid "Port to Listen On"
 msgstr "Порт для прослушивания"
 
-#: assets/js/sipsettings.js:12
+#: assets/js/sipsettings.js:13
 msgid ""
 "Port/Bind Address has changed. This requires an Asterisk restart after Apply "
 "Config"
@@ -754,7 +762,7 @@ msgid ""
 "RTP stream may be flowing (like on hold)."
 msgstr ""
 
-#: chansip.page.php:1343
+#: chansip.page.php:1217
 #, php-format
 msgid "Settings in %s may override these. Those settings should be removed."
 msgstr ""
@@ -1004,6 +1012,9 @@ msgstr "ulaw, alaw, gsm, g726 добавлены"
 #: chansip.page.php:183 chansip.page.php:499
 msgid "yes"
 msgstr "да"
+
+#~ msgid "Detect External IP"
+#~ msgstr "Определить внешний IP"
 
 #~ msgid ""
 #~ "Asterisk 1.8 all supports IPv6. An address of '::' will listen on both "

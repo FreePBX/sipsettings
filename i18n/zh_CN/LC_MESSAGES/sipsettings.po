@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-24 16:52-0400\n"
+"POT-Creation-Date: 2015-07-28 16:16-0700\n"
 "PO-Revision-Date: 2015-02-20 20:00-0500\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -87,7 +87,7 @@ msgid ""
 "<strong>restarted</strong>, not just reloaded."
 msgstr ""
 
-#: chansip.page.php:1209
+#: assets/js/sipsettings.js:122
 msgid ""
 "An Error occurred trying fetch network configuration and external IP address"
 msgstr ""
@@ -225,7 +225,7 @@ msgid "Default length of incoming and outgoing registrations."
 msgstr ""
 
 #: general.page.php:69
-msgid "Detect External IP"
+msgid "Detect Network Settings"
 msgstr ""
 
 #: chansip.page.php:394
@@ -290,6 +290,10 @@ msgstr ""
 
 #: general.page.php:151
 msgid "End"
+msgstr ""
+
+#: assets/js/sipsettings.js:191
+msgid "Enter IP Address"
 msgstr ""
 
 #: general.page.php:64
@@ -414,6 +418,10 @@ msgid ""
 "Useful to improve the quality of the voice, with big jumps in/broken "
 "timestamps, usually sent from exotic devices and programs. Can be set to -1 "
 "to disable."
+msgstr ""
+
+#: assets/js/sipsettings.js:175
+msgid "Loading"
 msgstr ""
 
 #: general.page.php:103
@@ -562,7 +570,7 @@ msgstr "其他SIP设置"
 msgid "Override External IP"
 msgstr ""
 
-#: assets/js/sipsettings.js:45
+#: assets/js/sipsettings.js:163
 msgid "PJSIP transport port conflicts with SIP port"
 msgstr ""
 
@@ -576,7 +584,7 @@ msgstr ""
 msgid "Port to Listen On"
 msgstr ""
 
-#: assets/js/sipsettings.js:12
+#: assets/js/sipsettings.js:13
 msgid ""
 "Port/Bind Address has changed. This requires an Asterisk restart after Apply "
 "Config"
@@ -674,7 +682,7 @@ msgid ""
 "RTP stream may be flowing (like on hold)."
 msgstr ""
 
-#: chansip.page.php:1343
+#: chansip.page.php:1217
 #, php-format
 msgid "Settings in %s may override these. Those settings should be removed."
 msgstr ""
