@@ -66,7 +66,7 @@ $submit_changes = _("Submit Changes");
 						</div>
 						<div class="col-md-9">
 							<input type="text" class="form-control localnet validate=ip" id="externip" name="externip" value="<?php echo $externip ?>">
-							<button id='autodetect'><?php echo _("Detect External IP")?></button>
+							<button id='autodetect'><?php echo _("Detect Network Settings")?></button>
 						</div>
 					</div>
 				</div>
@@ -362,62 +362,3 @@ $submit_changes = _("Submit Changes");
 	<!--END Codecs-->
 </div>
 </form>
-
-<script type="text/javascript">
-$(document).ready(function(){
-	$("#localnet-add").click(function() { addLocalnet("", "") });
-	$("#autodetect").click(function(e) { e.preventDefault(); detectExtern() });
-	var path = window.location.pathname.toString().split('/');
-	path[path.length - 1] = 'ajax.php';
-	// Oh look, IE. Hur Dur, I'm a bwowsah.
-	if (typeof(window.location.origin) == 'undefined') {
-		window.location.origin = window.location.protocol+'//'+window.location.host;
-	}
-	window.ajaxurl = window.location.origin + path.join('/');
-	// This assumes the module name is the first param.
-	window.modulename = window.location.search.split(/\?|&/)[1].split('=')[1];
-});
-
-function detectExtern() {
-	$("#externip").val("").attr("placeholder", "Loading...").attr("disabled", true);
-	$.ajax({
-		url: window.ajaxurl,
-		data: { command: 'getnetworking', module: window.modulename },
-		success: function(data) { updateAddrAndRoutes(data); },
-	});
-}
-
-function updateAddrAndRoutes(data) {
-	console.log(data);
-	window.d = data;
-	$("#externip").val("").attr("placeholder", "Enter IP Address").attr("disabled", false);
-	if (data.externip != false) {
-		$("#externip").val(data.externip);
-	}
-
-	// Now, go through our detected networks, and see if we need to add them.
-	$.each(d.routes, function() {
-		var sel = ".network[value='"+this[0]+"']";
-		if (!$(sel).length) {
-			// Add it
-			addLocalnet(this[0], this[1]);
-		}
-	});
-}
-
-
-function addLocalnet(net, cidr) {
-	// We'd like a new one, please.
-	var last = $(".lnet:last");
-	var ourid = last.data('nextid');
-	var nextid = ourid + 1;
-
-	var html = "<div class = 'lnet form-group form-inline' data-nextid="+nextid+">";
-	html += "<input type='text' name='localnets["+ourid+"][net]' class='form-control localnet network validate-ip' value='"+net+"'> / ";
-	html += "<input type='text' name='localnets["+ourid+"][mask]' class='form-control localnet cidr validate-netmask' value='"+cidr+"'>";
-	html += "</div>\n";
-
-	last.after(html);
-}
-
-</script>

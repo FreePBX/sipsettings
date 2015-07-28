@@ -1,4 +1,5 @@
-var changed = false;
+var changed = false,
+		theForm = document.editSip;
 
 $(document).ready(function() {
 	$('.sortable').sortable(	{
@@ -23,7 +24,124 @@ $(document).ready(function() {
 	$(".port").bind('input propertychange', function() {
 		changed = true;
 	})
+
+	/* Add a Local Network / Mask textbox */
+	$("#localnet-add").click(function(){
+		addLocalnet("","");
+	});
+
+	/* Add a Custom Var / Val textbox */
+	$("#sip-custom-add").click(function(){
+		addCustomField("","");
+	});
+
+	/* Initialize Nat GUI and respond to radio button presses */
+	if (document.getElementById("externhost").checked) {
+		$(".externip").hide();
+	} else if (document.getElementById("externip1").checked) {
+		$(".externhost").hide();
+	} else {
+		$(".nat-settings").hide();
+	}
+	$("#nat-none").click(function(){
+		$(".nat-settings").hide();
+	});
+	$("#externip1").click(function(){
+		$(".nat-settings").show();
+		$(".externhost").hide();
+	});
+	$("#externhost").click(function(){
+		$(".nat-settings").show();
+		$(".externip").hide();
+	});
+
+		/* Initialize Video Support settings and show/hide */
+		if (document.getElementById("videosupport-no").checked) {
+			$(".video-codecs").hide();
+		}
+		$("#videosupport-yes").click(function(){
+			$(".video-codecs").show();
+		});
+		$("#videosupport-no").click(function(){
+			$(".video-codecs").hide();
+		});
+
+		/* Initialize Jitter Buffer settings and show/hide */
+		if (document.getElementById("jbenable-no").checked) {
+			$(".jitter-buffer").hide();
+		}
+		$("#jbenable-yes").click(function(){
+			$(".jitter-buffer").show();
+		});
+		$("#jbenable-no").click(function(){
+			$(".jitter-buffer").hide();
+		});
+
+		$("#autodetect").click(function(e) { e.preventDefault(); detectExtern() });
+		var path = window.location.pathname.toString().split('/');
+		path[path.length - 1] = 'ajax.php';
+		// Oh look, IE. Hur Dur, I'm a bwowsah.
+		if (typeof(window.location.origin) == 'undefined') {
+			window.location.origin = window.location.protocol+'//'+window.location.host;
+		}
+		window.ajaxurl = window.location.origin + path.join('/');
+		// This assumes the module name is the first param.
+		window.modulename = window.location.search.split(/\?|&/)[1].split('=')[1];
+
+	$("#nat-auto-configure").click(function(){
+		$.ajax({
+			type: 'POST',
+			url: "config.php",
+			data: "quietmode=1&skip_astman=1&handler=file&module=sipsettings&file=natget.html.php",
+			dataType: 'json',
+			timeout: 10000,
+			success: function(data) {
+				if (data.status == 'success') {
+					$('.netmask').attr("value","");
+					$('.localnet').attr("value","");
+					$('#externip_val').attr("value",data.externip);
+					/*  Iterate through each localnet:netmask pair. Put them into any fields on the form
+					 *  until we have no more, than create new ones
+					 */
+					var fields = $(".localnet").size();
+					var cnt = 0;
+					$.each(data.localnet, function(loc,mask){
+						if (cnt < fields) {
+							$('#localnet_'+cnt).attr("value",loc);
+							$('#netmask_'+cnt).attr("value",mask);
+						} else {
+							//addLocalnet(loc,mask);
+						}
+						cnt++;
+					});
+				} else {
+					alert(data.status);
+				}
+			},
+			error: function(data) {
+				alert(_("An Error occurred trying fetch network configuration and external IP address"));
+			},
+		});
+		return false;
+	});
 });
+
+/**
+ * Insert a sip_settings/sip_value pair of text boxes
+ * @param {string} key The custom field key
+ * @param {string} val The custom field value
+ */
+function addCustomField(key, val) {
+	var idx = $(".sip-custom").size(),
+			idxp = idx - 1;
+
+	$("#sip-custom-buttons").before('\
+		<div class="form-group form-inline">\
+			<input type="text" id="sip_custom_key_'+idx+'" name="sip_custom_key_'+idx+'" class="sip-custom" value="'+key+'"> =\
+			<input type="text" id="sip_custom_val_'+idx+'" name="sip_custom_val_'+idx+'" value="'+val+'">\
+		</div>\
+	');
+}
 
 /**
  * Check for port conflicts
@@ -48,4 +166,60 @@ function checkBindConflicts() {
 		})
 	}
 	return submit;
+}
+
+/**
+ * Detect External addresses
+ */
+function detectExtern() {
+	$("#externip").val("").attr("placeholder", _('Loading')+"...").attr("disabled", true);
+	$(".localnet").prop("disabled", true);
+	$(".netmask").prop("disabled", true);
+	$.ajax({
+		url: window.ajaxurl,
+		data: { command: 'getnetworking', module: window.modulename },
+		success: function(data) { updateAddrAndRoutes(data); },
+	});
+}
+
+/**
+ * Update Addresses and Routes
+ * @param  {[type]} data [description]
+ */
+function updateAddrAndRoutes(data) {
+	window.d = data;
+	$("#externip").val("").prop("placeholder", _("Enter IP Address")).prop("disabled", false);
+	$(".localnet").prop("disabled", false);
+	$(".netmask").prop("disabled", false);
+	if (data.externip != false) {
+		$("#externip").val(data.externip);
+	}
+
+	// Now, go through our detected networks, and see if we need to add them.
+	$.each(d.routes, function() {
+		var sel = ".network[value='"+this[0]+"']";
+		if (!$(sel).length) {
+			// Add it
+			addLocalnet(this[0], this[1]);
+		}
+	});
+}
+
+/**
+ * Insert a localnet/netmask pair of text boxes
+ * @param {string} localnet The localhost
+ * @param {string} netmask  The netmask
+ */
+function addLocalnet(net, cidr) {
+	// We'd like a new one, please.
+	var last = $(".lnet:last"),
+			ourid = last.data('nextid'),
+			nextid = ourid + 1;
+
+	var html = "<div class = 'lnet form-group form-inline' data-nextid="+nextid+">";
+	html += "<input type='text' name='localnets["+ourid+"][net]' class='form-control localnet network validate-ip' value='"+net+"'> / ";
+	html += "<input type='text' name='localnets["+ourid+"][mask]' class='form-control localnet cidr validate-netmask' value='"+cidr+"'>";
+	html += "</div>\n";
+
+	last.after(html);
 }

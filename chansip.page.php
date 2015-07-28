@@ -212,8 +212,8 @@ $error_displays = array_merge($error_displays,sipsettings_check_custom_files());
 						<div class="col-md-9 radioset">
 							<input id="nat-none" type="radio" name="nat_mode" value="public" <?php echo $nat_mode=="public"?"checked=\"public\"":""?>/>
 							<label for="nat-none"><?php echo _("Public IP") ?></label>
-							<input id="externip" type="radio" name="nat_mode" value="externip" <?php echo $nat_mode=="externip"?"checked=\"externip\"":""?>/>
-							<label for="externip"><?php echo _("Static IP") ?></label>
+							<input id="externip1" type="radio" name="nat_mode" value="externip" <?php echo $nat_mode=="externip"?"checked=\"externip\"":""?>/>
+							<label for="externip1"><?php echo _("Static IP") ?></label>
 							<input id="externhost" type="radio" name="nat_mode" value="externhost" <?php echo $nat_mode=="externhost"?"checked=\"externhost\"":""?>/>
 							<label for="externhost"><?php echo _("Dynamic IP") ?></label>
 						</div>
@@ -1173,142 +1173,16 @@ END;
 </div>
 
 <script language="javascript">
-<!--
 $(document).ready(function(){
-	$("#nat-auto-configure").click(function(){
-		$.ajax({
-			type: 'POST',
-			url: "<?php echo $_SERVER["PHP_SELF"]; ?>",
-			data: "quietmode=1&skip_astman=1&handler=file&module=sipsettings&file=natget.html.php",
-			dataType: 'json',
-			timeout: 10000,
-			success: function(data) {
-				if (data.status == 'success') {
-					$('.netmask').attr("value","");
-					$('.localnet').attr("value","");
-					$('#externip_val').attr("value",data.externip);
-					/*  Iterate through each localnet:netmask pair. Put them into any fields on the form
-					 *  until we have no more, than create new ones
-					 */
-					var fields = $(".localnet").size();
-					var cnt = 0;
-					$.each(data.localnet, function(loc,mask){
-						if (cnt < fields) {
-							$('#localnet_'+cnt).attr("value",loc);
-							$('#netmask_'+cnt).attr("value",mask);
-						} else {
-							addLocalnet(loc,mask);
-						}
-						cnt++;
-					});
-				} else {
-					alert(data.status);
-				}
-			},
-			error: function(data) {
-				alert("<?php echo _("An Error occurred trying fetch network configuration and external IP address")?>");
-			},
-		});
-		return false;
-	});
-
-	/* Add a Local Network / Mask textbox */
-	$("#localnet-add").click(function(){
-		addLocalnet("","");
-	});
-
-	/* Add a Custom Var / Val textbox */
-	$("#sip-custom-add").click(function(){
-		addCustomField("","");
-	});
-
-	/* Initialize Nat GUI and respond to radio button presses */
-	if (document.getElementById("externhost").checked) {
-		$(".externip").hide();
-	} else if (document.getElementById("externip").checked) {
-		$(".externhost").hide();
-	} else {
-		$(".nat-settings").hide();
-	}
-	$("#nat-none").click(function(){
-		$(".nat-settings").hide();
-	});
-	$("#externip").click(function(){
-		$(".nat-settings").show();
-		$(".externhost").hide();
-	});
-	$("#externhost").click(function(){
-		$(".nat-settings").show();
-		$(".externip").hide();
-	});
-
-	/* Initialize Video Support settings and show/hide */
-	if (document.getElementById("videosupport-no").checked) {
-		$(".video-codecs").hide();
-	}
-	$("#videosupport-yes").click(function(){
-		$(".video-codecs").show();
-	});
-	$("#videosupport-no").click(function(){
-		$(".video-codecs").hide();
-	});
-
-	/* Initialize Jitter Buffer settings and show/hide */
-	if (document.getElementById("jbenable-no").checked) {
-		$(".jitter-buffer").hide();
-	}
-	$("#jbenable-yes").click(function(){
-		$(".jitter-buffer").show();
-	});
-	$("#jbenable-no").click(function(){
-		$(".jitter-buffer").hide();
-	});
-<?php
-	/* this will insert the addClass jquery calls to all id's in error */
-	if (!empty($error_displays)) {
-		foreach ($error_displays as $js_disp) {
-			echo "  ".$js_disp['js'];
+	<?php
+		/* this will insert the addClass jquery calls to all id's in error */
+		if (!empty($error_displays)) {
+			foreach ($error_displays as $js_disp) {
+				echo "  ".$js_disp['js'];
+			}
 		}
-	}
-?>
+	?>
 });
-
-var theForm = document.editSip;
-
-/* Insert a localnet/netmask pair of text boxes */
-function addLocalnet(localnet, netmask) {
-	var idx = $(".localnet").size();
-	var idxp = idx - 1;
-	var tabindex = parseInt($("#netmask_"+idxp).attr('tabindex')) + 1;
-	var tabindexp = tabindex + 1;
-
-	$("#auto-configure-buttons").before('\
-	<tr class="nat-settings">\
-		<td>\
-		</td>\
-		<td>\
-			<input type="text" id="localnet_'+idx+'" name="localnet_'+idx+'" class="localnet" value="'+localnet+'" tabindex="'+tabindex+'"> /\
-			<input type="text" id="netmask_'+idx+'" name="netmask_'+idx+'" class="netmask validate-netmask" value="'+netmask+'" tabindex="'+tabindexp+'">\
-		</td>\
-	</tr>\
-	');
-}
-
-/* Insert a sip_setting/sip_value pair of text boxes */
-function addCustomField(key, val) {
-	var idx = $(".sip-custom").size();
-	var idxp = idx - 1;
-	var tabindex = parseInt($("#sip_custom_val_"+idxp).attr('tabindex')) + 1;
-	var tabindexp = tabindex + 1;
-
-	$("#sip-custom-buttons").before('\
-		<div class="form-group form-inline">\
-			<input type="text" id="sip_custom_key_'+idx+'" name="sip_custom_key_'+idx+'" class="sip-custom" value="'+key+'" tabindex="'+tabindex+'"> =\
-			<input type="text" id="sip_custom_val_'+idx+'" name="sip_custom_val_'+idx+'" value="'+val+'" tabindex="'+tabindexp+'">\
-		</div>\
-	');
-}
-//-->
 </script>
 </form>
 <?php
