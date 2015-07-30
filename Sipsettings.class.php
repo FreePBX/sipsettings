@@ -85,6 +85,10 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 				$binds['pjsip'][$ip][$protocol] = $p;
 			}
 		}
+		if(!function_exists('sipsettings_get')) {
+			//urgh......
+			include __DIR__."/functions.inc.php";
+		}
 		$out = sipsettings_get();
 		$out['bindaddr'] = !empty($out['bindaddr']) ? $out['bindaddr'] : '0.0.0.0';
 		$out['bindport'] = !empty($out['bindport']) ? $out['bindport'] : '5060';
