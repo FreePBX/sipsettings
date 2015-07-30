@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-24 16:42-0400\n"
+"POT-Creation-Date: 2015-07-30 14:19-0700\n"
 "PO-Revision-Date: 2015-04-25 22:29+0200\n"
 "Last-Translator: Yuriy <alliancesko@gmail.com>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/"
@@ -135,7 +135,7 @@ msgstr ""
 "<br /> never = Никогда не пытаться использовать NAT или RFC3581 <br /> route "
 "= предполагая NAT не указывать rport"
 
-#: Sipsettings.class.php:127
+#: Sipsettings.class.php:131
 #, php-format
 msgid "Asterisk is currently using %s for SIP Traffic."
 msgstr "Астериск использует %s для SIP трафика."
@@ -537,7 +537,7 @@ msgstr ""
 "Частота в секундах, когда состояние индикатора MWI будет изменяться и "
 "информировать пиры."
 
-#: Sipsettings.class.php:98
+#: Sipsettings.class.php:102
 msgid "General SIP Settings"
 msgstr "Общие настройки SIP"
 
@@ -882,7 +882,7 @@ msgstr ""
 msgid "Transports"
 msgstr "Транспорты"
 
-#: Sipsettings.class.php:277 Sipsettings.class.php:359
+#: Sipsettings.class.php:281 Sipsettings.class.php:363
 msgid "Unknown Type"
 msgstr "Неизвестный тип"
 
@@ -930,7 +930,7 @@ msgstr "Если включить или отключить UDP контроль
 msgid "Yes"
 msgstr "Да"
 
-#: Sipsettings.class.php:133
+#: Sipsettings.class.php:137
 msgid "You can change this on the Advanced Settings Page"
 msgstr "Вы можете изменить это на странице дополнительных настроек"
 

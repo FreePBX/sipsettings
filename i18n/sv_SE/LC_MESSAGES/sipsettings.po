@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX sipsettings\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-24 16:42-0400\n"
+"POT-Creation-Date: 2015-07-30 14:19-0700\n"
 "PO-Revision-Date: 2011-03-20 00:00+0100\n"
 "Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
 "Language-Team: Swedish\n"
@@ -116,7 +116,7 @@ msgstr ""
 "NAT<br /> no = Använd NAT-läge enligt RFC3581 <br /> never = Använd aldrig "
 "NAT-läge eller RFC3581 <br /> route = Förutsätt NAT, sänd inte rport "
 
-#: Sipsettings.class.php:127
+#: Sipsettings.class.php:131
 #, php-format
 msgid "Asterisk is currently using %s for SIP Traffic."
 msgstr ""
@@ -497,7 +497,7 @@ msgstr ""
 "Antal sekunder mellan kontrollerna om MWI har ändrat läge, meddela sedan "
 "peers."
 
-#: Sipsettings.class.php:98
+#: Sipsettings.class.php:102
 msgid "General SIP Settings"
 msgstr ""
 
@@ -823,7 +823,7 @@ msgstr ""
 msgid "Transports"
 msgstr ""
 
-#: Sipsettings.class.php:277 Sipsettings.class.php:359
+#: Sipsettings.class.php:281 Sipsettings.class.php:363
 msgid "Unknown Type"
 msgstr ""
 
@@ -862,7 +862,7 @@ msgstr ""
 msgid "Yes"
 msgstr "Ja"
 
-#: Sipsettings.class.php:133
+#: Sipsettings.class.php:137
 msgid "You can change this on the Advanced Settings Page"
 msgstr ""
 

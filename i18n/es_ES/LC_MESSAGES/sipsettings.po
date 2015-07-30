@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-24 16:42-0400\n"
+"POT-Creation-Date: 2015-07-30 14:19-0700\n"
 "PO-Revision-Date: 2015-04-23 06:41+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/"
@@ -122,7 +122,7 @@ msgstr ""
 "Nunca intentar el modo NAT o RFC3581 <br /> route = Asume NAT , no envía "
 "rport"
 
-#: Sipsettings.class.php:127
+#: Sipsettings.class.php:131
 #, php-format
 msgid "Asterisk is currently using %s for SIP Traffic."
 msgstr "Asterisk esta actualmente usando %s para tráfico SIP."
@@ -511,7 +511,7 @@ msgstr ""
 "La frecuencia en segundos para comprobar si el estado MWI ha cambiado e "
 "informar a los peers."
 
-#: Sipsettings.class.php:98
+#: Sipsettings.class.php:102
 msgid "General SIP Settings"
 msgstr "Configuración general SIP"
 
@@ -860,7 +860,7 @@ msgstr ""
 msgid "Transports"
 msgstr "Transportes"
 
-#: Sipsettings.class.php:277 Sipsettings.class.php:359
+#: Sipsettings.class.php:281 Sipsettings.class.php:363
 msgid "Unknown Type"
 msgstr "Tipo Desconocido"
 
@@ -910,7 +910,7 @@ msgstr ""
 msgid "Yes"
 msgstr "Si"
 
-#: Sipsettings.class.php:133
+#: Sipsettings.class.php:137
 msgid "You can change this on the Advanced Settings Page"
 msgstr "Usted puede cambiar esto en la pagina Configuración Avanzada"
 

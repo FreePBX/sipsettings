@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-24 16:42-0400\n"
+"POT-Creation-Date: 2015-07-30 14:19-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -107,7 +107,7 @@ msgid ""
 "mode or RFC3581 <br /> route = Assume NAT, don't send rport"
 msgstr ""
 
-#: Sipsettings.class.php:127
+#: Sipsettings.class.php:131
 #, php-format
 msgid "Asterisk is currently using %s for SIP Traffic."
 msgstr ""
@@ -404,7 +404,7 @@ msgid ""
 "Frequency in seconds to check if MWI state has changed and inform peers."
 msgstr ""
 
-#: Sipsettings.class.php:98
+#: Sipsettings.class.php:102
 msgid "General SIP Settings"
 msgstr ""
 
@@ -724,7 +724,7 @@ msgstr ""
 msgid "Transports"
 msgstr ""
 
-#: Sipsettings.class.php:277 Sipsettings.class.php:359
+#: Sipsettings.class.php:281 Sipsettings.class.php:363
 msgid "Unknown Type"
 msgstr ""
 
@@ -763,7 +763,7 @@ msgstr ""
 msgid "Yes"
 msgstr ""
 
-#: Sipsettings.class.php:133
+#: Sipsettings.class.php:137
 msgid "You can change this on the Advanced Settings Page"
 msgstr ""
 

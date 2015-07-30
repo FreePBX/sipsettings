@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-24 16:42-0400\n"
+"POT-Creation-Date: 2015-07-30 14:19-0700\n"
 "PO-Revision-Date: 2014-10-02 14:45+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
 "Language-Team: Japanese <http://git.freepbx.org/projects/freepbx/sipsettings/"
@@ -144,7 +144,7 @@ msgstr ""
 "RFC3581に従って、NATモードを使用 <br/> never = RFC3581とNATモードを使わない "
 "<br/> route = NATを前提として、rportを送信しない"
 
-#: Sipsettings.class.php:127
+#: Sipsettings.class.php:131
 #, php-format
 msgid "Asterisk is currently using %s for SIP Traffic."
 msgstr ""
@@ -525,7 +525,7 @@ msgid ""
 "Frequency in seconds to check if MWI state has changed and inform peers."
 msgstr "MWI の状態変更をチェックして、ピアに通知する頻度（秒）"
 
-#: Sipsettings.class.php:98
+#: Sipsettings.class.php:102
 msgid "General SIP Settings"
 msgstr ""
 
@@ -855,7 +855,7 @@ msgstr ""
 msgid "Transports"
 msgstr ""
 
-#: Sipsettings.class.php:277 Sipsettings.class.php:359
+#: Sipsettings.class.php:281 Sipsettings.class.php:363
 msgid "Unknown Type"
 msgstr ""
 
@@ -894,7 +894,7 @@ msgstr ""
 msgid "Yes"
 msgstr "はい"
 
-#: Sipsettings.class.php:133
+#: Sipsettings.class.php:137
 msgid "You can change this on the Advanced Settings Page"
 msgstr ""
 
