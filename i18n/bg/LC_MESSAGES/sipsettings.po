@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-30 14:21-0700\n"
+"POT-Creation-Date: 2015-07-31 10:25-0700\n"
 "PO-Revision-Date: 2014-07-22 16:07+0200\n"
 "Last-Translator: Chavdar <chavdar_75@yahoo.com>\n"
 "Language-Team: Bulgarian <http://git.freepbx.org/projects/freepbx/"
@@ -113,7 +113,7 @@ msgid ""
 "mode or RFC3581 <br /> route = Assume NAT, don't send rport"
 msgstr ""
 
-#: Sipsettings.class.php:105
+#: Sipsettings.class.php:107
 #, php-format
 msgid "Asterisk is currently using %s for SIP Traffic."
 msgstr ""
@@ -189,11 +189,11 @@ msgstr ""
 msgid "Call Events"
 msgstr ""
 
-#: Sipsettings.class.php:136
+#: Sipsettings.class.php:138
 msgid "Chan PJSIP Settings"
 msgstr ""
 
-#: Sipsettings.class.php:129
+#: Sipsettings.class.php:131
 msgid "Chan SIP Settings"
 msgstr ""
 
@@ -359,7 +359,7 @@ msgid ""
 "Frequency in seconds to check if MWI state has changed and inform peers."
 msgstr ""
 
-#: Sipsettings.class.php:122
+#: Sipsettings.class.php:124
 msgid "General SIP Settings"
 msgstr ""
 
@@ -660,7 +660,7 @@ msgstr ""
 msgid "Reinvite Behavior"
 msgstr ""
 
-#: Sipsettings.class.php:432
+#: Sipsettings.class.php:434
 msgid "Reset"
 msgstr ""
 
@@ -717,7 +717,7 @@ msgstr ""
 msgid "Strict RTP"
 msgstr ""
 
-#: Sipsettings.class.php:437
+#: Sipsettings.class.php:439
 msgid "Submit"
 msgstr ""
 
@@ -799,7 +799,7 @@ msgid ""
 "value that would be entered here"
 msgstr ""
 
-#: Sipsettings.class.php:278 Sipsettings.class.php:360
+#: Sipsettings.class.php:280 Sipsettings.class.php:362
 msgid "Unknown Type"
 msgstr ""
 
@@ -844,7 +844,7 @@ msgstr ""
 msgid "Yes"
 msgstr ""
 
-#: Sipsettings.class.php:111
+#: Sipsettings.class.php:113
 msgid "You can change this on the Advanced Settings Page"
 msgstr ""
 
