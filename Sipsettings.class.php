@@ -78,7 +78,9 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 
 	public function getBinds() {
 		$binds = array();
-		foreach($this->getConfig("binds") as $protocol => $bind) {
+		$b = $this->getConfig("binds");
+		$b = is_array($b) ? $b : array();
+		foreach($b as $protocol => $bind) {
 			foreach($bind as $ip => $state) {
 				if($state != "on") {
 					continue;
