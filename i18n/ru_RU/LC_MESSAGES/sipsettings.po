@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-31 10:25-0700\n"
+"POT-Creation-Date: 2015-08-10 10:41-0700\n"
 "PO-Revision-Date: 2015-04-25 22:29+0200\n"
 "Last-Translator: Yuriy <alliancesko@gmail.com>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/"
@@ -135,7 +135,7 @@ msgstr ""
 "<br /> never = Никогда не пытаться использовать NAT или RFC3581 <br /> route "
 "= предполагая NAT не указывать rport"
 
-#: Sipsettings.class.php:107
+#: Sipsettings.class.php:116
 #, php-format
 msgid "Asterisk is currently using %s for SIP Traffic."
 msgstr "Астериск использует %s для SIP трафика."
@@ -230,11 +230,11 @@ msgstr ""
 msgid "Call Events"
 msgstr "События вызова"
 
-#: Sipsettings.class.php:138
+#: Sipsettings.class.php:147
 msgid "Chan PJSIP Settings"
 msgstr ""
 
-#: Sipsettings.class.php:131
+#: Sipsettings.class.php:140
 msgid "Chan SIP Settings"
 msgstr ""
 
@@ -353,8 +353,14 @@ msgstr ""
 msgid "End"
 msgstr "Конец"
 
-#: assets/js/sipsettings.js:191
+#: assets/js/sipsettings.js:182 assets/js/sipsettings.js:185
+#: assets/js/sipsettings.js:194
 msgid "Enter IP Address"
+msgstr ""
+
+#: assets/js/sipsettings.js:190 assets/js/sipsettings.js:193
+#, perl-format
+msgid "Error: %s"
 msgstr ""
 
 #: general.page.php:64
@@ -412,7 +418,7 @@ msgstr ""
 "Частота в секундах, когда состояние индикатора MWI будет изменяться и "
 "информировать пиры."
 
-#: Sipsettings.class.php:124
+#: Sipsettings.class.php:133
 msgid "General SIP Settings"
 msgstr "Общие настройки SIP"
 
@@ -726,7 +732,7 @@ msgstr ""
 msgid "Reinvite Behavior"
 msgstr "Поведение Reinvite"
 
-#: Sipsettings.class.php:434
+#: Sipsettings.class.php:443
 msgid "Reset"
 msgstr ""
 
@@ -785,7 +791,7 @@ msgstr "Статический ИП"
 msgid "Strict RTP"
 msgstr "Строгий RTP"
 
-#: Sipsettings.class.php:439
+#: Sipsettings.class.php:448
 msgid "Submit"
 msgstr "Сохранить"
 
@@ -844,8 +850,9 @@ msgid "These settings apply to both chan_sip and chan_pjsip."
 msgstr "Эти настройки применяются как для chan_sip, так и chan_pjsip."
 
 #: general.page.php:77
-msgid "This address will be provided to clients if NAT is enabled and detecte"
+msgid "This address will be provided to clients if NAT is enabled and detected"
 msgstr ""
+"Этот адрес будет предоставляться клиентам, если NAT включен и обнаружен"
 
 #: general.page.php:334
 msgid "This is the default Codec setting for new Trunks and Extensions."
@@ -869,7 +876,11 @@ msgid ""
 "value that would be entered here"
 msgstr ""
 
-#: Sipsettings.class.php:280 Sipsettings.class.php:362
+#: Natget.class.php:29
+msgid "Unknown Error"
+msgstr ""
+
+#: Sipsettings.class.php:289 Sipsettings.class.php:371
 msgid "Unknown Type"
 msgstr "Неизвестный тип"
 
@@ -923,7 +934,7 @@ msgstr "Если включить или отключить UDP контроль
 msgid "Yes"
 msgstr "Да"
 
-#: Sipsettings.class.php:113
+#: Sipsettings.class.php:122
 msgid "You can change this on the Advanced Settings Page"
 msgstr "Вы можете изменить это на странице дополнительных настроек"
 
@@ -1321,11 +1332,6 @@ msgstr "да"
 
 #~ msgid "Settings"
 #~ msgstr "Настройки"
-
-#~ msgid ""
-#~ "This address will be provided to clients if NAT is enabled and detected"
-#~ msgstr ""
-#~ "Этот адрес будет предоставляться клиентам, если NAT включен и обнаружен"
 
 #~ msgid ""
 #~ "Use to configure Various Asterisk SIP Settings in the General section of "

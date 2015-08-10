@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX sipsettings\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-31 10:25-0700\n"
+"POT-Creation-Date: 2015-08-10 10:41-0700\n"
 "PO-Revision-Date: 2011-03-20 00:00+0100\n"
 "Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
 "Language-Team: Swedish\n"
@@ -116,7 +116,7 @@ msgstr ""
 "NAT<br /> no = Använd NAT-läge enligt RFC3581 <br /> never = Använd aldrig "
 "NAT-läge eller RFC3581 <br /> route = Förutsätt NAT, sänd inte rport "
 
-#: Sipsettings.class.php:107
+#: Sipsettings.class.php:116
 #, php-format
 msgid "Asterisk is currently using %s for SIP Traffic."
 msgstr ""
@@ -210,11 +210,11 @@ msgstr ""
 msgid "Call Events"
 msgstr "Samtalshändelser"
 
-#: Sipsettings.class.php:138
+#: Sipsettings.class.php:147
 msgid "Chan PJSIP Settings"
 msgstr ""
 
-#: Sipsettings.class.php:131
+#: Sipsettings.class.php:140
 msgid "Chan SIP Settings"
 msgstr ""
 
@@ -331,8 +331,14 @@ msgstr ""
 msgid "End"
 msgstr ""
 
-#: assets/js/sipsettings.js:191
+#: assets/js/sipsettings.js:182 assets/js/sipsettings.js:185
+#: assets/js/sipsettings.js:194
 msgid "Enter IP Address"
+msgstr ""
+
+#: assets/js/sipsettings.js:190 assets/js/sipsettings.js:193
+#, perl-format
+msgid "Error: %s"
 msgstr ""
 
 #: general.page.php:64
@@ -388,7 +394,7 @@ msgstr ""
 "Antal sekunder mellan kontrollerna om MWI har ändrat läge, meddela sedan "
 "peers."
 
-#: Sipsettings.class.php:124
+#: Sipsettings.class.php:133
 msgid "General SIP Settings"
 msgstr ""
 
@@ -691,7 +697,7 @@ msgstr ""
 msgid "Reinvite Behavior"
 msgstr "Beteende för reinvite"
 
-#: Sipsettings.class.php:434
+#: Sipsettings.class.php:443
 msgid "Reset"
 msgstr ""
 
@@ -750,7 +756,7 @@ msgstr "Statisk IP-adress"
 msgid "Strict RTP"
 msgstr ""
 
-#: Sipsettings.class.php:439
+#: Sipsettings.class.php:448
 msgid "Submit"
 msgstr ""
 
@@ -809,7 +815,7 @@ msgid "These settings apply to both chan_sip and chan_pjsip."
 msgstr ""
 
 #: general.page.php:77
-msgid "This address will be provided to clients if NAT is enabled and detecte"
+msgid "This address will be provided to clients if NAT is enabled and detected"
 msgstr ""
 
 #: general.page.php:334
@@ -832,7 +838,11 @@ msgid ""
 "value that would be entered here"
 msgstr ""
 
-#: Sipsettings.class.php:280 Sipsettings.class.php:362
+#: Natget.class.php:29
+msgid "Unknown Error"
+msgstr ""
+
+#: Sipsettings.class.php:289 Sipsettings.class.php:371
 msgid "Unknown Type"
 msgstr ""
 
@@ -877,7 +887,7 @@ msgstr ""
 msgid "Yes"
 msgstr "Ja"
 
-#: Sipsettings.class.php:113
+#: Sipsettings.class.php:122
 msgid "You can change this on the Advanced Settings Page"
 msgstr ""
 
