@@ -177,8 +177,25 @@ function detectExtern() {
 	$(".netmask").prop("disabled", true);
 	$.ajax({
 		url: window.ajaxurl,
-		data: { command: 'getnetworking', module: window.modulename },
-		success: function(data) { updateAddrAndRoutes(data); },
+		data: { command: 'getnetworking', module: window.modulename }
+	}).done(function(data) {
+		var placeholder = typeof data.externipmesg !== "undefined" ? data.externipmesg : _("Enter IP Address");
+		$("#externip").val("").prop("placeholder", placeholder);
+		$("#externip").one("click", function() {
+			$(this).prop("placeholder",_("Enter IP Address"));
+		})
+		if(data.status) {
+			updateAddrAndRoutes(data);
+		} else {
+			alert( sprintf(_("Error: %s"), data.message) );
+		}
+	}).fail(function(err) {
+		alert( sprintf(_("Error: %s"), err.responseJSON.error) );
+		$("#externip").val("").prop("placeholder", _("Enter IP Address"));
+	}).always(function() {
+		$("#externip").prop("disabled", false);
+		$(".localnet").prop("disabled", false);
+		$(".netmask").prop("disabled", false);
 	});
 }
 
@@ -188,9 +205,6 @@ function detectExtern() {
  */
 function updateAddrAndRoutes(data) {
 	window.d = data;
-	$("#externip").val("").prop("placeholder", _("Enter IP Address")).prop("disabled", false);
-	$(".localnet").prop("disabled", false);
-	$(".netmask").prop("disabled", false);
 	if (data.externip != false) {
 		$("#externip").val(data.externip);
 	}

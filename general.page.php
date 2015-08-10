@@ -74,7 +74,7 @@ $submit_changes = _("Submit Changes");
 		</div>
 		<div class="row">
 			<div class="col-md-12">
-				<span id="externip-help" class="help-block fpbx-help-block"><?php echo _("This address will be provided to clients if NAT is enabled and detecte")?></span>
+				<span id="externip-help" class="help-block fpbx-help-block"><?php echo _("This address will be provided to clients if NAT is enabled and detected")?></span>
 			</div>
 		</div>
 	</div>

@@ -2,39 +2,39 @@
 // vim: set ai ts=4 sw=4 ft=php:
 namespace FreePBX\modules\Sipsettings;
 class NatGet {
-	public $urls;
 
-	public function __construct() {
-		$this->urls = array(
-			array("http://myip.freepbx.org:5060/whatismyip.php", "xml"),
-		);
-	}
-
+	/**
+	 * Get Visible IP by querying freepbx.org
+	 * @return array Status of result
+	 */
 	public function getVisibleIP() {
 		$ip = false;
-		foreach ($this->urls as $arr) {
-			if ($arr[1] == "xml") {
-  				$xml = file_get_contents($arr[0]);
-				if (preg_match("/ress>(.+?)<\/ipaddr/", $xml, $out)) {
-					$ip = $out[1];
-				}
-			} else {
-				throw new \Exception("Only know about xml at the moment");
-			}
-
-			// Lets see if we found the IP address with this lookup.
-			if ($ip) {
-				if (filter_var($ip, FILTER_VALIDATE_IP)) {
-					// Yay. We did.
-					return $ip;
-				}
-			}
+		try {
+			$pest = new \PestXML("http://myip.freepbx.org:5060");
+			$thing = $pest->get('/whatismyip.php');
+		} catch(\Exception $e) {
+			return array(
+				"status" => false,
+				"message" => $e->getMessage()
+			);
 		}
-
-		// We ran out of places to try. Return false.
-		return false;
+		if(!empty($thing->ipaddress) && filter_var((string)$thing->ipaddress, FILTER_VALIDATE_IP)) {
+			return array(
+				"status" => true,
+				"address" => (string)$thing->ipaddress
+			);
+		} else {
+			return array(
+				"status" => false,
+				"message" => _("Unknown Error")
+			);
+		}
 	}
 
+	/**
+	 * Get Local routes
+	 * @return array Array of routes
+	 */
 	public function getRoutes() {
 		// Return a list of routes the machine knows about.
 		$route = fpbx_which('route');

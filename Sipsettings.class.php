@@ -37,8 +37,17 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 			if (!class_exists('FreePBX\Modules\Sipsettings\NatGet')) {
 				include __DIR__."/Natget.class.php";
 			}
-			$nat = new FreePBX\Modules\Sipsettings\NatGet();
-			$retarr = array("externip" => $nat->getVisibleIP(), "routes" => $nat->getRoutes());
+			try {
+				$nat = new \FreePBX\Modules\Sipsettings\NatGet();
+				$ip = $nat->getVisibleIP();
+				if($ip['status']) {
+					$retarr = array("status" => true, "externip" => $ip['address'], "routes" => $nat->getRoutes());
+				} else {
+					$retarr = array("status" => true, "externip" => false, "routes" => $nat->getRoutes(), "externipmesg" => $ip['message']);
+				}
+			} catch(\Exception $e) {
+				$retarr = array("status" => false, "message" => $e->getMessage());
+			}
 			return $retarr;
 		}
 		return false;
