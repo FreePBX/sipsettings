@@ -30,7 +30,7 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 	$sip_settings['nat_mode']          = isset($_POST['nat_mode']) ? $_POST['nat_mode'] : 'externip';
 	$sip_settings['externip_val']      = isset($_POST['externip_val']) ? htmlspecialchars($_POST['externip_val']) : '';
 	$sip_settings['externhost_val']    = isset($_POST['externhost_val']) ? htmlspecialchars($_POST['externhost_val']) : '';
-	$sip_settings['externrefresh']     = isset($_POST['externrefresh']) ? htmlspecialchars($_POST['externrefresh']) : '120';
+	$sip_settings['externrefresh']     = isset($_POST['externhostrefresh']) ? htmlspecialchars($_POST['externhostrefresh']) : '120';
 	// QaD fix for localization, xgettext does not pickup the localization string in the code
 	$add_field = _("Add Field");
 	$auto_configure = _("Auto Configure");
