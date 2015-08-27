@@ -66,7 +66,7 @@ $submit_changes = _("Submit Changes");
 						</div>
 						<div class="col-md-9">
 							<input type="text" class="form-control localnet validate=ip" id="externip" name="externip" value="<?php echo $externip ?>">
-							<button id='autodetect'><?php echo _("Detect Network Settings")?></button>
+							<button class='btn btn-default' id='autodetect'><?php echo _("Detect Network Settings")?></button>
 						</div>
 					</div>
 				</div>
