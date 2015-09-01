@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-30 14:19-0700\n"
+"POT-Creation-Date: 2015-09-01 19:10+1000\n"
 "PO-Revision-Date: 2015-04-25 22:29+0200\n"
 "Last-Translator: Yuriy <alliancesko@gmail.com>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/"
@@ -134,6 +134,10 @@ msgstr ""
 "предполагать NAT<br /> no = Использовать режим NAT в соостветствии с RFC3581 "
 "<br /> never = Никогда не пытаться использовать NAT или RFC3581 <br /> route "
 "= предполагая NAT не указывать rport"
+
+#: sipsettings.i18n.php:4 sipsettings.i18n.php:10
+msgid "Asterisk SIP Settings"
+msgstr "Установки Asterisk для SIP"
 
 #: Sipsettings.class.php:131
 #, php-format
@@ -806,6 +810,10 @@ msgstr "Адрес сервера STUN"
 msgid "Security Settings"
 msgstr "Настройки безопасности"
 
+#: sipsettings.i18n.php:6 sipsettings.i18n.php:12
+msgid "Settings"
+msgstr "Настройки"
+
 #: chansip.page.php:890
 #, php-format
 msgid "Settings in %s may override these. Those settings should be removed."
@@ -885,6 +893,19 @@ msgstr "Транспорты"
 #: Sipsettings.class.php:281 Sipsettings.class.php:363
 msgid "Unknown Type"
 msgstr "Неизвестный тип"
+
+#: sipsettings.i18n.php:8
+msgid ""
+"Use to configure Various Asterisk SIP Settings in the General section of sip."
+"conf. Also includes an auto-configuration tool to determine NAT settings. "
+"The module assumes Asterisk version 1.4 or higher. Some settings may not "
+"exist in Asterisk 1.2 and will be ignored by Asterisk."
+msgstr ""
+"Используется для конфигурации различных параметров SIP в Астериск в секции "
+"[general] файла sip.conf. Также содержит параметры автоконфигурации для "
+"распознавания настроек NAT. Модуль предполагает наличие Asterisk версий 1.4 "
+"и выше. Некоторые параметры просто не существуют в версии 1.2 и будут "
+"игнорироваться Asterisk."
 
 #: general.page.php:113
 msgid ""
@@ -1012,27 +1033,9 @@ msgstr "ulaw, alaw, gsm, g726 добавлены"
 msgid "yes"
 msgstr "да"
 
-#~ msgid "Asterisk SIP Settings"
-#~ msgstr "Установки Asterisk для SIP"
-
 #~ msgid "Items may moved! Please use the navigation on the right"
 #~ msgstr ""
 #~ "Детальные настройки перемещены! Пожалуйста, используйте навигацию справа"
-
-#~ msgid "Settings"
-#~ msgstr "Настройки"
-
-#~ msgid ""
-#~ "Use to configure Various Asterisk SIP Settings in the General section of "
-#~ "sip.conf. Also includes an auto-configuration tool to determine NAT "
-#~ "settings. The module assumes Asterisk version 1.4 or higher. Some "
-#~ "settings may not exist in Asterisk 1.2 and will be ignored by Asterisk."
-#~ msgstr ""
-#~ "Используется для конфигурации различных параметров SIP в Астериск в "
-#~ "секции [general] файла sip.conf. Также содержит параметры "
-#~ "автоконфигурации для распознавания настроек NAT. Модуль предполагает "
-#~ "наличие Asterisk версий 1.4 и выше. Некоторые параметры просто не "
-#~ "существуют в версии 1.2 и будут игнорироваться Asterisk."
 
 #~ msgid ""
 #~ "Check the desired codecs, all others will be disabled unless explicitly "

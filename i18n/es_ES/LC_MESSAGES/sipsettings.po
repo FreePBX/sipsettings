@@ -9,15 +9,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-30 14:19-0700\n"
+"POT-Creation-Date: 2015-09-01 19:10+1000\n"
 "PO-Revision-Date: 2015-08-12 07:14+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
-"Language-Team: Spanish "
-"<http://weblate.freepbx.org/projects/freepbx/sipsettings/es_ES/>\n"
-"Language: es_ES\n"
+"Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/"
+"sipsettings/es_ES/>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: es_ES\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
@@ -121,6 +121,10 @@ msgstr ""
 "NAT<br /> no = Utilizar el modo NAT sólo de acuerdo a RFC3581 <br />Never = "
 "Nunca intentar el modo NAT o RFC3581 <br /> route = Asume NAT , no envía "
 "rport"
+
+#: sipsettings.i18n.php:4 sipsettings.i18n.php:10
+msgid "Asterisk SIP Settings"
+msgstr "Configuraciones Asterisk SIP"
 
 #: Sipsettings.class.php:131
 #, php-format
@@ -785,6 +789,10 @@ msgstr "Dirección del servidor STUN"
 msgid "Security Settings"
 msgstr "Configuraciones de seguridad"
 
+#: sipsettings.i18n.php:6 sipsettings.i18n.php:12
+msgid "Settings"
+msgstr "Configuraciones"
+
 #: chansip.page.php:890
 #, php-format
 msgid "Settings in %s may override these. Those settings should be removed."
@@ -865,6 +873,19 @@ msgstr "Transportes"
 #: Sipsettings.class.php:281 Sipsettings.class.php:363
 msgid "Unknown Type"
 msgstr "Tipo Desconocido"
+
+#: sipsettings.i18n.php:8
+msgid ""
+"Use to configure Various Asterisk SIP Settings in the General section of sip."
+"conf. Also includes an auto-configuration tool to determine NAT settings. "
+"The module assumes Asterisk version 1.4 or higher. Some settings may not "
+"exist in Asterisk 1.2 and will be ignored by Asterisk."
+msgstr ""
+"Se utiliza para configurar diversas configuraciones de SIP Asterisk en la "
+"sección general de sip.conf. También incluye una herramienta de auto-"
+"configuración para determinar la configuración NAT. El módulo supone la "
+"versión Asterisk 1.4 o superior. Algunos valores no pueden existir en "
+"Asterisk 1.2 y no se interpretarán por Asterisk."
 
 #: general.page.php:113
 msgid ""
@@ -991,25 +1012,7 @@ msgstr "añadido ulaw, alaw, gsm, g726"
 msgid "yes"
 msgstr "yes"
 
-#~ msgid "Asterisk SIP Settings"
-#~ msgstr "Configuraciones Asterisk SIP"
-
 #~ msgid "Items may moved! Please use the navigation on the right"
 #~ msgstr ""
 #~ "Los artículos pueden ser movidos! Por favor, use la navegación a la "
 #~ "derecha"
-
-#~ msgid "Settings"
-#~ msgstr "Configuraciones"
-
-#~ msgid ""
-#~ "Use to configure Various Asterisk SIP Settings in the General section of "
-#~ "sip.conf. Also includes an auto-configuration tool to determine NAT "
-#~ "settings. The module assumes Asterisk version 1.4 or higher. Some "
-#~ "settings may not exist in Asterisk 1.2 and will be ignored by Asterisk."
-#~ msgstr ""
-#~ "Se utiliza para configurar diversas configuraciones de SIP Asterisk en la "
-#~ "sección general de sip.conf. También incluye una herramienta de auto-"
-#~ "configuración para determinar la configuración NAT. El módulo supone la "
-#~ "versión Asterisk 1.4 o superior. Algunos valores no pueden existir en "
-#~ "Asterisk 1.2 y no se interpretarán por Asterisk."
