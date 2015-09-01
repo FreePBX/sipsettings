@@ -26,7 +26,7 @@ $submit_changes = _("Submit Changes");
 <?php
 $anonhelp = _("Allowing Inbound Anonymous SIP calls means that you will allow any call coming in form an un-known IP source to be directed to the 'from-pstn' side of your dialplan. This is where inbound calls come in. Although FreePBX severely restricts access to the internal dialplan, allowing Anonymous SIP calls does introduced additional security risks. If you allow SIP URI dialing to your PBX or use services like ENUM, you will be required to set this to Yes for Inbound traffic to work. This is NOT an Asterisk sip.conf setting, it is used in the dialplan in conjuction with the Default Context. If that context is changed above to something custom this setting may be rendered useless as well as if 'Allow SIP Guests' is set to no.");
 
-echo $this->radioset("allowanon", _("Allow Anonymous Inbound SIP Calls"), $anonhelp, array("Yes" => _("Yes"), "No" => _("No")), $this->getConfig("allowanon"));
+echo $this->radioset("allowanon", _("Allow Anonymous Inbound SIP Calls"), $anonhelp, array("yes" => _("Yes"), "no" => _("No")), $this->getConfig("allowanon"));
 ?>
 
   <tr>
@@ -94,8 +94,8 @@ foreach ($localnets as $id => $arr) {
   </tr>
 
 <?php
-echo $this->radioset("rtpchecksums", _("RTP Checksums"), _("Whether to enable or disable UDP checksums on RTP traffic"), array("Yes" => _("Yes"), "No" => _("No")), $this->getConfig("rtpchecksums"));
-echo $this->radioset("strictrtp", _("Strict RTP"), _("This will drop RTP packets that do not come from the source of the RTP stream. It is unusual to turn this off"), array("Yes" => _("Yes"), "No" => _("No")), $this->getConfig("strictrtp"));
+echo $this->radioset("rtpchecksums", _("RTP Checksums"), _("Whether to enable or disable UDP checksums on RTP traffic"), array("yes" => _("Yes"), "no" => _("No")), $this->getConfig("rtpchecksums"));
+echo $this->radioset("strictrtp", _("Strict RTP"), _("This will drop RTP packets that do not come from the source of the RTP stream. It is unusual to turn this off"), array("yes" => _("Yes"), "no" => _("No")), $this->getConfig("strictrtp"));
 ?>
 <tr>
 <td><a href='#' class='info'><?php echo _("STUN Server Address") ?><span><?php echo _("Hostname or address for the STUN server used when determining the external IP address and port an RTP session can be reached at. The port number is optional. If omitted the default value of 3478 will be used. This option is blank by default. (A list of STUN servers: https://gist.github.com/zziuni/3741933)") ?></span></a></td>

@@ -224,7 +224,7 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 		$out =  "<tr><td><a class='info'>$name<span>$help</span></a></td>\n";
 		$out .= "<td><span class='radioset'>\n";
 		foreach ($values as $k => $v) {
-			$out .= "<input id='$id-$k' name='$id' value='$v' type='radio'";
+			$out .= "<input id='$id-$k' name='$id' value='$k' type='radio'";
 			if ($current === $k) {
 				$out .= " checked";
 			}
