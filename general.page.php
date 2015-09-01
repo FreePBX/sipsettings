@@ -169,20 +169,16 @@ $submit_changes = _("Submit Changes");
 	<!--RTP Checksums-->
 	<div class="element-container">
 		<div class="row">
-			<div class="col-md-12">
-				<div class="row">
-					<div class="form-group">
-						<div class="col-md-3">
-							<label class="control-label" for="rtpchecksums"><?php echo _("RTP Checksums") ?></label>
-							<i class="fa fa-question-circle fpbx-help-icon" data-for="rtpchecksums"></i>
-						</div>
-						<div class="col-md-9 radioset">
-							<input type="radio" name="rtpchecksums" id="rtpchecksumsyes" value="Yes" <?php echo ($this->getConfig("rtpchecksums") == "Yes"?"CHECKED":"") ?>>
-							<label for="rtpchecksumsyes"><?php echo _("Yes");?></label>
-							<input type="radio" name="rtpchecksums" id="rtpchecksumsno" value="No" <?php echo ($this->getConfig("rtpchecksums") == "Yes"?"":"CHECKED") ?>>
-							<label for="rtpchecksumsno"><?php echo _("No");?></label>
-						</div>
-					</div>
+			<div class="form-group">
+				<div class="col-md-3">
+					<label class="control-label" for="rtpchecksums"><?php echo _("RTP Checksums") ?></label>
+					<i class="fa fa-question-circle fpbx-help-icon" data-for="rtpchecksums"></i>
+				</div>
+				<div class="col-md-9 radioset">
+					<input type="radio" name="rtpchecksums" id="rtpchecksumsyes" value="yes" <?php echo (strtolower($this->getConfig("rtpchecksums")) == "yes"?"checked":"") ?>>
+					<label for="rtpchecksumsyes"><?php echo _("Yes");?></label>
+					<input type="radio" name="rtpchecksums" id="rtpchecksumsno" value="No" <?php echo (strtolower($this->getConfig("rtpchecksums")) != "yes"?"checked":"") ?>>
+					<label for="rtpchecksumsno"><?php echo _("No");?></label>
 				</div>
 			</div>
 		</div>
@@ -196,20 +192,16 @@ $submit_changes = _("Submit Changes");
 	<!--Strict RTP-->
 	<div class="element-container">
 		<div class="row">
-			<div class="col-md-12">
-				<div class="row">
-					<div class="form-group">
-						<div class="col-md-3 radioset">
-							<label class="control-label" for="strictrtp"><?php echo _("Strict RTP") ?></label>
-							<i class="fa fa-question-circle fpbx-help-icon" data-for="strictrtp"></i>
-						</div>
-						<div class="col-md-9 radioset">
-							<input type="radio" name="strictrtp" id="strictrtpyes" value="Yes" <?php echo ($this->getConfig("strictrtp") == "Yes"?"CHECKED":"") ?>>
-							<label for="strictrtpyes"><?php echo _("Yes");?></label>
-							<input type="radio" name="strictrtp" id="strictrtpno" value="No" <?php echo ($this->getConfig("strictrtp") == "Yes"?"":"CHECKED") ?>>
-							<label for="strictrtpno"><?php echo _("No");?></label>
-						</div>
-					</div>
+			<div class="form-group">
+				<div class="col-md-3 radioset">
+					<label class="control-label" for="strictrtp"><?php echo _("Strict RTP") ?></label>
+					<i class="fa fa-question-circle fpbx-help-icon" data-for="strictrtp"></i>
+				</div>
+				<div class="col-md-9 radioset">
+					<input type="radio" name="strictrtp" id="strictrtpyes" value="Yes" <?php echo (strtolower($this->getConfig("strictrtp")) == "yes"?"checked":"") ?>>
+					<label for="strictrtpyes"><?php echo _("Yes");?></label>
+					<input type="radio" name="strictrtp" id="strictrtpno" value="No" <?php echo (strtolower($this->getConfig("strictrtp")) != "yes"?"checked":"") ?>>
+					<label for="strictrtpno"><?php echo _("No");?></label>
 				</div>
 			</div>
 		</div>
