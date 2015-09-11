@@ -39,6 +39,9 @@ class NatGet {
 		// Return a list of routes the machine knows about.
 		$route = fpbx_which('route');
 		exec("$route -nv",$output,$retcode);
+		if($retcode != 0) {
+			return array();
+		}
 		// Drop the first two lines, which are just headers..
 		array_shift($output);
 		array_shift($output);
@@ -46,6 +49,10 @@ class NatGet {
 		$routes = array();
 		foreach ($output as $line) {
 			$arr = preg_split('/\s+/', $line);
+			if(count($arr) < 3) {
+				//some strange value we dont understand
+				continue;
+			}
 			if ($arr[2] == "0.0.0.0" || $arr[2] == "255.255.255.255") {
 				// Don't care about default or host routes
 				continue;

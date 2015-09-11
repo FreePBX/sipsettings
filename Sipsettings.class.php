@@ -213,6 +213,7 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 		// This is in Request_Helper.class.php
 		$ignored = $this->importRequest(null, "/(.+)bindip-(.+)$/");
 		// There may be binds that matched..
+		$binds = array();
 		foreach ($ignored as $key => $var) {
 			if (preg_match("/(.+)bindip-(.+)$/", $key, $match)) {
 				$ip = str_replace("_", ".", $match[2]);
@@ -221,7 +222,7 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 			}
 		}
 
-		if ($binds) {
+		if (!empty($binds)) {
 			$this->setConfig("binds", $binds);
 		}
 
