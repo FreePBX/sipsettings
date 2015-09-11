@@ -30,14 +30,8 @@ msgstr ""
 "X-Poedit-Country: SWEDEN\n"
 
 #: chansip.page.php:402
-msgid ""
-" If you clear each codec and then add them one at a time, submitting with "
-"each addition, they will be added in order which will effect the codec "
-"priority."
-msgstr ""
-" Om du avmarkerar varje codec och sedan lägger till och spara dom en åt "
-"gången, kommer dom att sorteras i den ordning de läggs till och påverka "
-"prioriteten för codec"
+msgid " If you clear each codec and then add them one at a time, submitting with each addition, they will be added in order which will effect the codec priority."
+msgstr " Om du avmarkerar varje codec och sedan lägger till och spara dom en åt gången, kommer dom att sorteras i den ordning de läggs till och påverka prioriteten för codec"
 
 #: chansip.page.php:1091
 msgid " See current version of Asterisk for limitations on SRV functionality."
@@ -82,39 +76,20 @@ msgid "Allow SIP Guests"
 msgstr "Tillåt SIP-gäster"
 
 #: general.page.php:46
-msgid ""
-"Allowing Inbound Anonymous SIP calls means that you will allow any call "
-"coming in form an un-known IP source to be directed to the 'from-pstn' side "
-"of your dialplan. This is where inbound calls come in. Although FreePBX "
-"severely restricts access to the internal dialplan, allowing Anonymous SIP "
-"calls does introduced additional security risks. If you allow SIP URI "
-"dialing to your PBX or use services like ENUM, you will be required to set "
-"this to Yes for Inbound traffic to work. This is NOT an Asterisk sip.conf "
-"setting, it is used in the dialplan in conjuction with the Default Context. "
-"If that context is changed above to something custom this setting may be "
-"rendered useless as well as if 'Allow SIP Guests' is set to no."
+msgid "Allowing Inbound Anonymous SIP calls means that you will allow any call coming in form an un-known IP source to be directed to the 'from-pstn' side of your dialplan. This is where inbound calls come in. Although FreePBX severely restricts access to the internal dialplan, allowing Anonymous SIP calls does introduced additional security risks. If you allow SIP URI dialing to your PBX or use services like ENUM, you will be required to set this to Yes for Inbound traffic to work. This is NOT an Asterisk sip.conf setting, it is used in the dialplan in conjuction with the Default Context. If that context is changed above to something custom this setting may be rendered useless as well as if 'Allow SIP Guests' is set to no."
 msgstr ""
 
 #: chanpj.page.php:245
-msgid ""
-"Also be warned: After you enable/disable a transport, asterisk needs to be "
-"<strong>restarted</strong>, not just reloaded."
+msgid "Also be warned: After you enable/disable a transport, asterisk needs to be <strong>restarted</strong>, not just reloaded."
 msgstr ""
 
 #: assets/js/sipsettings.js:122
-msgid ""
-"An Error occurred trying fetch network configuration and external IP address"
+msgid "An Error occurred trying fetch network configuration and external IP address"
 msgstr ""
 
 #: chansip.page.php:197
-msgid ""
-"Asterisk NAT setting:<br /> yes = Always ignore info and assume NAT<br /> no "
-"= Use NAT mode only according to RFC3581 <br /> never = Never attempt NAT "
-"mode or RFC3581 <br /> route = Assume NAT, don't send rport"
-msgstr ""
-"Asterisk NAT-inställningar:<br /> yes = Ignorera alltid info och förutsätt "
-"NAT<br /> no = Använd NAT-läge enligt RFC3581 <br /> never = Använd aldrig "
-"NAT-läge eller RFC3581 <br /> route = Förutsätt NAT, sänd inte rport "
+msgid "Asterisk NAT setting:<br /> yes = Always ignore info and assume NAT<br /> no = Use NAT mode only according to RFC3581 <br /> never = Never attempt NAT mode or RFC3581 <br /> route = Assume NAT, don't send rport"
+msgstr "Asterisk NAT-inställningar:<br /> yes = Ignorera alltid info och förutsätt NAT<br /> no = Använd NAT-läge enligt RFC3581 <br /> never = Använd aldrig NAT-läge eller RFC3581 <br /> route = Förutsätt NAT, sänd inte rport "
 
 #: Sipsettings.class.php:116
 #, php-format
@@ -122,65 +97,28 @@ msgid "Asterisk is currently using %s for SIP Traffic."
 msgstr ""
 
 #: chansip.page.php:992
-msgid ""
-"Asterisk supports IPv6. An address of '::' will listen on both IPv4 and IPv6."
+msgid "Asterisk supports IPv6. An address of '::' will listen on both IPv4 and IPv6."
 msgstr ""
 
 #: chansip.page.php:991
-msgid ""
-"Asterisk: bindaddr. The IP address to bind to and listen for calls on the "
-"Bind Port. If set to 0.0.0.0 Asterisk will listen on all addresses. It is "
-"recommended to leave this blank."
-msgstr ""
-"Asterisk: bindaddr. IP-adressen att binda till och lyssna efter samtal på "
-"Bindporten. Om detta sätts till 0.0.0.0 kommer Asterisk att lyssna på alla "
-"adresser. Det är rekommenderat att lämna detta fält tomt."
+msgid "Asterisk: bindaddr. The IP address to bind to and listen for calls on the Bind Port. If set to 0.0.0.0 Asterisk will listen on all addresses. It is recommended to leave this blank."
+msgstr "Asterisk: bindaddr. IP-adressen att binda till och lyssna efter samtal på Bindporten. Om detta sätts till 0.0.0.0 kommer Asterisk att lyssna på alla adresser. Det är rekommenderat att lämna detta fält tomt."
 
 #: chansip.page.php:513
-msgid ""
-"Asterisk: canreinvite. yes: standard reinvites; no: never; nonat: An "
-"additional option is to allow media path redirection (reinvite) but only "
-"when the peer where the media is being sent is known to not be behind a NAT "
-"(as the RTP core can determine it based on the apparent IP address the media "
-"arrives from; update: use UPDATE for media path redirection, instead of "
-"INVITE. (yes = update + nonat)"
-msgstr ""
-"Asterisk: canreinvite. ja: standard reinvites; nej: aldrig; nonat: Ett extra "
-"val för att tillåta omstyrning av mediaströmmen (reinvite) men endast när "
-"peer där strömmen skickas till är känd att inte vara bakom NAT (eftersom RTP "
-"kan bestämma det baserat på den synbara IP-adressen strömmen kommer från; "
-"update: använd UPDATE för mediaomstyrning i stället för INVITE. (yes = "
-"update + nonat)"
+msgid "Asterisk: canreinvite. yes: standard reinvites; no: never; nonat: An additional option is to allow media path redirection (reinvite) but only when the peer where the media is being sent is known to not be behind a NAT (as the RTP core can determine it based on the apparent IP address the media arrives from; update: use UPDATE for media path redirection, instead of INVITE. (yes = update + nonat)"
+msgstr "Asterisk: canreinvite. ja: standard reinvites; nej: aldrig; nonat: Ett extra val för att tillåta omstyrning av mediaströmmen (reinvite) men endast när peer där strömmen skickas till är känd att inte vara bakom NAT (eftersom RTP kan bestämma det baserat på den synbara IP-adressen strömmen kommer från; update: använd UPDATE för mediaomstyrning i stället för INVITE. (yes = update + nonat)"
 
 #: chansip.page.php:310
-msgid ""
-"Asterisk: externrefresh. How often to lookup and refresh the External Host "
-"FQDN, in seconds."
-msgstr ""
-"Asterisk: externrefresh. Hur ofta uppslag och uppdatering ska ske för extern "
-"FQDN i sekunder."
+msgid "Asterisk: externrefresh. How often to lookup and refresh the External Host FQDN, in seconds."
+msgstr "Asterisk: externrefresh. Hur ofta uppslag och uppdatering ska ske för extern FQDN i sekunder."
 
 #: chansip.page.php:343
-msgid ""
-"Asterisk: g726nonstandard. If the peer negotiates G726-32 audio, use AAL2 "
-"packing order instead of RFC3551 packing order (this is required for Sipura "
-"and Grandstream ATAs, among others). This is contrary to the RFC3551 "
-"specification, the peer _should_ be negotiating AAL2-G726-32 instead."
-msgstr ""
-"Asterisk: g726nonstandard. Om peer förhandlar G726-32 ljud, använd AAL2 "
-"packningsföljd i stället för RFC3551 (detta krävs bland annat för Sipura och "
-"Grandstream ATAs). Detta är i motsats till RFC3551 specifikationen där peer "
-"_borde_ förhandla AAL2-G726-32 i stället."
+msgid "Asterisk: g726nonstandard. If the peer negotiates G726-32 audio, use AAL2 packing order instead of RFC3551 packing order (this is required for Sipura and Grandstream ATAs, among others). This is contrary to the RFC3551 specification, the peer _should_ be negotiating AAL2-G726-32 instead."
+msgstr "Asterisk: g726nonstandard. Om peer förhandlar G726-32 ljud, använd AAL2 packningsföljd i stället för RFC3551 (detta krävs bland annat för Sipura och Grandstream ATAs). Detta är i motsats till RFC3551 specifikationen där peer _borde_ förhandla AAL2-G726-32 i stället."
 
 #: chansip.page.php:370
-msgid ""
-"Asterisk: t38pt_udptl. Enables T38 passthrough if enabled. This SIP channels "
-"that support sending/receiving T38 Fax codecs to pass the call. Asterisk can "
-"not process the media."
-msgstr ""
-"Asterisk: t38pt_udptl. Tillåter T38 passthrough om detta är aktiverat. This "
-"SIP channels that support sending/receiving T38 Fax codecs to pass the call. "
-"Asterisk can not process the media."
+msgid "Asterisk: t38pt_udptl. Enables T38 passthrough if enabled. This SIP channels that support sending/receiving T38 Fax codecs to pass the call. Asterisk can not process the media."
+msgstr "Asterisk: t38pt_udptl. Tillåter T38 passthrough om detta är aktiverat. This SIP channels that support sending/receiving T38 Fax codecs to pass the call. Asterisk can not process the media."
 
 #: chansip.page.php:318 general.page.php:321
 msgid "Audio Codecs"
@@ -227,20 +165,12 @@ msgid "Codecs"
 msgstr "Codec"
 
 #: chansip.page.php:668
-msgid ""
-"Control whether subscriptions INUSE get sent ONHOLD when call is placed on "
-"hold. Useful when using BLF."
-msgstr ""
-"Används för prenumerationer som är INUSE får skickat till sig ONHOLD när ett "
-"samtal är på vänt. Användbart för BLF."
+msgid "Control whether subscriptions INUSE get sent ONHOLD when call is placed on hold. Useful when using BLF."
+msgstr "Används för prenumerationer som är INUSE får skickat till sig ONHOLD när ett samtal är på vänt. Användbart för BLF."
 
 #: chansip.page.php:641
-msgid ""
-"Control whether subscriptions already INUSE get sent RINGING when another "
-"call is sent. Useful when using BLF."
-msgstr ""
-"Används för prenumerationer som är INUSE får skickat till sig RINGING när "
-"ett annat samtal skickas. Användbart för BLF."
+msgid "Control whether subscriptions already INUSE get sent RINGING when another call is sent. Useful when using BLF."
+msgstr "Används för prenumerationer som är INUSE får skickat till sig RINGING när ett annat samtal skickas. Användbart för BLF."
 
 #: chansip.page.php:973
 msgid "Default Context"
@@ -252,11 +182,7 @@ msgid "Default bind port for CHAN_PJSIP is: %s, CHAN_SIP is: %s"
 msgstr ""
 
 #: chansip.page.php:985
-msgid ""
-"Default context for incoming calls if not specified. FreePBX sets this to "
-"from-sip-external which is used in conjunction with the Allow Anonymous SIP "
-"calls. If you change this you will effect that behavior. It is recommended "
-"to leave this blank."
+msgid "Default context for incoming calls if not specified. FreePBX sets this to from-sip-external which is used in conjunction with the Allow Anonymous SIP calls. If you change this you will effect that behavior. It is recommended to leave this blank."
 msgstr ""
 
 #: chansip.page.php:793
@@ -316,15 +242,7 @@ msgid "Enables jitter buffer frame logging."
 msgstr ""
 
 #: chansip.page.php:825
-msgid ""
-"Enables the use of a jitterbuffer on the receiving side of a SIP channel. An "
-"enabled jitterbuffer will be used only if the sending side can create and "
-"the receiving side can not accept jitter. The SIP channel can accept jitter, "
-"thus a jitterbuffer on the receive SIP side will be used only if it is "
-"forced and enabled. An example is if receiving from a jittery channel to "
-"voicemail, the jitter buffer will be used if enabled. However, it will not "
-"be used when sending to a SIP endpoint since they usually have their own "
-"jitter buffers. See jbforce to force it's use always."
+msgid "Enables the use of a jitterbuffer on the receiving side of a SIP channel. An enabled jitterbuffer will be used only if the sending side can create and the receiving side can not accept jitter. The SIP channel can accept jitter, thus a jitterbuffer on the receive SIP side will be used only if it is forced and enabled. An example is if receiving from a jittery channel to voicemail, the jitter buffer will be used if enabled. However, it will not be used when sending to a SIP endpoint since they usually have their own jitter buffers. See jbforce to force it's use always."
 msgstr ""
 
 #: general.page.php:151
@@ -346,9 +264,7 @@ msgid "External Address"
 msgstr ""
 
 #: chansip.page.php:283
-msgid ""
-"External FQDN as seen on the WAN side of the router and updated dynamically, "
-"e.g. mydomain.example.com. (asterisk: externhost)"
+msgid "External FQDN as seen on the WAN side of the router and updated dynamically, e.g. mydomain.example.com. (asterisk: externhost)"
 msgstr ""
 
 #: chanpj.page.php:110
@@ -356,18 +272,12 @@ msgid "External IP Address"
 msgstr ""
 
 #: functions.inc.php:340
-msgid ""
-"External IP can not be blank when NAT Mode is set to Static and no default "
-"IP address provided on the main page"
+msgid "External IP can not be blank when NAT Mode is set to Static and no default IP address provided on the main page"
 msgstr ""
 
 #: chansip.page.php:257
-msgid ""
-"External Static IP or FQDN as seen on the WAN side of the router. (asterisk: "
-"externip)"
-msgstr ""
-"Extern statisk IP-adress eller FQDN som är på WAN-sidan av routern. "
-"(asterisk: externip)"
+msgid "External Static IP or FQDN as seen on the WAN side of the router. (asterisk: externip)"
+msgstr "Extern statisk IP-adress eller FQDN som är på WAN-sidan av routern. (asterisk: externip)"
 
 #: chansip.page.php:870
 msgid "Fixed"
@@ -378,21 +288,12 @@ msgid "Force Jitter Buffer"
 msgstr "Forcera jitterbuffer"
 
 #: chansip.page.php:853
-msgid ""
-"Forces the use of a jitterbuffer on the receive side of a SIP channel. "
-"Normally the jitter buffer will not be used if receiving a jittery channel "
-"but sending it off to another channel such as another SIP channel to an "
-"endpoint, since there is typically a jitter buffer at the far end. This will "
-"force the use of the jitter buffer before sending the stream on. This is not "
-"typically desired as it adds additional latency into the stream."
+msgid "Forces the use of a jitterbuffer on the receive side of a SIP channel. Normally the jitter buffer will not be used if receiving a jittery channel but sending it off to another channel such as another SIP channel to an endpoint, since there is typically a jitter buffer at the far end. This will force the use of the jitter buffer before sending the stream on. This is not typically desired as it adds additional latency into the stream."
 msgstr ""
 
 #: chansip.page.php:614
-msgid ""
-"Frequency in seconds to check if MWI state has changed and inform peers."
-msgstr ""
-"Antal sekunder mellan kontrollerna om MWI har ändrat läge, meddela sedan "
-"peers."
+msgid "Frequency in seconds to check if MWI state has changed and inform peers."
+msgstr "Antal sekunder mellan kontrollerna om MWI har ändrat läge, meddela sedan peers."
 
 #: Sipsettings.class.php:133
 msgid "General SIP Settings"
@@ -403,18 +304,11 @@ msgid "Generate manager events when sip ua performs events (e.g. hold)."
 msgstr "Genererar händelser när en sip ua utför händelser, t.ex. lägg på vänt"
 
 #: general.page.php:242
-msgid ""
-"Hostname or address for the STUN server used when determining the external "
-"IP address and port an RTP session can be reached at. The port number is "
-"optional. If omitted the default value of 3478 will be used. This option is "
-"blank by default. (A list of STUN servers: http://wiki.freepbx.org/x/YQCUAg)"
+msgid "Hostname or address for the STUN server used when determining the external IP address and port an RTP session can be reached at. The port number is optional. If omitted the default value of 3478 will be used. This option is blank by default. (A list of STUN servers: http://wiki.freepbx.org/x/YQCUAg)"
 msgstr ""
 
 #: general.page.php:266
-msgid ""
-"Hostname or address for the TURN server to be used as a relay. The port "
-"number is optional. If omitted the default value of 3478 will be used. This "
-"option is blank by default."
+msgid "Hostname or address for the TURN server to be used as a relay. The port number is optional. If omitted the default value of 3478 will be used. This option is blank by default."
 msgstr ""
 
 #: chansip.page.php:209
@@ -430,12 +324,7 @@ msgid "Implementation"
 msgstr "Implementation"
 
 #: chansip.page.php:226
-msgid ""
-"Indicate whether the box has a public IP or requires NAT settings.<br/>If "
-"the public address is not correctly detected you can supply the external "
-"address manually.<br/>If your IP address is not static you can specify a "
-"dynamicDNS host name under Dynamic IP.<br/> Automatic configuration of what "
-"is often put in sip_nat.conf"
+msgid "Indicate whether the box has a public IP or requires NAT settings.<br/>If the public address is not correctly detected you can supply the external address manually.<br/>If your IP address is not static you can specify a dynamicDNS host name under Dynamic IP.<br/> Automatic configuration of what is often put in sip_nat.conf"
 msgstr ""
 
 #: chansip.page.php:892
@@ -455,18 +344,11 @@ msgid "Jitter Buffer Settings"
 msgstr "Inställningar för Jitterbuffer"
 
 #: chansip.page.php:880
-msgid ""
-"Jitterbuffer implementation, used on the receiving side of a SIP channel. "
-"Two implementations are currently available:<br /> fixed: size always equals "
-"to jbmaxsize;<br /> adaptive: with variable size (the new jb of IAX2)."
+msgid "Jitterbuffer implementation, used on the receiving side of a SIP channel. Two implementations are currently available:<br /> fixed: size always equals to jbmaxsize;<br /> adaptive: with variable size (the new jb of IAX2)."
 msgstr ""
 
 #: chansip.page.php:955
-msgid ""
-"Jump in the frame timestamps over which the jitterbuffer is resynchronized. "
-"Useful to improve the quality of the voice, with big jumps in/broken "
-"timestamps, usually sent from exotic devices and programs. Can be set to -1 "
-"to disable."
+msgid "Jump in the frame timestamps over which the jitterbuffer is resynchronized. Useful to improve the quality of the voice, with big jumps in/broken timestamps, usually sent from exotic devices and programs. Can be set to -1 to disable."
 msgstr ""
 
 #: assets/js/sipsettings.js:175
@@ -478,10 +360,7 @@ msgid "Local Networks"
 msgstr "Lokalt nätverk"
 
 #: chansip.page.php:1037
-msgid ""
-"Local incoming UDP Port that Asterisk will bind to and listen for SIP "
-"messages. In the past CHAN_SIP was defaulted to port 5060, in new installs "
-"this is defaulted to 5061"
+msgid "Local incoming UDP Port that Asterisk will bind to and listen for SIP messages. In the past CHAN_SIP was defaulted to port 5060, in new installs this is defaulted to 5061"
 msgstr ""
 
 #: chanpj.page.php:111
@@ -489,17 +368,12 @@ msgid "Local network"
 msgstr ""
 
 #: general.page.php:120
-msgid ""
-"Local network settings in the form of ip/cidr or ip/netmask. For networks "
-"with more than 1 LAN subnets, use the Add Local Network Field button for "
-"more fields. Blank fields will be ignored."
+msgid "Local network settings in the form of ip/cidr or ip/netmask. For networks with more than 1 LAN subnets, use the Add Local Network Field button for more fields. Blank fields will be ignored."
 msgstr ""
 
 #: functions.inc.php:396
 msgid "Localnet netmask must be formatted properly (e.g. 255.255.255.0 or 24)"
-msgstr ""
-"Nätmasken för localnet måste vara korrekt formaterat (t.ex. 255.255.255.0 "
-"eller 24)"
+msgstr "Nätmasken för localnet måste vara korrekt formaterat (t.ex. 255.255.255.0 eller 24)"
 
 #: functions.inc.php:391
 msgid "Localnet setting must be an IP address"
@@ -583,14 +457,11 @@ msgid "Non-Standard g726"
 msgstr "Icke-standard g726"
 
 #: chanpj.page.php:244
-msgid ""
-"Note that the interface is only displayed for your information, and is not "
-"referenced by asterisk."
+msgid "Note that the interface is only displayed for your information, and is not referenced by asterisk."
 msgstr ""
 
 #: chansip.page.php:257
-msgid ""
-"Note that this will, by default, inherit the settings from the General page"
+msgid "Note that this will, by default, inherit the settings from the General page"
 msgstr ""
 
 #: chansip.page.php:592
@@ -606,11 +477,7 @@ msgid "Notify Ringing"
 msgstr "Notify ringing"
 
 #: chansip.page.php:721
-msgid ""
-"Number of times to try and register before giving up. A value of 0 means "
-"keep trying forever. Normally this should be set to 0 so that Asterisk will "
-"continue to register until successful in the case of network or gateway "
-"outages."
+msgid "Number of times to try and register before giving up. A value of 0 means keep trying forever. Normally this should be set to 0 so that Asterisk will continue to register until successful in the case of network or gateway outages."
 msgstr ""
 
 #: chansip.page.php:1149
@@ -626,9 +493,7 @@ msgid "PJSIP transport port conflicts with SIP port"
 msgstr ""
 
 #: general.page.php:314
-msgid ""
-"Password used to authenticate with TURN relay server. This option is "
-"disabled by default."
+msgid "Password used to authenticate with TURN relay server. This option is disabled by default."
 msgstr ""
 
 #: chanpj.page.php:108
@@ -636,9 +501,7 @@ msgid "Port to Listen On"
 msgstr ""
 
 #: assets/js/sipsettings.js:13
-msgid ""
-"Port/Bind Address has changed. This requires an Asterisk restart after Apply "
-"Config"
+msgid "Port/Bind Address has changed. This requires an Asterisk restart after Apply Config"
 msgstr ""
 
 #: chansip.page.php:214
@@ -702,9 +565,7 @@ msgid "Reset"
 msgstr ""
 
 #: chansip.page.php:697
-msgid ""
-"Retry registration attempts every registertimeout seconds until successful "
-"or until registrationattempts tries have been made."
+msgid "Retry registration attempts every registertimeout seconds until successful or until registrationattempts tries have been made."
 msgstr ""
 
 #: page.sipsettings.php:15
@@ -728,17 +589,13 @@ msgid "Security Settings"
 msgstr ""
 
 #: chansip.page.php:585
-msgid ""
-"Send keepalives in the RTP stream to keep NAT open during periods where no "
-"RTP stream may be flowing (like on hold)."
+msgid "Send keepalives in the RTP stream to keep NAT open during periods where no RTP stream may be flowing (like on hold)."
 msgstr ""
 
 #: chansip.page.php:1217
 #, php-format
 msgid "Settings in %s may override these. Those settings should be removed."
-msgstr ""
-"Inställningar i %s kan åsidosätta inställningarna du gör här. Du bör ta bort "
-"dom."
+msgstr "Inställningar i %s kan åsidosätta inställningarna du gör här. Du bör ta bort dom."
 
 #: chanpj.page.php:218 chanpj.page.php:233
 msgid "Show Advanced Settings"
@@ -781,25 +638,16 @@ msgid "TURN Server Username"
 msgstr ""
 
 #: chansip.page.php:561
-msgid ""
-"Terminate call if rtpholdtimeout seconds of no RTP or RTCP activity on the "
-"audio channel when we're on hold (must be > rtptimeout)."
+msgid "Terminate call if rtpholdtimeout seconds of no RTP or RTCP activity on the audio channel when we're on hold (must be > rtptimeout)."
 msgstr ""
 
 #: chansip.page.php:537
-msgid ""
-"Terminate call if rtptimeout seconds of no RTP or RTCP activity on the audio "
-"channel when we're not on hold. This is to be able to hangup a call in the "
-"case of a phone disappearing from the net, like a powerloss or someone "
-"tripping over a cable."
+msgid "Terminate call if rtptimeout seconds of no RTP or RTCP activity on the audio channel when we're not on hold. This is to be able to hangup a call in the case of a phone disappearing from the net, like a powerloss or someone tripping over a cable."
 msgstr ""
 
 #: install.php:55
 #, php-format
-msgid ""
-"The default bind ports for %s have changed. Please keep this is mind while "
-"configuring your devices. You can change this in SIP Settings. CHAN_PJSIP "
-"is: %s, CHAN_SIP is: %s"
+msgid "The default bind ports for %s have changed. Please keep this is mind while configuring your devices. You can change this in SIP Settings. CHAN_PJSIP is: %s, CHAN_SIP is: %s"
 msgstr ""
 
 #: chanpj.page.php:108
@@ -823,9 +671,7 @@ msgid "This is the default Codec setting for new Trunks and Extensions."
 msgstr ""
 
 #: general.page.php:218
-msgid ""
-"This will drop RTP packets that do not come from the source of the RTP "
-"stream. It is unusual to turn this off"
+msgid "This will drop RTP packets that do not come from the source of the RTP stream. It is unusual to turn this off"
 msgstr ""
 
 #: chanpj.page.php:240
@@ -833,9 +679,7 @@ msgid "Transports"
 msgstr ""
 
 #: chanpj.page.php:109
-msgid ""
-"Typically used with SIP calling. Example user@domain, where domain is the "
-"value that would be entered here"
+msgid "Typically used with SIP calling. Example user@domain, where domain is the value that would be entered here"
 msgstr ""
 
 #: Natget.class.php:29
@@ -851,9 +695,7 @@ msgid "Use "
 msgstr ""
 
 #: general.page.php:290
-msgid ""
-"Username used to authenticate with TURN relay server. This option is "
-"disabled by default."
+msgid "Username used to authenticate with TURN relay server. This option is disabled by default."
 msgstr ""
 
 #: chansip.page.php:377 chansip.page.php:415 chansip.page.php:449
@@ -865,13 +707,7 @@ msgid "Video Support"
 msgstr "Videosupport"
 
 #: chanpj.page.php:206 chansip.page.php:1064
-msgid ""
-"When set Asterisk will allow Guest SIP calls and send them to the Default "
-"SIP context. Turning this off will keep anonymous SIP calls from entering "
-"the system. Doing such will also stop 'Allow Anonymous Inbound SIP Calls' "
-"from functioning. Allowing guest calls but rejecting the Anonymous SIP calls "
-"below will enable you to see the call attempts and debug incoming calls that "
-"may be mis-configured and appearing as guests."
+msgid "When set Asterisk will allow Guest SIP calls and send them to the Default SIP context. Turning this off will keep anonymous SIP calls from entering the system. Doing such will also stop 'Allow Anonymous Inbound SIP Calls' from functioning. Allowing guest calls but rejecting the Anonymous SIP calls below will enable you to see the call attempts and debug incoming calls that may be mis-configured and appearing as guests."
 msgstr ""
 
 #: general.page.php:191
@@ -892,24 +728,11 @@ msgid "You can change this on the Advanced Settings Page"
 msgstr ""
 
 #: chansip.page.php:1168
-msgid ""
-"You may set any other SIP settings not present here that are allowed to be "
-"configured in the General section of sip.conf. There will be no error "
-"checking against these settings so check them carefully. They should be "
-"entered as:<br /> [setting] = [value]<br /> in the boxes below. Click the "
-"Add Field box to add additional fields. Blank boxes will be deleted when "
-"submitted."
-msgstr ""
-"Du kan göra fler SIP-inställningar som inte visas här men som är tillåtna "
-"att konfigurera i den generella sektionen av sip.conf. Ingen felkontroll "
-"kommer att göras mot dessa inställningar så kontrollera dom noga. Syntaxen "
-"för värdena är <br /> [inställning] = [värde]<br />  i fälten nedan. Klicka "
-"på Lägg till fält för att lägga till fler. Tomma fält kommer att tas bort "
-"när sidan sparas."
+msgid "You may set any other SIP settings not present here that are allowed to be configured in the General section of sip.conf. There will be no error checking against these settings so check them carefully. They should be entered as:<br /> [setting] = [value]<br /> in the boxes below. Click the Add Field box to add additional fields. Blank boxes will be deleted when submitted."
+msgstr "Du kan göra fler SIP-inställningar som inte visas här men som är tillåtna att konfigurera i den generella sektionen av sip.conf. Ingen felkontroll kommer att göras mot dessa inställningar så kontrollera dom noga. Syntaxen för värdena är <br /> [inställning] = [värde]<br />  i fälten nedan. Klicka på Lägg till fält för att lägga till fler. Tomma fält kommer att tas bort när sidan sparas."
 
 #: chanpj.page.php:111
-msgid ""
-"You may use this to to define an additional local network per interface."
+msgid "You may use this to to define an additional local network per interface."
 msgstr ""
 
 #: install.php:94
@@ -930,8 +753,7 @@ msgstr "kontrollerar tabellen sipsettings.."
 
 #: install.php:79
 msgid "fatal error occurred populating defaults, check module"
-msgstr ""
-"allvarligt fel inträffade när standardvärde skrevs, kontrollera modulen"
+msgstr "allvarligt fel inträffade när standardvärde skrevs, kontrollera modulen"
 
 #: chansip.page.php:467
 msgid "kb/s"
@@ -974,181 +796,69 @@ msgstr ""
 msgid "yes"
 msgstr "ja"
 
+#: chansip.page.php:610
+msgid "Asterisk: allowguest. When set Asterisk will allow Guest SIP calls and send them to the Default SIP context. Turning this off will keep anonymous SIP calls from entering the system. Doing such will also stop 'Allow Anonymous Inbound SIP Calls' from functioning. Allowing guest calls but rejecting the Anonymous SIP calls below will enable you to see the call attempts and debug incoming calls that may be mis-configured and appearing as guests."
+msgstr ""
+
+#: general.page.php:46
+msgid "Detect External IP"
+msgstr ""
+
+#: general.page.php:101
+msgid "Hostname or address for the STUN server used when determining the external IP address and port an RTP session can be reached at. The port number is optional. If omitted the default value of 3478 will be used. This option is blank by default. (A list of STUN servers: https://gist.github.com/zziuni/3741933)"
+msgstr ""
+
+#: general.page.php:21
+msgid "Items may have moved! Please use the navigation on the right"
+msgstr ""
+
 #~ msgid "Advanced Administration"
 #~ msgstr "Abancerade inställningar"
 
-#~ msgid ""
-#~ "Asterisk 1.8 all supports IPv6. An address of '::' will listen on both "
-#~ "IPv4 and IPv6."
-#~ msgstr ""
-#~ "Asterisk 1.8.x stöder IPv6. En adress på '::' kommer att lysnna på både "
-#~ "IPv4 och IPv6."
+#~ msgid "Asterisk 1.8 all supports IPv6. An address of '::' will listen on both IPv4 and IPv6."
+#~ msgstr "Asterisk 1.8.x stöder IPv6. En adress på '::' kommer att lysnna på både IPv4 och IPv6."
 
 #~ msgid "Asterisk SIP Settings"
 #~ msgstr "Asterisk SIP-inställningar"
 
-#~ msgid ""
-#~ "Asterisk: allowguest. When set Asterisk will allow Guest SIP calls and "
-#~ "send them to the Default SIP context. Turning this off will keep "
-#~ "anonymous SIP calls from entering the system. However, the Allow "
-#~ "Anonymous SIP calls from the General Settings section will not function. "
-#~ "Allowing guest calls but rejecting the Anonymous SIP calls in the General "
-#~ "Section will enable you to see the call attempts and debug incoming calls "
-#~ "that may be mis-configured and appearing as guests."
-#~ msgstr ""
-#~ "Asterisk: allowguest. När denna inställning är satt till Ja kommer "
-#~ "Asterisk att tillåta gästsamtal och skicka dom till standard SIP-"
-#~ "sammanhanget. Om detta sätts till Nej kommer inga gästsamtal att "
-#~ "tillåtas. Emellertid kommer då inställningen i Generella inställningar, "
-#~ "Tillåt anonyma samtal, att sluta fungera. Att tillåta gäster men inte "
-#~ "anonyma samtal ger dig möjlighet att se alla samtalsförsök och avlusa "
-#~ "inkommande samtal som kan vara felaktigt konfigurerade och uppträda som "
-#~ "gäst."
+#~ msgid "Asterisk: allowguest. When set Asterisk will allow Guest SIP calls and send them to the Default SIP context. Turning this off will keep anonymous SIP calls from entering the system. However, the Allow Anonymous SIP calls from the General Settings section will not function. Allowing guest calls but rejecting the Anonymous SIP calls in the General Section will enable you to see the call attempts and debug incoming calls that may be mis-configured and appearing as guests."
+#~ msgstr "Asterisk: allowguest. När denna inställning är satt till Ja kommer Asterisk att tillåta gästsamtal och skicka dom till standard SIP-sammanhanget. Om detta sätts till Nej kommer inga gästsamtal att tillåtas. Emellertid kommer då inställningen i Generella inställningar, Tillåt anonyma samtal, att sluta fungera. Att tillåta gäster men inte anonyma samtal ger dig möjlighet att se alla samtalsförsök och avlusa inkommande samtal som kan vara felaktigt konfigurerade och uppträda som gäst."
 
-#~ msgid ""
-#~ "Asterisk: bindport. Local incoming UDP Port that Asterisk will bind to "
-#~ "and listen for SIP messages. The SIP standard is 5060 and in most cases "
-#~ "this is what you want. It is recommended to leave this blank."
-#~ msgstr ""
-#~ "Asterisk: bindport. Lokal inkommande UDP-port som Asterisk binder sig "
-#~ "till och lyssnar efter SIP-meddelanden. Standardporten för SIP är 5060 "
-#~ "och i de flesta fall är vad du vill ha. Det är rekommenderat att lämna "
-#~ "detta fält tomt."
+#~ msgid "Asterisk: bindport. Local incoming UDP Port that Asterisk will bind to and listen for SIP messages. The SIP standard is 5060 and in most cases this is what you want. It is recommended to leave this blank."
+#~ msgstr "Asterisk: bindport. Lokal inkommande UDP-port som Asterisk binder sig till och lyssnar efter SIP-meddelanden. Standardporten för SIP är 5060 och i de flesta fall är vad du vill ha. Det är rekommenderat att lämna detta fält tomt."
 
-#~ msgid ""
-#~ "Asterisk: context. Default context for incoming calls if not specified. "
-#~ "FreePBX sets this to from-sip-external which is used in conjunction with "
-#~ "the Allow Anonymous SIP calls. If you change this you will effect that "
-#~ "behavior. It is recommended to leave this blank."
-#~ msgstr ""
-#~ "Asterisk: context. Standard sammanhang för inkommande samtal om det inte "
-#~ "sätts här. FreePBX sätter detta till from-sip-external som används i "
-#~ "samband med Tillåt SIP-gäster. Om du ändrar detta kommer du att påverka "
-#~ "den inställningen. Det är rekommenderat att lämna detta fält tomt."
+#~ msgid "Asterisk: context. Default context for incoming calls if not specified. FreePBX sets this to from-sip-external which is used in conjunction with the Allow Anonymous SIP calls. If you change this you will effect that behavior. It is recommended to leave this blank."
+#~ msgstr "Asterisk: context. Standard sammanhang för inkommande samtal om det inte sätts här. FreePBX sätter detta till from-sip-external som används i samband med Tillåt SIP-gäster. Om du ändrar detta kommer du att påverka den inställningen. Det är rekommenderat att lämna detta fält tomt."
 
-#~ msgid ""
-#~ "Asterisk: jbenable. Enables the use of a jitterbuffer on the receiving "
-#~ "side of a SIP channel. An enabled jitterbuffer will be used only if the "
-#~ "sending side can create and the receiving side can not accept jitter. The "
-#~ "SIP channel can accept jitter, thus a jitterbuffer on the receive SIP "
-#~ "side will be used only if it is forced and enabled. An example is if "
-#~ "receiving from a jittery channel to voicemail, the jitter buffer will be "
-#~ "used if enabled. However, it will not be used when sending to a SIP "
-#~ "endpoint since they usually have their own jitter buffers. See jbforce to "
-#~ "force it's use always."
-#~ msgstr ""
-#~ "Asterisk: jbenable. Aktiverar användandet av jitterbuffer på den "
-#~ "mottagande sidan av en SIP-kanal. En aktiverad jitterbuffer används bara "
-#~ "om den sändande sidan kan skapa och den mottagande sidan inte kan "
-#~ "acceptera jitter. SIP-kanalen kan acceptera jitter, en jitterbuffer på "
-#~ "den mottagande SIP-sidan kommer bara att användas om den är forcerad och "
-#~ "aktiverad. Ett exempel är om mottagning sker från en jitterkanal till "
-#~ "röstbrevlådan kommer jitterbuffern att användas om den är aktiverad. "
-#~ "Emellertid kommer detta inte användas när det skickas till en SIP-enhet "
-#~ "eftersom dom vanligtvis har deras egna jitterbuffrar. Se även jbforce för "
-#~ "att forcera jitterbuffrar att alltid användas."
+#~ msgid "Asterisk: jbenable. Enables the use of a jitterbuffer on the receiving side of a SIP channel. An enabled jitterbuffer will be used only if the sending side can create and the receiving side can not accept jitter. The SIP channel can accept jitter, thus a jitterbuffer on the receive SIP side will be used only if it is forced and enabled. An example is if receiving from a jittery channel to voicemail, the jitter buffer will be used if enabled. However, it will not be used when sending to a SIP endpoint since they usually have their own jitter buffers. See jbforce to force it's use always."
+#~ msgstr "Asterisk: jbenable. Aktiverar användandet av jitterbuffer på den mottagande sidan av en SIP-kanal. En aktiverad jitterbuffer används bara om den sändande sidan kan skapa och den mottagande sidan inte kan acceptera jitter. SIP-kanalen kan acceptera jitter, en jitterbuffer på den mottagande SIP-sidan kommer bara att användas om den är forcerad och aktiverad. Ett exempel är om mottagning sker från en jitterkanal till röstbrevlådan kommer jitterbuffern att användas om den är aktiverad. Emellertid kommer detta inte användas när det skickas till en SIP-enhet eftersom dom vanligtvis har deras egna jitterbuffrar. Se även jbforce för att forcera jitterbuffrar att alltid användas."
 
-#~ msgid ""
-#~ "Asterisk: jbforce. Forces the use of a jitterbuffer on the receive side "
-#~ "of a SIP channel. Normally the jitter buffer will not be used if "
-#~ "receiving a jittery channel but sending it off to another channel such as "
-#~ "another SIP channel to an endpoint, since there is typically a jitter "
-#~ "buffer at the far end. This will force the use of the jitter buffer "
-#~ "before sending the stream on. This is not typically desired as it adds "
-#~ "additional latency into the stream."
-#~ msgstr ""
-#~ "Asterisk: jbforce. Tvingar användandet av en jitterbuffer på mottagande "
-#~ "sidan av en SIP-kanal. Normalt kommer inte jitterbuffern att användas vid "
-#~ "mottagande av en jittery-kanal men skickar den till en annan kanal såsom "
-#~ "en SIP-kanal till en ändutrusting eftersom det typiskt finns en "
-#~ "jitterbuffer i slutet av kedjan. Detta tvingar användandet av en "
-#~ "jitterbuffer innan mediaströmmen skickas vidare. Detta används inte "
-#~ "normal då det ökar fördröjningen i mediaströmmen."
+#~ msgid "Asterisk: jbforce. Forces the use of a jitterbuffer on the receive side of a SIP channel. Normally the jitter buffer will not be used if receiving a jittery channel but sending it off to another channel such as another SIP channel to an endpoint, since there is typically a jitter buffer at the far end. This will force the use of the jitter buffer before sending the stream on. This is not typically desired as it adds additional latency into the stream."
+#~ msgstr "Asterisk: jbforce. Tvingar användandet av en jitterbuffer på mottagande sidan av en SIP-kanal. Normalt kommer inte jitterbuffern att användas vid mottagande av en jittery-kanal men skickar den till en annan kanal såsom en SIP-kanal till en ändutrusting eftersom det typiskt finns en jitterbuffer i slutet av kedjan. Detta tvingar användandet av en jitterbuffer innan mediaströmmen skickas vidare. Detta används inte normal då det ökar fördröjningen i mediaströmmen."
 
-#~ msgid ""
-#~ "Asterisk: jbimpl. Jitterbuffer implementation, used on the receiving side "
-#~ "of a SIP channel. Two implementations are currently available:<br /> "
-#~ "fixed: size always equals to jbmaxsize;<br /> adaptive: with variable "
-#~ "size (the new jb of IAX2)."
-#~ msgstr ""
-#~ "Asterisk: jbimpl. Jitterbuffer implementation, används på den mottagande "
-#~ "SIP-kanalen. Två implementationer finns för närvarande:<br /> fast: "
-#~ "storleken alltid lika med jbmaxsize;<br /> adaptiv: med variabel storlek "
-#~ "(den nya jb på IAX2)."
+#~ msgid "Asterisk: jbimpl. Jitterbuffer implementation, used on the receiving side of a SIP channel. Two implementations are currently available:<br /> fixed: size always equals to jbmaxsize;<br /> adaptive: with variable size (the new jb of IAX2)."
+#~ msgstr "Asterisk: jbimpl. Jitterbuffer implementation, används på den mottagande SIP-kanalen. Två implementationer finns för närvarande:<br /> fast: storleken alltid lika med jbmaxsize;<br /> adaptiv: med variabel storlek (den nya jb på IAX2)."
 
 #~ msgid "Asterisk: jblog. Enables jitter buffer frame logging."
 #~ msgstr "Asterisk: jblog. Aktiverar loggning av jitterbufferramar"
 
-#~ msgid ""
-#~ "Asterisk: jbmaxsize. Max length of the jitterbuffer in milliseconds.<br /"
-#~ "> Asterisk: jbresyncthreshold. Jump in the frame timestamps over which "
-#~ "the jitterbuffer is resynchronized. Useful to improve the quality of the "
-#~ "voice, with big jumps in/broken timestamps, usually sent from exotic "
-#~ "devices and programs. Can be set to -1 to disable."
-#~ msgstr ""
-#~ "Asterisk: jbmaxsize. Max längd på jitterbuffern i storlek.<br /> "
-#~ "Asterisk: jbresyncthreshold. Hopp i tiden inom ramen där jitterbuffern "
-#~ "återsynkroniseras. Användbart för att öka kvaliteten på rösten med stora "
-#~ "hopp i / eller brutna tidsstämplar, vanligtvis skickat från exotiska "
-#~ "enheter och program. Kan sättas till -1 för att avaktiveras."
+#~ msgid "Asterisk: jbmaxsize. Max length of the jitterbuffer in milliseconds.<br /> Asterisk: jbresyncthreshold. Jump in the frame timestamps over which the jitterbuffer is resynchronized. Useful to improve the quality of the voice, with big jumps in/broken timestamps, usually sent from exotic devices and programs. Can be set to -1 to disable."
+#~ msgstr "Asterisk: jbmaxsize. Max längd på jitterbuffern i storlek.<br /> Asterisk: jbresyncthreshold. Hopp i tiden inom ramen där jitterbuffern återsynkroniseras. Användbart för att öka kvaliteten på rösten med stora hopp i / eller brutna tidsstämplar, vanligtvis skickat från exotiska enheter och program. Kan sättas till -1 för att avaktiveras."
 
-#~ msgid ""
-#~ "Asterisk: minexpiry. Minimum length of registrations/subscriptions.<br /> "
-#~ "Asterisk: maxepiry. Maximum allowed time of incoming registrations<br /> "
-#~ "Asterisk: defaultexpiry. Default length of incoming and outgoing "
-#~ "registrations."
-#~ msgstr ""
-#~ "Asterisk: minexpiry. Minsta längd på registrering/prenumeration.<br /> "
-#~ "Asterisk: maxepiry. Maximal tillåten tid för inkommande registreringar."
-#~ "<br /> Asterisk: defaultexpiry. Standardlängd för inkommande och utgående "
-#~ "registreringar."
+#~ msgid "Asterisk: minexpiry. Minimum length of registrations/subscriptions.<br /> Asterisk: maxepiry. Maximum allowed time of incoming registrations<br /> Asterisk: defaultexpiry. Default length of incoming and outgoing registrations."
+#~ msgstr "Asterisk: minexpiry. Minsta längd på registrering/prenumeration.<br /> Asterisk: maxepiry. Maximal tillåten tid för inkommande registreringar.<br /> Asterisk: defaultexpiry. Standardlängd för inkommande och utgående registreringar."
 
-#~ msgid ""
-#~ "Asterisk: registertimeout. Retry registration attempts every "
-#~ "registertimeout seconds until successful or until registrationattempts "
-#~ "tries have been made.<br /> Asterisk: registrationattempts. Number of "
-#~ "times to try and register before giving up. A value of 0 means keep "
-#~ "trying forever. Normally this should be set to 0 so that Asterisk will "
-#~ "continue to register until successful in the case of network or gateway "
-#~ "outages."
-#~ msgstr ""
-#~ "Asterisk: registertimeout. Försök registrera igen efter det antal "
-#~ "sekunder i värdet registertimeout till en lyckad registrering sker eller "
-#~ "till det antal specificerat i registrationattempts har skett.<br /> "
-#~ "Asterisk: registrationattempts. Antal gånger registrering ska försökas. "
-#~ "Ett värde på 0 är oändligt antal försök. Normalt ska detta stå på 0 för "
-#~ "att Asterisk kan fortsätta registrering efter ström- eller nätavbrott."
+#~ msgid "Asterisk: registertimeout. Retry registration attempts every registertimeout seconds until successful or until registrationattempts tries have been made.<br /> Asterisk: registrationattempts. Number of times to try and register before giving up. A value of 0 means keep trying forever. Normally this should be set to 0 so that Asterisk will continue to register until successful in the case of network or gateway outages."
+#~ msgstr "Asterisk: registertimeout. Försök registrera igen efter det antal sekunder i värdet registertimeout till en lyckad registrering sker eller till det antal specificerat i registrationattempts har skett.<br /> Asterisk: registrationattempts. Antal gånger registrering ska försökas. Ett värde på 0 är oändligt antal försök. Normalt ska detta stå på 0 för att Asterisk kan fortsätta registrering efter ström- eller nätavbrott."
 
-#~ msgid ""
-#~ "Asterisk: rtptimeout. Terminate call if rtptimeout seconds of no RTP or "
-#~ "RTCP activity on the audio channel when we're not on hold. This is to be "
-#~ "able to hangup a call in the case of a phone disappearing from the net, "
-#~ "like a powerloss or someone tripping over a cable.<br /> Asterisk: "
-#~ "rtpholdtimeout. Terminate call if rtpholdtimeout seconds of no RTP or "
-#~ "RTCP activity on the audio channel when we're on hold (must be > "
-#~ "rtptimeout). <br /> Asterisk: rtpkeepalive. Send keepalives in the RTP "
-#~ "stream to keep NAT open during periods where no RTP stream may be flowing "
-#~ "(like on hold)."
-#~ msgstr ""
-#~ "Asterisk: rtptimeout. Avsluta samtalet om aktiviteten på RTP eller RTCP "
-#~ "har upphört i mer än rtptimeout i sekunder. Detta för att kunna lägga på "
-#~ "samtalet ifall telefonen försvinner på nätverket i händelse av "
-#~ "strömavbrott eller om någon kopplar loss kabeln till telefonen.<br /> "
-#~ "Asterisk: rtpholdtimeout. Avsluta samtalet om på RTP eller RTCP har "
-#~ "upphört när samtalet ligger på vänt (värdet måste vara > rtptimeout). "
-#~ "<br /> Asterisk: rtpkeepalive. Skicka keepalives i RTP-strömmen för att "
-#~ "hålla NAT öppet under perioder när ingen RTP-ström finns (samtal på vänt)."
+#~ msgid "Asterisk: rtptimeout. Terminate call if rtptimeout seconds of no RTP or RTCP activity on the audio channel when we're not on hold. This is to be able to hangup a call in the case of a phone disappearing from the net, like a powerloss or someone tripping over a cable.<br /> Asterisk: rtpholdtimeout. Terminate call if rtpholdtimeout seconds of no RTP or RTCP activity on the audio channel when we're on hold (must be > rtptimeout). <br /> Asterisk: rtpkeepalive. Send keepalives in the RTP stream to keep NAT open during periods where no RTP stream may be flowing (like on hold)."
+#~ msgstr "Asterisk: rtptimeout. Avsluta samtalet om aktiviteten på RTP eller RTCP har upphört i mer än rtptimeout i sekunder. Detta för att kunna lägga på samtalet ifall telefonen försvinner på nätverket i händelse av strömavbrott eller om någon kopplar loss kabeln till telefonen.<br /> Asterisk: rtpholdtimeout. Avsluta samtalet om på RTP eller RTCP har upphört när samtalet ligger på vänt (värdet måste vara > rtptimeout). <br /> Asterisk: rtpkeepalive. Skicka keepalives i RTP-strömmen för att hålla NAT öppet under perioder när ingen RTP-ström finns (samtal på vänt)."
 
 #~ msgid "Bind Port (bindport) must be between 1024..65535, default 5060"
 #~ msgstr "Bindport (bindport) måste vara mellan 1024..65535, standard är 5060"
 
-#~ msgid ""
-#~ "Check the desired codecs, all others will be disabled unless explicitly "
-#~ "enabled in a device or trunks configuration. Drag to re-order."
-#~ msgstr ""
-#~ "Markera dom önskade codecarna, alla andra kommer att avaktiveras om dom "
-#~ "inte är explicit definierade i enheter eller trunkkonfigurering. Drag och "
-#~ "släpp för att arrangera ordning"
+#~ msgid "Check the desired codecs, all others will be disabled unless explicitly enabled in a device or trunks configuration. Drag to re-order."
+#~ msgstr "Markera dom önskade codecarna, alla andra kommer att avaktiveras om dom inte är explicit definierade i enheter eller trunkkonfigurering. Drag och släpp för att arrangera ordning"
 
 #~ msgid "Default Language for a channel, Asterisk: language"
 #~ msgstr "Standardspråk för en kanal. Asterisk: language"
@@ -1159,19 +869,11 @@ msgstr "ja"
 #~ msgid "Enable"
 #~ msgstr "Aktivera"
 
-#~ msgid ""
-#~ "Enable Asterisk srvlookup. See current version of Asterisk for "
-#~ "limitations on SRV functionality."
-#~ msgstr ""
-#~ "Aktivera Asterisk srvlookup. Läs i dokumentationen för din version av "
-#~ "Asterisk för att de begränsningar som finns i funktionen SRV."
+#~ msgid "Enable Asterisk srvlookup. See current version of Asterisk for limitations on SRV functionality."
+#~ msgstr "Aktivera Asterisk srvlookup. Läs i dokumentationen för din version av Asterisk för att de begränsningar som finns i funktionen SRV."
 
-#~ msgid ""
-#~ "External FQDN as seen on the WAN side of the router and updated "
-#~ "dynamically, e.g. mydomain.dyndns.com. (asterisk: externhost)"
-#~ msgstr ""
-#~ "Extern FQDN som är på WAN-sidan av routern och som uppdateras dynamiskt, "
-#~ "eg. mydomain.dyndns.com. (asterisk: externhost)"
+#~ msgid "External FQDN as seen on the WAN side of the router and updated dynamically, e.g. mydomain.dyndns.com. (asterisk: externhost)"
+#~ msgstr "Extern FQDN som är på WAN-sidan av routern och som uppdateras dynamiskt, eg. mydomain.dyndns.com. (asterisk: externhost)"
 
 #~ msgid "External IP"
 #~ msgstr "Extern IP"
@@ -1185,20 +887,11 @@ msgstr "ja"
 #~ msgid "Failed to auto-detect settings"
 #~ msgstr "Kunde inte autodetektera inställningar"
 
-#~ msgid ""
-#~ "File %s should not have any settings in it. Those settings should be "
-#~ "removed."
-#~ msgstr ""
-#~ "Filen %s ska inte ha några inställningar alls. Dessa inställningar måste "
-#~ "tas bort."
+#~ msgid "File %s should not have any settings in it. Those settings should be removed."
+#~ msgstr "Filen %s ska inte ha några inställningar alls. Dessa inställningar måste tas bort."
 
-#~ msgid ""
-#~ "Indicate whether the box has a public IP or requires NAT settings. "
-#~ "Automatic configuration of what is often put in sip_nat.conf"
-#~ msgstr ""
-#~ "Indikerar om datorn har en publik IP-adress eller kräver NAT-"
-#~ "inställningar. Automatisk konfiguration av vad som oftast skrivs in i "
-#~ "sip_nat.conf"
+#~ msgid "Indicate whether the box has a public IP or requires NAT settings. Automatic configuration of what is often put in sip_nat.conf"
+#~ msgstr "Indikerar om datorn har en publik IP-adress eller kräver NAT-inställningar. Automatisk konfiguration av vad som oftast skrivs in i sip_nat.conf"
 
 #~ msgid "Jitter Buffer"
 #~ msgstr "Jitterbuffer"
@@ -1209,16 +902,8 @@ msgstr "ja"
 #~ msgid "Language"
 #~ msgstr "Språk"
 
-#~ msgid ""
-#~ "Local network settings (Asterisk: localnet) in the form of ip/mask such "
-#~ "as 192.168.1.0/255.255.255.0. For networks with more 1 lan subnets, use "
-#~ "the Add Local Network Field button for more fields. Blank fields will be "
-#~ "removed upon submitting."
-#~ msgstr ""
-#~ "Lokal nätverksinställning (Asterisk: localnet) i formen av ip/mask såsom "
-#~ "192.168.1.0/255.255.255.0. För nätverk med mer än ett subnät klickar du "
-#~ "på knappen Lägg till lokalt nätverk för att lägga till fler fält. Tomma "
-#~ "fält tas bort när sidan sparas."
+#~ msgid "Local network settings (Asterisk: localnet) in the form of ip/mask such as 192.168.1.0/255.255.255.0. For networks with more 1 lan subnets, use the Add Local Network Field button for more fields. Blank fields will be removed upon submitting."
+#~ msgstr "Lokal nätverksinställning (Asterisk: localnet) i formen av ip/mask såsom 192.168.1.0/255.255.255.0. För nätverk med mer än ett subnät klickar du på knappen Lägg till lokalt nätverk för att lägga till fler fält. Tomma fält tas bort när sidan sparas."
 
 #~ msgid "RTP Timers"
 #~ msgstr "RTP-klockor"
@@ -1235,17 +920,8 @@ msgstr "ja"
 #~ msgid "SRV Lookup"
 #~ msgstr "SRV-uppslag"
 
-#~ msgid ""
-#~ "Use to configure Various Asterisk SIP Settings in the General section of "
-#~ "sip.conf. Also includes an auto-configuration tool to determine NAT "
-#~ "settings. The module assumes Asterisk version 1.4 or higher. Some "
-#~ "settings may not exist in Asterisk 1.2 and will be ignored by Asterisk."
-#~ msgstr ""
-#~ "Anänds för att konfigurera inställningar för Asterisk SIP som placeras i "
-#~ "filen sip.conf under sektionen General. Det ingår även en automatisk "
-#~ "konfigurerare som kan detektera NAT-inställningar. Modulen förutsätter "
-#~ "att du använder Asterisk 1.4 eller senare version. Vissa inställningar "
-#~ "finns inte i Asterisk 1.2 och kommer att ignoreras av Asterisk"
+#~ msgid "Use to configure Various Asterisk SIP Settings in the General section of sip.conf. Also includes an auto-configuration tool to determine NAT settings. The module assumes Asterisk version 1.4 or higher. Some settings may not exist in Asterisk 1.2 and will be ignored by Asterisk."
+#~ msgstr "Anänds för att konfigurera inställningar för Asterisk SIP som placeras i filen sip.conf under sektionen General. Det ingår även en automatisk konfigurerare som kan detektera NAT-inställningar. Modulen förutsätter att du använder Asterisk 1.4 eller senare version. Vissa inställningar finns inte i Asterisk 1.2 och kommer att ignoreras av Asterisk"
 
 #~ msgid "ulaw, alaw, gsm added"
 #~ msgstr "la till ulaw, alaw, gsm"
