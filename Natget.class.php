@@ -38,8 +38,11 @@ class NatGet {
 	public function getRoutes() {
 		// Return a list of routes the machine knows about.
 		$route = fpbx_which('route');
+		if(empty($route)) {
+			return array();
+		}
 		exec("$route -nv",$output,$retcode);
-		if($retcode != 0) {
+		if($retcode != 0 || empty($output)) {
 			return array();
 		}
 		// Drop the first two lines, which are just headers..
