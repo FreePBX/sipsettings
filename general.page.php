@@ -109,7 +109,7 @@ $submit_changes = _("Submit Changes");
 								<input type="text" name="localnets[0][mask]" class="form-control netmask cidr validate-netmask" value="<?php echo isset($localnets[0]['mask']) ? $localnets[0]['mask'] : ''?>">
 								<?php echo $lnhtm?>
 							</div>
-							<input type="button" id="localnet-add" value="<?php echo $add_local_network_field ?>" class="nat-settings" />
+							<input type="button" id="localnet-add" value="<?php echo $add_local_network_field ?>" />
 						</div>
 					</div>
 				</div>
