@@ -355,11 +355,14 @@ $error_displays = array_merge($error_displays,sipsettings_check_custom_files());
 							<label class="control-label" for="t38pt_udptl"><?php echo _("T38 Pass-Through") ?></label>
 							<i class="fa fa-question-circle fpbx-help-icon" data-for="t38pt_udptl"></i>
 						</div>
-						<div class="col-md-9 radioset">
-							<input id="t38pt_udptl-yes" type="radio" name="t38pt_udptl" value="yes" <?php echo $t38pt_udptl=="yes"?"checked=\"yes\"":""?>/>
-							<label for="t38pt_udptl-yes"><?php echo _("Yes") ?></label>
-							<input id="t38pt_udptl-no" type="radio" name="t38pt_udptl" value="no" <?php echo $t38pt_udptl=="no"?"checked=\"no\"":""?>/>
-							<label for="t38pt_udptl-no"><?php echo _("No") ?></label>
+						<div class="col-md-9">
+							<select name="t38pt_udptl" class="form-control">
+								<option value="no" <?php echo $t38pt_udptl=="no"?"selected":""?>><?php echo _("No")?></option>
+								<option value="yes" <?php echo $t38pt_udptl=="yes"?"selected":""?>><?php echo _("Yes")?></option>
+								<option value="fec" <?php echo $t38pt_udptl=="fec"?"selected":""?>><?php echo _("Yes with FEC")?></option>
+								<option value="redundancy" <?php echo $t38pt_udptl=="redundancy"?"selected":""?>><?php echo _("Yes with Redundancy")?></option>
+								<option value="none" <?php echo $t38pt_udptl=="none"?"selected":""?>><?php echo _("Yes with no error correction")?></option>
+							</select>
 						</div>
 					</div>
 				</div>
@@ -367,7 +370,7 @@ $error_displays = array_merge($error_displays,sipsettings_check_custom_files());
 		</div>
 		<div class="row">
 			<div class="col-md-12">
-				<span id="t38pt_udptl-help" class="help-block fpbx-help-block"><?php echo _("Asterisk: t38pt_udptl. Enables T38 passthrough if enabled. This SIP channels that support sending/receiving T38 Fax codecs to pass the call. Asterisk can not process the media.")?></span>
+				<span id="t38pt_udptl-help" class="help-block fpbx-help-block"><?php echo _("Asterisk: t38pt_udptl. Enables T38 passthrough which makes faxes go through Asterisk without being processed.<ul><li>No - No passthrough</li><li>Yes - Enables T.38 with FEC error correction and overrides the other endpoint's provided value to assume we can send 400 byte T.38 FAX packets to it.</li><li>Yes with FEC - Enables T.38 with FEC error correction</li><li>Yes with Redundancy - Enables T.38 with redundancy error correction</li><li>Yes with no error correction - Enables T.38 with no error correction.</li></ul>")?></span>
 			</div>
 		</div>
 	</div>
