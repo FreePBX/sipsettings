@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-28 14:53-0700\n"
+"POT-Creation-Date: 2015-10-05 11:25-0700\n"
 "PO-Revision-Date: 2015-04-25 22:29+0200\n"
 "Last-Translator: Yuriy <alliancesko@gmail.com>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/"
@@ -769,7 +769,7 @@ msgid ""
 "RTP stream may be flowing (like on hold)."
 msgstr ""
 
-#: chansip.page.php:1220
+#: chansip.page.php:1221
 #, php-format
 msgid "Settings in %s may override these. Those settings should be removed."
 msgstr ""
