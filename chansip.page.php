@@ -1206,13 +1206,14 @@ function sipsettings_check_custom_files() {
 	global $amp_conf;
 	$errors = array();
 
-	$custom_files[] = $amp_conf['ASTETCDIR']."/sip_nat.conf";
-	$custom_files[] = $amp_conf['ASTETCDIR']."/sip_general_custom.conf";
-	$custom_files[] = $amp_conf['ASTETCDIR']."/sip_custom.conf";
+	$custom_files[] = "sip_nat.conf";
+	$custom_files[] = "sip_general_custom.conf";
+	$custom_files[] = "sip_custom.conf";
 
 	foreach ($custom_files as $file) {
-		if (file_exists($file)) {
-			$sip_conf = @parse_ini_file($file,true);
+		if (file_exists($amp_conf['ASTETCDIR']."/".$file)) {
+			$sip_conf = \FreePBX::LoadConfig()->getConfig($file);
+			$sip_conf = is_array($sip_conf) ? $sip_conf : array();
 			foreach ($sip_conf as $section => $item) {
 				// If setting is an array, then it is a subsection
 				//
@@ -1226,6 +1227,3 @@ function sipsettings_check_custom_files() {
 	}
 	return $errors;
 }
-
-
-?>
