@@ -387,10 +387,10 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 
 		foreach ($raw_settings as $var) {
 			switch ($var['type']) {
-			case SIP_NORMAL:
+			case self::SIP_NORMAL:
 				$sip_settings[$var['keyword']]                 = $var['data'];
 				break;
-			case SIP_CUSTOM:
+			case self::SIP_CUSTOM:
 				$sip_settings['sip_custom_key_'.$var['seq']]   = $var['keyword'];
 				$sip_settings['sip_custom_val_'.$var['seq']]   = $var['data'];
 				break;
