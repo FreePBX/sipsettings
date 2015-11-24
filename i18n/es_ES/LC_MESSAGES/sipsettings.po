@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-05 11:25-0700\n"
+"POT-Creation-Date: 2015-11-24 12:14-0800\n"
 "PO-Revision-Date: 2015-03-10 13:26+1000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -103,7 +103,7 @@ msgstr ""
 "También tenga cuidado: Después de habilitar/deshabilitar un transporte, "
 "asterisk tiene que ser <strong>reiniciado </strong>, no sólo vuelto a cargar."
 
-#: assets/js/sipsettings.js:122
+#: assets/js/sipsettings.js:128
 msgid ""
 "An Error occurred trying fetch network configuration and external IP address"
 msgstr ""
@@ -119,6 +119,10 @@ msgstr ""
 "NAT<br /> no = Utilizar el modo NAT sólo de acuerdo a RFC3581 <br />Never = "
 "Nunca intentar el modo NAT o RFC3581 <br /> route = Asume NAT , no envía "
 "rport"
+
+#: sipsettings.i18n.php:4 sipsettings.i18n.php:10
+msgid "Asterisk SIP Settings"
+msgstr "Configuraciones Asterisk SIP"
 
 #: Sipsettings.class.php:116
 #, php-format
@@ -336,12 +340,12 @@ msgstr ""
 msgid "End"
 msgstr "Fin"
 
-#: assets/js/sipsettings.js:182 assets/js/sipsettings.js:185
-#: assets/js/sipsettings.js:194
+#: assets/js/sipsettings.js:188 assets/js/sipsettings.js:191
+#: assets/js/sipsettings.js:200
 msgid "Enter IP Address"
 msgstr ""
 
-#: assets/js/sipsettings.js:190 assets/js/sipsettings.js:193
+#: assets/js/sipsettings.js:196 assets/js/sipsettings.js:199
 #, perl-format
 msgid "Error: %s"
 msgstr ""
@@ -360,7 +364,7 @@ msgstr ""
 msgid "External IP Address"
 msgstr "Dirección IP Externa"
 
-#: functions.inc.php:349
+#: functions.inc.php:349 assets/js/sipsettings.js:17
 msgid ""
 "External IP can not be blank when NAT Mode is set to Static and no default "
 "IP address provided on the main page"
@@ -481,7 +485,7 @@ msgid ""
 "to disable."
 msgstr ""
 
-#: assets/js/sipsettings.js:175
+#: assets/js/sipsettings.js:181
 msgid "Loading"
 msgstr ""
 
@@ -641,7 +645,7 @@ msgstr "Otras Configuraciones SIP"
 msgid "Override External IP"
 msgstr "Sobreescribir IP Externa"
 
-#: assets/js/sipsettings.js:163
+#: assets/js/sipsettings.js:169
 msgid "PJSIP transport port conflicts with SIP port"
 msgstr ""
 
@@ -754,6 +758,10 @@ msgid ""
 "Send keepalives in the RTP stream to keep NAT open during periods where no "
 "RTP stream may be flowing (like on hold)."
 msgstr ""
+
+#: sipsettings.i18n.php:6 sipsettings.i18n.php:12
+msgid "Settings"
+msgstr "Configuraciones"
 
 #: chansip.page.php:1221
 #, php-format
@@ -875,6 +883,19 @@ msgstr "Tipo Desconocido"
 #: chanpj.page.php:92
 msgid "Use "
 msgstr ""
+
+#: sipsettings.i18n.php:8
+msgid ""
+"Use to configure Various Asterisk SIP Settings in the General section of sip."
+"conf. Also includes an auto-configuration tool to determine NAT settings. "
+"The module assumes Asterisk version 1.4 or higher. Some settings may not "
+"exist in Asterisk 1.2 and will be ignored by Asterisk."
+msgstr ""
+"Se utiliza para configurar diversas configuraciones de SIP Asterisk en la "
+"sección general de sip.conf. También incluye una herramienta de auto-"
+"configuración para determinar la configuración NAT. El módulo supone la "
+"versión Asterisk 1.4 o superior. Algunos valores no pueden existir en "
+"Asterisk 1.2 y no se interpretarán por Asterisk."
 
 #: general.page.php:282
 msgid ""
@@ -1046,9 +1067,6 @@ msgstr "yes"
 #~ msgstr ""
 #~ "Asterisk 1.8 todos los soportes IPv6. Una dirección de '::' donde "
 #~ "escuchar en IPv4 e IPv6."
-
-#~ msgid "Asterisk SIP Settings"
-#~ msgstr "Configuraciones Asterisk SIP"
 
 #~ msgid ""
 #~ "Asterisk: allowguest. When set Asterisk will allow Guest SIP calls and "
@@ -1287,18 +1305,3 @@ msgstr "yes"
 
 #~ msgid "SRV Lookup"
 #~ msgstr "Búsqueda SRV"
-
-#~ msgid "Settings"
-#~ msgstr "Configuraciones"
-
-#~ msgid ""
-#~ "Use to configure Various Asterisk SIP Settings in the General section of "
-#~ "sip.conf. Also includes an auto-configuration tool to determine NAT "
-#~ "settings. The module assumes Asterisk version 1.4 or higher. Some "
-#~ "settings may not exist in Asterisk 1.2 and will be ignored by Asterisk."
-#~ msgstr ""
-#~ "Se utiliza para configurar diversas configuraciones de SIP Asterisk en la "
-#~ "sección general de sip.conf. También incluye una herramienta de auto-"
-#~ "configuración para determinar la configuración NAT. El módulo supone la "
-#~ "versión Asterisk 1.4 o superior. Algunos valores no pueden existir en "
-#~ "Asterisk 1.2 y no se interpretarán por Asterisk."

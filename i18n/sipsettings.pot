@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-05 11:25-0700\n"
+"POT-Creation-Date: 2015-11-24 12:14-0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -87,7 +87,7 @@ msgid ""
 "<strong>restarted</strong>, not just reloaded."
 msgstr ""
 
-#: assets/js/sipsettings.js:122
+#: assets/js/sipsettings.js:128
 msgid ""
 "An Error occurred trying fetch network configuration and external IP address"
 msgstr ""
@@ -97,6 +97,11 @@ msgid ""
 "Asterisk NAT setting:<br /> yes = Always ignore info and assume NAT<br /> no "
 "= Use NAT mode only according to RFC3581 <br /> never = Never attempt NAT "
 "mode or RFC3581 <br /> route = Assume NAT, don't send rport"
+msgstr ""
+
+#: sipsettings.i18n.php:4
+#: sipsettings.i18n.php:10
+msgid "Asterisk SIP Settings"
 msgstr ""
 
 #: Sipsettings.class.php:116
@@ -297,14 +302,14 @@ msgstr ""
 msgid "End"
 msgstr ""
 
-#: assets/js/sipsettings.js:182
-#: assets/js/sipsettings.js:185
-#: assets/js/sipsettings.js:194
+#: assets/js/sipsettings.js:188
+#: assets/js/sipsettings.js:191
+#: assets/js/sipsettings.js:200
 msgid "Enter IP Address"
 msgstr ""
 
-#: assets/js/sipsettings.js:190
-#: assets/js/sipsettings.js:193
+#: assets/js/sipsettings.js:196
+#: assets/js/sipsettings.js:199
 #, perl-format
 msgid "Error: %s"
 msgstr ""
@@ -324,6 +329,7 @@ msgid "External IP Address"
 msgstr ""
 
 #: functions.inc.php:349
+#: assets/js/sipsettings.js:17
 msgid ""
 "External IP can not be blank when NAT Mode is set to Static and no default "
 "IP address provided on the main page"
@@ -433,7 +439,7 @@ msgid ""
 "to disable."
 msgstr ""
 
-#: assets/js/sipsettings.js:175
+#: assets/js/sipsettings.js:181
 msgid "Loading"
 msgstr ""
 
@@ -594,7 +600,7 @@ msgstr ""
 msgid "Override External IP"
 msgstr ""
 
-#: assets/js/sipsettings.js:163
+#: assets/js/sipsettings.js:169
 msgid "PJSIP transport port conflicts with SIP port"
 msgstr ""
 
@@ -704,6 +710,11 @@ msgstr ""
 msgid ""
 "Send keepalives in the RTP stream to keep NAT open during periods where no "
 "RTP stream may be flowing (like on hold)."
+msgstr ""
+
+#: sipsettings.i18n.php:6
+#: sipsettings.i18n.php:12
+msgid "Settings"
 msgstr ""
 
 #: chansip.page.php:1221
@@ -822,6 +833,14 @@ msgstr ""
 
 #: chanpj.page.php:92
 msgid "Use "
+msgstr ""
+
+#: sipsettings.i18n.php:8
+msgid ""
+"Use to configure Various Asterisk SIP Settings in the General section of sip."
+"conf. Also includes an auto-configuration tool to determine NAT settings. "
+"The module assumes Asterisk version 1.4 or higher. Some settings may not "
+"exist in Asterisk 1.2 and will be ignored by Asterisk."
 msgstr ""
 
 #: general.page.php:282

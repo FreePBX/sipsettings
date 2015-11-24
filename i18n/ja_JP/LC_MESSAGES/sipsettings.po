@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-05 11:25-0700\n"
+"POT-Creation-Date: 2015-11-24 12:14-0800\n"
 "PO-Revision-Date: 2014-10-02 14:45+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
 "Language-Team: Japanese <http://git.freepbx.org/projects/freepbx/sipsettings/"
@@ -129,7 +129,7 @@ msgid ""
 "<strong>restarted</strong>, not just reloaded."
 msgstr ""
 
-#: assets/js/sipsettings.js:122
+#: assets/js/sipsettings.js:128
 msgid ""
 "An Error occurred trying fetch network configuration and external IP address"
 msgstr "ネットワーク設定及び外部IPアドレスを取出し中にエラーが発生しました。"
@@ -143,6 +143,10 @@ msgstr ""
 "Asterisk NAT 設定: <br /> yes = 常にinfoを無視して、NATとして扱う <br/> no = "
 "RFC3581に従って、NATモードを使用 <br/> never = RFC3581とNATモードを使わない "
 "<br/> route = NATを前提として、rportを送信しない"
+
+#: sipsettings.i18n.php:4 sipsettings.i18n.php:10
+msgid "Asterisk SIP Settings"
+msgstr "Asterisk SIP 設定"
 
 #: Sipsettings.class.php:116
 #, php-format
@@ -360,12 +364,12 @@ msgstr ""
 msgid "End"
 msgstr ""
 
-#: assets/js/sipsettings.js:182 assets/js/sipsettings.js:185
-#: assets/js/sipsettings.js:194
+#: assets/js/sipsettings.js:188 assets/js/sipsettings.js:191
+#: assets/js/sipsettings.js:200
 msgid "Enter IP Address"
 msgstr ""
 
-#: assets/js/sipsettings.js:190 assets/js/sipsettings.js:193
+#: assets/js/sipsettings.js:196 assets/js/sipsettings.js:199
 #, perl-format
 msgid "Error: %s"
 msgstr ""
@@ -384,7 +388,7 @@ msgstr ""
 msgid "External IP Address"
 msgstr ""
 
-#: functions.inc.php:349
+#: functions.inc.php:349 assets/js/sipsettings.js:17
 msgid ""
 "External IP can not be blank when NAT Mode is set to Static and no default "
 "IP address provided on the main page"
@@ -498,7 +502,7 @@ msgid ""
 "to disable."
 msgstr ""
 
-#: assets/js/sipsettings.js:175
+#: assets/js/sipsettings.js:181
 msgid "Loading"
 msgstr ""
 
@@ -652,7 +656,7 @@ msgstr "その他のSIP設定"
 msgid "Override External IP"
 msgstr ""
 
-#: assets/js/sipsettings.js:163
+#: assets/js/sipsettings.js:169
 msgid "PJSIP transport port conflicts with SIP port"
 msgstr ""
 
@@ -763,6 +767,10 @@ msgid ""
 "Send keepalives in the RTP stream to keep NAT open during periods where no "
 "RTP stream may be flowing (like on hold)."
 msgstr ""
+
+#: sipsettings.i18n.php:6 sipsettings.i18n.php:12
+msgid "Settings"
+msgstr "設定"
 
 #: chansip.page.php:1221
 #, php-format
@@ -880,6 +888,18 @@ msgstr ""
 #: chanpj.page.php:92
 msgid "Use "
 msgstr ""
+
+#: sipsettings.i18n.php:8
+msgid ""
+"Use to configure Various Asterisk SIP Settings in the General section of sip."
+"conf. Also includes an auto-configuration tool to determine NAT settings. "
+"The module assumes Asterisk version 1.4 or higher. Some settings may not "
+"exist in Asterisk 1.2 and will be ignored by Asterisk."
+msgstr ""
+"sip.conf内のGeneralセクションの様々なAsterisk SIP設定を行うために使います。"
+"NATの設定を決定するための自動設定ツールも含まれています。このモジュールは、"
+"Asteriskのバージョン1.4以降を想定しています。いくつかの設定は、Asterisk1.2で"
+"は存在しない場合があり、Asteriskに無視されます。"
 
 #: general.page.php:282
 msgid ""
@@ -1032,9 +1052,6 @@ msgstr "はい"
 #~ msgstr ""
 #~ "Asterisk1.8以上では IPv6 をサポートしています。'::'を指定すると、IPv4と"
 #~ "IPv6の両方をlistenします。"
-
-#~ msgid "Asterisk SIP Settings"
-#~ msgstr "Asterisk SIP 設定"
 
 #~ msgid ""
 #~ "Asterisk: allowguest. When set Asterisk will allow Guest SIP calls and "
@@ -1285,20 +1302,6 @@ msgstr "はい"
 
 #~ msgid "SRV Lookup"
 #~ msgstr "SRVルックアップ"
-
-#~ msgid "Settings"
-#~ msgstr "設定"
-
-#~ msgid ""
-#~ "Use to configure Various Asterisk SIP Settings in the General section of "
-#~ "sip.conf. Also includes an auto-configuration tool to determine NAT "
-#~ "settings. The module assumes Asterisk version 1.4 or higher. Some "
-#~ "settings may not exist in Asterisk 1.2 and will be ignored by Asterisk."
-#~ msgstr ""
-#~ "sip.conf内のGeneralセクションの様々なAsterisk SIP設定を行うために使いま"
-#~ "す。NATの設定を決定するための自動設定ツールも含まれています。このモジュー"
-#~ "ルは、Asteriskのバージョン1.4以降を想定しています。いくつかの設定は、"
-#~ "Asterisk1.2では存在しない場合があり、Asteriskに無視されます。"
 
 #~ msgid "setting default value of %s"
 #~ msgstr "%sのデフォルト値を設定中…"
