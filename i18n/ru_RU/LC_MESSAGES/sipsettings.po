@@ -24,7 +24,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-11-24 12:14-0800\n"
-"PO-Revision-Date: 2015-12-05 10:00+0200\n"
+"PO-Revision-Date: 2015-12-05 10:05+0200\n"
 "Last-Translator: Andrew <andrew.nagy@the159.com>\n"
 "Language-Team: Russian "
 "<http://weblate.freepbx.org/projects/freepbx/sipsettings/ru_RU/>\n"
@@ -572,7 +572,7 @@ msgid ""
 msgstr ""
 "Локальный порт UDP для входящих сигнальных сообщений SIP, на котором слушает "
 "Астериск. В прошлом для CHAN_SIP по умолчанию был 5060, в новых инсталляциях "
-"теперь это 5061 по умолчанию."
+"теперь это 5061 по умолчанию"
 
 #: chanpj.page.php:111
 msgid "Local network"
@@ -743,7 +743,7 @@ msgid ""
 "Config"
 msgstr ""
 "Привязка адреса/порта была изменена. Это потребует рестарта Астериск после "
-"нажатия кнопки Применить конфигурацию."
+"нажатия кнопки Применить конфигурацию"
 
 #: chansip.page.php:214
 msgid "Public IP"
@@ -755,7 +755,7 @@ msgstr "Контрольные суммы RTP"
 
 #: chansip.page.php:552
 msgid "RTP Hold Timeout"
-msgstr "Холд RTP таймаут "
+msgstr "Холд RTP таймаут"
 
 #: chansip.page.php:576
 msgid "RTP Keep Alive"
@@ -951,7 +951,7 @@ msgid ""
 "stream. It is unusual to turn this off"
 msgstr ""
 "Это отбросит пакеты RTP, которые приходят не из указанного адреса источника "
-"потока RTP. При обычной эксплуатации это опция не отключается."
+"потока RTP. При обычной эксплуатации это опция не отключается"
 
 #: chanpj.page.php:240
 msgid "Transports"
@@ -963,7 +963,7 @@ msgid ""
 "value that would be entered here"
 msgstr ""
 "Обычно используется при SIP вызовах. Пример: user@domain, где домен - "
-"значение, которое надо указать здесь."
+"значение, которое надо указать здесь"
 
 #: Natget.class.php:29
 msgid "Unknown Error"
@@ -975,7 +975,7 @@ msgstr "Неизвестный тип"
 
 #: chanpj.page.php:92
 msgid "Use "
-msgstr "Использовать"
+msgstr "Использовать "
 
 #: sipsettings.i18n.php:8
 msgid ""
