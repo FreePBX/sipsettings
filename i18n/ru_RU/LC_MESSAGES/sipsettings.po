@@ -23,17 +23,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-24 12:14-0800\n"
+"POT-Creation-Date: 2015-12-11 10:43-0800\n"
 "PO-Revision-Date: 2015-12-05 10:05+0200\n"
 "Last-Translator: Andrew <andrew.nagy@the159.com>\n"
-"Language-Team: Russian "
-"<http://weblate.freepbx.org/projects/freepbx/sipsettings/ru_RU/>\n"
-"Language: ru_RU\n"
+"Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/"
+"sipsettings/ru_RU/>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
-"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Language: ru_RU\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
 #: chansip.page.php:405
@@ -121,7 +121,7 @@ msgstr ""
 "Имейте ввиду: После включения / отключения транспорта, Астериск необходимо "
 "<strong>перезапустить</strong>, а не просто перезагрузить."
 
-#: assets/js/sipsettings.js:128
+#: assets/js/sipsettings.js:129
 msgid ""
 "An Error occurred trying fetch network configuration and external IP address"
 msgstr "Ошибка получения сетевой конфигурации и внешний IP-адреса"
@@ -173,11 +173,11 @@ msgid ""
 "INVITE. (yes = update + nonat)"
 msgstr ""
 "Параметр Asterisk: canreinvite. yes: стандартный реинвайт; no: никогда; "
-"nonat: дополнительная опция, разрешающая перенаправить медиа поток (реинвайт)"
-", но только если пир установлен не за NAT (RTP может определить это на "
-"основе ИП адресов абонентов) update: используется специальный SIP пакет "
-"UPDATE для приняти решения о перенаправлении вместо пакета INVITE. (Значение "
-"yes соответствует = update + nonat)"
+"nonat: дополнительная опция, разрешающая перенаправить медиа поток "
+"(реинвайт), но только если пир установлен не за NAT (RTP может определить "
+"это на основе ИП адресов абонентов) update: используется специальный SIP "
+"пакет UPDATE для приняти решения о перенаправлении вместо пакета INVITE. "
+"(Значение yes соответствует = update + nonat)"
 
 #: chansip.page.php:310
 msgid ""
@@ -212,13 +212,13 @@ msgid ""
 msgstr ""
 "Астериск: t38pt_udptl. Включает сквозноеое прохождение (passthrough) "
 "соединений протокола Т.38, при котором факсы напрямую пропускаются через "
-"Астериск без цифровой обработки.<ul><li>Нет  - без сквозного "
-"прохождения</li><li>Да - включить обработку T.38 с FEC (коррекция ошибок) и "
-"переписать значения для этого, предполагая, что мы можем посылать 400-"
-"байтовые пакеты Т.38.</li><li>Да с FEC - Включаем T.38 с FEC коррекцией "
-"ошибок</li><li>Да с резервированием - Включаем T.38 с резервированнием для "
-"коррекции ошибок</li><li>Да без коррекции ошибок - Включаем T.38 без "
-"коррекции ошибок.</li></ul>"
+"Астериск без цифровой обработки.<ul><li>Нет  - без сквозного прохождения</"
+"li><li>Да - включить обработку T.38 с FEC (коррекция ошибок) и переписать "
+"значения для этого, предполагая, что мы можем посылать 400-байтовые пакеты "
+"Т.38.</li><li>Да с FEC - Включаем T.38 с FEC коррекцией ошибок</li><li>Да с "
+"резервированием - Включаем T.38 с резервированнием для коррекции ошибок</"
+"li><li>Да без коррекции ошибок - Включаем T.38 без коррекции ошибок.</li></"
+"ul>"
 
 #: chansip.page.php:318 general.page.php:313
 msgid "Audio Codecs"
@@ -373,8 +373,8 @@ msgid ""
 msgstr ""
 "Включает использование джиттер-буфера на принимающей стороне канала SIP. "
 "Использование джиттер-буфера эффективно только если с посылающей стороны "
-"наблюдается  разность между быстро приходящим пакетом и пакетом с задержкой -"
-" джиттер, а принимающая сторона не может обработать его. Канал SIP может "
+"наблюдается  разность между быстро приходящим пакетом и пакетом с задержкой "
+"- джиттер, а принимающая сторона не может обработать его. Канал SIP может "
 "принять джиттер используя джиттер-буфер только в случае если он включен и "
 "форсировано его использование. Наприер, при приёме дрожжащего канала в "
 "голосовую почту джиттер-буфер будет использоваться если включен. Однако он "
@@ -386,12 +386,12 @@ msgstr ""
 msgid "End"
 msgstr "Конец"
 
-#: assets/js/sipsettings.js:188 assets/js/sipsettings.js:191
-#: assets/js/sipsettings.js:200
+#: assets/js/sipsettings.js:189 assets/js/sipsettings.js:192
+#: assets/js/sipsettings.js:201
 msgid "Enter IP Address"
 msgstr "Введите ИП адрес"
 
-#: assets/js/sipsettings.js:196 assets/js/sipsettings.js:199
+#: assets/js/sipsettings.js:197 assets/js/sipsettings.js:200
 #, perl-format
 msgid "Error: %s"
 msgstr "Ошибка: %s"
@@ -413,7 +413,7 @@ msgstr ""
 msgid "External IP Address"
 msgstr "Внешний IP адрес"
 
-#: functions.inc.php:349 assets/js/sipsettings.js:17
+#: functions.inc.php:349 assets/js/sipsettings.js:18
 msgid ""
 "External IP can not be blank when NAT Mode is set to Static and no default "
 "IP address provided on the main page"
@@ -556,7 +556,7 @@ msgstr ""
 "потерянных меток времени, обычно посланных с экхотических устройств и "
 "програм.Можно установить в -1 для отключения."
 
-#: assets/js/sipsettings.js:181
+#: assets/js/sipsettings.js:182
 msgid "Loading"
 msgstr "Загружается"
 
@@ -721,7 +721,7 @@ msgstr "Другие настройки SIP"
 msgid "Override External IP"
 msgstr "Переопределить внешний IP"
 
-#: assets/js/sipsettings.js:169
+#: assets/js/sipsettings.js:170
 msgid "PJSIP transport port conflicts with SIP port"
 msgstr "Порт транспорта канала PJSIP конфликтует с портом канала SIP"
 
@@ -939,7 +939,8 @@ msgstr "Эти настройки применяются как для chan_sip,
 
 #: general.page.php:77
 msgid "This address will be provided to clients if NAT is enabled and detected"
-msgstr "Этот адрес будет предоставляться клиентам, если NAT включен и обнаружен"
+msgstr ""
+"Этот адрес будет предоставляться клиентам, если NAT включен и обнаружен"
 
 #: general.page.php:326
 msgid "This is the default Codec setting for new Trunks and Extensions."
@@ -1017,8 +1018,8 @@ msgid ""
 msgstr ""
 "Если установлено в 'Да', Астериск разрешит гостевые SIP вызовы и отправит их "
 "в контекст по умолчанию для SIP from-sip-external. Отключение позволит "
-"запретить анонимные SIP звонки в систему. Дополнительная возможность также -"
-"  отключение 'Разрешить анонимные входящие SIP звонки'. Разрешая гостевые "
+"запретить анонимные SIP звонки в систему. Дополнительная возможность также "
+"-  отключение 'Разрешить анонимные входящие SIP звонки'. Разрешая гостевые "
 "звонки, но отвергая анонимные SIP звонки, можно увидеть попытки входящих "
 "вызовов и отладить такие вызовы, которые, возможно, неправильно настроены и "
 "они приходят как гостевые."

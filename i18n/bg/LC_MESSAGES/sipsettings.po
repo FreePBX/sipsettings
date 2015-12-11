@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-24 12:14-0800\n"
+"POT-Creation-Date: 2015-12-11 10:43-0800\n"
 "PO-Revision-Date: 2014-07-22 16:07+0200\n"
 "Last-Translator: Chavdar <chavdar_75@yahoo.com>\n"
 "Language-Team: Bulgarian <http://git.freepbx.org/projects/freepbx/"
@@ -101,7 +101,7 @@ msgid ""
 "<strong>restarted</strong>, not just reloaded."
 msgstr ""
 
-#: assets/js/sipsettings.js:128
+#: assets/js/sipsettings.js:129
 msgid ""
 "An Error occurred trying fetch network configuration and external IP address"
 msgstr ""
@@ -314,12 +314,12 @@ msgstr ""
 msgid "End"
 msgstr ""
 
-#: assets/js/sipsettings.js:188 assets/js/sipsettings.js:191
-#: assets/js/sipsettings.js:200
+#: assets/js/sipsettings.js:189 assets/js/sipsettings.js:192
+#: assets/js/sipsettings.js:201
 msgid "Enter IP Address"
 msgstr ""
 
-#: assets/js/sipsettings.js:196 assets/js/sipsettings.js:199
+#: assets/js/sipsettings.js:197 assets/js/sipsettings.js:200
 #, perl-format
 msgid "Error: %s"
 msgstr ""
@@ -338,7 +338,7 @@ msgstr ""
 msgid "External IP Address"
 msgstr ""
 
-#: functions.inc.php:349 assets/js/sipsettings.js:17
+#: functions.inc.php:349 assets/js/sipsettings.js:18
 msgid ""
 "External IP can not be blank when NAT Mode is set to Static and no default "
 "IP address provided on the main page"
@@ -448,7 +448,7 @@ msgid ""
 "to disable."
 msgstr ""
 
-#: assets/js/sipsettings.js:181
+#: assets/js/sipsettings.js:182
 msgid "Loading"
 msgstr ""
 
@@ -598,7 +598,7 @@ msgstr ""
 msgid "Override External IP"
 msgstr ""
 
-#: assets/js/sipsettings.js:169
+#: assets/js/sipsettings.js:170
 msgid "PJSIP transport port conflicts with SIP port"
 msgstr ""
 
