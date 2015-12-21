@@ -13,10 +13,12 @@ $(document).ready(function() {
 			alert(_("Port/Bind Address has changed. This requires an Asterisk restart after Apply Config"));
 		}
 		var extip = document.getElementById("externip1");
-		if(typeof extip !== "undefined" && extip.checked){
-			if($("#externip_val").val().length < 1){
-					warnInvalid($("#externip_val"),_("External IP can not be blank when NAT Mode is set to Static and no default IP address provided on the main page"));
-					return false;
+		if(extip !== null){
+			if(extip.checked){
+				if($("#externip_val").val().length < 1){
+						warnInvalid($("#externip_val"),_("External IP can not be blank when NAT Mode is set to Static and no default IP address provided on the main page"));
+						return false;
+				}
 			}
 		}
 		return checkBindConflicts();
