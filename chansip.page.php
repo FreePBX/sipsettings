@@ -842,9 +842,9 @@ $error_displays = array_merge($error_displays,sipsettings_check_custom_files());
 								<i class="fa fa-question-circle fpbx-help-icon" data-for="jbforce"></i>
 							</div>
 							<div class="col-md-9 radioset">
-								<input id="jbforce-yes" type="radio" name="jbforce" class="jitter-buffer" value="yes" <?php echo $jbforce=="yes"?"checked=\"yes\"":""?>/>
+								<input id="jbforce-yes" type="radio" name="jbforce" value="yes" <?php echo $jbforce=="yes"?"checked=\"yes\"":""?>/>
 								<label for="jbforce-yes"><?php echo _("Yes") ?></label>
-								<input id="jbforce-no" type="radio" name="jbforce" class="jitter-buffer" value="no" <?php echo $jbforce=="no"?"checked=\"no\"":""?>/>
+								<input id="jbforce-no" type="radio" name="jbforce" value="no" <?php echo $jbforce=="no"?"checked=\"no\"":""?>/>
 								<label for="jbforce-no"><?php echo _("No") ?></label>
 							</div>
 						</div>
@@ -869,9 +869,9 @@ $error_displays = array_merge($error_displays,sipsettings_check_custom_files());
 								<i class="fa fa-question-circle fpbx-help-icon" data-for="jbimpl"></i>
 							</div>
 							<div class="col-md-9 radioset">
-								<input id="jbimpl-fixed" type="radio" name="jbimpl" class="jitter-buffer" value="fixed" <?php echo $jbimpl=="fixed"?"checked=\"fixed\"":""?>/>
+								<input id="jbimpl-fixed" type="radio" name="jbimpl" value="fixed" <?php echo $jbimpl=="fixed"?"checked=\"fixed\"":""?>/>
 								<label for="jbimpl-fixed"><?php echo _("Fixed") ?></label>
-								<input id="jbimpl-adaptive" type="radio" name="jbimpl" class="jitter-buffer" value="adaptive" <?php echo $jbimpl=="adaptive"?"checked=\"adaptive\"":""?>/>
+								<input id="jbimpl-adaptive" type="radio" name="jbimpl" value="adaptive" <?php echo $jbimpl=="adaptive"?"checked=\"adaptive\"":""?>/>
 								<label for="jbimpl-adaptive"><?php echo _("Adaptive") ?></label>
 							</div>
 						</div>
@@ -896,9 +896,9 @@ $error_displays = array_merge($error_displays,sipsettings_check_custom_files());
 								<i class="fa fa-question-circle fpbx-help-icon" data-for="jblog"></i>
 							</div>
 							<div class="col-md-9 radioset">
-								<input id="jblog-yes" type="radio" name="jblog" class="jitter-buffer" value="yes" <?php echo $jblog=="yes"?"checked=\"yes\"":""?>/>
+								<input id="jblog-yes" type="radio" name="jblog" value="yes" <?php echo $jblog=="yes"?"checked=\"yes\"":""?>/>
 								<label for="jblog-yes"><?php echo _("Yes") ?></label>
-								<input id="jblog-no" type="radio" name="jblog" class="jitter-buffer" value="no" <?php echo $jblog=="no"?"checked=\"no\"":""?>/>
+								<input id="jblog-no" type="radio" name="jblog" value="no" <?php echo $jblog=="no"?"checked=\"no\"":""?>/>
 								<label for="jblog-no"><?php echo _("No") ?></label>
 							</div>
 						</div>
