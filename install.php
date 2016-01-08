@@ -93,7 +93,7 @@ if(DB::IsError($check)) {
 
 //OK let's do some migrating for BMO
 $ss = FreePBX::Sipsettings();
-if(!$ss->getConfig('rtpstart') || $ss->getConfig('rtpend')) {
+if(!$ss->getConfig('rtpstart') || !$ss->getConfig('rtpend')) {
 	out(_("Migrate rtp.conf values if needed and initialize"));
 
 	$sql = "SELECT data FROM sipsettings WHERE keyword = 'rtpstart'";
