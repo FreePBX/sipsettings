@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-11 15:07-0700\n"
+"POT-Creation-Date: 2016-01-07 17:33-0800\n"
 "PO-Revision-Date: 2015-02-20 20:00-0500\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -96,6 +96,10 @@ msgid ""
 "= Use NAT mode only according to RFC3581 <br /> never = Never attempt NAT "
 "mode or RFC3581 <br /> route = Assume NAT, don't send rport"
 msgstr ""
+
+#: sipsettings.i18n.php:4 sipsettings.i18n.php:10
+msgid "Asterisk SIP Settings"
+msgstr "Asterisk SIP设置"
 
 #: Sipsettings.class.php:131
 #, php-format
@@ -643,6 +647,10 @@ msgstr ""
 msgid "Security Settings"
 msgstr ""
 
+#: sipsettings.i18n.php:6 sipsettings.i18n.php:12
+msgid "Settings"
+msgstr "设置"
+
 #: chansip.page.php:890
 #, php-format
 msgid "Settings in %s may override these. Those settings should be removed."
@@ -716,6 +724,14 @@ msgstr ""
 
 #: Sipsettings.class.php:281 Sipsettings.class.php:363
 msgid "Unknown Type"
+msgstr ""
+
+#: sipsettings.i18n.php:8
+msgid ""
+"Use to configure Various Asterisk SIP Settings in the General section of sip."
+"conf. Also includes an auto-configuration tool to determine NAT settings. "
+"The module assumes Asterisk version 1.4 or higher. Some settings may not "
+"exist in Asterisk 1.2 and will be ignored by Asterisk."
 msgstr ""
 
 #: general.page.php:113
@@ -824,12 +840,6 @@ msgstr ""
 #: chansip.page.php:368
 msgid "yes"
 msgstr ""
-
-#~ msgid "Asterisk SIP Settings"
-#~ msgstr "Asterisk SIP设置"
-
-#~ msgid "Settings"
-#~ msgstr "设置"
 
 #~ msgid "External IP"
 #~ msgstr "外部IP"
