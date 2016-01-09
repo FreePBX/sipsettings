@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-12-11 10:43-0800\n"
+"POT-Creation-Date: 2016-01-08 19:40-0800\n"
 "PO-Revision-Date: 2015-12-05 10:05+0200\n"
 "Last-Translator: Andrew <andrew.nagy@the159.com>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/"
@@ -121,7 +121,7 @@ msgstr ""
 "Имейте ввиду: После включения / отключения транспорта, Астериск необходимо "
 "<strong>перезапустить</strong>, а не просто перезагрузить."
 
-#: assets/js/sipsettings.js:129
+#: assets/js/sipsettings.js:131
 msgid ""
 "An Error occurred trying fetch network configuration and external IP address"
 msgstr "Ошибка получения сетевой конфигурации и внешний IP-адреса"
@@ -386,12 +386,12 @@ msgstr ""
 msgid "End"
 msgstr "Конец"
 
-#: assets/js/sipsettings.js:189 assets/js/sipsettings.js:192
-#: assets/js/sipsettings.js:201
+#: assets/js/sipsettings.js:191 assets/js/sipsettings.js:194
+#: assets/js/sipsettings.js:203
 msgid "Enter IP Address"
 msgstr "Введите ИП адрес"
 
-#: assets/js/sipsettings.js:197 assets/js/sipsettings.js:200
+#: assets/js/sipsettings.js:199 assets/js/sipsettings.js:202
 #, perl-format
 msgid "Error: %s"
 msgstr "Ошибка: %s"
@@ -413,7 +413,7 @@ msgstr ""
 msgid "External IP Address"
 msgstr "Внешний IP адрес"
 
-#: functions.inc.php:349 assets/js/sipsettings.js:18
+#: functions.inc.php:349 assets/js/sipsettings.js:19
 msgid ""
 "External IP can not be blank when NAT Mode is set to Static and no default "
 "IP address provided on the main page"
@@ -556,7 +556,7 @@ msgstr ""
 "потерянных меток времени, обычно посланных с экхотических устройств и "
 "програм.Можно установить в -1 для отключения."
 
-#: assets/js/sipsettings.js:182
+#: assets/js/sipsettings.js:184
 msgid "Loading"
 msgstr "Загружается"
 
@@ -721,7 +721,7 @@ msgstr "Другие настройки SIP"
 msgid "Override External IP"
 msgstr "Переопределить внешний IP"
 
-#: assets/js/sipsettings.js:170
+#: assets/js/sipsettings.js:172
 msgid "PJSIP transport port conflicts with SIP port"
 msgstr "Порт транспорта канала PJSIP конфликтует с портом канала SIP"
 
