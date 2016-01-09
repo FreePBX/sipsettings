@@ -89,7 +89,7 @@ $submit_changes = _("Submit Changes");
 	foreach ($localnetstmp as $id => $arr) {
 		$lnhtm .= '<div class = "lnet form-group form-inline" data-nextid='.($id+1).'>';
 		$lnhtm .= '	<input type="text" name="localnets['.$id.'][net]" class="form-control localnet network validate=ip" value="'.$arr['net'].'">/';
-		$lnhtm .= '	<input type="text" name="localnets['.$id.'][mask]" class="form-control netmask cidr validate-netmask" value="'.$arr['mask'].'"><br/>';
+		$lnhtm .= '	<input type="text" name="localnets['.$id.'][mask]" class="form-control netmask cidr validate-netmask" value="'.$arr['mask'].'">';
 		$lnhtm .= '</div>';
 	}
 	?>
@@ -107,8 +107,8 @@ $submit_changes = _("Submit Changes");
 							<div class = "lnet form-group form-inline" data-nextid=1>
 								<input type="text" name="localnets[0][net]" class="form-control localnet network validate=ip" value="<?php echo isset($localnets[0]['net']) ? $localnets[0]['net'] : '' ?>"> /
 								<input type="text" name="localnets[0][mask]" class="form-control netmask cidr validate-netmask" value="<?php echo isset($localnets[0]['mask']) ? $localnets[0]['mask'] : ''?>">
-								<?php echo $lnhtm?>
 							</div>
+							<?php echo $lnhtm?>
 							<input type="button" id="localnet-add" value="<?php echo $add_local_network_field ?>" />
 						</div>
 					</div>
