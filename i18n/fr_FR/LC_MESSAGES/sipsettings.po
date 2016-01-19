@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-01-08 19:40-0800\n"
-"PO-Revision-Date: 2016-01-17 01:26+0200\n"
+"PO-Revision-Date: 2016-01-18 18:28+0200\n"
 "Last-Translator: Nicolas <forums@riendeau.org>\n"
 "Language-Team: French "
 "<http://weblate.freepbx.org/projects/freepbx/sipsettings/fr_FR/>\n"
@@ -104,17 +104,17 @@ msgstr ""
 
 #: sipsettings.i18n.php:4 sipsettings.i18n.php:10
 msgid "Asterisk SIP Settings"
-msgstr ""
+msgstr "Paramètres SIP d'Asterisk"
 
 #: Sipsettings.class.php:116
 #, php-format
 msgid "Asterisk is currently using %s for SIP Traffic."
-msgstr ""
+msgstr "Asterisk utilise actuellement %s pour le trafic SIP."
 
 #: chansip.page.php:995
 msgid ""
 "Asterisk supports IPv6. An address of '::' will listen on both IPv4 and IPv6."
-msgstr ""
+msgstr "Asterisk supporte IPv6. L'adresse '::' le fera écouter en IPv4 et IPv6."
 
 #: chansip.page.php:994
 msgid ""
