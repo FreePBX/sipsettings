@@ -35,7 +35,7 @@ if ($sa != "no") {
 	}
 }
 $protocols = $this->getConfig("protocols");
-$protohtml = $udphtml = $bindthml = '';
+$protohtml = $udphtml = $bindhtml = '';
 foreach ($protocols as $p) {
 	$allBinds = $this->getConfig("binds");
 	$binds = !empty($allBinds[$p]) && is_array($allBinds[$p]) ? $allBinds[$p] : array();
@@ -69,21 +69,17 @@ foreach ($protocols as $p) {
 		<!--'.$thisTitle.'-->
 		<div class="element-container">
 			<div class="row">
-				<div class="col-md-12">
-					<div class="row">
-						<div class="form-group">
-							<div class="col-md-3">
-								<label class="control-label" for="'.$thisID.'">'. $thisTitle .'</label>
-								<i class="fa fa-question-circle fpbx-help-icon" data-for="'.$thisID.'"></i>
-							</div>
-							<div class="col-md-9 radioset">
-								<input type="radio" name="'.$thisID.'" id="'.$thisID.'yes" value="on" '. ($binds[$i[0]] == "on"?"CHECKED":"") .'>
-								<label for="'.$thisID.'yes">'. _("Yes").'</label>
-								<input type="radio" name="'.$thisID.'" id="'.$thisID.'no" value="off" '.($binds[$i[0]] == "on"?"":"CHECKED") .'>
-								<label for="'.$thisID.'no">'. _("No").'</label>
-								</span>
-							</div>
-						</div>
+				<div class="form-group">
+					<div class="col-md-3">
+						<label class="control-label" for="'.$thisID.'">'. $thisTitle .'</label>
+						<i class="fa fa-question-circle fpbx-help-icon" data-for="'.$thisID.'"></i>
+					</div>
+					<div class="col-md-9 radioset">
+						<input type="radio" name="'.$thisID.'" id="'.$thisID.'yes" value="on" '. ($binds[$i[0]] == "on"?"CHECKED":"") .'>
+						<label for="'.$thisID.'yes">'. _("Yes").'</label>
+						<input type="radio" name="'.$thisID.'" id="'.$thisID.'no" value="off" '.($binds[$i[0]] == "on"?"":"CHECKED") .'>
+						<label for="'.$thisID.'no">'. _("No").'</label>
+						</span>
 					</div>
 				</div>
 			</div>
@@ -102,8 +98,13 @@ foreach ($protocols as $p) {
 
 	// Now display a section for each one.
 	foreach ($binds as $ip => $stat) {
-		if ($stat != "on")
+		if ($stat != "on") {
 			continue;
+		}
+		// ws and wss are not configurable
+		if (strpos($p, "ws") === 0) {
+			continue;
+		}
 		$vars = array(
 			$p."port-$ip" => array(_("Port to Listen On"),_("The port that this transport should listen on"),"port", $ip),
 			$p."domain-$ip" => array(_("Domain the transport comes from"),_("Typically used with SIP calling. Example user@domain, where domain is the value that would be entered here"),"domain", $ip),
@@ -162,9 +163,9 @@ foreach ($protocols as $p) {
 				';
 			}
 		}
-		$bindthml .= '
+		$bindhtml .= '
 			<div class="section-title" data-for="pjsbind.'.$p.'"><h3>
-				<i class="fa fa-minus"></i> '.$p.'</h3>
+				<i class="fa fa-minus"></i> '.$ip.' ('.$p.')</h3>
 			</div>
 			<div class="section" data-id="pjsbind.'.$p.'">
 			'.$udphtml.'
@@ -184,20 +185,16 @@ foreach ($protocols as $p) {
 	<!--Allow Guests-->
 	<div class="element-container">
 		<div class="row">
-			<div class="col-md-12">
-				<div class="row">
-					<div class="form-group">
-						<div class="col-md-3">
-							<label class="control-label" for="allowguests"><?php echo _("Allow Guests") ?></label>
-							<i class="fa fa-question-circle fpbx-help-icon" data-for="allowguests"></i>
-						</div>
-						<div class="col-md-9 radioset">
-							<input type="radio" name="allowguests" id="allowguestsyes" value="yes" <?php echo ($this->getConfig("allowguest") == "yes"?"CHECKED":"") ?>>
-							<label for="allowguestsyes"><?php echo _("Yes");?></label>
-							<input type="radio" name="allowguests" id="allowguestsno" value="no" <?php echo ($this->getConfig("allowguest") == "yes"?"":"CHECKED") ?>>
-							<label for="allowguestsno"><?php echo _("No");?></label>
-						</div>
-					</div>
+			<div class="form-group">
+				<div class="col-md-3">
+					<label class="control-label" for="allowguests"><?php echo _("Allow Guests") ?></label>
+					<i class="fa fa-question-circle fpbx-help-icon" data-for="allowguests"></i>
+				</div>
+				<div class="col-md-9 radioset">
+					<input type="radio" name="allowguests" id="allowguestsyes" value="yes" <?php echo ($this->getConfig("allowguest") == "yes"?"CHECKED":"") ?>>
+					<label for="allowguestsyes"><?php echo _("Yes");?></label>
+					<input type="radio" name="allowguests" id="allowguestsno" value="no" <?php echo ($this->getConfig("allowguest") == "yes"?"":"CHECKED") ?>>
+					<label for="allowguestsno"><?php echo _("No");?></label>
 				</div>
 			</div>
 		</div>
@@ -211,20 +208,16 @@ foreach ($protocols as $p) {
 	<!--Show Advanced Settings-->
 	<div class="element-container">
 		<div class="row">
-			<div class="col-md-12">
-				<div class="row">
-					<div class="form-group">
-						<div class="col-md-3">
-							<label class="control-label" for="showadvanced"><?php echo _("Show Advanced Settings") ?></label>
-							<i class="fa fa-question-circle fpbx-help-icon" data-for="showadvanced"></i>
-						</div>
-						<div class="col-md-9 radioset">
-							<input type="radio" name="showadvanced" id="showadvancedyes" value="yes" <?php echo ( $this->getConfig("showadvanced") == "yes"?"CHECKED":"") ?>>
-							<label for="showadvancedyes"><?php echo _("Yes");?></label>
-							<input type="radio" name="showadvanced" id="showadvancedno" value="no" <?php echo ( $this->getConfig("showadvanced") == "yes"?"":"CHECKED") ?>>
-							<label for="showadvancedno"><?php echo _("No");?></label>
-						</div>
-					</div>
+			<div class="form-group">
+				<div class="col-md-3">
+					<label class="control-label" for="showadvanced"><?php echo _("Show Advanced Settings") ?></label>
+					<i class="fa fa-question-circle fpbx-help-icon" data-for="showadvanced"></i>
+				</div>
+				<div class="col-md-9 radioset">
+					<input type="radio" name="showadvanced" id="showadvancedyes" value="yes" <?php echo ( $this->getConfig("showadvanced") == "yes"?"CHECKED":"") ?>>
+					<label for="showadvancedyes"><?php echo _("Yes");?></label>
+					<input type="radio" name="showadvanced" id="showadvancedno" value="no" <?php echo ( $this->getConfig("showadvanced") == "yes"?"":"CHECKED") ?>>
+					<label for="showadvancedno"><?php echo _("No");?></label>
 				</div>
 			</div>
 		</div>
@@ -246,5 +239,5 @@ foreach ($protocols as $p) {
 	</div>
 </div>
 <?php echo $protohtml?>
-<?php echo $bindthml?>
+<?php echo $bindhtml?>
 </form>
