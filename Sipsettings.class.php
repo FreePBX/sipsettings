@@ -17,7 +17,7 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 		"turnaddr" => "",
 		"turnusername" => "",
 		"turnpassword" => "",
-		"protocols" => array("udp", "tcp", "ws", "wss"),
+		"protocols" => array("udp", "tcp", "tls", "ws", "wss"),
 		"rtpchecksums" => "Yes",
 		"strictrtp" => "Yes",
 		"allowguest" => "no",
@@ -25,6 +25,7 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 		"showadvanced" => "no",
 		"tcpport-0.0.0.0" => "5061", // Defaults, only used if this is an upgrade
 		"udpport-0.0.0.0" => "5061",
+		"tlsport-0.0.0.0" => "5161",
 	);
 
 	public function ajaxRequest($req, &$setting) {
@@ -115,7 +116,7 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 
 		$str = _("Asterisk is currently using %s for SIP Traffic.");
 		if ($driver == "both") {
-			$str = sprintf($str,"chan_sip, chan_pjsip");
+			$str = sprintf($str,_("chan_pjsip and chan_sip"));
 		} else {
 			$str = sprintf($str,$driver);
 		}
@@ -454,4 +455,67 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 		return $buttons;
 	}
 
+	/**
+	 * Generate TLS configuration
+	 *
+	 * This returns a k=>v array of entries to add to a transport if
+	 * TLS is enabled.
+	 *
+	 * If TLS fails validation, an empty array is returned.
+	 *
+	 * @return array as above
+	 */
+	public function getTLSConfig() {
+
+		// Cache is here as this function is called for every extension that has
+		// the ability to do srtp.
+		static $cache;
+
+		print "Called\n";
+		if (is_array($cache)) {
+			print ":Cache:\n"; print_r($cache);
+			return $cache;
+		}
+
+		$defaults = array(
+			"ca_list_file" => "/etc/asterisk/keys/integration/ca-bundle.crt",
+			"cert_file" => "/etc/asterisk/keys/integration/webserver.crt",
+			"priv_key_file" => "/etc/asterisk/keys/integration/webserver.key",
+		);
+
+		$map = array(
+			"calistfile" => "ca_list_file",
+			"certfile" => "cert_file",
+			"privkeyfile" => "priv_key_file",
+		);
+
+		$retarr = array();
+
+		foreach ($map as $k => $v) {
+			$tmp = $this->getConfig($k);
+			if ($tmp) {
+				// It's set. Does it exist?
+				if (file_exists($tmp)) {
+					// That'll do.
+					$retarr[$v] = $tmp;
+				} else {
+					// Pointed to a file that doesn't exist? No TLS.
+					// TODO: Notification?
+					$cache = array();
+					return array();
+				}
+			} else {
+				// Notset. Does the default file exist?
+				if (file_exists($defaults[$v])) {
+					$retarr[$v] = $defaults[$v];
+				} else {
+					// No default file.
+					$cache = array();
+					return array();
+				}
+			}
+		}
+		$cache = $retarr;
+		return $retarr;
+	}
 }
