@@ -9,15 +9,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-08 19:40-0800\n"
+"POT-Creation-Date: 2016-01-23 04:42+1000\n"
 "PO-Revision-Date: 2016-01-18 18:28+0200\n"
 "Last-Translator: Nicolas <forums@riendeau.org>\n"
-"Language-Team: French "
-"<http://weblate.freepbx.org/projects/freepbx/sipsettings/fr_FR/>\n"
-"Language: fr_FR\n"
+"Language-Team: French <http://weblate.freepbx.org/projects/freepbx/"
+"sipsettings/fr_FR/>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: fr_FR\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
@@ -62,7 +62,7 @@ msgstr ""
 msgid "Allow Anonymous Inbound SIP Calls"
 msgstr "Permettre les appels anonymes SIP entrants"
 
-#: chanpj.page.php:191
+#: chanpj.page.php:190
 msgid "Allow Guests"
 msgstr "Permettre les invités"
 
@@ -84,7 +84,7 @@ msgid ""
 "rendered useless as well as if 'Allow SIP Guests' is set to no."
 msgstr ""
 
-#: chanpj.page.php:245
+#: chanpj.page.php:281
 msgid ""
 "Also be warned: After you enable/disable a transport, asterisk needs to be "
 "<strong>restarted</strong>, not just reloaded."
@@ -106,7 +106,7 @@ msgstr ""
 msgid "Asterisk SIP Settings"
 msgstr "Paramètres SIP d'Asterisk"
 
-#: Sipsettings.class.php:116
+#: Sipsettings.class.php:117
 #, php-format
 msgid "Asterisk is currently using %s for SIP Traffic."
 msgstr "Asterisk utilise actuellement %s pour le trafic SIP."
@@ -114,7 +114,8 @@ msgstr "Asterisk utilise actuellement %s pour le trafic SIP."
 #: chansip.page.php:995
 msgid ""
 "Asterisk supports IPv6. An address of '::' will listen on both IPv4 and IPv6."
-msgstr "Asterisk supporte IPv6. L'adresse '::' le fera écouter en IPv4 et IPv6."
+msgstr ""
+"Asterisk supporte IPv6. L'adresse '::' le fera écouter en IPv4 et IPv6."
 
 #: chansip.page.php:994
 msgid ""
@@ -182,15 +183,23 @@ msgstr ""
 msgid "Bind Port (bindport) must be between 1024 and 65535"
 msgstr ""
 
+#: chanpj.page.php:241
+msgid "CA Chain File"
+msgstr ""
+
 #: chansip.page.php:1106
 msgid "Call Events"
 msgstr ""
 
-#: Sipsettings.class.php:147
+#: chanpj.page.php:253
+msgid "Certificate File"
+msgstr ""
+
+#: Sipsettings.class.php:148
 msgid "Chan PJSIP Settings"
 msgstr ""
 
-#: Sipsettings.class.php:140
+#: Sipsettings.class.php:141
 msgid "Chan SIP Settings"
 msgstr ""
 
@@ -243,7 +252,7 @@ msgstr ""
 msgid "Disabled"
 msgstr ""
 
-#: chanpj.page.php:109
+#: chanpj.page.php:110
 msgid "Domain the transport comes from"
 msgstr ""
 
@@ -323,7 +332,7 @@ msgid ""
 "e.g. mydomain.example.com. (asterisk: externhost)"
 msgstr ""
 
-#: chanpj.page.php:110
+#: chanpj.page.php:111
 msgid "External IP Address"
 msgstr ""
 
@@ -362,7 +371,7 @@ msgid ""
 "Frequency in seconds to check if MWI state has changed and inform peers."
 msgstr ""
 
-#: Sipsettings.class.php:133
+#: Sipsettings.class.php:134
 msgid "General SIP Settings"
 msgstr ""
 
@@ -389,7 +398,7 @@ msgstr ""
 msgid "IP Configuration"
 msgstr ""
 
-#: chanpj.page.php:110
+#: chanpj.page.php:111
 msgid "If blank, will use the default settings"
 msgstr ""
 
@@ -452,7 +461,7 @@ msgid ""
 "this is defaulted to 5061"
 msgstr ""
 
-#: chanpj.page.php:111
+#: chanpj.page.php:112
 msgid "Local network"
 msgstr ""
 
@@ -523,7 +532,7 @@ msgstr ""
 msgid "Minimum length of registrations/subscriptions."
 msgstr ""
 
-#: chanpj.page.php:181
+#: chanpj.page.php:182
 msgid "Misc PJSip Settings"
 msgstr ""
 
@@ -535,7 +544,7 @@ msgstr ""
 msgid "NAT Settings"
 msgstr ""
 
-#: chanpj.page.php:83 chanpj.page.php:198 chanpj.page.php:225
+#: chanpj.page.php:81 chanpj.page.php:197 chanpj.page.php:220
 #: chansip.page.php:335 chansip.page.php:360 chansip.page.php:636
 #: chansip.page.php:663 chansip.page.php:820 chansip.page.php:848
 #: chansip.page.php:902 chansip.page.php:1059 chansip.page.php:1086
@@ -548,7 +557,7 @@ msgstr ""
 msgid "Non-Standard g726"
 msgstr ""
 
-#: chanpj.page.php:244
+#: chanpj.page.php:280
 msgid ""
 "Note that the interface is only displayed for your information, and is not "
 "referenced by asterisk."
@@ -597,7 +606,7 @@ msgid ""
 "disabled by default."
 msgstr ""
 
-#: chanpj.page.php:108
+#: chanpj.page.php:109
 msgid "Port to Listen On"
 msgstr ""
 
@@ -605,6 +614,10 @@ msgstr ""
 msgid ""
 "Port/Bind Address has changed. This requires an Asterisk restart after Apply "
 "Config"
+msgstr ""
+
+#: chanpj.page.php:265
+msgid "Private Key File"
 msgstr ""
 
 #: chansip.page.php:214
@@ -663,7 +676,7 @@ msgstr ""
 msgid "Reinvite Behavior"
 msgstr ""
 
-#: Sipsettings.class.php:444
+#: Sipsettings.class.php:445
 msgid "Reset"
 msgstr ""
 
@@ -708,7 +721,7 @@ msgstr ""
 msgid "Settings in %s may override these. Those settings should be removed."
 msgstr ""
 
-#: chanpj.page.php:218 chanpj.page.php:233
+#: chanpj.page.php:213 chanpj.page.php:226
 msgid "Show Advanced Settings"
 msgstr ""
 
@@ -724,7 +737,7 @@ msgstr ""
 msgid "Strict RTP"
 msgstr ""
 
-#: Sipsettings.class.php:449
+#: Sipsettings.class.php:450
 msgid "Submit"
 msgstr ""
 
@@ -734,6 +747,10 @@ msgstr ""
 
 #: chansip.page.php:355
 msgid "T38 Pass-Through"
+msgstr ""
+
+#: chanpj.page.php:234
+msgid "TLS/SSL/SRTP Settings"
 msgstr ""
 
 #: general.page.php:246
@@ -770,7 +787,7 @@ msgid ""
 "is: %s, CHAN_SIP is: %s"
 msgstr ""
 
-#: chanpj.page.php:108
+#: chanpj.page.php:109
 msgid "The port that this transport should listen on"
 msgstr ""
 
@@ -796,11 +813,11 @@ msgid ""
 "stream. It is unusual to turn this off"
 msgstr ""
 
-#: chanpj.page.php:240
+#: chanpj.page.php:276
 msgid "Transports"
 msgstr ""
 
-#: chanpj.page.php:109
+#: chanpj.page.php:110
 msgid ""
 "Typically used with SIP calling. Example user@domain, where domain is the "
 "value that would be entered here"
@@ -810,11 +827,11 @@ msgstr ""
 msgid "Unknown Error"
 msgstr ""
 
-#: Sipsettings.class.php:290 Sipsettings.class.php:372
+#: Sipsettings.class.php:291 Sipsettings.class.php:373
 msgid "Unknown Type"
 msgstr ""
 
-#: chanpj.page.php:92
+#: chanpj.page.php:88
 msgid "Use "
 msgstr ""
 
@@ -840,7 +857,7 @@ msgstr ""
 msgid "Video Support"
 msgstr ""
 
-#: chanpj.page.php:206 chansip.page.php:1067
+#: chanpj.page.php:203 chansip.page.php:1067
 msgid ""
 "When set Asterisk will allow Guest SIP calls and send them to the Default "
 "SIP context. Turning this off will keep anonymous SIP calls from entering "
@@ -854,7 +871,7 @@ msgstr ""
 msgid "Whether to enable or disable UDP checksums on RTP traffic"
 msgstr ""
 
-#: chanpj.page.php:81 chanpj.page.php:196 chanpj.page.php:223
+#: chanpj.page.php:79 chanpj.page.php:195 chanpj.page.php:218
 #: chansip.page.php:333 chansip.page.php:361 chansip.page.php:634
 #: chansip.page.php:661 chansip.page.php:818 chansip.page.php:846
 #: chansip.page.php:900 chansip.page.php:1057 chansip.page.php:1084
@@ -875,7 +892,7 @@ msgstr ""
 msgid "Yes with no error correction"
 msgstr ""
 
-#: Sipsettings.class.php:122
+#: Sipsettings.class.php:123
 msgid "You can change this on the Advanced Settings Page"
 msgstr ""
 
@@ -889,13 +906,17 @@ msgid ""
 "submitted."
 msgstr ""
 
-#: chanpj.page.php:111
+#: chanpj.page.php:112
 msgid ""
 "You may use this to to define an additional local network per interface."
 msgstr ""
 
 #: install.php:94
 msgid "already exists"
+msgstr ""
+
+#: Sipsettings.class.php:119
+msgid "chan_pjsip and chan_sip"
 msgstr ""
 
 #: install.php:49
