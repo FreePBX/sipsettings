@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-01-23 04:42+1000\n"
-"PO-Revision-Date: 2016-02-01 09:59+0200\n"
+"PO-Revision-Date: 2016-02-01 18:02+0200\n"
 "Last-Translator: Nicolas Riendeau <freepbx@riendeau.org>\n"
 "Language-Team: French "
 "<http://weblate.freepbx.org/projects/freepbx/sipsettings/fr_FR/>\n"
@@ -375,7 +375,7 @@ msgstr ""
 
 #: Sipsettings.class.php:134
 msgid "General SIP Settings"
-msgstr ""
+msgstr "Paramètres SIP généraux"
 
 #: chansip.page.php:1121
 msgid "Generate manager events when sip ua performs events (e.g. hold)."
