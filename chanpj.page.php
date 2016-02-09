@@ -253,7 +253,7 @@ foreach ($protocols as $p) {
 					<label class="control-label" for="certfile"><?php echo _("Certificate File") ?></label>
 				</div>
 				<div class="col-md-9">
-					<input type="text" class="form-control" name="certfile" placeholder="/etc/asterisk/keys/integration/webserver.crt" value="<?php echo $this->getConfig("cacertfile"); ?>"></input>
+					<input type="text" class="form-control" name="certfile" placeholder="/etc/asterisk/keys/integration/webserver.crt" value="<?php echo $this->getConfig("certfile"); ?>"></input>
 				</div>
 			</div>
 		</div>
