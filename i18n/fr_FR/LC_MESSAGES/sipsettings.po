@@ -10,14 +10,14 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-01-23 04:42+1000\n"
-"PO-Revision-Date: 2016-01-18 18:28+0200\n"
-"Last-Translator: Nicolas <forums@riendeau.org>\n"
-"Language-Team: French <http://weblate.freepbx.org/projects/freepbx/"
-"sipsettings/fr_FR/>\n"
+"PO-Revision-Date: 2016-02-01 18:02+0200\n"
+"Last-Translator: Nicolas Riendeau <freepbx@riendeau.org>\n"
+"Language-Team: French "
+"<http://weblate.freepbx.org/projects/freepbx/sipsettings/fr_FR/>\n"
+"Language: fr_FR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fr_FR\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
@@ -56,7 +56,7 @@ msgstr "Ajouter un champ réseau local"
 
 #: chansip.page.php:966
 msgid "Advanced General Settings"
-msgstr ""
+msgstr "Paramètres généraux avancés"
 
 #: general.page.php:31
 msgid "Allow Anonymous Inbound SIP Calls"
@@ -161,27 +161,27 @@ msgstr ""
 
 #: chansip.page.php:318 general.page.php:313
 msgid "Audio Codecs"
-msgstr ""
+msgstr "Codecs audio"
 
 #: chansip.page.php:36
 msgid "Auto Configure"
-msgstr ""
+msgstr "Configuration auto"
 
 #: chansip.page.php:1004
 msgid "Bind Address"
-msgstr ""
+msgstr "Adresse d'écoute"
 
 #: functions.inc.php:293
 msgid "Bind Address (bindaddr) must be an IP address."
-msgstr ""
+msgstr "L'adresse d'écoute (bindaddr) doit être une adresse IP."
 
 #: chansip.page.php:1028
 msgid "Bind Port"
-msgstr ""
+msgstr "Port d'écoute"
 
 #: functions.inc.php:299
 msgid "Bind Port (bindport) must be between 1024 and 65535"
-msgstr ""
+msgstr "Le port d'écoute (bindport) doit être entre 1024 et 65535"
 
 #: chanpj.page.php:241
 msgid "CA Chain File"
@@ -193,15 +193,15 @@ msgstr ""
 
 #: chanpj.page.php:253
 msgid "Certificate File"
-msgstr ""
+msgstr "Fichier de certificat"
 
 #: Sipsettings.class.php:148
 msgid "Chan PJSIP Settings"
-msgstr ""
+msgstr "Paramètres Chan PJSIP"
 
 #: Sipsettings.class.php:141
 msgid "Chan SIP Settings"
-msgstr ""
+msgstr "Paramètres Chan SIP"
 
 #: chansip.page.php:405
 msgid "Check to enable and then choose allowed codecs."
@@ -209,7 +209,7 @@ msgstr ""
 
 #: general.page.php:323
 msgid "Codecs"
-msgstr ""
+msgstr "Codecs"
 
 #: chansip.page.php:671
 msgid ""
@@ -225,12 +225,14 @@ msgstr ""
 
 #: chansip.page.php:976
 msgid "Default Context"
-msgstr ""
+msgstr "Contexte par défaut"
 
 #: install.php:55
 #, php-format
 msgid "Default bind port for CHAN_PJSIP is: %s, CHAN_SIP is: %s"
 msgstr ""
+"Le port d'écoute par défaut de CHAN_PJSIP est : %s, celui de CHAN_SIP est : "
+"%s"
 
 #: chansip.page.php:988
 msgid ""
@@ -250,7 +252,7 @@ msgstr ""
 
 #: chansip.page.php:397
 msgid "Disabled"
-msgstr ""
+msgstr "Désactivé"
 
 #: chanpj.page.php:110
 msgid "Domain the transport comes from"
@@ -258,27 +260,27 @@ msgstr ""
 
 #: chansip.page.php:271
 msgid "Dynamic Host"
-msgstr ""
+msgstr "Hôte dynamique"
 
 #: chansip.page.php:295
 msgid "Dynamic Host Refresh"
-msgstr ""
+msgstr "Rafraîchissement de l'hôte dynamique"
 
 #: functions.inc.php:359
 msgid "Dynamic Host can not be blank"
-msgstr ""
+msgstr "L'hôte dynamique ne peut être vide"
 
 #: chansip.page.php:218
 msgid "Dynamic IP"
-msgstr ""
+msgstr "IP dynamique"
 
 #: chansip.page.php:155
 msgid "ERRORS"
-msgstr ""
+msgstr "ERREURS"
 
 #: chansip.page.php:122
 msgid "Edit Settings"
-msgstr ""
+msgstr "Éditer les paramètres"
 
 #: chansip.page.php:813
 msgid "Enable Jitter Buffer"
@@ -290,7 +292,7 @@ msgstr ""
 
 #: chansip.page.php:395
 msgid "Enabled"
-msgstr ""
+msgstr "Activé"
 
 #: chansip.page.php:910
 msgid "Enables jitter buffer frame logging."
@@ -310,7 +312,7 @@ msgstr ""
 
 #: general.page.php:151
 msgid "End"
-msgstr ""
+msgstr "Fin"
 
 #: assets/js/sipsettings.js:191 assets/js/sipsettings.js:194
 #: assets/js/sipsettings.js:203
@@ -320,11 +322,11 @@ msgstr ""
 #: assets/js/sipsettings.js:199 assets/js/sipsettings.js:202
 #, perl-format
 msgid "Error: %s"
-msgstr ""
+msgstr "Erreur : %s"
 
 #: general.page.php:64
 msgid "External Address"
-msgstr ""
+msgstr "Adresse externe"
 
 #: chansip.page.php:283
 msgid ""
@@ -334,7 +336,7 @@ msgstr ""
 
 #: chanpj.page.php:111
 msgid "External IP Address"
-msgstr ""
+msgstr "Adresse IP externe"
 
 #: functions.inc.php:349 assets/js/sipsettings.js:19
 msgid ""
@@ -350,7 +352,7 @@ msgstr ""
 
 #: chansip.page.php:873
 msgid "Fixed"
-msgstr ""
+msgstr "Fixe"
 
 #: chansip.page.php:841
 msgid "Force Jitter Buffer"
@@ -373,7 +375,7 @@ msgstr ""
 
 #: Sipsettings.class.php:134
 msgid "General SIP Settings"
-msgstr ""
+msgstr "Paramètres SIP généraux"
 
 #: chansip.page.php:1121
 msgid "Generate manager events when sip ua performs events (e.g. hold)."
