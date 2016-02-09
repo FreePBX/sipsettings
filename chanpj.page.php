@@ -187,20 +187,20 @@ foreach ($protocols as $p) {
 		<div class="row">
 			<div class="form-group">
 				<div class="col-md-3">
-					<label class="control-label" for="allowguests"><?php echo _("Allow Guests") ?></label>
-					<i class="fa fa-question-circle fpbx-help-icon" data-for="allowguests"></i>
+					<label class="control-label" for="allowguest"><?php echo _("Allow Guests") ?></label>
+					<i class="fa fa-question-circle fpbx-help-icon" data-for="allowguest"></i>
 				</div>
 				<div class="col-md-9 radioset">
-					<input type="radio" name="allowguests" id="allowguestsyes" value="yes" <?php echo ($this->getConfig("allowguest") == "yes"?"CHECKED":"") ?>>
-					<label for="allowguestsyes"><?php echo _("Yes");?></label>
-					<input type="radio" name="allowguests" id="allowguestsno" value="no" <?php echo ($this->getConfig("allowguest") == "yes"?"":"CHECKED") ?>>
-					<label for="allowguestsno"><?php echo _("No");?></label>
+					<input type="radio" name="allowguest" id="allowguestyes" value="yes" <?php echo ($this->getConfig("allowguest") == "yes"?"CHECKED":"") ?>>
+					<label for="allowguestyes"><?php echo _("Yes");?></label>
+					<input type="radio" name="allowguest" id="allowguestno" value="no" <?php echo ($this->getConfig("allowguest") == "no"?"CHECKED":"") ?>>
+					<label for="allowguestno"><?php echo _("No");?></label>
 				</div>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-md-12">
-				<span id="allowguests-help" class="help-block fpbx-help-block"><?php echo _("When set Asterisk will allow Guest SIP calls and send them to the Default SIP context. Turning this off will keep anonymous SIP calls from entering the system. Doing such will also stop 'Allow Anonymous Inbound SIP Calls' from functioning. Allowing guest calls but rejecting the Anonymous SIP calls below will enable you to see the call attempts and debug incoming calls that may be mis-configured and appearing as guests.")?></span>
+				<span id="allowguest-help" class="help-block fpbx-help-block"><?php echo _("When set Asterisk will allow Guest SIP calls and send them to the Default SIP context. Turning this off will keep anonymous SIP calls from entering the system. Doing such will also stop 'Allow Anonymous Inbound SIP Calls' from functioning. Allowing guest calls but rejecting the Anonymous SIP calls below will enable you to see the call attempts and debug incoming calls that may be mis-configured and appearing as guests.")?></span>
 			</div>
 		</div>
 	</div>

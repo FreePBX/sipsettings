@@ -210,7 +210,11 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 		if (isset($_REQUEST['externip'])) {
 			$this->setConfig('externip', $_REQUEST['externip']);
 		}
-
+/*
+		if (isset($_REQUEST['allowguest'])) {
+			$this->setConfig('allowguest', $_REQUEST['allowguest']);
+		}
+*/
 		// This is in Request_Helper.class.php
 		$ignored = $this->importRequest(null, "/(.+)bindip-(.+)$/");
 		// There may be binds that matched..
