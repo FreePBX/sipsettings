@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-23 04:42+1000\n"
+"POT-Creation-Date: 2016-02-09 11:42+1000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -688,7 +688,7 @@ msgstr ""
 msgid "Reinvite Behavior"
 msgstr ""
 
-#: Sipsettings.class.php:445
+#: Sipsettings.class.php:449
 msgid "Reset"
 msgstr ""
 
@@ -751,7 +751,7 @@ msgstr ""
 msgid "Strict RTP"
 msgstr ""
 
-#: Sipsettings.class.php:450
+#: Sipsettings.class.php:454
 msgid "Submit"
 msgstr ""
 
@@ -842,8 +842,8 @@ msgstr ""
 msgid "Unknown Error"
 msgstr ""
 
-#: Sipsettings.class.php:291
-#: Sipsettings.class.php:373
+#: Sipsettings.class.php:295
+#: Sipsettings.class.php:377
 msgid "Unknown Type"
 msgstr ""
 

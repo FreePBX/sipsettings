@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-23 04:42+1000\n"
+"POT-Creation-Date: 2016-02-09 11:42+1000\n"
 "PO-Revision-Date: 2015-12-05 10:05+0200\n"
 "Last-Translator: Andrew <andrew.nagy@the159.com>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/"
@@ -813,7 +813,7 @@ msgstr "Минимальный срок регистрации"
 msgid "Reinvite Behavior"
 msgstr "Поведение Reinvite"
 
-#: Sipsettings.class.php:445
+#: Sipsettings.class.php:449
 msgid "Reset"
 msgstr "Сброс"
 
@@ -881,7 +881,7 @@ msgstr "Статический ИП"
 msgid "Strict RTP"
 msgstr "Строгий RTP"
 
-#: Sipsettings.class.php:450
+#: Sipsettings.class.php:454
 msgid "Submit"
 msgstr "Сохранить"
 
@@ -986,7 +986,7 @@ msgstr ""
 msgid "Unknown Error"
 msgstr "Неизвестная ошибка"
 
-#: Sipsettings.class.php:291 Sipsettings.class.php:373
+#: Sipsettings.class.php:295 Sipsettings.class.php:377
 msgid "Unknown Type"
 msgstr "Неизвестный тип"
 
