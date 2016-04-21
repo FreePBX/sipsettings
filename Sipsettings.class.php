@@ -10,6 +10,7 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 
 	private $pagename = null;
 	private $pagedata = null;
+	private $tlsCache = null;
 
 	public static $dbDefaults = array(
 		"rtpstart" => "10000", "rtpend" => "20000",
@@ -473,53 +474,77 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 
 		// Cache is here as this function is called for every extension that has
 		// the ability to do srtp.
-		static $cache;
 
-		print "Called\n";
-		if (is_array($cache)) {
-			print ":Cache:\n"; print_r($cache);
-			return $cache;
+		if (is_array($this->tlsCache)) {
+			return $this->tlsCache;
 		}
 
-		$defaults = array(
-			"ca_list_file" => "/etc/asterisk/keys/integration/ca-bundle.crt",
-			"cert_file" => "/etc/asterisk/keys/integration/webserver.crt",
-			"priv_key_file" => "/etc/asterisk/keys/integration/webserver.key",
-		);
-
-		$map = array(
-			"calistfile" => "ca_list_file",
-			"certfile" => "cert_file",
-			"privkeyfile" => "priv_key_file",
-		);
-
-		$retarr = array();
-
-		foreach ($map as $k => $v) {
-			$tmp = $this->getConfig($k);
-			if ($tmp) {
-				// It's set. Does it exist?
-				if (file_exists($tmp)) {
-					// That'll do.
-					$retarr[$v] = $tmp;
-				} else {
-					// Pointed to a file that doesn't exist? No TLS.
-					// TODO: Notification?
-					$cache = array();
-					return array();
+		if($this->FreePBX->Modules->moduleHasMethod("certman","getDefaultCertDetails")) {
+			$cerid = $this->getConfig('pjsipcertid');
+			$cert = $this->FreePBX->Certman->getCertificateDetails($cerid);
+			if(!empty($cert['files']['crt']) && !empty($cert['files']['key'])) {
+				$this->tlsCache = array(
+					"cert_file" => $cert['files']['crt'],
+					"priv_key_file" => $cert['files']['key'],
+				);
+				if(isset($cert['files']['ca-bundle'])) {
+					$this->tlsCache['ca-bundle'] = $cert['files']['ca-bundle'];
 				}
 			} else {
-				// Notset. Does the default file exist?
-				if (file_exists($defaults[$v])) {
-					$retarr[$v] = $defaults[$v];
+				$this->tlsCache = array();
+				return $this->tlsCache;
+			}
+		} else {
+			$defaults = array(
+				"ca_list_file" => "/etc/asterisk/keys/integration/ca-bundle.crt",
+				"cert_file" => "/etc/asterisk/keys/integration/webserver.crt",
+				"priv_key_file" => "/etc/asterisk/keys/integration/webserver.key",
+			);
+
+			$map = array(
+				"calistfile" => "ca_list_file",
+				"certfile" => "cert_file",
+				"privkeyfile" => "priv_key_file",
+			);
+
+			$retarr = array();
+
+			foreach ($map as $k => $v) {
+				$tmp = $this->getConfig($k);
+				if ($tmp) {
+					// It's set. Does it exist?
+					if (file_exists($tmp)) {
+						// That'll do.
+						$retarr[$v] = $tmp;
+					} else {
+						// Pointed to a file that doesn't exist? No TLS.
+						// TODO: Notification?
+						$cache = array();
+						return array();
+					}
 				} else {
-					// No default file.
-					$cache = array();
-					return array();
+					// Notset. Does the default file exist?
+					if (file_exists($defaults[$v])) {
+						$retarr[$v] = $defaults[$v];
+					} else {
+						// No default file.
+						$cache = array();
+						return array();
+					}
+				}
+			}
+			$this->tlsCache = $retarr;
+		}
+		if(!empty($this->tlsCache)) {
+			$check = array('method','verify_client','verify_server');
+			foreach($check as $i) {
+				$v = $this->getConfig($i);
+				if(!empty($v)) {
+					$this->tlsCache[$i] = $v;
 				}
 			}
 		}
-		$cache = $retarr;
-		return $retarr;
+
+		return $this->tlsCache;
 	}
 }
