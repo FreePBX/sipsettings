@@ -68,23 +68,7 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 	}
 
 	public function doConfigPageInit($display) {
-		// Process POST/GET here
-		//
-		// What page are we showing?
-		if (isset($_REQUEST['category'])) {
-			if ($_REQUEST['category'] == "chansip") {
-				$this->pagename = "chansip";
-			} elseif ($_REQUEST['category'] == "pjsip") {
-				$this->pagename = "pjsip";
-				$this->doGeneralPost();
-			} elseif ($_REQUEST['category'] == "general") {
-				$this->pagename = "general";
-				$this->doGeneralPost();
-			} else {
-				// Unknown pagename?
-				// thow new Exception("WTF. You suck");
-			}
-		}
+		$this->doGeneralPost();
 	}
 
 	public function getBinds() {
@@ -211,11 +195,23 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 		if (isset($_REQUEST['externip'])) {
 			$this->setConfig('externip', $_REQUEST['externip']);
 		}
-/*
-		if (isset($_REQUEST['allowguest'])) {
-			$this->setConfig('allowguest', $_REQUEST['allowguest']);
+
+		if (isset($_REQUEST['pjsipcertid'])) {
+			$this->setConfig('pjsipcertid', $_REQUEST['pjsipcertid']);
 		}
-*/
+
+		if (isset($_REQUEST['method'])) {
+			$this->setConfig('method', $_REQUEST['method']);
+		}
+
+		if (isset($_REQUEST['verify_client'])) {
+			$this->setConfig('verify_client', $_REQUEST['verify_client']);
+		}
+
+		if (isset($_REQUEST['verify_server'])) {
+			$this->setConfig('verify_server', $_REQUEST['verify_server']);
+		}
+
 		// This is in Request_Helper.class.php
 		$ignored = $this->importRequest(null, "/(.+)bindip-(.+)$/");
 		// There may be binds that matched..

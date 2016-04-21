@@ -44,11 +44,15 @@ if(DB::IsError($check)) {
 	if ($haspjsip) {
 		out(_("chan_pjsip support detected. Enabling."));
 		$pjsip_port = 5060;
+		$pjsiptls_port = 5160;
 		$chansip_port = 5061;
+		$chansiptls_port = 5161;
 	} else {
 		out(_("chan_pjsip support NOT FOUND."));
 		$pjsip_port = 5061;
+		$pjsiptls_port = 5161;
 		$chansip_port = 5060;
+		$chansiptls_port = 5160;
 	}
 	$brand = FreePBX::Config()->get('DASHBOARD_FREEPBX_BRAND');
 	$nt = notifications::create();
@@ -70,6 +74,7 @@ if(DB::IsError($check)) {
 		array('speex'   ,'' ,'11', '1'),
 		array('g722'    ,'' ,'12', '1'),
 		array('bindport',$chansip_port, '1', '0'),
+		array('tlsbindport',$chansiptls_port, '1', '0'),
 	);
 
 	// Now insert minimal codec rows
@@ -89,6 +94,7 @@ if(DB::IsError($check)) {
 
 	$ss->setConfig("udpport-0.0.0.0", $pjsip_port);
 	$ss->setConfig("tcpport-0.0.0.0", $pjsip_port);
+	$ss->setConfig("tlsport-0.0.0.0", $pjsiptls_port);
 	$ss->setConfig("binds", array("udp" => array("0.0.0.0" => "on")));
 } else {
 	out(_("already exists"));

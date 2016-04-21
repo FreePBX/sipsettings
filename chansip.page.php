@@ -91,6 +91,14 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 	$sip_settings['srvlookup']         = isset($_POST['srvlookup']) ? $_POST['srvlookup'] : 'no';
 	$sip_settings['callevents']        = isset($_POST['callevents']) ? $_POST['callevents'] : 'no';
 
+	$sip_settings['tlsenable']        = isset($_POST['tlsenable']) ? $_POST['tlsenable'] : 'no';
+	$sip_settings['csipcertid']        = isset($_POST['csipcertid']) ? $_POST['csipcertid'] : '';
+	$sip_settings['tlsclientmethod']   = isset($_POST['tlsclientmethod']) ? $_POST['tlsclientmethod'] : 'sslv2';
+	$sip_settings['tlsdontverifyserver']        = isset($_POST['tlsdontverifyserver']) ? $_POST['tlsdontverifyserver'] : '';
+	$sip_settings['tlsbindaddr']          = isset($_POST['tlsbindaddr']) ? htmlspecialchars($_POST['tlsbindaddr']) : '';
+	$sip_settings['tlsbindport']          = isset($_POST['tlsbindport']) ? htmlspecialchars($_POST['tlsbindport']) : '';
+
+
 	$p_idx = 0;
 	$n_idx = 0;
 	while (isset($_POST["sip_custom_key_$p_idx"])) {
@@ -483,6 +491,100 @@ $error_displays = array_merge($error_displays,sipsettings_check_custom_files());
 		<!--END Max Bit Rate-->
 	</div>
 </div>
+<?php if(\FreePBX::Modules()->moduleHasMethod("certman","getDefaultCertDetails")) {?>
+	<div class="section-title" data-for="csiptls"><h3>
+		<i class="fa fa-minus"></i> <?php echo _("TLS/SSL/SRTP Settings")?></h3>
+	</div>
+	<div class="section" data-id="csiptls">
+		<div class="element-container">
+			<div class="row">
+				<div class="form-group">
+					<div class="col-md-3">
+						<label class="control-label" for="tlsenable"><?php echo _("Enable TLS") ?></label>
+						<i class="fa fa-question-circle fpbx-help-icon" data-for="tlsenable"></i>
+					</div>
+					<div class="col-md-9 radioset">
+						<input type="radio" name="tlsenable" id="tlsenableyes" value="yes" <?php echo ($tlsenable == "yes"?"CHECKED":"") ?>>
+						<label for="tlsenableyes"><?php echo _("Yes");?></label>
+						<input type="radio" name="tlsenable" id="tlsenableno" value="no" <?php echo ($tlsenable == "no"?"CHECKED":"") ?>>
+						<label for="tlsenableno"><?php echo _("No");?></label>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<span id="tlsenable-help" class="help-block fpbx-help-block"><?php echo _("Enable server for incoming TLS (secure) connections.")?></span>
+				</div>
+			</div>
+		</div>
+		<div class="element-container">
+			<div class="row">
+				<div class="form-group">
+					<div class="col-md-3">
+						<label class="control-label" for="csipcalistfile"><?php echo _("Certificate Manager") ?></label>
+						<i class="fa fa-question-circle fpbx-help-icon" data-for="csipcalistfile"></i>
+					</div>
+					<div class="col-md-9">
+						<select class="form-control" id="csipcalistfile" name="csipcertid">
+							<option value=""><?php echo "--"._("Select a Certificate")."--"?></option>
+							<?php foreach(\FreePBX::Certman()->getAllManagedCertificates() as $cert) { ?>
+								<option value="<?php echo $cert['cid']?>" <?php echo $csipcertid == $cert['cid'] ? 'selected' : ''?>><?php echo $cert['basename']?></option>
+							<?php } ?>
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<span id="csipcalistfile-help" class="help-block fpbx-help-block"><?php echo _("Select a certificate to use for the TLS transport. These are configured in the module Certificate Manager")?></span>
+				</div>
+			</div>
+		</div>
+		<div class="element-container">
+			<div class="row">
+				<div class="form-group">
+					<div class="col-md-3">
+						<label class="control-label" for="tlsclientmethod"><?php echo _("SSL Method") ?></label>
+						<i class="fa fa-question-circle fpbx-help-icon" data-for="tlsclientmethod"></i>
+					</div>
+					<div class="col-md-9 radioset">
+						<select class="form-control" id="tlsclientmethod" name="tlsclientmethod">
+							<option value="sslv2" <?php echo ($tlsclientmethod == "sslv2"?"selected":"") ?>>sslv2</option>
+							<option value="tlsv1" <?php echo ($tlsclientmethod == "tlsv1"?"selected":"") ?>>tlsv1</option>
+							<option value="sslv3" <?php echo ($tlsclientmethod == "sslv3"?"selected":"") ?>>sslv3</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<span id="tlsclientmethod-help" class="help-block fpbx-help-block"><?php echo _("Method of SSL transport (TLS ONLY). The default is currently sslv2, but may change with future releases.")?></span>
+				</div>
+			</div>
+		</div>
+		<div class="element-container">
+			<div class="row">
+				<div class="form-group">
+					<div class="col-md-3">
+						<label class="control-label" for="tlsdontverifyserver"><?php echo _("Don't Verify Server") ?></label>
+						<i class="fa fa-question-circle fpbx-help-icon" data-for="tlsdontverifyserver"></i>
+					</div>
+					<div class="col-md-9 radioset">
+						<input type="radio" name="tlsdontverifyserver" id="tlsdontverifyserveryes" value="yes" <?php echo ($tlsdontverifyserver == "yes"?"CHECKED":"") ?>>
+						<label for="tlsdontverifyserveryes"><?php echo _("Yes");?></label>
+						<input type="radio" name="tlsdontverifyserver" id="tlsdontverifyserverno" value="no" <?php echo ($tlsdontverifyserver == "no"?"CHECKED":"") ?>>
+						<label for="tlsdontverifyserverno"><?php echo _("No");?></label>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<span id="tlsdontverifyserver-help" class="help-block fpbx-help-block"><?php echo _("Don't Require verification of server certificate (TLS ONLY).")?></span>
+				</div>
+			</div>
+		</div>
+	</div>
+<?php } ?>
 <div class="section-title" data-for="sscsmedia">
 	<h3><i class="fa fa-minus"></i> <?php echo _("MEDIA & RTP Settings")?></h3>
 </div>
@@ -1038,6 +1140,54 @@ $error_displays = array_merge($error_displays,sipsettings_check_custom_files());
 		<div class="row">
 			<div class="col-md-12">
 				<span id="bindport-help" class="help-block fpbx-help-block"><?php echo _("Local incoming UDP Port that Asterisk will bind to and listen for SIP messages. In the past CHAN_SIP was defaulted to port 5060, in new installs this is defaulted to 5061")?></span>
+			</div>
+		</div>
+	</div>
+	<!--END Bind Port-->
+	<!--Bind Address-->
+	<div class="element-container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="row">
+					<div class="form-group">
+						<div class="col-md-3">
+							<label class="control-label" for="tlsbindaddr"><?php echo _("TLS Bind Address") ?></label>
+							<i class="fa fa-question-circle fpbx-help-icon" data-for="tlsbindaddr"></i>
+						</div>
+						<div class="col-md-9">
+							<input type="text" class="form-control validate-ip" id="tlsbindaddr" name="tlsbindaddr" value="<?php echo $tlsbindaddr ?>">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<span id="tlsbindaddr-help" class="help-block fpbx-help-block"><?php echo $tt ?></span>
+			</div>
+		</div>
+	</div>
+	<!--END Bind Address-->
+	<!--Bind Port-->
+	<div class="element-container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="row">
+					<div class="form-group">
+						<div class="col-md-3">
+							<label class="control-label" for="tlsbindport"><?php echo _("TLS Bind Port") ?></label>
+							<i class="fa fa-question-circle fpbx-help-icon" data-for="tlsbindport"></i>
+						</div>
+						<div class="col-md-9">
+							<input type="text" class="form-control validate-ip-port" id="bindport" name="tlsbindport" value="<?php echo $tlsbindport ?>">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<span id="tlsbindport-help" class="help-block fpbx-help-block"><?php echo _("Local incoming UDP Port that Asterisk will bind to and listen for TLS SIP messages")?></span>
 			</div>
 		</div>
 	</div>
