@@ -787,11 +787,11 @@ $error_displays = array_merge($error_displays,sipsettings_check_custom_files());
 				<div class="row">
 					<div class="form-group">
 						<div class="col-md-3">
-							<label class="control-label" for="registrationtimeout"><?php echo _("Registration Timeout") ?></label>
-							<i class="fa fa-question-circle fpbx-help-icon" data-for="registrationtimeout"></i>
+							<label class="control-label" for="registertimeout"><?php echo _("Registration Timeout") ?></label>
+							<i class="fa fa-question-circle fpbx-help-icon" data-for="registertimeout"></i>
 						</div>
 						<div class="col-md-9">
-							<input type="number" class="form-control" id="registrationtimeout" name="registrationtimeout" value="<?php echo $registertimeout ?>">
+							<input type="number" class="form-control" id="registertimeout" name="registertimeout" value="<?php echo $registertimeout ?>">
 						</div>
 					</div>
 				</div>
@@ -799,7 +799,7 @@ $error_displays = array_merge($error_displays,sipsettings_check_custom_files());
 		</div>
 		<div class="row">
 			<div class="col-md-12">
-				<span id="registrationtimeout-help" class="help-block fpbx-help-block"><?php echo _("Retry registration attempts every registertimeout seconds until successful or until registrationattempts tries have been made.")?></span>
+				<span id="registertimeout-help" class="help-block fpbx-help-block"><?php echo _("Retry registration attempts every registertimeout seconds until successful or until registrationattempts tries have been made.")?></span>
 			</div>
 		</div>
 	</div>
