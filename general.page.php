@@ -295,7 +295,7 @@ $submit_changes = _("Submit Changes");
 							<i class="fa fa-question-circle fpbx-help-icon" data-for="turnpassword"></i>
 						</div>
 						<div class="col-md-9">
-							<input type="password" class="form-control" id="turnpassword" name="turnpassword" value="<?php echo $this->getConfig('turnpassword') ?>">
+							<input type="password" class="form-control clicktoedit" id="turnpassword" name="turnpassword" value="<?php echo $this->getConfig('turnpassword') ?>">
 						</div>
 					</div>
 				</div>
