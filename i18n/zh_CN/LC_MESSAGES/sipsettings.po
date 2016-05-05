@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-04 17:08-0700\n"
+"POT-Creation-Date: 2016-05-04 17:59-0700\n"
 "PO-Revision-Date: 2015-02-20 20:00-0500\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -29,12 +29,12 @@ msgstr ""
 msgid " See current version of Asterisk for limitations on SRV functionality."
 msgstr ""
 
-#: functions.inc.php:299
+#: functions.inc.php:307
 #, php-format
 msgid "%s must be a non-negative integer"
 msgstr ""
 
-#: functions.inc.php:343
+#: functions.inc.php:351
 #, php-format
 msgid "%s must be alphanumeric"
 msgstr ""
@@ -167,7 +167,7 @@ msgstr "自动配置"
 msgid "Bind Address"
 msgstr "绑定地址"
 
-#: functions.inc.php:303
+#: functions.inc.php:311
 msgid "Bind Address (bindaddr) must be an IP address."
 msgstr ""
 
@@ -175,7 +175,7 @@ msgstr ""
 msgid "Bind Port"
 msgstr "绑定端口"
 
-#: functions.inc.php:309
+#: functions.inc.php:317
 msgid "Bind Port (bindport) must be between 1024 and 65535"
 msgstr ""
 
@@ -276,7 +276,7 @@ msgstr "动态主机"
 msgid "Dynamic Host Refresh"
 msgstr ""
 
-#: functions.inc.php:369
+#: functions.inc.php:377
 msgid "Dynamic Host can not be blank"
 msgstr ""
 
@@ -356,7 +356,7 @@ msgstr ""
 msgid "External IP Address"
 msgstr ""
 
-#: functions.inc.php:359 assets/js/sipsettings.js:19
+#: functions.inc.php:367 assets/js/sipsettings.js:19
 msgid ""
 "External IP can not be blank when NAT Mode is set to Static and no default "
 "IP address provided on the main page"
@@ -498,11 +498,11 @@ msgid ""
 "more fields. Blank fields will be ignored."
 msgstr ""
 
-#: functions.inc.php:420
+#: functions.inc.php:427
 msgid "Localnet netmask must be formatted properly (e.g. 255.255.255.0 or 24)"
 msgstr ""
 
-#: functions.inc.php:415
+#: functions.inc.php:422
 msgid "Localnet setting must be an IP address"
 msgstr ""
 
@@ -1037,7 +1037,7 @@ msgstr ""
 msgid "route"
 msgstr ""
 
-#: functions.inc.php:317
+#: functions.inc.php:325
 msgid "rtpholdtimeout must be higher than rtptimeout"
 msgstr ""
 

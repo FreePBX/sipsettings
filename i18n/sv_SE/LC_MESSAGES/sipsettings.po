@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX sipsettings\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-04 17:08-0700\n"
+"POT-Creation-Date: 2016-05-04 17:59-0700\n"
 "PO-Revision-Date: 2011-03-20 00:00+0100\n"
 "Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
 "Language-Team: Swedish\n"
@@ -43,12 +43,12 @@ msgstr ""
 msgid " See current version of Asterisk for limitations on SRV functionality."
 msgstr ""
 
-#: functions.inc.php:299
+#: functions.inc.php:307
 #, php-format
 msgid "%s must be a non-negative integer"
 msgstr "%s måste vara ett positivt heltal"
 
-#: functions.inc.php:343
+#: functions.inc.php:351
 #, php-format
 msgid "%s must be alphanumeric"
 msgstr "%s måste vara ett alfanumeriskt värde"
@@ -199,7 +199,7 @@ msgstr "Automatisk konfiguration"
 msgid "Bind Address"
 msgstr "Bindadress"
 
-#: functions.inc.php:303
+#: functions.inc.php:311
 msgid "Bind Address (bindaddr) must be an IP address."
 msgstr "Bindadress (bindaddr) måste vara en IP-adress."
 
@@ -207,7 +207,7 @@ msgstr "Bindadress (bindaddr) måste vara en IP-adress."
 msgid "Bind Port"
 msgstr "Bindport"
 
-#: functions.inc.php:309
+#: functions.inc.php:317
 msgid "Bind Port (bindport) must be between 1024 and 65535"
 msgstr ""
 
@@ -312,7 +312,7 @@ msgstr "Dynamisk host"
 msgid "Dynamic Host Refresh"
 msgstr ""
 
-#: functions.inc.php:369
+#: functions.inc.php:377
 msgid "Dynamic Host can not be blank"
 msgstr "Dynamisk host kan inte vara tomt"
 
@@ -392,7 +392,7 @@ msgstr ""
 msgid "External IP Address"
 msgstr ""
 
-#: functions.inc.php:359 assets/js/sipsettings.js:19
+#: functions.inc.php:367 assets/js/sipsettings.js:19
 msgid ""
 "External IP can not be blank when NAT Mode is set to Static and no default "
 "IP address provided on the main page"
@@ -538,13 +538,13 @@ msgid ""
 "more fields. Blank fields will be ignored."
 msgstr ""
 
-#: functions.inc.php:420
+#: functions.inc.php:427
 msgid "Localnet netmask must be formatted properly (e.g. 255.255.255.0 or 24)"
 msgstr ""
 "Nätmasken för localnet måste vara korrekt formaterat (t.ex. 255.255.255.0 "
 "eller 24)"
 
-#: functions.inc.php:415
+#: functions.inc.php:422
 msgid "Localnet setting must be an IP address"
 msgstr "Localnet måste vara en IP-adress"
 
@@ -1093,7 +1093,7 @@ msgstr "skriver standard codecs.."
 msgid "route"
 msgstr ""
 
-#: functions.inc.php:317
+#: functions.inc.php:325
 msgid "rtpholdtimeout must be higher than rtptimeout"
 msgstr "rtpholdtimeout måste vara högre än rtptimeout"
 
