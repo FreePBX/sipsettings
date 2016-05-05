@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-22 15:51-0700\n"
+"POT-Creation-Date: 2016-05-04 17:08-0700\n"
 "PO-Revision-Date: 2015-03-10 13:26+1000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -602,7 +602,7 @@ msgstr ""
 msgid "Migrate rtp.conf values if needed and initialize"
 msgstr "Migrar valores rtp.conf si es necesario e inicializar"
 
-#: install.php:187
+#: install.php:204
 msgid "Migrating Audio Codecs"
 msgstr "Migración de Audio Codecs"
 
@@ -610,7 +610,7 @@ msgstr "Migración de Audio Codecs"
 msgid "Migrating LocalNets and Netmasks"
 msgstr "Migrando LocalNets y máscaras de red"
 
-#: install.php:207
+#: install.php:224
 msgid "Migrating Video Codecs"
 msgstr "Migrando Video Codecs"
 
@@ -1097,14 +1097,6 @@ msgstr "ya existe"
 msgid "chan_pjsip and chan_sip"
 msgstr ""
 
-#: install.php:51
-msgid "chan_pjsip support NOT FOUND."
-msgstr "Soporte chan_pjsip NO ENCONTRADO."
-
-#: install.php:45
-msgid "chan_pjsip support detected. Enabling."
-msgstr "Soporte chan_pjsip detectado. Habilitando."
-
 #: install.php:21
 msgid "checking for sipsettings table.."
 msgstr "verificando para tabla sipsettings.."
@@ -1125,7 +1117,7 @@ msgstr ""
 msgid "no"
 msgstr "no"
 
-#: install.php:25
+#: install.php:53
 msgid "none, creating table"
 msgstr "ninguna, creando tabla"
 
@@ -1153,6 +1145,12 @@ msgstr "añadido ulaw, alaw, gsm, g726"
 #: chansip.page.php:191 chansip.page.php:604
 msgid "yes"
 msgstr "yes"
+
+#~ msgid "chan_pjsip support NOT FOUND."
+#~ msgstr "Soporte chan_pjsip NO ENCONTRADO."
+
+#~ msgid "chan_pjsip support detected. Enabling."
+#~ msgstr "Soporte chan_pjsip detectado. Habilitando."
 
 #, fuzzy
 #~ msgid "Jitter Buffer"

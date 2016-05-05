@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-22 15:51-0700\n"
+"POT-Creation-Date: 2016-05-04 17:08-0700\n"
 "PO-Revision-Date: 2015-12-05 10:05+0200\n"
 "Last-Translator: Andrew <andrew.nagy@the159.com>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/"
@@ -676,7 +676,7 @@ msgstr ""
 msgid "Migrate rtp.conf values if needed and initialize"
 msgstr "Перенос и инициализация значений rtp.conf, если нужно"
 
-#: install.php:187
+#: install.php:204
 msgid "Migrating Audio Codecs"
 msgstr "Перемещение аудио кодеков"
 
@@ -684,7 +684,7 @@ msgstr "Перемещение аудио кодеков"
 msgid "Migrating LocalNets and Netmasks"
 msgstr "Перемещение локальных сетей и масок подсети"
 
-#: install.php:207
+#: install.php:224
 msgid "Migrating Video Codecs"
 msgstr "Перемещение видео кодеков"
 
@@ -1190,14 +1190,6 @@ msgstr "уже существует"
 msgid "chan_pjsip and chan_sip"
 msgstr ""
 
-#: install.php:51
-msgid "chan_pjsip support NOT FOUND."
-msgstr "Поддержка chan_pjsip не найдена."
-
-#: install.php:45
-msgid "chan_pjsip support detected. Enabling."
-msgstr "Поддержка chan_pjsip обнаружена. Включено."
-
 #: install.php:21
 msgid "checking for sipsettings table.."
 msgstr "проверяем таблицу sipsettings.."
@@ -1220,7 +1212,7 @@ msgstr "никогда"
 msgid "no"
 msgstr "нет"
 
-#: install.php:25
+#: install.php:53
 msgid "none, creating table"
 msgstr "отсутствует, создание таблицы"
 
@@ -1248,6 +1240,12 @@ msgstr "ulaw, alaw, gsm, g726 добавлены"
 #: chansip.page.php:191 chansip.page.php:604
 msgid "yes"
 msgstr "да"
+
+#~ msgid "chan_pjsip support NOT FOUND."
+#~ msgstr "Поддержка chan_pjsip не найдена."
+
+#~ msgid "chan_pjsip support detected. Enabling."
+#~ msgstr "Поддержка chan_pjsip обнаружена. Включено."
 
 #~ msgid ""
 #~ "Asterisk: t38pt_udptl. Enables T38 passthrough if enabled. This SIP "

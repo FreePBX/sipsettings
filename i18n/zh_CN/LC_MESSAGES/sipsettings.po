@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-22 15:51-0700\n"
+"POT-Creation-Date: 2016-05-04 17:08-0700\n"
 "PO-Revision-Date: 2015-02-20 20:00-0500\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -546,7 +546,7 @@ msgstr ""
 msgid "Migrate rtp.conf values if needed and initialize"
 msgstr ""
 
-#: install.php:187
+#: install.php:204
 msgid "Migrating Audio Codecs"
 msgstr ""
 
@@ -554,7 +554,7 @@ msgstr ""
 msgid "Migrating LocalNets and Netmasks"
 msgstr ""
 
-#: install.php:207
+#: install.php:224
 msgid "Migrating Video Codecs"
 msgstr ""
 
@@ -1005,14 +1005,6 @@ msgstr ""
 msgid "chan_pjsip and chan_sip"
 msgstr ""
 
-#: install.php:51
-msgid "chan_pjsip support NOT FOUND."
-msgstr ""
-
-#: install.php:45
-msgid "chan_pjsip support detected. Enabling."
-msgstr ""
-
 #: install.php:21
 msgid "checking for sipsettings table.."
 msgstr "检查SIP设置表"
@@ -1033,7 +1025,7 @@ msgstr ""
 msgid "no"
 msgstr ""
 
-#: install.php:25
+#: install.php:53
 msgid "none, creating table"
 msgstr ""
 
