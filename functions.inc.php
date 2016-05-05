@@ -156,6 +156,14 @@ function sipsettings_hookGet_config($engine) {
         $jbenable = $interim_settings['jbenable'];
 
 	$foundexternip = false;
+	if(!empty($interim_settings['tlsbindport'])) {
+		if(!empty($interim_settings['tlsbindaddr'])) {
+			$interim_settings['tlsbindaddr'] = $interim_settings['tlsbindaddr'].":".$interim_settings['tlsbindport'];
+		} else {
+			$interim_settings['tlsbindaddr'] = "[::]:".$interim_settings['tlsbindport'];
+		}
+		unset($interim_settings['tlsbindport']);
+	}
 	if (is_array($interim_settings)) foreach ($interim_settings as $key => $value) {
 		switch ($key) {
 		case 'csipcertid':
@@ -397,7 +405,6 @@ function sipsettings_edit($sip_settings) {
       case 'notifyhold':
       case 'allowguest':
       case 'srvlookup':
-			case 'tlsbindport':
 			case 'tlsbindaddr':
 			case 'tlsdontverifyserver':
 			case 'tlsclientmethod':
