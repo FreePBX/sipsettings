@@ -21,39 +21,39 @@ $ss = FreePBX::create()->Sipsettings;
 outn(_("checking for sipsettings table.."));
 $tsql = "SELECT * FROM `sipsettings` limit 1";
 $check = $db->getRow($tsql, DB_FETCHMODE_ASSOC);
+
+// Figure out if we're using asterisk 11 or 12.
+$version = FreePBX::Config()->get('ASTVERSION');
+if (!empty($version)) {
+	// Woo, we have a version
+	if (version_compare($version, "12.2.0", ">=")) {
+		$haspjsip = true;
+	} else {
+		$haspjsip = false;
+	}
+} else {
+	// Well. I don't know what version of Asterisk I'm running.
+	// Assume less than 12.
+	$haspjsip = false;
+}
+
+if ($haspjsip) {
+	$pjsip_port = 5060;
+	$pjsiptls_port = 5160;
+	$chansip_port = 5061;
+	$chansiptls_port = 5161;
+} else {
+	$pjsip_port = 5061;
+	$pjsiptls_port = 5161;
+	$chansip_port = 5060;
+	$chansiptls_port = 5160;
+}
+
 if(DB::IsError($check)) {
 	out(_("none, creating table"));
 	// table does not exist, create it
 	sql($sql);
 
-	// Figure out if we're using asterisk 11 or 12.
-	$version = FreePBX::Config()->get('ASTVERSION');
-	if (!empty($version)) {
-		// Woo, we have a version
-		if (version_compare($version, "12.2.0", ">=")) {
-			$haspjsip = true;
-		} else {
-			$haspjsip = false;
-		}
-	} else {
-		// Well. I don't know what version of Asterisk I'm running.
-		// Assume less than 12.
-		$haspjsip = false;
-	}
-
-	if ($haspjsip) {
-		out(_("chan_pjsip support detected. Enabling."));
-		$pjsip_port = 5060;
-		$pjsiptls_port = 5160;
-		$chansip_port = 5061;
-		$chansiptls_port = 5161;
-	} else {
-		out(_("chan_pjsip support NOT FOUND."));
-		$pjsip_port = 5061;
-		$pjsiptls_port = 5161;
-		$chansip_port = 5060;
-		$chansiptls_port = 5160;
-	}
 	$brand = FreePBX::Config()->get('DASHBOARD_FREEPBX_BRAND');
 	$nt = notifications::create();
 	$nt->add_notice('sipsettings', 'BINDPORT', sprintf(_("Default bind port for CHAN_PJSIP is: %s, CHAN_SIP is: %s"), $pjsip_port, $chansip_port), sprintf(_("The default bind ports for %s have changed. Please keep this is mind while configuring your devices. You can change this in SIP Settings. CHAN_PJSIP is: %s, CHAN_SIP is: %s"), $brand, $pjsip_port, $chansip_port), "http://wiki.freepbx.org/display/HTGS/CHAN_PJSIP+vs+CHAN_SIP", true, true);
@@ -169,6 +169,23 @@ if (isset($extip[0])) {
 	// as this is likely to be an upgrade after pjsip was added.
 	if (!$ss->getConfig('externip')) {
 		$ss->setConfig('externip', $extip[0]['data']);
+	}
+}
+
+$sql = "SELECT * from sipsettings where keyword='tlsbindport'";
+$tlsbp = sql($sql,'getAll',DB_FETCHMODE_ASSOC);
+if (!isset($tlsbp)) {
+	print_r("run");
+	$sip_settings =  array(
+		array('tlsbindport',$chansiptls_port, '1', '0'),
+	);
+
+	// Now insert minimal codec rows
+	$compiled = $db->prepare("INSERT INTO sipsettings (keyword, data, seq, type) values (?,?,?,?)");
+	$result = $db->executeMultiple($compiled,$sip_settings);
+
+	if (!$ss->getConfig('tlsport-0.0.0.0')) {
+		$ss->setConfig("tlsport-0.0.0.0", $pjsiptls_port);
 	}
 }
 
