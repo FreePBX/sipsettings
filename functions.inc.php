@@ -156,23 +156,14 @@ function sipsettings_hookGet_config($engine) {
         $jbenable = $interim_settings['jbenable'];
 
 	$foundexternip = false;
-
-	// TLS Settings for chansip
-	if(empty($interim_settings['tlsbindport'])) {
-		// Note - this is TCP, not UDP.
-		$interim_settings['tlsbindport'] = 5060;
+	if(!empty($interim_settings['tlsbindport'])) {
+		if(!empty($interim_settings['tlsbindaddr'])) {
+			$interim_settings['tlsbindaddr'] = $interim_settings['tlsbindaddr'].":".$interim_settings['tlsbindport'];
+		} else {
+			$interim_settings['tlsbindaddr'] = "[::]:".$interim_settings['tlsbindport'];
+		}
+		unset($interim_settings['tlsbindport']);
 	}
-
-	if(!empty($interim_settings['tlsbindaddr'])) {
-		$interim_settings['tlsbindaddr'] = $interim_settings['tlsbindaddr'].":".$interim_settings['tlsbindport'];
-	} else {
-		// [::] means 'listen on all interfaces, both ipv4 and ipv6' when in sipsettings.
-		$interim_settings['tlsbindaddr'] = "[::]:".$interim_settings['tlsbindport'];
-	}
-
-	// There is no sip setting 'tlsbindport', so we just remove it before writing the file.
-	unset($interim_settings['tlsbindport']);
-
 	if (is_array($interim_settings)) foreach ($interim_settings as $key => $value) {
 		switch ($key) {
 		case 'csipcertid':

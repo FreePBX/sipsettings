@@ -73,8 +73,6 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 
 	public function getBinds() {
 		$binds = array();
-
-		// pjsip
 		$b = $this->getConfig("binds");
 		$b = is_array($b) ? $b : array();
 		foreach($b as $protocol => $bind) {
@@ -86,27 +84,14 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 				$binds['pjsip'][$ip][$protocol] = $p;
 			}
 		}
-
-		// chansip
-		$out = $this->getChanSipSettings();
-		// We assume we are ALWAYS listening on udp, as there's no way to disable it
-		// with chansip.
-		//
-		// Note: chansip is unreliable with ipv6. Leave this default to 0.0.0.0 for
-		// the moment.
+		if(!function_exists('sipsettings_get')) {
+			//urgh......
+			include __DIR__."/functions.inc.php";
+		}
+		$out = sipsettings_get();
 		$out['bindaddr'] = !empty($out['bindaddr']) ? $out['bindaddr'] : '0.0.0.0';
 		$out['bindport'] = !empty($out['bindport']) ? $out['bindport'] : '5060';
 		$binds['sip'][$out['bindaddr']]['udp'] = $out['bindport'];
-		// If TLS is enabled, we are also listening on the TLS port.
-		if (isset($out['tlsenable']) && $out['tlsenable'] !== "no") {
-			// TLS is TCP. This should be OK to default to ::
-			$tlslistenaddr = !empty($out['tlsbindaddr']) ? $out['tlsbindaddr'] : '::';
-			// This is OK. TCP and UDP are different protocols, and they can listen
-			// on the same port.
-			$tlsport = !empty($out['tlsbindport']) ? $out['tlsbindport'] : '5060';
-			$binds['sip'][$tlslistenaddr]['tcp'] = $tlsport;
-		}
-
 		return $binds;
 	}
 

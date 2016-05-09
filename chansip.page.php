@@ -1163,7 +1163,7 @@ $error_displays = array_merge($error_displays,sipsettings_check_custom_files());
 		</div>
 		<div class="row">
 			<div class="col-md-12">
-				<span id="tlsbindaddr-help" class="help-block fpbx-help-block"><?php echo _("TCP Port to listen on for TLS (Encrypted) connections. Defaults to '::', which listens on all interfaces, for both IPv4 and IPv6 connections"); ?></span>
+				<span id="tlsbindaddr-help" class="help-block fpbx-help-block"><?php echo $tt ?></span>
 			</div>
 		</div>
 	</div>
@@ -1179,7 +1179,7 @@ $error_displays = array_merge($error_displays,sipsettings_check_custom_files());
 							<i class="fa fa-question-circle fpbx-help-icon" data-for="tlsbindport"></i>
 						</div>
 						<div class="col-md-9">
-							<input type="text" class="form-control validate-ip-port" id="tlsbindport" name="tlsbindport" value="<?php echo $tlsbindport ?>">
+							<input type="text" class="form-control validate-ip-port" id="bindport" name="tlsbindport" value="<?php echo $tlsbindport ?>">
 						</div>
 					</div>
 				</div>
@@ -1187,7 +1187,7 @@ $error_displays = array_merge($error_displays,sipsettings_check_custom_files());
 		</div>
 		<div class="row">
 			<div class="col-md-12">
-				<span id="tlsbindport-help" class="help-block fpbx-help-block"><?php echo _("Local incoming TCP Port that Asterisk will bind to and listen for TLS SIP messages. Default is 5060.")?></span>
+				<span id="tlsbindport-help" class="help-block fpbx-help-block"><?php echo _("Local incoming UDP Port that Asterisk will bind to and listen for TLS SIP messages")?></span>
 			</div>
 		</div>
 	</div>
