@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-04 17:59-0700\n"
+"POT-Creation-Date: 2016-05-09 21:25+1000\n"
 "PO-Revision-Date: 2014-10-02 14:45+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
 "Language-Team: Japanese <http://git.freepbx.org/projects/freepbx/sipsettings/"
@@ -148,7 +148,7 @@ msgstr ""
 msgid "Asterisk SIP Settings"
 msgstr "Asterisk SIP 設定"
 
-#: Sipsettings.class.php:102
+#: Sipsettings.class.php:115
 #, php-format
 msgid "Asterisk is currently using %s for SIP Traffic."
 msgstr ""
@@ -254,11 +254,11 @@ msgstr ""
 msgid "Certificate Manager"
 msgstr ""
 
-#: Sipsettings.class.php:133
+#: Sipsettings.class.php:146
 msgid "Chan PJSIP Settings"
 msgstr ""
 
-#: Sipsettings.class.php:126
+#: Sipsettings.class.php:139
 msgid "Chan SIP Settings"
 msgstr ""
 
@@ -457,7 +457,7 @@ msgid ""
 "Frequency in seconds to check if MWI state has changed and inform peers."
 msgstr "MWI の状態変更をチェックして、ピアに通知する頻度（秒）"
 
-#: Sipsettings.class.php:119
+#: Sipsettings.class.php:132
 msgid "General SIP Settings"
 msgstr ""
 
@@ -795,7 +795,7 @@ msgstr ""
 msgid "Require verification of server certificate (TLS ONLY)."
 msgstr ""
 
-#: Sipsettings.class.php:446
+#: Sipsettings.class.php:459
 msgid "Reset"
 msgstr ""
 
@@ -872,7 +872,7 @@ msgstr "静的IP"
 msgid "Strict RTP"
 msgstr ""
 
-#: Sipsettings.class.php:451
+#: Sipsettings.class.php:464
 msgid "Submit"
 msgstr ""
 
@@ -970,7 +970,7 @@ msgstr ""
 msgid "Unknown Error"
 msgstr ""
 
-#: Sipsettings.class.php:292 Sipsettings.class.php:374
+#: Sipsettings.class.php:305 Sipsettings.class.php:387
 msgid "Unknown Type"
 msgstr ""
 
@@ -1048,7 +1048,7 @@ msgstr ""
 msgid "Yes with no error correction"
 msgstr ""
 
-#: Sipsettings.class.php:108
+#: Sipsettings.class.php:121
 msgid "You can change this on the Advanced Settings Page"
 msgstr ""
 
@@ -1084,7 +1084,7 @@ msgstr ""
 msgid "already exists"
 msgstr "既に既存します。"
 
-#: Sipsettings.class.php:104
+#: Sipsettings.class.php:117
 msgid "chan_pjsip and chan_sip"
 msgstr ""
 
