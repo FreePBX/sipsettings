@@ -1163,7 +1163,7 @@ $error_displays = array_merge($error_displays,sipsettings_check_custom_files());
 		</div>
 		<div class="row">
 			<div class="col-md-12">
-				<span id="tlsbindaddr-help" class="help-block fpbx-help-block"><?php echo $tt ?></span>
+				<span id="tlsbindaddr-help" class="help-block fpbx-help-block"><?php echo _("TCP Port to listen on for TLS (Encrypted) connections. Defaults to '::', which listens on all interfaces, for both IPv4 and IPv6 connections"); ?></span>
 			</div>
 		</div>
 	</div>
