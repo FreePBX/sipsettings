@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-09 22:33+1000\n"
+"POT-Creation-Date: 2016-05-09 23:10+1000\n"
 "PO-Revision-Date: 2014-10-02 14:45+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
 "Language-Team: Japanese <http://git.freepbx.org/projects/freepbx/sipsettings/"
@@ -62,12 +62,12 @@ msgstr ""
 msgid " See current version of Asterisk for limitations on SRV functionality."
 msgstr ""
 
-#: functions.inc.php:316
+#: functions.inc.php:307
 #, php-format
 msgid "%s must be a non-negative integer"
 msgstr "%s は非負の整数でなければなりません。"
 
-#: functions.inc.php:360
+#: functions.inc.php:351
 #, php-format
 msgid "%s must be alphanumeric"
 msgstr "%s には数字とアルファベットしか使えません。"
@@ -148,7 +148,7 @@ msgstr ""
 msgid "Asterisk SIP Settings"
 msgstr "Asterisk SIP 設定"
 
-#: Sipsettings.class.php:117
+#: Sipsettings.class.php:102
 #, php-format
 msgid "Asterisk is currently using %s for SIP Traffic."
 msgstr ""
@@ -226,7 +226,7 @@ msgstr "自動設定"
 msgid "Bind Address"
 msgstr "バインドIPアドレス"
 
-#: functions.inc.php:320
+#: functions.inc.php:311
 msgid "Bind Address (bindaddr) must be an IP address."
 msgstr "バインドアドレス (bindaddr) はIPアドレスでなければなりません"
 
@@ -234,7 +234,7 @@ msgstr "バインドアドレス (bindaddr) はIPアドレスでなければな�
 msgid "Bind Port"
 msgstr "バインドポート"
 
-#: functions.inc.php:326
+#: functions.inc.php:317
 msgid "Bind Port (bindport) must be between 1024 and 65535"
 msgstr ""
 
@@ -254,11 +254,11 @@ msgstr ""
 msgid "Certificate Manager"
 msgstr ""
 
-#: Sipsettings.class.php:148
+#: Sipsettings.class.php:133
 msgid "Chan PJSIP Settings"
 msgstr ""
 
-#: Sipsettings.class.php:141
+#: Sipsettings.class.php:126
 msgid "Chan SIP Settings"
 msgstr ""
 
@@ -340,7 +340,7 @@ msgstr "ダイナミックホスト"
 msgid "Dynamic Host Refresh"
 msgstr ""
 
-#: functions.inc.php:386
+#: functions.inc.php:377
 msgid "Dynamic Host can not be blank"
 msgstr "ダイナミックホストを空にすることはできません。"
 
@@ -420,7 +420,7 @@ msgstr ""
 msgid "External IP Address"
 msgstr ""
 
-#: functions.inc.php:376 assets/js/sipsettings.js:19
+#: functions.inc.php:367 assets/js/sipsettings.js:19
 msgid ""
 "External IP can not be blank when NAT Mode is set to Static and no default "
 "IP address provided on the main page"
@@ -457,7 +457,7 @@ msgid ""
 "Frequency in seconds to check if MWI state has changed and inform peers."
 msgstr "MWI の状態変更をチェックして、ピアに通知する頻度（秒）"
 
-#: Sipsettings.class.php:134
+#: Sipsettings.class.php:119
 msgid "General SIP Settings"
 msgstr ""
 
@@ -542,17 +542,17 @@ msgstr ""
 msgid "Local Networks"
 msgstr "ローカルネットワーク"
 
-#: chansip.page.php:1190
-msgid ""
-"Local incoming TCP Port that Asterisk will bind to and listen for TLS SIP "
-"messages. Default is 5060."
-msgstr ""
-
 #: chansip.page.php:1142
 msgid ""
 "Local incoming UDP Port that Asterisk will bind to and listen for SIP "
 "messages. In the past CHAN_SIP was defaulted to port 5060, in new installs "
 "this is defaulted to 5061"
+msgstr ""
+
+#: chansip.page.php:1190
+msgid ""
+"Local incoming UDP Port that Asterisk will bind to and listen for TLS SIP "
+"messages"
 msgstr ""
 
 #: chanpj.page.php:112
@@ -566,13 +566,13 @@ msgid ""
 "more fields. Blank fields will be ignored."
 msgstr ""
 
-#: functions.inc.php:436
+#: functions.inc.php:427
 msgid "Localnet netmask must be formatted properly (e.g. 255.255.255.0 or 24)"
 msgstr ""
 "ローカルネットワークマスクを正しいフォーマットで入力してください（例: "
 "255.255.255.0 または 24）。"
 
-#: functions.inc.php:431
+#: functions.inc.php:422
 msgid "Localnet setting must be an IP address"
 msgstr ""
 "ローカルネットワーク (localnet) 設定は、IPアドレスを設定しなければなりませ"
@@ -795,7 +795,7 @@ msgstr ""
 msgid "Require verification of server certificate (TLS ONLY)."
 msgstr ""
 
-#: Sipsettings.class.php:461
+#: Sipsettings.class.php:446
 msgid "Reset"
 msgstr ""
 
@@ -872,7 +872,7 @@ msgstr "静的IP"
 msgid "Strict RTP"
 msgstr ""
 
-#: Sipsettings.class.php:466
+#: Sipsettings.class.php:451
 msgid "Submit"
 msgstr ""
 
@@ -883,12 +883,6 @@ msgstr "変更を適用"
 #: chansip.page.php:363
 msgid "T38 Pass-Through"
 msgstr "T38パススルー"
-
-#: chansip.page.php:1166
-msgid ""
-"TCP Port to listen on for TLS (Encrypted) connections. Defaults to '::', "
-"which listens on all interfaces, for both IPv4 and IPv6 connections"
-msgstr ""
 
 #: chansip.page.php:1154
 msgid "TLS Bind Address"
@@ -976,7 +970,7 @@ msgstr ""
 msgid "Unknown Error"
 msgstr ""
 
-#: Sipsettings.class.php:307 Sipsettings.class.php:389
+#: Sipsettings.class.php:292 Sipsettings.class.php:374
 msgid "Unknown Type"
 msgstr ""
 
@@ -1054,7 +1048,7 @@ msgstr ""
 msgid "Yes with no error correction"
 msgstr ""
 
-#: Sipsettings.class.php:123
+#: Sipsettings.class.php:108
 msgid "You can change this on the Advanced Settings Page"
 msgstr ""
 
@@ -1090,7 +1084,7 @@ msgstr ""
 msgid "already exists"
 msgstr "既に既存します。"
 
-#: Sipsettings.class.php:119
+#: Sipsettings.class.php:104
 msgid "chan_pjsip and chan_sip"
 msgstr ""
 
@@ -1128,7 +1122,7 @@ msgstr "デフォールトコーデック追加中..."
 msgid "route"
 msgstr ""
 
-#: functions.inc.php:334
+#: functions.inc.php:325
 msgid "rtpholdtimeout must be higher than rtptimeout"
 msgstr "rtpholdtimeoutは、rtptimeoutより大きい値に設定しなければなりません。"
 
