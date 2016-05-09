@@ -89,9 +89,22 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 			include __DIR__."/functions.inc.php";
 		}
 		$out = sipsettings_get();
+		// We assume we are ALWAYS listening on udp, as there's no way to disable it
+		// with chansip.
+		//
+		// Note: chansip is unreliable with ipv6. Leave this default to 0.0.0.0 for
+		// the moment.
 		$out['bindaddr'] = !empty($out['bindaddr']) ? $out['bindaddr'] : '0.0.0.0';
 		$out['bindport'] = !empty($out['bindport']) ? $out['bindport'] : '5060';
 		$binds['sip'][$out['bindaddr']]['udp'] = $out['bindport'];
+		// If TLS is enabled, we are also listening on the TLS port.
+		if (isset($out['tlsenable']) && $out['tlsenable'] !== "no") {
+			// TLS is TCP. This should be OK to default to ::
+			$tlslistenaddr = !empty($out['tlsbindaddr']) ? $out['tlsbindaddr'] : '::';
+			$tlsport = !empty($out['tlsbindport']) ? $out['tlsbindport'] : '5061';
+			$binds['sip'][$tlslistenaddr]['tcp'] = $tlsport;
+		}
+
 		return $binds;
 	}
 
