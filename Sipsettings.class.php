@@ -484,7 +484,7 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 					"priv_key_file" => $cert['files']['key'],
 				);
 				if(isset($cert['files']['ca-bundle'])) {
-					$this->tlsCache['ca-bundle'] = $cert['files']['ca-bundle'];
+					$this->tlsCache['ca_list_file'] = $cert['files']['ca-bundle'];
 				}
 			} else {
 				$this->tlsCache = array();
