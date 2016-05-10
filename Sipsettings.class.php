@@ -24,7 +24,7 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 		"allowguest" => "no",
 		"allowanon" => "No",
 		"showadvanced" => "no",
-		"tcpport-0.0.0.0" => "5061", // Defaults, only used if this is an upgrade
+		"tcpport-0.0.0.0" => "5160", // Defaults, only used if this is an upgrade
 		"udpport-0.0.0.0" => "5061",
 		"tlsport-0.0.0.0" => "5161",
 	);
