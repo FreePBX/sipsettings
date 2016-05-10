@@ -68,19 +68,40 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 	}
 
 	public function doConfigPageInit($display) {
+		// Before we hand off to the general POST,
+		// if someone has posted from the main page, the
+		// 'tlsportowner' will be set. If it is, make
+		// sure we do have it set correctly before the
+		// page is rendered.
+		if (isset($_REQUEST['tlsportowner'])) {
+			$this->updateTlsOwner($_REQUEST['tlsportowner']);
+		}
+
 		$this->doGeneralPost();
 
-		// Whenever someone visits the sipsettings page,
-		// we want to make sure there's no port conflicts.
+		// Whenever someone visits the sipsettings page, we want to
+		// make sure there's no port conflicts.
 		//
-		// If there are, this will fix it BEFORE the page
-		// is displayed, so the user sees the correct, fixed,
-		// value. We run it after the post handler above,
-		// so it fixes things that users have entered.
+		// If there are, this will fix it BEFORE the page is displayed,
+		// so the user sees the correct, fixed, value. We run it after
+		// the post handler above, so it fixes things that users may have
+		// entered incorrectly.
 		$this->validateNoPortConflicts();
 	}
 
-	public function getBinds() {
+	/**
+	 * Return the ports that each channel driver is bound to.
+	 *
+	 * If $flatten is set to 'true', it assumes everything is listening
+	 * on every interface, and returns the array as a single dimension,
+	 * with the listen address hard coded to [::]
+	 *
+	 * If not, returns the binds exactly as configured.
+	 *
+	 * @param $flatten bool Flatten array
+	 * @return array
+	 */
+	public function getBinds($flatten = false) {
 		$binds = array();
 
 		// Note that verifyNoPortConflicts relies on this being constructed
@@ -95,7 +116,11 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 					continue;
 				}
 				$p = $this->getConfig($protocol."port-".$ip);
-				$binds['pjsip'][$ip][$protocol] = $p;
+				if ($flatten) {
+					$binds['pjsip']['[::]'][$protocol] = $p;
+				} else {
+					$binds['pjsip'][$ip][$protocol] = $p;
+				}
 			}
 		}
 
@@ -108,6 +133,9 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 		// the moment.
 		$out['bindaddr'] = !empty($out['bindaddr']) ? $out['bindaddr'] : '0.0.0.0';
 		$out['bindport'] = !empty($out['bindport']) ? $out['bindport'] : '5060';
+		if ($flatten) {
+			$out['bindaddr'] = '[::]';
+		}
 		$binds['sip'][$out['bindaddr']]['udp'] = $out['bindport'];
 
 		// Is 'tcpenabled' set to yes? If so, we're also listening on the bindport
@@ -118,10 +146,12 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 
 		// If TLS is enabled, we are also listening on the TLS port.
 		if (isset($out['tlsenable']) && $out['tlsenable'] !== "no") {
-			// TLS is TCP. This should be OK to default to ::
-			$tlslistenaddr = !empty($out['tlsbindaddr']) ? $out['tlsbindaddr'] : '[::]';
-			// This is OK. TCP and UDP are different protocols, and they can listen
-			// on the same port.
+			if ($flatten) {
+				$tlslistenaddr = '[::]';
+			} else {
+				// TLS is TCP. This should be OK to default to [::] for chansip
+				$tlslistenaddr = !empty($out['tlsbindaddr']) ? $out['tlsbindaddr'] : '[::]';
+			}
 			$tlsport = !empty($out['tlsbindport']) ? $out['tlsbindport'] : '5061';
 			$binds['sip'][$tlslistenaddr]['tls'] = $tlsport;
 		}
@@ -613,7 +643,7 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 		$owner = "none";
 
 		// Get our binds
-		$binds = $this->getBinds();
+		$binds = $this->getBinds(true);
 
 		// Start by checking if pjsip owns it
 		if (isset($binds['pjsip']) && $binds['pjsip']) {
@@ -664,15 +694,16 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 	public function validateNoPortConflicts() {
 
 		// Get all of our binds
-		$binds = $this->getBinds();
+		$binds = $this->getBinds(true);
 
 		$allports = array("tcp" => array(), "udp" => array());
 		foreach ($binds as $driver => $listenarr) {
 			// We explicitly don't care about interfaces. Having
 			// chansip on 5060 on int1 and pjsip on 5060 on int2
-			// is just going to be a nightmare. So we just disregard,
-			// and pretend it's all on ::
-			foreach ($listenarr as $int => $ports) {
+			// is just going to be a nightmare. We asked getBinds
+			// to return a flattened array, so we just disregard
+			// the interface
+			foreach ($listenarr as $ports) {
 				foreach ($ports as $proto => $port) {
 					// Phew. Finally.
 					// Is it a websocket port? We don't care about them
@@ -746,6 +777,84 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 					// $allports[$type][$port] = "$driver, $proto on port $port ($type)";
 				}
 			}
+		}
+	}
+
+	/**
+	 * Update the TLS Port if requested
+	 *
+	 * This is called when 'tlsportowner' is submitted as part of the POST.
+	 * It checks to see if the requested channel driver does own the TLS port,
+	 * and if it doesn't, it assigns it.
+	 *
+	 * If the other driver is assigned to that port, it moves it to 5161.
+	 */
+	public function updateTlsOwner($driver = false) {
+		// Who owns it at the moment?
+		$owner = $this->getTlsPortOwner();
+		if ($owner == $driver) {
+			// Nothing to do, we're already correct
+			return true;
+		}
+
+		// Does chan_sip want to own the TLS port?
+		if ($driver == "sip") {
+			// We're moving chansip to 5061
+			$this->updateChanSipSettings("tlsbindport", 5061);
+			needreload();
+
+			// If pjsip is listening on 5061, move it to 5161
+			$pjsipbinds = $this->getConfig("binds");
+			$pjsipbinds = is_array($pjsipbinds) ? $pjsipbinds : array();
+
+			foreach($pjsipbinds as $pjproto => $binds) {
+				// Skip if not tls
+				if ($pjproto !== "tls") {
+					continue;
+				}
+
+				// Get all the listening TLS interfaces and if they're
+				// set to 5061, set them to 5161
+				foreach($binds as $ip => $state) {
+					$p = $this->getConfig($pjproto."port-".$ip);
+					if ($p == 5061) {
+						// It's a conflict. move to 5161
+						$this->setConfig($pjproto."port-".$ip, 5161);
+					}
+				}
+			}
+		} elseif ($driver = "pjsip") {
+			// We're setting pjsip to own 5061. Does chansip think it
+			// owns it?
+			$chansip = $this->getChanSipSettings();
+			if (!isset($chansip['tlsbindport']) || !$chansip['tlsbindport'] || $chansip['tlsbindport'] == 5061) {
+				// Yes it does. Move to 5161.
+				$this->updateChanSipSettings("tlsbindport", 5161);
+				needreload();
+			}
+
+			// Update all tls listeners for pjsip to listen on 5061
+			$pjsipbinds = $this->getConfig("binds");
+			$pjsipbinds = is_array($pjsipbinds) ? $pjsipbinds : array();
+			foreach($pjsipbinds as $pjproto => $binds) {
+				// Skip if not tls
+				if ($pjproto !== "tls") {
+					continue;
+				}
+
+				// Get all the listening TLS interfaces and if they're
+				// set to 5061, set them to 5161
+				foreach($binds as $ip => $state) {
+					$p = $this->getConfig($pjproto."port-".$ip);
+					if ($p != 5061) {
+						// It's a conflict. move to 5161
+						$this->setConfig($pjproto."port-".$ip, 5061);
+						needreload();
+					}
+				}
+			}
+		} else {
+			throw new \Exception("Can't change tls owner to unknown driver '$driver'");
 		}
 	}
 }

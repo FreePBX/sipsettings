@@ -54,7 +54,7 @@ $submit_changes = _("Submit Changes");
 				</div>
 				<div class="col-md-9 radioset">
 <?php
-$tlsowners = array("sip" => _("Chan SIP"), "pjsip" => _("PJSip"), "none" => _("None"));
+$tlsowners = array("sip" => _("Chan SIP"), "pjsip" => _("PJSip"));
 $owner = $this->getTlsPortOwner();
 $binds = $this->getBinds();
 foreach ($tlsowners as $chan => $txt) {
@@ -65,12 +65,26 @@ foreach ($tlsowners as $chan => $txt) {
 	}
 
 	// Is this protocol available?
-	if ($chan == "none" || isset($binds[$chan]) && $binds[$chan]) {
-		$disabled = "";
+	if (isset($binds[$chan])) {
+		// Is it listening for TLS anywhere?
+		$foundtls = false;
+		foreach ($binds[$chan] as $protocols) {
+			foreach ($protocols as $p => $pport) {
+				if ($p == "tls") {
+					$foundtls = true;
+					break;
+				}
+			}
+		}
+		if ($foundtls) {
+			$disabled = "";
+		} else {
+			$disabled = "disabled";
+		}
 	} else {
 		$disabled = "disabled";
 	}
-	print "<input type='radio' name='tlsportowner' id='tls-$chan' value='$txt' $disabled $checked>\n";
+	print "<input type='radio' name='tlsportowner' id='tls-$chan' value='$chan' $disabled $checked>\n";
 	print "<label for='tls-$chan'>$txt</label>\n";
 }
 ?>
@@ -79,7 +93,7 @@ foreach ($tlsowners as $chan => $txt) {
 		</div>
 		<div class="row">
 			<div class="col-md-12">
-				<span id="tlsowner-help" class="help-block fpbx-help-block"><?php echo _("This is a simple button that assigns TCP port 5061 (the default SIP TLS port) to a channel driver. If you change this, you will have to restart Asterisk"); ?></span>
+				<span id="tlsowner-help" class="help-block fpbx-help-block"><?php echo _("This lets you explicitly control the SIP Protocol that listens on the default SIP TLS port (5061). If an option is not available, it is because that protocol is not enabled, or, that protocol does not have TLS enabled. If you change this, you will have to restart Asterisk"); ?></span>
 			</div>
 		</div>
 	</div>
