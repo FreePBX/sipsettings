@@ -415,6 +415,15 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 				$sip_settings[$var['keyword']]                 = $var['data'];
 				break;
 			case self::SIP_CUSTOM:
+				// Check if this is 'tcpenable' and return this as part of the array,
+				// as well as providing it as a custom key. This is used by getBinds.
+				//
+				// There's no plan to add this to the GUI for chansip, if you want to
+				// use UNENCRYPTED TCP, then use pjsip. 
+				//
+				if ($var['keyword'] == "tcpenable") {
+					$sip_settings['tcpenable'] = $var['data'];
+				}
 				$sip_settings['sip_custom_key_'.$var['seq']]   = $var['keyword'];
 				$sip_settings['sip_custom_val_'.$var['seq']]   = $var['data'];
 				break;
@@ -436,6 +445,19 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 			'srvlookup' => 'no', 'callevents' => 'no', 'sip_custom_key_0' => '', 'sip_custom_val_0' => '');
 
 		return $arr;
+	}
+
+	public function updateChanSipSettings($key, $val = false, $type = SELF::SIP_NORMAL, $seq = 10) {
+		$db = \FreePBX::Database();
+		// Delete the key we want to change
+		$del = $db->prepare('DELETE FROM `sipsettings` WHERE `keyword`=? AND `type`=?');
+		$del->execute(array($key, $type));
+
+		// If val is not EXACTLY false, add it back in
+		if ($val !== false) {
+			$ins = $db->prepare('INSERT INTO `sipsettings` (`keyword`, `data`, `type`, `seq`) VALUES (?, ?, ?, ?)');
+			$ins->execute(array($key, $val, $type, $seq));
+		}
 	}
 
 	// BMO Hooks.
@@ -564,5 +586,60 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 		}
 
 		return $this->tlsCache;
+	}
+
+
+	/**
+	 * Determine which SIP Channel driver has port 5061/tcp
+	 *
+	 * Returns either "sip" (legacy chansip), "pjsip" or "none"
+	 *
+	 * @return string
+	 */
+	public function getTlsPortOwner() {
+		$owner = "none";
+
+		// Get our binds
+		$binds = $this->getBinds();
+
+		// Start by checking if pjsip owns it
+		if (isset($binds['pjsip']) && $binds['pjsip']) {
+			foreach ($binds['pjsip'] as $listen => $proto) {
+				foreach ($proto as $p => $port) {
+					if ((int) $port === 5061) {
+						// If this is NOT 'udp', it's tcp.
+						if ($p !== "udp") {
+							$owner = "pjsip";
+							break;
+						}
+					}
+				}
+			}
+		}
+
+		// Let's see if chansip knows about it.
+		if (isset($binds['sip']) && $binds['sip']) {
+			foreach ($binds['sip'] as $listen => $proto) {
+				foreach ($proto as $p => $port) {
+					if ((int) $port === 5061) {
+						// If this is NOT 'udp', it's tcp.
+						if ($p !== "udp") {
+							// chansip is trying to use this port. Is pjsip trying
+							// to use it too?
+							if ($owner !== "none") {
+								// Well poot. Change chansip to be the 'other' TLS port,
+								// which is 5161/TCP
+								$this->updateChanSipSettings("tlsbindport", 5161);
+								// TODO: Notify here? 
+							} else {
+								$owner = "sip";
+								break;
+							}
+						}
+					}
+				}
+			}
+		}
+		return $owner;
 	}
 }
