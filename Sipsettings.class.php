@@ -69,10 +69,22 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 
 	public function doConfigPageInit($display) {
 		$this->doGeneralPost();
+
+		// Whenever someone visits the sipsettings page,
+		// we want to make sure there's no port conflicts.
+		//
+		// If there are, this will fix it BEFORE the page
+		// is displayed, so the user sees the correct, fixed,
+		// value. We run it after the post handler above,
+		// so it fixes things that users have entered.
+		$this->validateNoPortConflicts();
 	}
 
 	public function getBinds() {
 		$binds = array();
+
+		// Note that verifyNoPortConflicts relies on this being constructed
+		// with pjsip first, then chansip. Don't change the order.
 
 		// pjsip
 		$b = $this->getConfig("binds");
@@ -169,6 +181,7 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 	}
 
 	public function doGeneralPost() {
+
 		if (!isset($_REQUEST['Submit']))
 			return;
 
@@ -641,5 +654,98 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 			}
 		}
 		return $owner;
+	}
+
+	/**
+	 * Make sure that none of the SIP channel drivers have conflicting ports
+	 *
+	 * This will give priority to PJSIP owning the ports.
+	 */
+	public function validateNoPortConflicts() {
+
+		// Get all of our binds
+		$binds = $this->getBinds();
+
+		$allports = array("tcp" => array(), "udp" => array());
+		foreach ($binds as $driver => $listenarr) {
+			// We explicitly don't care about interfaces. Having
+			// chansip on 5060 on int1 and pjsip on 5060 on int2
+			// is just going to be a nightmare. So we just disregard,
+			// and pretend it's all on ::
+			foreach ($listenarr as $int => $ports) {
+				foreach ($ports as $proto => $port) {
+					// Phew. Finally.
+					// Is it a websocket port? We don't care about them
+					if ($proto == "wss" || $proto == "ws") {
+						continue;
+					}
+					// Is it a TCP port?
+					if ($proto !== "udp") {
+						$type = "tcp";
+					} else {
+						$type = "udp";
+					}
+					// Is there a conflict?
+					if (isset($allports[$type][$port])) {
+						// Yes. Poot.
+						$n = \FreePBX::Notifications();
+
+						// If this isn't chansip, then somehow the user has managed
+						// to do something crazy to pjsip.  We can't fix it.
+						if ($driver !== "sip") {
+							$n->add_critical("sipsettings", "unknownpjsip", _("Unknown Port Conflict"), _("An unknown port conflict has been detected in PJSIP. Please check and validate your PJSIP Ports to ensure they're not overlapping"), true, true);
+							continue;
+						}
+
+						// So, is this udp, tcp, or tls?
+						if ($proto == "udp") {
+							// Try a couple of ports until we find a spare. Default is first,
+							// just in case we have a conflict on 5061 or something.
+							$attempts = array(5060, 5062, 5161, 5199, 5260, 15060);
+							foreach ($attempts as $portattempt) {
+								if (!isset($allports['udp'][$portattempt])) {
+									// Yes. Found a spare.
+									$this->updateChanSipSettings("bindport", $portattempt);
+									$allports['udp'][$portattempt] = true;
+									$n->add_critical("sipsettings", "sipmoved", _("CHANSIP Port Moved"), sprintf(_("Chansip was assigned the same port as pjsip for UDP traffic. The Chansip port has been changed to %s"), $portattempt), true, true);
+									needreload();
+									continue;
+								}
+							}
+							// If we made it here, we couldn't find a spare port???
+							throw new \Exception("Can't find spare UDP port");
+						} elseif ($proto == "tcp") {
+							// This means pjsip is listening on TCP, and, someone's turned on tcpenable
+							// in chansip settings.  We just turn it off, as chansip can't move its tcp
+							// port.
+							$this->updateChanSipSettings("tcpenable");
+							$n->add_critical("sipsettings", "siptcpdisabled", _("CHANSIP TCP Disabled"), _("Chansip was assigned the same port as pjsip for TCP traffic. Chansip has had the tcpenable setting removed, and is no longer listening for TCP connections."), true, true);
+							needreload();
+							continue;
+						} elseif ($proto == "tls") {
+							// TLS is conflicting with PJSIP. Try to find a spare port
+							$attempts = array(5061, 5161, 5162, 5199, 5261, 15061);
+							foreach ($attempts as $portattempt) {
+								if (!isset($allports['tcp'][$portattempt])) {
+									// Yes. Found a spare.
+									$this->updateChanSipSettings("tlsbindport", $portattempt);
+									$allports['tcp'][$portattempt] = true;
+									$n->add_critical("sipsettings", "siptlsmoved", _("CHANSIP TLS Port Moved"), sprintf(_("Chansip was assigned a port that was already in use for TLS traffic. The Chansip TLS port has been changed to %s"), $portattempt), true, true);
+									needreload();
+									continue;
+								}
+							}
+							// If we made it here, we couldn't find a spare port???
+							throw new \Exception("Can't find spare TLS port");
+						} else {
+							throw new \Exception("Unknown protocol ($proto) to fix");
+						}
+					} // No conflict!
+					$allports[$type][$port] = true;
+					// Debugging help
+					// $allports[$type][$port] = "$driver, $proto on port $port ($type)";
+				}
+			}
+		}
 	}
 }
