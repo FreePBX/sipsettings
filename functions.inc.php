@@ -110,6 +110,7 @@ function sipsettings_hookGet_config($engine) {
           $idx++;
         }
 
+	$interim_settings = array();
         foreach ($raw_settings as $var) {
           switch ($var['type']) {
             case SIP_NORMAL:
@@ -156,15 +157,24 @@ function sipsettings_hookGet_config($engine) {
         $jbenable = $interim_settings['jbenable'];
 
 	$foundexternip = false;
-	if(!empty($interim_settings['tlsbindport'])) {
-		if(!empty($interim_settings['tlsbindaddr'])) {
-			$interim_settings['tlsbindaddr'] = $interim_settings['tlsbindaddr'].":".$interim_settings['tlsbindport'];
-		} else {
-			$interim_settings['tlsbindaddr'] = "[::]:".$interim_settings['tlsbindport'];
-		}
-		unset($interim_settings['tlsbindport']);
+
+	// Ensure default TLS Settings for chansip are available
+	if(empty($interim_settings['tlsbindport'])) {
+		// Note - this is TCP, not UDP.
+		$interim_settings['tlsbindport'] = 5061;
 	}
-	if (is_array($interim_settings)) foreach ($interim_settings as $key => $value) {
+
+	if(!empty($interim_settings['tlsbindaddr'])) {
+		$interim_settings['tlsbindaddr'] = $interim_settings['tlsbindaddr'].":".$interim_settings['tlsbindport'];
+	} else {
+		// [::] means 'listen on all interfaces, both ipv4 and ipv6' when in sipsettings.
+		$interim_settings['tlsbindaddr'] = "[::]:".$interim_settings['tlsbindport'];
+	}
+
+	// There is no sip setting 'tlsbindport', so make sure we remove it before writing the file.
+	unset($interim_settings['tlsbindport']);
+
+	foreach ($interim_settings as $key => $value) {
 		switch ($key) {
 		case 'csipcertid':
 			if(!empty($value) && $interim_settings['tlsenable'] == 'yes' && FreePBX::Modules()->moduleHasMethod("certman","getDefaultCertDetails")) {
