@@ -1094,7 +1094,7 @@ $error_displays = array_merge($error_displays,sipsettings_check_custom_files());
 	<!--END Default Context-->
 	<?php
 		$tt = _("Asterisk: bindaddr. The IP address to bind to and listen for calls on the Bind Port. If set to 0.0.0.0 Asterisk will listen on all addresses. It is recommended to leave this blank.");
-		$tt .= ' ' . _("Asterisk supports IPv6. An address of '::' will listen on both IPv4 and IPv6.");
+		$tt .= ' ' . _("Note that chan_sip does not support IPv6 for UDP protocols. An address of '[::]' will listen on both IPv4 and IPv6, but is not recommended. If you want to use IPv6, it is recommended to use PJSip for those devices or trunks.");
 	?>
 	<!--Bind Address-->
 	<div class="element-container">
@@ -1107,7 +1107,7 @@ $error_displays = array_merge($error_displays,sipsettings_check_custom_files());
 							<i class="fa fa-question-circle fpbx-help-icon" data-for="bindaddr"></i>
 						</div>
 						<div class="col-md-9">
-							<input type="text" class="form-control validate-ip" id="bindaddr" name="bindaddr" value="<?php echo $bindaddr ?>">
+							<input type="text" class="form-control validate-ip" id="bindaddr" name="bindaddr" placeholder='0.0.0.0' value="<?php echo $bindaddr ?>">
 						</div>
 					</div>
 				</div>
@@ -1123,23 +1123,19 @@ $error_displays = array_merge($error_displays,sipsettings_check_custom_files());
 	<!--Bind Port-->
 	<div class="element-container">
 		<div class="row">
-			<div class="col-md-12">
-				<div class="row">
-					<div class="form-group">
-						<div class="col-md-3">
-							<label class="control-label" for="bindport"><?php echo _("Bind Port") ?></label>
-							<i class="fa fa-question-circle fpbx-help-icon" data-for="bindport"></i>
-						</div>
-						<div class="col-md-9">
-							<input type="text" class="form-control validate-ip-port" id="bindport" name="bindport" value="<?php echo $bindport ?>">
-						</div>
-					</div>
+			<div class="form-group">
+				<div class="col-md-3">
+					<label class="control-label" for="bindport"><?php echo _("Bind Port") ?></label>
+					<i class="fa fa-question-circle fpbx-help-icon" data-for="bindport"></i>
+				</div>
+				<div class="col-md-9">
+					<input type="text" class="form-control validate-ip-port" id="bindport" name="bindport" value="<?php echo $bindport ?>">
 				</div>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-md-12">
-				<span id="bindport-help" class="help-block fpbx-help-block"><?php echo _("Local incoming UDP Port that Asterisk will bind to and listen for SIP messages. In the past CHAN_SIP was defaulted to port 5060, in new installs this is defaulted to 5061")?></span>
+				<span id="bindport-help" class="help-block fpbx-help-block"><?php echo _("Local incoming UDP Port that Asterisk will bind to and listen for SIP messages. CHAN_SIP previously defaulted to port 5060. However, on new installations, this default port is now 5061.")?></span>
 			</div>
 		</div>
 	</div>
@@ -1147,23 +1143,19 @@ $error_displays = array_merge($error_displays,sipsettings_check_custom_files());
 	<!--Bind Address-->
 	<div class="element-container">
 		<div class="row">
-			<div class="col-md-12">
-				<div class="row">
-					<div class="form-group">
-						<div class="col-md-3">
-							<label class="control-label" for="tlsbindaddr"><?php echo _("TLS Bind Address") ?></label>
-							<i class="fa fa-question-circle fpbx-help-icon" data-for="tlsbindaddr"></i>
-						</div>
-						<div class="col-md-9">
-							<input type="text" class="form-control validate-ip" id="tlsbindaddr" name="tlsbindaddr" value="<?php echo $tlsbindaddr ?>">
-						</div>
-					</div>
+			<div class="form-group">
+				<div class="col-md-3">
+					<label class="control-label" for="tlsbindaddr"><?php echo _("TLS Bind Address") ?></label>
+					<i class="fa fa-question-circle fpbx-help-icon" data-for="tlsbindaddr"></i>
+				</div>
+				<div class="col-md-9">
+					<input type="text" class="form-control validate-ip" id="tlsbindaddr" name="tlsbindaddr" placeholder='[::]' value="<?php echo $tlsbindaddr ?>">
 				</div>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-md-12">
-				<span id="tlsbindaddr-help" class="help-block fpbx-help-block"><?php echo $tt ?></span>
+				<span id="tlsbindaddr-help" class="help-block fpbx-help-block"><?php echo _("TCP Port to listen on for TLS (Encrypted) connections. Defaults to '[::]', which listens on all interfaces for both IPv4 and IPv6 connections. Note that PJSip is preferable for all IPv6 communications."); ?></span>
 			</div>
 		</div>
 	</div>
@@ -1171,23 +1163,19 @@ $error_displays = array_merge($error_displays,sipsettings_check_custom_files());
 	<!--Bind Port-->
 	<div class="element-container">
 		<div class="row">
-			<div class="col-md-12">
-				<div class="row">
-					<div class="form-group">
-						<div class="col-md-3">
-							<label class="control-label" for="tlsbindport"><?php echo _("TLS Bind Port") ?></label>
-							<i class="fa fa-question-circle fpbx-help-icon" data-for="tlsbindport"></i>
-						</div>
-						<div class="col-md-9">
-							<input type="text" class="form-control validate-ip-port" id="bindport" name="tlsbindport" value="<?php echo $tlsbindport ?>">
-						</div>
-					</div>
+			<div class="form-group">
+				<div class="col-md-3">
+					<label class="control-label" for="tlsbindport"><?php echo _("TLS Bind Port") ?></label>
+					<i class="fa fa-question-circle fpbx-help-icon" data-for="tlsbindport"></i>
+				</div>
+				<div class="col-md-9">
+					<input type="text" class="form-control validate-ip-port" id="tlsbindport" name="tlsbindport" placeholder="5061" value="<?php echo $tlsbindport ?>">
 				</div>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-md-12">
-				<span id="tlsbindport-help" class="help-block fpbx-help-block"><?php echo _("Local incoming UDP Port that Asterisk will bind to and listen for TLS SIP messages")?></span>
+				<span id="tlsbindport-help" class="help-block fpbx-help-block"><?php echo _("Local incoming TCP Port that Asterisk will bind to and listen for TLS SIP messages. Default is 5061 or 5062.")?></span>
 			</div>
 		</div>
 	</div>
