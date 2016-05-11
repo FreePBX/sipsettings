@@ -687,6 +687,82 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 	}
 
 	/**
+	 * Determine which SIP Channel driver is listening for SIP packets on port 5060/udp
+	 *
+	 * Returns either "sip" (legacy chansip), "pjsip" or "none"
+	 *
+	 * @return string
+	 */
+	public function getSipPortOwner() {
+		// Get our binds
+		$binds = $this->getBinds(true);
+
+		// Start by checking if pjsip owns it
+		if (isset($binds['pjsip']) && $binds['pjsip']) {
+			foreach ($binds['pjsip'] as $listen => $proto) {
+				foreach ($proto as $p => $port) {
+					if ($p !== "udp") {
+						continue;
+					} else {
+						if ((int) $port === 5060) {
+							return "pjsip";
+						}
+					}
+				}
+			}
+		}
+
+		// Not pjsip. How about chansip?
+		if (isset($binds['sip']) && $binds['sip']) {
+			foreach ($binds['pjsip'] as $listen => $proto) {
+				foreach ($proto as $p => $port) {
+					if ($p !== "udp") {
+						continue;
+					} else {
+						if ((int) $port === 5060) {
+							return "sip";
+						}
+					}
+				}
+			}
+		}
+
+		// Neither of them.
+		return "none";
+	}
+
+	/**
+	 * Return the bound port for the protocol specified.
+	 *
+	 * Will return (bool) false if protocol is not used by that driver
+	 *
+	 * @param string $driver One of 'sip', 'chansip', or 'pjsip'
+	 * @param string $proto One of 'udp', 'tcp', or 'tls'
+	 *
+	 * @return int|bool
+	 */
+	public function getDriverPort($driver = false, $proto = false) {
+		if (!$driver || !$proto) {
+			throw new \Exception("No driver or port requested");
+		}
+		$binds = $this->getBinds(true);
+		$sanedriver = strtolower($driver);
+		if ($sanedriver == "sip" || $sanedriver == "chansip") {
+			$check = $binds['sip']['[::]'];
+		} elseif ($sanedriver == "pjsip") {
+			$check = $binds['pjsip']['[::]'];
+		} else {
+			throw new \Exception("Unknown sip driver '$driver'");
+		}
+
+		if (!isset($check[$proto]) || !$check[$proto]) {
+			return false;
+		} else {
+			return (int) $check[$proto];
+		}
+	}
+
+	/**
 	 * Make sure that none of the SIP channel drivers have conflicting ports
 	 *
 	 * This will give priority to PJSIP owning the ports.
