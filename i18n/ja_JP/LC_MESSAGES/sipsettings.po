@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-11 09:48+1000\n"
+"POT-Creation-Date: 2016-05-12 09:33+1000\n"
 "PO-Revision-Date: 2014-10-02 14:45+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
 "Language-Team: Japanese <http://git.freepbx.org/projects/freepbx/sipsettings/"
@@ -134,7 +134,7 @@ msgid ""
 "An Error occurred trying fetch network configuration and external IP address"
 msgstr "ネットワーク設定及び外部IPアドレスを取出し中にエラーが発生しました。"
 
-#: Sipsettings.class.php:727
+#: Sipsettings.class.php:803
 msgid ""
 "An unknown port conflict has been detected in PJSIP. Please check and "
 "validate your PJSIP Ports to ensure they're not overlapping"
@@ -243,15 +243,15 @@ msgstr ""
 msgid "CA Chain File"
 msgstr ""
 
-#: Sipsettings.class.php:741
+#: Sipsettings.class.php:817
 msgid "CHANSIP Port Moved"
 msgstr ""
 
-#: Sipsettings.class.php:753
+#: Sipsettings.class.php:829
 msgid "CHANSIP TCP Disabled"
 msgstr ""
 
-#: Sipsettings.class.php:764
+#: Sipsettings.class.php:840
 msgid "CHANSIP TLS Port Moved"
 msgstr ""
 
@@ -279,21 +279,21 @@ msgstr ""
 msgid "Chan SIP Settings"
 msgstr ""
 
-#: Sipsettings.class.php:764
+#: Sipsettings.class.php:840
 #, php-format
 msgid ""
 "Chansip was assigned a port that was already in use for TLS traffic. The "
 "Chansip TLS port has been changed to %s"
 msgstr ""
 
-#: Sipsettings.class.php:753
+#: Sipsettings.class.php:829
 msgid ""
 "Chansip was assigned the same port as pjsip for TCP traffic. Chansip has had "
 "the tcpenable setting removed, and is no longer listening for TCP "
 "connections."
 msgstr ""
 
-#: Sipsettings.class.php:741
+#: Sipsettings.class.php:817
 #, php-format
 msgid ""
 "Chansip was assigned the same port as pjsip for UDP traffic. The Chansip "
@@ -1038,7 +1038,7 @@ msgstr ""
 msgid "Unknown Error"
 msgstr ""
 
-#: Sipsettings.class.php:727
+#: Sipsettings.class.php:803
 msgid "Unknown Port Conflict"
 msgstr ""
 
