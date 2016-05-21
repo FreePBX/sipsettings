@@ -336,7 +336,7 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 	}
 
 
-	public function doDialplanHook(&$ext, $null, $null) {
+	public function doDialplanHook(&$ext, $null, $null_) {
 		$ext->addGlobal('ALLOW_SIP_ANON', strtolower($this->getConfig("allowanon")));
 	}
 
