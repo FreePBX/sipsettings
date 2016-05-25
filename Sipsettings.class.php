@@ -816,11 +816,9 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 									$allports['udp'][$portattempt] = true;
 									$n->add_critical("sipsettings", "sipmoved", _("CHANSIP Port Moved"), sprintf(_("Chansip was assigned the same port as pjsip for UDP traffic. The Chansip port has been changed to %s"), $portattempt), true, true);
 									needreload();
-									continue;
+									break;
 								}
 							}
-							// If we made it here, we couldn't find a spare port???
-							throw new \Exception("Can't find spare UDP port");
 						} elseif ($proto == "tcp") {
 							// This means pjsip is listening on TCP, and, someone's turned on tcpenable
 							// in chansip settings.  We just turn it off, as chansip can't move its tcp
@@ -839,11 +837,9 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 									$allports['tcp'][$portattempt] = true;
 									$n->add_critical("sipsettings", "siptlsmoved", _("CHANSIP TLS Port Moved"), sprintf(_("Chansip was assigned a port that was already in use for TLS traffic. The Chansip TLS port has been changed to %s"), $portattempt), true, true);
 									needreload();
-									continue;
+									break;
 								}
 							}
-							// If we made it here, we couldn't find a spare port???
-							throw new \Exception("Can't find spare TLS port");
 						} else {
 							throw new \Exception("Unknown protocol ($proto) to fix");
 						}
