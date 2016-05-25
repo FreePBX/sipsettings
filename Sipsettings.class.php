@@ -107,55 +107,61 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 		// Note that verifyNoPortConflicts relies on this being constructed
 		// with pjsip first, then chansip. Don't change the order.
 
-		// pjsip
-		$b = $this->getConfig("binds");
-		$b = is_array($b) ? $b : array();
-		foreach($b as $protocol => $bind) {
-			foreach($bind as $ip => $state) {
-				if($state != "on") {
-					continue;
-				}
-				$p = $this->getConfig($protocol."port-".$ip);
-				if ($flatten) {
-					$binds['pjsip']['[::]'][$protocol] = $p;
-				} else {
-					$binds['pjsip'][$ip][$protocol] = $p;
+		$driver = $this->FreePBX->Config->get_conf_setting('ASTSIPDRIVER');
+		if ($driver == "both" || $driver == "pjsip") {
+			$b = $this->getConfig("binds");
+			$b = is_array($b) ? $b : array();
+			foreach($b as $protocol => $bind) {
+				foreach($bind as $ip => $state) {
+					if($state != "on") {
+						continue;
+					}
+					$p = $this->getConfig($protocol."port-".$ip);
+					if ($flatten) {
+						$binds['pjsip']['[::]'][$protocol] = $p;
+					} else {
+						$binds['pjsip'][$ip][$protocol] = $p;
+					}
 				}
 			}
+		} else {
+			$binds['pjsip'] = array("0.0.0.0" => array());
 		}
 
-		// chansip
-		$out = $this->getChanSipSettings();
-		// We assume we are ALWAYS listening on udp, as there's no way to disable it
-		// with chansip.
-		//
-		// Note: chansip is unreliable with ipv6. Leave this default to 0.0.0.0 for
-		// the moment.
-		$out['bindaddr'] = !empty($out['bindaddr']) ? $out['bindaddr'] : '0.0.0.0';
-		$out['bindport'] = !empty($out['bindport']) ? $out['bindport'] : '5060';
-		if ($flatten) {
-			$out['bindaddr'] = '[::]';
-		}
-		$binds['sip'][$out['bindaddr']]['udp'] = $out['bindport'];
-
-		// Is 'tcpenabled' set to yes? If so, we're also listening on the bindport
-		// in TCP.
-		if (isset($out['tcpenable']) && $out['tcpenable'] == "yes") {
-			$binds['sip'][$out['bindaddr']]['tcp'] = $out['bindport'];
-		}
-
-		// If TLS is enabled, we are also listening on the TLS port.
-		if (isset($out['tlsenable']) && $out['tlsenable'] !== "no") {
+		if ($driver == "both" || $driver == "chansip") {
+			$out = $this->getChanSipSettings();
+			// We assume we are ALWAYS listening on udp, as there's no way to disable it
+			// with chansip.
+			//
+			// Note: chansip is unreliable with ipv6. Leave this default to 0.0.0.0 for
+			// the moment.
+			$out['bindaddr'] = !empty($out['bindaddr']) ? $out['bindaddr'] : '0.0.0.0';
+			$out['bindport'] = !empty($out['bindport']) ? $out['bindport'] : '5060';
 			if ($flatten) {
-				$tlslistenaddr = '[::]';
-			} else {
-				// TLS is TCP. This should be OK to default to [::] for chansip
-				$tlslistenaddr = !empty($out['tlsbindaddr']) ? $out['tlsbindaddr'] : '[::]';
+				$out['bindaddr'] = '[::]';
 			}
-			$tlsport = !empty($out['tlsbindport']) ? $out['tlsbindport'] : '5061';
-			$binds['sip'][$tlslistenaddr]['tls'] = $tlsport;
-		}
+			$binds['sip'][$out['bindaddr']]['udp'] = $out['bindport'];
 
+			// Is 'tcpenabled' set to yes? If so, we're also listening on the bindport
+			// in TCP.
+			if (isset($out['tcpenable']) && $out['tcpenable'] == "yes") {
+				$binds['sip'][$out['bindaddr']]['tcp'] = $out['bindport'];
+			}
+
+			// If TLS is enabled, we are also listening on the TLS port.
+			if (isset($out['tlsenable']) && $out['tlsenable'] !== "no") {
+				if ($flatten) {
+					$tlslistenaddr = '[::]';
+				} else {
+					// TLS is TCP. This should be OK to default to [::] for chansip
+					$tlslistenaddr = !empty($out['tlsbindaddr']) ? $out['tlsbindaddr'] : '[::]';
+				}
+				$tlsport = !empty($out['tlsbindport']) ? $out['tlsbindport'] : '5061';
+				$binds['sip'][$tlslistenaddr]['tls'] = $tlsport;
+			}
+		} else {
+			$binds['sip'] = array("0.0.0.0" => array());
+		}
 		return $binds;
 	}
 
