@@ -39,14 +39,14 @@ if (!empty($version)) {
 
 if ($haspjsip) {
 	$pjsip_port = 5060;
-	$pjsiptls_port = 5160;
-	$chansip_port = 5061;
+	$pjsiptls_port = 5061;
+	$chansip_port = 5160;
 	$chansiptls_port = 5161;
 } else {
-	$pjsip_port = 5061;
+	$pjsip_port = 5160;
 	$pjsiptls_port = 5161;
 	$chansip_port = 5060;
-	$chansiptls_port = 5160;
+	$chansiptls_port = 5061;
 }
 
 if(DB::IsError($check)) {
