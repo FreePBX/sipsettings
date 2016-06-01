@@ -128,7 +128,7 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 			$binds['pjsip'] = array("0.0.0.0" => array());
 		}
 
-		if ($driver == "both" || $driver == "chansip") {
+		if ($driver == "both" || $driver == "chan_sip") {
 			$out = $this->getChanSipSettings();
 			// We assume we are ALWAYS listening on udp, as there's no way to disable it
 			// with chansip.
