@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-25 17:31+1000\n"
+"POT-Creation-Date: 2016-06-23 15:02-0700\n"
 "PO-Revision-Date: 2014-10-02 14:45+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
 "Language-Team: Japanese <http://git.freepbx.org/projects/freepbx/sipsettings/"
@@ -587,14 +587,14 @@ msgstr "ローカルネットワーク"
 #: chansip.page.php:1178
 msgid ""
 "Local incoming TCP Port that Asterisk will bind to and listen for TLS SIP "
-"messages. Default is 5061 or 5062."
+"messages."
 msgstr ""
 
 #: chansip.page.php:1138
 msgid ""
 "Local incoming UDP Port that Asterisk will bind to and listen for SIP "
 "messages. CHAN_SIP previously defaulted to port 5060. However, on new "
-"installations, this default port is now 5061."
+"installations, this default port is now 5160."
 msgstr ""
 
 #: chanpj.page.php:112
