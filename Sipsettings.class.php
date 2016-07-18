@@ -806,7 +806,7 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 						// If this isn't chansip, then somehow the user has managed
 						// to do something crazy to pjsip.  We can't fix it.
 						if ($driver !== "sip") {
-							$n->add_critical("sipsettings", "unknownpjsip", _("Unknown Port Conflict"), _("An unknown port conflict has been detected in PJSIP. Please check and validate your PJSIP Ports to ensure they're not overlapping"), true, true);
+							$n->add_critical("sipsettings", "unknownpjsip", _("Unknown Port Conflict"), _("An unknown port conflict has been detected in PJSIP. Please check and validate your PJSIP Ports to ensure they're not overlapping"), "", true, true);
 							continue;
 						}
 
@@ -820,7 +820,7 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 									// Yes. Found a spare.
 									$this->updateChanSipSettings("bindport", $portattempt);
 									$allports['udp'][$portattempt] = true;
-									$n->add_critical("sipsettings", "sipmoved", _("CHANSIP Port Moved"), sprintf(_("Chansip was assigned the same port as pjsip for UDP traffic. The Chansip port has been changed to %s"), $portattempt), true, true);
+									$n->add_critical("sipsettings", "sipmoved", _("CHANSIP Port Moved"), sprintf(_("Chansip was assigned the same port as pjsip for UDP traffic. The Chansip port has been changed to %s"), $portattempt), "", true, true);
 									needreload();
 									break;
 								}
