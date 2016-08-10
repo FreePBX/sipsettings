@@ -468,7 +468,7 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 				// as well as providing it as a custom key. This is used by getBinds.
 				//
 				// There's no plan to add this to the GUI for chansip, if you want to
-				// use UNENCRYPTED TCP, then use pjsip. 
+				// use UNENCRYPTED TCP, then use pjsip.
 				//
 				if ($var['keyword'] == "tcpenable") {
 					$sip_settings['tcpenable'] = $var['data'];
@@ -490,7 +490,7 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 			'rtpholdtimeout' => '300', 'rtpkeepalive' => '0', 'checkmwi' => '10', 'notifyringing' => 'yes', 'notifyhold' => 'yes',
 			'registertimeout' => '20', 'registerattempts' => '0', 'maxexpiry' => '3600', 'minexpiry' => '60', 'defaultexpiry' => '120',
 			'jbenable' => 'no', 'jbforce' => 'no', 'jbimpl' => 'fixed', 'jbmaxsize' => '200', 'jbresyncthreshold' => '1000', 'jblog' => 'no',
-			'context' => '', 'ALLOW_SIP_ANON' => 'no', 'bindaddr' => '', 'bindport' => '', 'allowguest' => 'yes',
+			'context' => 'from-sip-external', 'ALLOW_SIP_ANON' => 'no', 'bindaddr' => '', 'bindport' => '', 'allowguest' => 'yes',
 			'srvlookup' => 'no', 'callevents' => 'no', 'sip_custom_key_0' => '', 'sip_custom_val_0' => '');
 
 		return $arr;
@@ -679,7 +679,7 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 								// Well poot. Change chansip to be the 'other' TLS port,
 								// which is 5161/TCP
 								$this->updateChanSipSettings("tlsbindport", 5161);
-								// TODO: Notify here? 
+								// TODO: Notify here?
 							} else {
 								$owner = "sip";
 								break;
