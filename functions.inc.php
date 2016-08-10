@@ -286,7 +286,7 @@ function sipsettings_hookGet_config($engine) {
   		$sip_settings[] = array("localnet", $arr['net']."/".$arr['mask']);
   	}
   }
-
+  $core_conf->addSipGeneral('context','from-sip-external');
           unset($interim_settings);
           if (is_array($sip_settings)) foreach ($sip_settings as $entry) {
             if ($entry[1] != '') {
