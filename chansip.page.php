@@ -89,6 +89,7 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 	$sip_settings['bindport']          = isset($_POST['bindport']) ? htmlspecialchars($_POST['bindport']) : '';
 	$sip_settings['allowguest']        = isset($_POST['allowguest']) ? $_POST['allowguest'] : 'yes';
 	$sip_settings['srvlookup']         = isset($_POST['srvlookup']) ? $_POST['srvlookup'] : 'no';
+	$sip_settings['enabletcp']         = isset($_POST['enabletcp']) ? $_POST['enabletcp'] : 'no';
 	$sip_settings['callevents']        = isset($_POST['callevents']) ? $_POST['callevents'] : 'no';
 
 	$sip_settings['tlsenable']        = isset($_POST['tlsenable']) ? $_POST['tlsenable'] : 'no';
@@ -1234,6 +1235,31 @@ $error_displays = array_merge($error_displays,sipsettings_check_custom_files());
 		</div>
 	</div>
 	<!--END SRV Lookup-->
+	<div class="element-container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="row">
+					<div class="form-group">
+						<div class="col-md-3">
+							<label class="control-label" for="enabletcp"><?php echo _("Enable TCP") ?></label>
+							<i class="fa fa-question-circle fpbx-help-icon" data-for="enabletcp"></i>
+						</div>
+						<div class="col-md-9 radioset">
+							<input id="enabletcp-yes" type="radio" name="enabletcp" value="yes" <?php echo $enabletcp=="yes"?"checked=\"yes\"":""?>/>
+							<label for="enabletcp-yes"><?php echo _("Yes") ?></label>
+							<input id="enabletcp-no" type="radio" name="enabletcp" value="no" <?php echo (!isset($enabletcp) || $enabletcp=="no")?"checked=\"no\"":""?>/>
+							<label for="enabletcp-no"><?php echo _("No") ?></label>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<span id="enabletcp-help" class="help-block fpbx-help-block"><?php echo _("Enable TCP")?></span>
+			</div>
+		</div>
+	</div>
 	<!--Call Events-->
 	<div class="element-container">
 		<div class="row">

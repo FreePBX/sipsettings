@@ -244,3 +244,7 @@ $sql = "SELECT MAX(seq) FROM sipsettings WHERE type = 9";
 $seq = sql($sql,'getOne');
 $sql = "UPDATE sipsettings SET keyword = 'language', type = 9, seq = " . ($seq !== NULL ? $seq + 1 : 0) . " WHERE keyword = 'sip_language'";
 sql($sql);
+
+
+$sql = "UPDATE sipsettings SET type = 0 WHERE keyword = 'enabletcp'";
+sql($sql);
