@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX sipsettings\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-25 09:19-0700\n"
+"POT-Creation-Date: 2016-09-09 12:06-0700\n"
 "PO-Revision-Date: 2011-03-20 00:00+0100\n"
 "Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
 "Language-Team: Swedish\n"
@@ -584,13 +584,13 @@ msgid ""
 "more fields. Blank fields will be ignored."
 msgstr ""
 
-#: functions.inc.php:437
+#: functions.inc.php:438
 msgid "Localnet netmask must be formatted properly (e.g. 255.255.255.0 or 24)"
 msgstr ""
 "Nätmasken för localnet måste vara korrekt formaterat (t.ex. 255.255.255.0 "
 "eller 24)"
 
-#: functions.inc.php:432
+#: functions.inc.php:433
 msgid "Localnet setting must be an IP address"
 msgstr "Localnet måste vara en IP-adress"
 
