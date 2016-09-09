@@ -419,6 +419,7 @@ function sipsettings_edit($sip_settings) {
 			case 'tlsdontverifyserver':
 			case 'tlsclientmethod':
 			case 'tlsenable':
+			case 'callerid':
         $save_settings[] = array($key,$val,'10',SIP_NORMAL);
       break;
 
