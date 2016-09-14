@@ -287,10 +287,8 @@ function sipsettings_hookGet_config($engine) {
 	}
         	global $version;
         	$core_conf->addSipGeneral('context','from-sip-external');
-        	$useragent = $amp_conf['SIPUSERAGENT'] . '-' . getversion() . "($version)";
         	$core_conf->addSipGeneral('callerid','Unknown');
         	$core_conf->addSipGeneral('notifyringing','yes');
-        	$core_conf->addSipGeneral('useragent',$useragent);
         	$core_conf->addSipGeneral('notifyhold','yes');
         	$core_conf->addSipGeneral('tos_sip','cs3');		// Recommended setting from doc/ip-tos.txt
         	$core_conf->addSipGeneral('tos_audio','ef');	 // Recommended setting from doc/ip-tos.txt
