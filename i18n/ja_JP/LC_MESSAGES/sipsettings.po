@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-09 12:06-0700\n"
+"POT-Creation-Date: 2016-09-14 14:35-0700\n"
 "PO-Revision-Date: 2014-10-02 14:45+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
 "Language-Team: Japanese <http://git.freepbx.org/projects/freepbx/sipsettings/"
@@ -62,12 +62,12 @@ msgstr ""
 msgid " See current version of Asterisk for limitations on SRV functionality."
 msgstr ""
 
-#: functions.inc.php:317
+#: functions.inc.php:325
 #, php-format
 msgid "%s must be a non-negative integer"
 msgstr "%s は非負の整数でなければなりません。"
 
-#: functions.inc.php:361
+#: functions.inc.php:369
 #, php-format
 msgid "%s must be alphanumeric"
 msgstr "%s には数字とアルファベットしか使えません。"
@@ -227,7 +227,7 @@ msgstr "自動設定"
 msgid "Bind Address"
 msgstr "バインドIPアドレス"
 
-#: functions.inc.php:321
+#: functions.inc.php:329
 msgid "Bind Address (bindaddr) must be an IP address."
 msgstr "バインドアドレス (bindaddr) はIPアドレスでなければなりません"
 
@@ -235,7 +235,7 @@ msgstr "バインドアドレス (bindaddr) はIPアドレスでなければな�
 msgid "Bind Port"
 msgstr "バインドポート"
 
-#: functions.inc.php:327
+#: functions.inc.php:335
 msgid "Bind Port (bindport) must be between 1024 and 65535"
 msgstr ""
 
@@ -382,7 +382,7 @@ msgstr "ダイナミックホスト"
 msgid "Dynamic Host Refresh"
 msgstr ""
 
-#: functions.inc.php:387
+#: functions.inc.php:395
 msgid "Dynamic Host can not be blank"
 msgstr "ダイナミックホストを空にすることはできません。"
 
@@ -466,7 +466,7 @@ msgstr ""
 msgid "External IP Address"
 msgstr ""
 
-#: functions.inc.php:377 assets/js/sipsettings.js:19
+#: functions.inc.php:385 assets/js/sipsettings.js:19
 msgid ""
 "External IP can not be blank when NAT Mode is set to Static and no default "
 "IP address provided on the main page"
@@ -612,13 +612,13 @@ msgid ""
 "more fields. Blank fields will be ignored."
 msgstr ""
 
-#: functions.inc.php:438
+#: functions.inc.php:445
 msgid "Localnet netmask must be formatted properly (e.g. 255.255.255.0 or 24)"
 msgstr ""
 "ローカルネットワークマスクを正しいフォーマットで入力してください（例: "
 "255.255.255.0 または 24）。"
 
-#: functions.inc.php:433
+#: functions.inc.php:440
 msgid "Localnet setting must be an IP address"
 msgstr ""
 "ローカルネットワーク (localnet) 設定は、IPアドレスを設定しなければなりませ"
@@ -1198,7 +1198,7 @@ msgstr "デフォールトコーデック追加中..."
 msgid "route"
 msgstr ""
 
-#: functions.inc.php:335
+#: functions.inc.php:343
 msgid "rtpholdtimeout must be higher than rtptimeout"
 msgstr "rtpholdtimeoutは、rtptimeoutより大きい値に設定しなければなりません。"
 
