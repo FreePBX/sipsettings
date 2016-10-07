@@ -246,5 +246,8 @@ $sql = "UPDATE sipsettings SET keyword = 'language', type = 9, seq = " . ($seq !
 sql($sql);
 
 
-$sql = "UPDATE sipsettings SET type = 0 WHERE keyword = 'enabletcp'";
+$sql = "UPDATE `sipsettings` SET `type` = 0 WHERE `keyword` = 'tcpenable'";
+sql($sql);
+
+$sql = "DELETE FROM `sipsettings` WHERE `keyword` = 'enabletcp'";
 sql($sql);

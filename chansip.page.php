@@ -89,7 +89,7 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 	$sip_settings['bindport']          = isset($_POST['bindport']) ? htmlspecialchars($_POST['bindport']) : '';
 	$sip_settings['allowguest']        = isset($_POST['allowguest']) ? $_POST['allowguest'] : 'yes';
 	$sip_settings['srvlookup']         = isset($_POST['srvlookup']) ? $_POST['srvlookup'] : 'no';
-	$sip_settings['enabletcp']         = isset($_POST['enabletcp']) ? $_POST['enabletcp'] : 'no';
+	$sip_settings['tcpenable']         = isset($_POST['tcpenable']) ? $_POST['tcpenable'] : 'no';
 	$sip_settings['callevents']        = isset($_POST['callevents']) ? $_POST['callevents'] : 'no';
 
 	$sip_settings['tlsenable']        = isset($_POST['tlsenable']) ? $_POST['tlsenable'] : 'no';
@@ -1241,14 +1241,14 @@ $error_displays = array_merge($error_displays,sipsettings_check_custom_files());
 				<div class="row">
 					<div class="form-group">
 						<div class="col-md-3">
-							<label class="control-label" for="enabletcp"><?php echo _("Enable TCP") ?></label>
-							<i class="fa fa-question-circle fpbx-help-icon" data-for="enabletcp"></i>
+							<label class="control-label" for="tcpenable"><?php echo _("Enable TCP") ?></label>
+							<i class="fa fa-question-circle fpbx-help-icon" data-for="tcpenable"></i>
 						</div>
 						<div class="col-md-9 radioset">
-							<input id="enabletcp-yes" type="radio" name="enabletcp" value="yes" <?php echo $enabletcp=="yes"?"checked=\"yes\"":""?>/>
-							<label for="enabletcp-yes"><?php echo _("Yes") ?></label>
-							<input id="enabletcp-no" type="radio" name="enabletcp" value="no" <?php echo (!isset($enabletcp) || $enabletcp=="no")?"checked=\"no\"":""?>/>
-							<label for="enabletcp-no"><?php echo _("No") ?></label>
+							<input id="tcpenable-yes" type="radio" name="tcpenable" value="yes" <?php echo $tcpenable=="yes"?"checked=\"yes\"":""?>/>
+							<label for="tcpenable-yes"><?php echo _("Yes") ?></label>
+							<input id="tcpenable-no" type="radio" name="tcpenable" value="no" <?php echo (!isset($tcpenable) || $tcpenable=="no")?"checked=\"no\"":""?>/>
+							<label for="tcpenable-no"><?php echo _("No") ?></label>
 						</div>
 					</div>
 				</div>
@@ -1256,7 +1256,7 @@ $error_displays = array_merge($error_displays,sipsettings_check_custom_files());
 		</div>
 		<div class="row">
 			<div class="col-md-12">
-				<span id="enabletcp-help" class="help-block fpbx-help-block"><?php echo _("Enable TCP")?></span>
+				<span id="tcpenable-help" class="help-block fpbx-help-block"><?php echo _("Enable TCP")?></span>
 			</div>
 		</div>
 	</div>
