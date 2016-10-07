@@ -247,7 +247,14 @@ sql($sql);
 
 
 $sql = "UPDATE `sipsettings` SET `type` = 0 WHERE `keyword` = 'tcpenable'";
-sql($sql);
+$sth = FREEPBX::Database()->prepare($sql);
+try {
+	$sth->execute();
+} catch(\Exception $e) {
+	$sql = "DELETE FROM `sipsettings` WHERE `type` != 0 AND `keyword` = 'tcpenable'";
+	$sth = FREEPBX::Database()->prepare($sql);
+	$sth->execute();
+}
 
 $sql = "DELETE FROM `sipsettings` WHERE `keyword` = 'enabletcp'";
 sql($sql);
