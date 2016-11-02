@@ -258,7 +258,11 @@ function sipsettings_hookGet_config($engine) {
 
 			}
 			break;
-
+		case "webrtcstunaddr":
+		case "webrtcturnaddr":
+		case "webrtcturnpassword":
+		case "webrtcturnusername":
+		break;
 		default:
 			// Ignore localnet settings from chansip sipsettings, they're now in general
 			if (substr($key,0,9) == "localnet_" || substr($key,0,8) == "netmask_") {

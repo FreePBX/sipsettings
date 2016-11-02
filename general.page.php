@@ -358,6 +358,106 @@ foreach ($tlsowners as $chan => $txt) {
 	</div>
 	<!--END TURN Server Password-->
 </div>
+<div class="section-title" data-for="webrtc">
+	<h3><i class="fa fa-minus"></i><?php echo _("WebRTC Settings") ?></h3>
+</div>
+<div class="section" data-id="webrtc">
+	<!--STUN Server Address-->
+	<div class="element-container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="row">
+					<div class="form-group">
+						<div class="col-md-3">
+							<label class="control-label" for="webrtcstunaddr"><?php echo _("STUN Server Address") ?></label>
+							<i class="fa fa-question-circle fpbx-help-icon" data-for="webrtcstunaddr"></i>
+						</div>
+						<div class="col-md-9">
+							<input type="text" class="form-control" id="webrtcstunaddr" name="webrtcstunaddr" value="<?php echo $this->getConfig('webrtcstunaddr') ?>">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<span id="webrtcstunaddr-help" class="help-block fpbx-help-block"><?php echo _("Hostname or address for the STUN server used when determining the external IP address and port an RTP session can be reached at. The port number is optional. If omitted the default value of 3478 will be used. This option is blank by default. (A list of STUN servers: http://wiki.freepbx.org/x/YQCUAg)")?></span>
+			</div>
+		</div>
+	</div>
+	<!--END STUN Server Address-->
+	<!--TURN Server Address-->
+	<div class="element-container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="row">
+					<div class="form-group">
+						<div class="col-md-3">
+							<label class="control-label" for="webrtcturnaddr"><?php echo _("TURN Server Address") ?></label>
+							<i class="fa fa-question-circle fpbx-help-icon" data-for="webrtcturnaddr"></i>
+						</div>
+						<div class="col-md-9">
+							<input type="text" class="form-control" id="webrtcturnaddr" name="webrtcturnaddr" value="<?php echo $this->getConfig('webrtcturnaddr') ?>">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<span id="webrtcturnaddr-help" class="help-block fpbx-help-block"><?php echo _("Hostname or address for the TURN server to be used as a relay. The port number is optional. If omitted the default value of 3478 will be used. This option is blank by default.")?></span>
+			</div>
+		</div>
+	</div>
+	<!--END TURN Server Address-->
+	<!--TURN Server Username-->
+	<div class="element-container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="row">
+					<div class="form-group">
+						<div class="col-md-3">
+							<label class="control-label" for="webrtcturnusername"><?php echo _("TURN Server Username") ?></label>
+							<i class="fa fa-question-circle fpbx-help-icon" data-for="webrtcturnusername"></i>
+						</div>
+						<div class="col-md-9">
+							<input type="text" class="form-control" id="webrtcturnusername" name="webrtcturnusername" value="<?php echo $this->getConfig('webrtcturnusername') ?>">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<span id="webrtcturnusername-help" class="help-block fpbx-help-block"><?php echo _("Username used to authenticate with TURN relay server. This option is disabled by default.")?></span>
+			</div>
+		</div>
+	</div>
+	<!--END TURN Server Username-->
+	<!--TURN Server Password-->
+	<div class="element-container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="row">
+					<div class="form-group">
+						<div class="col-md-3">
+							<label class="control-label" for="webrtcturnpassword"><?php echo _("TURN Server Password") ?></label>
+							<i class="fa fa-question-circle fpbx-help-icon" data-for="webrtcturnpassword"></i>
+						</div>
+						<div class="col-md-9">
+							<input type="password" class="form-control clicktoedit" id="webrtcturnpassword" name="webrtcturnpassword" value="<?php echo $this->getConfig('webrtcturnpassword') ?>">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<span id="webrtcturnpassword-help" class="help-block fpbx-help-block"><?php echo _("Password used to authenticate with TURN relay server. This option is disabled by default.")?></span>
+			</div>
+		</div>
+	</div>
+</div>
 <div class="section-title" data-for="sscodecs">
 	<h3><i class="fa fa-minus"></i><?php echo _("Audio Codecs") ?></h3>
 </div>
