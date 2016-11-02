@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-14 14:35-0700\n"
+"POT-Creation-Date: 2016-11-02 09:22-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -28,12 +28,12 @@ msgstr ""
 msgid " See current version of Asterisk for limitations on SRV functionality."
 msgstr ""
 
-#: functions.inc.php:325
+#: functions.inc.php:329
 #, php-format
 msgid "%s must be a non-negative integer"
 msgstr ""
 
-#: functions.inc.php:369
+#: functions.inc.php:373
 #, php-format
 msgid "%s must be alphanumeric"
 msgstr ""
@@ -158,7 +158,7 @@ msgid ""
 msgstr ""
 
 #: chansip.page.php:327
-#: general.page.php:362
+#: general.page.php:462
 msgid "Audio Codecs"
 msgstr ""
 
@@ -170,7 +170,7 @@ msgstr ""
 msgid "Bind Address"
 msgstr ""
 
-#: functions.inc.php:329
+#: functions.inc.php:333
 msgid "Bind Address (bindaddr) must be an IP address."
 msgstr ""
 
@@ -178,7 +178,7 @@ msgstr ""
 msgid "Bind Port"
 msgstr ""
 
-#: functions.inc.php:335
+#: functions.inc.php:339
 msgid "Bind Port (bindport) must be between 1024 and 65535"
 msgstr ""
 
@@ -248,7 +248,7 @@ msgstr ""
 msgid "Check to enable and then choose allowed codecs."
 msgstr ""
 
-#: general.page.php:372
+#: general.page.php:472
 msgid "Codecs"
 msgstr ""
 
@@ -321,7 +321,7 @@ msgstr ""
 msgid "Dynamic Host Refresh"
 msgstr ""
 
-#: functions.inc.php:395
+#: functions.inc.php:399
 msgid "Dynamic Host can not be blank"
 msgstr ""
 
@@ -408,7 +408,7 @@ msgstr ""
 msgid "External IP Address"
 msgstr ""
 
-#: functions.inc.php:385
+#: functions.inc.php:389
 #: assets/js/sipsettings.js:19
 msgid ""
 "External IP can not be blank when NAT Mode is set to Static and no default "
@@ -453,6 +453,7 @@ msgid "Generate manager events when sip ua performs events (e.g. hold)."
 msgstr ""
 
 #: general.page.php:283
+#: general.page.php:384
 msgid ""
 "Hostname or address for the STUN server used when determining the external "
 "IP address and port an RTP session can be reached at. The port number is "
@@ -461,6 +462,7 @@ msgid ""
 msgstr ""
 
 #: general.page.php:307
+#: general.page.php:408
 msgid ""
 "Hostname or address for the TURN server to be used as a relay. The port "
 "number is optional. If omitted the default value of 3478 will be used. This "
@@ -551,11 +553,11 @@ msgid ""
 "more fields. Blank fields will be ignored."
 msgstr ""
 
-#: functions.inc.php:445
+#: functions.inc.php:449
 msgid "Localnet netmask must be formatted properly (e.g. 255.255.255.0 or 24)"
 msgstr ""
 
-#: functions.inc.php:440
+#: functions.inc.php:444
 msgid "Localnet setting must be an IP address"
 msgstr ""
 
@@ -719,6 +721,7 @@ msgid "PJSip"
 msgstr ""
 
 #: general.page.php:355
+#: general.page.php:456
 msgid ""
 "Password used to authenticate with TURN relay server. This option is "
 "disabled by default."
@@ -826,6 +829,7 @@ msgid "SSL Method"
 msgstr ""
 
 #: general.page.php:271
+#: general.page.php:372
 msgid "STUN Server Address"
 msgstr ""
 
@@ -916,14 +920,17 @@ msgid "TLS/SSL/SRTP Settings"
 msgstr ""
 
 #: general.page.php:295
+#: general.page.php:396
 msgid "TURN Server Address"
 msgstr ""
 
 #: general.page.php:343
+#: general.page.php:444
 msgid "TURN Server Password"
 msgstr ""
 
 #: general.page.php:319
+#: general.page.php:420
 msgid "TURN Server Username"
 msgstr ""
 
@@ -965,7 +972,7 @@ msgstr ""
 msgid "This address will be provided to clients if NAT is enabled and detected"
 msgstr ""
 
-#: general.page.php:375
+#: general.page.php:475
 msgid "This is the default Codec setting for new Trunks and Extensions."
 msgstr ""
 
@@ -1019,6 +1026,7 @@ msgid ""
 msgstr ""
 
 #: general.page.php:331
+#: general.page.php:432
 msgid ""
 "Username used to authenticate with TURN relay server. This option is "
 "disabled by default."
@@ -1040,6 +1048,10 @@ msgstr ""
 
 #: chansip.page.php:399
 msgid "Video Support"
+msgstr ""
+
+#: general.page.php:362
+msgid "WebRTC Settings"
 msgstr ""
 
 #: chanpj.page.php:203
@@ -1161,7 +1173,7 @@ msgstr ""
 msgid "route"
 msgstr ""
 
-#: functions.inc.php:343
+#: functions.inc.php:347
 msgid "rtpholdtimeout must be higher than rtptimeout"
 msgstr ""
 

@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-14 14:35-0700\n"
+"POT-Creation-Date: 2016-11-02 09:22-0700\n"
 "PO-Revision-Date: 2015-12-05 10:05+0200\n"
 "Last-Translator: Andrew <andrew.nagy@the159.com>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/"
@@ -51,12 +51,12 @@ msgstr ""
 " Смотрите в текущую версию Астериск для ограничения по функциональности SRV "
 "запросов."
 
-#: functions.inc.php:325
+#: functions.inc.php:329
 #, php-format
 msgid "%s must be a non-negative integer"
 msgstr "%s должен быть неотрицательным целым числом"
 
-#: functions.inc.php:369
+#: functions.inc.php:373
 #, php-format
 msgid "%s must be alphanumeric"
 msgstr "%s должен быть буквенным"
@@ -219,7 +219,7 @@ msgstr ""
 "li><li>Да без коррекции ошибок - Включаем T.38 без коррекции ошибок.</li></"
 "ul>"
 
-#: chansip.page.php:327 general.page.php:362
+#: chansip.page.php:327 general.page.php:462
 msgid "Audio Codecs"
 msgstr "Аудио кодеки"
 
@@ -231,7 +231,7 @@ msgstr "Автоматическая конфигурация"
 msgid "Bind Address"
 msgstr "Связывание с адресом"
 
-#: functions.inc.php:329
+#: functions.inc.php:333
 msgid "Bind Address (bindaddr) must be an IP address."
 msgstr "Адрес (bindaddr) должен быть в виде четырёх октетов ИП адреса."
 
@@ -239,7 +239,7 @@ msgstr "Адрес (bindaddr) должен быть в виде четырёх �
 msgid "Bind Port"
 msgstr "Порт"
 
-#: functions.inc.php:335
+#: functions.inc.php:339
 msgid "Bind Port (bindport) must be between 1024 and 65535"
 msgstr "Порт привязки (bindport). Адрес порта должен быть между 1024 и 65535"
 
@@ -308,7 +308,7 @@ msgstr ""
 msgid "Check to enable and then choose allowed codecs."
 msgstr "Отметить если необходимо, и затем выбрать разрешаемые кодеки."
 
-#: general.page.php:372
+#: general.page.php:472
 msgid "Codecs"
 msgstr "Кодеки"
 
@@ -392,7 +392,7 @@ msgstr "Динамический хост"
 msgid "Dynamic Host Refresh"
 msgstr "Динамическое обновление хоста"
 
-#: functions.inc.php:395
+#: functions.inc.php:399
 msgid "Dynamic Host can not be blank"
 msgstr "Динамическое значение имени хоста не может быть пустым"
 
@@ -489,7 +489,7 @@ msgstr ""
 msgid "External IP Address"
 msgstr "Внешний IP адрес"
 
-#: functions.inc.php:385 assets/js/sipsettings.js:19
+#: functions.inc.php:389 assets/js/sipsettings.js:19
 msgid ""
 "External IP can not be blank when NAT Mode is set to Static and no default "
 "IP address provided on the main page"
@@ -545,7 +545,7 @@ msgid "Generate manager events when sip ua performs events (e.g. hold)."
 msgstr ""
 "Генерировать события AMI при событиях sip абонентов (например call hold)."
 
-#: general.page.php:283
+#: general.page.php:283 general.page.php:384
 msgid ""
 "Hostname or address for the STUN server used when determining the external "
 "IP address and port an RTP session can be reached at. The port number is "
@@ -557,7 +557,7 @@ msgstr ""
 "использоваться дефолтный номер порта - 3478. По умолчанию эта опция - пустое "
 "поле. (Список доступных серверов STUN - http://wiki.freepbx.org/x/YQCUAg)"
 
-#: general.page.php:307
+#: general.page.php:307 general.page.php:408
 msgid ""
 "Hostname or address for the TURN server to be used as a relay. The port "
 "number is optional. If omitted the default value of 3478 will be used. This "
@@ -667,13 +667,13 @@ msgstr ""
 "более, чем одной подсетью используйте кнопку 'Добавить локальную сеть', "
 "чтобы добавить полей. Пустые поля будут игнорированы."
 
-#: functions.inc.php:445
+#: functions.inc.php:449
 msgid "Localnet netmask must be formatted properly (e.g. 255.255.255.0 or 24)"
 msgstr ""
 "Маска локальной сети должна быть указана в правильном формате (например "
 "255.255.255.0 или 24)"
 
-#: functions.inc.php:440
+#: functions.inc.php:444
 msgid "Localnet setting must be an IP address"
 msgstr "Параметр Localnet должен быть в виде ИП адреса сети"
 
@@ -828,7 +828,7 @@ msgstr "Порт транспорта канала PJSIP конфликтует 
 msgid "PJSip"
 msgstr ""
 
-#: general.page.php:355
+#: general.page.php:355 general.page.php:456
 msgid ""
 "Password used to authenticate with TURN relay server. This option is "
 "disabled by default."
@@ -941,7 +941,7 @@ msgstr "Информация о SIP драйвере"
 msgid "SSL Method"
 msgstr ""
 
-#: general.page.php:271
+#: general.page.php:271 general.page.php:372
 msgid "STUN Server Address"
 msgstr "Адрес сервера STUN"
 
@@ -1029,15 +1029,15 @@ msgstr ""
 msgid "TLS/SSL/SRTP Settings"
 msgstr ""
 
-#: general.page.php:295
+#: general.page.php:295 general.page.php:396
 msgid "TURN Server Address"
 msgstr "Адрес сервера TURN"
 
-#: general.page.php:343
+#: general.page.php:343 general.page.php:444
 msgid "TURN Server Password"
 msgstr "Пароль сервера TURN"
 
-#: general.page.php:319
+#: general.page.php:319 general.page.php:420
 msgid "TURN Server Username"
 msgstr "Имя пользователя сервера TURN"
 
@@ -1090,7 +1090,7 @@ msgid "This address will be provided to clients if NAT is enabled and detected"
 msgstr ""
 "Этот адрес будет предоставляться клиентам, если NAT включен и обнаружен"
 
-#: general.page.php:375
+#: general.page.php:475
 msgid "This is the default Codec setting for new Trunks and Extensions."
 msgstr "Это значение кодека по умолчанию для новых внешних и внутренних линий."
 
@@ -1151,7 +1151,7 @@ msgstr ""
 "и выше. Некоторые параметры просто не существуют в версии 1.2 и будут "
 "игнорироваться Asterisk."
 
-#: general.page.php:331
+#: general.page.php:331 general.page.php:432
 msgid ""
 "Username used to authenticate with TURN relay server. This option is "
 "disabled by default."
@@ -1174,6 +1174,10 @@ msgstr "Видео кодеки"
 #: chansip.page.php:399
 msgid "Video Support"
 msgstr "Поддержка видео"
+
+#: general.page.php:362
+msgid "WebRTC Settings"
+msgstr ""
 
 #: chanpj.page.php:203 chansip.page.php:1206
 msgid ""
@@ -1295,7 +1299,7 @@ msgstr "указание кодеков по умолчанию.."
 msgid "route"
 msgstr "route"
 
-#: functions.inc.php:343
+#: functions.inc.php:347
 msgid "rtpholdtimeout must be higher than rtptimeout"
 msgstr "rtpholdtimeout должен быть больше чем rtptimeout"
 
