@@ -108,7 +108,7 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 		// with pjsip first, then chansip. Don't change the order.
 
 		$driver = $this->FreePBX->Config->get_conf_setting('ASTSIPDRIVER');
-		if ($driver == "both" || $driver == "pjsip") {
+		if ($driver == "both" || $driver == "chan_pjsip") {
 			$b = $this->getConfig("binds");
 			$b = is_array($b) ? $b : array();
 			foreach($b as $protocol => $bind) {
