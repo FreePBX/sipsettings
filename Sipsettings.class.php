@@ -720,7 +720,7 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 
 		// Not pjsip. How about chansip?
 		if (isset($binds['sip']) && $binds['sip']) {
-			foreach ($binds['pjsip'] as $listen => $proto) {
+			foreach ($binds['sip'] as $listen => $proto) {
 				foreach ($proto as $p => $port) {
 					if ($p !== "udp") {
 						continue;
