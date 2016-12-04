@@ -1050,7 +1050,7 @@ $error_displays = array_merge($error_displays,sipsettings_check_custom_files());
 								<i class="fa fa-question-circle fpbx-help-icon" data-for="jbresyncthreshold"></i>
 							</div>
 							<div class="col-md-9">
-								<input type="text" class="form-control" id="jbresyncthreshold" name="jbresyncthreshold" value="<?php echo $jbresyncthreshold ?>">
+								<input type="number" min="-1" class="form-control" id="jbresyncthreshold" name="jbresyncthreshold" value="<?php echo $jbresyncthreshold ?>">
 							</div>
 						</div>
 					</div>
