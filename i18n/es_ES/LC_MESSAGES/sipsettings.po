@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-11-02 09:22-0700\n"
-"PO-Revision-Date: 2016-12-11 12:59+0200\n"
+"PO-Revision-Date: 2016-12-11 13:03+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish "
 "<http://weblate.freepbx.org/projects/freepbx/sipsettings/es_ES/>\n"
@@ -618,10 +618,15 @@ msgid ""
 "timestamps, usually sent from exotic devices and programs. Can be set to -1 "
 "to disable."
 msgstr ""
+"Saltar en las marcas de tiempo del cuadro sobre las que se vuelve a "
+"sincronizar el jitterbuffer. Útil para mejorar la calidad de la voz, con "
+"saltos grandes en / marcas de tiempo rotas, generalmente enviadas desde "
+"dispositivos y programas exóticos. Se puede establecer en -1 para "
+"deshabilitar."
 
 #: assets/js/sipsettings.js:184
 msgid "Loading"
-msgstr ""
+msgstr "Cargando"
 
 #: general.page.php:152
 msgid "Local Networks"
@@ -632,6 +637,8 @@ msgid ""
 "Local incoming TCP Port that Asterisk will bind to and listen for TLS SIP "
 "messages."
 msgstr ""
+"Puerto TCP entrante local en el que Asterisk se enlazará y escuchará "
+"mensajes TLS SIP."
 
 #: chansip.page.php:1139
 msgid ""
@@ -639,6 +646,10 @@ msgid ""
 "messages. CHAN_SIP previously defaulted to port 5060. However, on new "
 "installations, this default port is now 5160."
 msgstr ""
+"Puerto UDP de entrada local en el que Asterisk se enlazará y escuchará "
+"mensajes SIP. CHAN_SIP previamente predefinido en el puerto 5060. Sin "
+"embargo, en las nuevas instalaciones, este puerto predeterminado es ahora "
+"5160."
 
 #: chanpj.page.php:112
 msgid "Local network"
@@ -678,11 +689,11 @@ msgstr "Max velocidad de bits"
 
 #: chansip.page.php:1037
 msgid "Max length of the jitterbuffer in milliseconds."
-msgstr ""
+msgstr "Longitud máxima del jitterbuffer en milisegundos."
 
 #: chansip.page.php:875
 msgid "Maximum allowed time of incoming registrations"
-msgstr ""
+msgstr "Tiempo máximo permitido de registraciones entrantes"
 
 #: chansip.page.php:488
 msgid "Maximum bitrate for video calls in kb/s"
