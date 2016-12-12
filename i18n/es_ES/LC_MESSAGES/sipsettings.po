@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-11-02 09:22-0700\n"
-"PO-Revision-Date: 2016-12-11 13:03+0200\n"
+"PO-Revision-Date: 2016-12-12 01:00+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish "
 "<http://weblate.freepbx.org/projects/freepbx/sipsettings/es_ES/>\n"
@@ -704,12 +704,16 @@ msgid ""
 "Method of SSL transport (TLS ONLY). The default is currently TLSv1, but may "
 "change with future releases."
 msgstr ""
+"Método de transporte SSL (TLS SOLAMENTE). El valor predeterminado es "
+"actualmente TLSv1, pero puede cambiar con futuras versiones."
 
 #: chansip.page.php:562
 msgid ""
 "Method of SSL transport (TLS ONLY). The default is currently sslv2, but may "
 "change with future releases."
 msgstr ""
+"Método de transporte SSL (TLS SOLAMENTE). El valor predeterminado es sslv2, "
+"pero puede cambiar con futuras versiones."
 
 #: install.php:106
 msgid "Migrate rtp.conf values if needed and initialize"
@@ -737,7 +741,7 @@ msgstr "Migrando Ajuste rtpstart desde el antiguo formato a Objeto BMO"
 
 #: chansip.page.php:851
 msgid "Minimum length of registrations/subscriptions."
-msgstr ""
+msgstr "Duración mínima de inscripciones / suscripciones."
 
 #: chanpj.page.php:182
 msgid "Misc PJSip Settings"
@@ -762,7 +766,6 @@ msgid "No"
 msgstr "No"
 
 #: chansip.page.php:337
-#, fuzzy
 msgid "Non-Standard g726"
 msgstr "g726 no estándar"
 
@@ -772,6 +775,10 @@ msgid ""
 "'[::]' will listen on both IPv4 and IPv6, but is not recommended. If you "
 "want to use IPv6, it is recommended to use PJSip for those devices or trunks."
 msgstr ""
+"Tenga en cuenta que chan_sip no admite IPv6 para protocolos UDP. Una "
+"dirección de '[::]' escuchará en IPv4 e IPv6, pero no se recomienda. Si "
+"desea utilizar IPv6, se recomienda utilizar PJSip para esos dispositivos o "
+"troncales."
 
 #: chanpj.page.php:372
 msgid ""
@@ -807,6 +814,10 @@ msgid ""
 "continue to register until successful in the case of network or gateway "
 "outages."
 msgstr ""
+"Número de veces a intentar registrarse antes de darse por vencido. Un valor "
+"de 0 significa seguir intentando para siempre. Normalmente, esto debería "
+"establecerse en 0 para que Asterisk continúe registrándose hasta que tenga "
+"éxito en el caso de interrupciones en la red o en el gateway."
 
 #: chansip.page.php:1316
 msgid "Other SIP Settings"
@@ -818,11 +829,11 @@ msgstr "Sobreescribir IP Externa"
 
 #: assets/js/sipsettings.js:172
 msgid "PJSIP transport port conflicts with SIP port"
-msgstr ""
+msgstr "El puerto de transporte PJSIP entra en conflicto con el puerto SIP"
 
 #: general.page.php:57
 msgid "PJSip"
-msgstr ""
+msgstr "PJSip"
 
 #: general.page.php:355 general.page.php:456
 msgid ""
@@ -841,10 +852,12 @@ msgid ""
 "Port/Bind Address has changed. This requires an Asterisk restart after Apply "
 "Config"
 msgstr ""
+"La dirección de puerto/enlace ha cambiado. Esto requiere un reinicio de "
+"Asterisk después de Apply Config"
 
 #: chanpj.page.php:266
 msgid "Private Key File"
-msgstr ""
+msgstr "Archivo de Llave Privada"
 
 #: chansip.page.php:223
 msgid "Public IP"
