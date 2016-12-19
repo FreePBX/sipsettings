@@ -10,14 +10,16 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-11-02 09:22-0700\n"
-"PO-Revision-Date: 2015-03-10 13:26+1000\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2016-12-12 02:44+0200\n"
+"Last-Translator: Ernesto <ecasas@sangoma.com>\n"
+"Language-Team: Spanish "
+"<http://weblate.freepbx.org/projects/freepbx/sipsettings/es_ES/>\n"
+"Language: es_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: es_ES\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 2.4\n"
 
 #: chansip.page.php:414
 msgid ""
@@ -31,6 +33,8 @@ msgstr ""
 #: chansip.page.php:1233
 msgid " See current version of Asterisk for limitations on SRV functionality."
 msgstr ""
+" Consulte la versión actual de Asterisk para conocer las limitaciones de la "
+"funcionalidad SRV."
 
 #: functions.inc.php:329
 #, php-format
@@ -64,7 +68,7 @@ msgstr "Permitir llamadas entrantes SIP anónimas"
 
 #: chanpj.page.php:190
 msgid "Allow Guests"
-msgstr ""
+msgstr "Permitir invitados"
 
 #: chansip.page.php:1191
 msgid "Allow SIP Guests"
@@ -114,6 +118,8 @@ msgid ""
 "An unknown port conflict has been detected in PJSIP. Please check and "
 "validate your PJSIP Ports to ensure they're not overlapping"
 msgstr ""
+"Se ha detectado un conflicto de puerto desconocido en PJSIP. Compruebe y "
+"valide sus puertos PJSIP para asegurarse de que no se superpongan"
 
 #: chansip.page.php:206
 msgid ""
@@ -162,13 +168,12 @@ msgstr ""
 "INVITE. (yes = update + nonat)"
 
 #: chansip.page.php:319
-#, fuzzy
 msgid ""
 "Asterisk: externrefresh. How often to lookup and refresh the External Host "
 "FQDN, in seconds."
 msgstr ""
 "Asterisk: externrefresh. ¿Con qué frecuencia debe buscar y actualizar el "
-"FQDN de host externo, en cuestión de segundos."
+"FQDN de host externo, en segundos."
 
 #: chansip.page.php:352
 msgid ""
@@ -191,6 +196,14 @@ msgid ""
 "with Redundancy - Enables T.38 with redundancy error correction</li><li>Yes "
 "with no error correction - Enables T.38 with no error correction.</li></ul>"
 msgstr ""
+"Asterisk: t38pt_udptl. Habilita passthrough T38 que hace que los faxes pasen "
+"por Asterisk sin ser procesados.<ul><li> No - No passthrough </li><li> Sí: "
+"habilita T.38 con corrección de errores FEC y anula el valor proporcionado "
+"por el otro punto final para asumir que nosotros podemos enviar packetes "
+"T.38 de FAX 400bytes </li> <li> Sí con FEC - Permite T.38 con corrección de "
+"errores FEC </li> <li> Sí con redundancia - habilita T.38 con corrección de "
+"error de redundancia </li> <li> Sí sin corrección de errores - Habilita T.38 "
+"sin corrección de errores. </li> </ul>"
 
 #: chansip.page.php:327 general.page.php:462
 msgid "Audio Codecs"
@@ -214,23 +227,23 @@ msgstr "Puerto de Escucha"
 
 #: functions.inc.php:339
 msgid "Bind Port (bindport) must be between 1024 and 65535"
-msgstr ""
+msgstr "Bind Port (bindport) debe estar entre 1024 y 65535"
 
 #: chanpj.page.php:242
 msgid "CA Chain File"
-msgstr ""
+msgstr "Archivo de cadenas de CA"
 
 #: Sipsettings.class.php:823
 msgid "CHANSIP Port Moved"
-msgstr ""
+msgstr "CHANSIP Puerto Movido"
 
 #: Sipsettings.class.php:833
 msgid "CHANSIP TCP Disabled"
-msgstr ""
+msgstr "CHANSIP TCP Deshabilitado"
 
 #: Sipsettings.class.php:844
 msgid "CHANSIP TLS Port Moved"
-msgstr ""
+msgstr "CHANSIP TLS Puerto Movido"
 
 #: chansip.page.php:1270
 msgid "Call Events"
@@ -238,23 +251,23 @@ msgstr "Eventos de Llamada"
 
 #: chanpj.page.php:254
 msgid "Certificate File"
-msgstr ""
+msgstr "Archivo de Certificado"
 
 #: chanpj.page.php:279 chansip.page.php:525
 msgid "Certificate Manager"
-msgstr ""
+msgstr "Administrador de certificados"
 
 #: Sipsettings.class.php:203
 msgid "Chan PJSIP Settings"
-msgstr ""
+msgstr "Configuración de Chan PJSIP"
 
 #: general.page.php:57
 msgid "Chan SIP"
-msgstr ""
+msgstr "Chan SIP"
 
 #: Sipsettings.class.php:196
 msgid "Chan SIP Settings"
-msgstr ""
+msgstr "Configuración Chan SIP"
 
 #: Sipsettings.class.php:844
 #, php-format
@@ -262,6 +275,8 @@ msgid ""
 "Chansip was assigned a port that was already in use for TLS traffic. The "
 "Chansip TLS port has been changed to %s"
 msgstr ""
+"Chansip recibió un puerto que ya estaba en uso para el tráfico TLS. El "
+"puerto Chansip TLS se ha cambiado a %s"
 
 #: Sipsettings.class.php:833
 msgid ""
@@ -269,6 +284,8 @@ msgid ""
 "the tcpenable setting removed, and is no longer listening for TCP "
 "connections."
 msgstr ""
+"Chansip se asignó el mismo puerto que pjsip para el tráfico TCP. Chansip ha "
+"eliminado el ajuste tcpenable y ya no está escuchando las conexiones TCP."
 
 #: Sipsettings.class.php:823
 #, php-format
@@ -276,6 +293,8 @@ msgid ""
 "Chansip was assigned the same port as pjsip for UDP traffic. The Chansip "
 "port has been changed to %s"
 msgstr ""
+"Chansip se asignó el mismo puerto que pjsip para el tráfico UDP. El puerto "
+"Chansip ha cambiado a %s"
 
 #: chansip.page.php:414
 msgid "Check to enable and then choose allowed codecs."
@@ -303,7 +322,7 @@ msgstr ""
 
 #: chanpj.page.php:308
 msgid "Default"
-msgstr ""
+msgstr "Predeterminado"
 
 #: chansip.page.php:1079
 msgid "Default Context"
@@ -311,12 +330,13 @@ msgstr "Contexto Por Defecto"
 
 #: general.page.php:52
 msgid "Default TLS Port Assignment"
-msgstr ""
+msgstr "Asignación de puerto TLS predeterminada"
 
 #: install.php:59
 #, php-format
 msgid "Default bind port for CHAN_PJSIP is: %s, CHAN_SIP is: %s"
 msgstr ""
+"El puerto de enlace predeterminado para CHAN_PJSIP es: %s, CHAN_SIP es: %s"
 
 #: chansip.page.php:1091
 msgid ""
@@ -325,14 +345,18 @@ msgid ""
 "calls. If you change this you will effect that behavior. It is recommended "
 "to leave this blank."
 msgstr ""
+"Contexto predeterminado para las llamadas entrantes si no se especifica. "
+"FreePBX establece esto from-sip-external que se utiliza junto con las "
+"llamadas SIP anónimas Permitidas. Si cambia esto, tendrá efecto en ese "
+"comportamiento. Se recomienda dejarlo en blanco."
 
 #: chansip.page.php:899
 msgid "Default length of incoming and outgoing registrations."
-msgstr ""
+msgstr "Longitud predeterminada de los registros entrantes y salientes."
 
 #: general.page.php:118
 msgid "Detect Network Settings"
-msgstr ""
+msgstr "Detectar configuración de red"
 
 #: chansip.page.php:406
 msgid "Disabled"
@@ -344,11 +368,11 @@ msgstr "Dominio de transporte viene de"
 
 #: chansip.page.php:583
 msgid "Don't Require verification of server certificate (TLS ONLY)."
-msgstr ""
+msgstr "No requiere verificación del certificado del servidor (TLS SOLAMENTE)."
 
 #: chansip.page.php:570
 msgid "Don't Verify Server"
-msgstr ""
+msgstr "No verifica el servidor"
 
 #: chansip.page.php:280
 msgid "Dynamic Host"
@@ -356,7 +380,7 @@ msgstr "Host Dinámico"
 
 #: chansip.page.php:304
 msgid "Dynamic Host Refresh"
-msgstr ""
+msgstr "Actualización dinámica del host"
 
 #: functions.inc.php:399
 msgid "Dynamic Host can not be blank"
@@ -376,23 +400,23 @@ msgstr "Editar Configuraciones"
 
 #: chansip.page.php:916
 msgid "Enable Jitter Buffer"
-msgstr ""
+msgstr "Habilitar buffer de Jitter"
 
 #: chansip.page.php:1218
 msgid "Enable SRV Lookup"
-msgstr ""
+msgstr "Habilitar búsqueda SRV"
 
 #: chansip.page.php:1244 chansip.page.php:1259
 msgid "Enable TCP"
-msgstr ""
+msgstr "Habilita TCP"
 
 #: chansip.page.php:504
 msgid "Enable TLS"
-msgstr ""
+msgstr "Habilita TLS"
 
 #: chansip.page.php:517
 msgid "Enable server for incoming TLS (secure) connections."
-msgstr ""
+msgstr "Habilite el servidor para conexiones TLS (seguras) entrantes."
 
 #: chansip.page.php:404
 msgid "Enabled"
@@ -400,7 +424,7 @@ msgstr "Habilitar"
 
 #: chansip.page.php:1013
 msgid "Enables jitter buffer frame logging."
-msgstr ""
+msgstr "Habilita el registro del marco de memoria intermedia de jitter."
 
 #: chansip.page.php:931
 msgid ""
@@ -413,6 +437,15 @@ msgid ""
 "be used when sending to a SIP endpoint since they usually have their own "
 "jitter buffers. See jbforce to force it's use always."
 msgstr ""
+"Permite el uso de un jitterbuffer en el lado receptor de un canal SIP. Un "
+"jitterbuffer activado sólo se utilizará si el lado emisor puede crear y el "
+"lado receptor no puede aceptar jitter. El canal SIP puede aceptar el jitter, "
+"por lo que un jitterbuffer en el lado SIP de recepción se utilizará sólo si "
+"está forzado y habilitado. Un ejemplo es si la recepción de un canal Jittery "
+"a correo de voz, el búfer de fluctuación de fase será utilizado si está "
+"habilitado. Sin embargo, no se utilizará cuando se envía a un punto final "
+"SIP ya que normalmente tienen sus propios búferes de fluctuación de fase. "
+"Vea jbforce para forzar su uso siempre."
 
 #: general.page.php:200
 msgid "End"
@@ -421,12 +454,12 @@ msgstr "Fin"
 #: assets/js/sipsettings.js:191 assets/js/sipsettings.js:194
 #: assets/js/sipsettings.js:203
 msgid "Enter IP Address"
-msgstr ""
+msgstr "Entre Dirección IP"
 
 #: assets/js/sipsettings.js:199 assets/js/sipsettings.js:202
 #, perl-format
 msgid "Error: %s"
-msgstr ""
+msgstr "Error: %s"
 
 #: general.page.php:113
 msgid "External Address"
@@ -437,6 +470,8 @@ msgid ""
 "External FQDN as seen on the WAN side of the router and updated dynamically, "
 "e.g. mydomain.example.com. (asterisk: externhost)"
 msgstr ""
+"FQDN externo como se ve en el lado WAN del enrutador y se actualiza "
+"dinámicamente, p. Mydomain.example.com. (Asterisk: externhost)"
 
 #: chanpj.page.php:111
 msgid "External IP Address"
@@ -475,6 +510,13 @@ msgid ""
 "force the use of the jitter buffer before sending the stream on. This is not "
 "typically desired as it adds additional latency into the stream."
 msgstr ""
+"Fuerza el uso de un jitterbuffer en el lado de recepción de un canal SIP. "
+"Normalmente, el búfer de fluctuación de fase no se utilizará si se recibe un "
+"canal jittery sino que se envía a otro canal tal como otro canal SIP a un "
+"punto final, ya que normalmente hay un búfer de fluctuación de fase en el "
+"extremo lejano. Esto forzará el uso del búfer de fluctuación de fase antes "
+"de enviar el flujo. Esto no es típicamente deseado ya que agrega latencia "
+"adicional en el flujo."
 
 #: chansip.page.php:720
 msgid ""
@@ -500,6 +542,11 @@ msgid ""
 "optional. If omitted the default value of 3478 will be used. This option is "
 "blank by default. (A list of STUN servers: http://wiki.freepbx.org/x/YQCUAg)"
 msgstr ""
+"Nombre de host o dirección para el servidor STUN utilizado al determinar la "
+"dirección IP externa y el puerto en el que se puede acceder a una sesión "
+"RTP. El número de puerto es opcional. Si se omite, se utilizará el valor "
+"predeterminado 3478. Esta opción está en blanco por defecto. (Una lista de "
+"servidores STUN: http://wiki.freepbx.org/x/YQCUAg)"
 
 #: general.page.php:307 general.page.php:408
 msgid ""
@@ -531,6 +578,11 @@ msgid ""
 "dynamicDNS host name under Dynamic IP.<br/> Automatic configuration of what "
 "is often put in sip_nat.conf"
 msgstr ""
+"Indique si la caja tiene un IP público o requiere ajustes NAT. <br/> Si la "
+"dirección pública no se detecta correctamente, puede suministrar la "
+"dirección externa manualmente. <br/> Si su dirección IP no es estática, "
+"puede especificar un host dynamicDNS Nombre bajo IP dinámico. <br/> "
+"Configuración automática de lo que a menudo se pone en sip_nat.conf"
 
 #: chansip.page.php:998
 msgid "Jitter Buffer Logging"
@@ -538,11 +590,11 @@ msgstr "Registro Jitter Buffer"
 
 #: chansip.page.php:1025
 msgid "Jitter Buffer Max Size"
-msgstr ""
+msgstr "Jitter Buffer Tamaño máximo"
 
 #: chansip.page.php:1049
 msgid "Jitter Buffer Resync Threshold"
-msgstr ""
+msgstr "Umbral de resincronización del búfer de jitter"
 
 #: chansip.page.php:906
 msgid "Jitter Buffer Settings"
@@ -554,6 +606,10 @@ msgid ""
 "Two implementations are currently available:<br /> fixed: size always equals "
 "to jbmaxsize;<br /> adaptive: with variable size (the new jb of IAX2)."
 msgstr ""
+"Implementación de Jitterbuffer, usada en el lado receptor de un canal SIP. "
+"Dos implementaciones están actualmente disponibles: <br/> fijo: el tamaño "
+"siempre es igual a jbmaxsize; <br/> adaptable: con tamaño variable (el nuevo "
+"jb de IAX2)."
 
 #: chansip.page.php:1061
 msgid ""
@@ -562,10 +618,15 @@ msgid ""
 "timestamps, usually sent from exotic devices and programs. Can be set to -1 "
 "to disable."
 msgstr ""
+"Saltar en las marcas de tiempo del cuadro sobre las que se vuelve a "
+"sincronizar el jitterbuffer. Útil para mejorar la calidad de la voz, con "
+"saltos grandes en / marcas de tiempo rotas, generalmente enviadas desde "
+"dispositivos y programas exóticos. Se puede establecer en -1 para "
+"deshabilitar."
 
 #: assets/js/sipsettings.js:184
 msgid "Loading"
-msgstr ""
+msgstr "Cargando"
 
 #: general.page.php:152
 msgid "Local Networks"
@@ -576,6 +637,8 @@ msgid ""
 "Local incoming TCP Port that Asterisk will bind to and listen for TLS SIP "
 "messages."
 msgstr ""
+"Puerto TCP entrante local en el que Asterisk se enlazará y escuchará "
+"mensajes TLS SIP."
 
 #: chansip.page.php:1139
 msgid ""
@@ -583,6 +646,10 @@ msgid ""
 "messages. CHAN_SIP previously defaulted to port 5060. However, on new "
 "installations, this default port is now 5160."
 msgstr ""
+"Puerto UDP de entrada local en el que Asterisk se enlazará y escuchará "
+"mensajes SIP. CHAN_SIP previamente predefinido en el puerto 5060. Sin "
+"embargo, en las nuevas instalaciones, este puerto predeterminado es ahora "
+"5160."
 
 #: chanpj.page.php:112
 msgid "Local network"
@@ -622,11 +689,11 @@ msgstr "Max velocidad de bits"
 
 #: chansip.page.php:1037
 msgid "Max length of the jitterbuffer in milliseconds."
-msgstr ""
+msgstr "Longitud máxima del jitterbuffer en milisegundos."
 
 #: chansip.page.php:875
 msgid "Maximum allowed time of incoming registrations"
-msgstr ""
+msgstr "Tiempo máximo permitido de registraciones entrantes"
 
 #: chansip.page.php:488
 msgid "Maximum bitrate for video calls in kb/s"
@@ -637,12 +704,16 @@ msgid ""
 "Method of SSL transport (TLS ONLY). The default is currently TLSv1, but may "
 "change with future releases."
 msgstr ""
+"Método de transporte SSL (TLS SOLAMENTE). El valor predeterminado es "
+"actualmente TLSv1, pero puede cambiar con futuras versiones."
 
 #: chansip.page.php:562
 msgid ""
 "Method of SSL transport (TLS ONLY). The default is currently sslv2, but may "
 "change with future releases."
 msgstr ""
+"Método de transporte SSL (TLS SOLAMENTE). El valor predeterminado es sslv2, "
+"pero puede cambiar con futuras versiones."
 
 #: install.php:106
 msgid "Migrate rtp.conf values if needed and initialize"
@@ -670,7 +741,7 @@ msgstr "Migrando Ajuste rtpstart desde el antiguo formato a Objeto BMO"
 
 #: chansip.page.php:851
 msgid "Minimum length of registrations/subscriptions."
-msgstr ""
+msgstr "Duración mínima de inscripciones / suscripciones."
 
 #: chanpj.page.php:182
 msgid "Misc PJSip Settings"
@@ -695,7 +766,6 @@ msgid "No"
 msgstr "No"
 
 #: chansip.page.php:337
-#, fuzzy
 msgid "Non-Standard g726"
 msgstr "g726 no estándar"
 
@@ -705,6 +775,10 @@ msgid ""
 "'[::]' will listen on both IPv4 and IPv6, but is not recommended. If you "
 "want to use IPv6, it is recommended to use PJSip for those devices or trunks."
 msgstr ""
+"Tenga en cuenta que chan_sip no admite IPv6 para protocolos UDP. Una "
+"dirección de '[::]' escuchará en IPv4 e IPv6, pero no se recomienda. Si "
+"desea utilizar IPv6, se recomienda utilizar PJSip para esos dispositivos o "
+"troncales."
 
 #: chanpj.page.php:372
 msgid ""
@@ -740,6 +814,10 @@ msgid ""
 "continue to register until successful in the case of network or gateway "
 "outages."
 msgstr ""
+"Número de veces a intentar registrarse antes de darse por vencido. Un valor "
+"de 0 significa seguir intentando para siempre. Normalmente, esto debería "
+"establecerse en 0 para que Asterisk continúe registrándose hasta que tenga "
+"éxito en el caso de interrupciones en la red o en el gateway."
 
 #: chansip.page.php:1316
 msgid "Other SIP Settings"
@@ -751,11 +829,11 @@ msgstr "Sobreescribir IP Externa"
 
 #: assets/js/sipsettings.js:172
 msgid "PJSIP transport port conflicts with SIP port"
-msgstr ""
+msgstr "El puerto de transporte PJSIP entra en conflicto con el puerto SIP"
 
 #: general.page.php:57
 msgid "PJSip"
-msgstr ""
+msgstr "PJSip"
 
 #: general.page.php:355 general.page.php:456
 msgid ""
@@ -774,10 +852,12 @@ msgid ""
 "Port/Bind Address has changed. This requires an Asterisk restart after Apply "
 "Config"
 msgstr ""
+"La dirección de puerto/enlace ha cambiado. Esto requiere un reinicio de "
+"Asterisk después de Apply Config"
 
 #: chanpj.page.php:266
 msgid "Private Key File"
-msgstr ""
+msgstr "Archivo de Llave Privada"
 
 #: chansip.page.php:223
 msgid "Public IP"
@@ -789,11 +869,11 @@ msgstr "Verificación RTP"
 
 #: chansip.page.php:655
 msgid "RTP Hold Timeout"
-msgstr ""
+msgstr "Tiempo de espera de retención RTP"
 
 #: chansip.page.php:679
 msgid "RTP Keep Alive"
-msgstr ""
+msgstr "RTP Keep Alive"
 
 #: general.page.php:186
 msgid "RTP Port Ranges"
@@ -805,15 +885,15 @@ msgstr "Configuraciones RTP"
 
 #: chansip.page.php:631
 msgid "RTP Timeout"
-msgstr ""
+msgstr "Tiempo de espera RTP"
 
 #: chansip.page.php:815
 msgid "Registration Attempts"
-msgstr ""
+msgstr "Intentos de Registro"
 
 #: chansip.page.php:887
 msgid "Registration Default Expiry"
-msgstr ""
+msgstr "Expiración de Registro Predeterminada"
 
 #: chansip.page.php:781
 msgid "Registration Settings"
@@ -821,15 +901,15 @@ msgstr "Configuraciones de Registro"
 
 #: chansip.page.php:791
 msgid "Registration Timeout"
-msgstr ""
+msgstr "Tiempo de espera de registro"
 
 #: chansip.page.php:863
 msgid "Regitration Maximum Expiry"
-msgstr ""
+msgstr "Caducidad máxima del registro"
 
 #: chansip.page.php:839
 msgid "Regitration Minimum Expiry"
-msgstr ""
+msgstr "Caducidad mínima de registro"
 
 #: chansip.page.php:600
 msgid "Reinvite Behavior"
@@ -837,21 +917,24 @@ msgstr "Comportamiento Reinvite"
 
 #: chanpj.page.php:340
 msgid "Require verification of client certificate (TLS ONLY)."
-msgstr ""
+msgstr "Requiere verificación del certificado de cliente (TLS SOLAMENTE)."
 
 #: chanpj.page.php:361
 msgid "Require verification of server certificate (TLS ONLY)."
-msgstr ""
+msgstr "Requiere verificación del certificado del servidor (TLS SOLAMENTE)."
 
 #: Sipsettings.class.php:539
 msgid "Reset"
-msgstr ""
+msgstr "Reinicio"
 
 #: chansip.page.php:803
 msgid ""
 "Retry registration attempts every registertimeout seconds until successful "
 "or until registrationattempts tries have been made."
 msgstr ""
+"El re intento de registro intenta cada vez que se cumple el registertimeout "
+"hasta que haya sido satisfactorio o hasta que se ha completado los intentos "
+"indicados en  registrationattempts."
 
 #: page.sipsettings.php:15
 msgid "SIP Settings"
@@ -859,11 +942,11 @@ msgstr "Configuraciones SIP"
 
 #: page.sipsettings.php:16
 msgid "SIP driver information"
-msgstr ""
+msgstr "Información del SIP Driver"
 
 #: chanpj.page.php:303 chansip.page.php:548
 msgid "SSL Method"
-msgstr ""
+msgstr "Método SSL"
 
 #: general.page.php:271 general.page.php:372
 msgid "STUN Server Address"
@@ -871,7 +954,7 @@ msgstr "Dirección del servidor STUN"
 
 #: chansip.page.php:310
 msgid "Seconds"
-msgstr ""
+msgstr "Segundos"
 
 #: general.page.php:21
 msgid "Security Settings"
@@ -879,19 +962,24 @@ msgstr "Configuraciones de seguridad"
 
 #: chanpj.page.php:284 chansip.page.php:530
 msgid "Select a Certificate"
-msgstr ""
+msgstr "Seleccione un Certificado"
 
 #: chanpj.page.php:294 chansip.page.php:540
 msgid ""
 "Select a certificate to use for the TLS transport. These are configured in "
 "the module Certificate Manager"
 msgstr ""
+"Seleccione un certificado que se utilizará para el transporte TLS. Éstos se "
+"configuran en el módulo Administrador de certificados"
 
 #: chansip.page.php:691
 msgid ""
 "Send keepalives in the RTP stream to keep NAT open during periods where no "
 "RTP stream may be flowing (like on hold)."
 msgstr ""
+"Envíe keepalives en el flujo RTP para mantener abierto NAT durante los "
+"períodos en los que no hay corriente RTP  (como cuando se hace llamada en "
+"espera)."
 
 #: sipsettings.i18n.php:6 sipsettings.i18n.php:12
 msgid "Settings"
@@ -936,18 +1024,22 @@ msgid ""
 "which listens on all interfaces for both IPv4 and IPv6 connections. Note "
 "that PJSip is preferable for all IPv6 communications."
 msgstr ""
+"Puerto TCP para escuchar las conexiones TLS (cifradas). De forma "
+"predeterminada a '[::]', que escucha en todas las interfaces para las "
+"conexiones IPv4 e IPv6. Tenga en cuenta que PJSip es preferible para todas "
+"las comunicaciones IPv6."
 
 #: chansip.page.php:1149
 msgid "TLS Bind Address"
-msgstr ""
+msgstr "TLS Bind Address"
 
 #: chansip.page.php:1169
 msgid "TLS Bind Port"
-msgstr ""
+msgstr "TLS Bind Port"
 
 #: chanpj.page.php:234 chansip.page.php:497
 msgid "TLS/SSL/SRTP Settings"
-msgstr ""
+msgstr "Configuración TLS/SSL/SRTP"
 
 #: general.page.php:295 general.page.php:396
 msgid "TURN Server Address"
@@ -966,6 +1058,9 @@ msgid ""
 "Terminate call if rtpholdtimeout seconds of no RTP or RTCP activity on the "
 "audio channel when we're on hold (must be > rtptimeout)."
 msgstr ""
+"Terminar la llamada si se ha cumplido el rtpholdtimeout con ninguna "
+"actividad RTP o RTCP en el canal de audio cuando estamos en espera (debe ser>"
+" rtptimeout)."
 
 #: chansip.page.php:643
 msgid ""
@@ -974,6 +1069,10 @@ msgid ""
 "case of a phone disappearing from the net, like a powerloss or someone "
 "tripping over a cable."
 msgstr ""
+"Terminar la llamada si se alcanza rtptimeout en segundos sin ninguna "
+"actividad RTP o RTCP en el canal de audio cuando no estamos en espera. Esto "
+"es para poder interrumpir una llamada en el caso de un teléfono que "
+"desaparece de la red, como un powerloss o alguien tropezó con un cable."
 
 #: install.php:59
 #, php-format
@@ -982,10 +1081,13 @@ msgid ""
 "configuring your devices. You can change this in SIP Settings. CHAN_PJSIP "
 "is: %s, CHAN_SIP is: %s"
 msgstr ""
+"Los puertos de enlace predeterminados para %s han cambiado. Tenga en cuenta "
+"esto durante la configuración de sus dispositivos. Puede cambiar esto en SIP "
+"Settings. CHAN_PJSIP es: %s, CHAN_SIP es: %s"
 
 #: chanpj.page.php:109
 msgid "The port that this transport should listen on"
-msgstr ""
+msgstr "El puerto que este transporte debe escuchar en"
 
 #: general.page.php:213
 msgid "The starting and ending RTP port range"
@@ -1014,6 +1116,10 @@ msgid ""
 "that protocol is not enabled, or, that protocol does not have TLS enabled. "
 "If you change this, you will have to restart Asterisk"
 msgstr ""
+"Esto le permite controlar explícitamente el protocolo SIP que escucha el "
+"puerto SIP TLS predeterminado (5061). Si una opción no está disponible, es "
+"porque ese protocolo no está habilitado, o, que el protocolo no tiene "
+"habilitado TLS. Si cambia esto, tendrá que reiniciar Asterisk"
 
 #: general.page.php:259
 msgid ""
@@ -1032,14 +1138,16 @@ msgid ""
 "Typically used with SIP calling. Example user@domain, where domain is the "
 "value that would be entered here"
 msgstr ""
+"Se utiliza normalmente con llamadas SIP. Ejemplo de usuario @dominio, donde "
+"dominio es el valor que se ingresaría aquí"
 
 #: Natget.class.php:29
 msgid "Unknown Error"
-msgstr ""
+msgstr "Error desconocido"
 
 #: Sipsettings.class.php:809
 msgid "Unknown Port Conflict"
-msgstr ""
+msgstr "Conflicto de puerto desconocido"
 
 #: Sipsettings.class.php:363 Sipsettings.class.php:445
 msgid "Unknown Type"
@@ -1047,7 +1155,7 @@ msgstr "Tipo Desconocido"
 
 #: chanpj.page.php:88
 msgid "Use "
-msgstr ""
+msgstr "Usar "
 
 #: sipsettings.i18n.php:8
 msgid ""
@@ -1072,11 +1180,11 @@ msgstr ""
 
 #: chanpj.page.php:327
 msgid "Verify Client"
-msgstr ""
+msgstr "Verificar Cliente"
 
 #: chanpj.page.php:348
 msgid "Verify Server"
-msgstr ""
+msgstr "Verificar Server"
 
 #: chansip.page.php:389 chansip.page.php:427 chansip.page.php:461
 msgid "Video Codecs"
@@ -1088,7 +1196,7 @@ msgstr "Soporte Vídeo"
 
 #: general.page.php:362
 msgid "WebRTC Settings"
-msgstr ""
+msgstr "Configuración WebRTC"
 
 #: chanpj.page.php:203 chansip.page.php:1206
 msgid ""
@@ -1125,15 +1233,15 @@ msgstr "Si"
 
 #: chansip.page.php:371
 msgid "Yes with FEC"
-msgstr ""
+msgstr "Si con FEC"
 
 #: chansip.page.php:372
 msgid "Yes with Redundancy"
-msgstr ""
+msgstr "Si con Redundancia"
 
 #: chansip.page.php:373
 msgid "Yes with no error correction"
-msgstr ""
+msgstr "Si sin corrección de error"
 
 #: Sipsettings.class.php:178
 msgid "You can change this on the Advanced Settings Page"
@@ -1146,6 +1254,9 @@ msgid ""
 "changes. Reloading after changing transports does have the possibility to "
 "drop calls."
 msgstr ""
+"Tiene Asterisk %s que ya no necesita ser reiniciado para cambios de "
+"transporte. La recarga después de cambiar los transportes tiene la "
+"posibilidad de cancelar llamadas."
 
 #: chansip.page.php:1335
 msgid ""
@@ -1175,7 +1286,7 @@ msgstr "ya existe"
 
 #: Sipsettings.class.php:174
 msgid "chan_pjsip and chan_sip"
-msgstr ""
+msgstr "chan_pjsip y chan_sip"
 
 #: install.php:21
 msgid "checking for sipsettings table.."
@@ -1191,7 +1302,7 @@ msgstr "kb/s"
 
 #: chansip.page.php:196
 msgid "never"
-msgstr ""
+msgstr "nunca"
 
 #: chansip.page.php:194 chansip.page.php:607
 msgid "no"
@@ -1207,7 +1318,7 @@ msgstr "insertando los codecs por defecto.."
 
 #: chansip.page.php:198
 msgid "route"
-msgstr ""
+msgstr "ruta"
 
 #: functions.inc.php:347
 msgid "rtpholdtimeout must be higher than rtptimeout"
