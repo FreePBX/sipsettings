@@ -10,13 +10,16 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-11-02 09:22-0700\n"
-"PO-Revision-Date: 2016-11-02 09:22-0700\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2016-12-21 00:56+0200\n"
+"Last-Translator: Alexander <alexander.schley@paranagua.pr.gov.br>\n"
+"Language-Team: Portuguese (Brazil) "
+"<http://weblate.freepbx.org/projects/freepbx/sipsettings/pt_BR/>\n"
+"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 2.4\n"
 
 #: chansip.page.php:414
 msgid ""
@@ -24,48 +27,53 @@ msgid ""
 "each addition, they will be added in order which will effect the codec "
 "priority."
 msgstr ""
+" Se você limpar cada codec e, em seguida, adicioná-los um de cada vez, "
+"aplicando cada adição, eles serão adicionados na ordem que afetará a "
+"prioridade do codec."
 
 #: chansip.page.php:1233
 msgid " See current version of Asterisk for limitations on SRV functionality."
 msgstr ""
+" Consulte a versão atual do Asterisk para ver as limitações da "
+"funcionalidade SRV."
 
 #: functions.inc.php:329
 #, php-format
 msgid "%s must be a non-negative integer"
-msgstr ""
+msgstr "%s deve ser um número inteiro não negativo"
 
 #: functions.inc.php:373
 #, php-format
 msgid "%s must be alphanumeric"
-msgstr ""
+msgstr "%s deve ser alfanumérico"
 
 #: chansip.page.php:978
 msgid "Adaptive"
-msgstr ""
+msgstr "Adaptativo"
 
 #: chansip.page.php:35
 msgid "Add Field"
-msgstr ""
+msgstr "Adicionar Campo"
 
 #: chansip.page.php:37 general.page.php:13
 msgid "Add Local Network Field"
-msgstr ""
+msgstr "Adicionar Campo de Rede Local"
 
 #: chansip.page.php:1069
 msgid "Advanced General Settings"
-msgstr ""
+msgstr "Configurações Gerais Avançadas"
 
 #: general.page.php:29
 msgid "Allow Anonymous Inbound SIP Calls"
-msgstr ""
+msgstr "Permitir chamadas de entrada SIP anônimas"
 
 #: chanpj.page.php:190
 msgid "Allow Guests"
-msgstr ""
+msgstr "Permitir Convidados"
 
 #: chansip.page.php:1191
 msgid "Allow SIP Guests"
-msgstr ""
+msgstr "Permitir Convidados SIP"
 
 #: general.page.php:42
 msgid ""
