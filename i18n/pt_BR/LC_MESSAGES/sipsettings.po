@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-11-02 09:22-0700\n"
-"PO-Revision-Date: 2016-12-21 00:56+0200\n"
+"PO-Revision-Date: 2016-12-21 01:15+0200\n"
 "Last-Translator: Alexander <alexander.schley@paranagua.pr.gov.br>\n"
 "Language-Team: Portuguese (Brazil) "
 "<http://weblate.freepbx.org/projects/freepbx/sipsettings/pt_BR/>\n"
@@ -88,23 +88,40 @@ msgid ""
 "If that context is changed above to something custom this setting may be "
 "rendered useless as well as if 'Allow SIP Guests' is set to no."
 msgstr ""
+"Permitir chamadas SIP anônimas significa que você permitirá que qualquer "
+"chamada proveniente de uma fonte IP não conhecida seja direcionada para o "
+"lado 'from-pstn' do seu plano de discagem. Este é o lugar de onde vem onde "
+"as chamadas de entrada.  Embora o FreePBX severamente restringe o acesso ao "
+"plano de discagem interno, permite que chamadas SIP anônimas não apresente "
+"riscos adicionais de segurança. Se você permitir discagem SIP URI para o seu "
+"PBX ou usar serviços como ENUM, você será obrigado a definir isso para Sim "
+"para o tráfego de entrada funcionar. Esta não é uma configuração sip.conf do "
+"Asterisk , ela é usada no plano de discagem em conjunto com o contexto "
+"padrão. Se esse contexto acima for alterado para algo personalizado, essa "
+"configuração poderá se tornar inútil, assim como se \"Permitir Convidados "
+"SIP\" estiver definido como não."
 
 #: chanpj.page.php:377
 msgid ""
 "Also be warned: After you enable/disable a transport, asterisk needs to be "
 "<strong>restarted</strong>, not just reloaded."
 msgstr ""
+"Também tenha cuidado: Depois de ativar/desativar um transporte, asterisk "
+"precisa ser <strong> reiniciado </strong>, e não apenas recarregado."
 
 #: assets/js/sipsettings.js:131
 msgid ""
 "An Error occurred trying fetch network configuration and external IP address"
-msgstr ""
+msgstr "Erro ao tentar buscar configuração da rede e endereço IP externo"
 
 #: Sipsettings.class.php:809
 msgid ""
 "An unknown port conflict has been detected in PJSIP. Please check and "
 "validate your PJSIP Ports to ensure they're not overlapping"
 msgstr ""
+"Um conflito de porta desconhecido foi detectado em PJSIP. Por favor, "
+"verifique e valide as suas portas PJSIP para garantir que elas não estejam "
+"sobrepostas"
 
 #: chansip.page.php:206
 msgid ""
@@ -112,15 +129,18 @@ msgid ""
 "= Use NAT mode only according to RFC3581 <br /> never = Never attempt NAT "
 "mode or RFC3581 <br /> route = Assume NAT, don't send rport"
 msgstr ""
+"Asterisk Configuração NAT: <br/> sim = Sempre ignorar informações e assumir "
+"NAT <br/> Não = Usar modo NAT somente de acordo com RFC3581 <br/> nunca = "
+"Nunca tentar modo NAT  ou RFC3581 <br/> route = Assume NAT, não envia rport"
 
 #: sipsettings.i18n.php:4 sipsettings.i18n.php:10
 msgid "Asterisk SIP Settings"
-msgstr ""
+msgstr "Configurações Asterisk SIP"
 
 #: Sipsettings.class.php:172
 #, php-format
 msgid "Asterisk is currently using %s for SIP Traffic."
-msgstr ""
+msgstr "O Asterisk está usando atualmente %s para Tráfego SIP."
 
 #: chansip.page.php:1097
 msgid ""
@@ -128,6 +148,9 @@ msgid ""
 "Bind Port. If set to 0.0.0.0 Asterisk will listen on all addresses. It is "
 "recommended to leave this blank."
 msgstr ""
+"Asterisk: bindaddr. O endereço IP para ligar e ouvir chamadas na Porta Bind. "
+"Se definido como 0.0.0.0 o Asterisk irá ouvir em todos os endereços. "
+"Recomenda-se deixar este em branco."
 
 #: chansip.page.php:619
 msgid ""
