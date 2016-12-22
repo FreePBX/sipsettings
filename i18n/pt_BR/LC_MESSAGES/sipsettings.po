@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-11-02 09:22-0700\n"
-"PO-Revision-Date: 2016-12-22 00:46+0200\n"
+"PO-Revision-Date: 2016-12-22 01:52+0200\n"
 "Last-Translator: Alexander <alexander.schley@paranagua.pr.gov.br>\n"
 "Language-Team: Portuguese (Brazil) "
 "<http://weblate.freepbx.org/projects/freepbx/sipsettings/pt_BR/>\n"
@@ -641,7 +641,7 @@ msgstr ""
 
 #: chansip.page.php:473
 msgid "Max Bit Rate"
-msgstr ""
+msgstr "Taxa de Bits Máxima"
 
 #: chansip.page.php:1037
 msgid "Max length of the jitterbuffer in milliseconds."
@@ -870,15 +870,15 @@ msgstr ""
 
 #: chanpj.page.php:340
 msgid "Require verification of client certificate (TLS ONLY)."
-msgstr ""
+msgstr "Exigir a verificação do certificado do cliente (SOMENTE TLS)."
 
 #: chanpj.page.php:361
 msgid "Require verification of server certificate (TLS ONLY)."
-msgstr ""
+msgstr "Exigir a verificação do certificado do servidor (SOMENTE TLS)."
 
 #: Sipsettings.class.php:539
 msgid "Reset"
-msgstr ""
+msgstr "Reiniciar"
 
 #: chansip.page.php:803
 msgid ""
@@ -888,76 +888,82 @@ msgstr ""
 
 #: page.sipsettings.php:15
 msgid "SIP Settings"
-msgstr ""
+msgstr "Configurações SIP"
 
 #: page.sipsettings.php:16
 msgid "SIP driver information"
-msgstr ""
+msgstr "informação do driver SIP"
 
 #: chanpj.page.php:303 chansip.page.php:548
 msgid "SSL Method"
-msgstr ""
+msgstr "Método SSL"
 
 #: general.page.php:271 general.page.php:372
 msgid "STUN Server Address"
-msgstr ""
+msgstr "Endereço do Servidor STUN"
 
 #: chansip.page.php:310
 msgid "Seconds"
-msgstr ""
+msgstr "Segundos"
 
 #: general.page.php:21
 msgid "Security Settings"
-msgstr ""
+msgstr "Configurações de Segurança"
 
 #: chanpj.page.php:284 chansip.page.php:530
 msgid "Select a Certificate"
-msgstr ""
+msgstr "Selecione um Certificado"
 
 #: chanpj.page.php:294 chansip.page.php:540
 msgid ""
 "Select a certificate to use for the TLS transport. These are configured in "
 "the module Certificate Manager"
 msgstr ""
+"Selecione um certificado para usar para o transporte TLS. Estes são "
+"configurados no módulo Gerenciador de Certificados"
 
 #: chansip.page.php:691
 msgid ""
 "Send keepalives in the RTP stream to keep NAT open during periods where no "
 "RTP stream may be flowing (like on hold)."
 msgstr ""
+"Envia keepalives no fluxo RTP para manter o NAT aberto durante períodos onde "
+"não há fluxo RTP (como chamadas em espera)."
 
 #: sipsettings.i18n.php:6 sipsettings.i18n.php:12
 msgid "Settings"
-msgstr ""
+msgstr "Configurações"
 
 #: chansip.page.php:1385
 #, php-format
 msgid "Settings in %s may override these. Those settings should be removed."
 msgstr ""
+"As definições em %s podem substituir estes valores. Estas configurações "
+"devem ser removidas."
 
 #: chanpj.page.php:213 chanpj.page.php:226
 msgid "Show Advanced Settings"
-msgstr ""
+msgstr "Mostrar Configurações Avançadas"
 
 #: general.page.php:192
 msgid "Start"
-msgstr ""
+msgstr "Início"
 
 #: chansip.page.php:225
 msgid "Static IP"
-msgstr ""
+msgstr "IP Estático"
 
 #: general.page.php:246
 msgid "Strict RTP"
-msgstr ""
+msgstr "RTP Estrito"
 
 #: Sipsettings.class.php:544
 msgid "Submit"
-msgstr ""
+msgstr "Enviar"
 
 #: chansip.page.php:38 general.page.php:14
 msgid "Submit Changes"
-msgstr ""
+msgstr "Enviar Alterações"
 
 #: chansip.page.php:364
 msgid "T38 Pass-Through"
@@ -969,30 +975,33 @@ msgid ""
 "which listens on all interfaces for both IPv4 and IPv6 connections. Note "
 "that PJSip is preferable for all IPv6 communications."
 msgstr ""
+"Porta TCP para ouvir as conexões TLS (Criptografadas). O padrão é '[::]', "
+"que escuta em todas as interfaces para conexões IPv4 e IPv6. Note que PJSip "
+"é preferível para todas as comunicações IPv6."
 
 #: chansip.page.php:1149
 msgid "TLS Bind Address"
-msgstr ""
+msgstr "Endereços Bind TLS"
 
 #: chansip.page.php:1169
 msgid "TLS Bind Port"
-msgstr ""
+msgstr "Porta Bind TLS"
 
 #: chanpj.page.php:234 chansip.page.php:497
 msgid "TLS/SSL/SRTP Settings"
-msgstr ""
+msgstr "Configurações TLS/SSL/SRTP"
 
 #: general.page.php:295 general.page.php:396
 msgid "TURN Server Address"
-msgstr ""
+msgstr "Endereço do Servidor TURN"
 
 #: general.page.php:343 general.page.php:444
 msgid "TURN Server Password"
-msgstr ""
+msgstr "Senha do Servidor TURN"
 
 #: general.page.php:319 general.page.php:420
 msgid "TURN Server Username"
-msgstr ""
+msgstr "Nome de Usuário do Servidor TURN"
 
 #: chansip.page.php:667
 msgid ""
