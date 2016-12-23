@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-11-02 09:22-0700\n"
-"PO-Revision-Date: 2016-12-22 01:52+0200\n"
+"PO-Revision-Date: 2016-12-22 22:50+0200\n"
 "Last-Translator: Alexander <alexander.schley@paranagua.pr.gov.br>\n"
 "Language-Team: Portuguese (Brazil) "
 "<http://weblate.freepbx.org/projects/freepbx/sipsettings/pt_BR/>\n"
@@ -1024,26 +1024,31 @@ msgid ""
 "configuring your devices. You can change this in SIP Settings. CHAN_PJSIP "
 "is: %s, CHAN_SIP is: %s"
 msgstr ""
+"As portas bind padrão para %s foram alteradas. Por favor, mantenha isso em "
+"mente enquanto configura seus dispositivos. Você pode alterar isso em "
+"Configurações SIP. CHAN_PJSIP é: %s, CHAN_SIP é: %s"
 
 #: chanpj.page.php:109
 msgid "The port that this transport should listen on"
-msgstr ""
+msgstr "Porta que este transporte deve ouvir"
 
 #: general.page.php:213
 msgid "The starting and ending RTP port range"
-msgstr ""
+msgstr "Intervalo de portas RTP inicial e final"
 
 #: general.page.php:105
 msgid "These settings apply to both chan_sip and chan_pjsip."
-msgstr ""
+msgstr "Essas configurações se aplicam a chan_sip e chan_pjsip."
 
 #: general.page.php:126
 msgid "This address will be provided to clients if NAT is enabled and detected"
 msgstr ""
+"Este endereço será fornecido aos clientes se o NAT estiver ativado e "
+"detectado"
 
 #: general.page.php:475
 msgid "This is the default Codec setting for new Trunks and Extensions."
-msgstr ""
+msgstr "Esta é a configuração padrão de Codec para novos Troncos e Ramais."
 
 #: general.page.php:96
 msgid ""
@@ -1052,38 +1057,46 @@ msgid ""
 "that protocol is not enabled, or, that protocol does not have TLS enabled. "
 "If you change this, you will have to restart Asterisk"
 msgstr ""
+"Isso permite que você controle explicitamente o protocolo SIP que escuta na "
+"porta SIP TLS padrão (5061). Se uma opção não estiver disponível, é porque "
+"esse protocolo não está habilitado, ou, esse protocolo não tem TLS "
+"habilitado. Se você alterar isso, você terá que reiniciar o Asterisk"
 
 #: general.page.php:259
 msgid ""
 "This will drop RTP packets that do not come from the source of the RTP "
 "stream. It is unusual to turn this off"
 msgstr ""
+"Isso descartará pacotes RTP que não provém da origem do fluxo RTP. Não é "
+"comum desligar isso"
 
 #: chanpj.page.php:368
 msgid "Transports"
-msgstr ""
+msgstr "Transportes"
 
 #: chanpj.page.php:110
 msgid ""
 "Typically used with SIP calling. Example user@domain, where domain is the "
 "value that would be entered here"
 msgstr ""
+"Usado normalmente com chamadas SIP. Exemplo de usuário@domínio, onde o "
+"domínio é o valor que seria inserido aqui"
 
 #: Natget.class.php:29
 msgid "Unknown Error"
-msgstr ""
+msgstr "Erro Desconhecido"
 
 #: Sipsettings.class.php:809
 msgid "Unknown Port Conflict"
-msgstr ""
+msgstr "Conflito de Porta Desconhecido"
 
 #: Sipsettings.class.php:363 Sipsettings.class.php:445
 msgid "Unknown Type"
-msgstr ""
+msgstr "Tipo Desconhecido"
 
 #: chanpj.page.php:88
 msgid "Use "
-msgstr ""
+msgstr "Usar "
 
 #: sipsettings.i18n.php:8
 msgid ""
@@ -1092,32 +1105,39 @@ msgid ""
 "The module assumes Asterisk version 1.4 or higher. Some settings may not "
 "exist in Asterisk 1.2 and will be ignored by Asterisk."
 msgstr ""
+"Use para configurar Várias Configurações SIP do Asterisk na seção Geral de "
+"sip.conf. Também inclui uma ferramenta de auto-configuração para determinar "
+"configurações de NAT. O módulo suporta o Asterisk versão 1.4 ou superior. "
+"Algumas configurações podem não existir no Asterisk 1.2 e serão ignoradas "
+"pelo Asterisk."
 
 #: general.page.php:331 general.page.php:432
 msgid ""
 "Username used to authenticate with TURN relay server. This option is "
 "disabled by default."
 msgstr ""
+"Nome de usuário usado para autenticar com o servidor de retransmissão TURN. "
+"Esta opção está desativada por padrão."
 
 #: chanpj.page.php:327
 msgid "Verify Client"
-msgstr ""
+msgstr "Verificar Cliente"
 
 #: chanpj.page.php:348
 msgid "Verify Server"
-msgstr ""
+msgstr "Verificar Servidor"
 
 #: chansip.page.php:389 chansip.page.php:427 chansip.page.php:461
 msgid "Video Codecs"
-msgstr ""
+msgstr "Codecs de Vídeo"
 
 #: chansip.page.php:399
 msgid "Video Support"
-msgstr ""
+msgstr "Soporte de Vídeo"
 
 #: general.page.php:362
 msgid "WebRTC Settings"
-msgstr ""
+msgstr "Configurações WebRTC"
 
 #: chanpj.page.php:203 chansip.page.php:1206
 msgid ""
@@ -1141,23 +1161,23 @@ msgstr ""
 #: chansip.page.php:1223 chansip.page.php:1249 chansip.page.php:1275
 #: general.page.php:34 general.page.php:228 general.page.php:251
 msgid "Yes"
-msgstr ""
+msgstr "Sim"
 
 #: chansip.page.php:371
 msgid "Yes with FEC"
-msgstr ""
+msgstr "Sim com FEC"
 
 #: chansip.page.php:372
 msgid "Yes with Redundancy"
-msgstr ""
+msgstr "Sim, com Redundância"
 
 #: chansip.page.php:373
 msgid "Yes with no error correction"
-msgstr ""
+msgstr "Sim, sem correção de erros"
 
 #: Sipsettings.class.php:178
 msgid "You can change this on the Advanced Settings Page"
-msgstr ""
+msgstr "Você pode alterar isso na página Configurações Avançadas"
 
 #: chanpj.page.php:375
 #, php-format
@@ -1166,6 +1186,9 @@ msgid ""
 "changes. Reloading after changing transports does have the possibility to "
 "drop calls."
 msgstr ""
+"Você tem o Asterisk %s, que não precisa mais ser reiniciado para alterações "
+"de transporte. Recarregar depois de mudar transportes tem a possibilidade de "
+"cancelar chamadas."
 
 #: chansip.page.php:1335
 msgid ""
@@ -1176,55 +1199,62 @@ msgid ""
 "Add Field box to add additional fields. Blank boxes will be deleted when "
 "submitted."
 msgstr ""
+"Você pode definir quaisquer outras configurações SIP não presentes aqui que "
+"podem ser configuradas na seção Geral de sip.conf. Não haverá nenhuma "
+"verificação de erro contra essas configurações, portanto verifique-as "
+"cuidadosamente. Eles devem ser inseridos como: <br/> [configuração] = [valor]"
+" <br/> nas caixas abaixo. Clique na caixa Adicionar campo para adicionar "
+"campos adicionais. As caixas em branco serão eliminadas quando enviadas."
 
 #: chanpj.page.php:112
 msgid ""
 "You may use this to to define an additional local network per interface."
 msgstr ""
+"Você pode usar isso para definir uma rede local adicional por interface."
 
 #: install.php:100
 msgid "already exists"
-msgstr ""
+msgstr "já existe"
 
 #: Sipsettings.class.php:174
 msgid "chan_pjsip and chan_sip"
-msgstr ""
+msgstr "chan_pjsip e chan_sip"
 
 #: install.php:21
 msgid "checking for sipsettings table.."
-msgstr ""
+msgstr "verificando por tabela sipsettings..."
 
 #: install.php:84
 msgid "fatal error occurred populating defaults, check module"
-msgstr ""
+msgstr "erro fatal ao preencher os padrões, verifique o módulo"
 
 #: chansip.page.php:479
 msgid "kb/s"
-msgstr ""
+msgstr "kb/s"
 
 #: chansip.page.php:196
 msgid "never"
-msgstr ""
+msgstr "nunca"
 
 #: chansip.page.php:194 chansip.page.php:607
 msgid "no"
-msgstr ""
+msgstr "não"
 
 #: install.php:53
 msgid "none, creating table"
-msgstr ""
+msgstr "nenhuma, criando tabela"
 
 #: install.php:61
 msgid "populating default codecs.."
-msgstr ""
+msgstr "preenchendo codecs padrão..."
 
 #: chansip.page.php:198
 msgid "route"
-msgstr ""
+msgstr "rota"
 
 #: functions.inc.php:347
 msgid "rtpholdtimeout must be higher than rtptimeout"
-msgstr ""
+msgstr "rtpholdtimeout deve ser maior do que rtptimeout"
 
 #: install.php:114 install.php:128
 #, php-format
@@ -1233,8 +1263,8 @@ msgstr ""
 
 #: install.php:86
 msgid "ulaw, alaw, gsm, g726 added"
-msgstr ""
+msgstr "adicionado ulaw, alaw, gsm, g726"
 
 #: chansip.page.php:192 chansip.page.php:605
 msgid "yes"
-msgstr ""
+msgstr "sim"
