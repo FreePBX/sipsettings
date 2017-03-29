@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-02 09:22-0700\n"
+"POT-Creation-Date: 2017-03-29 12:11-0700\n"
 "PO-Revision-Date: 2015-12-05 10:05+0200\n"
 "Last-Translator: Andrew <andrew.nagy@the159.com>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/"
@@ -648,9 +648,10 @@ msgstr ""
 
 #: chansip.page.php:1139
 msgid ""
-"Local incoming UDP Port that Asterisk will bind to and listen for SIP "
-"messages. CHAN_SIP previously defaulted to port 5060. However, on new "
-"installations, this default port is now 5160."
+"Local incoming UDP (and TCP if enabled) port that Asterisk will bind to and "
+"listen for chan_SIP messages. If left blank, it will default to 5060. Legacy "
+"installs (when only a single SIP driver was present) would set the chan_sip "
+"bind port to 5060, but new installs set it to 5160."
 msgstr ""
 
 #: chanpj.page.php:112
@@ -971,7 +972,7 @@ msgstr ""
 "Посылает пакеты keepalives в потоке RTP поддерживая открытой трансляцию NAT "
 "в течение отсутствия потока RTP (как например при удержании - Hold)."
 
-#: sipsettings.i18n.php:6 sipsettings.i18n.php:12
+#: sipsettings.i18n.php:6
 msgid "Settings"
 msgstr "Настройки"
 

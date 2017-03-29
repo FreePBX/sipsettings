@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-02 09:22-0700\n"
+"POT-Creation-Date: 2017-03-29 12:11-0700\n"
 "PO-Revision-Date: 2016-12-12 02:44+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/"
@@ -642,14 +642,11 @@ msgstr ""
 
 #: chansip.page.php:1139
 msgid ""
-"Local incoming UDP Port that Asterisk will bind to and listen for SIP "
-"messages. CHAN_SIP previously defaulted to port 5060. However, on new "
-"installations, this default port is now 5160."
+"Local incoming UDP (and TCP if enabled) port that Asterisk will bind to and "
+"listen for chan_SIP messages. If left blank, it will default to 5060. Legacy "
+"installs (when only a single SIP driver was present) would set the chan_sip "
+"bind port to 5060, but new installs set it to 5160."
 msgstr ""
-"Puerto UDP de entrada local en el que Asterisk se enlazará y escuchará "
-"mensajes SIP. CHAN_SIP previamente predefinido en el puerto 5060. Sin "
-"embargo, en las nuevas instalaciones, este puerto predeterminado es ahora "
-"5160."
 
 #: chanpj.page.php:112
 msgid "Local network"
@@ -981,7 +978,7 @@ msgstr ""
 "períodos en los que no hay corriente RTP  (como cuando se hace llamada en "
 "espera)."
 
-#: sipsettings.i18n.php:6 sipsettings.i18n.php:12
+#: sipsettings.i18n.php:6
 msgid "Settings"
 msgstr "Configuraciones"
 
@@ -1336,6 +1333,16 @@ msgstr "añadido ulaw, alaw, gsm, g726"
 #: chansip.page.php:192 chansip.page.php:605
 msgid "yes"
 msgstr "yes"
+
+#~ msgid ""
+#~ "Local incoming UDP Port that Asterisk will bind to and listen for SIP "
+#~ "messages. CHAN_SIP previously defaulted to port 5060. However, on new "
+#~ "installations, this default port is now 5160."
+#~ msgstr ""
+#~ "Puerto UDP de entrada local en el que Asterisk se enlazará y escuchará "
+#~ "mensajes SIP. CHAN_SIP previamente predefinido en el puerto 5060. Sin "
+#~ "embargo, en las nuevas instalaciones, este puerto predeterminado es ahora "
+#~ "5160."
 
 #~ msgid "chan_pjsip support NOT FOUND."
 #~ msgstr "Soporte chan_pjsip NO ENCONTRADO."

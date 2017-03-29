@@ -9,15 +9,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-02 09:22-0700\n"
+"POT-Creation-Date: 2017-03-29 12:11-0700\n"
 "PO-Revision-Date: 2017-03-08 19:50+0200\n"
 "Last-Translator: Kingvoice <suporte@kingvoice.com.br>\n"
-"Language-Team: Portuguese (Brazil) "
-"<http://weblate.freepbx.org/projects/freepbx/sipsettings/pt_BR/>\n"
-"Language: pt_BR\n"
+"Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
+"freepbx/sipsettings/pt_BR/>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: pt_BR\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.4\n"
 
@@ -98,8 +98,8 @@ msgstr ""
 "para o tráfego de entrada funcionar. Esta não é uma configuração sip.conf do "
 "Asterisk , ela é usada no plano de discagem em conjunto com o contexto "
 "padrão. Se esse contexto acima for alterado para algo personalizado, essa "
-"configuração poderá se tornar inútil, assim como se \"Permitir Convidados "
-"SIP\" estiver definido como não."
+"configuração poderá se tornar inútil, assim como se \"Permitir Convidados SIP"
+"\" estiver definido como não."
 
 #: chanpj.page.php:377
 msgid ""
@@ -546,8 +546,8 @@ msgstr ""
 "Nome de host ou endereço para o servidor STUN usado ao determinar o endereço "
 "IP externo e a porta em que possa chegar a uma sessão RTP. O número da porta "
 "é opcional. Se omitido, o valor padrão 3478 será usado. Esta opção está em "
-"branco por padrão. (Lista de servidores STUN: "
-"http://wiki.freepbx.org/x/YQCUAg)"
+"branco por padrão. (Lista de servidores STUN: http://wiki.freepbx.org/x/"
+"YQCUAg)"
 
 #: general.page.php:307 general.page.php:408
 msgid ""
@@ -633,13 +633,11 @@ msgstr ""
 
 #: chansip.page.php:1139
 msgid ""
-"Local incoming UDP Port that Asterisk will bind to and listen for SIP "
-"messages. CHAN_SIP previously defaulted to port 5060. However, on new "
-"installations, this default port is now 5160."
+"Local incoming UDP (and TCP if enabled) port that Asterisk will bind to and "
+"listen for chan_SIP messages. If left blank, it will default to 5060. Legacy "
+"installs (when only a single SIP driver was present) would set the chan_sip "
+"bind port to 5060, but new installs set it to 5160."
 msgstr ""
-"Porta UDP de entrada local que o Asterisk vinculará e ouvirá as mensagens "
-"SIP. CHAN_SIP previamente predefinido para a porta 5060. No entanto, em "
-"novas instalações, esta porta padrão agora será 5160."
 
 #: chanpj.page.php:112
 msgid "Local network"
@@ -727,7 +725,8 @@ msgstr "Migrando a Configuração de rtpend do Formato Antigo para o Objeto BMO"
 
 #: install.php:118
 msgid "Migrating rtpstart Setting from Old Format to BMO Object"
-msgstr "Migrando a Configuração de rtpstart do Formato Antigo para o Objeto BMO"
+msgstr ""
+"Migrando a Configuração de rtpstart do Formato Antigo para o Objeto BMO"
 
 #: chansip.page.php:851
 msgid "Minimum length of registrations/subscriptions."
@@ -765,9 +764,9 @@ msgid ""
 "'[::]' will listen on both IPv4 and IPv6, but is not recommended. If you "
 "want to use IPv6, it is recommended to use PJSip for those devices or trunks."
 msgstr ""
-"Observe que chan_sip não suporta IPv6 para protocolos UDP. Um endereço '[::]"
-"' escutará em IPv4 e IPv6, mas não é o recomendado. Se você quiser usar o "
-"IPv6, é recomendável usar o PJSip para esses dispositivos ou troncos."
+"Observe que chan_sip não suporta IPv6 para protocolos UDP. Um endereço "
+"'[::]' escutará em IPv4 e IPv6, mas não é o recomendado. Se você quiser usar "
+"o IPv6, é recomendável usar o PJSip para esses dispositivos ou troncos."
 
 #: chanpj.page.php:372
 msgid ""
@@ -964,7 +963,7 @@ msgstr ""
 "Envia keepalives no fluxo RTP para manter o NAT aberto durante períodos onde "
 "não há fluxo RTP (como chamadas em espera)."
 
-#: sipsettings.i18n.php:6 sipsettings.i18n.php:12
+#: sipsettings.i18n.php:6
 msgid "Settings"
 msgstr "Configurações"
 
@@ -1236,9 +1235,10 @@ msgstr ""
 "Você pode definir quaisquer outras configurações SIP não presentes aqui que "
 "podem ser configuradas na seção Geral de sip.conf. Não haverá nenhuma "
 "verificação de erro contra essas configurações, portanto verifique-as "
-"cuidadosamente. Eles devem ser inseridos como: <br/> [configuração] = [valor]"
-" <br/> nas caixas abaixo. Clique na caixa Adicionar campo para adicionar "
-"campos adicionais. As caixas em branco serão eliminadas quando enviadas."
+"cuidadosamente. Eles devem ser inseridos como: <br/> [configuração] = "
+"[valor] <br/> nas caixas abaixo. Clique na caixa Adicionar campo para "
+"adicionar campos adicionais. As caixas em branco serão eliminadas quando "
+"enviadas."
 
 #: chanpj.page.php:112
 msgid ""
@@ -1302,3 +1302,12 @@ msgstr "adicionado ulaw, alaw, gsm, g726"
 #: chansip.page.php:192 chansip.page.php:605
 msgid "yes"
 msgstr "sim"
+
+#~ msgid ""
+#~ "Local incoming UDP Port that Asterisk will bind to and listen for SIP "
+#~ "messages. CHAN_SIP previously defaulted to port 5060. However, on new "
+#~ "installations, this default port is now 5160."
+#~ msgstr ""
+#~ "Porta UDP de entrada local que o Asterisk vinculará e ouvirá as mensagens "
+#~ "SIP. CHAN_SIP previamente predefinido para a porta 5060. No entanto, em "
+#~ "novas instalações, esta porta padrão agora será 5160."
