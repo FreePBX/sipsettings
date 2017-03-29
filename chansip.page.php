@@ -1136,7 +1136,7 @@ $error_displays = array_merge($error_displays,sipsettings_check_custom_files());
 		</div>
 		<div class="row">
 			<div class="col-md-12">
-				<span id="bindport-help" class="help-block fpbx-help-block"><?php echo _("Local incoming UDP Port that Asterisk will bind to and listen for SIP messages. CHAN_SIP previously defaulted to port 5060. However, on new installations, this default port is now 5160.")?></span>
+				<span id="bindport-help" class="help-block fpbx-help-block"><?php echo _("Local incoming UDP (and TCP if enabled) port that Asterisk will bind to and listen for chan_SIP messages. If left blank, it will default to 5060. Legacy installs (when only a single SIP driver was present) would set the chan_sip bind port to 5060, but new installs set it to 5160.")?></span>
 			</div>
 		</div>
 	</div>
