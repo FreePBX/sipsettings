@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-29 12:11-0700\n"
-"PO-Revision-Date: 2017-06-06 15:56+0200\n"
+"PO-Revision-Date: 2017-06-06 17:44+0200\n"
 "Last-Translator: Michal <mboltz@tlen.pl>\n"
 "Language-Team: Polish (Polish) "
 "<http://weblate.freepbx.org/projects/freepbx/sipsettings/pl_PL/>\n"
@@ -41,7 +41,7 @@ msgstr ""
 #: functions.inc.php:329
 #, php-format
 msgid "%s must be a non-negative integer"
-msgstr "% s musi stanowić nieujemną liczbę całkowitą"
+msgstr "%s musi stanowić nieujemną liczbę całkowitą"
 
 #: functions.inc.php:373
 #, php-format
@@ -107,8 +107,8 @@ msgid ""
 "Also be warned: After you enable/disable a transport, asterisk needs to be "
 "<strong>restarted</strong>, not just reloaded."
 msgstr ""
-"Ostrzegaj też: po włączeniu / wyłączeniu transportu asterisk musi być <silny>"
-" zrestartowany </ silny>, a nie tylko załadowany ponownie."
+"Ostrzegaj też: po włączeniu/wyłączeniu transportu Asterisk musi być "
+"<silny>zrestartowany</silny>, a nie tylko załadowany ponownie."
 
 #: assets/js/sipsettings.js:131
 msgid ""
@@ -143,7 +143,7 @@ msgstr "Asterisk SIP ustawienia"
 #: Sipsettings.class.php:172
 #, php-format
 msgid "Asterisk is currently using %s for SIP Traffic."
-msgstr "Asterisk jest obecnie używana przez % s dla ruchu SIP."
+msgstr "Asterisk jest obecnie używana przez %s dla ruchu SIP."
 
 #: chansip.page.php:1097
 msgid ""
@@ -177,6 +177,8 @@ msgid ""
 "Asterisk: externrefresh. How often to lookup and refresh the External Host "
 "FQDN, in seconds."
 msgstr ""
+"Asterisk: zewnętrzne odświeżenie. Jak często wyszukiwać i odświeżyć FQDN "
+"hosta zewnętrznego, w kilka sekund."
 
 #: chansip.page.php:352
 msgid ""
@@ -185,6 +187,10 @@ msgid ""
 "and Grandstream ATAs, among others). This is contrary to the RFC3551 "
 "specification, the peer _should_ be negotiating AAL2-G726-32 instead."
 msgstr ""
+"Asterisk: g726standard. Jeśli negocjator negocjuje dźwięk G726-32, użyj "
+"instrukcji pakowania AAL2 zamiast zamawiania RFC3551 (jest to wymagane "
+"między innymi przez Sipura i Grandstream ATA). Jest to sprzeczne z "
+"specyfikacją RFC3551, a rówieśniczka _ powinna negocjować AAL2-G726-32."
 
 #: chansip.page.php:382
 msgid ""
@@ -196,70 +202,77 @@ msgid ""
 "with Redundancy - Enables T.38 with redundancy error correction</li><li>Yes "
 "with no error correction - Enables T.38 with no error correction.</li></ul>"
 msgstr ""
+"Asterisk: t38pt_udptl. </ Li> <li> Tak - włącza T.38 z korektą błędów FEC i "
+"zastępuje wartość podaną przez inne punkty końcowe, aby zakładać, że nie są "
+"obsługiwane przez Asterisk. Może wysyłać do niego 400 bajtowych pakietów "
+"T.38 FAX. </ Li> <li> tak z FEC - umożliwia T.38 z korektą błędów FEC </ li> "
+"<li> tak z nadmiarowość - umożliwia T.38 z korektą błędów redundancji </ Li> "
+"<li> Tak bez korekcji błędów - umożliwia T.38 bez korekcji błędów. </ Li> </ "
+"ul>"
 
 #: chansip.page.php:327 general.page.php:462
 msgid "Audio Codecs"
-msgstr ""
+msgstr "Kodeki audio"
 
 #: chansip.page.php:36
 msgid "Auto Configure"
-msgstr ""
+msgstr "Automatycznie skonfiguruj"
 
 #: chansip.page.php:1107
 msgid "Bind Address"
-msgstr ""
+msgstr "Powiązać adres (złączyć adres)"
 
 #: functions.inc.php:333
 msgid "Bind Address (bindaddr) must be an IP address."
-msgstr ""
+msgstr "Powiązany adres musi być adresem IP."
 
 #: chansip.page.php:1129
 msgid "Bind Port"
-msgstr ""
+msgstr "Powiązać port"
 
 #: functions.inc.php:339
 msgid "Bind Port (bindport) must be between 1024 and 65535"
-msgstr ""
+msgstr "Powiązany port (bindport) musi wynosić od 1024 do 65535"
 
 #: chanpj.page.php:242
 msgid "CA Chain File"
-msgstr ""
+msgstr "Plik łańcucha CA"
 
 #: Sipsettings.class.php:823
 msgid "CHANSIP Port Moved"
-msgstr ""
+msgstr "Przesunięty port CHANSIP"
 
 #: Sipsettings.class.php:833
 msgid "CHANSIP TCP Disabled"
-msgstr ""
+msgstr "Wyłączono CHANSIP TCP"
 
 #: Sipsettings.class.php:844
 msgid "CHANSIP TLS Port Moved"
-msgstr ""
+msgstr "Przesunięto port CHANSIP TLS"
 
 #: chansip.page.php:1270
 msgid "Call Events"
-msgstr ""
+msgstr "Połączyć eventy (zdarzenia, wydarzenia)"
 
 #: chanpj.page.php:254
 msgid "Certificate File"
-msgstr ""
+msgstr "Plik certyfikatu"
 
 #: chanpj.page.php:279 chansip.page.php:525
 msgid "Certificate Manager"
-msgstr ""
+msgstr "Menedżer certyfikatów"
 
 #: Sipsettings.class.php:203
 msgid "Chan PJSIP Settings"
-msgstr ""
+msgstr "Ustawienia Chan PJSIP"
 
 #: general.page.php:57
 msgid "Chan SIP"
-msgstr ""
+msgstr "Jeżeli change SIP to zmiana SIP"
 
 #: Sipsettings.class.php:196
 msgid "Chan SIP Settings"
-msgstr ""
+msgstr "Zmień ustawienia SIP"
 
 #: Sipsettings.class.php:844
 #, php-format
@@ -267,6 +280,8 @@ msgid ""
 "Chansip was assigned a port that was already in use for TLS traffic. The "
 "Chansip TLS port has been changed to %s"
 msgstr ""
+"Chansip został przydzielony do portu, który był już używany w ruchu TLS. "
+"Port TLS dla portu Chansip został zmieniony na% s"
 
 #: Sipsettings.class.php:833
 msgid ""
@@ -274,6 +289,8 @@ msgid ""
 "the tcpenable setting removed, and is no longer listening for TCP "
 "connections."
 msgstr ""
+"Chansipowi przypisano ten sam port co plik pjsip dla ruchu TCP. Chansip "
+"został usunięty z tcpenable setting i nie słucha już połączeń T."
 
 #: Sipsettings.class.php:823
 #, php-format
@@ -281,43 +298,49 @@ msgid ""
 "Chansip was assigned the same port as pjsip for UDP traffic. The Chansip "
 "port has been changed to %s"
 msgstr ""
+"Chansip przypisano ten sam port co plik pjsip dla ruchu UDP. Port Chansip "
+"został zmieniony na% s"
 
 #: chansip.page.php:414
 msgid "Check to enable and then choose allowed codecs."
-msgstr ""
+msgstr "Zaznacz, aby włączyć, a następnie wybierz dozwolone kodeki."
 
 #: general.page.php:472
 msgid "Codecs"
-msgstr ""
+msgstr "Kodeki"
 
 #: chansip.page.php:774
 msgid ""
 "Control whether subscriptions INUSE get sent ONHOLD when call is placed on "
 "hold. Useful when using BLF."
 msgstr ""
+"Kontroluj, czy subskrypcje INUSE są wysyłane ONHOLD (-Wstrzymaj), gdy "
+"zawieszone jest zawieszenie. Przydatne podczas korzystania z BLF."
 
 #: chansip.page.php:747
 msgid ""
 "Control whether subscriptions already INUSE get sent RINGING when another "
 "call is sent. Useful when using BLF."
 msgstr ""
+"Kontroluj, czy subskrypcje already -(już) INUSE są wysyłane RINGING podczas "
+"wysyłania innego połączenia. Przydatne podczas korzystania z BLF."
 
 #: chanpj.page.php:308
 msgid "Default"
-msgstr ""
+msgstr "Domyśłne"
 
 #: chansip.page.php:1079
 msgid "Default Context"
-msgstr ""
+msgstr "Domyślny kontekst"
 
 #: general.page.php:52
 msgid "Default TLS Port Assignment"
-msgstr ""
+msgstr "Domyślne przypisanie portu TLS"
 
 #: install.php:59
 #, php-format
 msgid "Default bind port for CHAN_PJSIP is: %s, CHAN_SIP is: %s"
-msgstr ""
+msgstr "Domyślny port bind dla kanału CHAN_PJSIP to:% s, CHAN_SIP:% s"
 
 #: chansip.page.php:1091
 msgid ""
@@ -326,46 +349,50 @@ msgid ""
 "calls. If you change this you will effect that behavior. It is recommended "
 "to leave this blank."
 msgstr ""
+"Domyślny kontekst dla połączeń przychodzących, jeśli nie podano. FreePBX "
+"ustawia to na od-sip-external, który jest używany w związku z wywołaniami "
+"Allow Anonymous SIP. Jeśli zmienisz to, spowodujesz to zachowanie. Zaleca "
+"się, aby pozostawić to puste."
 
 #: chansip.page.php:899
 msgid "Default length of incoming and outgoing registrations."
-msgstr ""
+msgstr "Domyślna długość rejestracji przychodzącej i wychodzącej."
 
 #: general.page.php:118
 msgid "Detect Network Settings"
-msgstr ""
+msgstr "Wykryj ustawienia sieciowe"
 
 #: chansip.page.php:406
 msgid "Disabled"
-msgstr ""
+msgstr "Niepełnosprawny"
 
 #: chanpj.page.php:110
 msgid "Domain the transport comes from"
-msgstr ""
+msgstr "Skąd pochodzi transport"
 
 #: chansip.page.php:583
 msgid "Don't Require verification of server certificate (TLS ONLY)."
-msgstr ""
+msgstr "Nie wymagaj weryfikacji certyfikatu serwera (TYLKO TLS)."
 
 #: chansip.page.php:570
 msgid "Don't Verify Server"
-msgstr ""
+msgstr "Nie weryfikuj serwera"
 
 #: chansip.page.php:280
 msgid "Dynamic Host"
-msgstr ""
+msgstr "Dynamiczny host"
 
 #: chansip.page.php:304
 msgid "Dynamic Host Refresh"
-msgstr ""
+msgstr "Odświeżanie dynamicznego hosta"
 
 #: functions.inc.php:399
 msgid "Dynamic Host can not be blank"
-msgstr ""
+msgstr "Dynamiczny host nie może być pusty"
 
 #: chansip.page.php:227
 msgid "Dynamic IP"
-msgstr ""
+msgstr "Dynamiczne IP"
 
 #: chansip.page.php:164
 msgid "ERRORS"
