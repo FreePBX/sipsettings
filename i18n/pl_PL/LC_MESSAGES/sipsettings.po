@@ -10,14 +10,17 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-29 12:11-0700\n"
-"PO-Revision-Date: 2017-03-29 12:11-0700\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2017-06-06 15:56+0200\n"
+"Last-Translator: Michal <mboltz@tlen.pl>\n"
+"Language-Team: Polish (Polish) "
+"<http://weblate.freepbx.org/projects/freepbx/sipsettings/pl_PL/>\n"
+"Language: pl_PL\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
-"|| n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 2.4\n"
 
 #: chansip.page.php:414
 msgid ""
@@ -25,48 +28,53 @@ msgid ""
 "each addition, they will be added in order which will effect the codec "
 "priority."
 msgstr ""
+" Jeśli wyczyścisz każdy kodek kodeki, a następnie dodasz je pojedynczo, "
+"przedkładając (rozpatrując, oceniając) każdy dodatek, zostaną dodane w "
+"kolejności, która ma wpływ na priorytet kodeka."
 
 #: chansip.page.php:1233
 msgid " See current version of Asterisk for limitations on SRV functionality."
 msgstr ""
+" Zobacz aktualną wersję Asterisk ze względu na ograniczenia dotyczące "
+"funkcjonalności SRV."
 
 #: functions.inc.php:329
 #, php-format
 msgid "%s must be a non-negative integer"
-msgstr ""
+msgstr "% s musi stanowić nieujemną liczbę całkowitą"
 
 #: functions.inc.php:373
 #, php-format
 msgid "%s must be alphanumeric"
-msgstr ""
+msgstr "%s musi być alfanumeryczne"
 
 #: chansip.page.php:978
 msgid "Adaptive"
-msgstr ""
+msgstr "Adaptacyjnie"
 
 #: chansip.page.php:35
 msgid "Add Field"
-msgstr ""
+msgstr "Dodaj pole"
 
 #: chansip.page.php:37 general.page.php:13
 msgid "Add Local Network Field"
-msgstr ""
+msgstr "Dodaj pole sieci lokalnej"
 
 #: chansip.page.php:1069
 msgid "Advanced General Settings"
-msgstr ""
+msgstr "Zaawansowane ustawienia ogólne"
 
 #: general.page.php:29
 msgid "Allow Anonymous Inbound SIP Calls"
-msgstr ""
+msgstr "Zezwalaj na połączenia przychodzące Anonimowe SIP"
 
 #: chanpj.page.php:190
 msgid "Allow Guests"
-msgstr ""
+msgstr "Pozwól gościom (zezwalaj na gości)"
 
 #: chansip.page.php:1191
 msgid "Allow SIP Guests"
-msgstr ""
+msgstr "Zezwalaj na gości SIP"
 
 #: general.page.php:42
 msgid ""
@@ -81,23 +89,41 @@ msgid ""
 "If that context is changed above to something custom this setting may be "
 "rendered useless as well as if 'Allow SIP Guests' is set to no."
 msgstr ""
+"Zezwalanie na Anonimowe połączenia SIP przychodzące oznacza, że zezwala się "
+"na połączenia pochodzące w postaci nieznanego źródła IP, które mają być "
+"kierowane do strony \"from-pstn\" Twojego dialplanu. W tym miejscu wchodzą "
+"połączenia przychodzące. Chociaż FreePBX poważnie ogranicza dostęp do "
+"wewnętrznego harmonogramu, umożliwiając Anonimowe połączenia SIP wprowadza "
+"dodatkowe zagrożenia dla bezpieczeństwa. Jeśli zezwalasz na wybieranie "
+"numerów SIP URI do centrali PBX lub korzystasz z usług takich jak ENUM, "
+"musisz ustawić to jako Tak dla ruchu przychodzącego. Nie jest to ustawienie "
+"sip.conf, jest ono używane w dialplanie w połączeniu z domyślnym kontekstem. "
+"Jeśli ten kontekst zostanie zmieniony na coś niestandardowego, to ustawienie "
+"może być bezużyteczne, a także, jeśli \"Zezwalaj użytkownikom SIP\" na "
+"wartość nie."
 
 #: chanpj.page.php:377
 msgid ""
 "Also be warned: After you enable/disable a transport, asterisk needs to be "
 "<strong>restarted</strong>, not just reloaded."
 msgstr ""
+"Ostrzegaj też: po włączeniu / wyłączeniu transportu asterisk musi być <silny>"
+" zrestartowany </ silny>, a nie tylko załadowany ponownie."
 
 #: assets/js/sipsettings.js:131
 msgid ""
 "An Error occurred trying fetch network configuration and external IP address"
 msgstr ""
+"Podczas próby pobrania konfiguracji sieci i zewnętrznego adresu IP wystąpił "
+"błąd"
 
 #: Sipsettings.class.php:809
 msgid ""
 "An unknown port conflict has been detected in PJSIP. Please check and "
 "validate your PJSIP Ports to ensure they're not overlapping"
 msgstr ""
+"W PJSIP wykryto nieznany konflikt portów. Proszę sprawdzić i potwierdzić "
+"poprawność portów PJSIP, aby upewnić się, że nie zachodzą na siebie"
 
 #: chansip.page.php:206
 msgid ""
@@ -105,15 +131,19 @@ msgid ""
 "= Use NAT mode only according to RFC3581 <br /> never = Never attempt NAT "
 "mode or RFC3581 <br /> route = Assume NAT, don't send rport"
 msgstr ""
+"Asterisk NAT ustawienie: <br /> yes = zawsze ignoruj informacje i zakładaj "
+"NAT <br /> no = użyj trybu NAT tylko zgodnie z RFC3581 <br /> never = nigdy "
+"nie próbuj trybu NAT lub RFC3581 <br /> route = przypisz NAT, Nie wysyłaj "
+"raportu"
 
 #: sipsettings.i18n.php:4 sipsettings.i18n.php:10
 msgid "Asterisk SIP Settings"
-msgstr ""
+msgstr "Asterisk SIP ustawienia"
 
 #: Sipsettings.class.php:172
 #, php-format
 msgid "Asterisk is currently using %s for SIP Traffic."
-msgstr ""
+msgstr "Asterisk jest obecnie używana przez % s dla ruchu SIP."
 
 #: chansip.page.php:1097
 msgid ""
@@ -121,6 +151,9 @@ msgid ""
 "Bind Port. If set to 0.0.0.0 Asterisk will listen on all addresses. It is "
 "recommended to leave this blank."
 msgstr ""
+"Asterisk: bindaddr. Adres IP do połączenia i słuchania połączeń na Portie "
+"Wiązania. Jeśli ustawiono na 0.0.0.0 Asterisk będzie słuchał na wszystkich "
+"adresach. Zaleca się, aby pozostawić to puste."
 
 #: chansip.page.php:619
 msgid ""
@@ -131,6 +164,13 @@ msgid ""
 "arrives from; update: use UPDATE for media path redirection, instead of "
 "INVITE. (yes = update + nonat)"
 msgstr ""
+"Asterisk: canreinvite. Tak: standardowe reinvites (ponowne zainicjowanie); "
+"Nie: nigdy; Nonat: Dodatkową opcją jest umożliwienie przekierowania ścieżki "
+"mediów (reinvite), ale tylko wtedy, gdy nie jest za pośrednictwem roli NAT, "
+"gdy peer, w którym media są wysyłane, (jako rtę RTP może ją określić na "
+"podstawie pozornego adresu IP, na który pojawiają się media) Z; update: użyj "
+"instrukcji UPDATE dla przekierowania ścieżki mediów zamiast INVITE (yes = "
+"update + nonat)"
 
 #: chansip.page.php:319
 msgid ""
