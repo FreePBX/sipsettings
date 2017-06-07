@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-29 12:11-0700\n"
-"PO-Revision-Date: 2017-06-06 17:44+0200\n"
+"PO-Revision-Date: 2017-06-07 15:50+0200\n"
 "Last-Translator: Michal <mboltz@tlen.pl>\n"
 "Language-Team: Polish (Polish) "
 "<http://weblate.freepbx.org/projects/freepbx/sipsettings/pl_PL/>\n"
@@ -107,8 +107,8 @@ msgid ""
 "Also be warned: After you enable/disable a transport, asterisk needs to be "
 "<strong>restarted</strong>, not just reloaded."
 msgstr ""
-"Ostrzegaj też: po włączeniu/wyłączeniu transportu Asterisk musi być "
-"<silny>zrestartowany</silny>, a nie tylko załadowany ponownie."
+"Ostrzegaj też: po włączeniu/wyłączeniu transportu asterisk musi być "
+"<strong>restarted</strong>, a nie tylko załadowany ponownie."
 
 #: assets/js/sipsettings.js:131
 msgid ""
@@ -396,39 +396,39 @@ msgstr "Dynamiczne IP"
 
 #: chansip.page.php:164
 msgid "ERRORS"
-msgstr ""
+msgstr "BŁĘDY"
 
 #: chansip.page.php:131
 msgid "Edit Settings"
-msgstr ""
+msgstr "Edytuj ustawienia"
 
 #: chansip.page.php:916
 msgid "Enable Jitter Buffer"
-msgstr ""
+msgstr "Włącz bufor Jitter"
 
 #: chansip.page.php:1218
 msgid "Enable SRV Lookup"
-msgstr ""
+msgstr "Włącz wyszukiwanie SRV"
 
 #: chansip.page.php:1244 chansip.page.php:1259
 msgid "Enable TCP"
-msgstr ""
+msgstr "Włącz protokół TCP"
 
 #: chansip.page.php:504
 msgid "Enable TLS"
-msgstr ""
+msgstr "Włącz TLS"
 
 #: chansip.page.php:517
 msgid "Enable server for incoming TLS (secure) connections."
-msgstr ""
+msgstr "Włącz serwer dla przychodzących połączeń TLS (bezpiecznych)."
 
 #: chansip.page.php:404
 msgid "Enabled"
-msgstr ""
+msgstr "Włączone"
 
 #: chansip.page.php:1013
 msgid "Enables jitter buffer frame logging."
-msgstr ""
+msgstr "Umożliwia rejestrowanie ramki bufora jitter."
 
 #: chansip.page.php:931
 msgid ""
@@ -441,54 +441,69 @@ msgid ""
 "be used when sending to a SIP endpoint since they usually have their own "
 "jitter buffers. See jbforce to force it's use always."
 msgstr ""
+"Umożliwia użycie buforu jitter po stronie odbiorczej kanału SIP. Włączony "
+"bufor jitter będzie używany tylko wtedy, gdy strona wysyłająca może tworzyć, "
+"a strona odbiorcza nie może zaakceptować jittera. Kanał SIP może przyjmować "
+"jitter, więc bufor jitter na stronie SIP odbiera będzie używany tylko wtedy, "
+"gdy jest on włączony i włączony. Przykładem jest, jeśli otrzymujesz od "
+"jittery kanał do poczty głosowej, bufor jitter będzie używany, jeśli jest "
+"włączony. Nie będzie on jednak używany podczas wysyłania do punktu końcowego "
+"SIP, ponieważ zazwyczaj mają własne bufory jitterów. Zobacz jbforce, aby "
+"zmusić go używać zawsze."
 
 #: general.page.php:200
 msgid "End"
-msgstr ""
+msgstr "Koniec"
 
 #: assets/js/sipsettings.js:191 assets/js/sipsettings.js:194
 #: assets/js/sipsettings.js:203
 msgid "Enter IP Address"
-msgstr ""
+msgstr "Wprowadź adres IP"
 
 #: assets/js/sipsettings.js:199 assets/js/sipsettings.js:202
 #, perl-format
 msgid "Error: %s"
-msgstr ""
+msgstr "Błąd: %s"
 
 #: general.page.php:113
 msgid "External Address"
-msgstr ""
+msgstr "Adres zewnętrzny"
 
 #: chansip.page.php:292
 msgid ""
 "External FQDN as seen on the WAN side of the router and updated dynamically, "
 "e.g. mydomain.example.com. (asterisk: externhost)"
 msgstr ""
+"Zewnętrzna FQDN widoczna po stronie WAN routera i aktualizowana dynamicznie, "
+"np. mydomain.example.com. (asterisk: na zewnatrz)"
 
 #: chanpj.page.php:111
 msgid "External IP Address"
-msgstr ""
+msgstr "Zewnętrzny adres IP"
 
 #: functions.inc.php:389 assets/js/sipsettings.js:19
 msgid ""
 "External IP can not be blank when NAT Mode is set to Static and no default "
 "IP address provided on the main page"
 msgstr ""
+"Zewnętrzny adres IP nie może być pusty, jeśli NAT Mode jest ustawiony na "
+"Statyczny i nie ma domyślnego adresu IP podanego na stronie głównej"
 
 #: chansip.page.php:266
 msgid ""
 "External Static IP or FQDN as seen on the WAN side of the router. (asterisk: "
 "externip)"
 msgstr ""
+"Zewnętrzne Statyczne IP lub FQDN widziane po stronie WAN routera. (asterisk: "
+"externip)"
 
 #: chansip.page.php:976
 msgid "Fixed"
-msgstr ""
+msgstr "Naprawiony"
 
 #: chansip.page.php:944
 msgid "Force Jitter Buffer"
-msgstr ""
+msgstr "Wymuszenie buforu jittera"
 
 #: chansip.page.php:959
 msgid ""
@@ -499,19 +514,29 @@ msgid ""
 "force the use of the jitter buffer before sending the stream on. This is not "
 "typically desired as it adds additional latency into the stream."
 msgstr ""
+"Wymusza użycie buforu jitter na stronie odbiorczej kanału SIP. Zwykle bufor "
+"jitterów nie będzie używany w przypadku otrzymania jittery kanału, ale "
+"wysyłania go do innego kanału, takiego jak inny kanał SIP do punktu "
+"końcowego, ponieważ na końcu jest zazwyczaj bufor jitter. Zmusi to użycie "
+"buforu jitter przed wysłaniem strumienia. Nie jest to zwykle pożądane, "
+"ponieważ dodaje do niego dodatkową latencję."
 
 #: chansip.page.php:720
 msgid ""
 "Frequency in seconds to check if MWI state has changed and inform peers."
 msgstr ""
+"Częstotliwość w sekundach w celu sprawdzenia, czy stan MWI zmienił się i "
+"informował rówieśników."
 
 #: Sipsettings.class.php:189
 msgid "General SIP Settings"
-msgstr ""
+msgstr "Ogólne ustawienia SIP"
 
 #: chansip.page.php:1285
 msgid "Generate manager events when sip ua performs events (e.g. hold)."
 msgstr ""
+"Wygeneruj zdarzenia menedżera, gdy sip ua wykonuje zdarzenia (np. "
+"Przytrzymaj)."
 
 #: general.page.php:283 general.page.php:384
 msgid ""
@@ -520,6 +545,10 @@ msgid ""
 "optional. If omitted the default value of 3478 will be used. This option is "
 "blank by default. (A list of STUN servers: http://wiki.freepbx.org/x/YQCUAg)"
 msgstr ""
+"Nazwa hosta lub adres serwera STUN używanego przy określaniu zewnętrznego "
+"adresu IP i portu sesji RTP można uzyskać pod adresem. Numer portu jest "
+"opcjonalny. Jeśli pominięto wartość domyślną 3478 zostanie użyta. Ta opcja "
+"jest domyślnie pusta. (Lista serwerów STUN: http://wiki.freepbx.org/x/YQCUAg)"
 
 #: general.page.php:307 general.page.php:408
 msgid ""
@@ -527,18 +556,21 @@ msgid ""
 "number is optional. If omitted the default value of 3478 will be used. This "
 "option is blank by default."
 msgstr ""
+"Nazwa hosta lub adres serwera TURN, który będzie używany jako przekaźnik. "
+"Numer portu jest opcjonalny. Jeśli pominięto wartość domyślną 3478 zostanie "
+"użyta. Ta opcja jest domyślnie pusta."
 
 #: chansip.page.php:218
 msgid "IP Configuration"
-msgstr ""
+msgstr "Konfiguracja IP"
 
 #: chanpj.page.php:111
 msgid "If blank, will use the default settings"
-msgstr ""
+msgstr "Użyj ustawień domyślnych, jeśli puste"
 
 #: chansip.page.php:971
 msgid "Implementation"
-msgstr ""
+msgstr "Realizacja"
 
 #: chansip.page.php:235
 msgid ""
@@ -548,22 +580,28 @@ msgid ""
 "dynamicDNS host name under Dynamic IP.<br/> Automatic configuration of what "
 "is often put in sip_nat.conf"
 msgstr ""
+"Określ, czy w polu znajduje się publiczny adres IP, czy też wymaga ustawień "
+"NAT. <br/> Jeśli adres publiczny nie został prawidłowo wykryty, możesz "
+"ręcznie podać zewnętrzny adres. <br/> Jeśli adres IP nie jest statyczny, "
+"możesz podać dynamiczny host DNS Nazwa w obszarze Dynamiczne IP. <br/> "
+"Automatyczna konfiguracja tego, co jest często umieszczane w pliku "
+"sip_nat.conf"
 
 #: chansip.page.php:998
 msgid "Jitter Buffer Logging"
-msgstr ""
+msgstr "Rejestrowanie buforów jittera"
 
 #: chansip.page.php:1025
 msgid "Jitter Buffer Max Size"
-msgstr ""
+msgstr "Maksymalny rozmiar buforu jittera"
 
 #: chansip.page.php:1049
 msgid "Jitter Buffer Resync Threshold"
-msgstr ""
+msgstr "Próg powtórzenia buforu jitterów"
 
 #: chansip.page.php:906
 msgid "Jitter Buffer Settings"
-msgstr ""
+msgstr "Ustawienia bufora jittera"
 
 #: chansip.page.php:986
 msgid ""
@@ -571,6 +609,9 @@ msgid ""
 "Two implementations are currently available:<br /> fixed: size always equals "
 "to jbmaxsize;<br /> adaptive: with variable size (the new jb of IAX2)."
 msgstr ""
+"Implementacja bufora jittera, wykorzystywana po stronie odbiorczej kanału "
+"SIP. Obecnie dostępne są dwa implementacje: <br /> stałe: rozmiar zawsze "
+"równy jbmaxsize; <br /> adaptowalny: o zmiennej wielkości (nowy jb z IAX2)."
 
 #: chansip.page.php:1061
 msgid ""
@@ -579,20 +620,26 @@ msgid ""
 "timestamps, usually sent from exotic devices and programs. Can be set to -1 "
 "to disable."
 msgstr ""
+"Przesuń znaczniki czasowe ramek, w których bufor jitter jest ponownie "
+"synchronizowany. Przydatne w celu poprawy jakości głosu, z dużymi skokami / "
+"złamanymi znacznikami czasu, zazwyczaj wysyłanymi z egzotycznych urządzeń i "
+"programów. Można wyłączyć wartość -1."
 
 #: assets/js/sipsettings.js:184
 msgid "Loading"
-msgstr ""
+msgstr "Ładuję"
 
 #: general.page.php:152
 msgid "Local Networks"
-msgstr ""
+msgstr "Lokalne sieci"
 
 #: chansip.page.php:1179
 msgid ""
 "Local incoming TCP Port that Asterisk will bind to and listen for TLS SIP "
 "messages."
 msgstr ""
+"Lokalny przychodzący port TCP, który zostanie połączony z Asterisk i "
+"wysłuchać komunikatów SIP TLS."
 
 #: chansip.page.php:1139
 msgid ""
@@ -601,10 +648,15 @@ msgid ""
 "installs (when only a single SIP driver was present) would set the chan_sip "
 "bind port to 5060, but new installs set it to 5160."
 msgstr ""
+"Lokalny przychodzący port UDP (i TCP jeśli jest włączony), który Asterisk "
+"będzie związany i wysłuchiwał komunikatów chan_SIP. Jeśli pozostawisz puste, "
+"domyślnie będzie to 5060. Instalacje starsze (gdy tylko jeden sterownik SIP "
+"był obecny) spowodowałby ustawienie portu wiązania chan_sip na 5060, ale "
+"nowe instalacje ustawiono na 5160."
 
 #: chanpj.page.php:112
 msgid "Local network"
-msgstr ""
+msgstr "Lokalna sieć"
 
 #: general.page.php:169
 msgid ""
@@ -612,86 +664,95 @@ msgid ""
 "with more than 1 LAN subnets, use the Add Local Network Field button for "
 "more fields. Blank fields will be ignored."
 msgstr ""
+"Lokalne ustawienia sieciowe w postaci ip / cidr lub ip / netmask. W "
+"przypadku sieci z więcej niż 1 podsieci LAN, użyj pola Dodaj lokalne pole "
+"sieciowe, aby uzyskać więcej pól. Puste pola zostaną zignorowane."
 
 #: functions.inc.php:449
 msgid "Localnet netmask must be formatted properly (e.g. 255.255.255.0 or 24)"
 msgstr ""
+"Netmask sieci lokalnej musi być prawidłowo sformatowany (np. 255.255.255.0 "
+"lub 24)"
 
 #: functions.inc.php:444
 msgid "Localnet setting must be an IP address"
-msgstr ""
+msgstr "Ustawienie Lokalny musi być adresem IP"
 
 #: chansip.page.php:590
 msgid "MEDIA & RTP Settings"
-msgstr ""
+msgstr "Ustawienia programu MEDIA & RTP"
 
 #: chansip.page.php:708
 msgid "MWI Polling Freq"
-msgstr ""
+msgstr "Ankieta częstotliwości MWI"
 
 #: chansip.page.php:473
 msgid "Max Bit Rate"
-msgstr ""
+msgstr "Maksymalna szybkość transmisji bitów"
 
 #: chansip.page.php:1037
 msgid "Max length of the jitterbuffer in milliseconds."
-msgstr ""
+msgstr "Maksymalna długość buforu jitterów w milisekundach."
 
 #: chansip.page.php:875
 msgid "Maximum allowed time of incoming registrations"
-msgstr ""
+msgstr "Maksymalny czas przychodzących rejestracji"
 
 #: chansip.page.php:488
 msgid "Maximum bitrate for video calls in kb/s"
-msgstr ""
+msgstr "Maksymalny przepływ danych dla połączeń wideo w kb / s"
 
 #: chanpj.page.php:319
 msgid ""
 "Method of SSL transport (TLS ONLY). The default is currently TLSv1, but may "
 "change with future releases."
 msgstr ""
+"Metoda transportu SSL (TYLKO TLS). Domyślnie jest to obecnie TLSv1, ale może "
+"ulec zmianie wraz z przyszłymi wersjami."
 
 #: chansip.page.php:562
 msgid ""
 "Method of SSL transport (TLS ONLY). The default is currently sslv2, but may "
 "change with future releases."
 msgstr ""
+"Metoda transportu SSL (TYLKO TLS). Domyślnie jest to sslv2, ale może się "
+"zmieniać wraz z przyszłymi wersjami."
 
 #: install.php:106
 msgid "Migrate rtp.conf values if needed and initialize"
-msgstr ""
+msgstr "Migracja wartości rtp.conf w razie potrzeby i zainicjowanie"
 
 #: install.php:204
 msgid "Migrating Audio Codecs"
-msgstr ""
+msgstr "Migracja koderów kodeksów audio"
 
 #: install.php:157
 msgid "Migrating LocalNets and Netmasks"
-msgstr ""
+msgstr "Migrowanie adresów i masek sieciowych"
 
 #: install.php:224
 msgid "Migrating Video Codecs"
-msgstr ""
+msgstr "Migrowanie adresów i masek sieciowych"
 
 #: install.php:132
 msgid "Migrating rtpend Setting from Old Format to BMO Object"
-msgstr ""
+msgstr "Migracja rtpend Ustawienie z starego formatu na obiekt BMO"
 
 #: install.php:118
 msgid "Migrating rtpstart Setting from Old Format to BMO Object"
-msgstr ""
+msgstr "Migracja rtpstart Ustawienie z starego formatu na obiekt BMO"
 
 #: chansip.page.php:851
 msgid "Minimum length of registrations/subscriptions."
-msgstr ""
+msgstr "Minimalna długość rejestracji / subskrypcji."
 
 #: chanpj.page.php:182
 msgid "Misc PJSip Settings"
-msgstr ""
+msgstr "Różne ustawienia PJSip"
 
 #: chansip.page.php:187
 msgid "NAT"
-msgstr ""
+msgstr "ojczysty, narodowość"
 
 #: chansip.page.php:177 general.page.php:102
 msgid "NAT Settings"
