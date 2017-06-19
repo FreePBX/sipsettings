@@ -5,8 +5,9 @@ $(document).ready(function() {
 	$('.sortable').sortable(	{
 	   update: function(event, ui) {
 			//console.log(ui.item.find('input').val(), ui.item.index())
-			ui.item.find('input').val(ui.item.index())
-		}
+			ui.item.unbind("click");
+			ui.item.find('input').val(ui.item.index());
+	   }
 	});
 	$("form").submit(function() {
 		if(changed) {
