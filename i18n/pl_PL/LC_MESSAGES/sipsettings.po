@@ -1,52 +1,25 @@
-# CREDITS for JAPANESE TRANSLATION
-# ================================
-# Current translation & maintenance: QLOOG, Inc. (Kobe, Japan)
-# Inquiries: info@qloog.com / www.qloog.com
-#
-# This translation is a culmination of the hard work of
-# several outstanding individuals, which started in 2009 with the 
-# first-ever Japanese localization of FreePBX by Kenichi Fukaumi 
-# and Kazuhiro Tokuyama (FreePBX Japanized Project).
-#
-# Beginning in 2013, with the approval of the original authors, 
-# QLOOG undertook a large scale overhaul of the translation to 
-# expand it for compatibility with FreePBX 2.11. Our work is, 
-# of course, released under the same GPLv2 license as FreePBX. 
-# We only ask that you kindly retain these credits in honor of 
-# the time and effort that all of us have contributed. Enjoy!
-#
 # This file is part of FreePBX.
 #
-#    FreePBX is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU General Public License as published by
-#    the Free Software Foundation, either version 2 of the License, or
-#    (at your option) any later version.
-#
-#    FreePBX is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU General Public License for more details.
-#
-#    You should have received a copy of the GNU General Public License
-#    along with FreePBX.  If not, see <http://www.gnu.org/licenses/>.
+# For licensing information, please see the file named LICENSE located in the module directory
 #
 # FreePBX language template for sipsettings
-# Copyright (C) 2008, 2009, 2010 Bandwith.com
+# Copyright (C) 2008-2017 Sangoma Technologies, Inc.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: FreePBX\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-29 12:11-0700\n"
-"PO-Revision-Date: 2017-05-23 13:16+0200\n"
-"Last-Translator: Kenichi <k.fukaumi@qloog.com>\n"
-"Language-Team: Japanese "
-"<http://weblate.freepbx.org/projects/freepbx/sipsettings/ja_JP/>\n"
-"Language: ja_JP\n"
+"PO-Revision-Date: 2017-06-07 15:50+0200\n"
+"Last-Translator: Michal <mboltz@tlen.pl>\n"
+"Language-Team: Polish (Polish) "
+"<http://weblate.freepbx.org/projects/freepbx/sipsettings/pl_PL/>\n"
+"Language: pl_PL\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 2.4\n"
 
 #: chansip.page.php:414
@@ -55,50 +28,53 @@ msgid ""
 "each addition, they will be added in order which will effect the codec "
 "priority."
 msgstr ""
-" すべてのコーデックを外し、その後一つずつ追加する毎に変更を適用すると、追加し"
-"た順番でコーデックプライオリティが設定されます。"
+" Jeśli wyczyścisz każdy kodek kodeki, a następnie dodasz je pojedynczo, "
+"przedkładając (rozpatrując, oceniając) każdy dodatek, zostaną dodane w "
+"kolejności, która ma wpływ na priorytet kodeka."
 
 #: chansip.page.php:1233
 msgid " See current version of Asterisk for limitations on SRV functionality."
 msgstr ""
+" Zobacz aktualną wersję Asterisk ze względu na ograniczenia dotyczące "
+"funkcjonalności SRV."
 
 #: functions.inc.php:329
 #, php-format
 msgid "%s must be a non-negative integer"
-msgstr "%s は非負の整数でなければなりません。"
+msgstr "%s musi stanowić nieujemną liczbę całkowitą"
 
 #: functions.inc.php:373
 #, php-format
 msgid "%s must be alphanumeric"
-msgstr "%s には数字とアルファベットしか使えません。"
+msgstr "%s musi być alfanumeryczne"
 
 #: chansip.page.php:978
 msgid "Adaptive"
-msgstr "Adaptive"
+msgstr "Adaptacyjnie"
 
 #: chansip.page.php:35
 msgid "Add Field"
-msgstr "フィールドを追加"
+msgstr "Dodaj pole"
 
 #: chansip.page.php:37 general.page.php:13
 msgid "Add Local Network Field"
-msgstr "ローカルネットワークフィールドを追加"
+msgstr "Dodaj pole sieci lokalnej"
 
 #: chansip.page.php:1069
 msgid "Advanced General Settings"
-msgstr "高度な一般設定"
+msgstr "Zaawansowane ustawienia ogólne"
 
 #: general.page.php:29
 msgid "Allow Anonymous Inbound SIP Calls"
-msgstr "匿名のインバウンドSIP着信を許可する"
+msgstr "Zezwalaj na połączenia przychodzące Anonimowe SIP"
 
 #: chanpj.page.php:190
 msgid "Allow Guests"
-msgstr ""
+msgstr "Pozwól gościom (zezwalaj na gości)"
 
 #: chansip.page.php:1191
 msgid "Allow SIP Guests"
-msgstr "SIPゲストを許可"
+msgstr "Zezwalaj na gości SIP"
 
 #: general.page.php:42
 msgid ""
@@ -113,32 +89,41 @@ msgid ""
 "If that context is changed above to something custom this setting may be "
 "rendered useless as well as if 'Allow SIP Guests' is set to no."
 msgstr ""
-"「匿名のインバウンドSIP着信を許可する」とは、未知のIPからの着信を、ダイヤルプ"
-"ランのfrom-pstn側へ向けた接続を許可する、という意味です。インバウンド着信はこ"
-"こから入ります。FreePBXは、内部のダイヤルプランへのアクセスを厳しく制限してい"
-"ますが、匿名のSIP着信を許可する事により、セキュリティ上のリスクが増える可能性"
-"があります。PBXではSIP URIダイヤルや、ENUMなどのサービス利用する場合、着信を"
-"受けるためにはここをYesに設定する必要があります。これはAsteriskのsip.conf設定"
-"ではなく、ダイヤルプランでデフォルトコンテキストと合わせて使用される設定で"
-"す。前述の様にコンテキストが何かしらカスタム設定になっていると、「SIPゲストを"
-"許可する」がnoに設定されると同様に、この設定は無効になる可能性があります。"
+"Zezwalanie na Anonimowe połączenia SIP przychodzące oznacza, że zezwala się "
+"na połączenia pochodzące w postaci nieznanego źródła IP, które mają być "
+"kierowane do strony \"from-pstn\" Twojego dialplanu. W tym miejscu wchodzą "
+"połączenia przychodzące. Chociaż FreePBX poważnie ogranicza dostęp do "
+"wewnętrznego harmonogramu, umożliwiając Anonimowe połączenia SIP wprowadza "
+"dodatkowe zagrożenia dla bezpieczeństwa. Jeśli zezwalasz na wybieranie "
+"numerów SIP URI do centrali PBX lub korzystasz z usług takich jak ENUM, "
+"musisz ustawić to jako Tak dla ruchu przychodzącego. Nie jest to ustawienie "
+"sip.conf, jest ono używane w dialplanie w połączeniu z domyślnym kontekstem. "
+"Jeśli ten kontekst zostanie zmieniony na coś niestandardowego, to ustawienie "
+"może być bezużyteczne, a także, jeśli \"Zezwalaj użytkownikom SIP\" na "
+"wartość nie."
 
 #: chanpj.page.php:377
 msgid ""
 "Also be warned: After you enable/disable a transport, asterisk needs to be "
 "<strong>restarted</strong>, not just reloaded."
 msgstr ""
+"Ostrzegaj też: po włączeniu/wyłączeniu transportu asterisk musi być "
+"<strong>restarted</strong>, a nie tylko załadowany ponownie."
 
 #: assets/js/sipsettings.js:131
 msgid ""
 "An Error occurred trying fetch network configuration and external IP address"
-msgstr "ネットワーク設定及び外部IPアドレスを取出し中にエラーが発生しました。"
+msgstr ""
+"Podczas próby pobrania konfiguracji sieci i zewnętrznego adresu IP wystąpił "
+"błąd"
 
 #: Sipsettings.class.php:809
 msgid ""
 "An unknown port conflict has been detected in PJSIP. Please check and "
 "validate your PJSIP Ports to ensure they're not overlapping"
 msgstr ""
+"W PJSIP wykryto nieznany konflikt portów. Proszę sprawdzić i potwierdzić "
+"poprawność portów PJSIP, aby upewnić się, że nie zachodzą na siebie"
 
 #: chansip.page.php:206
 msgid ""
@@ -146,18 +131,19 @@ msgid ""
 "= Use NAT mode only according to RFC3581 <br /> never = Never attempt NAT "
 "mode or RFC3581 <br /> route = Assume NAT, don't send rport"
 msgstr ""
-"Asterisk NAT 設定: <br /> yes = 常にinfoを無視して、NATとして扱う <br/> no = "
-"RFC3581に従って、NATモードを使用 <br/> never = RFC3581とNATモードを使わない "
-"<br/> route = NATを前提として、rportを送信しない"
+"Asterisk NAT ustawienie: <br /> yes = zawsze ignoruj informacje i zakładaj "
+"NAT <br /> no = użyj trybu NAT tylko zgodnie z RFC3581 <br /> never = nigdy "
+"nie próbuj trybu NAT lub RFC3581 <br /> route = przypisz NAT, Nie wysyłaj "
+"raportu"
 
 #: sipsettings.i18n.php:4 sipsettings.i18n.php:10
 msgid "Asterisk SIP Settings"
-msgstr "Asterisk SIP 設定"
+msgstr "Asterisk SIP ustawienia"
 
 #: Sipsettings.class.php:172
 #, php-format
 msgid "Asterisk is currently using %s for SIP Traffic."
-msgstr ""
+msgstr "Asterisk jest obecnie używana przez %s dla ruchu SIP."
 
 #: chansip.page.php:1097
 msgid ""
@@ -165,10 +151,9 @@ msgid ""
 "Bind Port. If set to 0.0.0.0 Asterisk will listen on all addresses. It is "
 "recommended to leave this blank."
 msgstr ""
-"対応するAsterisk設定：bindaddr。このIPアドレスの、バインドポートで指定した"
-"ポート番号をlisten（受信待ち）します。0.0.0.0に設定した場合には、このホストに"
-"割り当てられたすべてのIPアドレスでlistenします。空に設定することを推奨しま"
-"す。"
+"Asterisk: bindaddr. Adres IP do połączenia i słuchania połączeń na Portie "
+"Wiązania. Jeśli ustawiono na 0.0.0.0 Asterisk będzie słuchał na wszystkich "
+"adresach. Zaleca się, aby pozostawić to puste."
 
 #: chansip.page.php:619
 msgid ""
@@ -179,18 +164,21 @@ msgid ""
 "arrives from; update: use UPDATE for media path redirection, instead of "
 "INVITE. (yes = update + nonat)"
 msgstr ""
-"対応するAsterisk設定: canreinvide。yes：標準のreinvite。no：reinviteしない。"
-"nonat：送信先ピアが、NATされていない場合もメディアパスリダイレクト"
-"（reinvite）を許可します（RTP コアは、メディア送信元の見かけのIPアドレスを"
-"ベースに判断します)。update：メディアパスリダイレクトに、INVITEの代わりに"
-"UPDATEを使用します。（yes = update + nonat）"
+"Asterisk: canreinvite. Tak: standardowe reinvites (ponowne zainicjowanie); "
+"Nie: nigdy; Nonat: Dodatkową opcją jest umożliwienie przekierowania ścieżki "
+"mediów (reinvite), ale tylko wtedy, gdy nie jest za pośrednictwem roli NAT, "
+"gdy peer, w którym media są wysyłane, (jako rtę RTP może ją określić na "
+"podstawie pozornego adresu IP, na który pojawiają się media) Z; update: użyj "
+"instrukcji UPDATE dla przekierowania ścieżki mediów zamiast INVITE (yes = "
+"update + nonat)"
 
 #: chansip.page.php:319
 msgid ""
 "Asterisk: externrefresh. How often to lookup and refresh the External Host "
 "FQDN, in seconds."
 msgstr ""
-"対応するAsterisk設定：externrefresh。外部ホストFQDNの参照と更新間隔（秒）。"
+"Asterisk: zewnętrzne odświeżenie. Jak często wyszukiwać i odświeżyć FQDN "
+"hosta zewnętrznego, w kilka sekund."
 
 #: chansip.page.php:352
 msgid ""
@@ -199,10 +187,10 @@ msgid ""
 "and Grandstream ATAs, among others). This is contrary to the RFC3551 "
 "specification, the peer _should_ be negotiating AAL2-G726-32 instead."
 msgstr ""
-"対応するAsterisk設定：g726nonstandard。ピアがG726-32音声をネゴシエーションし"
-"た場合、RFC3551パッキングオーダーの代わりにAAL2パッキングオーダーを使います "
-"(SipuraとGrandstream ATAなどを使う場合には必要)。RFC3551使用時とは逆になりま"
-"す。ピアは、AAL2-G726-32をネゴシエーションしなければなりません。"
+"Asterisk: g726standard. Jeśli negocjator negocjuje dźwięk G726-32, użyj "
+"instrukcji pakowania AAL2 zamiast zamawiania RFC3551 (jest to wymagane "
+"między innymi przez Sipura i Grandstream ATA). Jest to sprzeczne z "
+"specyfikacją RFC3551, a rówieśniczka _ powinna negocjować AAL2-G726-32."
 
 #: chansip.page.php:382
 msgid ""
@@ -214,70 +202,77 @@ msgid ""
 "with Redundancy - Enables T.38 with redundancy error correction</li><li>Yes "
 "with no error correction - Enables T.38 with no error correction.</li></ul>"
 msgstr ""
+"Asterisk: t38pt_udptl. </ Li> <li> Tak - włącza T.38 z korektą błędów FEC i "
+"zastępuje wartość podaną przez inne punkty końcowe, aby zakładać, że nie są "
+"obsługiwane przez Asterisk. Może wysyłać do niego 400 bajtowych pakietów "
+"T.38 FAX. </ Li> <li> tak z FEC - umożliwia T.38 z korektą błędów FEC </ li> "
+"<li> tak z nadmiarowość - umożliwia T.38 z korektą błędów redundancji </ Li> "
+"<li> Tak bez korekcji błędów - umożliwia T.38 bez korekcji błędów. </ Li> </ "
+"ul>"
 
 #: chansip.page.php:327 general.page.php:462
 msgid "Audio Codecs"
-msgstr "音声コーデック"
+msgstr "Kodeki audio"
 
 #: chansip.page.php:36
 msgid "Auto Configure"
-msgstr "自動設定"
+msgstr "Automatycznie skonfiguruj"
 
 #: chansip.page.php:1107
 msgid "Bind Address"
-msgstr "バインドIPアドレス"
+msgstr "Powiązać adres (złączyć adres)"
 
 #: functions.inc.php:333
 msgid "Bind Address (bindaddr) must be an IP address."
-msgstr "バインドアドレス (bindaddr) はIPアドレスでなければなりません"
+msgstr "Powiązany adres musi być adresem IP."
 
 #: chansip.page.php:1129
 msgid "Bind Port"
-msgstr "バインドポート"
+msgstr "Powiązać port"
 
 #: functions.inc.php:339
 msgid "Bind Port (bindport) must be between 1024 and 65535"
-msgstr ""
+msgstr "Powiązany port (bindport) musi wynosić od 1024 do 65535"
 
 #: chanpj.page.php:242
 msgid "CA Chain File"
-msgstr ""
+msgstr "Plik łańcucha CA"
 
 #: Sipsettings.class.php:823
 msgid "CHANSIP Port Moved"
-msgstr ""
+msgstr "Przesunięty port CHANSIP"
 
 #: Sipsettings.class.php:833
 msgid "CHANSIP TCP Disabled"
-msgstr ""
+msgstr "Wyłączono CHANSIP TCP"
 
 #: Sipsettings.class.php:844
 msgid "CHANSIP TLS Port Moved"
-msgstr ""
+msgstr "Przesunięto port CHANSIP TLS"
 
 #: chansip.page.php:1270
 msgid "Call Events"
-msgstr "コールイベント"
+msgstr "Połączyć eventy (zdarzenia, wydarzenia)"
 
 #: chanpj.page.php:254
 msgid "Certificate File"
-msgstr ""
+msgstr "Plik certyfikatu"
 
 #: chanpj.page.php:279 chansip.page.php:525
 msgid "Certificate Manager"
-msgstr ""
+msgstr "Menedżer certyfikatów"
 
 #: Sipsettings.class.php:203
 msgid "Chan PJSIP Settings"
-msgstr ""
+msgstr "Ustawienia Chan PJSIP"
 
 #: general.page.php:57
 msgid "Chan SIP"
-msgstr ""
+msgstr "Jeżeli change SIP to zmiana SIP"
 
 #: Sipsettings.class.php:196
 msgid "Chan SIP Settings"
-msgstr ""
+msgstr "Zmień ustawienia SIP"
 
 #: Sipsettings.class.php:844
 #, php-format
@@ -285,6 +280,8 @@ msgid ""
 "Chansip was assigned a port that was already in use for TLS traffic. The "
 "Chansip TLS port has been changed to %s"
 msgstr ""
+"Chansip został przydzielony do portu, który był już używany w ruchu TLS. "
+"Port TLS dla portu Chansip został zmieniony na% s"
 
 #: Sipsettings.class.php:833
 msgid ""
@@ -292,6 +289,8 @@ msgid ""
 "the tcpenable setting removed, and is no longer listening for TCP "
 "connections."
 msgstr ""
+"Chansipowi przypisano ten sam port co plik pjsip dla ruchu TCP. Chansip "
+"został usunięty z tcpenable setting i nie słucha już połączeń T."
 
 #: Sipsettings.class.php:823
 #, php-format
@@ -299,48 +298,49 @@ msgid ""
 "Chansip was assigned the same port as pjsip for UDP traffic. The Chansip "
 "port has been changed to %s"
 msgstr ""
+"Chansip przypisano ten sam port co plik pjsip dla ruchu UDP. Port Chansip "
+"został zmieniony na% s"
 
 #: chansip.page.php:414
 msgid "Check to enable and then choose allowed codecs."
-msgstr ""
-"ビデオを使用するには、有効を選択し、使用するコーデックを選択してください。"
+msgstr "Zaznacz, aby włączyć, a następnie wybierz dozwolone kodeki."
 
 #: general.page.php:472
 msgid "Codecs"
-msgstr "コーデック"
+msgstr "Kodeki"
 
 #: chansip.page.php:774
 msgid ""
 "Control whether subscriptions INUSE get sent ONHOLD when call is placed on "
 "hold. Useful when using BLF."
 msgstr ""
-"既に使用中（INUSE）のサブスクリプションが、保留されたときにONHOLDを送信するか"
-"どうか。BLFを使用する場合に便利。"
+"Kontroluj, czy subskrypcje INUSE są wysyłane ONHOLD (-Wstrzymaj), gdy "
+"zawieszone jest zawieszenie. Przydatne podczas korzystania z BLF."
 
 #: chansip.page.php:747
 msgid ""
 "Control whether subscriptions already INUSE get sent RINGING when another "
 "call is sent. Useful when using BLF."
 msgstr ""
-"既に使用中（INUSE）のサブスクリプションに別の呼び出しがある場合に、RINGINGを"
-"送信するかどうか。BLFを使用する場合に便利。"
+"Kontroluj, czy subskrypcje already -(już) INUSE są wysyłane RINGING podczas "
+"wysyłania innego połączenia. Przydatne podczas korzystania z BLF."
 
 #: chanpj.page.php:308
 msgid "Default"
-msgstr ""
+msgstr "Domyśłne"
 
 #: chansip.page.php:1079
 msgid "Default Context"
-msgstr "デフォルトコンテキスト"
+msgstr "Domyślny kontekst"
 
 #: general.page.php:52
 msgid "Default TLS Port Assignment"
-msgstr ""
+msgstr "Domyślne przypisanie portu TLS"
 
 #: install.php:59
 #, php-format
 msgid "Default bind port for CHAN_PJSIP is: %s, CHAN_SIP is: %s"
-msgstr ""
+msgstr "Domyślny port bind dla kanału CHAN_PJSIP to:% s, CHAN_SIP:% s"
 
 #: chansip.page.php:1091
 msgid ""
@@ -349,82 +349,86 @@ msgid ""
 "calls. If you change this you will effect that behavior. It is recommended "
 "to leave this blank."
 msgstr ""
+"Domyślny kontekst dla połączeń przychodzących, jeśli nie podano. FreePBX "
+"ustawia to na od-sip-external, który jest używany w związku z wywołaniami "
+"Allow Anonymous SIP. Jeśli zmienisz to, spowodujesz to zachowanie. Zaleca "
+"się, aby pozostawić to puste."
 
 #: chansip.page.php:899
 msgid "Default length of incoming and outgoing registrations."
-msgstr ""
+msgstr "Domyślna długość rejestracji przychodzącej i wychodzącej."
 
 #: general.page.php:118
 msgid "Detect Network Settings"
-msgstr ""
+msgstr "Wykryj ustawienia sieciowe"
 
 #: chansip.page.php:406
 msgid "Disabled"
-msgstr "無効"
+msgstr "Niepełnosprawny"
 
 #: chanpj.page.php:110
 msgid "Domain the transport comes from"
-msgstr ""
+msgstr "Skąd pochodzi transport"
 
 #: chansip.page.php:583
 msgid "Don't Require verification of server certificate (TLS ONLY)."
-msgstr ""
+msgstr "Nie wymagaj weryfikacji certyfikatu serwera (TYLKO TLS)."
 
 #: chansip.page.php:570
 msgid "Don't Verify Server"
-msgstr ""
+msgstr "Nie weryfikuj serwera"
 
 #: chansip.page.php:280
 msgid "Dynamic Host"
-msgstr "ダイナミックホスト"
+msgstr "Dynamiczny host"
 
 #: chansip.page.php:304
 msgid "Dynamic Host Refresh"
-msgstr ""
+msgstr "Odświeżanie dynamicznego hosta"
 
 #: functions.inc.php:399
 msgid "Dynamic Host can not be blank"
-msgstr "ダイナミックホストを空にすることはできません。"
+msgstr "Dynamiczny host nie może być pusty"
 
 #: chansip.page.php:227
 msgid "Dynamic IP"
-msgstr "ダイナミックIP"
+msgstr "Dynamiczne IP"
 
 #: chansip.page.php:164
 msgid "ERRORS"
-msgstr "エラー"
+msgstr "BŁĘDY"
 
 #: chansip.page.php:131
 msgid "Edit Settings"
-msgstr "設定を編集"
+msgstr "Edytuj ustawienia"
 
 #: chansip.page.php:916
 msgid "Enable Jitter Buffer"
-msgstr ""
+msgstr "Włącz bufor Jitter"
 
 #: chansip.page.php:1218
 msgid "Enable SRV Lookup"
-msgstr ""
+msgstr "Włącz wyszukiwanie SRV"
 
 #: chansip.page.php:1244 chansip.page.php:1259
 msgid "Enable TCP"
-msgstr ""
+msgstr "Włącz protokół TCP"
 
 #: chansip.page.php:504
 msgid "Enable TLS"
-msgstr ""
+msgstr "Włącz TLS"
 
 #: chansip.page.php:517
 msgid "Enable server for incoming TLS (secure) connections."
-msgstr ""
+msgstr "Włącz serwer dla przychodzących połączeń TLS (bezpiecznych)."
 
 #: chansip.page.php:404
 msgid "Enabled"
-msgstr "有効"
+msgstr "Włączone"
 
 #: chansip.page.php:1013
 msgid "Enables jitter buffer frame logging."
-msgstr ""
+msgstr "Umożliwia rejestrowanie ramki bufora jitter."
 
 #: chansip.page.php:931
 msgid ""
@@ -437,56 +441,69 @@ msgid ""
 "be used when sending to a SIP endpoint since they usually have their own "
 "jitter buffers. See jbforce to force it's use always."
 msgstr ""
+"Umożliwia użycie buforu jitter po stronie odbiorczej kanału SIP. Włączony "
+"bufor jitter będzie używany tylko wtedy, gdy strona wysyłająca może tworzyć, "
+"a strona odbiorcza nie może zaakceptować jittera. Kanał SIP może przyjmować "
+"jitter, więc bufor jitter na stronie SIP odbiera będzie używany tylko wtedy, "
+"gdy jest on włączony i włączony. Przykładem jest, jeśli otrzymujesz od "
+"jittery kanał do poczty głosowej, bufor jitter będzie używany, jeśli jest "
+"włączony. Nie będzie on jednak używany podczas wysyłania do punktu końcowego "
+"SIP, ponieważ zazwyczaj mają własne bufory jitterów. Zobacz jbforce, aby "
+"zmusić go używać zawsze."
 
 #: general.page.php:200
 msgid "End"
-msgstr ""
+msgstr "Koniec"
 
 #: assets/js/sipsettings.js:191 assets/js/sipsettings.js:194
 #: assets/js/sipsettings.js:203
 msgid "Enter IP Address"
-msgstr ""
+msgstr "Wprowadź adres IP"
 
 #: assets/js/sipsettings.js:199 assets/js/sipsettings.js:202
 #, perl-format
 msgid "Error: %s"
-msgstr ""
+msgstr "Błąd: %s"
 
 #: general.page.php:113
 msgid "External Address"
-msgstr "外部IPアドレス"
+msgstr "Adres zewnętrzny"
 
 #: chansip.page.php:292
 msgid ""
 "External FQDN as seen on the WAN side of the router and updated dynamically, "
 "e.g. mydomain.example.com. (asterisk: externhost)"
 msgstr ""
+"Zewnętrzna FQDN widoczna po stronie WAN routera i aktualizowana dynamicznie, "
+"np. mydomain.example.com. (asterisk: na zewnatrz)"
 
 #: chanpj.page.php:111
 msgid "External IP Address"
-msgstr ""
+msgstr "Zewnętrzny adres IP"
 
 #: functions.inc.php:389 assets/js/sipsettings.js:19
 msgid ""
 "External IP can not be blank when NAT Mode is set to Static and no default "
 "IP address provided on the main page"
 msgstr ""
+"Zewnętrzny adres IP nie może być pusty, jeśli NAT Mode jest ustawiony na "
+"Statyczny i nie ma domyślnego adresu IP podanego na stronie głównej"
 
 #: chansip.page.php:266
 msgid ""
 "External Static IP or FQDN as seen on the WAN side of the router. (asterisk: "
 "externip)"
 msgstr ""
-"ルーターなどのWAN側外部静的IPアドレスまたはFQDN。（対応Asterisk設定："
-"externip）"
+"Zewnętrzne Statyczne IP lub FQDN widziane po stronie WAN routera. (asterisk: "
+"externip)"
 
 #: chansip.page.php:976
 msgid "Fixed"
-msgstr "Fixed"
+msgstr "Naprawiony"
 
 #: chansip.page.php:944
 msgid "Force Jitter Buffer"
-msgstr "強制ジッターバッファー"
+msgstr "Wymuszenie buforu jittera"
 
 #: chansip.page.php:959
 msgid ""
@@ -497,21 +514,29 @@ msgid ""
 "force the use of the jitter buffer before sending the stream on. This is not "
 "typically desired as it adds additional latency into the stream."
 msgstr ""
+"Wymusza użycie buforu jitter na stronie odbiorczej kanału SIP. Zwykle bufor "
+"jitterów nie będzie używany w przypadku otrzymania jittery kanału, ale "
+"wysyłania go do innego kanału, takiego jak inny kanał SIP do punktu "
+"końcowego, ponieważ na końcu jest zazwyczaj bufor jitter. Zmusi to użycie "
+"buforu jitter przed wysłaniem strumienia. Nie jest to zwykle pożądane, "
+"ponieważ dodaje do niego dodatkową latencję."
 
 #: chansip.page.php:720
 msgid ""
 "Frequency in seconds to check if MWI state has changed and inform peers."
-msgstr "MWI の状態変更をチェックして、ピアに通知する頻度（秒）"
+msgstr ""
+"Częstotliwość w sekundach w celu sprawdzenia, czy stan MWI zmienił się i "
+"informował rówieśników."
 
 #: Sipsettings.class.php:189
 msgid "General SIP Settings"
-msgstr ""
+msgstr "Ogólne ustawienia SIP"
 
 #: chansip.page.php:1285
 msgid "Generate manager events when sip ua performs events (e.g. hold)."
 msgstr ""
-"SIPクライアントがイベント（例えば、保留）を起こした場合に、マネージャーイベン"
-"トを生成する。"
+"Wygeneruj zdarzenia menedżera, gdy sip ua wykonuje zdarzenia (np. "
+"Przytrzymaj)."
 
 #: general.page.php:283 general.page.php:384
 msgid ""
@@ -520,6 +545,10 @@ msgid ""
 "optional. If omitted the default value of 3478 will be used. This option is "
 "blank by default. (A list of STUN servers: http://wiki.freepbx.org/x/YQCUAg)"
 msgstr ""
+"Nazwa hosta lub adres serwera STUN używanego przy określaniu zewnętrznego "
+"adresu IP i portu sesji RTP można uzyskać pod adresem. Numer portu jest "
+"opcjonalny. Jeśli pominięto wartość domyślną 3478 zostanie użyta. Ta opcja "
+"jest domyślnie pusta. (Lista serwerów STUN: http://wiki.freepbx.org/x/YQCUAg)"
 
 #: general.page.php:307 general.page.php:408
 msgid ""
@@ -527,18 +556,21 @@ msgid ""
 "number is optional. If omitted the default value of 3478 will be used. This "
 "option is blank by default."
 msgstr ""
+"Nazwa hosta lub adres serwera TURN, który będzie używany jako przekaźnik. "
+"Numer portu jest opcjonalny. Jeśli pominięto wartość domyślną 3478 zostanie "
+"użyta. Ta opcja jest domyślnie pusta."
 
 #: chansip.page.php:218
 msgid "IP Configuration"
-msgstr "IP設定"
+msgstr "Konfiguracja IP"
 
 #: chanpj.page.php:111
 msgid "If blank, will use the default settings"
-msgstr ""
+msgstr "Użyj ustawień domyślnych, jeśli puste"
 
 #: chansip.page.php:971
 msgid "Implementation"
-msgstr "実装"
+msgstr "Realizacja"
 
 #: chansip.page.php:235
 msgid ""
@@ -548,22 +580,28 @@ msgid ""
 "dynamicDNS host name under Dynamic IP.<br/> Automatic configuration of what "
 "is often put in sip_nat.conf"
 msgstr ""
+"Określ, czy w polu znajduje się publiczny adres IP, czy też wymaga ustawień "
+"NAT. <br/> Jeśli adres publiczny nie został prawidłowo wykryty, możesz "
+"ręcznie podać zewnętrzny adres. <br/> Jeśli adres IP nie jest statyczny, "
+"możesz podać dynamiczny host DNS Nazwa w obszarze Dynamiczne IP. <br/> "
+"Automatyczna konfiguracja tego, co jest często umieszczane w pliku "
+"sip_nat.conf"
 
 #: chansip.page.php:998
 msgid "Jitter Buffer Logging"
-msgstr "ジッターバッファーログ"
+msgstr "Rejestrowanie buforów jittera"
 
 #: chansip.page.php:1025
 msgid "Jitter Buffer Max Size"
-msgstr ""
+msgstr "Maksymalny rozmiar buforu jittera"
 
 #: chansip.page.php:1049
 msgid "Jitter Buffer Resync Threshold"
-msgstr ""
+msgstr "Próg powtórzenia buforu jitterów"
 
 #: chansip.page.php:906
 msgid "Jitter Buffer Settings"
-msgstr "ジッターバッファー設定"
+msgstr "Ustawienia bufora jittera"
 
 #: chansip.page.php:986
 msgid ""
@@ -571,6 +609,9 @@ msgid ""
 "Two implementations are currently available:<br /> fixed: size always equals "
 "to jbmaxsize;<br /> adaptive: with variable size (the new jb of IAX2)."
 msgstr ""
+"Implementacja bufora jittera, wykorzystywana po stronie odbiorczej kanału "
+"SIP. Obecnie dostępne są dwa implementacje: <br /> stałe: rozmiar zawsze "
+"równy jbmaxsize; <br /> adaptowalny: o zmiennej wielkości (nowy jb z IAX2)."
 
 #: chansip.page.php:1061
 msgid ""
@@ -579,20 +620,26 @@ msgid ""
 "timestamps, usually sent from exotic devices and programs. Can be set to -1 "
 "to disable."
 msgstr ""
+"Przesuń znaczniki czasowe ramek, w których bufor jitter jest ponownie "
+"synchronizowany. Przydatne w celu poprawy jakości głosu, z dużymi skokami / "
+"złamanymi znacznikami czasu, zazwyczaj wysyłanymi z egzotycznych urządzeń i "
+"programów. Można wyłączyć wartość -1."
 
 #: assets/js/sipsettings.js:184
 msgid "Loading"
-msgstr ""
+msgstr "Ładuję"
 
 #: general.page.php:152
 msgid "Local Networks"
-msgstr "ローカルネットワーク"
+msgstr "Lokalne sieci"
 
 #: chansip.page.php:1179
 msgid ""
 "Local incoming TCP Port that Asterisk will bind to and listen for TLS SIP "
 "messages."
 msgstr ""
+"Lokalny przychodzący port TCP, który zostanie połączony z Asterisk i "
+"wysłuchać komunikatów SIP TLS."
 
 #: chansip.page.php:1139
 msgid ""
@@ -601,10 +648,15 @@ msgid ""
 "installs (when only a single SIP driver was present) would set the chan_sip "
 "bind port to 5060, but new installs set it to 5160."
 msgstr ""
+"Lokalny przychodzący port UDP (i TCP jeśli jest włączony), który Asterisk "
+"będzie związany i wysłuchiwał komunikatów chan_SIP. Jeśli pozostawisz puste, "
+"domyślnie będzie to 5060. Instalacje starsze (gdy tylko jeden sterownik SIP "
+"był obecny) spowodowałby ustawienie portu wiązania chan_sip na 5060, ale "
+"nowe instalacje ustawiono na 5160."
 
 #: chanpj.page.php:112
 msgid "Local network"
-msgstr ""
+msgstr "Lokalna sieć"
 
 #: general.page.php:169
 msgid ""
@@ -612,94 +664,99 @@ msgid ""
 "with more than 1 LAN subnets, use the Add Local Network Field button for "
 "more fields. Blank fields will be ignored."
 msgstr ""
+"Lokalne ustawienia sieciowe w postaci ip / cidr lub ip / netmask. W "
+"przypadku sieci z więcej niż 1 podsieci LAN, użyj pola Dodaj lokalne pole "
+"sieciowe, aby uzyskać więcej pól. Puste pola zostaną zignorowane."
 
 #: functions.inc.php:449
 msgid "Localnet netmask must be formatted properly (e.g. 255.255.255.0 or 24)"
 msgstr ""
-"ローカルネットワークマスクを正しいフォーマットで入力してください（例: "
-"255.255.255.0 または 24）。"
+"Netmask sieci lokalnej musi być prawidłowo sformatowany (np. 255.255.255.0 "
+"lub 24)"
 
 #: functions.inc.php:444
 msgid "Localnet setting must be an IP address"
-msgstr ""
-"ローカルネットワーク (localnet) 設定は、IPアドレスを設定しなければなりませ"
-"ん。"
+msgstr "Ustawienie Lokalny musi być adresem IP"
 
 #: chansip.page.php:590
 msgid "MEDIA & RTP Settings"
-msgstr "メディアとRTP設定"
+msgstr "Ustawienia programu MEDIA & RTP"
 
 #: chansip.page.php:708
 msgid "MWI Polling Freq"
-msgstr "MWIポーリング間隔"
+msgstr "Ankieta częstotliwości MWI"
 
 #: chansip.page.php:473
 msgid "Max Bit Rate"
-msgstr "最大ビットレート"
+msgstr "Maksymalna szybkość transmisji bitów"
 
 #: chansip.page.php:1037
 msgid "Max length of the jitterbuffer in milliseconds."
-msgstr ""
+msgstr "Maksymalna długość buforu jitterów w milisekundach."
 
 #: chansip.page.php:875
 msgid "Maximum allowed time of incoming registrations"
-msgstr ""
+msgstr "Maksymalny czas przychodzących rejestracji"
 
 #: chansip.page.php:488
 msgid "Maximum bitrate for video calls in kb/s"
-msgstr "ビデオコールの最大ビットレート (kb/s)"
+msgstr "Maksymalny przepływ danych dla połączeń wideo w kb / s"
 
 #: chanpj.page.php:319
 msgid ""
 "Method of SSL transport (TLS ONLY). The default is currently TLSv1, but may "
 "change with future releases."
 msgstr ""
+"Metoda transportu SSL (TYLKO TLS). Domyślnie jest to obecnie TLSv1, ale może "
+"ulec zmianie wraz z przyszłymi wersjami."
 
 #: chansip.page.php:562
 msgid ""
 "Method of SSL transport (TLS ONLY). The default is currently sslv2, but may "
 "change with future releases."
 msgstr ""
+"Metoda transportu SSL (TYLKO TLS). Domyślnie jest to sslv2, ale może się "
+"zmieniać wraz z przyszłymi wersjami."
 
 #: install.php:106
 msgid "Migrate rtp.conf values if needed and initialize"
-msgstr "必要に応じてrtf.confの値を移行して初期化する"
+msgstr "Migracja wartości rtp.conf w razie potrzeby i zainicjowanie"
 
 #: install.php:204
 msgid "Migrating Audio Codecs"
-msgstr ""
+msgstr "Migracja koderów kodeksów audio"
 
 #: install.php:157
 msgid "Migrating LocalNets and Netmasks"
-msgstr ""
+msgstr "Migrowanie adresów i masek sieciowych"
 
 #: install.php:224
 msgid "Migrating Video Codecs"
-msgstr ""
+msgstr "Migrowanie adresów i masek sieciowych"
 
 #: install.php:132
 msgid "Migrating rtpend Setting from Old Format to BMO Object"
-msgstr ""
+msgstr "Migracja rtpend Ustawienie z starego formatu na obiekt BMO"
 
 #: install.php:118
 msgid "Migrating rtpstart Setting from Old Format to BMO Object"
-msgstr ""
+msgstr "Migracja rtpstart Ustawienie z starego formatu na obiekt BMO"
 
 #: chansip.page.php:851
 msgid "Minimum length of registrations/subscriptions."
-msgstr ""
+msgstr "Minimalna długość rejestracji / subskrypcji."
 
 #: chanpj.page.php:182
 msgid "Misc PJSip Settings"
-msgstr ""
+msgstr "Różne ustawienia PJSip"
 
 #: chansip.page.php:187
 msgid "NAT"
-msgstr "NAT"
+msgstr "ojczysty, narodowość"
 
 #: chansip.page.php:177 general.page.php:102
 msgid "NAT Settings"
-msgstr "NAT設定"
+msgstr ""
 
 #: chanpj.page.php:81 chanpj.page.php:197 chanpj.page.php:220
 #: chanpj.page.php:334 chanpj.page.php:355 chansip.page.php:344
@@ -709,11 +766,11 @@ msgstr "NAT設定"
 #: chansip.page.php:1225 chansip.page.php:1251 chansip.page.php:1277
 #: general.page.php:36 general.page.php:230 general.page.php:253
 msgid "No"
-msgstr "いいえ"
+msgstr ""
 
 #: chansip.page.php:337
 msgid "Non-Standard g726"
-msgstr "非標準g726"
+msgstr ""
 
 #: chansip.page.php:1098
 msgid ""
@@ -735,15 +792,15 @@ msgstr ""
 
 #: chansip.page.php:698
 msgid "Notification & MWI"
-msgstr "通知とMWI"
+msgstr ""
 
 #: chansip.page.php:759
 msgid "Notify Hold"
-msgstr "保留通知"
+msgstr ""
 
 #: chansip.page.php:732
 msgid "Notify Ringing"
-msgstr "呼び出し通知"
+msgstr ""
 
 #: chansip.page.php:827
 msgid ""
@@ -755,7 +812,7 @@ msgstr ""
 
 #: chansip.page.php:1316
 msgid "Other SIP Settings"
-msgstr "その他のSIP設定"
+msgstr ""
 
 #: chansip.page.php:248
 msgid "Override External IP"
@@ -791,7 +848,7 @@ msgstr ""
 
 #: chansip.page.php:223
 msgid "Public IP"
-msgstr "パブリックIP"
+msgstr ""
 
 #: general.page.php:223
 msgid "RTP Checksums"
@@ -807,7 +864,7 @@ msgstr ""
 
 #: general.page.php:186
 msgid "RTP Port Ranges"
-msgstr "RTPポート範囲"
+msgstr ""
 
 #: general.page.php:176
 msgid "RTP Settings"
@@ -827,7 +884,7 @@ msgstr ""
 
 #: chansip.page.php:781
 msgid "Registration Settings"
-msgstr "レジスト設定"
+msgstr ""
 
 #: chansip.page.php:791
 msgid "Registration Timeout"
@@ -843,7 +900,7 @@ msgstr ""
 
 #: chansip.page.php:600
 msgid "Reinvite Behavior"
-msgstr "Re-Inviteの挙動"
+msgstr ""
 
 #: chanpj.page.php:340
 msgid "Require verification of client certificate (TLS ONLY)."
@@ -905,14 +962,12 @@ msgstr ""
 
 #: sipsettings.i18n.php:6
 msgid "Settings"
-msgstr "設定"
+msgstr ""
 
 #: chansip.page.php:1385
 #, php-format
 msgid "Settings in %s may override these. Those settings should be removed."
 msgstr ""
-"%s の設定はこちらの設定をオーバーライドできます。重複する設定を削除してくださ"
-"い。"
 
 #: chanpj.page.php:213 chanpj.page.php:226
 msgid "Show Advanced Settings"
@@ -924,7 +979,7 @@ msgstr ""
 
 #: chansip.page.php:225
 msgid "Static IP"
-msgstr "静的IP"
+msgstr ""
 
 #: general.page.php:246
 msgid "Strict RTP"
@@ -936,11 +991,11 @@ msgstr ""
 
 #: chansip.page.php:38 general.page.php:14
 msgid "Submit Changes"
-msgstr "変更を適用"
+msgstr ""
 
 #: chansip.page.php:364
 msgid "T38 Pass-Through"
-msgstr "T38パススルー"
+msgstr ""
 
 #: chansip.page.php:1159
 msgid ""
@@ -1062,10 +1117,6 @@ msgid ""
 "The module assumes Asterisk version 1.4 or higher. Some settings may not "
 "exist in Asterisk 1.2 and will be ignored by Asterisk."
 msgstr ""
-"sip.conf内のGeneralセクションの様々なAsterisk SIP設定を行うために使います。"
-"NATの設定を決定するための自動設定ツールも含まれています。このモジュールは、"
-"Asteriskのバージョン1.4以降を想定しています。いくつかの設定は、Asterisk1.2で"
-"は存在しない場合があり、Asteriskに無視されます。"
 
 #: general.page.php:331 general.page.php:432
 msgid ""
@@ -1083,11 +1134,11 @@ msgstr ""
 
 #: chansip.page.php:389 chansip.page.php:427 chansip.page.php:461
 msgid "Video Codecs"
-msgstr "ビデオコーデック"
+msgstr ""
 
 #: chansip.page.php:399
 msgid "Video Support"
-msgstr "ビデオサポート"
+msgstr ""
 
 #: general.page.php:362
 msgid "WebRTC Settings"
@@ -1115,7 +1166,7 @@ msgstr ""
 #: chansip.page.php:1223 chansip.page.php:1249 chansip.page.php:1275
 #: general.page.php:34 general.page.php:228 general.page.php:251
 msgid "Yes"
-msgstr "はい"
+msgstr ""
 
 #: chansip.page.php:371
 msgid "Yes with FEC"
@@ -1150,11 +1201,6 @@ msgid ""
 "Add Field box to add additional fields. Blank boxes will be deleted when "
 "submitted."
 msgstr ""
-"sip.confのgeneralセクションで設定できる、その他のSIP設定をここで記述できま"
-"す。設定のエラーチェックは行いませんので、入力値をよく確認してください。以下"
-"のテキストボックスに次のように入力します：<br/> [設定] = [値] <br/>フィールド"
-"を追加するには、「フィールド追加」ボタンをクリックしてください。空のボックス"
-"は設定適用時に削除します。"
 
 #: chanpj.page.php:112
 msgid ""
@@ -1163,7 +1209,7 @@ msgstr ""
 
 #: install.php:100
 msgid "already exists"
-msgstr "既に既存します。"
+msgstr ""
 
 #: Sipsettings.class.php:174
 msgid "chan_pjsip and chan_sip"
@@ -1171,17 +1217,15 @@ msgstr ""
 
 #: install.php:21
 msgid "checking for sipsettings table.."
-msgstr "sipsettings が存在するかどうかをチェック中..."
+msgstr ""
 
 #: install.php:84
 msgid "fatal error occurred populating defaults, check module"
 msgstr ""
-"コーデック追加中に致命的なエラーが発生しました。モジュールを確認してくださ"
-"い。"
 
 #: chansip.page.php:479
 msgid "kb/s"
-msgstr "kb/s"
+msgstr ""
 
 #: chansip.page.php:196
 msgid "never"
@@ -1189,15 +1233,15 @@ msgstr ""
 
 #: chansip.page.php:194 chansip.page.php:607
 msgid "no"
-msgstr "いいえ"
+msgstr ""
 
 #: install.php:53
 msgid "none, creating table"
-msgstr "ありません、テーブルを作成しています。"
+msgstr ""
 
 #: install.php:61
 msgid "populating default codecs.."
-msgstr "デフォールトコーデック追加中..."
+msgstr ""
 
 #: chansip.page.php:198
 msgid "route"
@@ -1205,12 +1249,12 @@ msgstr ""
 
 #: functions.inc.php:347
 msgid "rtpholdtimeout must be higher than rtptimeout"
-msgstr "rtpholdtimeoutは、rtptimeoutより大きい値に設定しなければなりません。"
+msgstr ""
 
 #: install.php:114 install.php:128
 #, php-format
 msgid "saving previous value of %s"
-msgstr "%sの前の値を保存中…"
+msgstr ""
 
 #: install.php:86
 msgid "ulaw, alaw, gsm, g726 added"
@@ -1218,276 +1262,4 @@ msgstr ""
 
 #: chansip.page.php:192 chansip.page.php:605
 msgid "yes"
-msgstr "はい"
-
-#~ msgid ""
-#~ "Asterisk 1.8 all supports IPv6. An address of '::' will listen on both "
-#~ "IPv4 and IPv6."
-#~ msgstr ""
-#~ "Asterisk1.8以上では IPv6 をサポートしています。'::'を指定すると、IPv4と"
-#~ "IPv6の両方をlistenします。"
-
-#~ msgid ""
-#~ "Asterisk: allowguest. When set Asterisk will allow Guest SIP calls and "
-#~ "send them to the Default SIP context. Turning this off will keep "
-#~ "anonymous SIP calls from entering the system. Doing such will also stop "
-#~ "'Allow Anonymous Inbound SIP Calls' from functioning. Allowing guest "
-#~ "calls but rejecting the Anonymous SIP calls below will enable you to see "
-#~ "the call attempts and debug incoming calls that may be mis-configured and "
-#~ "appearing as guests."
-#~ msgstr ""
-#~ "対応するAsterisk 設定：allowguest。有効の場合には、ゲストSIPコールを許可"
-#~ "し、デフォルトSIPコンテキストへ送ります。無効にすると、匿名SIPコールはシス"
-#~ "テムに受け付けられません。またこの場合、一般設定セクションの「匿名 SIP 着"
-#~ "信許可」設定も機能しません。ゲストコールを許可し、一般設定セクションで匿名"
-#~ "SIPコールを拒否すると、正しく設定されておらずゲストからのものに見える着信"
-#~ "をデバッグできます。"
-
-#~ msgid ""
-#~ "Asterisk: bindport. Local incoming UDP Port that Asterisk will bind to "
-#~ "and listen for SIP messages. The SIP standard is 5060 and in most cases "
-#~ "this is what you want. It is recommended to leave this blank."
-#~ msgstr ""
-#~ "対応するAsterisk設定：bindport。Asteriskが SIPメッセージを受信するローカル"
-#~ "着信ポート。SIPの標準ポートは、5060で通常変更する必要はありません。空に設"
-#~ "定することを推奨します。"
-
-#~ msgid ""
-#~ "Asterisk: context. Default context for incoming calls if not specified. "
-#~ "FreePBX sets this to from-sip-external which is used in conjunction with "
-#~ "the Allow Anonymous SIP calls. If you change this you will effect that "
-#~ "behavior. It is recommended to leave this blank."
-#~ msgstr ""
-#~ "対応するAsterisk設定：context。指定されていない場合に使用する着信コール用"
-#~ "のデフォルトコンテキスト。FreePBX が匿名コール許可設定に使われるfrom-sip-"
-#~ "externalコンテクストに設定します。空に設定することを推奨します。"
-
-#~ msgid ""
-#~ "Asterisk: jbenable. Enables the use of a jitterbuffer on the receiving "
-#~ "side of a SIP channel. An enabled jitterbuffer will be used only if the "
-#~ "sending side can create and the receiving side can not accept jitter. The "
-#~ "SIP channel can accept jitter, thus a jitterbuffer on the receive SIP "
-#~ "side will be used only if it is forced and enabled. An example is if "
-#~ "receiving from a jittery channel to voicemail, the jitter buffer will be "
-#~ "used if enabled. However, it will not be used when sending to a SIP "
-#~ "endpoint since they usually have their own jitter buffers. See jbforce to "
-#~ "force it's use always."
-#~ msgstr ""
-#~ "対応するAsterisk設定：jbenable。SIPチャネルの受信側のジッターバッファーを"
-#~ "有効にする。送信側でジッターが発生しており、受信側はジッターを許容できない"
-#~ "場合にのみジッターバッファーを使用する。SIPチャネルは通常ジッターを許容で"
-#~ "きるため、受信側のジッターバッファーは、強制的に有効にしている場合にのみ使"
-#~ "用されます。例えば、ジッターのあるチャネルからボイスメールを受信する場合に"
-#~ "は、有効になっている場合のみジッターバッファーは使用されます。しかし、SIP"
-#~ "エンドポイントは独自のジッターバッファーを持っているため、SIPエンドポイン"
-#~ "トに送信する場合は使用されません。常時ジッターバッファーを使用するには、"
-#~ "jbforce設定を使います。"
-
-#~ msgid ""
-#~ "Asterisk: jbforce. Forces the use of a jitterbuffer on the receive side "
-#~ "of a SIP channel. Normally the jitter buffer will not be used if "
-#~ "receiving a jittery channel but sending it off to another channel such as "
-#~ "another SIP channel to an endpoint, since there is typically a jitter "
-#~ "buffer at the far end. This will force the use of the jitter buffer "
-#~ "before sending the stream on. This is not typically desired as it adds "
-#~ "additional latency into the stream."
-#~ msgstr ""
-#~ "対応するAsterisk設定：jbforce。SIPチャネルの受信側にジッターバッファーを強"
-#~ "制する。通常、ジッターのあるチャネルから受信し、別 SIP チャネルに送信する"
-#~ "場合、リモート側にもジッターバッファーがあるため、ローカルのジッターバッ"
-#~ "ファーは使用されません。この設定を有効にすると、ストリームを送信する前に"
-#~ "ジッターバッファーを強制的に使用にします。ストリームにレイテンシーを加える"
-#~ "ので、通常は望ましくありません。"
-
-#~ msgid ""
-#~ "Asterisk: jbimpl. Jitterbuffer implementation, used on the receiving side "
-#~ "of a SIP channel. Two implementations are currently available:<br /> "
-#~ "fixed: size always equals to jbmaxsize;<br /> adaptive: with variable "
-#~ "size (the new jb of IAX2)."
-#~ msgstr ""
-#~ "対応するAsterisk設定：jbimpl。SIPチャネルの受信側で使われるジッターバッ"
-#~ "ファーの実装。2つの実装が利用可能です。 <br /> fixed：サイズはjbmaxsizeに"
-#~ "固定<br/>adaptive：可変サイズ（IAX2の新しいジッターバッファー）"
-
-#~ msgid "Asterisk: jblog. Enables jitter buffer frame logging."
-#~ msgstr ""
-#~ "対応するAsterisk設定：jblog。ジッターバッファーフレームログを有効にする。"
-
-#~ msgid ""
-#~ "Asterisk: jbmaxsize. Max length of the jitterbuffer in milliseconds.<br /"
-#~ "> Asterisk: jbresyncthreshold. Jump in the frame timestamps over which "
-#~ "the jitterbuffer is resynchronized. Useful to improve the quality of the "
-#~ "voice, with big jumps in/broken timestamps, usually sent from exotic "
-#~ "devices and programs. Can be set to -1 to disable."
-#~ msgstr ""
-#~ "対応するAsterisk設定：jbmaxsize。ジッターバッファーの最大長 (ミリ秒) <br/"
-#~ "> 対応するAsterisk設定：jbresyncthreshold。フレームのタイムスタンプに抜け"
-#~ "がある場合、ジッターバッファーを再同期します。もっぱら怪しげな機器やソフト"
-#~ "ウェアで起こされる、タイムスタンプの抜けや破損による音声品質の低下を改善さ"
-#~ "せるのに役立ちます。-1 に設定すると、無効になります。"
-
-#~ msgid ""
-#~ "Asterisk: minexpiry. Minimum length of registrations/subscriptions.<br /> "
-#~ "Asterisk: maxepiry. Maximum allowed time of incoming registrations<br /> "
-#~ "Asterisk: defaultexpiry. Default length of incoming and outgoing "
-#~ "registrations."
-#~ msgstr ""
-#~ "対応するAsterisk設定：minexpiry。登録・サブスクリプションの最小時間。<br/"
-#~ "> 対応するAsterisk設定：maxepiry。着信登録の最大時間。<br/> 対応する"
-#~ "Asterisk設定：defaultexpiry。着信・発信登録のデフォルト時間。"
-
-#~ msgid ""
-#~ "Asterisk: registertimeout. Retry registration attempts every "
-#~ "registertimeout seconds until successful or until registrationattempts "
-#~ "tries have been made.<br /> Asterisk: registrationattempts. Number of "
-#~ "times to try and register before giving up. A value of 0 means keep "
-#~ "trying forever. Normally this should be set to 0 so that Asterisk will "
-#~ "continue to register until successful in the case of network or gateway "
-#~ "outages."
-#~ msgstr ""
-#~ "対応するAsterisk設定：registertimeout。レジストに成功するまで、あるいは、"
-#~ "registrationattemptsに達するまで、registertimeout（秒）毎に、登録を再試行"
-#~ "する。<br/> 対応するAsterisk設定：registrationattempts。レジストを諦める前"
-#~ "に再試行する回数。0の場合は、登録できるまで再試行します。ネットワークや"
-#~ "ゲートウェイにトラブルがあった場合でも、レジストできるまで再試行するため、"
-#~ "通常は0に設定します。"
-
-#~ msgid ""
-#~ "Asterisk: rtpstart. The starting RTP port range.<br /> Asterisk: rtpend. "
-#~ "The ending RTP port range."
-#~ msgstr ""
-#~ "対応Asterisk設定：rtpstart。使用するRTPポート範囲の最小ポート番号。<br/>対"
-#~ "応Asterisk設定：rtpend。使用するRTPポート範囲の最大ポート番号。"
-
-#~ msgid ""
-#~ "Asterisk: rtptimeout. Terminate call if rtptimeout seconds of no RTP or "
-#~ "RTCP activity on the audio channel when we're not on hold. This is to be "
-#~ "able to hangup a call in the case of a phone disappearing from the net, "
-#~ "like a powerloss or someone tripping over a cable.<br /> Asterisk: "
-#~ "rtpholdtimeout. Terminate call if rtpholdtimeout seconds of no RTP or "
-#~ "RTCP activity on the audio channel when we're on hold (must be > "
-#~ "rtptimeout). <br /> Asterisk: rtpkeepalive. Send keepalives in the RTP "
-#~ "stream to keep NAT open during periods where no RTP stream may be flowing "
-#~ "(like on hold)."
-#~ msgstr ""
-#~ "対応する Asterisk 設定: rtptimeout。保留されておらず、指定されたタイムアウ"
-#~ "ト(秒) 以上の時間に渡り、音声チャネルに RTP または RTCP パケットがなかった"
-#~ "ときに、コールを終了させます。この設定を使用することで、電源トラブル発生や"
-#~ "ネットワーク切断のために応答しなくなった端末とのコールを終了させることがで"
-#~ "きます。<br/> 対応するAsterisk設定: rtpholdtimeout。保留されている場合で、"
-#~ "指定されたタイムアウト（秒）以上の時間に渡り、音声チャネルにRTPまたはRTCP"
-#~ "パケットがなかったときに、コールを終了させます（rtptimeoutより大きな値でな"
-#~ "ければなりません）。<br /> 対応するAsterisk設定: rtpkeepalive。RTPストリー"
-#~ "ムが流れていない場合（保留されている場合など）に、NAT接続を維持するためRTP"
-#~ "ストリームにkeepaliveを送信します。"
-
-#~ msgid ""
-#~ "Asterisk: t38pt_udptl. Enables T38 passthrough if enabled. This SIP "
-#~ "channels that support sending/receiving T38 Fax codecs to pass the call. "
-#~ "Asterisk can not process the media."
-#~ msgstr ""
-#~ "対応するAsterisk設定：t38pt_udptl。「はい」の場合は、T38パススルーを有効に"
-#~ "します。コールを処理するには、T38ファックスの送信・受信をサポートするSIP"
-#~ "チャネルが必要です。Asteriskはメディアを処理できません。"
-
-#~ msgid "Bind Port (bindport) must be between 1024..65535, default 5060"
-#~ msgstr ""
-#~ "バインドポート (bindport)は、1024～65535 でなければなりません。デフォル"
-#~ "ト: 5060。"
-
-#~ msgid ""
-#~ "Check the desired codecs, all others will be disabled unless explicitly "
-#~ "enabled in a device or trunks configuration. Drag to re-order."
-#~ msgstr ""
-#~ "使いたいコーデックをチェックしてください。チェックされていないその他のコー"
-#~ "デックは、端末やトランク設定で明示的に有効にされていない限り、無効になりま"
-#~ "す。ドラッグで順番を変更することができます。"
-
-#~ msgid "Default Language for a channel, Asterisk: language"
-#~ msgstr "チャネルのデフォルト言語。対応するAsterisk設定：language。"
-
-#~ msgid "Disable"
-#~ msgstr "無効"
-
-#~ msgid "Enable"
-#~ msgstr "有効"
-
-#~ msgid ""
-#~ "Enable Asterisk srvlookup. See current version of Asterisk for "
-#~ "limitations on SRV functionality."
-#~ msgstr ""
-#~ "対応するAsterisk設定：srvlookup。SRV機能の詳細については、Asteriskのドキュ"
-#~ "メントを参照してください。"
-
-#~ msgid ""
-#~ "External FQDN as seen on the WAN side of the router and updated "
-#~ "dynamically, e.g. mydomain.dyndns.com. (asterisk: externhost)"
-#~ msgstr ""
-#~ "ルーターのWAN側などIPアドレスが動的に更新される外部FQDN、例えばmydomain."
-#~ "dyndns.com。（対応する Asterisk設定：externhost）"
-
-#~ msgid "External IP"
-#~ msgstr "外部IP"
-
-#~ msgid "External IP can not be blank"
-#~ msgstr "外部IPを空にすることはできません。"
-
-#~ msgid "Failed to auto-detect local network settings"
-#~ msgstr "ローカルネットワーク設定を検知できませんでした。"
-
-#~ msgid "Failed to auto-detect settings"
-#~ msgstr "設定を自動検知できませんでした。"
-
-#~ msgid ""
-#~ "File %s should not have any settings in it. Those settings should be "
-#~ "removed."
-#~ msgstr "%s に設定を記述できません。それらの設定を削除してください。"
-
-#~ msgid ""
-#~ "Indicate whether the box has a public IP or requires NAT settings. "
-#~ "Automatic configuration of what is often put in sip_nat.conf"
-#~ msgstr ""
-#~ "サーバーはパブリックIPを持っているのか、NAT設定が必要か指定します。この設"
-#~ "定により、sip_nat.confを自動設定します。"
-
-#~ msgid "Jitter Buffer"
-#~ msgstr "ジッターバッファー"
-
-#~ msgid "Jitter Buffer Size"
-#~ msgstr "ジッターバッファーサイズ"
-
-#~ msgid "Language"
-#~ msgstr "言語"
-
-#~ msgid ""
-#~ "Local network settings (Asterisk: localnet) in the form of ip/mask such "
-#~ "as 192.168.1.0/255.255.255.0. For networks with more 1 lan subnets, use "
-#~ "the Add Local Network Field button for more fields. Blank fields will be "
-#~ "removed upon submitting."
-#~ msgstr ""
-#~ "ローカルネットワーク設定 (対応するAsterisk設定：localnet)を、IPアドレス/"
-#~ "ネットワークマスクフォーマット（例: 192.168.1.0/255.255.255.0）で記述して"
-#~ "ください。1つ以上のサブネットを持っているネットワークの場合には、ローカル"
-#~ "ネットワークフィールド追加ボタンを使用して、フィールドを追加してください。"
-#~ "空のフィールドは送信後、削除されます。"
-
-#~ msgid "RTP Timers"
-#~ msgstr "RTPタイマー"
-
-#~ msgid "Refresh Rate"
-#~ msgstr "更新間隔"
-
-#~ msgid "Registration Times"
-#~ msgstr "レジスト回数"
-
-#~ msgid "Registrations"
-#~ msgstr "レジスト"
-
-#~ msgid "SRV Lookup"
-#~ msgstr "SRVルックアップ"
-
-#~ msgid "setting default value of %s"
-#~ msgstr "%sのデフォルト値を設定中…"
-
-#~ msgid "ulaw, alaw, gsm added"
-#~ msgstr "ulaw, alaw, gsm を追加しました。"
+msgstr ""
