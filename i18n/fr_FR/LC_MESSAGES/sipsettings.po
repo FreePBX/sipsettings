@@ -9,15 +9,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-29 12:11-0700\n"
+"POT-Creation-Date: 2017-06-23 14:47-0700\n"
 "PO-Revision-Date: 2017-03-13 00:43+0200\n"
 "Last-Translator: Nicolas <freepbx@riendeau.org>\n"
 "Language-Team: French <http://weblate.freepbx.org/projects/freepbx/"
 "sipsettings/fr_FR/>\n"
+"Language: fr_FR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fr_FR\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 2.4\n"
 
@@ -90,7 +90,7 @@ msgid ""
 "<strong>restarted</strong>, not just reloaded."
 msgstr ""
 
-#: assets/js/sipsettings.js:131
+#: assets/js/sipsettings.js:132
 msgid ""
 "An Error occurred trying fetch network configuration and external IP address"
 msgstr ""
@@ -280,8 +280,8 @@ msgstr ""
 #, php-format
 msgid "Default bind port for CHAN_PJSIP is: %s, CHAN_SIP is: %s"
 msgstr ""
-"Le port d'écoute par défaut de CHAN_PJSIP est : %s, celui de CHAN_SIP est : %"
-"s"
+"Le port d'écoute par défaut de CHAN_PJSIP est : %s, celui de CHAN_SIP est : "
+"%s"
 
 #: chansip.page.php:1091
 msgid ""
@@ -383,12 +383,12 @@ msgstr ""
 msgid "End"
 msgstr "Fin"
 
-#: assets/js/sipsettings.js:191 assets/js/sipsettings.js:194
-#: assets/js/sipsettings.js:203
+#: assets/js/sipsettings.js:192 assets/js/sipsettings.js:195
+#: assets/js/sipsettings.js:204
 msgid "Enter IP Address"
 msgstr ""
 
-#: assets/js/sipsettings.js:199 assets/js/sipsettings.js:202
+#: assets/js/sipsettings.js:200 assets/js/sipsettings.js:203
 #, perl-format
 msgid "Error: %s"
 msgstr "Erreur : %s"
@@ -407,7 +407,7 @@ msgstr ""
 msgid "External IP Address"
 msgstr "Adresse IP externe"
 
-#: functions.inc.php:389 assets/js/sipsettings.js:19
+#: functions.inc.php:389 assets/js/sipsettings.js:20
 msgid ""
 "External IP can not be blank when NAT Mode is set to Static and no default "
 "IP address provided on the main page"
@@ -517,7 +517,7 @@ msgid ""
 "to disable."
 msgstr ""
 
-#: assets/js/sipsettings.js:184
+#: assets/js/sipsettings.js:185
 msgid "Loading"
 msgstr ""
 
@@ -694,7 +694,7 @@ msgstr ""
 msgid "Override External IP"
 msgstr ""
 
-#: assets/js/sipsettings.js:172
+#: assets/js/sipsettings.js:173
 msgid "PJSIP transport port conflicts with SIP port"
 msgstr ""
 
@@ -712,7 +712,7 @@ msgstr ""
 msgid "Port to Listen On"
 msgstr ""
 
-#: assets/js/sipsettings.js:13
+#: assets/js/sipsettings.js:14
 msgid ""
 "Port/Bind Address has changed. This requires an Asterisk restart after Apply "
 "Config"

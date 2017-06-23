@@ -9,11 +9,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-29 12:11-0700\n"
+"POT-Creation-Date: 2017-06-23 14:47-0700\n"
 "PO-Revision-Date: 2017-06-07 15:50+0200\n"
 "Last-Translator: Michal <mboltz@tlen.pl>\n"
-"Language-Team: Polish (Polish) "
-"<http://weblate.freepbx.org/projects/freepbx/sipsettings/pl_PL/>\n"
+"Language-Team: Polish (Polish) <http://weblate.freepbx.org/projects/freepbx/"
+"sipsettings/pl_PL/>\n"
 "Language: pl_PL\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -110,7 +110,7 @@ msgstr ""
 "Ostrzegaj też: po włączeniu/wyłączeniu transportu asterisk musi być "
 "<strong>restarted</strong>, a nie tylko załadowany ponownie."
 
-#: assets/js/sipsettings.js:131
+#: assets/js/sipsettings.js:132
 msgid ""
 "An Error occurred trying fetch network configuration and external IP address"
 msgstr ""
@@ -455,12 +455,12 @@ msgstr ""
 msgid "End"
 msgstr "Koniec"
 
-#: assets/js/sipsettings.js:191 assets/js/sipsettings.js:194
-#: assets/js/sipsettings.js:203
+#: assets/js/sipsettings.js:192 assets/js/sipsettings.js:195
+#: assets/js/sipsettings.js:204
 msgid "Enter IP Address"
 msgstr "Wprowadź adres IP"
 
-#: assets/js/sipsettings.js:199 assets/js/sipsettings.js:202
+#: assets/js/sipsettings.js:200 assets/js/sipsettings.js:203
 #, perl-format
 msgid "Error: %s"
 msgstr "Błąd: %s"
@@ -481,7 +481,7 @@ msgstr ""
 msgid "External IP Address"
 msgstr "Zewnętrzny adres IP"
 
-#: functions.inc.php:389 assets/js/sipsettings.js:19
+#: functions.inc.php:389 assets/js/sipsettings.js:20
 msgid ""
 "External IP can not be blank when NAT Mode is set to Static and no default "
 "IP address provided on the main page"
@@ -584,8 +584,8 @@ msgstr ""
 "NAT. <br/> Jeśli adres publiczny nie został prawidłowo wykryty, możesz "
 "ręcznie podać zewnętrzny adres. <br/> Jeśli adres IP nie jest statyczny, "
 "możesz podać dynamiczny host DNS Nazwa w obszarze Dynamiczne IP. <br/> "
-"Automatyczna konfiguracja tego, co jest często umieszczane w pliku "
-"sip_nat.conf"
+"Automatyczna konfiguracja tego, co jest często umieszczane w pliku sip_nat."
+"conf"
 
 #: chansip.page.php:998
 msgid "Jitter Buffer Logging"
@@ -625,7 +625,7 @@ msgstr ""
 "złamanymi znacznikami czasu, zazwyczaj wysyłanymi z egzotycznych urządzeń i "
 "programów. Można wyłączyć wartość -1."
 
-#: assets/js/sipsettings.js:184
+#: assets/js/sipsettings.js:185
 msgid "Loading"
 msgstr "Ładuję"
 
@@ -818,7 +818,7 @@ msgstr ""
 msgid "Override External IP"
 msgstr ""
 
-#: assets/js/sipsettings.js:172
+#: assets/js/sipsettings.js:173
 msgid "PJSIP transport port conflicts with SIP port"
 msgstr ""
 
@@ -836,7 +836,7 @@ msgstr ""
 msgid "Port to Listen On"
 msgstr ""
 
-#: assets/js/sipsettings.js:13
+#: assets/js/sipsettings.js:14
 msgid ""
 "Port/Bind Address has changed. This requires an Asterisk restart after Apply "
 "Config"
