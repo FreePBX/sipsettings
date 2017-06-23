@@ -479,7 +479,7 @@ foreach ($tlsowners as $chan => $txt) {
 							foreach (FreePBX::Sipsettings()->getCodecs('audio',true) as $codec => $codec_state) {
 								$codec_trans = _($codec);
 								$codec_checked = $codec_state ? 'checked' : '';
-								echo '<li><a href="#">'
+								echo '<li><a >'
 									. '<img src="assets/sipsettings/images/arrow_up_down.png" height="16" width="16" border="0" alt="move" style="float:none; margin-left:-6px; margin-bottom:-3px;cursor:move" /> '
 									. '<input type="checkbox" '
 									. ($codec_checked ? 'value="'. $seq++ . '" ' : '')
