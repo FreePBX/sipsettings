@@ -32,9 +32,20 @@ if (!empty($version)) {
 		$haspjsip = false;
 	}
 } else {
-	// Well. I don't know what version of Asterisk I'm running.
-	// Assume less than 12.
-	$haspjsip = false;
+	$lastline = exec("asterisk -rx 'core show version' 2>&1", $tmpout, $ret);
+	$astver = $tmpout[0];
+	if (preg_match('/^Asterisk (?:SVN-|GIT-)?(?:branch-)?(\d+(\.\d+)*)(-?(.*)) built/', $astver, $matches) && !empty($matches[1])) {
+		FreePBX::Config()->update('ASTVERSION', $matches[1]);
+		if (version_compare($matches[1], "12.2.0", ">=")) {
+			$haspjsip = true;
+		} else {
+			$haspjsip = false;
+		}
+	} else {
+		// Well. I don't know what version of Asterisk I'm running.
+		// Assume less than 12.
+		$haspjsip = false;
+	}
 }
 
 if ($haspjsip) {
@@ -63,8 +74,8 @@ if(DB::IsError($check)) {
 		array('ulaw'    ,'1', '0', '1'),
 		array('alaw'    ,'2', '1', '1'),
 		array('slin'    ,'' , '2', '1'),
-		array('gsm'     ,'3', '3', '1'),
-		array('g726'    ,'4', '4', '1'),
+		array('gsm'     ,'4', '3', '1'),
+		array('g726'    ,'5', '4', '1'),
 		array('g729'    ,'' , '5', '1'),
 		array('ilbc'    ,'' , '6', '1'),
 		array('g723'    ,'' , '7', '1'),
@@ -72,7 +83,7 @@ if(DB::IsError($check)) {
 		array('adpcm'   ,'' , '9', '1'),
 		array('lpc10'   ,'' ,'10', '1'),
 		array('speex'   ,'' ,'11', '1'),
-		array('g722'    ,'' ,'12', '1'),
+		array('g722'    ,'3' ,'12', '1'),
 		array('bindport',$chansip_port, '1', '0'),
 		array('tlsbindport',$chansiptls_port, '1', '0'),
 	);
