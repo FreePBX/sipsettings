@@ -9,11 +9,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-23 14:47-0700\n"
+"POT-Creation-Date: 2017-06-27 13:03-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -277,7 +276,7 @@ msgstr ""
 msgid "Default TLS Port Assignment"
 msgstr ""
 
-#: install.php:59
+#: install.php:70
 #, php-format
 msgid "Default bind port for CHAN_PJSIP is: %s, CHAN_SIP is: %s"
 msgstr ""
@@ -599,27 +598,27 @@ msgid ""
 "change with future releases."
 msgstr ""
 
-#: install.php:106
+#: install.php:117
 msgid "Migrate rtp.conf values if needed and initialize"
 msgstr ""
 
-#: install.php:204
+#: install.php:215
 msgid "Migrating Audio Codecs"
 msgstr ""
 
-#: install.php:157
+#: install.php:168
 msgid "Migrating LocalNets and Netmasks"
 msgstr ""
 
-#: install.php:224
+#: install.php:235
 msgid "Migrating Video Codecs"
 msgstr ""
 
-#: install.php:132
+#: install.php:143
 msgid "Migrating rtpend Setting from Old Format to BMO Object"
 msgstr ""
 
-#: install.php:118
+#: install.php:129
 msgid "Migrating rtpstart Setting from Old Format to BMO Object"
 msgstr ""
 
@@ -949,7 +948,7 @@ msgid ""
 "tripping over a cable."
 msgstr ""
 
-#: install.php:59
+#: install.php:70
 #, php-format
 msgid ""
 "The default bind ports for %s have changed. Please keep this is mind while "
@@ -1133,7 +1132,7 @@ msgid ""
 "You may use this to to define an additional local network per interface."
 msgstr ""
 
-#: install.php:100
+#: install.php:111
 msgid "already exists"
 msgstr ""
 
@@ -1145,7 +1144,7 @@ msgstr ""
 msgid "checking for sipsettings table.."
 msgstr ""
 
-#: install.php:84
+#: install.php:95
 msgid "fatal error occurred populating defaults, check module"
 msgstr ""
 
@@ -1162,11 +1161,11 @@ msgstr ""
 msgid "no"
 msgstr ""
 
-#: install.php:53
+#: install.php:64
 msgid "none, creating table"
 msgstr ""
 
-#: install.php:61
+#: install.php:72
 msgid "populating default codecs.."
 msgstr ""
 
@@ -1178,13 +1177,13 @@ msgstr ""
 msgid "rtpholdtimeout must be higher than rtptimeout"
 msgstr ""
 
-#: install.php:114
-#: install.php:128
+#: install.php:125
+#: install.php:139
 #, php-format
 msgid "saving previous value of %s"
 msgstr ""
 
-#: install.php:86
+#: install.php:97
 msgid "ulaw, alaw, gsm, g726 added"
 msgstr ""
 

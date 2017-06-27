@@ -9,15 +9,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-23 14:47-0700\n"
+"POT-Creation-Date: 2017-06-27 13:03-0400\n"
 "PO-Revision-Date: 2016-12-12 02:44+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/"
 "sipsettings/es_ES/>\n"
-"Language: es_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: es_ES\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.4\n"
 
@@ -332,7 +332,7 @@ msgstr "Contexto Por Defecto"
 msgid "Default TLS Port Assignment"
 msgstr "Asignación de puerto TLS predeterminada"
 
-#: install.php:59
+#: install.php:70
 #, php-format
 msgid "Default bind port for CHAN_PJSIP is: %s, CHAN_SIP is: %s"
 msgstr ""
@@ -712,27 +712,27 @@ msgstr ""
 "Método de transporte SSL (TLS SOLAMENTE). El valor predeterminado es sslv2, "
 "pero puede cambiar con futuras versiones."
 
-#: install.php:106
+#: install.php:117
 msgid "Migrate rtp.conf values if needed and initialize"
 msgstr "Migrar valores rtp.conf si es necesario e inicializar"
 
-#: install.php:204
+#: install.php:215
 msgid "Migrating Audio Codecs"
 msgstr "Migración de Audio Codecs"
 
-#: install.php:157
+#: install.php:168
 msgid "Migrating LocalNets and Netmasks"
 msgstr "Migrando LocalNets y máscaras de red"
 
-#: install.php:224
+#: install.php:235
 msgid "Migrating Video Codecs"
 msgstr "Migrando Video Codecs"
 
-#: install.php:132
+#: install.php:143
 msgid "Migrating rtpend Setting from Old Format to BMO Object"
 msgstr "Migrando Ajuste rtpend desde el antiguo formato de Objeto BMO"
 
-#: install.php:118
+#: install.php:129
 msgid "Migrating rtpstart Setting from Old Format to BMO Object"
 msgstr "Migrando Ajuste rtpstart desde el antiguo formato a Objeto BMO"
 
@@ -1071,7 +1071,7 @@ msgstr ""
 "es para poder interrumpir una llamada en el caso de un teléfono que "
 "desaparece de la red, como un powerloss o alguien tropezó con un cable."
 
-#: install.php:59
+#: install.php:70
 #, php-format
 msgid ""
 "The default bind ports for %s have changed. Please keep this is mind while "
@@ -1277,7 +1277,7 @@ msgid ""
 msgstr ""
 "Usted puede usar esto para definir una red local adicional por interfaz."
 
-#: install.php:100
+#: install.php:111
 msgid "already exists"
 msgstr "ya existe"
 
@@ -1289,7 +1289,7 @@ msgstr "chan_pjsip y chan_sip"
 msgid "checking for sipsettings table.."
 msgstr "verificando para tabla sipsettings.."
 
-#: install.php:84
+#: install.php:95
 msgid "fatal error occurred populating defaults, check module"
 msgstr "error fatal ocurrido insertando valores por defecto, verifique módulo"
 
@@ -1305,11 +1305,11 @@ msgstr "nunca"
 msgid "no"
 msgstr "no"
 
-#: install.php:53
+#: install.php:64
 msgid "none, creating table"
 msgstr "ninguna, creando tabla"
 
-#: install.php:61
+#: install.php:72
 msgid "populating default codecs.."
 msgstr "insertando los codecs por defecto.."
 
@@ -1321,12 +1321,12 @@ msgstr "ruta"
 msgid "rtpholdtimeout must be higher than rtptimeout"
 msgstr "rtpholdtimeout debe ser superior a rtptimeout"
 
-#: install.php:114 install.php:128
+#: install.php:125 install.php:139
 #, php-format
 msgid "saving previous value of %s"
 msgstr "guardando valores previos de %s"
 
-#: install.php:86
+#: install.php:97
 msgid "ulaw, alaw, gsm, g726 added"
 msgstr "añadido ulaw, alaw, gsm, g726"
 
