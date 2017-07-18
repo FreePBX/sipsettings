@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX sipsettings\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-29 16:27-0400\n"
+"POT-Creation-Date: 2017-07-18 12:42-0400\n"
 "PO-Revision-Date: 2011-03-20 00:00+0100\n"
 "Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
 "Language-Team: Swedish\n"
@@ -102,7 +102,7 @@ msgid ""
 "<strong>restarted</strong>, not just reloaded."
 msgstr ""
 
-#: assets/js/sipsettings.js:132
+#: assets/js/sipsettings.js:141
 msgid ""
 "An Error occurred trying fetch network configuration and external IP address"
 msgstr ""
@@ -415,12 +415,12 @@ msgstr ""
 msgid "End"
 msgstr ""
 
-#: assets/js/sipsettings.js:192 assets/js/sipsettings.js:195
-#: assets/js/sipsettings.js:204
+#: assets/js/sipsettings.js:201 assets/js/sipsettings.js:204
+#: assets/js/sipsettings.js:213
 msgid "Enter IP Address"
 msgstr ""
 
-#: assets/js/sipsettings.js:200 assets/js/sipsettings.js:203
+#: assets/js/sipsettings.js:209 assets/js/sipsettings.js:212
 #, perl-format
 msgid "Error: %s"
 msgstr ""
@@ -553,7 +553,7 @@ msgid ""
 "to disable."
 msgstr ""
 
-#: assets/js/sipsettings.js:185
+#: assets/js/sipsettings.js:194
 msgid "Loading"
 msgstr ""
 
@@ -732,7 +732,7 @@ msgstr "Andra SIP-inställningar"
 msgid "Override External IP"
 msgstr ""
 
-#: assets/js/sipsettings.js:173
+#: assets/js/sipsettings.js:182
 msgid "PJSIP transport port conflicts with SIP port"
 msgstr ""
 

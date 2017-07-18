@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-29 16:27-0400\n"
+"POT-Creation-Date: 2017-07-18 12:42-0400\n"
 "PO-Revision-Date: 2016-12-12 02:44+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/"
@@ -107,7 +107,7 @@ msgstr ""
 "También tenga cuidado: Después de habilitar/deshabilitar un transporte, "
 "asterisk tiene que ser <strong>reiniciado </strong>, no sólo vuelto a cargar."
 
-#: assets/js/sipsettings.js:132
+#: assets/js/sipsettings.js:141
 msgid ""
 "An Error occurred trying fetch network configuration and external IP address"
 msgstr ""
@@ -451,12 +451,12 @@ msgstr ""
 msgid "End"
 msgstr "Fin"
 
-#: assets/js/sipsettings.js:192 assets/js/sipsettings.js:195
-#: assets/js/sipsettings.js:204
+#: assets/js/sipsettings.js:201 assets/js/sipsettings.js:204
+#: assets/js/sipsettings.js:213
 msgid "Enter IP Address"
 msgstr "Entre Dirección IP"
 
-#: assets/js/sipsettings.js:200 assets/js/sipsettings.js:203
+#: assets/js/sipsettings.js:209 assets/js/sipsettings.js:212
 #, perl-format
 msgid "Error: %s"
 msgstr "Error: %s"
@@ -624,7 +624,7 @@ msgstr ""
 "dispositivos y programas exóticos. Se puede establecer en -1 para "
 "deshabilitar."
 
-#: assets/js/sipsettings.js:185
+#: assets/js/sipsettings.js:194
 msgid "Loading"
 msgstr "Cargando"
 
@@ -824,7 +824,7 @@ msgstr "Otras Configuraciones SIP"
 msgid "Override External IP"
 msgstr "Sobreescribir IP Externa"
 
-#: assets/js/sipsettings.js:173
+#: assets/js/sipsettings.js:182
 msgid "PJSIP transport port conflicts with SIP port"
 msgstr "El puerto de transporte PJSIP entra en conflicto con el puerto SIP"
 
