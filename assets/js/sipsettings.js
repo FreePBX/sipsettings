@@ -46,12 +46,15 @@ $(document).ready(function() {
 	});
 
 	/* Initialize Nat GUI and respond to radio button presses */
-	if (document.getElementById("externhost").checked) {
-		$(".externip").hide();
-	} else if (document.getElementById("externip1").checked) {
-		$(".externhost").hide();
-	} else {
-		$(".nat-settings").hide();
+	/* FREEPBX-13792 detect network settings fails when only using pjsip channel driver*/
+	if(document.getElementById("externhost") !=null){
+		if (document.getElementById("externhost").checked) {
+			$(".externip").hide();
+		} else if (document.getElementById("externip1").checked) {
+			$(".externhost").hide();
+		} else {
+			$(".nat-settings").hide();
+		}
 	}
 	$("#nat-none").click(function(){
 		$(".nat-settings").hide();
@@ -66,9 +69,12 @@ $(document).ready(function() {
 	});
 
 		/* Initialize Video Support settings and show/hide */
+	/* FREEPBX-13792 detect network settings fails when only using pjsip channel driver*/
+	if(document.getElementById("videosupport-no") != null){
 		if (document.getElementById("videosupport-no").checked) {
 			$(".video-codecs").hide();
 		}
+	}
 		$("#videosupport-yes").click(function(){
 			$(".video-codecs").show();
 		});
@@ -77,9 +83,12 @@ $(document).ready(function() {
 		});
 
 		/* Initialize Jitter Buffer settings and show/hide */
+	/* FREEPBX-13792 detect network settings fails when only using pjsip channel driver*/
+	if(document.getElementById("jbenable-no") != null){
 		if (document.getElementById("jbenable-no").checked) {
 			$(".jitter-buffer").hide();
 		}
+	}
 		$("#jbenable-yes").click(function(){
 			$(".jitter-buffer").show();
 		});
