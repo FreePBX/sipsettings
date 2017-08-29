@@ -10,6 +10,12 @@ if (!$externip) {
 	$externip = ""; // Ensure any failure is always an empty string
 }
 
+
+$ice_blacklist = $this->getConfig('ice-blacklist');
+$ice_blacklist = !empty($ice_blacklist) ? $ice_blacklist : array(array("address" => "","subnet" => ""));
+$ice_host_candidates = $this->getConfig('ice-host-candidates');
+$ice_host_candidates = !empty($ice_host_candidates) ? $ice_host_candidates : array(array("local" => "","advertised" => ""));
+
 $add_local_network_field = _("Add Local Network Field");
 $submit_changes = _("Submit Changes");
 
@@ -357,6 +363,89 @@ foreach ($tlsowners as $chan => $txt) {
 		</div>
 	</div>
 	<!--END TURN Server Password-->
+</div>
+<div class="section-title" data-for="ice-blacklist">
+	<h3><i class="fa fa-minus"></i><?php echo _("ICE Blacklist") ?></h3>
+</div>
+<div class="section" data-id="ice-blacklist">
+	<div class="panel panel-info">
+		<div class="panel-heading">
+			<div class="panel-title">
+				<a data-toggle="collapse" data-target="#moreinfo-ice-blacklist" style="cursor:pointer;"><i class="glyphicon glyphicon-info-sign"></i></a>&nbsp;&nbsp;&nbsp;<?php echo _("What is ICE Blacklist?")?></div>
+		</div>
+		<!--At some point we can probably kill this... Maybe make is a 1 time panel that may be dismissed-->
+		<div class="panel-body collapse" id="moreinfo-ice-blacklist">
+			<p><?php echo _("Subnets to exclude from ICE host, srflx and relay discovery. This is useful to optimize the ICE process where a system has multiple host address ranges and/or physical interfaces and certain of them are not expected to be used for RTP. For example, VPNs and local interconnections may not be suitable or necessary for ICE. Multiple subnets may be listed. If left unconfigured, all discovered host addresses are used.")?></p>
+			<p><?php echo _("The format for these overrides is: [address] / [subnet]")?></p>
+			<p><?php echo _("This is most commonly used for WebRTC")?></p>
+		</div>
+	</div>
+	<div class="element-container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="row">
+					<div class="form-group">
+						<div class="col-md-3">
+							<label class="control-label" for=""><?php echo _("IP Addresses")?></label>
+						</div>
+						<div class="col-md-9">
+							<?php $i = 0;foreach($ice_blacklist as $can) {?>
+								<div class="form-group form-inline">
+									<input type="hidden" id="ice_blacklist_count" name="ice_blacklist_count[]" value="<?php echo $i?>"><input type="text" id="ice_blacklist_ip_<?php echo $i?>" name="ice_blacklist_ip_<?php echo $i?>" class="form-control ice-blacklist" value="<?php echo $can['address']?>"> / <input type="text" id="ice_blacklist_subnet_<?php echo $i?>" name="ice_blacklist_subnet_<?php echo $i?>" class="form-control" value="<?php echo $can['subnet']?>">
+								</div>
+							<?php $i++;} ?>
+							<div id="ice-blacklist-buttons">
+								<div>
+									<button id="ice-blacklist-add" class="btn btn-default"><?php echo _("Add Address")?></button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="section-title" data-for="ice-host-candidates">
+	<h3><i class="fa fa-minus"></i><?php echo _("ICE Host Candidates") ?></h3>
+</div>
+<div class="section" data-id="ice-host-candidates">
+	<div class="panel panel-info">
+		<div class="panel-heading">
+			<div class="panel-title">
+				<a data-toggle="collapse" data-target="#moreinfo-ice-host-candidates" style="cursor:pointer;"><i class="glyphicon glyphicon-info-sign"></i></a>&nbsp;&nbsp;&nbsp;<?php echo _("What is ICE Host Candidates?")?></div>
+		</div>
+		<!--At some point we can probably kill this... Maybe make is a 1 time panel that may be dismissed-->
+		<div class="panel-body collapse" id="moreinfo-ice-host-candidates">
+			<p><?php echo _("When Asterisk is behind a static one-to-one NAT and ICE is in use, ICE will expose the server's internal IP address as one of the host candidates. Although using STUN (see the 'stunaddr' configuration option) will provide a publicly accessible IP, the internal IP will still be sent to the remote peer. To help hide the topology of your internal network, you can override the host candidates that Asterisk will send to the remote peer.")?></p>
+			<p><?php echo _("IMPORTANT: Only use this functionality when your Asterisk server is behind a one-to-one NAT and you know what you're doing. If you do define anything here, you almost certainly will NOT want to specify 'stunaddr' or 'turnaddr' above.")?></p>
+			<p><?php echo _("The format for these overrides is: [local address] => [advertised address]>")?></p>
+			<p><?php echo _("This is most commonly used for WebRTC")?></p>
+		</div>
+	</div>
+	<div class="element-container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="row">
+					<div class="form-group">
+						<div class="col-md-3">
+							<label class="control-label" for=""><?php echo _("Candidates")?></label>
+						</div>
+						<div class="col-md-9">
+							<?php $i = 0;foreach($ice_host_candidates as $can) {?>
+								<div class="form-group form-inline">
+									<input type="hidden" id="ice_host_candidates_count" name="ice_host_candidates_count[]" value="<?php echo $i?>"><input type="text" id="ice_host_candidates_local_<?php echo $i?>" name="ice_host_candidates_local_<?php echo $i?>" class="form-control ice-host-candidate" value="<?php echo $can['local']?>"> => <input type="text" id="ice_host_candidates_advertised_<?php echo $i?>" name="ice_host_candidates_advertised_<?php echo $i?>" class="form-control" value="<?php echo $can['advertised']?>">
+								</div>
+							<?php } ?>
+							<div id="ice-host-candidates-buttons">
+								<button id="ice-host-candidates-add" class="btn btn-default"><?php echo _("Add Address")?></button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
 <div class="section-title" data-for="webrtc">
 	<h3><i class="fa fa-minus"></i><?php echo _("WebRTC Settings") ?></h3>

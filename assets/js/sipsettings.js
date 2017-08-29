@@ -45,6 +45,34 @@ $(document).ready(function() {
 		addCustomField("","");
 	});
 
+	$("#ice-host-candidates-add").click(function(e){
+		e.preventDefault();
+		var idx = $(".ice-host-candidate").size(),
+				idxp = idx - 1;
+
+		$("#ice-host-candidates-buttons").before('\
+			<div class="form-group form-inline">\
+				<input type="hidden" id="ice_host_candidates_count" name="ice_host_candidates_count[]" value="'+idx+'"> \
+				<input type="text" id="ice_host_candidates_local_'+idx+'" name="ice_host_candidates_local_'+idx+'" class="form-control ice-host-candidate" value=""> =>\
+				<input type="text" id="ice_host_candidates_advertised_'+idx+'" name="ice_host_candidates_advertised_'+idx+'" class="form-control" value="">\
+			</div>\
+		');
+	});
+
+	$("#ice-blacklist-add").click(function(e){
+		e.preventDefault();
+		var idx = $(".ice-blacklist").size(),
+				idxp = idx - 1;
+
+		$("#ice-blacklist-buttons").before('\
+			<div class="form-group form-inline">\
+				<input type="hidden" id="ice_blacklist_count" name="ice_blacklist_count[]" value="'+idx+'"> \
+				<input type="text" id="ice_blacklist_ip_'+idx+'" name="ice_blacklist_ip_'+idx+'" class="form-control ice-blacklist" value=""> /\
+				<input type="text" id="ice_blacklist_subnet_'+idx+'" name="ice_blacklist_subnet_'+idx+'" class="form-control ice-blacklist" value=""> \
+			</div>\
+		');
+	});
+
 	/* Initialize Nat GUI and respond to radio button presses */
 	/* FREEPBX-13792 detect network settings fails when only using pjsip channel driver*/
 	if(document.getElementById("externhost") !=null){

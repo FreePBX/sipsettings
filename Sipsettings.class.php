@@ -218,8 +218,37 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 
 	public function doGeneralPost() {
 
-		if (!isset($_REQUEST['Submit']))
+		if (!isset($_REQUEST['Submit'])) {
 			return;
+		}
+
+		if (isset($_POST['ice_blacklist_count'])) {
+			$ice_blacklist = array();
+			$count = !empty($_POST['ice_blacklist_count']) ? $_POST['ice_blacklist_count'] : array();
+			foreach($count as $c) {
+				if(!empty($_POST['ice_blacklist_ip_'.$c]) && !empty($_POST['ice_blacklist_subnet_'.$c])) {
+					$ice_blacklist[] = array(
+						"address" => $_POST['ice_blacklist_ip_'.$c],
+						"subnet" => $_POST['ice_blacklist_subnet_'.$c]
+					);
+				}
+			}
+			$this->setConfig('ice-blacklist',$ice_blacklist);
+		}
+
+		if (isset($_POST['ice_host_candidates_count'])) {
+			$ice_host_candidates = array();
+			$count = !empty($_POST['ice_host_candidates_count']) ? $_POST['ice_host_candidates_count'] : array();
+			foreach($count as $c) {
+				if(!empty($_POST['ice_host_candidates_local_'.$c]) && !empty($_POST['ice_host_candidates_advertised_'.$c])) {
+					$ice_host_candidates[] = array(
+						"local" => $_POST['ice_host_candidates_local_'.$c],
+						"advertised" => $_POST['ice_host_candidates_advertised_'.$c]
+					);
+				}
+			}
+			$this->setConfig('ice-host-candidates',$ice_host_candidates);
+		}
 
 		// Codecs
 		if (isset($_REQUEST['voicecodecs'])) {
@@ -326,6 +355,17 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 			if ($res && trim($res) != "") {
 				$retvar['rtp_additional.conf']['general'][$v] = strtolower($res);
 			}
+		}
+
+		$ice_blacklist = $this->getConfig('ice-blacklist');
+		$ice_blacklist = !empty($ice_blacklist) ? $ice_blacklist : array();
+		foreach($ice_blacklist as $item) {
+			$retvar['rtp_additional.conf']['general']['ice_blacklist'][] = $item['address']."/".$item['subnet'];
+		}
+		$ice_host_candidates = $this->getConfig('ice-host-candidates');
+		$ice_host_candidates = !empty($ice_host_candidates) ? $ice_host_candidates : array();
+		foreach($ice_host_candidates as $item) {
+			$retvar['rtp_additional.conf']['ice_host_candidates'][] = $item['local']." => ".$item['advertised'];
 		}
 
 		return $retvar;
