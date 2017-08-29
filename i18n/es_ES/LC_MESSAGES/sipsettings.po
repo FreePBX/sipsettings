@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-18 12:42-0400\n"
+"POT-Creation-Date: 2017-08-29 15:33-0400\n"
 "PO-Revision-Date: 2016-12-12 02:44+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/"
@@ -50,11 +50,15 @@ msgstr "%s debe ser un valor alfanumérico"
 msgid "Adaptive"
 msgstr "Adaptado"
 
+#: general.page.php:399 general.page.php:441
+msgid "Add Address"
+msgstr ""
+
 #: chansip.page.php:35
 msgid "Add Field"
 msgstr "Agregar Campo"
 
-#: chansip.page.php:37 general.page.php:13
+#: chansip.page.php:37 general.page.php:19
 msgid "Add Local Network Field"
 msgstr "Agregar Campo Red Local"
 
@@ -62,7 +66,7 @@ msgstr "Agregar Campo Red Local"
 msgid "Advanced General Settings"
 msgstr "Configuraciones Avanzadas Generales"
 
-#: general.page.php:29
+#: general.page.php:35
 msgid "Allow Anonymous Inbound SIP Calls"
 msgstr "Permitir llamadas entrantes SIP anónimas"
 
@@ -74,7 +78,7 @@ msgstr "Permitir invitados"
 msgid "Allow SIP Guests"
 msgstr "Permitir SIP Invitados"
 
-#: general.page.php:42
+#: general.page.php:48
 msgid ""
 "Allowing Inbound Anonymous SIP calls means that you will allow any call "
 "coming in form an un-known IP source to be directed to the 'from-pstn' side "
@@ -107,13 +111,13 @@ msgstr ""
 "También tenga cuidado: Después de habilitar/deshabilitar un transporte, "
 "asterisk tiene que ser <strong>reiniciado </strong>, no sólo vuelto a cargar."
 
-#: assets/js/sipsettings.js:141
+#: assets/js/sipsettings.js:169
 msgid ""
 "An Error occurred trying fetch network configuration and external IP address"
 msgstr ""
 "Error al intentar buscar a la configuración de red y la dirección IP externa"
 
-#: Sipsettings.class.php:809
+#: Sipsettings.class.php:849
 msgid ""
 "An unknown port conflict has been detected in PJSIP. Please check and "
 "validate your PJSIP Ports to ensure they're not overlapping"
@@ -205,7 +209,7 @@ msgstr ""
 "error de redundancia </li> <li> Sí sin corrección de errores - Habilita T.38 "
 "sin corrección de errores. </li> </ul>"
 
-#: chansip.page.php:327 general.page.php:462
+#: chansip.page.php:327 general.page.php:551
 msgid "Audio Codecs"
 msgstr "Códecs Audio"
 
@@ -233,21 +237,25 @@ msgstr "Bind Port (bindport) debe estar entre 1024 y 65535"
 msgid "CA Chain File"
 msgstr "Archivo de cadenas de CA"
 
-#: Sipsettings.class.php:823
+#: Sipsettings.class.php:863
 msgid "CHANSIP Port Moved"
 msgstr "CHANSIP Puerto Movido"
 
-#: Sipsettings.class.php:833
+#: Sipsettings.class.php:873
 msgid "CHANSIP TCP Disabled"
 msgstr "CHANSIP TCP Deshabilitado"
 
-#: Sipsettings.class.php:844
+#: Sipsettings.class.php:884
 msgid "CHANSIP TLS Port Moved"
 msgstr "CHANSIP TLS Puerto Movido"
 
 #: chansip.page.php:1270
 msgid "Call Events"
 msgstr "Eventos de Llamada"
+
+#: general.page.php:432
+msgid "Candidates"
+msgstr ""
 
 #: chanpj.page.php:254
 msgid "Certificate File"
@@ -261,7 +269,7 @@ msgstr "Administrador de certificados"
 msgid "Chan PJSIP Settings"
 msgstr "Configuración de Chan PJSIP"
 
-#: general.page.php:57
+#: general.page.php:63
 msgid "Chan SIP"
 msgstr "Chan SIP"
 
@@ -269,7 +277,7 @@ msgstr "Chan SIP"
 msgid "Chan SIP Settings"
 msgstr "Configuración Chan SIP"
 
-#: Sipsettings.class.php:844
+#: Sipsettings.class.php:884
 #, php-format
 msgid ""
 "Chansip was assigned a port that was already in use for TLS traffic. The "
@@ -278,7 +286,7 @@ msgstr ""
 "Chansip recibió un puerto que ya estaba en uso para el tráfico TLS. El "
 "puerto Chansip TLS se ha cambiado a %s"
 
-#: Sipsettings.class.php:833
+#: Sipsettings.class.php:873
 msgid ""
 "Chansip was assigned the same port as pjsip for TCP traffic. Chansip has had "
 "the tcpenable setting removed, and is no longer listening for TCP "
@@ -287,7 +295,7 @@ msgstr ""
 "Chansip se asignó el mismo puerto que pjsip para el tráfico TCP. Chansip ha "
 "eliminado el ajuste tcpenable y ya no está escuchando las conexiones TCP."
 
-#: Sipsettings.class.php:823
+#: Sipsettings.class.php:863
 #, php-format
 msgid ""
 "Chansip was assigned the same port as pjsip for UDP traffic. The Chansip "
@@ -300,7 +308,7 @@ msgstr ""
 msgid "Check to enable and then choose allowed codecs."
 msgstr "Marcar para activar y elija códecs permitidos."
 
-#: general.page.php:472
+#: general.page.php:561
 msgid "Codecs"
 msgstr "Códecs"
 
@@ -328,7 +336,7 @@ msgstr "Predeterminado"
 msgid "Default Context"
 msgstr "Contexto Por Defecto"
 
-#: general.page.php:52
+#: general.page.php:58
 msgid "Default TLS Port Assignment"
 msgstr "Asignación de puerto TLS predeterminada"
 
@@ -354,7 +362,7 @@ msgstr ""
 msgid "Default length of incoming and outgoing registrations."
 msgstr "Longitud predeterminada de los registros entrantes y salientes."
 
-#: general.page.php:118
+#: general.page.php:124
 msgid "Detect Network Settings"
 msgstr "Detectar configuración de red"
 
@@ -447,21 +455,21 @@ msgstr ""
 "SIP ya que normalmente tienen sus propios búferes de fluctuación de fase. "
 "Vea jbforce para forzar su uso siempre."
 
-#: general.page.php:200
+#: general.page.php:206
 msgid "End"
 msgstr "Fin"
 
-#: assets/js/sipsettings.js:201 assets/js/sipsettings.js:204
-#: assets/js/sipsettings.js:213
+#: assets/js/sipsettings.js:229 assets/js/sipsettings.js:232
+#: assets/js/sipsettings.js:241
 msgid "Enter IP Address"
 msgstr "Entre Dirección IP"
 
-#: assets/js/sipsettings.js:209 assets/js/sipsettings.js:212
+#: assets/js/sipsettings.js:237 assets/js/sipsettings.js:240
 #, perl-format
 msgid "Error: %s"
 msgstr "Error: %s"
 
-#: general.page.php:113
+#: general.page.php:119
 msgid "External Address"
 msgstr "Dirección Externa"
 
@@ -535,7 +543,7 @@ msgstr ""
 "Generar eventos de administrador cuando SIP realiza eventos (por ejemplo, "
 "hold)."
 
-#: general.page.php:283 general.page.php:384
+#: general.page.php:289 general.page.php:473
 msgid ""
 "Hostname or address for the STUN server used when determining the external "
 "IP address and port an RTP session can be reached at. The port number is "
@@ -548,7 +556,7 @@ msgstr ""
 "predeterminado 3478. Esta opción está en blanco por defecto. (Una lista de "
 "servidores STUN: http://wiki.freepbx.org/x/YQCUAg)"
 
-#: general.page.php:307 general.page.php:408
+#: general.page.php:313 general.page.php:497
 msgid ""
 "Hostname or address for the TURN server to be used as a relay. The port "
 "number is optional. If omitted the default value of 3478 will be used. This "
@@ -557,6 +565,26 @@ msgstr ""
 "Nombre de host o dirección del servidor TURN para ser utilizado como un "
 "relé. El número de puerto es opcional. Si se omite se utilizará el valor "
 "predeterminado de 3478. Esta opción está en blanco de forma predeterminada."
+
+#: general.page.php:368
+msgid "ICE Blacklist"
+msgstr ""
+
+#: general.page.php:410
+msgid "ICE Host Candidates"
+msgstr ""
+
+#: general.page.php:421
+msgid ""
+"IMPORTANT: Only use this functionality when your Asterisk server is behind a "
+"one-to-one NAT and you know what you're doing. If you do define anything "
+"here, you almost certainly will NOT want to specify 'stunaddr' or 'turnaddr' "
+"above."
+msgstr ""
+
+#: general.page.php:389
+msgid "IP Addresses"
+msgstr ""
 
 #: chansip.page.php:218
 msgid "IP Configuration"
@@ -624,11 +652,11 @@ msgstr ""
 "dispositivos y programas exóticos. Se puede establecer en -1 para "
 "deshabilitar."
 
-#: assets/js/sipsettings.js:194
+#: assets/js/sipsettings.js:222
 msgid "Loading"
 msgstr "Cargando"
 
-#: general.page.php:152
+#: general.page.php:158
 msgid "Local Networks"
 msgstr "Redes Locales"
 
@@ -652,7 +680,7 @@ msgstr ""
 msgid "Local network"
 msgstr "Red Local"
 
-#: general.page.php:169
+#: general.page.php:175
 msgid ""
 "Local network settings in the form of ip/cidr or ip/netmask. For networks "
 "with more than 1 LAN subnets, use the Add Local Network Field button for "
@@ -748,7 +776,7 @@ msgstr "Ajustes PJSip Misc"
 msgid "NAT"
 msgstr "NAT"
 
-#: chansip.page.php:177 general.page.php:102
+#: chansip.page.php:177 general.page.php:108
 msgid "NAT Settings"
 msgstr "Configuraciones NAT"
 
@@ -758,7 +786,7 @@ msgstr "Configuraciones NAT"
 #: chansip.page.php:739 chansip.page.php:766 chansip.page.php:923
 #: chansip.page.php:951 chansip.page.php:1005 chansip.page.php:1198
 #: chansip.page.php:1225 chansip.page.php:1251 chansip.page.php:1277
-#: general.page.php:36 general.page.php:230 general.page.php:253
+#: general.page.php:42 general.page.php:236 general.page.php:259
 msgid "No"
 msgstr "No"
 
@@ -824,15 +852,15 @@ msgstr "Otras Configuraciones SIP"
 msgid "Override External IP"
 msgstr "Sobreescribir IP Externa"
 
-#: assets/js/sipsettings.js:182
+#: assets/js/sipsettings.js:210
 msgid "PJSIP transport port conflicts with SIP port"
 msgstr "El puerto de transporte PJSIP entra en conflicto con el puerto SIP"
 
-#: general.page.php:57
+#: general.page.php:63
 msgid "PJSip"
 msgstr "PJSip"
 
-#: general.page.php:355 general.page.php:456
+#: general.page.php:361 general.page.php:545
 msgid ""
 "Password used to authenticate with TURN relay server. This option is "
 "disabled by default."
@@ -860,7 +888,7 @@ msgstr "Archivo de Llave Privada"
 msgid "Public IP"
 msgstr "IP Pública"
 
-#: general.page.php:223
+#: general.page.php:229
 msgid "RTP Checksums"
 msgstr "Verificación RTP"
 
@@ -872,11 +900,11 @@ msgstr "Tiempo de espera de retención RTP"
 msgid "RTP Keep Alive"
 msgstr "RTP Keep Alive"
 
-#: general.page.php:186
+#: general.page.php:192
 msgid "RTP Port Ranges"
 msgstr "Rango de puertos RTP"
 
-#: general.page.php:176
+#: general.page.php:182
 msgid "RTP Settings"
 msgstr "Configuraciones RTP"
 
@@ -920,7 +948,7 @@ msgstr "Requiere verificación del certificado de cliente (TLS SOLAMENTE)."
 msgid "Require verification of server certificate (TLS ONLY)."
 msgstr "Requiere verificación del certificado del servidor (TLS SOLAMENTE)."
 
-#: Sipsettings.class.php:539
+#: Sipsettings.class.php:579
 msgid "Reset"
 msgstr "Reinicio"
 
@@ -945,7 +973,7 @@ msgstr "Información del SIP Driver"
 msgid "SSL Method"
 msgstr "Método SSL"
 
-#: general.page.php:271 general.page.php:372
+#: general.page.php:277 general.page.php:461
 msgid "STUN Server Address"
 msgstr "Dirección del servidor STUN"
 
@@ -953,7 +981,7 @@ msgstr "Dirección del servidor STUN"
 msgid "Seconds"
 msgstr "Segundos"
 
-#: general.page.php:21
+#: general.page.php:27
 msgid "Security Settings"
 msgstr "Configuraciones de seguridad"
 
@@ -991,7 +1019,7 @@ msgstr "Ajustes en %s pueden anular estos. Estos valores deben ser eliminados."
 msgid "Show Advanced Settings"
 msgstr "Mostrar configuración avanzada"
 
-#: general.page.php:192
+#: general.page.php:198
 msgid "Start"
 msgstr "Inicio"
 
@@ -999,17 +1027,27 @@ msgstr "Inicio"
 msgid "Static IP"
 msgstr "IP Estática"
 
-#: general.page.php:246
+#: general.page.php:252
 msgid "Strict RTP"
 msgstr "Estricto RTP"
 
-#: Sipsettings.class.php:544
+#: Sipsettings.class.php:584
 msgid "Submit"
 msgstr "Enviar"
 
-#: chansip.page.php:38 general.page.php:14
+#: chansip.page.php:38 general.page.php:20
 msgid "Submit Changes"
 msgstr "Aplicar Cambios"
+
+#: general.page.php:378
+msgid ""
+"Subnets to exclude from ICE host, srflx and relay discovery. This is useful "
+"to optimize the ICE process where a system has multiple host address ranges "
+"and/or physical interfaces and certain of them are not expected to be used "
+"for RTP. For example, VPNs and local interconnections may not be suitable or "
+"necessary for ICE. Multiple subnets may be listed. If left unconfigured, all "
+"discovered host addresses are used."
+msgstr ""
 
 #: chansip.page.php:364
 msgid "T38 Pass-Through"
@@ -1038,15 +1076,15 @@ msgstr "TLS Bind Port"
 msgid "TLS/SSL/SRTP Settings"
 msgstr "Configuración TLS/SSL/SRTP"
 
-#: general.page.php:295 general.page.php:396
+#: general.page.php:301 general.page.php:485
 msgid "TURN Server Address"
 msgstr "Dirección del servidor TURN"
 
-#: general.page.php:343 general.page.php:444
+#: general.page.php:349 general.page.php:533
 msgid "TURN Server Password"
 msgstr "Contraseña del Servidor TURN"
 
-#: general.page.php:319 general.page.php:420
+#: general.page.php:325 general.page.php:509
 msgid "TURN Server Username"
 msgstr "Usuario del Servidor TURN"
 
@@ -1082,31 +1120,44 @@ msgstr ""
 "esto durante la configuración de sus dispositivos. Puede cambiar esto en SIP "
 "Settings. CHAN_PJSIP es: %s, CHAN_SIP es: %s"
 
+#: general.page.php:379
+msgid "The format for these overrides is: [address] / [subnet]"
+msgstr ""
+
+#: general.page.php:422
+msgid ""
+"The format for these overrides is: [local address] => [advertised address]>"
+msgstr ""
+
 #: chanpj.page.php:109
 msgid "The port that this transport should listen on"
 msgstr "El puerto que este transporte debe escuchar en"
 
-#: general.page.php:213
+#: general.page.php:219
 msgid "The starting and ending RTP port range"
 msgstr "El rango de puertos RTP de inicio y fin"
 
-#: general.page.php:105
+#: general.page.php:111
 msgid "These settings apply to both chan_sip and chan_pjsip."
 msgstr "Estos ajustes se aplican a ambos chan_sip y chan_pjsip."
 
-#: general.page.php:126
+#: general.page.php:132
 msgid "This address will be provided to clients if NAT is enabled and detected"
 msgstr ""
 "Esta dirección será proporcionada a los clientes si NAT está habilitada y "
 "detectada"
 
-#: general.page.php:475
+#: general.page.php:380 general.page.php:423
+msgid "This is most commonly used for WebRTC"
+msgstr ""
+
+#: general.page.php:564
 msgid "This is the default Codec setting for new Trunks and Extensions."
 msgstr ""
 "Esta es la configuración de Codec por defecto para las nuevas líneas y "
 "extensiones."
 
-#: general.page.php:96
+#: general.page.php:102
 msgid ""
 "This lets you explicitly control the SIP Protocol that listens on the "
 "default SIP TLS port (5061). If an option is not available, it is because "
@@ -1118,7 +1169,7 @@ msgstr ""
 "porque ese protocolo no está habilitado, o, que el protocolo no tiene "
 "habilitado TLS. Si cambia esto, tendrá que reiniciar Asterisk"
 
-#: general.page.php:259
+#: general.page.php:265
 msgid ""
 "This will drop RTP packets that do not come from the source of the RTP "
 "stream. It is unusual to turn this off"
@@ -1142,11 +1193,11 @@ msgstr ""
 msgid "Unknown Error"
 msgstr "Error desconocido"
 
-#: Sipsettings.class.php:809
+#: Sipsettings.class.php:849
 msgid "Unknown Port Conflict"
 msgstr "Conflicto de puerto desconocido"
 
-#: Sipsettings.class.php:363 Sipsettings.class.php:445
+#: Sipsettings.class.php:403 Sipsettings.class.php:485
 msgid "Unknown Type"
 msgstr "Tipo Desconocido"
 
@@ -1167,7 +1218,7 @@ msgstr ""
 "versión Asterisk 1.4 o superior. Algunos valores no pueden existir en "
 "Asterisk 1.2 y no se interpretarán por Asterisk."
 
-#: general.page.php:331 general.page.php:432
+#: general.page.php:337 general.page.php:521
 msgid ""
 "Username used to authenticate with TURN relay server. This option is "
 "disabled by default."
@@ -1191,9 +1242,27 @@ msgstr "Códecs de Video"
 msgid "Video Support"
 msgstr "Soporte Vídeo"
 
-#: general.page.php:362
+#: general.page.php:451
 msgid "WebRTC Settings"
 msgstr "Configuración WebRTC"
+
+#: general.page.php:374
+msgid "What is ICE Blacklist?"
+msgstr ""
+
+#: general.page.php:416
+msgid "What is ICE Host Candidates?"
+msgstr ""
+
+#: general.page.php:420
+msgid ""
+"When Asterisk is behind a static one-to-one NAT and ICE is in use, ICE will "
+"expose the server's internal IP address as one of the host candidates. "
+"Although using STUN (see the 'stunaddr' configuration option) will provide a "
+"publicly accessible IP, the internal IP will still be sent to the remote "
+"peer. To help hide the topology of your internal network, you can override "
+"the host candidates that Asterisk will send to the remote peer."
+msgstr ""
 
 #: chanpj.page.php:203 chansip.page.php:1206
 msgid ""
@@ -1212,7 +1281,7 @@ msgstr ""
 "intentos de llamadas y las llamadas entrantes de depuración que pueden estar "
 "mal configurada y que aparecen como invitados."
 
-#: general.page.php:236
+#: general.page.php:242
 msgid "Whether to enable or disable UDP checksums on RTP traffic"
 msgstr ""
 "Ya sea para activar o desactivar las sumas de comprobación UDP en el tráfico "
@@ -1224,7 +1293,7 @@ msgstr ""
 #: chansip.page.php:737 chansip.page.php:764 chansip.page.php:921
 #: chansip.page.php:949 chansip.page.php:1003 chansip.page.php:1196
 #: chansip.page.php:1223 chansip.page.php:1249 chansip.page.php:1275
-#: general.page.php:34 general.page.php:228 general.page.php:251
+#: general.page.php:40 general.page.php:234 general.page.php:257
 msgid "Yes"
 msgstr "Si"
 
