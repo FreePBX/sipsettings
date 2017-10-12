@@ -836,7 +836,7 @@ $error_displays = array_merge($error_displays,sipsettings_check_custom_files());
 				<div class="row">
 					<div class="form-group">
 						<div class="col-md-3">
-							<label class="control-label" for="minexpiry"><?php echo _("Regitration Minimum Expiry") ?></label>
+							<label class="control-label" for="minexpiry"><?php echo _("Registration Minimum Expiry") ?></label>
 							<i class="fa fa-question-circle fpbx-help-icon" data-for="minexpiry"></i>
 						</div>
 						<div class="col-md-9">
@@ -860,7 +860,7 @@ $error_displays = array_merge($error_displays,sipsettings_check_custom_files());
 				<div class="row">
 					<div class="form-group">
 						<div class="col-md-3">
-							<label class="control-label" for="maxexpiry"><?php echo _("Regitration Maximum Expiry") ?></label>
+							<label class="control-label" for="maxexpiry"><?php echo _("Registration Maximum Expiry") ?></label>
 							<i class="fa fa-question-circle fpbx-help-icon" data-for="maxexpiry"></i>
 						</div>
 						<div class="col-md-9">
