@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-29 15:33-0400\n"
+"POT-Creation-Date: 2017-10-13 21:13-0400\n"
 "PO-Revision-Date: 2017-03-13 00:43+0200\n"
 "Last-Translator: Nicolas <freepbx@riendeau.org>\n"
 "Language-Team: French <http://weblate.freepbx.org/projects/freepbx/"
@@ -786,20 +786,20 @@ msgstr ""
 msgid "Registration Default Expiry"
 msgstr ""
 
+#: chansip.page.php:863
+msgid "Registration Maximum Expiry"
+msgstr ""
+
+#: chansip.page.php:839
+msgid "Registration Minimum Expiry"
+msgstr ""
+
 #: chansip.page.php:781
 msgid "Registration Settings"
 msgstr ""
 
 #: chansip.page.php:791
 msgid "Registration Timeout"
-msgstr ""
-
-#: chansip.page.php:863
-msgid "Regitration Maximum Expiry"
-msgstr ""
-
-#: chansip.page.php:839
-msgid "Regitration Minimum Expiry"
 msgstr ""
 
 #: chansip.page.php:600
