@@ -975,4 +975,62 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 			throw new \Exception("Can't change tls owner to unknown driver '$driver'");
 		}
 	}
+
+
+	// Checks current status of TLS and SRTP on this machine.
+	public function getTLSStatus() {
+		// First, make sure we have a certificate.
+		$certman = \FreePBX::Certman();
+		$allcerts = $certman->getAllManagedCertificates();
+		if (!$allcerts) {
+			return array("result" => false, "message" => "No certificates available. Create or install one in Certman");
+		}
+
+		$retarr = array("result" => true, "message" => "");
+
+		// Return our cert info
+		foreach ($allcerts as $cert) {
+			if ($cert['default']) {
+				$retarr['cert'] = $cert;
+				break;
+			}
+		}
+
+		$retarr['driver'] = $this->getTlsPortOwner();
+
+		// And return the chansip settings.
+		$chansip = $this->getChanSipSettings();
+
+		$defaults = array("tlsenable" => "no", "tlsclientmethod" => "", "tlsdontverifyserver" => "", "tlsbindport" => "");
+		$retarr['chansip'] = $defaults;
+		foreach ($defaults as $k => $v) {
+			if (!empty($chansip[$k])) {
+				$retarr['chansip'][$k] = $chansip[$k];
+			}
+		}
+		return $retarr;
+	}
+
+	// Turn on TLS, using the channel driver specified. This will use the default
+	// Certman certificate.
+	public function enableTls($channeldriver = false) {
+		if ($channeldriver !== "chansip") {
+			throw new \Exception("Can only do chansip at the moment");
+		}
+
+		$this->updateTlsOwner("sip");
+
+		$settings = array("tlsenable" => "yes", "tlsclientmethod" => "tlsv1", "tlsdontverifyserver" => "yes");
+
+		// Get our default certificate
+		$defaultcert = \FreePBX::Certman()->getDefaultCertDetails();
+		$settings['csipcertid'] = $defaultcert['cid'];
+
+		// Now set everything
+		foreach ($settings as $k => $v) {
+			$this->updateChanSipSettings($k, $v);
+		}
+
+		return $settings;
+	}
 }

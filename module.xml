@@ -4,7 +4,7 @@
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<name>Asterisk SIP Settings</name>
-	<version>13.0.24.10</version>
+	<version>13.0.25</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>AGPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
@@ -16,6 +16,7 @@
 		Use to configure Various Asterisk SIP Settings in the General section of sip.conf. Also includes an auto-configuration tool to determine NAT settings. The module assumes Asterisk version 1.4 or higher. Some settings may not exist in Asterisk 1.2 and will be ignored by Asterisk.
 	</description>
 	<changelog>
+		*13.0.25* Backend TLS changes
 		*13.0.24.10* FREEPBX-15190 fix spelling mistakes
 		*13.0.24.9* Add ability to set ice_blacklist and ice_host_candidates for webrtc nat issues
 		*13.0.24.8* FREEPBX-13792
