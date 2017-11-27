@@ -12,28 +12,24 @@ if ($sa != "no") {
 		$vals = preg_split("/\s+/", $line);
 
 		// We only care about ipv4 (inet) lines, or definition lines
-		if ($vals[2] != "inet" && $vals[3] != "mtu")
-			continue;
-
-		if (preg_match("/(.+?)(?:@.+)?:$/", $vals[1], $res)) { // Matches vlans, which are eth0.100@eth0
-			// It's a network definition.
-			// This won't clobber an exsiting one, as it always comes
-			// before the IP addresses.
-			$interfaces[$res[1]] = array();
+		if ($vals[2] != "inet" && $vals[3] != "mtu") {
 			continue;
 		}
+
+		// Some versions of 'ip' have a backslash after the int name
 		if ($vals[4] == "scope" && $vals[5] == "host") {
-			$int = 6;
+			$intname = rtrim($vals[6], '\\');
 		} else {
-			$int = 8;
+			$intname = rtrim($vals[8], '\\');
 		}
 
 		// Strip netmask off the end of the IP address
-		$ret = preg_match("/(\d*+.\d*+.\d*+.\d*+)[\/(\d*+)]*/", $vals[3], $ip);
+		$ret = preg_match("/(\d*+.\d*+.\d*+.\d*+)\/(\d*+)/", $vals[3], $ip);
 
-		$interfaces[$vals[$int]] = array($ip[1], $vals[$int], $ip[2]);
+		$interfaces[$intname] = array($ip[1], $intname, $ip[2]);
 	}
 }
+
 $protocols = $this->getConfig("protocols");
 $protohtml = $udphtml = $bindhtml = '';
 foreach ($protocols as $p) {
