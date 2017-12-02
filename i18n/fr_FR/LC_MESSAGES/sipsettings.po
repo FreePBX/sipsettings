@@ -10,10 +10,10 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-11-27 22:41+0000\n"
-"PO-Revision-Date: 2017-03-13 00:43+0200\n"
-"Last-Translator: Nicolas <freepbx@riendeau.org>\n"
-"Language-Team: French <http://weblate.freepbx.org/projects/freepbx/"
-"sipsettings/fr_FR/>\n"
+"PO-Revision-Date: 2017-12-01 23:47+0200\n"
+"Last-Translator: CATTAN Jérémie <jeremie@famillecattan.com>\n"
+"Language-Team: French "
+"<http://weblate.freepbx.org/projects/freepbx/sipsettings/fr_FR/>\n"
 "Language: fr_FR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -87,6 +87,18 @@ msgid ""
 "If that context is changed above to something custom this setting may be "
 "rendered useless as well as if 'Allow SIP Guests' is set to no."
 msgstr ""
+"Autoriser les appels SIP anonymes entrants signifie que vous permettrez à "
+"tout appel provenant d'une source IP inconnue d'être dirigé vers le côté \""
+"from-pstn\" de votre plan de numérotation. C'est là qu'interviennent les "
+"appels entrants. Bien que FreePBX restreint sévèrement l'accès au plan de "
+"numérotation interne, autoriser les appels SIP anonymes introduit des "
+"risques de sécurité supplémentaires. Si vous autorisez la numérotation SIP "
+"URI vers votre PBX ou si vous utilisez des services tels que ENUM, vous "
+"devez définir cette option sur Oui pour que le trafic entrant fonctionne. Ce "
+"n'est PAS un paramètre Asterisk sip.conf, il est utilisé dans le plan de "
+"numérotation en conjonction avec le contexte par défaut. Si ce contexte est "
+"modifié ci-dessus en quelque chose de personnalisé, ce paramètre peut être "
+"rendu inutile et si \"Autoriser les invités SIP\" est défini sur Non."
 
 #: chanpj.page.php:373
 msgid ""
@@ -162,6 +174,13 @@ msgid ""
 "with Redundancy - Enables T.38 with redundancy error correction</li><li>Yes "
 "with no error correction - Enables T.38 with no error correction.</li></ul>"
 msgstr ""
+"Astérisque: t38pt_udptl. Active le T38 passthrough qui fait passer les fax "
+"via Asterisk sans être traité.<ul><li>Non - Passthrough</li><li>Oui - Active "
+"T.38 avec correction d'erreur FEC et remplace la valeur fournie par l'autre "
+"point de terminaison peut envoyer des paquets FAX T.38 de 400 byte.</li><li>"
+"Oui avec FEC - Active T.38 avec correction d'erreur FEC</li><li>Oui avec "
+"redondance - Active T.38 avec correction d'erreur de redondance</li><li>Oui "
+"sans correction d'erreur - Active T.38 sans correction d'erreur.</li></ul>"
 
 #: chansip.page.php:327 general.page.php:551
 msgid "Audio Codecs"
@@ -670,11 +689,11 @@ msgstr ""
 #: chansip.page.php:1225 chansip.page.php:1251 chansip.page.php:1277
 #: general.page.php:42 general.page.php:236 general.page.php:259
 msgid "No"
-msgstr ""
+msgstr "Non"
 
 #: chansip.page.php:337
 msgid "Non-Standard g726"
-msgstr ""
+msgstr "Non-Standard g726"
 
 #: chansip.page.php:1098
 msgid ""
@@ -883,19 +902,19 @@ msgstr ""
 
 #: chansip.page.php:225
 msgid "Static IP"
-msgstr ""
+msgstr "IP Static"
 
 #: general.page.php:252
 msgid "Strict RTP"
-msgstr ""
+msgstr "Strict RTP"
 
 #: Sipsettings.class.php:584
 msgid "Submit"
-msgstr ""
+msgstr "Valider"
 
 #: chansip.page.php:38 general.page.php:20
 msgid "Submit Changes"
-msgstr ""
+msgstr "Valider changement"
 
 #: general.page.php:378
 msgid ""
@@ -906,10 +925,18 @@ msgid ""
 "necessary for ICE. Multiple subnets may be listed. If left unconfigured, all "
 "discovered host addresses are used."
 msgstr ""
+"Sous-réseaux à exclure de l'hôte ICE, srflx et la découverte de relais. Ceci "
+"est utile pour optimiser le processus ICE lorsqu'un système possède "
+"plusieurs plages d'adresses d'hôtes et / ou interfaces physiques et que "
+"certaines d'entre elles ne devraient pas être utilisées pour le protocole "
+"RTP. Par exemple, les VPN et les interconnexions locales peuvent ne pas "
+"convenir ou être nécessaires pour ICE. Plusieurs sous-réseaux peuvent être "
+"répertoriés. Si elle n'est pas configurée, toutes les adresses d'hôtes "
+"découvertes sont utilisées."
 
 #: chansip.page.php:364
 msgid "T38 Pass-Through"
-msgstr ""
+msgstr "T38 Pass-Through"
 
 #: chansip.page.php:1159
 msgid ""
@@ -1111,19 +1138,19 @@ msgstr ""
 #: chansip.page.php:1223 chansip.page.php:1249 chansip.page.php:1275
 #: general.page.php:40 general.page.php:234 general.page.php:257
 msgid "Yes"
-msgstr ""
+msgstr "Oui"
 
 #: chansip.page.php:371
 msgid "Yes with FEC"
-msgstr ""
+msgstr "Oui avec FEC"
 
 #: chansip.page.php:372
 msgid "Yes with Redundancy"
-msgstr ""
+msgstr "Oui avec Redondance"
 
 #: chansip.page.php:373
 msgid "Yes with no error correction"
-msgstr ""
+msgstr "Oui sans correction d'erreur"
 
 #: Sipsettings.class.php:178
 msgid "You can change this on the Advanced Settings Page"
@@ -1154,7 +1181,7 @@ msgstr ""
 
 #: install.php:118
 msgid "already exists"
-msgstr ""
+msgstr "existe déjà"
 
 #: Sipsettings.class.php:174
 msgid "chan_pjsip and chan_sip"
@@ -1170,15 +1197,15 @@ msgstr ""
 
 #: chansip.page.php:479
 msgid "kb/s"
-msgstr ""
+msgstr "kb/s"
 
 #: chansip.page.php:196
 msgid "never"
-msgstr ""
+msgstr "jamais"
 
 #: chansip.page.php:194 chansip.page.php:607
 msgid "no"
-msgstr ""
+msgstr "non"
 
 #: install.php:71
 msgid "none, creating table"
@@ -1190,7 +1217,7 @@ msgstr ""
 
 #: chansip.page.php:198
 msgid "route"
-msgstr ""
+msgstr "route"
 
 #: functions.inc.php:347
 msgid "rtpholdtimeout must be higher than rtptimeout"
@@ -1203,11 +1230,11 @@ msgstr ""
 
 #: install.php:104
 msgid "ulaw, alaw, gsm, g726 added"
-msgstr ""
+msgstr "ulaw, alaw, gsm, g726 ajoutés"
 
 #: chansip.page.php:192 chansip.page.php:605
 msgid "yes"
-msgstr ""
+msgstr "oui"
 
 #~ msgid ""
 #~ "Asterisk supports IPv6. An address of '::' will listen on both IPv4 and "
