@@ -278,8 +278,8 @@ function addLocalnet(net, cidr) {
 			nextid = ourid + 1;
 
 	var html = "<div class = 'lnet form-group form-inline' data-nextid="+nextid+">";
-	html += "<input type='text' name='localnets["+ourid+"][net]' class='form-control localnet network validate-ip' value='"+net+"'> / ";
-	html += "<input type='text' name='localnets["+ourid+"][mask]' class='form-control localnet cidr validate-netmask' value='"+cidr+"'>";
+	html += "<input type='text' name='localnets["+ourid+"][net]' class='form-control localnet network validate-ip' required pattern='^([0-9]{1,3}\.){3}[0-9]{1,3}$' value='"+net+"'> / ";
+	html += "<input type='text' name='localnets["+ourid+"][mask]' class='form-control localnet cidr validate-netmask' required pattern='^((?:[1-9])|(?:[1-2][0-9])|(?:3[0-2]))$' value='"+cidr+"'>";
 	html += "</div>\n";
 
 	last.after(html);
