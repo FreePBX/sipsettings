@@ -434,7 +434,7 @@ foreach ($tlsowners as $chan => $txt) {
 						<div class="col-md-9">
 							<?php $i = 0;foreach($ice_host_candidates as $can) {?>
 								<div class="form-group form-inline">
-									<input type="hidden" id="ice_host_candidates_count" name="ice_host_candidates_count[]" value="<?php echo $i?>"><input type="text" id="ice_host_candidates_local_<?php echo $i?>" name="ice_host_candidates_local_<?php echo $i?>" class="form-control ice-host-candidate" value="<?php echo $can['local']?>"> => <input type="text" id="ice_host_candidates_advertised_<?php echo $i?>" name="ice_host_candidates_advertised_<?php echo $i?>" class="form-control" value="<?php echo $can['advertised']?>">
+									<input type="hidden" id="ice_host_candidates_count" name="ice_host_candidates_count[]" value="<?php echo $i?>"><input type="text" id="ice_host_candidates_local_<?php echo $i?>" name="ice_host_candidates_local_<?php echo $i?>" class="form-control ice-host-candidate" pattern="^$|^([0-9]{1,3}\.){3}[0-9]{1,3}$" value="<?php echo $can['local']?>"> => <input type="text" id="ice_host_candidates_advertised_<?php echo $i?>" name="ice_host_candidates_advertised_<?php echo $i?>" class="form-control" pattern="^$|^([0-9]{1,3}\.){3}[0-9]{1,3}$" value="<?php echo $can['advertised']?>">
 								</div>
 							<?php } ?>
 							<div id="ice-host-candidates-buttons">

@@ -53,8 +53,8 @@ $(document).ready(function() {
 		$("#ice-host-candidates-buttons").before('\
 			<div class="form-group form-inline">\
 				<input type="hidden" id="ice_host_candidates_count" name="ice_host_candidates_count[]" value="'+idx+'"> \
-				<input type="text" id="ice_host_candidates_local_'+idx+'" name="ice_host_candidates_local_'+idx+'" class="form-control ice-host-candidate" value=""> =>\
-				<input type="text" id="ice_host_candidates_advertised_'+idx+'" name="ice_host_candidates_advertised_'+idx+'" class="form-control" value="">\
+				<input type="text" id="ice_host_candidates_local_'+idx+'" name="ice_host_candidates_local_'+idx+'" class="form-control ice-host-candidate" pattern="^$|^([0-9]{1,3}\.){3}[0-9]{1,3}$" value=""> =>\
+				<input type="text" id="ice_host_candidates_advertised_'+idx+'" name="ice_host_candidates_advertised_'+idx+'" class="form-control" pattern="^$|^([0-9]{1,3}\.){3}[0-9]{1,3}$" value="">\
 			</div>\
 		');
 	});
