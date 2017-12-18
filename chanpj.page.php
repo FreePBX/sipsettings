@@ -24,8 +24,8 @@ if ($sa != "no") {
 		}
 
 		// Strip netmask off the end of the IP address
-		$ret = preg_match("/(\d*+.\d*+.\d*+.\d*+)\/(\d*+)/", $vals[3], $ip);
-
+		$ret = preg_match("/(\d*.\d*.\d*.\d*)[\/(\d*+)]*/", $vals[3], $ip);
+		
 		$interfaces[$intname] = array($ip[1], $intname, $ip[2]);
 	}
 }
