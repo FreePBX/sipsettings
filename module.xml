@@ -4,7 +4,7 @@
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<name>Asterisk SIP Settings</name>
-	<version>13.0.25.2</version>
+	<version>13.0.25.3</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>AGPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
@@ -16,6 +16,7 @@
 		Use to configure Various Asterisk SIP Settings in the General section of sip.conf. Also includes an auto-configuration tool to determine NAT settings. The module assumes Asterisk version 1.4 or higher. Some settings may not exist in Asterisk 1.2 and will be ignored by Asterisk.
 	</description>
 	<changelog>
+		*13.0.25.3* FREEPBX-16391 Fix: Local Networks - Blank fields will not be ignored. Improving test for field - black list & candidate. FREEPBX-16429 - unable to collect the IP address of tun interface
 		*13.0.25.2* FREEPBX-16383 Fix: Checking the content of ip and subnet mak in Asterisk Sip Settings - General.
 		*13.0.25.1* Fix PJSip Transport name on SNG7
 		*13.0.25* Backend TLS changes
