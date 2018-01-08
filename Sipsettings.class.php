@@ -277,7 +277,7 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 			// Finished. Unset it, and continue on.
 			unset($_REQUEST['voicecodecs']);
 		}
-
+	
 		// Ignore empty/invalid localnet settings
 		if (isset($_REQUEST['localnets'])) {
 			foreach ($_REQUEST['localnets'] as $i => $arr) {

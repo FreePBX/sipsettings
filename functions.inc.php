@@ -384,13 +384,13 @@ function sipsettings_edit($sip_settings) {
 			break;
 
 			case 'externip_val':
-	if ($sip_settings['nat_mode'] == 'externip') {
-		if (trim($val) == "" && !FreePBX::create()->Sipsettings->getConfig('externip')) {
-			$msg = _("External IP can not be blank when NAT Mode is set to Static and no default IP address provided on the main page");
-			$vd->log_error($val, $key, $msg);
-		} else {
-			$save_settings[] = array($key,$val,'40',SIP_NORMAL);
-		}
+				if ($sip_settings['nat_mode'] == 'externip') {
+					if (trim($val) == "" && !FreePBX::create()->Sipsettings->getConfig('externip')) {
+						$msg = _("External IP can not be blank when NAT Mode is set to Static and no default IP address provided on the main page");
+						$vd->log_error($val, $key, $msg);
+					} else {
+						$save_settings[] = array($key,$val,'40',SIP_NORMAL);
+					}
 				}
 			break;
 
@@ -420,6 +420,7 @@ function sipsettings_edit($sip_settings) {
 
 			case 'nat_mode':
 			case 'g726nonstandard':
+
 			case 't38pt_udptl':
 			case 'videosupport':
 			case 'canreinvite':
@@ -431,8 +432,8 @@ function sipsettings_edit($sip_settings) {
 			case 'tlsdontverifyserver':
 			case 'tlsclientmethod':
 			case 'tlsenable':
-        $save_settings[] = array($key,$val,'10',SIP_NORMAL);
-      break;
+				$save_settings[] = array($key,$val,'10',SIP_NORMAL);
+			break;
 
 			case 'ALLOW_SIP_ANON':
 				$save_to_admin[] = array($key,$val);
@@ -470,7 +471,10 @@ function sipsettings_edit($sip_settings) {
 					$fvcodecs[$codec] = $seq++;
 			}
 		}
-		FreePBX::Sipsettings()->setCodecs('video',$fvcodecs);
+		if ($_REQUEST['category'] == "general" && $_REQUEST['Submit'] == "Submit"){
+			FreePBX::Sipsettings()->setCodecs('video',$fvcodecs);
+		}
+		
 
 		// TODO: normally don't like doing delete/insert but otherwise we would have do update for each
 		//			 individual setting and then an insert if there was nothing to update. So this is cleaner
