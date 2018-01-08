@@ -20,17 +20,22 @@ class sipsettings_validate {
 	/* checks if value is an integer */
 	function is_int($value, $item, $message, $negative=false) {
 		$value = trim($value);
-		if ($value != '' && $negative) {
-			$tmp_value = substr($value,0,1) == '-' ? substr($value,1) : $value;
-			if (!ctype_digit($tmp_value)) {
-				$this->errors[] = array('id' => $item, 'value' => $value, 'message' => $message);
-			}
-		} elseif (!$negative) {
-			if (!ctype_digit($value) || ($value < 0 )) {
-				$this->errors[] = array('id' => $item, 'value' => $value, 'message' => $message);
-			}
+		if($value == "-1"){
+			return $value;	
+		} 
+		else{
+			if ($value != '' && $negative) {
+				$tmp_value = substr($value,0,1) == '-' ? substr($value,1) : $value;
+				if (!ctype_digit($tmp_value)) {
+					$this->errors[] = array('id' => $item, 'value' => $value, 'message' => $message);
+				}
+			} elseif (!$negative) {
+				if (!ctype_digit($value) || ($value < 0 )) {
+					$this->errors[] = array('id' => $item, 'value' => $value, 'message' => $message);
+				}
+			}	
+			return $value;			
 		}
-		return $value;
 	}
 
 	/* checks if value is valid port between 1024 - 6 65535 */
