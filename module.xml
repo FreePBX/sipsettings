@@ -16,7 +16,7 @@
 		Use to configure Various Asterisk SIP Settings in the General section of sip.conf. Also includes an auto-configuration tool to determine NAT settings. The module assumes Asterisk version 1.4 or higher. Some settings may not exist in Asterisk 1.2 and will be ignored by Asterisk.
 	</description>
 	<changelog>
-		*14.0.25.5* FREEPBX-12824 - Move the Video codec section from Chan_SIP tab to General SIP Settings tab. Move Non-Standard g726 and T38 Pass-Through to General SIP Settings tab.
+		*14.0.25.5* FREEPBX-12824 - Move the Video codec section from Chan_SIP tab to General SIP Settings tab. Move Non-Standard g726 and T38 Pass-Through to General SIP Settings tab. FREEPBX-13686. Jitter Buffer Resync Threshold accept -1 value.
 		*13.0.25.4* FREEPBX-16429 - unable to collect the IP address of tun interface
 		*13.0.25.3* FREEPBX-16391 Fix: Local Networks - Blank fields will not be ignored. Improving test for field - black list &amp;candidate.
 		*13.0.25.2* FREEPBX-16383 Fix: Checking the content of ip and subnet mak in Asterisk Sip Settings - General.
