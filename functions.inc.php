@@ -180,10 +180,7 @@ function sipsettings_hookGet_config($engine) {
 				$cert = FreePBX::Certman()->getCertificateDetails($value);
 				if(!empty($cert['files']['crt']) && !empty($cert['files']['key'])) {
 					$sip_settings[] = array('tlsprivatekey', $cert['files']['key']);
-					$sip_settings[] = array('tlscertfile', $cert['files']['crt']);
-					if(isset($cert['files']['ca-bundle'])) {
-						$sip_settings[] = array('tlscafile', $cert['files']['ca-bundle']);
-					}
+					$sip_settings[] = array('tlscertfile', $cert['files']['pem']);
 				}
 			}
 			break;
@@ -273,6 +270,12 @@ function sipsettings_hookGet_config($engine) {
 			break;
 		}
 	}
+
+	if(FreePBX::Modules()->moduleHasMethod("certman","getCABundle")) {
+		$cafile = FreePBX::Certman()->getCABundle();
+		$sip_settings[] = array('tlscafile', $cafile);
+	}
+
 	// Is there a global external IP settings? If there wasn't one specified
 	// as part of the chan_sip settings, check to see if there's one here.
 	if (!$foundexternip && $nat_mode == "externip") {
