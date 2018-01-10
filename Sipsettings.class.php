@@ -611,7 +611,9 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 		$this->tlsCache = array();
 		if($this->FreePBX->Modules->moduleHasMethod("certman","getCABundle")) {
 			$cafile = $this->FreePBX->Certman->getCABundle();
-			$this->tlsCache['ca_list_file'] = $cafile;
+			if(!empty($cafile)) {
+				$this->tlsCache['ca_list_file'] = $cafile;
+			}
 		}
 
 		if($this->FreePBX->Modules->moduleHasMethod("certman","getDefaultCertDetails")) {

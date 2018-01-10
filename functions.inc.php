@@ -273,7 +273,9 @@ function sipsettings_hookGet_config($engine) {
 
 	if(FreePBX::Modules()->moduleHasMethod("certman","getCABundle")) {
 		$cafile = FreePBX::Certman()->getCABundle();
-		$sip_settings[] = array('tlscafile', $cafile);
+		if(!empty($cafile)) {
+			$sip_settings[] = array('tlscafile', $cafile);
+		}
 	}
 
 	// Is there a global external IP settings? If there wasn't one specified
