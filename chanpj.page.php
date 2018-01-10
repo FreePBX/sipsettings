@@ -201,6 +201,29 @@ foreach ($protocols as $p) {
 		</div>
 	</div>
 	<!--END Allow Guests-->
+	<!--Allow reload-->
+	<div class="element-container">
+		<div class="row">
+			<div class="form-group">
+				<div class="col-md-3">
+					<label class="control-label" for="allow_reload"><?php echo _("Allow Reload") ?></label>
+					<i class="fa fa-question-circle fpbx-help-icon" data-for="allow_reload"></i>
+				</div>
+				<div class="col-md-9 radioset">
+					<input type="radio" name="allow_reload" id="allow_reloadyes" value="yes" <?php echo ( $this->getConfig("pjsip_allow_reload") == "yes"?"CHECKED":"") ?>>
+					<label for="allow_reloadyes"><?php echo _("Yes");?></label>
+					<input type="radio" name="allow_reload" id="allow_reloadno" value="no" <?php echo ( $this->getConfig("pjsip_allow_reload") == "yes"?"":"CHECKED") ?>>
+					<label for="allow_reloadno"><?php echo _("No");?></label>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<span id="allow_reload-help" class="help-block fpbx-help-block"><?php echo _("Allow this transport to be reloaded when res_pjsip is reloaded. This option defaults to 'no' because reloading a transport may disrupt in-progress calls.")?></span>
+			</div>
+		</div>
+	</div>
+	<!--END Allow reload-->
 	<!--Show Advanced Settings-->
 	<div class="element-container">
 		<div class="row">

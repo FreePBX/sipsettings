@@ -217,7 +217,7 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 	}
 
 	public function doGeneralPost() {
-
+	dbug($_REQUEST);
 		if (!isset($_REQUEST['Submit'])) {
 			return;
 		}
@@ -306,6 +306,10 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 
 		if (isset($_REQUEST['verify_client'])) {
 			$this->setConfig('verify_client', $_REQUEST['verify_client']);
+		}
+
+		if (isset($_REQUEST['allow_reload'])) {
+			$this->setConfig('pjsip_allow_reload', $_REQUEST['allow_reload']);
 		}
 
 		if (isset($_REQUEST['verify_server'])) {
