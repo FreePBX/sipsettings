@@ -9,15 +9,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-27 22:41+0000\n"
+"POT-Creation-Date: 2018-01-11 14:42-0500\n"
 "PO-Revision-Date: 2017-12-01 23:47+0200\n"
 "Last-Translator: CATTAN Jérémie <jeremie@famillecattan.com>\n"
-"Language-Team: French "
-"<http://weblate.freepbx.org/projects/freepbx/sipsettings/fr_FR/>\n"
-"Language: fr_FR\n"
+"Language-Team: French <http://weblate.freepbx.org/projects/freepbx/"
+"sipsettings/fr_FR/>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: fr_FR\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 2.4\n"
 
@@ -32,12 +32,12 @@ msgstr ""
 msgid " See current version of Asterisk for limitations on SRV functionality."
 msgstr ""
 
-#: functions.inc.php:329
+#: functions.inc.php:334
 #, php-format
 msgid "%s must be a non-negative integer"
 msgstr "%s doit être un entier non négatif"
 
-#: functions.inc.php:373
+#: functions.inc.php:378
 #, php-format
 msgid "%s must be alphanumeric"
 msgstr "%s doit être alphanumérique"
@@ -88,8 +88,8 @@ msgid ""
 "rendered useless as well as if 'Allow SIP Guests' is set to no."
 msgstr ""
 "Autoriser les appels SIP anonymes entrants signifie que vous permettrez à "
-"tout appel provenant d'une source IP inconnue d'être dirigé vers le côté \""
-"from-pstn\" de votre plan de numérotation. C'est là qu'interviennent les "
+"tout appel provenant d'une source IP inconnue d'être dirigé vers le côté "
+"\"from-pstn\" de votre plan de numérotation. C'est là qu'interviennent les "
 "appels entrants. Bien que FreePBX restreint sévèrement l'accès au plan de "
 "numérotation interne, autoriser les appels SIP anonymes introduit des "
 "risques de sécurité supplémentaires. Si vous autorisez la numérotation SIP "
@@ -111,7 +111,7 @@ msgid ""
 "An Error occurred trying fetch network configuration and external IP address"
 msgstr ""
 
-#: Sipsettings.class.php:849
+#: Sipsettings.class.php:847
 msgid ""
 "An unknown port conflict has been detected in PJSIP. Please check and "
 "validate your PJSIP Ports to ensure they're not overlapping"
@@ -177,10 +177,11 @@ msgstr ""
 "Astérisque: t38pt_udptl. Active le T38 passthrough qui fait passer les fax "
 "via Asterisk sans être traité.<ul><li>Non - Passthrough</li><li>Oui - Active "
 "T.38 avec correction d'erreur FEC et remplace la valeur fournie par l'autre "
-"point de terminaison peut envoyer des paquets FAX T.38 de 400 byte.</li><li>"
-"Oui avec FEC - Active T.38 avec correction d'erreur FEC</li><li>Oui avec "
-"redondance - Active T.38 avec correction d'erreur de redondance</li><li>Oui "
-"sans correction d'erreur - Active T.38 sans correction d'erreur.</li></ul>"
+"point de terminaison peut envoyer des paquets FAX T.38 de 400 byte.</"
+"li><li>Oui avec FEC - Active T.38 avec correction d'erreur FEC</li><li>Oui "
+"avec redondance - Active T.38 avec correction d'erreur de redondance</"
+"li><li>Oui sans correction d'erreur - Active T.38 sans correction d'erreur.</"
+"li></ul>"
 
 #: chansip.page.php:327 general.page.php:551
 msgid "Audio Codecs"
@@ -194,7 +195,7 @@ msgstr "Configuration auto"
 msgid "Bind Address"
 msgstr "Adresse d'écoute"
 
-#: functions.inc.php:333
+#: functions.inc.php:338
 msgid "Bind Address (bindaddr) must be an IP address."
 msgstr "L'adresse d'écoute (bindaddr) doit être une adresse IP."
 
@@ -202,7 +203,7 @@ msgstr "L'adresse d'écoute (bindaddr) doit être une adresse IP."
 msgid "Bind Port"
 msgstr "Port d'écoute"
 
-#: functions.inc.php:339
+#: functions.inc.php:344
 msgid "Bind Port (bindport) must be between 1024 and 65535"
 msgstr "Le port d'écoute (bindport) doit être entre 1024 et 65535"
 
@@ -210,15 +211,15 @@ msgstr "Le port d'écoute (bindport) doit être entre 1024 et 65535"
 msgid "CA Chain File"
 msgstr ""
 
-#: Sipsettings.class.php:863
+#: Sipsettings.class.php:861
 msgid "CHANSIP Port Moved"
 msgstr ""
 
-#: Sipsettings.class.php:873
+#: Sipsettings.class.php:871
 msgid "CHANSIP TCP Disabled"
 msgstr ""
 
-#: Sipsettings.class.php:884
+#: Sipsettings.class.php:882
 msgid "CHANSIP TLS Port Moved"
 msgstr ""
 
@@ -250,21 +251,21 @@ msgstr ""
 msgid "Chan SIP Settings"
 msgstr "Paramètres Chan SIP"
 
-#: Sipsettings.class.php:884
+#: Sipsettings.class.php:882
 #, php-format
 msgid ""
 "Chansip was assigned a port that was already in use for TLS traffic. The "
 "Chansip TLS port has been changed to %s"
 msgstr ""
 
-#: Sipsettings.class.php:873
+#: Sipsettings.class.php:871
 msgid ""
 "Chansip was assigned the same port as pjsip for TCP traffic. Chansip has had "
 "the tcpenable setting removed, and is no longer listening for TCP "
 "connections."
 msgstr ""
 
-#: Sipsettings.class.php:863
+#: Sipsettings.class.php:861
 #, php-format
 msgid ""
 "Chansip was assigned the same port as pjsip for UDP traffic. The Chansip "
@@ -307,8 +308,8 @@ msgstr ""
 #, php-format
 msgid "Default bind port for CHAN_PJSIP is: %s, CHAN_SIP is: %s"
 msgstr ""
-"Le port d'écoute par défaut de CHAN_PJSIP est : %s, celui de CHAN_SIP est : "
-"%s"
+"Le port d'écoute par défaut de CHAN_PJSIP est : %s, celui de CHAN_SIP est : %"
+"s"
 
 #: chansip.page.php:1091
 msgid ""
@@ -350,7 +351,7 @@ msgstr "Hôte dynamique"
 msgid "Dynamic Host Refresh"
 msgstr "Rafraîchissement de l'hôte dynamique"
 
-#: functions.inc.php:399
+#: functions.inc.php:404
 msgid "Dynamic Host can not be blank"
 msgstr "L'hôte dynamique ne peut être vide"
 
@@ -434,7 +435,7 @@ msgstr ""
 msgid "External IP Address"
 msgstr "Adresse IP externe"
 
-#: functions.inc.php:389 assets/js/sipsettings.js:20
+#: functions.inc.php:394 assets/js/sipsettings.js:20
 msgid ""
 "External IP can not be blank when NAT Mode is set to Static and no default "
 "IP address provided on the main page"
@@ -533,6 +534,11 @@ msgid ""
 "is often put in sip_nat.conf"
 msgstr ""
 
+#: chanpj.page.php:306 chanpj.page.php:307 chanpj.page.php:308
+#: chansip.page.php:554 chansip.page.php:555
+msgid "Insecure"
+msgstr ""
+
 #: chansip.page.php:998
 msgid "Jitter Buffer Logging"
 msgstr ""
@@ -597,11 +603,11 @@ msgid ""
 "more fields. Blank fields will be ignored."
 msgstr ""
 
-#: functions.inc.php:449
+#: functions.inc.php:454
 msgid "Localnet netmask must be formatted properly (e.g. 255.255.255.0 or 24)"
 msgstr ""
 
-#: functions.inc.php:444
+#: functions.inc.php:449
 msgid "Localnet setting must be an IP address"
 msgstr ""
 
@@ -637,7 +643,7 @@ msgstr ""
 
 #: chansip.page.php:562
 msgid ""
-"Method of SSL transport (TLS ONLY). The default is currently sslv2, but may "
+"Method of SSL transport (TLS ONLY). The default is currently tlsv1, but may "
 "change with future releases."
 msgstr ""
 
@@ -1052,7 +1058,7 @@ msgstr ""
 msgid "Unknown Error"
 msgstr "Erreur inconnue"
 
-#: Sipsettings.class.php:849
+#: Sipsettings.class.php:847
 msgid "Unknown Port Conflict"
 msgstr ""
 
@@ -1219,7 +1225,7 @@ msgstr ""
 msgid "route"
 msgstr "route"
 
-#: functions.inc.php:347
+#: functions.inc.php:352
 msgid "rtpholdtimeout must be higher than rtptimeout"
 msgstr ""
 

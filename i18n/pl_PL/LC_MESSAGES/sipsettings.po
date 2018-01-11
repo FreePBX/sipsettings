@@ -9,15 +9,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-27 22:41+0000\n"
+"POT-Creation-Date: 2018-01-11 14:42-0500\n"
 "PO-Revision-Date: 2017-06-07 15:50+0200\n"
 "Last-Translator: Michal <mboltz@tlen.pl>\n"
 "Language-Team: Polish (Polish) <http://weblate.freepbx.org/projects/freepbx/"
 "sipsettings/pl_PL/>\n"
-"Language: pl_PL\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: pl_PL\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 2.4\n"
@@ -38,12 +38,12 @@ msgstr ""
 " Zobacz aktualną wersję Asterisk ze względu na ograniczenia dotyczące "
 "funkcjonalności SRV."
 
-#: functions.inc.php:329
+#: functions.inc.php:334
 #, php-format
 msgid "%s must be a non-negative integer"
 msgstr "%s musi stanowić nieujemną liczbę całkowitą"
 
-#: functions.inc.php:373
+#: functions.inc.php:378
 #, php-format
 msgid "%s must be alphanumeric"
 msgstr "%s musi być alfanumeryczne"
@@ -121,7 +121,7 @@ msgstr ""
 "Podczas próby pobrania konfiguracji sieci i zewnętrznego adresu IP wystąpił "
 "błąd"
 
-#: Sipsettings.class.php:849
+#: Sipsettings.class.php:847
 msgid ""
 "An unknown port conflict has been detected in PJSIP. Please check and "
 "validate your PJSIP Ports to ensure they're not overlapping"
@@ -226,7 +226,7 @@ msgstr "Automatycznie skonfiguruj"
 msgid "Bind Address"
 msgstr "Powiązać adres (złączyć adres)"
 
-#: functions.inc.php:333
+#: functions.inc.php:338
 msgid "Bind Address (bindaddr) must be an IP address."
 msgstr "Powiązany adres musi być adresem IP."
 
@@ -234,7 +234,7 @@ msgstr "Powiązany adres musi być adresem IP."
 msgid "Bind Port"
 msgstr "Powiązać port"
 
-#: functions.inc.php:339
+#: functions.inc.php:344
 msgid "Bind Port (bindport) must be between 1024 and 65535"
 msgstr "Powiązany port (bindport) musi wynosić od 1024 do 65535"
 
@@ -242,15 +242,15 @@ msgstr "Powiązany port (bindport) musi wynosić od 1024 do 65535"
 msgid "CA Chain File"
 msgstr "Plik łańcucha CA"
 
-#: Sipsettings.class.php:863
+#: Sipsettings.class.php:861
 msgid "CHANSIP Port Moved"
 msgstr "Przesunięty port CHANSIP"
 
-#: Sipsettings.class.php:873
+#: Sipsettings.class.php:871
 msgid "CHANSIP TCP Disabled"
 msgstr "Wyłączono CHANSIP TCP"
 
-#: Sipsettings.class.php:884
+#: Sipsettings.class.php:882
 msgid "CHANSIP TLS Port Moved"
 msgstr "Przesunięto port CHANSIP TLS"
 
@@ -282,7 +282,7 @@ msgstr "Jeżeli change SIP to zmiana SIP"
 msgid "Chan SIP Settings"
 msgstr "Zmień ustawienia SIP"
 
-#: Sipsettings.class.php:884
+#: Sipsettings.class.php:882
 #, php-format
 msgid ""
 "Chansip was assigned a port that was already in use for TLS traffic. The "
@@ -291,7 +291,7 @@ msgstr ""
 "Chansip został przydzielony do portu, który był już używany w ruchu TLS. "
 "Port TLS dla portu Chansip został zmieniony na% s"
 
-#: Sipsettings.class.php:873
+#: Sipsettings.class.php:871
 msgid ""
 "Chansip was assigned the same port as pjsip for TCP traffic. Chansip has had "
 "the tcpenable setting removed, and is no longer listening for TCP "
@@ -300,7 +300,7 @@ msgstr ""
 "Chansipowi przypisano ten sam port co plik pjsip dla ruchu TCP. Chansip "
 "został usunięty z tcpenable setting i nie słucha już połączeń T."
 
-#: Sipsettings.class.php:863
+#: Sipsettings.class.php:861
 #, php-format
 msgid ""
 "Chansip was assigned the same port as pjsip for UDP traffic. The Chansip "
@@ -394,7 +394,7 @@ msgstr "Dynamiczny host"
 msgid "Dynamic Host Refresh"
 msgstr "Odświeżanie dynamicznego hosta"
 
-#: functions.inc.php:399
+#: functions.inc.php:404
 msgid "Dynamic Host can not be blank"
 msgstr "Dynamiczny host nie może być pusty"
 
@@ -489,7 +489,7 @@ msgstr ""
 msgid "External IP Address"
 msgstr "Zewnętrzny adres IP"
 
-#: functions.inc.php:389 assets/js/sipsettings.js:20
+#: functions.inc.php:394 assets/js/sipsettings.js:20
 msgid ""
 "External IP can not be blank when NAT Mode is set to Static and no default "
 "IP address provided on the main page"
@@ -615,6 +615,11 @@ msgstr ""
 "Automatyczna konfiguracja tego, co jest często umieszczane w pliku sip_nat."
 "conf"
 
+#: chanpj.page.php:306 chanpj.page.php:307 chanpj.page.php:308
+#: chansip.page.php:554 chansip.page.php:555
+msgid "Insecure"
+msgstr ""
+
 #: chansip.page.php:998
 msgid "Jitter Buffer Logging"
 msgstr "Rejestrowanie buforów jittera"
@@ -696,13 +701,13 @@ msgstr ""
 "przypadku sieci z więcej niż 1 podsieci LAN, użyj pola Dodaj lokalne pole "
 "sieciowe, aby uzyskać więcej pól. Puste pola zostaną zignorowane."
 
-#: functions.inc.php:449
+#: functions.inc.php:454
 msgid "Localnet netmask must be formatted properly (e.g. 255.255.255.0 or 24)"
 msgstr ""
 "Netmask sieci lokalnej musi być prawidłowo sformatowany (np. 255.255.255.0 "
 "lub 24)"
 
-#: functions.inc.php:444
+#: functions.inc.php:449
 msgid "Localnet setting must be an IP address"
 msgstr "Ustawienie Lokalny musi być adresem IP"
 
@@ -740,11 +745,9 @@ msgstr ""
 
 #: chansip.page.php:562
 msgid ""
-"Method of SSL transport (TLS ONLY). The default is currently sslv2, but may "
+"Method of SSL transport (TLS ONLY). The default is currently tlsv1, but may "
 "change with future releases."
 msgstr ""
-"Metoda transportu SSL (TYLKO TLS). Domyślnie jest to sslv2, ale może się "
-"zmieniać wraz z przyszłymi wersjami."
 
 #: install.php:124
 msgid "Migrate rtp.conf values if needed and initialize"
@@ -1149,7 +1152,7 @@ msgstr ""
 msgid "Unknown Error"
 msgstr ""
 
-#: Sipsettings.class.php:849
+#: Sipsettings.class.php:847
 msgid "Unknown Port Conflict"
 msgstr ""
 
@@ -1316,7 +1319,7 @@ msgstr ""
 msgid "route"
 msgstr ""
 
-#: functions.inc.php:347
+#: functions.inc.php:352
 msgid "rtpholdtimeout must be higher than rtptimeout"
 msgstr ""
 
@@ -1332,3 +1335,10 @@ msgstr ""
 #: chansip.page.php:192 chansip.page.php:605
 msgid "yes"
 msgstr ""
+
+#~ msgid ""
+#~ "Method of SSL transport (TLS ONLY). The default is currently sslv2, but "
+#~ "may change with future releases."
+#~ msgstr ""
+#~ "Metoda transportu SSL (TYLKO TLS). Domyślnie jest to sslv2, ale może się "
+#~ "zmieniać wraz z przyszłymi wersjami."
