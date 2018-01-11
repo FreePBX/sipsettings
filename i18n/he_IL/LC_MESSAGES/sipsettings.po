@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-09 20:35-0500\n"
+"POT-Creation-Date: 2018-01-11 14:42-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -520,6 +520,11 @@ msgid ""
 "is often put in sip_nat.conf"
 msgstr ""
 
+#: chanpj.page.php:306 chanpj.page.php:307 chanpj.page.php:308
+#: chansip.page.php:554 chansip.page.php:555
+msgid "Insecure"
+msgstr ""
+
 #: chansip.page.php:998
 msgid "Jitter Buffer Logging"
 msgstr ""
@@ -624,7 +629,7 @@ msgstr ""
 
 #: chansip.page.php:562
 msgid ""
-"Method of SSL transport (TLS ONLY). The default is currently sslv2, but may "
+"Method of SSL transport (TLS ONLY). The default is currently tlsv1, but may "
 "change with future releases."
 msgstr ""
 

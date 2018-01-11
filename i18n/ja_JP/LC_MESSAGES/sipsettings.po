@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-09 20:35-0500\n"
+"POT-Creation-Date: 2018-01-11 14:42-0500\n"
 "PO-Revision-Date: 2017-05-23 13:16+0200\n"
 "Last-Translator: Kenichi <k.fukaumi@qloog.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/"
@@ -577,6 +577,11 @@ msgid ""
 "is often put in sip_nat.conf"
 msgstr ""
 
+#: chanpj.page.php:306 chanpj.page.php:307 chanpj.page.php:308
+#: chansip.page.php:554 chansip.page.php:555
+msgid "Insecure"
+msgstr ""
+
 #: chansip.page.php:998
 msgid "Jitter Buffer Logging"
 msgstr "ジッターバッファーログ"
@@ -685,7 +690,7 @@ msgstr ""
 
 #: chansip.page.php:562
 msgid ""
-"Method of SSL transport (TLS ONLY). The default is currently sslv2, but may "
+"Method of SSL transport (TLS ONLY). The default is currently tlsv1, but may "
 "change with future releases."
 msgstr ""
 
