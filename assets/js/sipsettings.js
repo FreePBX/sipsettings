@@ -68,7 +68,7 @@ $(document).ready(function() {
 			<div class="form-group form-inline">\
 				<input type="hidden" id="ice_blacklist_count" name="ice_blacklist_count[]" value="'+idx+'"> \
 				<input type="text" id="ice_blacklist_ip_'+idx+'" name="ice_blacklist_ip_'+idx+'" class="form-control ice-blacklist" pattern="^$|^([0-9]{1,3}\.){3}[0-9]{1,3}$" value=""> /\
-				<input type="text" id="ice_blacklist_subnet_'+idx+'" name="ice_blacklist_subnet_'+idx+'" class="form-control ice-blacklist" pattern="^$|^((?:[1-9])|(?:[1-2][0-9])|(?:3[0-2]))$" value=""> \
+				<input type="text" id="ice_blacklist_subnet_'+idx+'" name="ice_blacklist_subnet_'+idx+'" class="form-control ice-blacklist" pattern="^$|^((?:[1-9])|(?:[1-2][0-9])|(?:3[0-2]))$|^(((255\.){3}(255|254|252|248|240|224|192|128|0+))|((255\.){2}(255|254|252|248|240|224|192|128|0+)\.0)|((255\.)(255|254|252|248|240|224|192|128|0+)(\.0+){2})|((255|254|252|248|240|224|192|128|0+)(\.0+){3}))$" value=""> \
 			</div>\
 		');
 	});
@@ -279,7 +279,7 @@ function addLocalnet(net, cidr) {
 
 	var html = "<div class = 'lnet form-group form-inline' data-nextid="+nextid+">";
 	html += "<input type='text' name='localnets["+ourid+"][net]' class='form-control localnet network validate-ip' pattern='^$|^([0-9]{1,3}\.){3}[0-9]{1,3}$' value='"+net+"'> / ";
-	html += "<input type='text' name='localnets["+ourid+"][mask]' class='form-control localnet cidr validate-netmask' pattern='^$|^((?:[1-9])|(?:[1-2][0-9])|(?:3[0-2]))$' value='"+cidr+"'>";
+	html += "<input type='text' name='localnets["+ourid+"][mask]' class='form-control localnet cidr validate-netmask' pattern='^$|^((?:[1-9])|(?:[1-2][0-9])|(?:3[0-2]))$|^(((255\.){3}(255|254|252|248|240|224|192|128|0+))|((255\.){2}(255|254|252|248|240|224|192|128|0+)\.0)|((255\.)(255|254|252|248|240|224|192|128|0+)(\.0+){2})|((255|254|252|248|240|224|192|128|0+)(\.0+){3}))$' value='"+cidr+"'>";
 	html += "</div>\n";
 
 	last.after(html);
