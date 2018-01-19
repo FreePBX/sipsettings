@@ -217,7 +217,7 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 	}
 
 	public function doGeneralPost() {
-	dbug($_REQUEST);
+
 		if (!isset($_REQUEST['Submit'])) {
 			return;
 		}
@@ -277,7 +277,35 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 			// Finished. Unset it, and continue on.
 			unset($_REQUEST['voicecodecs']);
 		}
-	
+
+		// Video Codecs
+		if (isset($_REQUEST['vcodec'])) {
+
+			// Go through all the codecs that were handed back to
+			// us, and create a new array with what they want.
+			// Note we trust the browser to return the array in the correct
+			// order here.
+			$vcodecs = array_keys($_REQUEST['vcodec']);
+
+			// Just in case they don't turn on ANY codecs..
+			$codecsValid = false;
+
+			$seq = 1;
+			foreach ($vcodecs as $vc) {
+				$newvcodecs[$vc] = $seq++;
+				$vcodecsValid = true;
+			}
+
+			if ($vcodecsValid) {
+				$this->setCodecs('video',$newvcodecs);
+			} else {
+				// They turned off ALL the codecs. Set them back to default.
+				$this->setCodecs('video');
+			}
+
+			// Finished. Unset it, and continue on.
+			unset($_REQUEST['vcodec']);
+		}		
 		// Ignore empty/invalid localnet settings
 		if (isset($_REQUEST['localnets'])) {
 			foreach ($_REQUEST['localnets'] as $i => $arr) {

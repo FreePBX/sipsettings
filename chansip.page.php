@@ -128,7 +128,6 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 	extract($sip_settings);
 
 ?>
-	<form autocomplete="off" name="editSip" id="editSip" class="fpbx-submit" action="" method="post">
 	<input type="hidden" name="action" value="edit">
 <?php
 	/* if there were erros on the submit then create error box */
@@ -986,33 +985,6 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 		</div>
 	</div>
 	<!--END Bind Port-->
-	<!--Allow SIP Guests-->
-	<div class="element-container">
-		<div class="row">
-			<div class="col-md-12">
-				<div class="row">
-					<div class="form-group">
-						<div class="col-md-3">
-							<label class="control-label" for="allowguest"><?php echo _("Allow SIP Guests") ?></label>
-							<i class="fa fa-question-circle fpbx-help-icon" data-for="allowguest"></i>
-						</div>
-						<div class="col-md-9 radioset">
-							<input id="allowguest-yes" type="radio" name="allowguest" value="yes" <?php echo $allowguest=="yes"?"checked=\"yes\"":""?>/>
-							<label for="allowguest-yes"><?php echo _("Yes") ?></label>
-							<input id="allowguest-no" type="radio" name="allowguest" value="no" <?php echo $allowguest=="no"?"checked=\"no\"":""?>/>
-							<label for="allowguest-no"><?php echo _("No") ?></label>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-12">
-				<span id="allowguest-help" class="help-block fpbx-help-block"><?php echo _("When set Asterisk will allow Guest SIP calls and send them to the Default SIP context. Turning this off will keep anonymous SIP calls from entering the system. Doing such will also stop 'Allow Anonymous Inbound SIP Calls' from functioning. Allowing guest calls but rejecting the Anonymous SIP calls below will enable you to see the call attempts and debug incoming calls that may be mis-configured and appearing as guests.")?></span>
-			</div>
-		</div>
-	</div>
-	<!--END Allow SIP Guests-->
 	<!--SRV Lookup-->
 	<div class="element-container">
 		<div class="row">
@@ -1156,7 +1128,7 @@ $(document).ready(function(){
 	?>
 });
 </script>
-</form>
+
 <?php
 
 /********** UTILITY FUNCTIONS **********/
