@@ -19,8 +19,23 @@ $ice_host_candidates = !empty($ice_host_candidates) ? $ice_host_candidates : arr
 $add_local_network_field = _("Add Local Network Field");
 $submit_changes = _("Submit Changes");
 
+
+
+	$sip_settings 	= sipsettings_get();
+	
+	// With the new sorting, the vars should come to us in the sorted order so just use that
+	//
+
+	$sip_settings['videosupport']     	= isset($_POST['videosupport']) 	? $_POST['videosupport'] 						: $sip_settings['videosupport'];
+	$sip_settings['maxcallbitrate']    	= isset($_POST['maxcallbitrate']) 	? htmlspecialchars($_POST['maxcallbitrate']) 	: $sip_settings['maxcallbitrate'];
+	$sip_settings['g726nonstandard']   	= isset($_POST['g726nonstandard']) 	? $_POST['g726nonstandard'] 					: $sip_settings['g726nonstandard'];
+	$sip_settings['t38pt_udptl']       	= isset($_POST['t38pt_udptl']) 		? $_POST['t38pt_udptl'] 						: $sip_settings['t38pt_udptl'];
+	$sip_settings['allowguest']        = isset($_POST['allowguest']) ? $_POST['allowguest'] : 'yes';
+	$action 							= isset($_POST['Submit'])			? $_POST['Submit']								: '';
+	extract($sip_settings);
+
+	
 ?>
-<form autocomplete="off" action="" method="post" class="fpbx-submit" id="sipsettings" name="sipsettings">
 <input type="hidden" name="category" value="general">
 <input type="hidden" name="Submit" value="Submit">
 <div class="section-title" data-for="sssecurity">
@@ -50,6 +65,33 @@ $submit_changes = _("Submit Changes");
 		</div>
 	</div>
 	<!--END Allow Anonymous Inbound SIP Calls-->
+	<!--Allow SIP Guests-->
+	<div class="element-container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="row">
+					<div class="form-group">
+						<div class="col-md-3">
+							<label class="control-label" for="allowguest"><?php echo _("Allow SIP Guests") ?></label>
+							<i class="fa fa-question-circle fpbx-help-icon" data-for="allowguest"></i>
+						</div>
+						<div class="col-md-9 radioset">
+							<input id="allowguest-yes" type="radio" name="allowguest" value="yes" <?php echo $allowguest=="yes"?"checked=\"yes\"":""?>/>
+							<label for="allowguest-yes"><?php echo _("Yes") ?></label>
+							<input id="allowguest-no" type="radio" name="allowguest" value="no" <?php echo $allowguest=="no"?"checked=\"no\"":""?>/>
+							<label for="allowguest-no"><?php echo _("No") ?></label>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<span id="allowguest-help" class="help-block fpbx-help-block"><?php echo _("When set Asterisk will allow Guest SIP calls and send them to the Default SIP context. Turning this off will keep anonymous SIP calls from entering the system. Doing such will also stop 'Allow Anonymous Inbound SIP Calls' from functioning. Allowing guest calls but rejecting the Anonymous SIP calls below will enable you to see the call attempts and debug incoming calls that may be mis-configured and appearing as guests.")?></span>
+			</div>
+		</div>
+	</div>
+	<!--END Allow SIP Guests-->
 	<!-- TLS Port Settings -->
 	<div class="element-container">
 		<div class="row">
@@ -547,21 +589,6 @@ foreach ($tlsowners as $chan => $txt) {
 		</div>
 	</div>
 </div>
-<?php
-	$sip_settings 	= sipsettings_get();
-	
-	// With the new sorting, the vars should come to us in the sorted order so just use that
-	//
-
-	$sip_settings['videosupport']     	= isset($_POST['videosupport']) 	? $_POST['videosupport'] 						: $sip_settings['videosupport'];
-	$sip_settings['maxcallbitrate']    	= isset($_POST['maxcallbitrate']) 	? htmlspecialchars($_POST['maxcallbitrate']) 	: $sip_settings['maxcallbitrate'];
-	$sip_settings['g726nonstandard']   	= isset($_POST['g726nonstandard']) 	? $_POST['g726nonstandard'] 					: $sip_settings['g726nonstandard'];
-	$sip_settings['t38pt_udptl']       	= isset($_POST['t38pt_udptl']) 		? $_POST['t38pt_udptl'] 						: $sip_settings['t38pt_udptl'];
-	$action 							= isset($_POST['Submit'])			? $_POST['Submit']								: '';
-	extract($sip_settings);
-
-	
-?>
 <div class="section-title" data-for="sscodecs">
 	<h3><i class="fa fa-minus"></i><?php echo _("Audio Codecs") ?></h3>
 </div>
@@ -634,7 +661,7 @@ foreach ($tlsowners as $chan => $txt) {
 							<label class="control-label" for="codecw"><?php echo _("Codecs") ?></label>
 						</div>
 						<div class="col-md-9">
-							<?php echo \show_help(_("This is the default Codec setting for new Trunks and Extensions."))?>
+							<?php echo \show_help( _("This is the default Codec setting for new Trunks and Extensions."),_("Helpful Information"),false, true, 'info')?>
 							<?php
 							
 							$seq 			= 1;
@@ -829,4 +856,4 @@ foreach ($tlsowners as $chan => $txt) {
 		<!--END Max Bit Rate-->
 	</div>
 </div>
-</form>
+

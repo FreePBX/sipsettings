@@ -46,7 +46,6 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 		}
 		$p_idx++;
 	}
-	$general_sip_settings 				= sipsettings_get();
 	
 	// With the new sorting, the vars should come to us in the sorted order so just use that
 	//
@@ -78,18 +77,16 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 	$sip_settings['context']           = isset($_POST['context']) ? htmlspecialchars($_POST['context']) : '';
 	$sip_settings['bindaddr']          = isset($_POST['bindaddr']) ? htmlspecialchars($_POST['bindaddr']) : '';
 	$sip_settings['bindport']          = isset($_POST['bindport']) ? htmlspecialchars($_POST['bindport']) : '';
-	$sip_settings['allowguest']        = isset($_POST['allowguest']) ? $_POST['allowguest'] : 'yes';
 	$sip_settings['srvlookup']         = isset($_POST['srvlookup']) ? $_POST['srvlookup'] : 'no';
 	$sip_settings['tcpenable']         = isset($_POST['tcpenable']) ? $_POST['tcpenable'] : 'no';
 	$sip_settings['callevents']        = isset($_POST['callevents']) ? $_POST['callevents'] : 'no';
 
 	$sip_settings['tlsenable']         = isset($_POST['tlsenable']) ? $_POST['tlsenable'] : 'no';
 	$sip_settings['csipcertid']        = isset($_POST['csipcertid']) ? $_POST['csipcertid'] : '';
-	$sip_settings['tlsclientmethod']   = isset($_POST['tlsclientmethod']) ? $_POST['tlsclientmethod'] : 'tlsv1';
+	$sip_settings['tlsclientmethod']   = isset($_POST['tlsclientmethod']) ? $_POST['tlsclientmethod'] : 'sslv2';
 	$sip_settings['tlsdontverifyserver']        = isset($_POST['tlsdontverifyserver']) ? $_POST['tlsdontverifyserver'] : '';
 	$sip_settings['tlsbindaddr']       = isset($_POST['tlsbindaddr']) ? htmlspecialchars($_POST['tlsbindaddr']) : '';
 	$sip_settings['tlsbindport']       = isset($_POST['tlsbindport']) ? htmlspecialchars($_POST['tlsbindport']) : '';
-
 
 	$p_idx = 0;
 	$n_idx = 0;
@@ -114,7 +111,8 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 		default:
 			/* only get them if first time load, if they pressed submit, use values from POST */
 			$sip_settings = sipsettings_get();
-	}
+
+			}
 	$error_displays = array_merge($error_displays,sipsettings_check_custom_files());
 
 ?>
@@ -128,7 +126,7 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 	extract($sip_settings);
 
 ?>
-	<form autocomplete="off" name="editSip" id="editSip" class="fpbx-submit" action="" method="post">
+
 	<input type="hidden" name="action" value="edit">
 <?php
 	/* if there were erros on the submit then create error box */
@@ -355,16 +353,16 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 					</div>
 					<div class="col-md-9 radioset">
 						<select class="form-control" id="tlsclientmethod" name="tlsclientmethod">
+							<option value="sslv2" <?php echo ($tlsclientmethod == "sslv2"?"selected":"") ?>>sslv2</option>
 							<option value="tlsv1" <?php echo ($tlsclientmethod == "tlsv1"?"selected":"") ?>>tlsv1</option>
-							<option value="sslv2" <?php echo ($tlsclientmethod == "sslv2"?"selected":"") ?>>sslv2 (<?php echo _('Insecure')?>)</option>
-							<option value="sslv3" <?php echo ($tlsclientmethod == "sslv3"?"selected":"") ?>>sslv3 (<?php echo _('Insecure')?>)</option>
+							<option value="sslv3" <?php echo ($tlsclientmethod == "sslv3"?"selected":"") ?>>sslv3</option>
 						</select>
 					</div>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-md-12">
-					<span id="tlsclientmethod-help" class="help-block fpbx-help-block"><?php echo _("Method of SSL transport (TLS ONLY). The default is currently tlsv1, but may change with future releases.")?></span>
+					<span id="tlsclientmethod-help" class="help-block fpbx-help-block"><?php echo _("Method of SSL transport (TLS ONLY). The default is currently sslv2, but may change with future releases.")?></span>
 				</div>
 			</div>
 		</div>
@@ -986,33 +984,6 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 		</div>
 	</div>
 	<!--END Bind Port-->
-	<!--Allow SIP Guests-->
-	<div class="element-container">
-		<div class="row">
-			<div class="col-md-12">
-				<div class="row">
-					<div class="form-group">
-						<div class="col-md-3">
-							<label class="control-label" for="allowguest"><?php echo _("Allow SIP Guests") ?></label>
-							<i class="fa fa-question-circle fpbx-help-icon" data-for="allowguest"></i>
-						</div>
-						<div class="col-md-9 radioset">
-							<input id="allowguest-yes" type="radio" name="allowguest" value="yes" <?php echo $allowguest=="yes"?"checked=\"yes\"":""?>/>
-							<label for="allowguest-yes"><?php echo _("Yes") ?></label>
-							<input id="allowguest-no" type="radio" name="allowguest" value="no" <?php echo $allowguest=="no"?"checked=\"no\"":""?>/>
-							<label for="allowguest-no"><?php echo _("No") ?></label>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-12">
-				<span id="allowguest-help" class="help-block fpbx-help-block"><?php echo _("When set Asterisk will allow Guest SIP calls and send them to the Default SIP context. Turning this off will keep anonymous SIP calls from entering the system. Doing such will also stop 'Allow Anonymous Inbound SIP Calls' from functioning. Allowing guest calls but rejecting the Anonymous SIP calls below will enable you to see the call attempts and debug incoming calls that may be mis-configured and appearing as guests.")?></span>
-			</div>
-		</div>
-	</div>
-	<!--END Allow SIP Guests-->
 	<!--SRV Lookup-->
 	<div class="element-container">
 		<div class="row">
@@ -1156,7 +1127,7 @@ $(document).ready(function(){
 	?>
 });
 </script>
-</form>
+
 <?php
 
 /********** UTILITY FUNCTIONS **********/

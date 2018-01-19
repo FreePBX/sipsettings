@@ -217,7 +217,7 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 	}
 
 	public function doGeneralPost() {
-	dbug($_REQUEST);
+
 		if (!isset($_REQUEST['Submit'])) {
 			return;
 		}
@@ -277,7 +277,37 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 			// Finished. Unset it, and continue on.
 			unset($_REQUEST['voicecodecs']);
 		}
-	
+
+		// Video Codecs
+		if (isset($_REQUEST['vcodec'])) {
+			dbug('codec video ok');
+			dbug($_REQUEST['vcodec']);
+			// Go through all the codecs that were handed back to
+			// us, and create a new array with what they want.
+			// Note we trust the browser to return the array in the correct
+			// order here.
+			$vcodecs = array_keys($_REQUEST['vcodec']);
+
+			// Just in case they don't turn on ANY codecs..
+			$codecsValid = false;
+
+			$seq = 1;
+			foreach ($vcodecs as $vc) {
+				$newvcodecs[$vc] = $seq++;
+				$vcodecsValid = true;
+			}
+
+			if ($vcodecsValid) {
+				$this->setCodecs('video',$newvcodecs);
+			} else {
+				// They turned off ALL the codecs. Set them back to default.
+				$this->setCodecs('video');
+			}
+
+			// Finished. Unset it, and continue on.
+			unset($_REQUEST['vcodec']);
+		}
+		
 		// Ignore empty/invalid localnet settings
 		if (isset($_REQUEST['localnets'])) {
 			foreach ($_REQUEST['localnets'] as $i => $arr) {
@@ -612,28 +642,30 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 			return $this->tlsCache;
 		}
 
-		$this->tlsCache = array();
-		if($this->FreePBX->Modules->moduleHasMethod("certman","getCABundle")) {
-			$cafile = $this->FreePBX->Certman->getCABundle();
-			if(!empty($cafile)) {
-				$this->tlsCache['ca_list_file'] = $cafile;
-			}
-		}
-
 		if($this->FreePBX->Modules->moduleHasMethod("certman","getDefaultCertDetails")) {
 			$cerid = $this->getConfig('pjsipcertid');
 			$cert = $this->FreePBX->Certman->getCertificateDetails($cerid);
 			if(!empty($cert['files']['crt']) && !empty($cert['files']['key'])) {
-				$this->tlsCache['cert_file'] = $cert['files']['pem'];
-				$this->tlsCache['priv_key_file'] = $cert['files']['key'];
+				$this->tlsCache = array(
+					"cert_file" => $cert['files']['crt'],
+					"priv_key_file" => $cert['files']['key'],
+				);
+				if(isset($cert['files']['ca-bundle'])) {
+					$this->tlsCache['ca_list_file'] = $cert['files']['ca-bundle'];
+				}
+			} else {
+				$this->tlsCache = array();
+				return $this->tlsCache;
 			}
 		} else {
 			$defaults = array(
+				"ca_list_file" => "/etc/asterisk/keys/integration/ca-bundle.crt",
 				"cert_file" => "/etc/asterisk/keys/integration/webserver.crt",
 				"priv_key_file" => "/etc/asterisk/keys/integration/webserver.key",
 			);
 
 			$map = array(
+				"calistfile" => "ca_list_file",
 				"certfile" => "cert_file",
 				"privkeyfile" => "priv_key_file",
 			);
