@@ -1,28 +1,26 @@
 <?php
 // vim: set ai ts=4 sw=4 ft=phtml:
-$localnets = $this->getConfig('localnets');
-if (!$localnets) {
-	$localnets = array();
-}
+	$localnets 				= $this->getConfig('localnets');
+	if (!$localnets) {
+		$localnets 			= array();
+	}
 
-$externip = $this->getConfig('externip');
-if (!$externip) {
-	$externip = ""; // Ensure any failure is always an empty string
-}
-
-
-$ice_blacklist = $this->getConfig('ice-blacklist');
-$ice_blacklist = !empty($ice_blacklist) ? $ice_blacklist : array(array("address" => "","subnet" => ""));
-$ice_host_candidates = $this->getConfig('ice-host-candidates');
-$ice_host_candidates = !empty($ice_host_candidates) ? $ice_host_candidates : array(array("local" => "","advertised" => ""));
-
-$add_local_network_field = _("Add Local Network Field");
-$submit_changes = _("Submit Changes");
+	$externip = $this->getConfig('externip');
+	if (!$externip) {
+		$externip 			= ""; // Ensure any failure is always an empty string
+	}
 
 
+	$ice_blacklist 			= $this->getConfig('ice-blacklist');
+	$ice_blacklist 			= !empty($ice_blacklist) ? $ice_blacklist : array(array("address" => "","subnet" => ""));
+	$ice_host_candidates 	= $this->getConfig('ice-host-candidates');
+	$ice_host_candidates 	= !empty($ice_host_candidates) ? $ice_host_candidates : array(array("local" => "","advertised" => ""));
 
-	$sip_settings 	= sipsettings_get();
+	$add_local_network_field= _("Add Local Network Field");
+	$submit_changes 		= _("Submit Changes");
 	
+	$sip_settings 			= sipsettings_get();
+
 	// With the new sorting, the vars should come to us in the sorted order so just use that
 	//
 
@@ -30,12 +28,11 @@ $submit_changes = _("Submit Changes");
 	$sip_settings['maxcallbitrate']    	= isset($_POST['maxcallbitrate']) 	? htmlspecialchars($_POST['maxcallbitrate']) 	: $sip_settings['maxcallbitrate'];
 	$sip_settings['g726nonstandard']   	= isset($_POST['g726nonstandard']) 	? $_POST['g726nonstandard'] 					: $sip_settings['g726nonstandard'];
 	$sip_settings['t38pt_udptl']       	= isset($_POST['t38pt_udptl']) 		? $_POST['t38pt_udptl'] 						: $sip_settings['t38pt_udptl'];
-	$sip_settings['allowguest']        = isset($_POST['allowguest']) ? $_POST['allowguest'] : 'yes';
+	$sip_settings['allowguest']        	= isset($_POST['allowguest']) 		? $_POST['allowguest'] 							: $sip_settings['allowguest'];
 	$action 							= isset($_POST['Submit'])			? $_POST['Submit']								: '';
 	extract($sip_settings);
-
-	
 ?>
+
 <input type="hidden" name="category" value="general">
 <input type="hidden" name="Submit" value="Submit">
 <div class="section-title" data-for="sssecurity">
@@ -661,9 +658,7 @@ foreach ($tlsowners as $chan => $txt) {
 							<label class="control-label" for="codecw"><?php echo _("Codecs") ?></label>
 						</div>
 						<div class="col-md-9">
-							<?php echo \show_help( _("This is the default Codec setting for new Trunks and Extensions."),_("Helpful Information"),false, true, 'info')?>
-							<?php
-							
+							<?php echo \show_help( _("This is the default Codec setting for new Trunks and Extensions."),_("Helpful Information"),false, true, 'info');
 							$seq 			= 1;
 							
 							echo '<ul class="sortable">';
@@ -856,4 +851,3 @@ foreach ($tlsowners as $chan => $txt) {
 		<!--END Max Bit Rate-->
 	</div>
 </div>
-

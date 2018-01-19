@@ -25,7 +25,7 @@ if ($sa != "no") {
 
 		// Strip netmask off the end of the IP address
 		$ret = preg_match("/(\d*.\d*.\d*.\d*)[\/(\d*+)]*/", $vals[3], $ip);
-		
+
 		$interfaces[$intname] = array($ip[1], $intname, $ip[2]);
 	}
 }
@@ -171,7 +171,6 @@ foreach ($protocols as $p) {
 	}
 }
 ?>
-
 <input type="hidden" name="category" value="pjsip">
 <input type="hidden" name="Submit" value="Submit">
 <div class="section-title" data-for="pjsmisc"><h3>
@@ -303,9 +302,9 @@ foreach ($protocols as $p) {
 						<select class="form-control" id="method" name="method">
 							<option value="default" <?php echo ($this->getConfig("method") == "default"?"selected":"") ?>><?php echo _("Default");?></option>
 							<option value="tlsv1" <?php echo ($this->getConfig("method") == "tlsv1"?"selected":"") ?>>tlsv1</option>
-							<option value="sslv2" <?php echo ($this->getConfig("method") == "sslv2"?"selected":"") ?>>sslv2</option>
-							<option value="sslv3" <?php echo ($this->getConfig("method") == "sslv3"?"selected":"") ?>>sslv3</option>
-							<option value="sslv23" <?php echo ($this->getConfig("method") == "sslv23"?"selected":"") ?>>sslv23</option>
+							<option value="sslv2" <?php echo ($this->getConfig("method") == "sslv2"?"selected":"") ?>>sslv2 (<?php echo _('Insecure')?>)</option>
+							<option value="sslv3" <?php echo ($this->getConfig("method") == "sslv3"?"selected":"") ?>>sslv3 (<?php echo _('Insecure')?>)</option>
+							<option value="sslv23" <?php echo ($this->getConfig("method") == "sslv23"?"selected":"") ?>>sslv23 (<?php echo _('Insecure')?>)</option>
 						</select>
 					</div>
 				</div>
@@ -376,4 +375,3 @@ foreach ($protocols as $p) {
 </div>
 <?php echo $protohtml?>
 <?php echo $bindhtml?>
-

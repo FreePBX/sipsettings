@@ -1,10 +1,7 @@
-
-
 var changed = false,
 		theForm = document.editSip;
 
 $(document).ready(function() {
-	
 	$('.sortable').sortable(	{
 	   update: function(event, ui) {
 			//console.log(ui.item.find('input').val(), ui.item.index())
@@ -12,7 +9,6 @@ $(document).ready(function() {
 			ui.item.find('input').val(ui.item.index());
 	   }
 	});
-	
 	$("form").submit(function() {
 		if(changed) {
 			alert(_("Port/Bind Address has changed. This requires an Asterisk restart after Apply Config"));
@@ -28,7 +24,6 @@ $(document).ready(function() {
 		}
 		return checkBindConflicts();
 	});
-	
 	$("#editSip #bindaddr").bind('input propertychange', function() {
 		changed = true;
 		console.log(changed);
