@@ -32,7 +32,7 @@
 	$action 							= isset($_POST['Submit'])			? $_POST['Submit']								: '';
 	extract($sip_settings);
 ?>
-
+<div class="alert alert-info" role="alert"><?php echo _("These settings apply to both chan_sip and chan_pjsip."); ?></div>
 <input type="hidden" name="category" value="general">
 <input type="hidden" name="Submit" value="Submit">
 <div class="section-title" data-for="sssecurity">
@@ -147,7 +147,6 @@ foreach ($tlsowners as $chan => $txt) {
 	<h3><i class="fa fa-minus"></i><?php echo _("NAT Settings") ?></h3>
 </div>
 <div class="section" data-id="ssnat">
-	<div class="alert alert-info" role="alert"><?php echo _("These settings apply to both chan_sip and chan_pjsip."); ?></div>
 	<!--External Address-->
 	<div class="element-container">
 		<div class="row">
@@ -590,33 +589,7 @@ foreach ($tlsowners as $chan => $txt) {
 	<h3><i class="fa fa-minus"></i><?php echo _("Audio Codecs") ?></h3>
 </div>
 <div class="section" data-id="sscodecs">
-	<!--Non-Standard g726-->
-	<div class="element-container">
-		<div class="row">
-			<div class="col-md-12">
-				<div class="row">
-					<div class="form-group">
-						<div class="col-md-3">
-							<label class="control-label" for="g726nonstandard"><?php echo _("Non-Standard g726") ?></label>
-							<i class="fa fa-question-circle fpbx-help-icon" data-for="g726nonstandard"></i>
-						</div>
-						<div class="col-md-9 radioset">
-							<input id="g726nonstandard-yes" type="radio" name="g726nonstandard" value="yes" <?php echo $g726nonstandard=="yes"?"checked=\"yes\"":""?>/>
-							<label for="g726nonstandard-yes"><?php echo _("Yes") ?></label>
-							<input id="g726nonstandard-no" type="radio" name="g726nonstandard" value="no" <?php echo $g726nonstandard=="no"?"checked=\"no\"":""?>/>
-							<label for="g726nonstandard-no"><?php echo _("No") ?></label>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-12">
-				<span id="g726nonstandard-help" class="help-block fpbx-help-block"><?php echo _("Asterisk: g726nonstandard. If the peer negotiates G726-32 audio, use AAL2 packing order instead of RFC3551 packing order (this is required for Sipura and Grandstream ATAs, among others). This is contrary to the RFC3551 specification, the peer _should_ be negotiating AAL2-G726-32 instead.")?></span>
-			</div>
-		</div>
-	</div>
-	<!--END Non-Standard g726-->
+
 	<!--T38 Pass-Through-->
 	<div class="element-container">
 		<div class="row">
