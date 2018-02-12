@@ -1160,15 +1160,7 @@ $(document).ready(function(){
 
 /********** UTILITY FUNCTIONS **********/
 
-function process_errors($errors) {
-	foreach($errors as $error) {
-		$error_display[] = array(
-			'js' => "$('#".$error['id']."').addClass('validation-error');\n",
-			'div' => $error['message'],
-		);
-	}
-	return $error_display;
-}
+
 
 function sipsettings_check_custom_files() {
 	global $amp_conf;

@@ -14,6 +14,16 @@ define('SIP_CODEC','1');
 define('SIP_VIDEO_CODEC','2');
 define('SIP_CUSTOM','9');
 
+function process_errors($errors) {
+	foreach($errors as $error) {
+		$error_display[] = array(
+			'js' => "$('#".$error['id']."').addClass('validation-error');\n",
+			'div' => $error['message'],
+		);
+	}
+	return $error_display;
+}
+
 class sipsettings_validate {
 	var $errors = array();
 
@@ -38,7 +48,7 @@ class sipsettings_validate {
 		}
 	}
 
-	/* checks if value is valid port between 1024 - 6 65535 */
+	/* checks if value is valid port between 1024 - 65535 */
 	function is_ip_port($value, $item, $message) {
 		$value = trim($value);
 		if ($value != '' && (!ctype_digit($value) || $value < 1024 || $value > 65535)) {
