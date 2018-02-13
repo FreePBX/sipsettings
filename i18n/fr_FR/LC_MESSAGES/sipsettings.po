@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-24 17:51-0800\n"
+"POT-Creation-Date: 2018-02-12 19:29-0500\n"
 "PO-Revision-Date: 2017-12-01 23:47+0200\n"
 "Last-Translator: CATTAN Jérémie <jeremie@famillecattan.com>\n"
 "Language-Team: French <http://weblate.freepbx.org/projects/freepbx/"
@@ -32,12 +32,12 @@ msgstr ""
 msgid " See current version of Asterisk for limitations on SRV functionality."
 msgstr ""
 
-#: functions.inc.php:339
+#: functions.inc.php:349
 #, php-format
 msgid "%s must be a non-negative integer"
 msgstr "%s doit être un entier non négatif"
 
-#: functions.inc.php:383
+#: functions.inc.php:393
 #, php-format
 msgid "%s must be alphanumeric"
 msgstr "%s doit être alphanumérique"
@@ -201,7 +201,7 @@ msgstr "Configuration auto"
 msgid "Bind Address"
 msgstr "Adresse d'écoute"
 
-#: functions.inc.php:343
+#: functions.inc.php:353
 msgid "Bind Address (bindaddr) must be an IP address."
 msgstr "L'adresse d'écoute (bindaddr) doit être une adresse IP."
 
@@ -209,7 +209,7 @@ msgstr "L'adresse d'écoute (bindaddr) doit être une adresse IP."
 msgid "Bind Port"
 msgstr "Port d'écoute"
 
-#: functions.inc.php:349
+#: functions.inc.php:359
 msgid "Bind Port (bindport) must be between 1024 and 65535"
 msgstr "Le port d'écoute (bindport) doit être entre 1024 et 65535"
 
@@ -357,7 +357,7 @@ msgstr "Hôte dynamique"
 msgid "Dynamic Host Refresh"
 msgstr "Rafraîchissement de l'hôte dynamique"
 
-#: functions.inc.php:409
+#: functions.inc.php:419
 msgid "Dynamic Host can not be blank"
 msgstr "L'hôte dynamique ne peut être vide"
 
@@ -441,7 +441,7 @@ msgstr ""
 msgid "External IP Address"
 msgstr "Adresse IP externe"
 
-#: functions.inc.php:399 assets/js/sipsettings.js:20
+#: functions.inc.php:409 assets/js/sipsettings.js:20
 msgid ""
 "External IP can not be blank when NAT Mode is set to Static and no default "
 "IP address provided on the main page"
@@ -613,11 +613,11 @@ msgid ""
 "more fields. Blank fields will be ignored."
 msgstr ""
 
-#: functions.inc.php:460
+#: functions.inc.php:470
 msgid "Localnet netmask must be formatted properly (e.g. 255.255.255.0 or 24)"
 msgstr ""
 
-#: functions.inc.php:455
+#: functions.inc.php:465
 msgid "Localnet setting must be an IP address"
 msgstr ""
 
@@ -903,7 +903,7 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
-#: chansip.page.php:1189
+#: chansip.page.php:1181
 #, php-format
 msgid "Settings in %s may override these. Those settings should be removed."
 msgstr ""
@@ -1235,7 +1235,7 @@ msgstr ""
 msgid "route"
 msgstr "route"
 
-#: functions.inc.php:357
+#: functions.inc.php:367
 msgid "rtpholdtimeout must be higher than rtptimeout"
 msgstr ""
 

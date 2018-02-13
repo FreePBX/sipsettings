@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-24 17:51-0800\n"
+"POT-Creation-Date: 2018-02-12 19:29-0500\n"
 "PO-Revision-Date: 2016-12-12 02:44+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/"
@@ -36,12 +36,12 @@ msgstr ""
 " Consulte la versión actual de Asterisk para conocer las limitaciones de la "
 "funcionalidad SRV."
 
-#: functions.inc.php:339
+#: functions.inc.php:349
 #, php-format
 msgid "%s must be a non-negative integer"
 msgstr "%s debe ser un entero no negativo"
 
-#: functions.inc.php:383
+#: functions.inc.php:393
 #, php-format
 msgid "%s must be alphanumeric"
 msgstr "%s debe ser un valor alfanumérico"
@@ -227,7 +227,7 @@ msgstr "Auto Configurar"
 msgid "Bind Address"
 msgstr "Dirección de Escucha"
 
-#: functions.inc.php:343
+#: functions.inc.php:353
 msgid "Bind Address (bindaddr) must be an IP address."
 msgstr "Dirección Enlace (bindaddr) debe ser una dirección IP."
 
@@ -235,7 +235,7 @@ msgstr "Dirección Enlace (bindaddr) debe ser una dirección IP."
 msgid "Bind Port"
 msgstr "Puerto de Escucha"
 
-#: functions.inc.php:349
+#: functions.inc.php:359
 msgid "Bind Port (bindport) must be between 1024 and 65535"
 msgstr "Bind Port (bindport) debe estar entre 1024 y 65535"
 
@@ -396,7 +396,7 @@ msgstr "Host Dinámico"
 msgid "Dynamic Host Refresh"
 msgstr "Actualización dinámica del host"
 
-#: functions.inc.php:409
+#: functions.inc.php:419
 msgid "Dynamic Host can not be blank"
 msgstr "Host Dinámico NO puede quedar en blanco"
 
@@ -491,7 +491,7 @@ msgstr ""
 msgid "External IP Address"
 msgstr "Dirección IP Externa"
 
-#: functions.inc.php:399 assets/js/sipsettings.js:20
+#: functions.inc.php:409 assets/js/sipsettings.js:20
 msgid ""
 "External IP can not be blank when NAT Mode is set to Static and no default "
 "IP address provided on the main page"
@@ -705,13 +705,13 @@ msgstr ""
 "redes con más de 1 subredes LAN, utilice el botón Añadir Campo de Red Local "
 "para más campos. Los campos en blanco se ignoran."
 
-#: functions.inc.php:460
+#: functions.inc.php:470
 msgid "Localnet netmask must be formatted properly (e.g. 255.255.255.0 or 24)"
 msgstr ""
 "Máscara de red local debe tener el formato correcto (por ejemplo, "
 "255.255.255.0 o 24)"
 
-#: functions.inc.php:455
+#: functions.inc.php:465
 msgid "Localnet setting must be an IP address"
 msgstr "Configuración 'localnet' debe ser una dirección IP"
 
@@ -1023,7 +1023,7 @@ msgstr ""
 msgid "Settings"
 msgstr "Configuraciones"
 
-#: chansip.page.php:1189
+#: chansip.page.php:1181
 #, php-format
 msgid "Settings in %s may override these. Those settings should be removed."
 msgstr "Ajustes en %s pueden anular estos. Estos valores deben ser eliminados."
@@ -1399,7 +1399,7 @@ msgstr "insertando los codecs por defecto.."
 msgid "route"
 msgstr "ruta"
 
-#: functions.inc.php:357
+#: functions.inc.php:367
 msgid "rtpholdtimeout must be higher than rtptimeout"
 msgstr "rtpholdtimeout debe ser superior a rtptimeout"
 
