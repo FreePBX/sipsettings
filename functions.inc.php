@@ -14,7 +14,7 @@ define('SIP_CODEC','1');
 define('SIP_VIDEO_CODEC','2');
 define('SIP_CUSTOM','9');
 
-function process_errors($errors) {
+function sipsettings_process_errors($errors) {
 	foreach($errors as $error) {
 		$error_display[] = array(
 			'js' => "$('#".$error['id']."').addClass('validation-error');\n",
@@ -31,8 +31,8 @@ class sipsettings_validate {
 	function is_int($value, $item, $message, $negative=false) {
 		$value = trim($value);
 		if($value == "-1"){
-			return $value;	
-		} 
+			return $value;
+		}
 		else{
 			if ($value != '' && $negative) {
 				$tmp_value = substr($value,0,1) == '-' ? substr($value,1) : $value;
@@ -43,8 +43,8 @@ class sipsettings_validate {
 				if (!ctype_digit($value) || ($value < 0 )) {
 					$this->errors[] = array('id' => $item, 'value' => $value, 'message' => $message);
 				}
-			}	
-			return $value;			
+			}
+			return $value;
 		}
 	}
 
@@ -494,7 +494,7 @@ function sipsettings_edit($sip_settings) {
 		if ($_REQUEST['category'] == "general" && $_REQUEST['Submit'] == "Submit"){
 			FreePBX::Sipsettings()->setCodecs('video',$fvcodecs);
 		}
-		
+
 
 		// TODO: normally don't like doing delete/insert but otherwise we would have do update for each
 		//			 individual setting and then an insert if there was nothing to update. So this is cleaner

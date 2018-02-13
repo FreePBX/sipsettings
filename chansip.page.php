@@ -30,7 +30,7 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 	$sip_settings['externip_val']      = isset($_POST['externip_val']) ? htmlspecialchars($_POST['externip_val']) : '';
 	$sip_settings['externhost_val']    = isset($_POST['externhost_val']) ? htmlspecialchars($_POST['externhost_val']) : '';
 	$sip_settings['externrefresh']     = isset($_POST['externhostrefresh']) ? htmlspecialchars($_POST['externhostrefresh']) : '120';
-	
+
 	// QaD fix for localization, xgettext does not pickup the localization string in the code
 	$add_field 					= _("Add Field");
 	$auto_configure 			= _("Auto Configure");
@@ -47,7 +47,7 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 		$p_idx++;
 	}
 	$general_sip_settings 				= sipsettings_get();
-	
+
 	// With the new sorting, the vars should come to us in the sorted order so just use that
 	//
 
@@ -105,7 +105,7 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 	switch ($action) {
 		case "edit":  //just delete and re-add
 			if (($errors = sipsettings_edit($sip_settings)) !== true) {
-				$error_displays = process_errors($errors);
+				$error_displays = sipsettings_process_errors($errors);
 			} else {
 				needreload();
 				//redirect_standard();

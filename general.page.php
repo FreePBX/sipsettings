@@ -18,7 +18,7 @@
 
 	$add_local_network_field= _("Add Local Network Field");
 	$submit_changes 		= _("Submit Changes");
-	
+
 	$sip_settings 			= sipsettings_get();
 
 	// With the new sorting, the vars should come to us in the sorted order so just use that
@@ -633,7 +633,7 @@ foreach ($tlsowners as $chan => $txt) {
 						<div class="col-md-9">
 							<?php echo \show_help( _("This is the default Codec setting for new Trunks and Extensions."),_("Helpful Information"),false, true, 'info');
 							$seq 			= 1;
-							
+
 							echo '<ul class="sortable">';
 							foreach (FreePBX::Sipsettings()->getCodecs('audio',true) as $codec => $codec_state) {
 								if($sip_settings["g726nonstandard"] == "no" && $codec == "g726aal2"){
@@ -671,7 +671,7 @@ foreach ($tlsowners as $chan => $txt) {
 	/* We massaged these above or they came from sipsettings_get() if this is not
 	 * from and edit. So extract them after sorting out the codec sub arrays.
 	 */
-	
+
 	$video_codecs 		= FreePBX::Sipsettings()->getCodecs('video',true);
 	foreach($video_codecs as $key => $value){
 		$v_codecs[$key] = "";
@@ -684,7 +684,7 @@ foreach ($tlsowners as $chan => $txt) {
 		$newvcodecs[$key] = $seq++;
 		$vcodec = True;
 	}
-	
+
 	$video_codecs		= ($vcodec)? array_merge($v_codecs, $newvcodecs) : $video_codecs ;
 
 	uasort($video_codecs, function($a, $b) {
@@ -702,12 +702,12 @@ foreach ($tlsowners as $chan => $txt) {
 
 	/* EXTRACT THE VARIABLE HERE - MAKE SURE THEY ARE ALL MASSAGED ABOVE */
 	//
-	
+
 	switch ($action) {
 		case "Submit":  // Save sip settings
 			if (($errors = sipsettings_edit($sip_settings)) !== true) {
-				$error_displays = process_errors($errors);
-			} 
+				$error_displays = sipsettings_process_errors($errors);
+			}
 		break;
 		default:
 			/* only get them if first time load, if they pressed submit, use values from POST */
@@ -715,7 +715,7 @@ foreach ($tlsowners as $chan => $txt) {
 			extract($sip_settings);
 	}
 	unset($_POST['Submit']); 	unset($action);
-	
+
 ?>
 <div class="section-title" data-for="sscsvcodecs">
 	<h3><i class="fa fa-minus"></i> <?php echo _("Video Codecs")?></h3>
