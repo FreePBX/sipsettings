@@ -10,14 +10,16 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-02-12 19:27-0500\n"
-"PO-Revision-Date: 2017-11-27 22:41+0000\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
-"Language: \n"
+"PO-Revision-Date: 2018-02-16 18:07+0200\n"
+"Last-Translator: Nils <Nils@heckenkamp.info>\n"
+"Language-Team: German "
+"<http://weblate.freepbx.org/projects/freepbx/sipsettings/de_DE/>\n"
+"Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 2.4\n"
 
 #: chansip.page.php:414
 msgid ""
@@ -817,7 +819,7 @@ msgstr ""
 
 #: Sipsettings.class.php:579
 msgid "Reset"
-msgstr ""
+msgstr "Zurücksetzen"
 
 #: chansip.page.php:803
 msgid ""
@@ -867,7 +869,7 @@ msgstr ""
 
 #: sipsettings.i18n.php:6
 msgid "Settings"
-msgstr ""
+msgstr "Einstellungen"
 
 #: chansip.page.php:1385
 #, php-format
@@ -1112,7 +1114,7 @@ msgstr ""
 #: chansip.page.php:1223 chansip.page.php:1249 chansip.page.php:1275
 #: general.page.php:40 general.page.php:234 general.page.php:257
 msgid "Yes"
-msgstr ""
+msgstr "Ja"
 
 #: chansip.page.php:371
 msgid "Yes with FEC"
