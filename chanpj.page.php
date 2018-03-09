@@ -5,29 +5,8 @@ $sa = $this->getConfig('showadvanced');
 $interfaces['auto'] = array('0.0.0.0', 'All', '0');
 
 if ($sa != "no") {
-	// Discover all interfaces.
-
 	exec("/sbin/ip -o addr", $result, $ret);
-	foreach ($result as $line) {
-		$vals = preg_split("/\s+/", $line);
-
-		// We only care about ipv4 (inet) lines, or definition lines
-		if ($vals[2] != "inet" && $vals[3] != "mtu") {
-			continue;
-		}
-
-		// Some versions of 'ip' have a backslash after the int name
-		if ($vals[4] == "scope" && $vals[5] == "host") {
-			$intname = rtrim($vals[6], '\\');
-		} else {
-			$intname = rtrim($vals[8], '\\');
-		}
-
-		// Strip netmask off the end of the IP address
-		$ret = preg_match("/(\d*.\d*.\d*.\d*)[\/(\d*+)]*/", $vals[3], $ip);
-
-		$interfaces[$intname] = array($ip[1], $intname, $ip[2]);
-	}
+	$interfaces = $this->parseIpAddr($result, $interfaces);
 }
 
 $protocols = $this->getConfig("protocols");
@@ -375,3 +354,4 @@ foreach ($protocols as $p) {
 </div>
 <?php echo $protohtml?>
 <?php echo $bindhtml?>
+
