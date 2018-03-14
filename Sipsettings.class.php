@@ -1080,4 +1080,72 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 
 		return $settings;
 	}
+	
+	public function parseIpAddr($ipaddr, $interfaces = false) {
+		if (!is_array($interfaces)) {
+			$interfaces = array ( 'auto' => array('0.0.0.0', 'All', '0') );
+		}
+		foreach ($ipaddr as $line) {
+			$vals = preg_split("/\s+/", $line);
+
+			if (empty($vals[1]) || $vals[1] == "lo" || $vals[1] == "lo:") {
+				continue;
+			}
+
+			// We only care about ipv4 (inet) lines, or definition lines
+			if ($vals[2] != "inet" && $vals[3] != "mtu") {
+				continue;
+			}
+
+			if (preg_match("/(.+?)(?:@.+)?:$/", $vals[1], $res)) { // Matches vlans, which are eth0.100@eth0
+				// It's a network definition.
+				// This won't clobber an exsiting one, as it always comes
+				// before the IP addresses.
+				$interfaces[$res[1]] = array();
+				continue;
+			}
+
+			if (!isset($vals[8])) {
+				// FREEPBX-12382 - Can't parse this line. Probably openvz machine.
+				continue;
+			}
+
+			// Is this a named secondary?
+			if ($vals[8] == "secondary") {
+				// I shall call him sqishy and he shall be mine, and he shall be my squishy.
+				if (isset($vals[9])) {
+					$intname = $vals[9];
+					if (!isset($interfaces[$intname])) {
+						$interfaces[$intname] = array();
+					}
+				} else {
+					// Whatevs. I don't care. Fine. Be unnamed.
+					$intname = $vals[1];
+				}
+			} else if (strpos($vals[8], ":") !== false) {
+				// this is an UNNAMED secondary, eg eth0:0
+				$intname = trim($vals[8]);
+
+				// Depending on the version of 'ip', there may be a backslash here.
+				$intname = rtrim($intname, '\\');
+
+				if (!isset($interfaces[$intname])) {
+					$interfaces[$intname] = array();
+				}
+			} else {
+				$intname = $vals[1];
+			}
+
+			// Strip netmask off the end of the IP address
+			$ret = preg_match("/(\d*+.\d*+.\d*+.\d*+)\/(\d*+)/", $vals[3], $ip);
+
+			if ($ip) {
+				// If we already know about this interface, don't clobber it.
+				if (empty($interfaces[$intname])) {
+					$interfaces[$intname] = array($ip[1], $intname, $ip[2]);
+				}
+			}
+		}
+		return $interfaces;
+	}
 }
