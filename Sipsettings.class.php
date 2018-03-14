@@ -218,6 +218,11 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 
 	public function doGeneralPost() {
 
+		if(isset($_REQUEST['action']) && $_REQUEST['action'] == "delete"){
+			$ret = $this->deleteChanSipSettings($_REQUEST['key'],$_REQUEST['val']);
+			needreload();
+		}
+		
 		if (!isset($_REQUEST['Submit'])) {
 			return;
 		}
@@ -549,6 +554,13 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 		}
 	}
 
+	public function deleteChanSipSettings($key, $val = false) {
+		$db = \FreePBX::Database();
+		// Delete the key we want to change
+		$del = $db->prepare('DELETE FROM `sipsettings` WHERE `keyword`=? AND `data`=? AND `type`=9');
+		$del->execute(array($key, $val));
+	}
+	
 	// BMO Hooks.
 
 	public function install() {
