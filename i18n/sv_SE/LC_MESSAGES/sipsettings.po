@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX sipsettings\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-09 03:13-0300\n"
+"POT-Creation-Date: 2018-03-14 20:17-0400\n"
 "PO-Revision-Date: 2011-03-20 00:00+0100\n"
 "Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
 "Language-Team: Swedish\n"
@@ -111,7 +111,7 @@ msgid ""
 "An Error occurred trying fetch network configuration and external IP address"
 msgstr ""
 
-#: Sipsettings.class.php:847
+#: Sipsettings.class.php:859
 msgid ""
 "An unknown port conflict has been detected in PJSIP. Please check and "
 "validate your PJSIP Ports to ensure they're not overlapping"
@@ -221,15 +221,15 @@ msgstr ""
 msgid "CA Chain File"
 msgstr ""
 
-#: Sipsettings.class.php:861
+#: Sipsettings.class.php:873
 msgid "CHANSIP Port Moved"
 msgstr ""
 
-#: Sipsettings.class.php:871
+#: Sipsettings.class.php:883
 msgid "CHANSIP TCP Disabled"
 msgstr ""
 
-#: Sipsettings.class.php:882
+#: Sipsettings.class.php:894
 msgid "CHANSIP TLS Port Moved"
 msgstr ""
 
@@ -261,21 +261,21 @@ msgstr ""
 msgid "Chan SIP Settings"
 msgstr ""
 
-#: Sipsettings.class.php:882
+#: Sipsettings.class.php:894
 #, php-format
 msgid ""
 "Chansip was assigned a port that was already in use for TLS traffic. The "
 "Chansip TLS port has been changed to %s"
 msgstr ""
 
-#: Sipsettings.class.php:871
+#: Sipsettings.class.php:883
 msgid ""
 "Chansip was assigned the same port as pjsip for TCP traffic. Chansip has had "
 "the tcpenable setting removed, and is no longer listening for TCP "
 "connections."
 msgstr ""
 
-#: Sipsettings.class.php:861
+#: Sipsettings.class.php:873
 #, php-format
 msgid ""
 "Chansip was assigned the same port as pjsip for UDP traffic. The Chansip "
@@ -757,7 +757,7 @@ msgid ""
 "outages."
 msgstr ""
 
-#: chansip.page.php:1316
+#: chansip.page.php:1317
 msgid "Other SIP Settings"
 msgstr "Andra SIP-inställningar"
 
@@ -857,7 +857,7 @@ msgstr ""
 msgid "Require verification of server certificate (TLS ONLY)."
 msgstr ""
 
-#: Sipsettings.class.php:579
+#: Sipsettings.class.php:591
 msgid "Reset"
 msgstr ""
 
@@ -911,7 +911,7 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
-#: chansip.page.php:1385
+#: chansip.page.php:1387
 #, php-format
 msgid "Settings in %s may override these. Those settings should be removed."
 msgstr ""
@@ -934,7 +934,7 @@ msgstr "Statisk IP-adress"
 msgid "Strict RTP"
 msgstr ""
 
-#: Sipsettings.class.php:584
+#: Sipsettings.class.php:596
 msgid "Submit"
 msgstr ""
 
@@ -1070,11 +1070,11 @@ msgstr ""
 msgid "Unknown Error"
 msgstr ""
 
-#: Sipsettings.class.php:847
+#: Sipsettings.class.php:859
 msgid "Unknown Port Conflict"
 msgstr ""
 
-#: Sipsettings.class.php:403 Sipsettings.class.php:485
+#: Sipsettings.class.php:408 Sipsettings.class.php:490
 msgid "Unknown Type"
 msgstr ""
 
@@ -1187,7 +1187,7 @@ msgid ""
 "drop calls."
 msgstr ""
 
-#: chansip.page.php:1335
+#: chansip.page.php:1337
 msgid ""
 "You may set any other SIP settings not present here that are allowed to be "
 "configured in the General section of sip.conf. There will be no error "
