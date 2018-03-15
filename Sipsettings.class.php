@@ -217,16 +217,17 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 	}
 
 	public function doGeneralPost() {
+
 		if(isset($_REQUEST['action']) && $_REQUEST['action'] == "delete"){
 			$ret = $this->deleteChanSipSettings($_REQUEST['key'],$_REQUEST['val']);
 			needreload();
 		}
-		
+
 		if (!isset($_REQUEST['Submit'])) {
 			return;
 		}
 
-		
+
 		if (isset($_POST['ice_blacklist_count'])) {
 			$ice_blacklist = array();
 			$count = !empty($_POST['ice_blacklist_count']) ? $_POST['ice_blacklist_count'] : array();
@@ -311,7 +312,7 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 			// Finished. Unset it, and continue on.
 			unset($_REQUEST['vcodec']);
 		}
-		
+
 		// Ignore empty/invalid localnet settings
 		if (isset($_REQUEST['localnets'])) {
 			foreach ($_REQUEST['localnets'] as $i => $arr) {
@@ -598,6 +599,7 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 		$del = $db->prepare('DELETE FROM `sipsettings` WHERE `keyword`=? AND `data`=? AND `type`=9');
 		$del->execute(array($key, $val));
 	}
+
 	// BMO Hooks.
 
 	public function install() {
@@ -1080,7 +1082,7 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 
 		return $settings;
 	}
-	
+
 	public function parseIpAddr($ipaddr, $interfaces = false) {
 		if (!is_array($interfaces)) {
 			$interfaces = array ( 'auto' => array('0.0.0.0', 'All', '0') );
