@@ -29,6 +29,11 @@
 	$sip_settings['g726nonstandard']   	= isset($_POST['g726nonstandard']) 	? $_POST['g726nonstandard'] 					: $sip_settings['g726nonstandard'];
 	$sip_settings['t38pt_udptl']       	= isset($_POST['t38pt_udptl']) 		? $_POST['t38pt_udptl'] 						: $sip_settings['t38pt_udptl'];
 	$sip_settings['allowguest']        	= isset($_POST['allowguest']) 		? $_POST['allowguest'] 							: $sip_settings['allowguest'];
+	$sip_settings['rtptimeout']        	= isset($_POST['rtptimeout']) 		? htmlspecialchars($_POST['rtptimeout']) 		: $sip_settings['rtptimeout'];
+	$sip_settings['rtpholdtimeout']    	= isset($_POST['rtpholdtimeout']) 	? htmlspecialchars($_POST['rtpholdtimeout']) 	: $sip_settings['rtpholdtimeout'];
+	$sip_settings['rtpkeepalive']      	= isset($_POST['rtpkeepalive']) 	? htmlspecialchars($_POST['rtpkeepalive']) 		: $sip_settings['rtpkeepalive'];
+	$sip_settings['rtpstart']      	    = isset($_POST['rtpstart']) 		? htmlspecialchars($_POST['rtpstart']) 			: '10000';
+	$sip_settings['rtpend']             = isset($_POST['rtpend']) 			? htmlspecialchars($_POST['rtpend']) 			: '20000';
 	$action 							= isset($_POST['Submit'])			? $_POST['Submit']								: '';
 	extract($sip_settings);
 ?>

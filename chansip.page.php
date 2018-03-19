@@ -52,11 +52,6 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 	//
 
 	$sip_settings['canreinvite']       = isset($_POST['canreinvite']) ? $_POST['canreinvite'] : 'no';
-	$sip_settings['rtptimeout']        = isset($_POST['rtptimeout']) ? htmlspecialchars($_POST['rtptimeout']) : '30';
-	$sip_settings['rtpholdtimeout']    = isset($_POST['rtpholdtimeout']) ? htmlspecialchars($_POST['rtpholdtimeout']) : '300';
-	$sip_settings['rtpkeepalive']      = isset($_POST['rtpkeepalive']) ? htmlspecialchars($_POST['rtpkeepalive']) : '0';
-	$sip_settings['rtpstart']      	   = isset($_POST['rtpstart']) ? htmlspecialchars($_POST['rtpstart']) : '10000';
-	$sip_settings['rtpend']            = isset($_POST['rtpend']) ? htmlspecialchars($_POST['rtpend']) : '20000';
 
 	$sip_settings['checkmwi']          = isset($_POST['checkmwi']) ? htmlspecialchars($_POST['checkmwi']) : '10';
 	$sip_settings['notifyringing']     = isset($_POST['notifyringing']) ? $_POST['notifyringing'] : 'yes';
