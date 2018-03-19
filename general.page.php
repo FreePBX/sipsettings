@@ -382,6 +382,11 @@ foreach ($tlsowners as $chan => $txt) {
 		</div>
 	</div>
 	<!--END RTP Keep Alive-->
+</div>	
+<div class="section-title" data-for="ssmts">
+	<h3><i class="fa fa-minus"></i><?php echo _("Media Transport Settings") ?></h3>
+</div>
+<div class="section" data-id="ssmts">
 	<!--STUN Server Address-->
 	<div class="element-container">
 		<div class="row">
