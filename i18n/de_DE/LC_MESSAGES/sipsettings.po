@@ -382,7 +382,7 @@ msgid ""
 "forced and enabled. An example is if receiving from a jittery channel to "
 "voicemail, the jitter buffer will be used if enabled. However, it will not "
 "be used when sending to a SIP endpoint since they usually have their own "
-"jitter buffers. See jbforce to force it's use always."
+"jitter buffers. See jbforce to force its use always."
 msgstr ""
 
 #: general.page.php:206
