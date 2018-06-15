@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-16 18:43-0400\n"
+"POT-Creation-Date: 2018-06-15 19:44-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -29,7 +29,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: general.page.php:828
+#: general.page.php:829
 msgid ""
 " If you clear each codec and then add them one at a time, submitting with "
 "each addition, they will be added in order which will effect the codec "
@@ -54,7 +54,7 @@ msgstr ""
 msgid "Adaptive"
 msgstr ""
 
-#: general.page.php:519 general.page.php:561
+#: general.page.php:520 general.page.php:562
 msgid "Add Address"
 msgstr ""
 
@@ -166,7 +166,7 @@ msgid ""
 "specification, the peer _should_ be negotiating AAL2-G726-32 instead."
 msgstr ""
 
-#: general.page.php:700
+#: general.page.php:701
 msgid ""
 "Asterisk: t38pt_udptl. Enables T38 passthrough which makes faxes go through "
 "Asterisk without being processed.<ul><li>No - No passthrough</li><li>Yes - "
@@ -177,7 +177,7 @@ msgid ""
 "with no error correction - Enables T.38 with no error correction.</li></ul>"
 msgstr ""
 
-#: general.page.php:671
+#: general.page.php:672
 msgid "Audio Codecs"
 msgstr ""
 
@@ -221,7 +221,7 @@ msgstr ""
 msgid "Call Events"
 msgstr ""
 
-#: general.page.php:552
+#: general.page.php:553
 msgid "Candidates"
 msgstr ""
 
@@ -266,11 +266,11 @@ msgid ""
 "port has been changed to %s"
 msgstr ""
 
-#: general.page.php:828
+#: general.page.php:829
 msgid "Check to enable and then choose allowed codecs."
 msgstr ""
 
-#: general.page.php:713
+#: general.page.php:714
 msgid "Codecs"
 msgstr ""
 
@@ -319,7 +319,7 @@ msgstr ""
 msgid "Detect Network Settings"
 msgstr ""
 
-#: general.page.php:820
+#: general.page.php:821
 msgid "Disabled"
 msgstr ""
 
@@ -379,7 +379,7 @@ msgstr ""
 msgid "Enable server for incoming TLS (secure) connections."
 msgstr ""
 
-#: general.page.php:818
+#: general.page.php:819
 msgid "Enabled"
 msgstr ""
 
@@ -396,7 +396,7 @@ msgid ""
 "forced and enabled. An example is if receiving from a jittery channel to "
 "voicemail, the jitter buffer will be used if enabled. However, it will not "
 "be used when sending to a SIP endpoint since they usually have their own "
-"jitter buffers. See jbforce to force it's use always."
+"jitter buffers. See jbforce to force its use always."
 msgstr ""
 
 #: general.page.php:249
@@ -470,11 +470,11 @@ msgstr ""
 msgid "Generate manager events when sip ua performs events (e.g. hold)."
 msgstr ""
 
-#: general.page.php:716
+#: general.page.php:717
 msgid "Helpful Information"
 msgstr ""
 
-#: general.page.php:409 general.page.php:593
+#: general.page.php:409 general.page.php:594
 msgid ""
 "Hostname or address for the STUN server used when determining the external "
 "IP address and port an RTP session can be reached at. The port number is "
@@ -482,7 +482,7 @@ msgid ""
 "blank by default. (A list of STUN servers: http://wiki.freepbx.org/x/YQCUAg)"
 msgstr ""
 
-#: general.page.php:433 general.page.php:617
+#: general.page.php:433 general.page.php:618
 msgid ""
 "Hostname or address for the TURN server to be used as a relay. The port "
 "number is optional. If omitted the default value of 3478 will be used. This "
@@ -493,11 +493,11 @@ msgstr ""
 msgid "ICE Blacklist"
 msgstr ""
 
-#: general.page.php:530
+#: general.page.php:531
 msgid "ICE Host Candidates"
 msgstr ""
 
-#: general.page.php:541
+#: general.page.php:542
 msgid ""
 "IMPORTANT: Only use this functionality when your Asterisk server is behind a "
 "one-to-one NAT and you know what you're doing. If you do define anything "
@@ -615,7 +615,7 @@ msgstr ""
 msgid "MWI Polling Freq"
 msgstr ""
 
-#: general.page.php:887
+#: general.page.php:888
 msgid "Max Bit Rate"
 msgstr ""
 
@@ -627,7 +627,7 @@ msgstr ""
 msgid "Maximum allowed time of incoming registrations"
 msgstr ""
 
-#: general.page.php:902
+#: general.page.php:903
 msgid "Maximum bitrate for video calls in kb/s"
 msgstr ""
 
@@ -693,7 +693,7 @@ msgstr ""
 #: chansip.page.php:520 chansip.page.php:677 chansip.page.php:705
 #: chansip.page.php:759 chansip.page.php:952 chansip.page.php:978
 #: chansip.page.php:1004 general.page.php:59 general.page.php:84
-#: general.page.php:279 general.page.php:302 general.page.php:687
+#: general.page.php:279 general.page.php:302 general.page.php:688
 msgid "No"
 msgstr ""
 
@@ -755,7 +755,7 @@ msgstr ""
 msgid "PJSip"
 msgstr ""
 
-#: general.page.php:481 general.page.php:665
+#: general.page.php:481 general.page.php:666
 msgid ""
 "Password used to authenticate with TURN relay server. This option is "
 "disabled by default."
@@ -861,7 +861,7 @@ msgstr ""
 msgid "SSL Method"
 msgstr ""
 
-#: general.page.php:397 general.page.php:581
+#: general.page.php:397 general.page.php:582
 msgid "STUN Server Address"
 msgstr ""
 
@@ -932,7 +932,7 @@ msgid ""
 "discovered host addresses are used."
 msgstr ""
 
-#: general.page.php:682
+#: general.page.php:683
 msgid "T38 Pass-Through"
 msgstr ""
 
@@ -955,15 +955,15 @@ msgstr ""
 msgid "TLS/SSL/SRTP Settings"
 msgstr ""
 
-#: general.page.php:421 general.page.php:605
+#: general.page.php:421 general.page.php:606
 msgid "TURN Server Address"
 msgstr ""
 
-#: general.page.php:469 general.page.php:653
+#: general.page.php:469 general.page.php:654
 msgid "TURN Server Password"
 msgstr ""
 
-#: general.page.php:445 general.page.php:629
+#: general.page.php:445 general.page.php:630
 msgid "TURN Server Username"
 msgstr ""
 
@@ -993,7 +993,7 @@ msgstr ""
 msgid "The format for these overrides is: [address] / [subnet]"
 msgstr ""
 
-#: general.page.php:542
+#: general.page.php:543
 msgid ""
 "The format for these overrides is: [local address] => [advertised address]>"
 msgstr ""
@@ -1014,11 +1014,11 @@ msgstr ""
 msgid "This address will be provided to clients if NAT is enabled and detected"
 msgstr ""
 
-#: general.page.php:500 general.page.php:543
+#: general.page.php:500 general.page.php:544
 msgid "This is most commonly used for WebRTC"
 msgstr ""
 
-#: general.page.php:716
+#: general.page.php:717
 msgid "This is the default Codec setting for new Trunks and Extensions."
 msgstr ""
 
@@ -1070,7 +1070,7 @@ msgid ""
 "exist in Asterisk 1.2 and will be ignored by Asterisk."
 msgstr ""
 
-#: general.page.php:457 general.page.php:641
+#: general.page.php:457 general.page.php:642
 msgid ""
 "Username used to authenticate with TURN relay server. This option is "
 "disabled by default."
@@ -1084,15 +1084,15 @@ msgstr ""
 msgid "Verify Server"
 msgstr ""
 
-#: general.page.php:803 general.page.php:841 general.page.php:875
+#: general.page.php:804 general.page.php:842 general.page.php:876
 msgid "Video Codecs"
 msgstr ""
 
-#: general.page.php:813
+#: general.page.php:814
 msgid "Video Support"
 msgstr ""
 
-#: general.page.php:571
+#: general.page.php:572
 msgid "WebRTC Settings"
 msgstr ""
 
@@ -1100,11 +1100,11 @@ msgstr ""
 msgid "What is ICE Blacklist?"
 msgstr ""
 
-#: general.page.php:536
+#: general.page.php:537
 msgid "What is ICE Host Candidates?"
 msgstr ""
 
-#: general.page.php:540
+#: general.page.php:541
 msgid ""
 "When Asterisk is behind a static one-to-one NAT and ICE is in use, ICE will "
 "expose the server's internal IP address as one of the host candidates. "
@@ -1134,19 +1134,19 @@ msgstr ""
 #: chansip.page.php:518 chansip.page.php:675 chansip.page.php:703
 #: chansip.page.php:757 chansip.page.php:950 chansip.page.php:976
 #: chansip.page.php:1002 general.page.php:57 general.page.php:82
-#: general.page.php:277 general.page.php:300 general.page.php:688
+#: general.page.php:277 general.page.php:300 general.page.php:689
 msgid "Yes"
 msgstr ""
 
-#: general.page.php:689
+#: general.page.php:690
 msgid "Yes with FEC"
 msgstr ""
 
-#: general.page.php:690
+#: general.page.php:691
 msgid "Yes with Redundancy"
 msgstr ""
 
-#: general.page.php:691
+#: general.page.php:692
 msgid "Yes with no error correction"
 msgstr ""
 
@@ -1193,7 +1193,7 @@ msgstr ""
 msgid "fatal error occurred populating defaults, check module"
 msgstr ""
 
-#: general.page.php:893
+#: general.page.php:894
 msgid "kb/s"
 msgstr ""
 

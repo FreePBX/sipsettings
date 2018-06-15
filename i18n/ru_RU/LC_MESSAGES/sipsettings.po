@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-16 18:43-0400\n"
+"POT-Creation-Date: 2018-06-15 19:44-0400\n"
 "PO-Revision-Date: 2015-12-05 10:05+0200\n"
 "Last-Translator: Andrew <andrew.nagy@the159.com>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/"
@@ -36,7 +36,7 @@ msgstr ""
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
-#: general.page.php:828
+#: general.page.php:829
 msgid ""
 " If you clear each codec and then add them one at a time, submitting with "
 "each addition, they will be added in order which will effect the codec "
@@ -65,7 +65,7 @@ msgstr "%s должен быть буквенным"
 msgid "Adaptive"
 msgstr "Адаптивный"
 
-#: general.page.php:519 general.page.php:561
+#: general.page.php:520 general.page.php:562
 msgid "Add Address"
 msgstr ""
 
@@ -209,7 +209,7 @@ msgstr ""
 "спецификации RFC3551, где установлено распознавание устройствами "
 "специального типа payload AAL2-G726-32 вместо G726-32."
 
-#: general.page.php:700
+#: general.page.php:701
 msgid ""
 "Asterisk: t38pt_udptl. Enables T38 passthrough which makes faxes go through "
 "Asterisk without being processed.<ul><li>No - No passthrough</li><li>Yes - "
@@ -229,7 +229,7 @@ msgstr ""
 "li><li>Да без коррекции ошибок - Включаем T.38 без коррекции ошибок.</li></"
 "ul>"
 
-#: general.page.php:671
+#: general.page.php:672
 msgid "Audio Codecs"
 msgstr "Аудио кодеки"
 
@@ -273,7 +273,7 @@ msgstr ""
 msgid "Call Events"
 msgstr "События вызова"
 
-#: general.page.php:552
+#: general.page.php:553
 msgid "Candidates"
 msgstr ""
 
@@ -318,11 +318,11 @@ msgid ""
 "port has been changed to %s"
 msgstr ""
 
-#: general.page.php:828
+#: general.page.php:829
 msgid "Check to enable and then choose allowed codecs."
 msgstr "Отметить если необходимо, и затем выбрать разрешаемые кодеки."
 
-#: general.page.php:713
+#: general.page.php:714
 msgid "Codecs"
 msgstr "Кодеки"
 
@@ -382,7 +382,7 @@ msgstr "Длительность входящей или исходящей ре
 msgid "Detect Network Settings"
 msgstr "Детектировать сетевые настройки"
 
-#: general.page.php:820
+#: general.page.php:821
 msgid "Disabled"
 msgstr "Выключено"
 
@@ -442,7 +442,7 @@ msgstr ""
 msgid "Enable server for incoming TLS (secure) connections."
 msgstr ""
 
-#: general.page.php:818
+#: general.page.php:819
 msgid "Enabled"
 msgstr "Включено"
 
@@ -459,18 +459,8 @@ msgid ""
 "forced and enabled. An example is if receiving from a jittery channel to "
 "voicemail, the jitter buffer will be used if enabled. However, it will not "
 "be used when sending to a SIP endpoint since they usually have their own "
-"jitter buffers. See jbforce to force it's use always."
+"jitter buffers. See jbforce to force its use always."
 msgstr ""
-"Включает использование джиттер-буфера на принимающей стороне канала SIP. "
-"Использование джиттер-буфера эффективно только если с посылающей стороны "
-"наблюдается  разность между быстро приходящим пакетом и пакетом с задержкой "
-"- джиттер, а принимающая сторона не может обработать его. Канал SIP может "
-"принять джиттер используя джиттер-буфер только в случае если он включен и "
-"форсировано его использование. Наприер, при приёме дрожжащего канала в "
-"голосовую почту джиттер-буфер будет использоваться если включен. Однако он "
-"не будет использоваться, если пакеты посылаются в другой SIP пир, который "
-"имеет свой собственный джиттер-буфер. См. параметр jbforce для того, чтобы "
-"использовать его постоянно."
 
 #: general.page.php:249
 msgid "End"
@@ -559,11 +549,11 @@ msgid "Generate manager events when sip ua performs events (e.g. hold)."
 msgstr ""
 "Генерировать события AMI при событиях sip абонентов (например call hold)."
 
-#: general.page.php:716
+#: general.page.php:717
 msgid "Helpful Information"
 msgstr ""
 
-#: general.page.php:409 general.page.php:593
+#: general.page.php:409 general.page.php:594
 msgid ""
 "Hostname or address for the STUN server used when determining the external "
 "IP address and port an RTP session can be reached at. The port number is "
@@ -575,7 +565,7 @@ msgstr ""
 "использоваться дефолтный номер порта - 3478. По умолчанию эта опция - пустое "
 "поле. (Список доступных серверов STUN - http://wiki.freepbx.org/x/YQCUAg)"
 
-#: general.page.php:433 general.page.php:617
+#: general.page.php:433 general.page.php:618
 msgid ""
 "Hostname or address for the TURN server to be used as a relay. The port "
 "number is optional. If omitted the default value of 3478 will be used. This "
@@ -589,11 +579,11 @@ msgstr ""
 msgid "ICE Blacklist"
 msgstr ""
 
-#: general.page.php:530
+#: general.page.php:531
 msgid "ICE Host Candidates"
 msgstr ""
 
-#: general.page.php:541
+#: general.page.php:542
 msgid ""
 "IMPORTANT: Only use this functionality when your Asterisk server is behind a "
 "one-to-one NAT and you know what you're doing. If you do define anything "
@@ -729,7 +719,7 @@ msgstr "Установки Медиа и RTP"
 msgid "MWI Polling Freq"
 msgstr "Частота запросов MWI"
 
-#: general.page.php:887
+#: general.page.php:888
 msgid "Max Bit Rate"
 msgstr "Макимальная полоса пропускания"
 
@@ -741,7 +731,7 @@ msgstr "Максимальный размер джиттер-буфера в м�
 msgid "Maximum allowed time of incoming registrations"
 msgstr "Максимально разрешённое время для входящих регистраций"
 
-#: general.page.php:902
+#: general.page.php:903
 msgid "Maximum bitrate for video calls in kb/s"
 msgstr "Максимальная полоса пропускания для видео звонков в кбит/сек"
 
@@ -807,7 +797,7 @@ msgstr "Настройки NAT"
 #: chansip.page.php:520 chansip.page.php:677 chansip.page.php:705
 #: chansip.page.php:759 chansip.page.php:952 chansip.page.php:978
 #: chansip.page.php:1004 general.page.php:59 general.page.php:84
-#: general.page.php:279 general.page.php:302 general.page.php:687
+#: general.page.php:279 general.page.php:302 general.page.php:688
 msgid "No"
 msgstr "Нет"
 
@@ -876,7 +866,7 @@ msgstr "Порт транспорта канала PJSIP конфликтует 
 msgid "PJSip"
 msgstr ""
 
-#: general.page.php:481 general.page.php:665
+#: general.page.php:481 general.page.php:666
 msgid ""
 "Password used to authenticate with TURN relay server. This option is "
 "disabled by default."
@@ -989,7 +979,7 @@ msgstr "Информация о SIP драйвере"
 msgid "SSL Method"
 msgstr ""
 
-#: general.page.php:397 general.page.php:581
+#: general.page.php:397 general.page.php:582
 msgid "STUN Server Address"
 msgstr "Адрес сервера STUN"
 
@@ -1064,7 +1054,7 @@ msgid ""
 "discovered host addresses are used."
 msgstr ""
 
-#: general.page.php:682
+#: general.page.php:683
 msgid "T38 Pass-Through"
 msgstr "Прозрачное пропускание T38"
 
@@ -1087,15 +1077,15 @@ msgstr ""
 msgid "TLS/SSL/SRTP Settings"
 msgstr ""
 
-#: general.page.php:421 general.page.php:605
+#: general.page.php:421 general.page.php:606
 msgid "TURN Server Address"
 msgstr "Адрес сервера TURN"
 
-#: general.page.php:469 general.page.php:653
+#: general.page.php:469 general.page.php:654
 msgid "TURN Server Password"
 msgstr "Пароль сервера TURN"
 
-#: general.page.php:445 general.page.php:629
+#: general.page.php:445 general.page.php:630
 msgid "TURN Server Username"
 msgstr "Имя пользователя сервера TURN"
 
@@ -1135,7 +1125,7 @@ msgstr ""
 msgid "The format for these overrides is: [address] / [subnet]"
 msgstr ""
 
-#: general.page.php:542
+#: general.page.php:543
 msgid ""
 "The format for these overrides is: [local address] => [advertised address]>"
 msgstr ""
@@ -1157,11 +1147,11 @@ msgid "This address will be provided to clients if NAT is enabled and detected"
 msgstr ""
 "Этот адрес будет предоставляться клиентам, если NAT включен и обнаружен"
 
-#: general.page.php:500 general.page.php:543
+#: general.page.php:500 general.page.php:544
 msgid "This is most commonly used for WebRTC"
 msgstr ""
 
-#: general.page.php:716
+#: general.page.php:717
 msgid "This is the default Codec setting for new Trunks and Extensions."
 msgstr "Это значение кодека по умолчанию для новых внешних и внутренних линий."
 
@@ -1222,7 +1212,7 @@ msgstr ""
 "и выше. Некоторые параметры просто не существуют в версии 1.2 и будут "
 "игнорироваться Asterisk."
 
-#: general.page.php:457 general.page.php:641
+#: general.page.php:457 general.page.php:642
 msgid ""
 "Username used to authenticate with TURN relay server. This option is "
 "disabled by default."
@@ -1238,15 +1228,15 @@ msgstr ""
 msgid "Verify Server"
 msgstr ""
 
-#: general.page.php:803 general.page.php:841 general.page.php:875
+#: general.page.php:804 general.page.php:842 general.page.php:876
 msgid "Video Codecs"
 msgstr "Видео кодеки"
 
-#: general.page.php:813
+#: general.page.php:814
 msgid "Video Support"
 msgstr "Поддержка видео"
 
-#: general.page.php:571
+#: general.page.php:572
 msgid "WebRTC Settings"
 msgstr ""
 
@@ -1254,11 +1244,11 @@ msgstr ""
 msgid "What is ICE Blacklist?"
 msgstr ""
 
-#: general.page.php:536
+#: general.page.php:537
 msgid "What is ICE Host Candidates?"
 msgstr ""
 
-#: general.page.php:540
+#: general.page.php:541
 msgid ""
 "When Asterisk is behind a static one-to-one NAT and ICE is in use, ICE will "
 "expose the server's internal IP address as one of the host candidates. "
@@ -1295,19 +1285,19 @@ msgstr "Если включить или отключить UDP контроль
 #: chansip.page.php:518 chansip.page.php:675 chansip.page.php:703
 #: chansip.page.php:757 chansip.page.php:950 chansip.page.php:976
 #: chansip.page.php:1002 general.page.php:57 general.page.php:82
-#: general.page.php:277 general.page.php:300 general.page.php:688
+#: general.page.php:277 general.page.php:300 general.page.php:689
 msgid "Yes"
 msgstr "Да"
 
-#: general.page.php:689
+#: general.page.php:690
 msgid "Yes with FEC"
 msgstr "Да, с FEC"
 
-#: general.page.php:690
+#: general.page.php:691
 msgid "Yes with Redundancy"
 msgstr "Да, с резервированием"
 
-#: general.page.php:691
+#: general.page.php:692
 msgid "Yes with no error correction"
 msgstr "Да, без коррекции ошибок"
 
@@ -1364,7 +1354,7 @@ msgstr ""
 "произошла неустранимая ошибка при указании дефолтных значений, проверьте "
 "модуль"
 
-#: general.page.php:893
+#: general.page.php:894
 msgid "kb/s"
 msgstr "кбит/сек"
 
@@ -1404,6 +1394,27 @@ msgstr "ulaw, alaw, gsm, g726 добавлены"
 #: chansip.page.php:160 chansip.page.php:431
 msgid "yes"
 msgstr "да"
+
+#~ msgid ""
+#~ "Enables the use of a jitterbuffer on the receiving side of a SIP channel. "
+#~ "An enabled jitterbuffer will be used only if the sending side can create "
+#~ "and the receiving side can not accept jitter. The SIP channel can accept "
+#~ "jitter, thus a jitterbuffer on the receive SIP side will be used only if "
+#~ "it is forced and enabled. An example is if receiving from a jittery "
+#~ "channel to voicemail, the jitter buffer will be used if enabled. However, "
+#~ "it will not be used when sending to a SIP endpoint since they usually "
+#~ "have their own jitter buffers. See jbforce to force it's use always."
+#~ msgstr ""
+#~ "Включает использование джиттер-буфера на принимающей стороне канала SIP. "
+#~ "Использование джиттер-буфера эффективно только если с посылающей стороны "
+#~ "наблюдается  разность между быстро приходящим пакетом и пакетом с "
+#~ "задержкой - джиттер, а принимающая сторона не может обработать его. Канал "
+#~ "SIP может принять джиттер используя джиттер-буфер только в случае если он "
+#~ "включен и форсировано его использование. Наприер, при приёме дрожжащего "
+#~ "канала в голосовую почту джиттер-буфер будет использоваться если включен. "
+#~ "Однако он не будет использоваться, если пакеты посылаются в другой SIP "
+#~ "пир, который имеет свой собственный джиттер-буфер. См. параметр jbforce "
+#~ "для того, чтобы использовать его постоянно."
 
 #~ msgid "Allow Guests"
 #~ msgstr "Разрешён гостевой вход"
