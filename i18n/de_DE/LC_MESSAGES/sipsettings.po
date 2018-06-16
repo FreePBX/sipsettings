@@ -10,16 +10,15 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-03-14 20:17-0400\n"
-"PO-Revision-Date: 2018-02-16 18:07+0200\n"
-"Last-Translator: Nils <Nils@heckenkamp.info>\n"
-"Language-Team: German <http://weblate.freepbx.org/projects/freepbx/"
-"sipsettings/de_DE/>\n"
+"PO-Revision-Date: 2018-07-18 19:12+0000\n"
+"Last-Translator: Bastian Mertgen <b.mertgen@bastian-mertgen.de>\n"
+"Language-Team: German <http://*/projects/freepbx/sipsettings/de/>\n"
 "Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.4\n"
+"X-Generator: Weblate 2.19.1\n"
 
 #: chansip.page.php:414
 msgid ""
@@ -35,12 +34,12 @@ msgstr ""
 #: functions.inc.php:334
 #, php-format
 msgid "%s must be a non-negative integer"
-msgstr ""
+msgstr "%s muss eine nichtnegative ganze Zahl sein"
 
 #: functions.inc.php:378
 #, php-format
 msgid "%s must be alphanumeric"
-msgstr ""
+msgstr "%s muss alphanumerisch sein"
 
 #: chansip.page.php:978
 msgid "Adaptive"
@@ -48,11 +47,11 @@ msgstr ""
 
 #: general.page.php:399 general.page.php:441
 msgid "Add Address"
-msgstr ""
+msgstr "Adresse hinzufügen"
 
 #: chansip.page.php:35
 msgid "Add Field"
-msgstr ""
+msgstr "Feld hinzufügen"
 
 #: chansip.page.php:37 general.page.php:19
 msgid "Add Local Network Field"
@@ -165,7 +164,7 @@ msgstr ""
 
 #: chansip.page.php:327 general.page.php:551
 msgid "Audio Codecs"
-msgstr ""
+msgstr "Audio-Codecs"
 
 #: chansip.page.php:36
 msgid "Auto Configure"
@@ -209,27 +208,27 @@ msgstr ""
 
 #: general.page.php:432
 msgid "Candidates"
-msgstr ""
+msgstr "Kandidaten"
 
 #: chanpj.page.php:229
 msgid "Certificate File"
-msgstr ""
+msgstr "Zertifikat-Datei"
 
 #: chanpj.page.php:254 chansip.page.php:525
 msgid "Certificate Manager"
-msgstr ""
+msgstr "Zertifikatverwaltung"
 
 #: Sipsettings.class.php:203
 msgid "Chan PJSIP Settings"
-msgstr ""
+msgstr "Chan-PJSIP-Einstellungen"
 
 #: general.page.php:63
 msgid "Chan SIP"
-msgstr ""
+msgstr "Chan SIP"
 
 #: Sipsettings.class.php:196
 msgid "Chan SIP Settings"
-msgstr ""
+msgstr "Chan-SIP-Einstellungen"
 
 #: Sipsettings.class.php:894
 #, php-format
@@ -274,7 +273,7 @@ msgstr ""
 
 #: chanpj.page.php:283
 msgid "Default"
-msgstr ""
+msgstr "Standard"
 
 #: chansip.page.php:1079
 msgid "Default Context"
@@ -299,15 +298,15 @@ msgstr ""
 
 #: chansip.page.php:899
 msgid "Default length of incoming and outgoing registrations."
-msgstr ""
+msgstr "Standardlänge für ein- und ausgehende Registrierungen."
 
 #: general.page.php:124
 msgid "Detect Network Settings"
-msgstr ""
+msgstr "Netzwerkeinstellungen erkennen"
 
 #: chansip.page.php:406
 msgid "Disabled"
-msgstr ""
+msgstr "Deaktiviert"
 
 #: chanpj.page.php:85
 msgid "Domain the transport comes from"
@@ -315,15 +314,15 @@ msgstr ""
 
 #: chansip.page.php:583
 msgid "Don't Require verification of server certificate (TLS ONLY)."
-msgstr ""
+msgstr "Verifizierung des Serverzertifikats nicht voraussetzen (nur TLS)."
 
 #: chansip.page.php:570
 msgid "Don't Verify Server"
-msgstr ""
+msgstr "Server nicht verifizieren"
 
 #: chansip.page.php:280
 msgid "Dynamic Host"
-msgstr ""
+msgstr "Dynamischer Host"
 
 #: chansip.page.php:304
 msgid "Dynamic Host Refresh"
@@ -335,19 +334,19 @@ msgstr ""
 
 #: chansip.page.php:227
 msgid "Dynamic IP"
-msgstr ""
+msgstr "Dynamische IP"
 
 #: chansip.page.php:164
 msgid "ERRORS"
-msgstr ""
+msgstr "FEHLER"
 
 #: chansip.page.php:131
 msgid "Edit Settings"
-msgstr ""
+msgstr "Einstellungen bearbeiten"
 
 #: chansip.page.php:916
 msgid "Enable Jitter Buffer"
-msgstr ""
+msgstr "Jitter-Puffer aktivieren"
 
 #: chansip.page.php:1218
 msgid "Enable SRV Lookup"
@@ -355,11 +354,11 @@ msgstr ""
 
 #: chansip.page.php:1244 chansip.page.php:1259
 msgid "Enable TCP"
-msgstr ""
+msgstr "TCP aktivieren"
 
 #: chansip.page.php:504
 msgid "Enable TLS"
-msgstr ""
+msgstr "TLS aktivieren"
 
 #: chansip.page.php:517
 msgid "Enable server for incoming TLS (secure) connections."
@@ -367,7 +366,7 @@ msgstr ""
 
 #: chansip.page.php:404
 msgid "Enabled"
-msgstr ""
+msgstr "Aktiviert"
 
 #: chansip.page.php:1013
 msgid "Enables jitter buffer frame logging."
@@ -397,11 +396,11 @@ msgstr ""
 #: assets/js/sipsettings.js:237 assets/js/sipsettings.js:240
 #, perl-format
 msgid "Error: %s"
-msgstr ""
+msgstr "Fehler: %s"
 
 #: general.page.php:119
 msgid "External Address"
-msgstr ""
+msgstr "Externe Adresse"
 
 #: chansip.page.php:292
 msgid ""
@@ -411,7 +410,7 @@ msgstr ""
 
 #: chanpj.page.php:86
 msgid "External IP Address"
-msgstr ""
+msgstr "Externe IP-Adresse"
 
 #: functions.inc.php:394 assets/js/sipsettings.js:20
 msgid ""
@@ -431,7 +430,7 @@ msgstr ""
 
 #: chansip.page.php:944
 msgid "Force Jitter Buffer"
-msgstr ""
+msgstr "Jitter-Puffer erzwingen"
 
 #: chansip.page.php:959
 msgid ""
@@ -450,7 +449,7 @@ msgstr ""
 
 #: Sipsettings.class.php:189
 msgid "General SIP Settings"
-msgstr ""
+msgstr "Allgemeine SIP-Einstellungen"
 
 #: chansip.page.php:1285
 msgid "Generate manager events when sip ua performs events (e.g. hold)."
@@ -473,11 +472,11 @@ msgstr ""
 
 #: general.page.php:368
 msgid "ICE Blacklist"
-msgstr ""
+msgstr "ICE-Blacklist"
 
 #: general.page.php:410
 msgid "ICE Host Candidates"
-msgstr ""
+msgstr "ICE-Host-Kandidaten"
 
 #: general.page.php:421
 msgid ""
@@ -489,11 +488,11 @@ msgstr ""
 
 #: general.page.php:389
 msgid "IP Addresses"
-msgstr ""
+msgstr "IP-Adressen"
 
 #: chansip.page.php:218
 msgid "IP Configuration"
-msgstr ""
+msgstr "IP-Konfiguration"
 
 #: chanpj.page.php:86
 msgid "If blank, will use the default settings"
@@ -501,7 +500,7 @@ msgstr ""
 
 #: chansip.page.php:971
 msgid "Implementation"
-msgstr ""
+msgstr "Implementierung"
 
 #: chansip.page.php:235
 msgid ""
@@ -515,7 +514,7 @@ msgstr ""
 #: chanpj.page.php:285 chanpj.page.php:286 chanpj.page.php:287
 #: chansip.page.php:554 chansip.page.php:555
 msgid "Insecure"
-msgstr ""
+msgstr "Unsicher"
 
 #: chansip.page.php:998
 msgid "Jitter Buffer Logging"
@@ -523,7 +522,7 @@ msgstr ""
 
 #: chansip.page.php:1025
 msgid "Jitter Buffer Max Size"
-msgstr ""
+msgstr "Maximale Größe des Jitter-Puffers"
 
 #: chansip.page.php:1049
 msgid "Jitter Buffer Resync Threshold"
@@ -673,7 +672,7 @@ msgstr ""
 #: chansip.page.php:1225 chansip.page.php:1251 chansip.page.php:1277
 #: general.page.php:42 general.page.php:236 general.page.php:259
 msgid "No"
-msgstr ""
+msgstr "Nein"
 
 #: chansip.page.php:337
 msgid "Non-Standard g726"
@@ -1181,7 +1180,7 @@ msgstr ""
 
 #: chansip.page.php:194 chansip.page.php:607
 msgid "no"
-msgstr ""
+msgstr "nein"
 
 #: install.php:71
 msgid "none, creating table"
@@ -1210,4 +1209,4 @@ msgstr ""
 
 #: chansip.page.php:192 chansip.page.php:605
 msgid "yes"
-msgstr ""
+msgstr "ja"
