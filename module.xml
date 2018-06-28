@@ -1,121 +1,38 @@
 <module>
-	<rawname>sipsettings</rawname>
-	<repo>standard</repo>
-	<candisable>no</candisable>
-	<canuninstall>no</canuninstall>
-	<name>Asterisk SIP Settings</name>
-	<version>13.0.27.3</version>
-	<publisher>Sangoma Technologies Corporation</publisher>
-	<license>AGPLv3+</license>
-	<licenselink>http://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
-	<category>Settings</category>
-	<menuitems>
-		<sipsettings>Asterisk SIP Settings</sipsettings>
-	</menuitems>
-	<description>
-		Use to configure Various Asterisk SIP Settings in the General section of sip.conf. Also includes an auto-configuration tool to determine NAT settings. The module assumes Asterisk version 1.4 or higher. Some settings may not exist in Asterisk 1.2 and will be ignored by Asterisk.
-	</description>
-	<changelog>
-		*13.0.27.3* Dont limit ip addresses by patterns
-		*13.0.27.2* FREEPBX-13686. Jitter Buffer Resync Threshold accept -1 value
-		*13.0.27.1* FREEPBX-17039
-		*13.0.27* Better network detection
-		*13.0.26.2* Fix Patterns for subnet mask. 
-		*13.0.26.1* Mark sslv1 and sslv2 are insecure and set default to tlsv1
-		*13.0.26* Utilize new TLS settings
-		*13.0.25.4* FREEPBX-16429 - unable to collect the IP address of tun interface
-		*13.0.25.3* FREEPBX-16391 Fix: Local Networks - Blank fields will not be ignored. Improving test for field - black list &amp;candidate.
-		*13.0.25.2* FREEPBX-16383 Fix: Checking the content of ip and subnet mak in Asterisk Sip Settings - General.
-		*13.0.25.1* Fix PJSip Transport name on SNG7
-		*13.0.25* Backend TLS changes
-		*13.0.24.10* FREEPBX-15190 fix spelling mistakes
-		*13.0.24.9* Add ability to set ice_blacklist and ice_host_candidates for webrtc nat issues
-		*13.0.24.8* FREEPBX-13792
-		*13.0.24.7* FREEPBX-15210 Work around
-		*13.0.24.6* Check Asterisk version if it doesnt exist
-		*13.0.24.5* FREEPBX-11978 Firefox window jumps
-		*13.0.24.4* FREEPBX-14371 Consider rewording tool tip for chan_sip bind port
-		*13.0.24.3* FREEPBX-13686 Jbresyncthreshold must be a non-negative integer Error
-		*13.0.24.2* FREEPBX-12975 - Fix PJSIP Not returning port numbers
-		*13.0.24* FREEPBX-13522 Define STUN/TURN servers separately from Asterisk
-		*13.0.23.12* FREEPBX-13223 if tcpenable is already installed
-		*13.0.23.11* FREEPBX-13223 TCP chan_sip settings populate correctly
-		*13.0.23.10* FREEPBX-13022 FREEPBX-13153 missing settings in sipsettings that were removed from core
-		*13.0.23.9* Fix callerid name for Unknown calls
-		*13.0.23.8* Add Enable TCP button in Chan_SIP
-		*13.0.24.7* FREEPBX-12870 set default context
-		*13.0.24.6* FREEPBX-12730 - Fix invalid resolve link
-		*13.0.24.5* FREEPBX-12439 wording fixes
-		*13.0.24.4* FREEPBX-12427 conform to RFC for default ports
-		*13.0.23.2* #12394
-		*13.0.23.1* #10539, #12264 and associated issues
-		*13.0.22* FREEPBX-12273 use correct TLS setting for pjsip
-		*13.0.21.3* Use proper TLS binding for chan_sip
-		*13.0.20* Set TLS ports during upgrade
-		*13.0.19* Full certificate manager support FREEPBX-11057
-		*13.0.18* FREEPBX-11560 check main page for IP before complaining on chansip
-		*13.0.17* #11483 and #11439
-		*13.0.16.1* TLS Fixes
-		*13.0.15* FREEPBX-11029 FREEPBX-11074
-		*13.0.14.8* FREEPBX-10945
-		*13.0.14.7* FREEPBX-10939
-		*13.0.14.6* FREEPBX-10789
-		*13.0.14.5* FREEPBX-10439 loop over config files properly
-		*13.0.14.4* FREEPBX-6338 Provide additional options when configuring Fax Passthrough
-		*13.0.14.3* FREEPBX-9961 ignore mising route binary problems, FREEPBX-10176 remove class on add local network
-		*13.0.14.2* FREEPBX-10084 fixes and FREEPBX-9961 some work
-		*13.0.14.1* Fix missing btn class on a button
-		*13.0.14* FREEPBX-9962 grammar, FREEPBX-9961 more error tolerant ip checking
-		*13.0.13* FREEPBX-9956 Cannot change Asterisk SIP setting
-		*13.0.12* Invalid looping
-		*13.0.11* Fix bug introduced in 13.0.9
-		*13.0.10* FREEPBX-9697 consolidate all javascript to fix bugs and clean up
-		*13.0.9* Better getBinds settings
-		*13.0.8* FREEPBX-9737 Bring values in line with patch for FREEPBX-6518 handle all settings for Asterisk 11.5+
-		*13.0.7* Fix weird timeouts during apply changes in sip settings
-		*13.0.6* Move to tab navigation
-		*13.0.5* FREEPBX-9697 Asterisk SIP Settings Page issues
-		*13.0.4* FREEPBX-9600 STUN Server List in Tool Tip
-		*13.0.3* FREEPBX-9539 Bind Port clarifications and notifcation additions
-		*13.0.2* Version bump Beta
-		*13.0.1alpha7* FREEPBX-9487 Audio Codecs Tooltip not Visible
-		*13.0.1alpha6* Move language to custom fields.
-		*13.0.1alpha5* Fix installer
-		*13.0.1alpha4* FREEPBX-9263 fixing general errors
-		*13.0.1alpha3* FREEPBX-8859 Add WSS Support to pjsip transports
-		*13.0.1alpha2* Fix pages not submiting
-		*13.0.1alpha1* Visual Changes
-		*12.0.9* FREEPBX-8808 Add STUN and TURN server settings
-		*12.0.8* FREEPBX-8561 + Linked bugs, Remove minimums on number fields.
-		*12.0.7* FREEPBX-8240 fields not wide enough to display input
-		*12.0.6* Point people to the right location
-		*12.0.5* FREEPBX-8237 Fix interface parse regexp to make netmask optional
-		*12.0.4* #8061 - Let IP addresses for NAT be inherited properly.
-		*12.0.3* #7971 - Return the 'Detect External IP' button
-		*12.0.2* Fixes the few remaining bugs
-		*12.0.1alpha7* Provide a function that shows pjsip binds
-		*12.0.1alpha6* Fix a non-glaring issue - only enable pjsip when pjsip is available.
-		*12.0.1alpha5* Fix all glaring codec and migrate issues
-		*12.0.1alpha3* Show reload bar when settings change
-		*12.0.1alpha2* Hide PJSIP when disabled or not present in the system
-		*12.0.1alpha1* PJSipsettings and Generalize and breakout the page for sub-navigation
-		*2.11.0.9* update license file
-		*2.11.0.7* rtp.conf cleanup, require this module
-		*2.11.0.6* #6473 - check t38pt_udptl value before setting in sip_general_additional.conf
-		*2.11.0.5* More fixes related to rtpstart and rtpend values
-		*2.11.0.4* Fixes to missing rtpstart and rtpend values. They will always be added now.
-		*2.11.0.3* Packaging of ver 2.11.0.3
-		*2.11.0.2* Packaging of ver 2.11.0.2
-		*2.11.0.1* Adds rtp controlled settings (rtpstart,rtpend), re #6397
-		*2.11.0.0* #6019
-	</changelog>
-	<depends>
-		<module>core ge 13.0.38</module>
-		<version>13.0.1beta3.21</version>
-	</depends>
-	<supported>
-		<version>13.0</version>
-	</supported>
-	<location>release/2.11/sipsettings-2.11.0.7.tgz</location>
-	<md5sum>53eee9b5292e354ec3c374e6329a17fe</md5sum>
+    <rawname>sipsettings</rawname>
+    <repo>standard</repo>
+    <candisable>no</candisable>
+    <canuninstall>no</canuninstall>
+    <name>Asterisk SIP Settings</name>
+    <version>15.0.1</version>
+    <publisher>Sangoma Technologies Corporation</publisher>
+    <license>AGPLv3+</license>
+    <licenselink>https://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
+    <category>Settings</category>
+    <menuitems>
+        <sipsettings>Asterisk SIP Settings</sipsettings>
+    </menuitems>
+    <database>
+        <table name="sipsettings">
+            <field name="keyword" type="string" length="50" default="" primarykey="true" />
+            <field name="data" type="string" length="255" default="" />
+            <field name="seq" type="boolean" default="0" primarykey="true" />
+            <field name="type" type="boolean" default="0" primarykey="true" />
+        </table>
+    </database>
+    <description>
+        Use to configure Various Asterisk SIP Settings in the General section of sip.conf. Also includes an auto-configuration tool
+        to determine NAT settings. The module assumes Asterisk version 1.4 or higher. Some settings may not exist in Asterisk
+        1.2 and will be ignored by Asterisk.
+    </description>
+    <changelog>
+        *15.0.1* Backup 15
+    </changelog>
+    <depends>
+        <module>core ge 13.0.38</module>
+        <version>13.0.1beta3.21</version>
+    </depends>
+    <supported>
+        <version>15.0</version>
+    </supported>
 </module>

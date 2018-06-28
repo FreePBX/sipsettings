@@ -5,30 +5,20 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 global $db;
 global $amp_conf;
 global $version;
-
-$sql = <<< END
-	CREATE TABLE IF NOT EXISTS `sipsettings` (
-		`keyword` VARCHAR (50) NOT NULL default '',
-		`data`    VARCHAR (255) NOT NULL default '',
-		`seq`     TINYINT (1),
-		`type`    TINYINT (1) NOT NULL default '0',
-		PRIMARY KEY (`keyword`,`seq`,`type`)
-	)
-END;
-
-$ss = FreePBX::create()->Sipsettings;
+$FreePBX = FreePBX::Create();
+$ss = $FreePBX->Sipsettings;
 
 outn(_("checking for sipsettings table.."));
 $tsql = "SELECT * FROM `sipsettings` limit 1";
 $check = $db->getRow($tsql, DB_FETCHMODE_ASSOC);
 
-$ok = FreePBX::create()->astman->command('core show version');
+$ok = $FreePBX->astman->command('core show version');
 if (preg_match('/^Asterisk (?:SVN-|GIT-)?(?:branch-)?(\d+(\.\d+)*)(-?(.*)) built/', $astver, $matches) && !empty($matches[1])) {
 	print_r($matches[1]);
 }
 
 // Figure out if we're using asterisk 11 or 12.
-$version = FreePBX::Config()->get('ASTVERSION');
+$version = $FreePBX->Config->get('ASTVERSION');
 if (!empty($version)) {
 	// Woo, we have a version
 	if (version_compare($version, "12.2.0", ">=")) {
@@ -40,8 +30,8 @@ if (!empty($version)) {
 	$lastline = exec("asterisk -rx 'core show version' 2>&1", $tmpout, $ret);
 	$astver = $tmpout[0];
 	if (preg_match('/^Asterisk (?:SVN-|GIT-)?(?:branch-)?(\d+(\.\d+)*)(-?(.*)) built/', $astver, $matches) && !empty($matches[1])) {
-		if(FreePBX::Config()->conf_setting_exists('ASTVERSION')) {
-			FreePBX::Config()->update('ASTVERSION', $matches[1]);
+		if($FreePBX->Config->conf_setting_exists('ASTVERSION')) {
+			$FreePBX->Config->update('ASTVERSION', $matches[1]);
 		}
 		if (version_compare($matches[1], "12.2.0", ">=")) {
 			$haspjsip = true;
@@ -72,9 +62,9 @@ if(DB::IsError($check)) {
 	// table does not exist, create it
 	sql($sql);
 
-	$brand = FreePBX::Config()->get('DASHBOARD_FREEPBX_BRAND');
+	$brand = $FreePBX->Config->get('DASHBOARD_FREEPBX_BRAND');
 	$nt = notifications::create();
-	$nt->add_notice('sipsettings', 'BINDPORT', sprintf(_("Default bind port for CHAN_PJSIP is: %s, CHAN_SIP is: %s"), $pjsip_port, $chansip_port), sprintf(_("The default bind ports for %s have changed. Please keep this is mind while configuring your devices. You can change this in SIP Settings. CHAN_PJSIP is: %s, CHAN_SIP is: %s"), $brand, $pjsip_port, $chansip_port), "http://wiki.freepbx.org/display/HTGS/CHAN_PJSIP+vs+CHAN_SIP", true, true);
+	$nt->add_notice('sipsettings', 'BINDPORT', sprintf(_("Default bind port for CHAN_PJSIP is: %s, CHAN_SIP is: %s"), $pjsip_port, $chansip_port), sprintf(_("The default bind ports for %s have changed. Please keep this is mind while configuring your devices. You can change this in SIP Settings. CHAN_PJSIP is: %s, CHAN_SIP is: %s"), $brand, $pjsip_port, $chansip_port), "https://wiki.freepbx.org/display/HTGS/CHAN_PJSIP+vs+CHAN_SIP", true, true);
 
 	outn(_("populating default codecs.."));
 	$sip_settings =  array(
@@ -105,9 +95,9 @@ if(DB::IsError($check)) {
 	}
 
 	if ($haspjsip) {
-		FreePBX::create()->Config->set_conf_values(array('ASTSIPDRIVER' => 'both'), true, true);
+		$FreePBX->Config->set_conf_values(array('ASTSIPDRIVER' => 'both'), true, true);
 	} else {
-		FreePBX::create()->Config->set_conf_values(array('ASTSIPDRIVER' => 'chansip'), true, true);
+		$FreePBX->Config->set_conf_values(array('ASTSIPDRIVER' => 'chansip'), true, true);
 	}
 
 	$ss->setConfig("udpport-0.0.0.0", $pjsip_port);
@@ -119,7 +109,7 @@ if(DB::IsError($check)) {
 }
 
 //OK let's do some migrating for BMO
-$ss = FreePBX::Sipsettings();
+$ss = $FreePBX->Sipsettings;
 if(!$ss->getConfig('rtpstart') || !$ss->getConfig('rtpend')) {
 	out(_("Migrate rtp.conf values if needed and initialize"));
 
