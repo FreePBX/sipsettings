@@ -143,8 +143,8 @@ foreach ($tlsowners as $chan => $txt) {
 	$lnhtm = '';
 	foreach ($localnetstmp as $id => $arr) {
 		$lnhtm .= '<div class = "lnet form-group form-inline" data-nextid='.($id+1).'>';
-		$lnhtm .= '	<input type="text" name="localnets['.$id.'][net]" class="form-control localnet network validate-ip"  pattern="^$|^([0-9]{1,3}\.){3}[0-9]{1,3}$" value="'.$arr['net'].'">/';
-		$lnhtm .= '	<input type="text" name="localnets['.$id.'][mask]" class="form-control netmask cidr validate-netmask" pattern="^$|^((?:[1-9])|(?:[1-2][0-9])|(?:3[0-2]))$|^(((255\.){3}(255|254|252|248|240|224|192|128|0+))|((255\.){2}(255|254|252|248|240|224|192|128|0+)\.0)|((255\.)(255|254|252|248|240|224|192|128|0+)(\.0+){2})|((255|254|252|248|240|224|192|128|0+)(\.0+){3}))$" value="'.$arr['mask'].'">';
+		$lnhtm .= '	<input type="text" name="localnets['.$id.'][net]" class="form-control localnet network validate-ip" value="'.$arr['net'].'">/';
+		$lnhtm .= '	<input type="text" name="localnets['.$id.'][mask]" class="form-control netmask cidr validate-netmask" value="'.$arr['mask'].'">';
 		$lnhtm .= '</div>';
 	}
 	?>
@@ -160,8 +160,8 @@ foreach ($tlsowners as $chan => $txt) {
 						</div>
 						<div class="col-md-9">
 							<div class = "lnet form-group form-inline" data-nextid=1>
-								<input type="text" name="localnets[0][net]" class="form-control localnet network validate-ip"  pattern="^$|^([0-9]{1,3}\.){3}[0-9]{1,3}$" value="<?php echo isset($localnets[0]['net']) ? $localnets[0]['net'] : '' ?>"> /
-								<input type="text" name="localnets[0][mask]" class="form-control netmask cidr validate-netmask" pattern="^$|^((?:[1-9])|(?:[1-2][0-9])|(?:3[0-2]))$|^(((255\.){3}(255|254|252|248|240|224|192|128|0+))|((255\.){2}(255|254|252|248|240|224|192|128|0+)\.0)|((255\.)(255|254|252|248|240|224|192|128|0+)(\.0+){2})|((255|254|252|248|240|224|192|128|0+)(\.0+){3}))$" value="<?php echo isset($localnets[0]['mask']) ? $localnets[0]['mask'] : ''?>">
+								<input type="text" name="localnets[0][net]" class="form-control localnet network validate-ip"  value="<?php echo isset($localnets[0]['net']) ? $localnets[0]['net'] : '' ?>"> /
+								<input type="text" name="localnets[0][mask]" class="form-control netmask cidr validate-netmask" value="<?php echo isset($localnets[0]['mask']) ? $localnets[0]['mask'] : ''?>">
 							</div>
 							<?php echo $lnhtm?>
 							<input type="button" id="localnet-add" value="<?php echo $add_local_network_field ?>" />
@@ -391,7 +391,8 @@ foreach ($tlsowners as $chan => $txt) {
 						<div class="col-md-9">
 							<?php $i = 0;foreach($ice_blacklist as $can) {?>
 								<div class="form-group form-inline">
-									<input type="hidden" id="ice_blacklist_count" name="ice_blacklist_count[]" value="<?php echo $i?>"><input type="text" id="ice_blacklist_ip_<?php echo $i?>" name="ice_blacklist_ip_<?php echo $i?>" class="form-control ice-blacklist" pattern="^$|^([0-9]{1,3}\.){3}[0-9]{1,3}$" value="<?php echo $can['address']?>"> / <input type="text" id="ice_blacklist_subnet_<?php echo $i?>" name="ice_blacklist_subnet_<?php echo $i?>" class="form-control"  pattern="^$|^((?:[1-9])|(?:[1-2][0-9])|(?:3[0-2]))$|^(((255\.){3}(255|254|252|248|240|224|192|128|0+))|((255\.){2}(255|254|252|248|240|224|192|128|0+)\.0)|((255\.)(255|254|252|248|240|224|192|128|0+)(\.0+){2})|((255|254|252|248|240|224|192|128|0+)(\.0+){3}))$" value="<?php echo $can['subnet']?>">
+									<input type="hidden" id="ice_blacklist_count" name="ice_blacklist_count[]" value="<?php echo $i?>"><input type="text" id="ice_blacklist_ip_<?php echo $i?>" name="ice_blacklist_ip_<?php echo $i?>" class="form-control ice-blacklist" value="<?php echo $can['address']?>"> /
+									<input type="text" id="ice_blacklist_subnet_<?php echo $i?>" name="ice_blacklist_subnet_<?php echo $i?>" class="form-control"   value="<?php echo $can['subnet']?>">
 								</div>
 							<?php $i++;} ?>
 							<div id="ice-blacklist-buttons">
@@ -434,7 +435,7 @@ foreach ($tlsowners as $chan => $txt) {
 						<div class="col-md-9">
 							<?php $i = 0;foreach($ice_host_candidates as $can) {?>
 								<div class="form-group form-inline">
-									<input type="hidden" id="ice_host_candidates_count" name="ice_host_candidates_count[]" value="<?php echo $i?>"><input type="text" id="ice_host_candidates_local_<?php echo $i?>" name="ice_host_candidates_local_<?php echo $i?>" class="form-control ice-host-candidate" pattern="^$|^([0-9]{1,3}\.){3}[0-9]{1,3}$" value="<?php echo $can['local']?>"> => <input type="text" id="ice_host_candidates_advertised_<?php echo $i?>" name="ice_host_candidates_advertised_<?php echo $i?>" class="form-control" pattern="^$|^([0-9]{1,3}\.){3}[0-9]{1,3}$" value="<?php echo $can['advertised']?>">
+									<input type="hidden" id="ice_host_candidates_count" name="ice_host_candidates_count[]" value="<?php echo $i?>"><input type="text" id="ice_host_candidates_local_<?php echo $i?>" name="ice_host_candidates_local_<?php echo $i?>" class="form-control ice-host-candidate" value="<?php echo $can['local']?>"> => <input type="text" id="ice_host_candidates_advertised_<?php echo $i?>" name="ice_host_candidates_advertised_<?php echo $i?>" class="form-control" value="<?php echo $can['advertised']?>">
 								</div>
 							<?php } ?>
 							<div id="ice-host-candidates-buttons">

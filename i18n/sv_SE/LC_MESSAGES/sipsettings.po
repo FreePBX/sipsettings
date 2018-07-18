@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX sipsettings\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-14 20:17-0400\n"
+"POT-Creation-Date: 2018-06-15 19:42-0400\n"
 "PO-Revision-Date: 2011-03-20 00:00+0100\n"
 "Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
 "Language-Team: Swedish\n"
@@ -44,12 +44,12 @@ msgstr ""
 msgid " See current version of Asterisk for limitations on SRV functionality."
 msgstr ""
 
-#: functions.inc.php:334
+#: functions.inc.php:339
 #, php-format
 msgid "%s must be a non-negative integer"
 msgstr "%s måste vara ett positivt heltal"
 
-#: functions.inc.php:378
+#: functions.inc.php:383
 #, php-format
 msgid "%s must be alphanumeric"
 msgstr "%s måste vara ett alfanumeriskt värde"
@@ -58,7 +58,7 @@ msgstr "%s måste vara ett alfanumeriskt värde"
 msgid "Adaptive"
 msgstr "Adaptiv"
 
-#: general.page.php:399 general.page.php:441
+#: general.page.php:400 general.page.php:442
 msgid "Add Address"
 msgstr ""
 
@@ -193,7 +193,7 @@ msgid ""
 "with no error correction - Enables T.38 with no error correction.</li></ul>"
 msgstr ""
 
-#: chansip.page.php:327 general.page.php:551
+#: chansip.page.php:327 general.page.php:552
 msgid "Audio Codecs"
 msgstr "Ljud-codec"
 
@@ -205,7 +205,7 @@ msgstr "Automatisk konfiguration"
 msgid "Bind Address"
 msgstr "Bindadress"
 
-#: functions.inc.php:338
+#: functions.inc.php:343
 msgid "Bind Address (bindaddr) must be an IP address."
 msgstr "Bindadress (bindaddr) måste vara en IP-adress."
 
@@ -213,7 +213,7 @@ msgstr "Bindadress (bindaddr) måste vara en IP-adress."
 msgid "Bind Port"
 msgstr "Bindport"
 
-#: functions.inc.php:344
+#: functions.inc.php:349
 msgid "Bind Port (bindport) must be between 1024 and 65535"
 msgstr ""
 
@@ -237,7 +237,7 @@ msgstr ""
 msgid "Call Events"
 msgstr "Samtalshändelser"
 
-#: general.page.php:432
+#: general.page.php:433
 msgid "Candidates"
 msgstr ""
 
@@ -286,7 +286,7 @@ msgstr ""
 msgid "Check to enable and then choose allowed codecs."
 msgstr "Markera för att aktivera, välj sedan tillåtna codecs."
 
-#: general.page.php:561
+#: general.page.php:562
 msgid "Codecs"
 msgstr "Codec"
 
@@ -363,7 +363,7 @@ msgstr "Dynamisk host"
 msgid "Dynamic Host Refresh"
 msgstr ""
 
-#: functions.inc.php:404
+#: functions.inc.php:409
 msgid "Dynamic Host can not be blank"
 msgstr "Dynamisk host kan inte vara tomt"
 
@@ -416,7 +416,7 @@ msgid ""
 "forced and enabled. An example is if receiving from a jittery channel to "
 "voicemail, the jitter buffer will be used if enabled. However, it will not "
 "be used when sending to a SIP endpoint since they usually have their own "
-"jitter buffers. See jbforce to force it's use always."
+"jitter buffers. See jbforce to force its use always."
 msgstr ""
 
 #: general.page.php:206
@@ -447,7 +447,7 @@ msgstr ""
 msgid "External IP Address"
 msgstr ""
 
-#: functions.inc.php:394 assets/js/sipsettings.js:20
+#: functions.inc.php:399 assets/js/sipsettings.js:20
 msgid ""
 "External IP can not be blank when NAT Mode is set to Static and no default "
 "IP address provided on the main page"
@@ -494,7 +494,7 @@ msgstr ""
 msgid "Generate manager events when sip ua performs events (e.g. hold)."
 msgstr "Genererar händelser när en sip ua utför händelser, t.ex. lägg på vänt"
 
-#: general.page.php:289 general.page.php:473
+#: general.page.php:289 general.page.php:474
 msgid ""
 "Hostname or address for the STUN server used when determining the external "
 "IP address and port an RTP session can be reached at. The port number is "
@@ -502,7 +502,7 @@ msgid ""
 "blank by default. (A list of STUN servers: http://wiki.freepbx.org/x/YQCUAg)"
 msgstr ""
 
-#: general.page.php:313 general.page.php:497
+#: general.page.php:313 general.page.php:498
 msgid ""
 "Hostname or address for the TURN server to be used as a relay. The port "
 "number is optional. If omitted the default value of 3478 will be used. This "
@@ -513,11 +513,11 @@ msgstr ""
 msgid "ICE Blacklist"
 msgstr ""
 
-#: general.page.php:410
+#: general.page.php:411
 msgid "ICE Host Candidates"
 msgstr ""
 
-#: general.page.php:421
+#: general.page.php:422
 msgid ""
 "IMPORTANT: Only use this functionality when your Asterisk server is behind a "
 "one-to-one NAT and you know what you're doing. If you do define anything "
@@ -619,13 +619,13 @@ msgid ""
 "more fields. Blank fields will be ignored."
 msgstr ""
 
-#: functions.inc.php:454
+#: functions.inc.php:459
 msgid "Localnet netmask must be formatted properly (e.g. 255.255.255.0 or 24)"
 msgstr ""
 "Nätmasken för localnet måste vara korrekt formaterat (t.ex. 255.255.255.0 "
 "eller 24)"
 
-#: functions.inc.php:449
+#: functions.inc.php:454
 msgid "Localnet setting must be an IP address"
 msgstr "Localnet måste vara en IP-adress"
 
@@ -773,7 +773,7 @@ msgstr ""
 msgid "PJSip"
 msgstr ""
 
-#: general.page.php:361 general.page.php:545
+#: general.page.php:361 general.page.php:546
 msgid ""
 "Password used to authenticate with TURN relay server. This option is "
 "disabled by default."
@@ -879,7 +879,7 @@ msgstr ""
 msgid "SSL Method"
 msgstr ""
 
-#: general.page.php:277 general.page.php:461
+#: general.page.php:277 general.page.php:462
 msgid "STUN Server Address"
 msgstr ""
 
@@ -975,15 +975,15 @@ msgstr ""
 msgid "TLS/SSL/SRTP Settings"
 msgstr ""
 
-#: general.page.php:301 general.page.php:485
+#: general.page.php:301 general.page.php:486
 msgid "TURN Server Address"
 msgstr ""
 
-#: general.page.php:349 general.page.php:533
+#: general.page.php:349 general.page.php:534
 msgid "TURN Server Password"
 msgstr ""
 
-#: general.page.php:325 general.page.php:509
+#: general.page.php:325 general.page.php:510
 msgid "TURN Server Username"
 msgstr ""
 
@@ -1013,7 +1013,7 @@ msgstr ""
 msgid "The format for these overrides is: [address] / [subnet]"
 msgstr ""
 
-#: general.page.php:422
+#: general.page.php:423
 msgid ""
 "The format for these overrides is: [local address] => [advertised address]>"
 msgstr ""
@@ -1034,11 +1034,11 @@ msgstr ""
 msgid "This address will be provided to clients if NAT is enabled and detected"
 msgstr ""
 
-#: general.page.php:380 general.page.php:423
+#: general.page.php:380 general.page.php:424
 msgid "This is most commonly used for WebRTC"
 msgstr ""
 
-#: general.page.php:564
+#: general.page.php:565
 msgid "This is the default Codec setting for new Trunks and Extensions."
 msgstr ""
 
@@ -1095,7 +1095,7 @@ msgstr ""
 "du använder Asterisk 1.4 eller senare version. Vissa inställningar finns "
 "inte i Asterisk 1.2 och kommer att ignoreras av Asterisk"
 
-#: general.page.php:337 general.page.php:521
+#: general.page.php:337 general.page.php:522
 msgid ""
 "Username used to authenticate with TURN relay server. This option is "
 "disabled by default."
@@ -1117,7 +1117,7 @@ msgstr "Videocodecs"
 msgid "Video Support"
 msgstr "Videosupport"
 
-#: general.page.php:451
+#: general.page.php:452
 msgid "WebRTC Settings"
 msgstr ""
 
@@ -1125,11 +1125,11 @@ msgstr ""
 msgid "What is ICE Blacklist?"
 msgstr ""
 
-#: general.page.php:416
+#: general.page.php:417
 msgid "What is ICE Host Candidates?"
 msgstr ""
 
-#: general.page.php:420
+#: general.page.php:421
 msgid ""
 "When Asterisk is behind a static one-to-one NAT and ICE is in use, ICE will "
 "expose the server's internal IP address as one of the host candidates. "
@@ -1249,7 +1249,7 @@ msgstr "skriver standard codecs.."
 msgid "route"
 msgstr ""
 
-#: functions.inc.php:352
+#: functions.inc.php:357
 msgid "rtpholdtimeout must be higher than rtptimeout"
 msgstr "rtpholdtimeout måste vara högre än rtptimeout"
 
@@ -1324,7 +1324,7 @@ msgstr "ja"
 #~ "receiving from a jittery channel to voicemail, the jitter buffer will be "
 #~ "used if enabled. However, it will not be used when sending to a SIP "
 #~ "endpoint since they usually have their own jitter buffers. See jbforce to "
-#~ "force it's use always."
+#~ "force its use always."
 #~ msgstr ""
 #~ "Asterisk: jbenable. Aktiverar användandet av jitterbuffer på den "
 #~ "mottagande sidan av en SIP-kanal. En aktiverad jitterbuffer används bara "
