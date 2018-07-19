@@ -14,6 +14,16 @@ define('SIP_CODEC','1');
 define('SIP_VIDEO_CODEC','2');
 define('SIP_CUSTOM','9');
 
+function sipsettings_process_errors($errors) {
+	foreach($errors as $error) {
+		$error_display[] = array(
+			'js' => "$('#".$error['id']."').addClass('validation-error');\n",
+			'div' => $error['message'],
+		);
+	}
+	return $error_display;
+}
+
 class sipsettings_validate {
 	var $errors = array();
 
@@ -21,8 +31,8 @@ class sipsettings_validate {
 	function is_int($value, $item, $message, $negative=false) {
 		$value = trim($value);
 		if($value == "-1"){
-			return $value;	
-		} 
+			return $value;
+		}
 		else{
 			if ($value != '' && $negative) {
 				$tmp_value = substr($value,0,1) == '-' ? substr($value,1) : $value;
@@ -33,12 +43,12 @@ class sipsettings_validate {
 				if (!ctype_digit($value) || ($value < 0 )) {
 					$this->errors[] = array('id' => $item, 'value' => $value, 'message' => $message);
 				}
-			}	
-			return $value;			
+			}
+			return $value;
 		}
 	}
 
-	/* checks if value is valid port between 1024 - 6 65535 */
+	/* checks if value is valid port between 1024 - 65535 */
 	function is_ip_port($value, $item, $message) {
 		$value = trim($value);
 		if ($value != '' && (!ctype_digit($value) || $value < 1024 || $value > 65535)) {
@@ -394,13 +404,13 @@ function sipsettings_edit($sip_settings) {
 			break;
 
 			case 'externip_val':
-	if ($sip_settings['nat_mode'] == 'externip') {
-		if (trim($val) == "" && !FreePBX::create()->Sipsettings->getConfig('externip')) {
-			$msg = _("External IP can not be blank when NAT Mode is set to Static and no default IP address provided on the main page");
-			$vd->log_error($val, $key, $msg);
-		} else {
-			$save_settings[] = array($key,$val,'40',SIP_NORMAL);
-		}
+				if ($sip_settings['nat_mode'] == 'externip') {
+					if (trim($val) == "" && !FreePBX::create()->Sipsettings->getConfig('externip')) {
+						$msg = _("External IP can not be blank when NAT Mode is set to Static and no default IP address provided on the main page");
+						$vd->log_error($val, $key, $msg);
+					} else {
+						$save_settings[] = array($key,$val,'40',SIP_NORMAL);
+					}
 				}
 			break;
 
@@ -430,6 +440,7 @@ function sipsettings_edit($sip_settings) {
 
 			case 'nat_mode':
 			case 'g726nonstandard':
+
 			case 't38pt_udptl':
 			case 'videosupport':
 			case 'canreinvite':
@@ -441,8 +452,8 @@ function sipsettings_edit($sip_settings) {
 			case 'tlsdontverifyserver':
 			case 'tlsclientmethod':
 			case 'tlsenable':
-        $save_settings[] = array($key,$val,'10',SIP_NORMAL);
-      break;
+				$save_settings[] = array($key,$val,'10',SIP_NORMAL);
+			break;
 
 			case 'ALLOW_SIP_ANON':
 				$save_to_admin[] = array($key,$val);
@@ -480,7 +491,10 @@ function sipsettings_edit($sip_settings) {
 					$fvcodecs[$codec] = $seq++;
 			}
 		}
-		FreePBX::Sipsettings()->setCodecs('video',$fvcodecs);
+		if ($_REQUEST['category'] == "general" && $_REQUEST['Submit'] == "Submit"){
+			FreePBX::Sipsettings()->setCodecs('video',$fvcodecs);
+		}
+
 
 		// TODO: normally don't like doing delete/insert but otherwise we would have do update for each
 		//			 individual setting and then an insert if there was nothing to update. So this is cleaner

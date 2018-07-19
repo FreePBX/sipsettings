@@ -1,26 +1,43 @@
 <?php
 // vim: set ai ts=4 sw=4 ft=phtml:
-$localnets = $this->getConfig('localnets');
-if (!$localnets) {
-	$localnets = array();
-}
+	$localnets 				= $this->getConfig('localnets');
+	if (!$localnets) {
+		$localnets 			= array();
+	}
 
-$externip = $this->getConfig('externip');
-if (!$externip) {
-	$externip = ""; // Ensure any failure is always an empty string
-}
+	$externip = $this->getConfig('externip');
+	if (!$externip) {
+		$externip 			= ""; // Ensure any failure is always an empty string
+	}
 
 
-$ice_blacklist = $this->getConfig('ice-blacklist');
-$ice_blacklist = !empty($ice_blacklist) ? $ice_blacklist : array(array("address" => "","subnet" => ""));
-$ice_host_candidates = $this->getConfig('ice-host-candidates');
-$ice_host_candidates = !empty($ice_host_candidates) ? $ice_host_candidates : array(array("local" => "","advertised" => ""));
+	$ice_blacklist 			= $this->getConfig('ice-blacklist');
+	$ice_blacklist 			= !empty($ice_blacklist) ? $ice_blacklist : array(array("address" => "","subnet" => ""));
+	$ice_host_candidates 	= $this->getConfig('ice-host-candidates');
+	$ice_host_candidates 	= !empty($ice_host_candidates) ? $ice_host_candidates : array(array("local" => "","advertised" => ""));
 
-$add_local_network_field = _("Add Local Network Field");
-$submit_changes = _("Submit Changes");
+	$add_local_network_field= _("Add Local Network Field");
+	$submit_changes 		= _("Submit Changes");
 
+	$sip_settings 			= sipsettings_get();
+
+	// With the new sorting, the vars should come to us in the sorted order so just use that
+	//
+
+	$sip_settings['videosupport']     	= isset($_POST['videosupport']) 	? $_POST['videosupport'] 						: $sip_settings['videosupport'];
+	$sip_settings['maxcallbitrate']    	= isset($_POST['maxcallbitrate']) 	? htmlspecialchars($_POST['maxcallbitrate']) 	: $sip_settings['maxcallbitrate'];
+	$sip_settings['g726nonstandard']   	= isset($_POST['g726nonstandard']) 	? $_POST['g726nonstandard'] 					: $sip_settings['g726nonstandard'];
+	$sip_settings['t38pt_udptl']       	= isset($_POST['t38pt_udptl']) 		? $_POST['t38pt_udptl'] 						: $sip_settings['t38pt_udptl'];
+	$sip_settings['allowguest']        	= isset($_POST['allowguest']) 		? $_POST['allowguest'] 							: $sip_settings['allowguest'];
+	$sip_settings['rtptimeout']        	= isset($_POST['rtptimeout']) 		? htmlspecialchars($_POST['rtptimeout']) 		: $sip_settings['rtptimeout'];
+	$sip_settings['rtpholdtimeout']    	= isset($_POST['rtpholdtimeout']) 	? htmlspecialchars($_POST['rtpholdtimeout']) 	: $sip_settings['rtpholdtimeout'];
+	$sip_settings['rtpkeepalive']      	= isset($_POST['rtpkeepalive']) 	? htmlspecialchars($_POST['rtpkeepalive']) 		: $sip_settings['rtpkeepalive'];
+	$sip_settings['rtpstart']      	    = isset($_POST['rtpstart']) 		? htmlspecialchars($_POST['rtpstart']) 			: '10000';
+	$sip_settings['rtpend']             = isset($_POST['rtpend']) 			? htmlspecialchars($_POST['rtpend']) 			: '20000';
+	$action 							= isset($_POST['Submit'])			? $_POST['Submit']								: '';
+	extract($sip_settings);
 ?>
-<form autocomplete="off" action="" method="post" class="fpbx-submit" id="sipsettings" name="sipsettings">
+<div class="alert alert-info" role="alert"><?php echo _("These settings apply to both chan_sip and chan_pjsip."); ?></div>
 <input type="hidden" name="category" value="general">
 <input type="hidden" name="Submit" value="Submit">
 <div class="section-title" data-for="sssecurity">
@@ -50,6 +67,33 @@ $submit_changes = _("Submit Changes");
 		</div>
 	</div>
 	<!--END Allow Anonymous Inbound SIP Calls-->
+	<!--Allow SIP Guests-->
+	<div class="element-container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="row">
+					<div class="form-group">
+						<div class="col-md-3">
+							<label class="control-label" for="allowguest"><?php echo _("Allow SIP Guests") ?></label>
+							<i class="fa fa-question-circle fpbx-help-icon" data-for="allowguest"></i>
+						</div>
+						<div class="col-md-9 radioset">
+							<input id="allowguest-yes" type="radio" name="allowguest" value="yes" <?php echo $allowguest=="yes"?"checked=\"yes\"":""?>/>
+							<label for="allowguest-yes"><?php echo _("Yes") ?></label>
+							<input id="allowguest-no" type="radio" name="allowguest" value="no" <?php echo $allowguest=="no"?"checked=\"no\"":""?>/>
+							<label for="allowguest-no"><?php echo _("No") ?></label>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<span id="allowguest-help" class="help-block fpbx-help-block"><?php echo _("When set Asterisk will allow Guest SIP calls and send them to the Default SIP context. Turning this off will keep anonymous SIP calls from entering the system. Doing such will also stop 'Allow Anonymous Inbound SIP Calls' from functioning. Allowing guest calls but rejecting the Anonymous SIP calls below will enable you to see the call attempts and debug incoming calls that may be mis-configured and appearing as guests.")?></span>
+			</div>
+		</div>
+	</div>
+	<!--END Allow SIP Guests-->
 	<!-- TLS Port Settings -->
 	<div class="element-container">
 		<div class="row">
@@ -108,7 +152,6 @@ foreach ($tlsowners as $chan => $txt) {
 	<h3><i class="fa fa-minus"></i><?php echo _("NAT Settings") ?></h3>
 </div>
 <div class="section" data-id="ssnat">
-	<div class="alert alert-info" role="alert"><?php echo _("These settings apply to both chan_sip and chan_pjsip."); ?></div>
 	<!--External Address-->
 	<div class="element-container">
 		<div class="row">
@@ -267,6 +310,83 @@ foreach ($tlsowners as $chan => $txt) {
 		</div>
 	</div>
 	<!--END Strict RTP-->
+	<!--RTP Timeout-->
+	<div class="element-container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="row">
+					<div class="form-group">
+						<div class="col-md-3">
+							<label class="control-label" for="rtptimeout"><?php echo _("RTP Timeout") ?></label>
+							<i class="fa fa-question-circle fpbx-help-icon" data-for="rtptimeout"></i>
+						</div>
+						<div class="col-md-9">
+							<input type="number" class="form-control" id="rtptimeout" name="rtptimeout" value="<?php echo $rtptimeout ?>">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<span id="rtptimeout-help" class="help-block fpbx-help-block"><?php echo _("Terminate call if rtptimeout seconds of no RTP or RTCP activity on the audio channel when we're not on hold. This is to be able to hangup a call in the case of a phone disappearing from the net, like a powerloss or someone tripping over a cable.")?></span>
+			</div>
+		</div>
+	</div>
+	<!--END RTP Timeout-->
+	<!--RTP Hold Timeout-->
+	<div class="element-container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="row">
+					<div class="form-group">
+						<div class="col-md-3">
+							<label class="control-label" for="rtpholdtimeout"><?php echo _("RTP Hold Timeout") ?></label>
+							<i class="fa fa-question-circle fpbx-help-icon" data-for="rtpholdtimeout"></i>
+						</div>
+						<div class="col-md-9">
+							<input type="number" class="form-control" id="rtpholdtimeout" name="rtpholdtimeout" value="<?php echo $rtpholdtimeout ?>">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<span id="rtpholdtimeout-help" class="help-block fpbx-help-block"><?php echo _("Terminate call if rtpholdtimeout seconds of no RTP or RTCP activity on the audio channel when we're on hold (must be > rtptimeout).")?></span>
+			</div>
+		</div>
+	</div>
+	<!--END RTP Hold Timeout-->
+	<!--RTP Keep Alive-->
+	<div class="element-container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="row">
+					<div class="form-group">
+						<div class="col-md-3">
+							<label class="control-label" for="rtpkeepalive"><?php echo _("RTP Keep Alive") ?></label>
+							<i class="fa fa-question-circle fpbx-help-icon" data-for="rtpkeepalive"></i>
+						</div>
+						<div class="col-md-9">
+							<input type="number" class="form-control" id="rtpkeepalive" name="rtpkeepalive" value="<?php echo $rtpkeepalive ?>">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<span id="rtpkeepalive-help" class="help-block fpbx-help-block"><?php echo _("Send keepalives in the RTP stream to keep NAT open during periods where no RTP stream may be flowing (like on hold).")?></span>
+			</div>
+		</div>
+	</div>
+	<!--END RTP Keep Alive-->
+</div>	
+<div class="section-title" data-for="ssmts">
+	<h3><i class="fa fa-minus"></i><?php echo _("Media Transport Settings") ?></h3>
+</div>
+<div class="section" data-id="ssmts">
 	<!--STUN Server Address-->
 	<div class="element-container">
 		<div class="row">
@@ -552,6 +672,38 @@ foreach ($tlsowners as $chan => $txt) {
 	<h3><i class="fa fa-minus"></i><?php echo _("Audio Codecs") ?></h3>
 </div>
 <div class="section" data-id="sscodecs">
+
+	<!--T38 Pass-Through-->
+	<div class="element-container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="row">
+					<div class="form-group">
+						<div class="col-md-3">
+							<label class="control-label" for="t38pt_udptl"><?php echo _("T38 Pass-Through") ?></label>
+							<i class="fa fa-question-circle fpbx-help-icon" data-for="t38pt_udptl"></i>
+						</div>
+						<div class="col-md-9">
+							<select name="t38pt_udptl" class="form-control">
+								<option value="no" <?php echo $t38pt_udptl=="no"?"selected":""?>><?php echo _("No")?></option>
+								<option value="yes" <?php echo $t38pt_udptl=="yes"?"selected":""?>><?php echo _("Yes")?></option>
+								<option value="fec" <?php echo $t38pt_udptl=="fec"?"selected":""?>><?php echo _("Yes with FEC")?></option>
+								<option value="redundancy" <?php echo $t38pt_udptl=="redundancy"?"selected":""?>><?php echo _("Yes with Redundancy")?></option>
+								<option value="none" <?php echo $t38pt_udptl=="none"?"selected":""?>><?php echo _("Yes with no error correction")?></option>
+							</select>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<span id="t38pt_udptl-help" class="help-block fpbx-help-block"><?php echo _("Asterisk: t38pt_udptl. Enables T38 passthrough which makes faxes go through Asterisk without being processed.<ul><li>No - No passthrough</li><li>Yes - Enables T.38 with FEC error correction and overrides the other endpoint's provided value to assume we can send 400 byte T.38 FAX packets to it.</li><li>Yes with FEC - Enables T.38 with FEC error correction</li><li>Yes with Redundancy - Enables T.38 with redundancy error correction</li><li>Yes with no error correction - Enables T.38 with no error correction.</li></ul>")?></span>
+			</div>
+		</div>
+	</div>
+	<!--END T38 Pass-Through-->
+
 	<!--Codecs-->
 	<div class="element-container">
 		<div class="row">
@@ -562,25 +714,30 @@ foreach ($tlsowners as $chan => $txt) {
 							<label class="control-label" for="codecw"><?php echo _("Codecs") ?></label>
 						</div>
 						<div class="col-md-9">
-							<?php echo \show_help(_("This is the default Codec setting for new Trunks and Extensions."))?>
-							<?php
-							$seq = 1;
+							<?php echo \show_help( _("This is the default Codec setting for new Trunks and Extensions."),_("Helpful Information"),false, true, 'info');
+							$seq 			= 1;
+
 							echo '<ul class="sortable">';
 							foreach (FreePBX::Sipsettings()->getCodecs('audio',true) as $codec => $codec_state) {
-								$codec_trans = _($codec);
-								$codec_checked = $codec_state ? 'checked' : '';
-								echo '<li><a >'
-									. '<img src="assets/sipsettings/images/arrow_up_down.png" height="16" width="16" border="0" alt="move" style="float:none; margin-left:-6px; margin-bottom:-3px;cursor:move" /> '
-									. '<input type="checkbox" '
-									. ($codec_checked ? 'value="'. $seq++ . '" ' : '')
-									. 'name="voicecodecs[' . $codec . ']" '
-									. 'id="'. $codec . '" '
-									. 'class="audio-codecs" '
-									. $codec_checked
-									. ' />'
-									. '<label for="'. $codec . '"> '
-									. '<small>' . $codec_trans . '</small>'
-									. " </label></a></li>\n";
+								if($sip_settings["g726nonstandard"] == "no" && $codec == "g726aal2"){
+									// Don't display this codec into the list.
+								}
+								else {
+									$codec_trans = _($codec);
+									$codec_checked = $codec_state ? 'checked' : '';
+									echo '<li><a >'
+										. '<img src="assets/sipsettings/images/arrow_up_down.png" height="16" width="16" border="0" alt="move" style="float:none; margin-left:-6px; margin-bottom:-3px;cursor:move" /> '
+										. '<input type="checkbox" '
+										. ($codec_checked ? 'value="'. $seq++ . '" ' : '')
+										. 'name="voicecodecs[' . $codec . ']" '
+										. 'id="'. $codec . '" '
+										. 'class="audio-codecs" '
+										. $codec_checked
+										. ' />'
+										. '<label for="'. $codec . '"> '
+										. '<small>' . $codec_trans . '</small>'
+										. " </label></a></li>\n";
+								}
 							}
 							echo '</ul>';
 							?>
@@ -592,4 +749,161 @@ foreach ($tlsowners as $chan => $txt) {
 	</div>
 	<!--END Codecs-->
 </div>
-</form>
+<?php
+
+	/* We massaged these above or they came from sipsettings_get() if this is not
+	 * from and edit. So extract them after sorting out the codec sub arrays.
+	 */
+
+	$video_codecs 		= FreePBX::Sipsettings()->getCodecs('video',true);
+	foreach($video_codecs as $key => $value){
+		$v_codecs[$key] = "";
+	}
+	$post_video_codecs 	= isset($_POST['vcodec']) ? $_POST['vcodec'] : array();
+	$seq 				= 1;
+	$newvcodecs			= array();
+	$vcodec = false;
+	foreach ($post_video_codecs as $key => $value) {
+		$newvcodecs[$key] = $seq++;
+		$vcodec = True;
+	}
+
+	$video_codecs		= ($vcodec)? array_merge($v_codecs, $newvcodecs) : $video_codecs ;
+
+	uasort($video_codecs, function($a, $b) {
+		if ($a == $b) {
+			return 0;
+		}
+		if ($a == '') {
+			return 1;
+		} elseif ($b == '') {
+			return -1;
+		} else {
+			return ($a > $b) ? 1 : -1;
+		}
+	});
+
+	/* EXTRACT THE VARIABLE HERE - MAKE SURE THEY ARE ALL MASSAGED ABOVE */
+	//
+
+	switch ($action) {
+		case "Submit":  // Save sip settings
+			if (($errors = sipsettings_edit($sip_settings)) !== true) {
+				$error_displays = sipsettings_process_errors($errors);
+			}
+		break;
+		default:
+			/* only get them if first time load, if they pressed submit, use values from POST */
+			$sip_settings = sipsettings_get();
+			extract($sip_settings);
+	}
+	unset($_POST['Submit']); 	unset($action);
+
+?>
+<div class="section-title" data-for="sscsvcodecs">
+	<h3><i class="fa fa-minus"></i> <?php echo _("Video Codecs")?></h3>
+</div>
+<div class="section" data-id="sscsvcodecs">
+	<!--Video Support-->
+	<div class="element-container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="row">
+					<div class="form-group">
+						<div class="col-md-3">
+							<label class="control-label" for="videosupport"><?php echo _("Video Support") ?></label>
+							<i class="fa fa-question-circle fpbx-help-icon" data-for="videosupport"></i>
+						</div>
+						<div class="col-md-9 radioset">
+							<input id="videosupport-yes" type="radio" name="videosupport" value="yes" <?php echo $videosupport=="yes"?"checked=\"yes\"":""?>/>
+							<label for="videosupport-yes"><?php echo _("Enabled") ?></label>
+							<input id="videosupport-no" type="radio" name="videosupport" value="no" <?php echo $videosupport=="no"?"checked=\"no\"":""?>/>
+							<label for="videosupport-no"><?php echo _("Disabled") ?></label>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<span id="videosupport-help" class="help-block fpbx-help-block"><?php echo _("Check to enable and then choose allowed codecs.")._(" If you clear each codec and then add them one at a time, submitting with each addition, they will be added in order which will effect the codec priority.")?></span>
+			</div>
+		</div>
+	</div>
+	<!--END Video Support-->
+	<div class="video-codecs">
+		<!--Video Codecs-->
+		<div class="element-container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="row">
+						<div class="form-group">
+							<div class="col-md-3">
+								<label class="control-label" for="vcwrap"><?php echo _("Video Codecs") ?></label>
+								<i class="fa fa-question-circle fpbx-help-icon" data-for="vcwrap"></i>
+							</div>
+							<div class="col-md-9">
+								<?php
+								$seq = 0;
+								echo '<ul  class="sortable video-codecs">';
+									 foreach ($video_codecs as $codec => $codec_state) {
+										$tabindex++;
+										$codec_trans = _($codec);
+										$codec_checked = $codec_state ? 'checked' : '';
+										echo '<li><a >'
+											. '<img src="assets/sipsettings/images/arrow_up_down.png" height="16" width="16" border="0" alt="move" style="float:none; margin-left:-6px; margin-bottom:-3px;cursor:move" /> '
+											. '<input type="checkbox" '
+											. ($codec_checked ? 'value="'. $seq++ . '" ' : '')
+											. 'name="vcodec[' . $codec . ']" '
+											. 'id="'. $codec . '" '
+											. 'class="audio-codecs" tabindex="' . $tabindex. '" '
+											. $codec_checked
+											. ' />'
+											. '<label for="'. $codec . '"> '
+											. '<small>' . $codec_trans . '</small>'
+											. ' </label></a></li>';
+									}
+									echo '</ul>';
+
+								?>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<span id="vcwrap-help" class="help-block fpbx-help-block"><?php echo _("Video Codecs")?></span>
+				</div>
+			</div>
+		</div>
+		<!--END Video Codecs-->
+		<!--Max Bit Rate-->
+		<div class="element-container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="row">
+						<div class="form-group">
+							<div class="col-md-3">
+								<label class="control-label" for="maxcallbitrate"><?php echo _("Max Bit Rate") ?></label>
+								<i class="fa fa-question-circle fpbx-help-icon" data-for="maxcallbitrate"></i>
+							</div>
+							<div class="col-md-9">
+								<div class="input-group">
+									<input type="number" class="form-control" id="maxcallbitrate" name="maxcallbitrate" value="<?php echo $maxcallbitrate ?>">
+									<span class="input-group-addon"><?php echo _("kb/s") ?></span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<span id="maxcallbitrate-help" class="help-block fpbx-help-block"><?php echo _("Maximum bitrate for video calls in kb/s")?></span>
+				</div>
+			</div>
+		</div>
+		<!--END Max Bit Rate-->
+	</div>
+</div>

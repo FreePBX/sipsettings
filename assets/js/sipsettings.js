@@ -96,7 +96,7 @@ $(document).ready(function() {
 		$(".externip").hide();
 	});
 
-		/* Initialize Video Support settings and show/hide */
+	/* Initialize Video Support settings and show/hide */
 	/* FREEPBX-13792 detect network settings fails when only using pjsip channel driver*/
 	if(document.getElementById("videosupport-no") != null){
 		if (document.getElementById("videosupport-no").checked) {

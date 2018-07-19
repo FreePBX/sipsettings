@@ -150,36 +150,35 @@ foreach ($protocols as $p) {
 	}
 }
 ?>
-<form name="pjsipform" id="pjsipform" class="fpbx-submit" action="" method="POST">
 <input type="hidden" name="category" value="pjsip">
 <input type="hidden" name="Submit" value="Submit">
 <div class="section-title" data-for="pjsmisc"><h3>
 	<i class="fa fa-minus"></i> <?php echo _("Misc PJSip Settings")?></h3>
 </div>
 <div class="section" data-id="pjsmisc">
-	<!--Allow Guests-->
+	<!--Allow reload-->
 	<div class="element-container">
 		<div class="row">
 			<div class="form-group">
 				<div class="col-md-3">
-					<label class="control-label" for="allowguest"><?php echo _("Allow Guests") ?></label>
-					<i class="fa fa-question-circle fpbx-help-icon" data-for="allowguest"></i>
+					<label class="control-label" for="allow_reload"><?php echo _("Allow Reload") ?></label>
+					<i class="fa fa-question-circle fpbx-help-icon" data-for="allow_reload"></i>
 				</div>
 				<div class="col-md-9 radioset">
-					<input type="radio" name="allowguest" id="allowguestyes" value="yes" <?php echo ($this->getConfig("allowguest") == "yes"?"CHECKED":"") ?>>
-					<label for="allowguestyes"><?php echo _("Yes");?></label>
-					<input type="radio" name="allowguest" id="allowguestno" value="no" <?php echo ($this->getConfig("allowguest") == "no"?"CHECKED":"") ?>>
-					<label for="allowguestno"><?php echo _("No");?></label>
+					<input type="radio" name="allow_reload" id="allow_reloadyes" value="yes" <?php echo ( $this->getConfig("pjsip_allow_reload") == "yes"?"CHECKED":"") ?>>
+					<label for="allow_reloadyes"><?php echo _("Yes");?></label>
+					<input type="radio" name="allow_reload" id="allow_reloadno" value="no" <?php echo ( $this->getConfig("pjsip_allow_reload") == "yes"?"":"CHECKED") ?>>
+					<label for="allow_reloadno"><?php echo _("No");?></label>
 				</div>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-md-12">
-				<span id="allowguest-help" class="help-block fpbx-help-block"><?php echo _("When set Asterisk will allow Guest SIP calls and send them to the Default SIP context. Turning this off will keep anonymous SIP calls from entering the system. Doing such will also stop 'Allow Anonymous Inbound SIP Calls' from functioning. Allowing guest calls but rejecting the Anonymous SIP calls below will enable you to see the call attempts and debug incoming calls that may be mis-configured and appearing as guests.")?></span>
+				<span id="allow_reload-help" class="help-block fpbx-help-block"><?php echo _("Allow this transport to be reloaded when res_pjsip is reloaded. This option defaults to 'no' because reloading a transport may disrupt in-progress calls.")?></span>
 			</div>
 		</div>
 	</div>
-	<!--END Allow Guests-->
+	<!--END Allow reload-->
 	<!--Show Advanced Settings-->
 	<div class="element-container">
 		<div class="row">
@@ -355,4 +354,4 @@ foreach ($protocols as $p) {
 </div>
 <?php echo $protohtml?>
 <?php echo $bindhtml?>
-</form>
+
