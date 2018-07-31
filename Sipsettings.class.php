@@ -222,10 +222,11 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 			$ret = $this->deleteChanSipSettings($_REQUEST['key'],$_REQUEST['val']);
 			needreload();
 		}
-		
+
 		if (!isset($_REQUEST['Submit'])) {
 			return;
 		}
+
 
 		if (isset($_POST['ice_blacklist_count'])) {
 			$ice_blacklist = array();
@@ -283,6 +284,35 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 			unset($_REQUEST['voicecodecs']);
 		}
 
+		// Video Codecs
+		if (isset($_REQUEST['vcodec'])) {
+
+			// Go through all the codecs that were handed back to
+			// us, and create a new array with what they want.
+			// Note we trust the browser to return the array in the correct
+			// order here.
+			$vcodecs = array_keys($_REQUEST['vcodec']);
+
+			// Just in case they don't turn on ANY codecs..
+			$codecsValid = false;
+
+			$seq = 1;
+			foreach ($vcodecs as $vc) {
+				$newvcodecs[$vc] = $seq++;
+				$vcodecsValid = true;
+			}
+
+			if ($vcodecsValid) {
+				$this->setCodecs('video',$newvcodecs);
+			} else {
+				// They turned off ALL the codecs. Set them back to default.
+				$this->setCodecs('video');
+			}
+
+			// Finished. Unset it, and continue on.
+			unset($_REQUEST['vcodec']);
+		}
+
 		// Ignore empty/invalid localnet settings
 		if (isset($_REQUEST['localnets'])) {
 			foreach ($_REQUEST['localnets'] as $i => $arr) {
@@ -311,6 +341,10 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 
 		if (isset($_REQUEST['verify_client'])) {
 			$this->setConfig('verify_client', $_REQUEST['verify_client']);
+		}
+
+		if (isset($_REQUEST['allow_reload'])) {
+			$this->setConfig('pjsip_allow_reload', $_REQUEST['allow_reload']);
 		}
 
 		if (isset($_REQUEST['verify_server'])) {
@@ -475,7 +509,12 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 				$this->setConfig("voicecodecs", $codecs);
 			break;
 			case 'video':
-				$codecs = $default ? $this->FreePBX->Codecs->getVideo(true) : $codecs;
+				if($_REQUEST['videosupport'] == "yes"){
+					$codecs = $default ? $this->FreePBX->Codecs->getVideo(true) : $codecs;
+				}
+				else{
+					$codecs = array();
+				}
 				$this->setConfig("videocodecs", $codecs);
 			break;
 			case 'text':
@@ -560,7 +599,7 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 		$del = $db->prepare('DELETE FROM `sipsettings` WHERE `keyword`=? AND `data`=? AND `type`=9');
 		$del->execute(array($key, $val));
 	}
-	
+
 	// BMO Hooks.
 
 	public function install() {

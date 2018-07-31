@@ -10,34 +10,37 @@
 //
 $ss = FreePBX::create()->Sipsettings;
 ?>
-
-<div class="container-fluid">
-	<h1><?php echo _("SIP Settings")?></h1>
-	<?php echo \show_help($ss->getActiveModules(),_("SIP driver information")); ?>
-	<div class="row">
-		<div class="col-sm-12">
-			<div class="fpbx-container">
-				<div class="display no-border">
-					<div class="nav-container">
-						<div class="scroller scroller-left"><i class="glyphicon glyphicon-chevron-left"></i></div>
-						<div class="scroller scroller-right"><i class="glyphicon glyphicon-chevron-right"></i></div>
-						<div class="wrapper">
-							<ul class="nav nav-tabs list" role="tablist">
-								<?php foreach($ss->myShowPage() as $key => $page) { ?>
-									<li data-name="<?php echo $key?>" class="change-tab <?php echo $key == 'general' ? 'active' : ''?>"><a href="#<?php echo $key?>" aria-controls="<?php echo $key?>" role="tab" data-toggle="tab"><?php echo $page['name']?></a></li>
-								<?php } ?>
-							</ul>
-						</div>
-					</div>
-					<div class="tab-content display">
-						<?php foreach($ss->myShowPage() as $key => $page) { ?>
-							<div id="<?php echo $key?>" class="tab-pane <?php echo $key == 'general' ? 'active' : ''?>">
-								<?php echo $page['content']?>
+<form autocomplete="off" action="" method="post" class="fpbx-submit" id="sipconfig" name="sipconfig" >
+	<div class="container-fluid">
+		<h1><?php echo _("SIP Settings")?></h1>
+		<?php echo \show_help($ss->getActiveModules(),_("SIP driver information"),True, True, "info"); ?>
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="fpbx-container">
+					<div class="display no-border">
+						<div class="nav-container">
+							<div class="scroller scroller-left"><i class="glyphicon glyphicon-chevron-left"></i></div>
+							<div class="scroller scroller-right"><i class="glyphicon glyphicon-chevron-right"></i></div>
+							<div class="wrapper">
+								<ul class="nav nav-tabs list" role="tablist">
+									<?php foreach($ss->myShowPage() as $key => $page) { ?>
+										<li data-name="<?php echo $key?>" class="change-tab <?php echo $key == 'general' ? 'active' : ''?>"><a href="#<?php echo $key?>" aria-controls="<?php echo $key?>" role="tab" data-toggle="tab"><?php echo $page['name']?></a></li>
+									<?php } ?>
+								</ul>
 							</div>
-						<?php } ?>
+						</div>
+						<div class="tab-content display">
+							<?php foreach($ss->myShowPage() as $key => $page) { ?>
+								<div id="<?php echo $key?>" class="tab-pane <?php echo $key == 'general' ? 'active' : ''?>">
+									<?php echo $page['content']?>
+								</div>
+							<?php } ?>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+		<p><br><br></p>
 	</div>
-</div>
+</form>
+
