@@ -191,17 +191,17 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 				)
 			);
 
-			if ($driver == "chan_sip" || $driver == "both") {
-				$this->pagedata['sip'] = array(
-					"name" => _("Chan SIP Settings"),
-					"page" => 'chansip.page.php'
+			if ($driver == "chan_pjsip" || $driver == "both") {
+				$this->pagedata['pjsip'] = array(
+					"name" => _("SIP Settings [chan_pjsip]"),
+					"page" => 'chanpj.page.php'
 				);
 			}
 
-			if ($driver == "chan_pjsip" || $driver == "both") {
-				$this->pagedata['pjsip'] = array(
-					"name" => _("Chan PJSIP Settings"),
-					"page" => 'chanpj.page.php'
+			if ($driver == "chan_sip" || $driver == "both") {
+				$this->pagedata['sip'] = array(
+					"name" => _("SIP Legacy Settings [chan_sip]"),
+					"page" => 'chansip.page.php'
 				);
 			}
 

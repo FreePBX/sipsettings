@@ -37,7 +37,7 @@
 	$action 							= isset($_POST['Submit'])			? $_POST['Submit']								: '';
 	extract($sip_settings);
 ?>
-<div class="alert alert-info" role="alert"><?php echo _("These settings apply to both chan_sip and chan_pjsip."); ?></div>
+<div class="alert alert-info" role="alert"><?php echo _("These settings apply to both 'SIP Settings [chan_pjsip]' and 'Sip Legacy Settings [chan_sip]'."); ?></div>
 <input type="hidden" name="category" value="general">
 <input type="hidden" name="Submit" value="Submit">
 <div class="section-title" data-for="sssecurity">
@@ -382,7 +382,7 @@ foreach ($tlsowners as $chan => $txt) {
 		</div>
 	</div>
 	<!--END RTP Keep Alive-->
-</div>	
+</div>
 <div class="section-title" data-for="ssmts">
 	<h3><i class="fa fa-minus"></i><?php echo _("Media Transport Settings") ?></h3>
 </div>
