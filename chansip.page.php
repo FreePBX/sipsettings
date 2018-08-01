@@ -113,6 +113,7 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 	$error_displays = array_merge($error_displays,sipsettings_check_custom_files());
 
 ?>
+<div class="alert alert-info"><?php echo _('These settings apply only to SIP Legacy [chan_sip]')?></div>
 
 	<h2><?php echo _("Edit Settings"); ?></h2>
 

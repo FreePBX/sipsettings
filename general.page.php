@@ -36,8 +36,11 @@
 	$sip_settings['rtpend']             = isset($_POST['rtpend']) 			? htmlspecialchars($_POST['rtpend']) 			: '20000';
 	$action 							= isset($_POST['Submit'])			? $_POST['Submit']								: '';
 	extract($sip_settings);
+	$driverType = $this->FreePBX->Config->get_conf_setting('ASTSIPDRIVER');
 ?>
-<div class="alert alert-info" role="alert"><?php echo _("These settings apply to both 'SIP Settings [chan_pjsip]' and 'Sip Legacy Settings [chan_sip]'."); ?></div>
+<?php if($driverType === 'both') { ?>
+	<div class="alert alert-info" role="alert"><?php echo _("These settings apply to both 'SIP Settings [chan_pjsip]' and 'Sip Legacy Settings [chan_sip]'."); ?></div>
+<?php } ?>
 <input type="hidden" name="category" value="general">
 <input type="hidden" name="Submit" value="Submit">
 <div class="section-title" data-for="sssecurity">

@@ -152,6 +152,7 @@ foreach ($protocols as $p) {
 ?>
 <input type="hidden" name="category" value="pjsip">
 <input type="hidden" name="Submit" value="Submit">
+<div class="alert alert-info"><?php echo _('These settings apply only to SIP [chan_pjsip]')?></div>
 <div class="section-title" data-for="pjsmisc"><h3>
 	<i class="fa fa-minus"></i> <?php echo _("Misc PJSip Settings")?></h3>
 </div>
@@ -354,4 +355,3 @@ foreach ($protocols as $p) {
 </div>
 <?php echo $protohtml?>
 <?php echo $bindhtml?>
-
