@@ -1151,12 +1151,12 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 		return $interfaces;
     }
     public function dumpDbConfigs(){
-        return $this->FreePBX->Database->query('SELECT * FROM sipsettings')
+        return $this->Database->query('SELECT * FROM sipsettings')
             ->fetchAll(PDO::FETCH_ASSOC);
     }
 
     public function loadDbConfigs($configs){
-        $stmt = $this->FreePBX->Database->prepare("REPLACE INTO sipsettings (keyword, data, seq, type) VALUES (:keyword, :data, :seq, :type)");
+        $stmt = $this->Database->prepare("REPLACE INTO sipsettings (keyword, data, seq, type) VALUES (:keyword, :data, :seq, :type)");
         foreach ($configs as $conf) {
             if(count($conf) !== 4){
                 continue;
@@ -1168,5 +1168,15 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
                 ':type' => $conf['type'],
             ]);
         }
-    }
+	}
+	
+	public function setDatabase($pdo){
+		$this->Database = $pdo;
+		return $this;
+	}
+	
+	public function resetDatabase(){
+		$this->Database = $this->FreePBX->Database;
+		return $this;
+	}
 }

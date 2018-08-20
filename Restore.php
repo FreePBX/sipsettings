@@ -9,4 +9,19 @@ class Restore Extends Base\RestoreBase{
     }
     $this->FreePBX->Sipsettings->loadDbConfigs($settings['database']);
   }
+
+  public function processLegacy($pdo, $data, $tables, $unknownTables, $tmpfiledir){
+    $tables = array_flip($tables+$unknownTables);
+    if(!isset(tables['sipsettings'])){
+      return $this;
+    }
+    $bmo = $this->FreePBX->Sipsettings;
+    $bmo->setDatabase($pdo);
+    $configs = reset($this->FreePBX->Sipsettings->dumpDbConfigs());
+    $bmo->resetDatabase();
+    $bmo->loadDbConfigs($settings['database']);
+    $this->transformLegacyKV($pdo, 'sipsettings', $this->FreePBX)
+      ->transformNamespacedKV($pdo, 'sipsettings', $this->FreePBX);
+    return $this;
+  }
 }
