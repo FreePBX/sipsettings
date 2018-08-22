@@ -1157,18 +1157,20 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 
     public function loadDbConfigs($configs){
         $stmt = $this->Database->prepare("REPLACE INTO sipsettings (keyword, data, seq, type) VALUES (:keyword, :data, :seq, :type)");
-        foreach ($configs as $conf) {
-            if(count($conf) !== 4){
-                continue;
-            }
-            $stmt->execute([
-                ':keyword' => $conf['keyword'],
-                ':data' => $conf['data'],
-                ':seq' => $conf['seq'],
-                ':type' => $conf['type'],
-            ]);
-        }
+	if (!empty($configs)) {
+	        foreach ($configs as $conf) {
+	            if(count($conf) !== 4){
+	                continue;
+	            }
+	            $stmt->execute([
+	                ':keyword' => $conf['keyword'],
+	                ':data' => $conf['data'],
+	                ':seq' => $conf['seq'],
+	                ':type' => $conf['type'],
+	            ]);
+	        }
 	}
+    }
 	
 	public function setDatabase($pdo){
 		$this->Database = $pdo;
