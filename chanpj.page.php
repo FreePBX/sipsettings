@@ -166,9 +166,9 @@ foreach ($protocols as $p) {
 					<i class="fa fa-question-circle fpbx-help-icon" data-for="allow_reload"></i>
 				</div>
 				<div class="col-md-9 radioset">
-					<input type="radio" name="allow_reload" id="allow_reloadyes" value="yes" <?php echo ( $this->getConfig("pjsip_allow_reload") == "yes"?"CHECKED":"") ?>>
+					<input type="radio" name="allow_reload" id="allow_reloadyes" value="yes" <?php echo ( $this->getConfig("pjsip_allow_reload") == "no"?"":"CHECKED") ?>>
 					<label for="allow_reloadyes"><?php echo _("Yes");?></label>
-					<input type="radio" name="allow_reload" id="allow_reloadno" value="no" <?php echo ( $this->getConfig("pjsip_allow_reload") == "yes"?"":"CHECKED") ?>>
+					<input type="radio" name="allow_reload" id="allow_reloadno" value="no" <?php echo ( $this->getConfig("pjsip_allow_reload") == "no"?"CHECKED":"") ?>>
 					<label for="allow_reloadno"><?php echo _("No");?></label>
 				</div>
 			</div>
