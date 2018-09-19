@@ -4,7 +4,7 @@
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<name>Asterisk SIP Settings</name>
-	<version>14.0.27.4</version>
+	<version>14.0.27.5</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>AGPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
@@ -16,6 +16,7 @@
 		Use to configure Various Asterisk SIP Settings in the General section of sip.conf. Also includes an auto-configuration tool to determine NAT settings. The module assumes Asterisk version 1.4 or higher. Some settings may not exist in Asterisk 1.2 and will be ignored by Asterisk.
 	</description>
 	<changelog>
+		*14.0.27.5* FREEPBX-17653 - Handle '0.0.0.0' in PJSIP Transports correctly
 		*14.0.27.4* FREEPBX-18165 pjsip allow reload should be defaulted to yes 
 		*14.0.27.3* Dont limit ip addresses by patterns
 		*14.0.27.2* FREEPBX-16961
