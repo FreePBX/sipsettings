@@ -26,6 +26,11 @@ foreach ($protocols as $p) {
 		} else {
 			$priority = 3;
 		}
+		if ($i[0] === "0.0.0.0") {
+			$isall = "btn-all btn-proto-$p";
+		} else {
+			$isall = "btn-notall btn-proto-$p";
+		}
 		$thisTitle = "$p - ${i[0]} - ${i[1]}";
 		$thisID = $p."bindip-".$i[0];
 		if($lastproto != $p){
@@ -50,9 +55,9 @@ foreach ($protocols as $p) {
 						<i class="fa fa-question-circle fpbx-help-icon" data-for="'.$thisID.'"></i>
 					</div>
 					<div class="col-md-9 radioset">
-						<input type="radio" name="'.$thisID.'" id="'.$thisID.'yes" value="on" '. ($binds[$i[0]] == "on"?"CHECKED":"") .'>
+						<input type="radio" class="'.$isall.'" data-proto="'.$p.'" name="'.$thisID.'" id="'.$thisID.'yes" value="on" '. ($binds[$i[0]] == "on"?"CHECKED":"") .'>
 						<label for="'.$thisID.'yes">'. _("Yes").'</label>
-						<input type="radio" name="'.$thisID.'" id="'.$thisID.'no" value="off" '.($binds[$i[0]] == "on"?"":"CHECKED") .'>
+						<input type="radio" class="'.$isall.'" data-proto="'.$p.'" name="'.$thisID.'" id="'.$thisID.'no" value="off" '.($binds[$i[0]] == "on"?"":"CHECKED") .'>
 						<label for="'.$thisID.'no">'. _("No").'</label>
 						</span>
 					</div>

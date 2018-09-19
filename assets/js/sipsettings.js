@@ -171,6 +171,23 @@ $(document).ready(function() {
 		});
 		return false;
 	});
+
+	// If someone clicks on a '0.0.0.0' pjsip selector, we automatically turn off
+	// any OTHER selectors for that protocol, as pjsip ignores them once 0.0.0.0 is
+	// enabled.
+	$(".btn-all[value=on]").on("click", function(e) {
+		var proto = $(e.target).data('proto');
+		$(".btn-notall.btn-proto-"+proto+"[value=on]").prop('checked', false);
+		$(".btn-notall.btn-proto-"+proto+"[value=off]").prop('checked', true);
+	});
+	// Additionally, if someone turns on a selector that is NOT 0.0.0.0, we turn off
+	// 0.0.0.0, if it's on.
+	$(".btn-notall[value=on]").on("click", function(e) {
+		var proto = $(e.target).data('proto');
+		$(".btn-all.btn-proto-"+proto+"[value=on]").prop('checked', false);
+		$(".btn-all.btn-proto-"+proto+"[value=off]").prop('checked', true);
+	});
+
 });
 
 /**
