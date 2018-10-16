@@ -166,7 +166,7 @@ foreach ($protocols as $p) {
 		<div class="row">
 			<div class="form-group">
 				<div class="col-md-3">
-					<label class="control-label" for="allow_reload"><?php echo _("Allow Reload") ?></label>
+					<label class="control-label" for="allow_reload"><?php echo _("Allow Transports Reload") ?></label>
 					<i class="fa fa-question-circle fpbx-help-icon" data-for="allow_reload"></i>
 				</div>
 				<div class="col-md-9 radioset">
@@ -179,7 +179,7 @@ foreach ($protocols as $p) {
 		</div>
 		<div class="row">
 			<div class="col-md-12">
-				<span id="allow_reload-help" class="help-block fpbx-help-block"><?php echo _("Allow this transport to be reloaded when res_pjsip is reloaded. This option defaults to 'no' because reloading a transport may disrupt in-progress calls.")?></span>
+				<span id="allow_reload-help" class="help-block fpbx-help-block"><?php echo _("Allow transports to be reloaded when the PBX is reloaded")?></span>
 			</div>
 		</div>
 	</div>
@@ -349,11 +349,11 @@ foreach ($protocols as $p) {
 <div class="section" data-id="pjstx">
 	<div class="well well-info">
 		<?php echo _("Note that the interface is only displayed for your information, and is not referenced by asterisk.")?>
-		<?php if(version_compare($this->FreePBX->Config->get('ASTVERSION'),"13.8","ge")) { ?>
+		<?php if(version_compare($this->FreePBX->Config->get('ASTVERSION'),"13.8","ge") && (!$this->getConfig("pjsip_allow_reload") || $this->getConfig("pjsip_allow_reload") == "yes")) { ?>
 			<!-- Not sure if we need a warning here -->
-			<?php echo sprintf(_("You have Asterisk %s which no longer needs to be restarted for transport changes. Reloading after changing transports does have the possibility to drop calls."),$this->FreePBX->Config->get('ASTVERSION'))?>
+			<?php echo sprintf(_("You have Asterisk %s which no longer needs to be restarted for transport changes if 'Allow Transports Reload' is set to 'Yes' above. Note: If 'Allow Transports Reload' is set to 'Yes' reloading after changing transports does have the possibility to drop calls."),$this->FreePBX->Config->get('ASTVERSION'))?>
 		<?php } else { ?>
-			<?php echo _("Also be warned: After you enable/disable a transport, asterisk needs to be <strong>restarted</strong>, not just reloaded.")?>
+			<?php echo _("After you enable/disable a transport, asterisk needs to be <strong>restarted</strong>, not just reloaded.")?>
 		<?php } ?>
 	</div>
 </div>
