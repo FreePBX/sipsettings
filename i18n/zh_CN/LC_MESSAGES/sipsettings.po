@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-19 20:42-0300\n"
+"POT-Creation-Date: 2018-10-16 15:15-0400\n"
 "PO-Revision-Date: 2015-02-20 20:00-0500\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -59,22 +59,26 @@ msgstr "推荐内网域"
 msgid "Advanced General Settings"
 msgstr "高级基本设置"
 
+#: chanpj.page.php:356
+msgid ""
+"After you enable/disable a transport, asterisk needs to be "
+"<strong>restarted</strong>, not just reloaded."
+msgstr ""
+
 #: general.page.php:52
 msgid "Allow Anonymous Inbound SIP Calls"
 msgstr "支持匿名SIP呼入"
-
-#: chanpj.page.php:169
-msgid "Allow Reload"
-msgstr ""
 
 #: general.page.php:77
 msgid "Allow SIP Guests"
 msgstr "允许SIP Guests"
 
+#: chanpj.page.php:169
+msgid "Allow Transports Reload"
+msgstr ""
+
 #: chanpj.page.php:182
-msgid ""
-"Allow this transport to be reloaded when res_pjsip is reloaded. This option "
-"defaults to 'no' because reloading a transport may disrupt in-progress calls."
+msgid "Allow transports to be reloaded when the PBX is reloaded"
 msgstr ""
 
 #: general.page.php:65
@@ -89,12 +93,6 @@ msgid ""
 "setting, it is used in the dialplan in conjuction with the Default Context. "
 "If that context is changed above to something custom this setting may be "
 "rendered useless as well as if 'Allow SIP Guests' is set to no."
-msgstr ""
-
-#: chanpj.page.php:356
-msgid ""
-"Also be warned: After you enable/disable a transport, asterisk needs to be "
-"<strong>restarted</strong>, not just reloaded."
 msgstr ""
 
 #: assets/js/sipsettings.js:169
@@ -1147,8 +1145,9 @@ msgstr ""
 #, php-format
 msgid ""
 "You have Asterisk %s which no longer needs to be restarted for transport "
-"changes. Reloading after changing transports does have the possibility to "
-"drop calls."
+"changes if 'Allow Transports Reload' is set to 'Yes' above. Note: If 'Allow "
+"Transports Reload' is set to 'Yes' reloading after changing transports does "
+"have the possibility to drop calls."
 msgstr ""
 
 #: chansip.page.php:1064

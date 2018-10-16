@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-19 20:42-0300\n"
+"POT-Creation-Date: 2018-10-16 15:15-0400\n"
 "PO-Revision-Date: 2017-05-23 13:16+0200\n"
 "Last-Translator: Kenichi <k.fukaumi@qloog.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/"
@@ -92,22 +92,26 @@ msgstr "ローカルネットワークフィールドを追加"
 msgid "Advanced General Settings"
 msgstr "高度な一般設定"
 
+#: chanpj.page.php:356
+msgid ""
+"After you enable/disable a transport, asterisk needs to be "
+"<strong>restarted</strong>, not just reloaded."
+msgstr ""
+
 #: general.page.php:52
 msgid "Allow Anonymous Inbound SIP Calls"
 msgstr "匿名のインバウンドSIP着信を許可する"
-
-#: chanpj.page.php:169
-msgid "Allow Reload"
-msgstr ""
 
 #: general.page.php:77
 msgid "Allow SIP Guests"
 msgstr "SIPゲストを許可"
 
+#: chanpj.page.php:169
+msgid "Allow Transports Reload"
+msgstr ""
+
 #: chanpj.page.php:182
-msgid ""
-"Allow this transport to be reloaded when res_pjsip is reloaded. This option "
-"defaults to 'no' because reloading a transport may disrupt in-progress calls."
+msgid "Allow transports to be reloaded when the PBX is reloaded"
 msgstr ""
 
 #: general.page.php:65
@@ -132,12 +136,6 @@ msgstr ""
 "ではなく、ダイヤルプランでデフォルトコンテキストと合わせて使用される設定で"
 "す。前述の様にコンテキストが何かしらカスタム設定になっていると、「SIPゲストを"
 "許可する」がnoに設定されると同様に、この設定は無効になる可能性があります。"
-
-#: chanpj.page.php:356
-msgid ""
-"Also be warned: After you enable/disable a transport, asterisk needs to be "
-"<strong>restarted</strong>, not just reloaded."
-msgstr ""
 
 #: assets/js/sipsettings.js:169
 msgid ""
@@ -1225,8 +1223,9 @@ msgstr ""
 #, php-format
 msgid ""
 "You have Asterisk %s which no longer needs to be restarted for transport "
-"changes. Reloading after changing transports does have the possibility to "
-"drop calls."
+"changes if 'Allow Transports Reload' is set to 'Yes' above. Note: If 'Allow "
+"Transports Reload' is set to 'Yes' reloading after changing transports does "
+"have the possibility to drop calls."
 msgstr ""
 
 #: chansip.page.php:1064
