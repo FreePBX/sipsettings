@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-10-16 15:15-0400\n"
-"PO-Revision-Date: 2018-09-12 14:00+0000\n"
+"PO-Revision-Date: 2018-10-19 22:00+0000\n"
 "Last-Translator: Bastian Mertgen <b.mertgen@bastian-mertgen.de>\n"
 "Language-Team: German <http://*/projects/freepbx/sipsettings/de/>\n"
 "Language: de_DE\n"
@@ -60,7 +60,7 @@ msgstr "Feld hinzufügen"
 
 #: chansip.page.php:37 general.page.php:19
 msgid "Add Local Network Field"
-msgstr ""
+msgstr "Feld für lokales Netzwerk hinzufügen"
 
 #: chansip.page.php:823
 msgid "Advanced General Settings"
@@ -1100,11 +1100,11 @@ msgstr ""
 
 #: chanpj.page.php:306
 msgid "Verify Client"
-msgstr ""
+msgstr "Client verifizieren"
 
 #: chanpj.page.php:327
 msgid "Verify Server"
-msgstr ""
+msgstr "Server verifizieren"
 
 #: general.page.php:804 general.page.php:842 general.page.php:876
 msgid "Video Codecs"
@@ -1149,6 +1149,7 @@ msgstr ""
 #: general.page.php:285
 msgid "Whether to enable or disable UDP checksums on RTP traffic"
 msgstr ""
+"Ob UDP-Prüfsummen für RTP-Verkehr aktiviert oder deaktiviert werden sollen"
 
 #: chanpj.page.php:59 chanpj.page.php:174 chanpj.page.php:197
 #: chanpj.page.php:311 chanpj.page.php:332 chansip.page.php:308
@@ -1162,19 +1163,19 @@ msgstr "Ja"
 
 #: general.page.php:690
 msgid "Yes with FEC"
-msgstr ""
+msgstr "Ja, mit FEC"
 
 #: general.page.php:691
 msgid "Yes with Redundancy"
-msgstr ""
+msgstr "Ja, mit Redundanz"
 
 #: general.page.php:692
 msgid "Yes with no error correction"
-msgstr ""
+msgstr "Ja, ohne Fehlerkorrektur"
 
 #: Sipsettings.class.php:178
 msgid "You can change this on the Advanced Settings Page"
-msgstr ""
+msgstr "Sie können dies in den erweiterten Einstellungen ändern"
 
 #: chanpj.page.php:354
 #, php-format
