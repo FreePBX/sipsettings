@@ -4,7 +4,7 @@
     <candisable>no</candisable>
     <canuninstall>no</canuninstall>
     <name>Asterisk SIP Settings</name>
-    <version>15.0.3</version>
+    <version>15.0.3.1</version>
     <publisher>Sangoma Technologies Corporation</publisher>
     <license>AGPLv3+</license>
     <licenselink>https://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
