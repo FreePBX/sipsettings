@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-26 20:34-0400\n"
+"POT-Creation-Date: 2018-10-29 18:55-0400\n"
 "PO-Revision-Date: 2017-03-08 19:50+0200\n"
 "Last-Translator: Kingvoice <suporte@kingvoice.com.br>\n"
 "Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
@@ -67,7 +67,7 @@ msgstr "Adicionar Campo de Rede Local"
 msgid "Advanced General Settings"
 msgstr "Configurações Gerais Avançadas"
 
-#: chanpj.page.php:357
+#: chanpj.page.php:400
 msgid ""
 "After you enable/disable a transport, asterisk needs to be "
 "<strong>restarted</strong>, not just reloaded."
@@ -120,7 +120,7 @@ msgid ""
 "An Error occurred trying fetch network configuration and external IP address"
 msgstr "Erro ao tentar buscar configuração da rede e endereço IP externo"
 
-#: Sipsettings.class.php:898
+#: Sipsettings.class.php:909
 msgid ""
 "An unknown port conflict has been detected in PJSIP. Please check and "
 "validate your PJSIP Ports to ensure they're not overlapping"
@@ -143,7 +143,7 @@ msgstr ""
 msgid "Asterisk SIP Settings"
 msgstr "Configurações Asterisk SIP"
 
-#: Sipsettings.class.php:172
+#: Sipsettings.class.php:175
 #, php-format
 msgid "Asterisk is currently using %s for SIP Traffic."
 msgstr "O Asterisk está usando atualmente %s para Tráfego SIP."
@@ -238,19 +238,19 @@ msgstr "Porta Bind"
 msgid "Bind Port (bindport) must be between 1024 and 65535"
 msgstr "Porta Bind (bindport) precisa estar entre 1024 e 65535"
 
-#: chanpj.page.php:222
+#: chanpj.page.php:265
 msgid "CA Chain File"
 msgstr "Arquivo de encadeamento CA"
 
-#: Sipsettings.class.php:912
+#: Sipsettings.class.php:923
 msgid "CHANSIP Port Moved"
 msgstr "CHANSIP Porta Movida"
 
-#: Sipsettings.class.php:922
+#: Sipsettings.class.php:933
 msgid "CHANSIP TCP Disabled"
 msgstr "CHANSIP TCP Desabilitado"
 
-#: Sipsettings.class.php:933
+#: Sipsettings.class.php:944
 msgid "CHANSIP TLS Port Moved"
 msgstr "CHANSIP TLS Porta Movida"
 
@@ -262,11 +262,11 @@ msgstr "Eventos de Chamadas"
 msgid "Candidates"
 msgstr ""
 
-#: chanpj.page.php:234
+#: chanpj.page.php:277
 msgid "Certificate File"
 msgstr "Arquivo de Certificado"
 
-#: chanpj.page.php:259 chansip.page.php:325
+#: chanpj.page.php:302 chansip.page.php:325
 msgid "Certificate Manager"
 msgstr "Gerenciador de Certificado"
 
@@ -274,7 +274,7 @@ msgstr "Gerenciador de Certificado"
 msgid "Chan SIP"
 msgstr "Chan SIP"
 
-#: Sipsettings.class.php:933
+#: Sipsettings.class.php:944
 #, php-format
 msgid ""
 "Chansip was assigned a port that was already in use for TLS traffic. The "
@@ -283,7 +283,7 @@ msgstr ""
 "Chansip atribuiu uma porta que já estava em uso para tráfego TLS. A porta "
 "Chansip TLS foi alterada para %s"
 
-#: Sipsettings.class.php:922
+#: Sipsettings.class.php:933
 msgid ""
 "Chansip was assigned the same port as pjsip for TCP traffic. Chansip has had "
 "the tcpenable setting removed, and is no longer listening for TCP "
@@ -292,7 +292,7 @@ msgstr ""
 "Chansip atribuiu a mesma porta como pjsip para o tráfego TCP. O Chansip teve "
 "a configuração tcpenable removida e não está mais ouvindo conexões TCP."
 
-#: Sipsettings.class.php:912
+#: Sipsettings.class.php:923
 #, php-format
 msgid ""
 "Chansip was assigned the same port as pjsip for UDP traffic. The Chansip "
@@ -325,7 +325,7 @@ msgstr ""
 "Controlar se as assinaturas já EM USO são enviadas em TOCANDO quando outra "
 "chamada é enviada. Útil quando se usa BLF."
 
-#: chanpj.page.php:288
+#: chanpj.page.php:331
 msgid "Default"
 msgstr "Padrão"
 
@@ -402,6 +402,10 @@ msgstr "ERROS"
 msgid "Edit Settings"
 msgstr "Editar Configurações"
 
+#: chanpj.page.php:193
+msgid "Enable Debug"
+msgstr ""
+
 #: chansip.page.php:671
 msgid "Enable Jitter Buffer"
 msgstr "Habilitar Jitter Buffer"
@@ -421,6 +425,10 @@ msgstr "Habilitar TLS"
 #: chansip.page.php:317
 msgid "Enable server for incoming TLS (secure) connections."
 msgstr "Habilite o servidor para conexões TLS de entrada (seguras) ."
+
+#: chanpj.page.php:206
+msgid "Enable/Disable SIP debug logging."
+msgstr ""
 
 #: general.page.php:822
 msgid "Enabled"
@@ -519,7 +527,7 @@ msgstr ""
 "Freqüência em segundos para verificar se o estado do MWI mudou e informar os "
 "pares."
 
-#: Sipsettings.class.php:189
+#: Sipsettings.class.php:192
 msgid "General SIP Settings"
 msgstr "Configurações Gerais SIP"
 
@@ -597,7 +605,7 @@ msgid ""
 "is often put in sip_nat.conf"
 msgstr ""
 
-#: chanpj.page.php:290 chanpj.page.php:291 chanpj.page.php:292
+#: chanpj.page.php:333 chanpj.page.php:334 chanpj.page.php:335
 #: chansip.page.php:354 chansip.page.php:355
 msgid "Insecure"
 msgstr ""
@@ -635,6 +643,10 @@ msgid ""
 "Useful to improve the quality of the voice, with big jumps in/broken "
 "timestamps, usually sent from exotic devices and programs. Can be set to -1 "
 "to disable."
+msgstr ""
+
+#: chanpj.page.php:216
+msgid "Keep Alive Interval"
 msgstr ""
 
 #: assets/js/sipsettings.js:239
@@ -713,7 +725,7 @@ msgstr "Taxa de bits máxima para chamadas de vídeo em kb/s"
 msgid "Media Transport Settings"
 msgstr ""
 
-#: chanpj.page.php:299
+#: chanpj.page.php:342
 msgid ""
 "Method of SSL transport (TLS ONLY). The default is currently TLSv1, but may "
 "change with future releases."
@@ -769,12 +781,13 @@ msgid "NAT Settings"
 msgstr "Configurações NAT"
 
 #: chanpj.page.php:61 chanpj.page.php:177 chanpj.page.php:200
-#: chanpj.page.php:314 chanpj.page.php:335 chansip.page.php:311
-#: chansip.page.php:377 chansip.page.php:407 chansip.page.php:494
-#: chansip.page.php:521 chansip.page.php:678 chansip.page.php:706
-#: chansip.page.php:760 chansip.page.php:953 chansip.page.php:979
-#: chansip.page.php:1005 general.page.php:62 general.page.php:87
-#: general.page.php:282 general.page.php:305 general.page.php:691
+#: chanpj.page.php:243 chanpj.page.php:357 chanpj.page.php:378
+#: chansip.page.php:311 chansip.page.php:377 chansip.page.php:407
+#: chansip.page.php:494 chansip.page.php:521 chansip.page.php:678
+#: chansip.page.php:706 chansip.page.php:760 chansip.page.php:953
+#: chansip.page.php:979 chansip.page.php:1005 general.page.php:62
+#: general.page.php:87 general.page.php:282 general.page.php:305
+#: general.page.php:691
 msgid "No"
 msgstr "Não"
 
@@ -792,7 +805,7 @@ msgstr ""
 "'[::]' escutará em IPv4 e IPv6, mas não é o recomendado. Se você quiser usar "
 "o IPv6, é recomendável usar o PJSip para esses dispositivos ou troncos."
 
-#: chanpj.page.php:352
+#: chanpj.page.php:395
 msgid ""
 "Note that the interface is only displayed for your information, and is not "
 "referenced by asterisk."
@@ -865,7 +878,7 @@ msgstr ""
 "Porta/Endereço Bind  mudou. Isso requer o reinício do Asterisk depois de "
 "Aplicar Configuração"
 
-#: chanpj.page.php:246
+#: chanpj.page.php:289
 msgid "Private Key File"
 msgstr "Arquivo de Chave Privada"
 
@@ -925,15 +938,15 @@ msgstr "Tempo de Espera de Registro"
 msgid "Reinvite Behavior"
 msgstr ""
 
-#: chanpj.page.php:320
+#: chanpj.page.php:363
 msgid "Require verification of client certificate (TLS ONLY)."
 msgstr "Exigir a verificação do certificado do cliente (SOMENTE TLS)."
 
-#: chanpj.page.php:341
+#: chanpj.page.php:384
 msgid "Require verification of server certificate (TLS ONLY)."
 msgstr "Exigir a verificação do certificado do servidor (SOMENTE TLS)."
 
-#: Sipsettings.class.php:630
+#: Sipsettings.class.php:641
 msgid "Reset"
 msgstr "Reiniciar"
 
@@ -943,7 +956,7 @@ msgid ""
 "or until registrationattempts tries have been made."
 msgstr ""
 
-#: Sipsettings.class.php:203
+#: Sipsettings.class.php:206
 msgid "SIP Legacy Settings [chan_sip]"
 msgstr ""
 
@@ -951,7 +964,7 @@ msgstr ""
 msgid "SIP Settings"
 msgstr "Configurações SIP"
 
-#: Sipsettings.class.php:196
+#: Sipsettings.class.php:199
 msgid "SIP Settings [chan_pjsip]"
 msgstr ""
 
@@ -959,7 +972,7 @@ msgstr ""
 msgid "SIP driver information"
 msgstr "informação do driver SIP"
 
-#: chanpj.page.php:283 chansip.page.php:348
+#: chanpj.page.php:326 chansip.page.php:348
 msgid "SSL Method"
 msgstr "Método SSL"
 
@@ -975,11 +988,11 @@ msgstr "Segundos"
 msgid "Security Settings"
 msgstr "Configurações de Segurança"
 
-#: chanpj.page.php:264 chansip.page.php:330
+#: chanpj.page.php:307 chansip.page.php:330
 msgid "Select a Certificate"
 msgstr "Selecione um Certificado"
 
-#: chanpj.page.php:274 chansip.page.php:340
+#: chanpj.page.php:317 chansip.page.php:340
 msgid ""
 "Select a certificate to use for the TLS transport. These are configured in "
 "the module Certificate Manager"
@@ -1006,7 +1019,7 @@ msgstr ""
 "As definições em %s podem substituir estes valores. Estas configurações "
 "devem ser removidas."
 
-#: chanpj.page.php:193 chanpj.page.php:206
+#: chanpj.page.php:236 chanpj.page.php:249
 msgid "Show Advanced Settings"
 msgstr "Mostrar Configurações Avançadas"
 
@@ -1022,7 +1035,7 @@ msgstr "IP Estático"
 msgid "Strict RTP"
 msgstr "RTP Estrito"
 
-#: Sipsettings.class.php:635
+#: Sipsettings.class.php:646
 msgid "Submit"
 msgstr "Enviar"
 
@@ -1062,7 +1075,7 @@ msgstr "Endereços Bind TLS"
 msgid "TLS Bind Port"
 msgstr "Porta Bind TLS"
 
-#: chanpj.page.php:214 chansip.page.php:297
+#: chanpj.page.php:257 chansip.page.php:297
 msgid "TLS/SSL/SRTP Settings"
 msgstr "Configurações TLS/SSL/SRTP"
 
@@ -1110,6 +1123,12 @@ msgstr ""
 #: general.page.php:546
 msgid ""
 "The format for these overrides is: [local address] => [advertised address]>"
+msgstr ""
+
+#: chanpj.page.php:226
+msgid ""
+"The interval (in seconds) to send keepalives to active connection-oriented "
+"transports."
 msgstr ""
 
 #: chanpj.page.php:89
@@ -1168,7 +1187,7 @@ msgstr ""
 "Isso descartará pacotes RTP que não provém da origem do fluxo RTP. Não é "
 "comum desligar isso"
 
-#: chanpj.page.php:348
+#: chanpj.page.php:391
 msgid "Transports"
 msgstr "Transportes"
 
@@ -1184,11 +1203,11 @@ msgstr ""
 msgid "Unknown Error"
 msgstr "Erro Desconhecido"
 
-#: Sipsettings.class.php:898
+#: Sipsettings.class.php:909
 msgid "Unknown Port Conflict"
 msgstr "Conflito de Porta Desconhecido"
 
-#: Sipsettings.class.php:442 Sipsettings.class.php:529
+#: Sipsettings.class.php:453 Sipsettings.class.php:540
 msgid "Unknown Type"
 msgstr "Tipo Desconhecido"
 
@@ -1199,9 +1218,9 @@ msgstr "Usar "
 #: sipsettings.i18n.php:8
 msgid ""
 "Use to configure Various Asterisk SIP Settings in the General section of sip."
-"conf. Also includes an auto-configuration tool        to determine NAT "
-"settings. The module assumes Asterisk version 1.4 or higher. Some settings "
-"may not exist in Asterisk        1.2 and will be ignored by Asterisk."
+"conf. Also includes an auto-configuration tool    to determine NAT settings. "
+"The module assumes Asterisk version 1.4 or higher. Some settings may not "
+"exist in Asterisk    1.2 and will be ignored by Asterisk."
 msgstr ""
 
 #: general.page.php:460 general.page.php:645
@@ -1212,11 +1231,11 @@ msgstr ""
 "Nome de usuário usado para autenticar com o servidor de retransmissão TURN. "
 "Esta opção está desativada por padrão."
 
-#: chanpj.page.php:307
+#: chanpj.page.php:350
 msgid "Verify Client"
 msgstr "Verificar Cliente"
 
-#: chanpj.page.php:328
+#: chanpj.page.php:371
 msgid "Verify Server"
 msgstr "Verificar Servidor"
 
@@ -1265,12 +1284,13 @@ msgid "Whether to enable or disable UDP checksums on RTP traffic"
 msgstr ""
 
 #: chanpj.page.php:59 chanpj.page.php:175 chanpj.page.php:198
-#: chanpj.page.php:312 chanpj.page.php:333 chansip.page.php:309
-#: chansip.page.php:375 chansip.page.php:405 chansip.page.php:492
-#: chansip.page.php:519 chansip.page.php:676 chansip.page.php:704
-#: chansip.page.php:758 chansip.page.php:951 chansip.page.php:977
-#: chansip.page.php:1003 general.page.php:60 general.page.php:85
-#: general.page.php:280 general.page.php:303 general.page.php:692
+#: chanpj.page.php:241 chanpj.page.php:355 chanpj.page.php:376
+#: chansip.page.php:309 chansip.page.php:375 chansip.page.php:405
+#: chansip.page.php:492 chansip.page.php:519 chansip.page.php:676
+#: chansip.page.php:704 chansip.page.php:758 chansip.page.php:951
+#: chansip.page.php:977 chansip.page.php:1003 general.page.php:60
+#: general.page.php:85 general.page.php:280 general.page.php:303
+#: general.page.php:692
 msgid "Yes"
 msgstr "Sim"
 
@@ -1286,11 +1306,11 @@ msgstr "Sim, com Redundância"
 msgid "Yes with no error correction"
 msgstr "Sim, sem correção de erros"
 
-#: Sipsettings.class.php:178
+#: Sipsettings.class.php:181
 msgid "You can change this on the Advanced Settings Page"
 msgstr "Você pode alterar isso na página Configurações Avançadas"
 
-#: chanpj.page.php:355
+#: chanpj.page.php:398
 #, php-format
 msgid ""
 "You have Asterisk %s which no longer needs to be restarted for transport "
@@ -1326,7 +1346,7 @@ msgstr ""
 msgid "already exists"
 msgstr "já existe"
 
-#: Sipsettings.class.php:174
+#: Sipsettings.class.php:177
 msgid "chan_pjsip and chan_sip"
 msgstr "chan_pjsip e chan_sip"
 
