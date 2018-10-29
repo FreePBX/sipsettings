@@ -185,6 +185,49 @@ foreach ($protocols as $p) {
 		</div>
 	</div>
 	<!--END Allow reload-->
+	<!--Enable Debug-->
+	<div class="element-container">
+		<div class="row">
+			<div class="form-group">
+				<div class="col-md-3">
+					<label class="control-label" for="pjsip_debug"><?php echo _("Enable Debug") ?></label>
+					<i class="fa fa-question-circle fpbx-help-icon" data-for="pjsip_debug"></i>
+				</div>
+				<div class="col-md-9 radioset">
+					<input type="radio" name="pjsip_debug" id="pjsip_debugyes" value="yes" <?php echo ( $this->getConfig("pjsip_debug") == "yes"?"CHECKED":"") ?>>
+					<label for="pjsip_debugyes"><?php echo _("Yes");?></label>
+					<input type="radio" name="pjsip_debug" id="pjsip_debugno" value="no" <?php echo ( $this->getConfig("pjsip_debug") == "yes"?"":"CHECKED") ?>>
+					<label for="pjsip_debugno"><?php echo _("No");?></label>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<span id="pjsip_debug-help" class="help-block fpbx-help-block"><?php echo _("Enable/Disable SIP debug logging.")?></span>
+			</div>
+		</div>
+	</div>
+	<!--END Enable Debug-->
+	<!--Allow reload-->
+	<div class="element-container">
+		<div class="row">
+			<div class="form-group">
+				<div class="col-md-3">
+					<label class="control-label" for="pjsip_keep_alive_interval"><?php echo _("Keep Alive Interval") ?></label>
+					<i class="fa fa-question-circle fpbx-help-icon" data-for="pjsip_keep_alive_interval"></i>
+				</div>
+				<div class="col-md-9 radioset">
+					<input type="number" class="form-control" name="pjsip_keep_alive_interval" id="pjsip_keep_alive_interval" value="<?php echo ( $this->getConfig("pjsip_keep_alive_interval")?$this->getConfig("pjsip_keep_alive_interval"):"90") ?>">
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<span id="pjsip_keep_alive_interval-help" class="help-block fpbx-help-block"><?php echo _("The interval (in seconds) to send keepalives to active connection-oriented transports.")?></span>
+			</div>
+		</div>
+	</div>
+	<!--END Allow reload-->
 	<!--Show Advanced Settings-->
 	<div class="element-container">
 		<div class="row">

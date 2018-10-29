@@ -1,39 +1,40 @@
 <module>
-    <rawname>sipsettings</rawname>
-    <repo>standard</repo>
-    <candisable>no</candisable>
-    <canuninstall>no</canuninstall>
-    <name>Asterisk SIP Settings</name>
-    <version>15.0.3.1</version>
-    <publisher>Sangoma Technologies Corporation</publisher>
-    <license>AGPLv3+</license>
-    <licenselink>https://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
-    <category>Settings</category>
-    <menuitems>
-        <sipsettings>Asterisk SIP Settings</sipsettings>
-    </menuitems>
-    <database>
-        <table name="sipsettings">
-            <field name="keyword" type="string" length="50" default="" primarykey="true"/>
-            <field name="data" type="string" length="255" default=""/>
-            <field name="seq" type="boolean" default="0" primarykey="true"/>
-            <field name="type" type="boolean" default="0" primarykey="true"/>
-        </table>
-    </database>
-    <description>
-        Use to configure Various Asterisk SIP Settings in the General section of sip.conf. Also includes an auto-configuration tool
-        to determine NAT settings. The module assumes Asterisk version 1.4 or higher. Some settings may not exist in Asterisk
-        1.2 and will be ignored by Asterisk.
-    </description>
-    <changelog>
-		*15.0.3* FREEPBX-18165 pjsip allow reload should be defaulted to yes 
-		*15.0.2* Packaging of ver 15.0.2
-        *15.0.1* Backup 15
-	</changelog>
-    <depends>
-        <module>core ge 15.0.1beta5</module>
-    </depends>
-    <supported>
-        <version>15.0</version>
-    </supported>
+  <rawname>sipsettings</rawname>
+  <repo>standard</repo>
+  <candisable>no</candisable>
+  <canuninstall>no</canuninstall>
+  <name>Asterisk SIP Settings</name>
+  <version>15.0.4</version>
+  <publisher>Sangoma Technologies Corporation</publisher>
+  <license>AGPLv3+</license>
+  <licenselink>https://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
+  <category>Settings</category>
+  <menuitems>
+    <sipsettings>Asterisk SIP Settings</sipsettings>
+  </menuitems>
+  <database>
+    <table name="sipsettings">
+      <field name="keyword" type="string" length="50" default="" primarykey="true"/>
+      <field name="data" type="string" length="255" default=""/>
+      <field name="seq" type="boolean" default="0" primarykey="true"/>
+      <field name="type" type="boolean" default="0" primarykey="true"/>
+    </table>
+  </database>
+  <description>
+    Use to configure Various Asterisk SIP Settings in the General section of sip.conf. Also includes an auto-configuration tool
+    to determine NAT settings. The module assumes Asterisk version 1.4 or higher. Some settings may not exist in Asterisk
+    1.2 and will be ignored by Asterisk.
+  </description>
+  <changelog>
+    *15.0.4* FREEPBX-17871 Allow setting keep_alive_interval in PJSIP global section
+    *15.0.3* FREEPBX-18165 pjsip allow reload should be defaulted to yes
+    *15.0.2* Packaging of ver 15.0.2
+    *15.0.1* Backup 15
+  </changelog>
+  <depends>
+    <module>core ge 15.0.3.5</module>
+  </depends>
+  <supported>
+    <version>15.0</version>
+  </supported>
 </module>

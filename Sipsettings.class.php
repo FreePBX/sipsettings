@@ -27,6 +27,9 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 		"tcpport-0.0.0.0" => "5160", // Defaults, only used if this is an upgrade
 		"udpport-0.0.0.0" => "5061",
 		"tlsport-0.0.0.0" => "5161",
+		"allow_reload" => "yes",
+		"debug" => "no",
+		"keep_alive_interval" => 90
 	);
 
 	public function ajaxRequest($req, &$setting) {
@@ -345,6 +348,14 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 
 		if (isset($_REQUEST['allow_reload'])) {
 			$this->setConfig('pjsip_allow_reload', $_REQUEST['allow_reload']);
+		}
+
+		if (isset($_REQUEST['pjsip_debug'])) {
+			$this->setConfig('pjsip_debug', $_REQUEST['pjsip_debug']);
+		}
+
+		if (isset($_REQUEST['pjsip_keep_alive_interval'])) {
+			$this->setConfig('pjsip_keep_alive_interval', $_REQUEST['pjsip_keep_alive_interval']);
 		}
 
 		if (isset($_REQUEST['verify_server'])) {
@@ -1171,12 +1182,12 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 	        }
 	}
     }
-	
+
 	public function setDatabase($pdo){
 		$this->Database = $pdo;
 		return $this;
 	}
-	
+
 	public function resetDatabase(){
 		$this->Database = $this->FreePBX->Database;
 		return $this;
