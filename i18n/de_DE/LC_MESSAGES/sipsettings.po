@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-10-16 15:15-0400\n"
-"PO-Revision-Date: 2018-11-03 20:37+0000\n"
+"PO-Revision-Date: 2018-11-06 10:25+0000\n"
 "Last-Translator: Bastian Mertgen <b.mertgen@bastian-mertgen.de>\n"
 "Language-Team: German <http://*/projects/freepbx/sipsettings/de/>\n"
 "Language: de_DE\n"
@@ -891,7 +891,7 @@ msgstr ""
 
 #: chansip.page.php:278
 msgid "Seconds"
-msgstr ""
+msgstr "Sekunden"
 
 #: general.page.php:44
 msgid "Security Settings"
@@ -924,7 +924,7 @@ msgstr ""
 
 #: chanpj.page.php:192 chanpj.page.php:205
 msgid "Show Advanced Settings"
-msgstr ""
+msgstr "Erweiterte Einstellungen anzeigen"
 
 #: general.page.php:241
 msgid "Start"
@@ -932,11 +932,11 @@ msgstr ""
 
 #: chansip.page.php:193
 msgid "Static IP"
-msgstr ""
+msgstr "Statische IP"
 
 #: general.page.php:295
 msgid "Strict RTP"
-msgstr ""
+msgstr "Striktes RTP"
 
 #: Sipsettings.class.php:635
 msgid "Submit"
@@ -944,7 +944,7 @@ msgstr "Absenden"
 
 #: chansip.page.php:38 general.page.php:20
 msgid "Submit Changes"
-msgstr ""
+msgstr "Änderungen bestätigen"
 
 #: general.page.php:498
 msgid ""
@@ -977,19 +977,19 @@ msgstr ""
 
 #: chanpj.page.php:213 chansip.page.php:296
 msgid "TLS/SSL/SRTP Settings"
-msgstr ""
+msgstr "TLS-/SSL-SRTP-Einstellungen"
 
 #: general.page.php:421 general.page.php:606
 msgid "TURN Server Address"
-msgstr ""
+msgstr "TURN-Server-Adresse"
 
 #: general.page.php:469 general.page.php:654
 msgid "TURN Server Password"
-msgstr ""
+msgstr "TURN-Server-Passwort"
 
 #: general.page.php:445 general.page.php:630
 msgid "TURN Server Username"
-msgstr ""
+msgstr "TURN-Server-Benutzername"
 
 #: general.page.php:356
 msgid ""
