@@ -12,11 +12,6 @@ outn(_("checking for sipsettings table.."));
 $tsql = "SELECT * FROM `sipsettings` limit 1";
 $check = $db->getRow($tsql, DB_FETCHMODE_ASSOC);
 
-$ok = $FreePBX->astman->command('core show version');
-if (preg_match('/^Asterisk (?:SVN-|GIT-)?(?:branch-)?(\d+(\.\d+)*)(-?(.*)) built/', $astver, $matches) && !empty($matches[1])) {
-	print_r($matches[1]);
-}
-
 // Figure out if we're using asterisk 11 or 12.
 $version = $FreePBX->Config->get('ASTVERSION');
 if (!empty($version)) {
