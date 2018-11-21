@@ -281,8 +281,8 @@ foreach ($protocols as $p) {
 					<div class="col-md-9 radioset">
 						<select class="form-control" id="method" name="method">
 							<option value="default" <?php echo ($this->getConfig("method") == "default"?"selected":"") ?>><?php echo _("Default");?></option>
-							<option value="tlsv1" <?php echo ($this->getConfig("method") == "tlsv1.1"?"selected":"") ?>>tlsv1.1</option>
-                            <option value="tlsv1" <?php echo ($this->getConfig("method") == "tlsv1.2"?"selected":"") ?>>tlsv1.2</option>
+							<option value="tlsv1_1" <?php echo ($this->getConfig("method") == "tlsv1_1"?"selected":"") ?>>tlsv1_1</option>
+                            <option value="tlsv1_2" <?php echo ($this->getConfig("method") == "tlsv1_2"?"selected":"") ?>>tlsv1_2</option>
 							<option value="sslv2" <?php echo ($this->getConfig("method") == "sslv2"?"selected":"") ?>>sslv2 (<?php echo _('Insecure')?>)</option>
 							<option value="sslv3" <?php echo ($this->getConfig("method") == "sslv3"?"selected":"") ?>>sslv3 (<?php echo _('Insecure')?>)</option>
 							<option value="sslv23" <?php echo ($this->getConfig("method") == "sslv23"?"selected":"") ?>>sslv23 (<?php echo _('Insecure')?>)</option>
