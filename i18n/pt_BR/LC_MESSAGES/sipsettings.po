@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-16 15:15-0400\n"
+"POT-Creation-Date: 2018-12-05 22:57-0500\n"
 "PO-Revision-Date: 2017-03-08 19:50+0200\n"
 "Last-Translator: Kingvoice <suporte@kingvoice.com.br>\n"
 "Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
@@ -67,7 +67,7 @@ msgstr "Adicionar Campo de Rede Local"
 msgid "Advanced General Settings"
 msgstr "Configurações Gerais Avançadas"
 
-#: chanpj.page.php:356
+#: chanpj.page.php:357
 msgid ""
 "After you enable/disable a transport, asterisk needs to be "
 "<strong>restarted</strong>, not just reloaded."
@@ -345,7 +345,7 @@ msgstr "Contexto Padrão"
 msgid "Default TLS Port Assignment"
 msgstr "Atribuição da Porta TLS Padrão"
 
-#: install.php:77
+#: install.php:72
 #, php-format
 msgid "Default bind port for CHAN_PJSIP is: %s, CHAN_SIP is: %s"
 msgstr "A porta bind padrão para CHAN_PJSIP é: %s, CHAN_SIP é: %s"
@@ -605,7 +605,7 @@ msgid ""
 "is often put in sip_nat.conf"
 msgstr ""
 
-#: chanpj.page.php:289 chanpj.page.php:290 chanpj.page.php:291
+#: chanpj.page.php:290 chanpj.page.php:291 chanpj.page.php:292
 #: chansip.page.php:353 chansip.page.php:354
 msgid "Insecure"
 msgstr ""
@@ -721,7 +721,7 @@ msgstr "Taxa de bits máxima para chamadas de vídeo em kb/s"
 msgid "Media Transport Settings"
 msgstr ""
 
-#: chanpj.page.php:298
+#: chanpj.page.php:299
 msgid ""
 "Method of SSL transport (TLS ONLY). The default is currently TLSv1, but may "
 "change with future releases."
@@ -735,27 +735,27 @@ msgid ""
 "change with future releases."
 msgstr ""
 
-#: install.php:124
+#: install.php:119
 msgid "Migrate rtp.conf values if needed and initialize"
 msgstr "Migrar valores rtp.conf caso necessário e inicializar"
 
-#: install.php:222
+#: install.php:217
 msgid "Migrating Audio Codecs"
 msgstr "Migrando Codecs de Áudio"
 
-#: install.php:175
+#: install.php:170
 msgid "Migrating LocalNets and Netmasks"
 msgstr "Migrando LocalNets e Máscaras de Rede"
 
-#: install.php:242
+#: install.php:237
 msgid "Migrating Video Codecs"
 msgstr "Migrando Codecs de Vídeo"
 
-#: install.php:150
+#: install.php:145
 msgid "Migrating rtpend Setting from Old Format to BMO Object"
 msgstr "Migrando a Configuração de rtpend do Formato Antigo para o Objeto BMO"
 
-#: install.php:136
+#: install.php:131
 msgid "Migrating rtpstart Setting from Old Format to BMO Object"
 msgstr ""
 "Migrando a Configuração de rtpstart do Formato Antigo para o Objeto BMO"
@@ -777,7 +777,7 @@ msgid "NAT Settings"
 msgstr "Configurações NAT"
 
 #: chanpj.page.php:61 chanpj.page.php:176 chanpj.page.php:199
-#: chanpj.page.php:313 chanpj.page.php:334 chansip.page.php:310
+#: chanpj.page.php:314 chanpj.page.php:335 chansip.page.php:310
 #: chansip.page.php:376 chansip.page.php:406 chansip.page.php:493
 #: chansip.page.php:520 chansip.page.php:677 chansip.page.php:705
 #: chansip.page.php:759 chansip.page.php:952 chansip.page.php:978
@@ -800,7 +800,7 @@ msgstr ""
 "'[::]' escutará em IPv4 e IPv6, mas não é o recomendado. Se você quiser usar "
 "o IPv6, é recomendável usar o PJSip para esses dispositivos ou troncos."
 
-#: chanpj.page.php:351
+#: chanpj.page.php:352
 msgid ""
 "Note that the interface is only displayed for your information, and is not "
 "referenced by asterisk."
@@ -933,11 +933,11 @@ msgstr "Tempo de Espera de Registro"
 msgid "Reinvite Behavior"
 msgstr ""
 
-#: chanpj.page.php:319
+#: chanpj.page.php:320
 msgid "Require verification of client certificate (TLS ONLY)."
 msgstr "Exigir a verificação do certificado do cliente (SOMENTE TLS)."
 
-#: chanpj.page.php:340
+#: chanpj.page.php:341
 msgid "Require verification of server certificate (TLS ONLY)."
 msgstr "Exigir a verificação do certificado do servidor (SOMENTE TLS)."
 
@@ -1092,7 +1092,7 @@ msgid ""
 "tripping over a cable."
 msgstr ""
 
-#: install.php:77
+#: install.php:72
 #, php-format
 msgid ""
 "The default bind ports for %s have changed. Please keep this is mind while "
@@ -1158,7 +1158,7 @@ msgstr ""
 "Isso descartará pacotes RTP que não provém da origem do fluxo RTP. Não é "
 "comum desligar isso"
 
-#: chanpj.page.php:347
+#: chanpj.page.php:348
 msgid "Transports"
 msgstr "Transportes"
 
@@ -1189,15 +1189,10 @@ msgstr "Usar "
 #: sipsettings.i18n.php:8
 msgid ""
 "Use to configure Various Asterisk SIP Settings in the General section of sip."
-"conf. Also includes an auto-configuration tool to determine NAT settings. "
+"conf. Also includes an auto-configuration tool    to determine NAT settings. "
 "The module assumes Asterisk version 1.4 or higher. Some settings may not "
-"exist in Asterisk 1.2 and will be ignored by Asterisk."
+"exist in Asterisk    1.2 and will be ignored by Asterisk."
 msgstr ""
-"Use para configurar Várias Configurações SIP do Asterisk na seção Geral de "
-"sip.conf. Também inclui uma ferramenta de auto-configuração para determinar "
-"configurações de NAT. O módulo suporta o Asterisk versão 1.4 ou superior. "
-"Algumas configurações podem não existir no Asterisk 1.2 e serão ignoradas "
-"pelo Asterisk."
 
 #: general.page.php:457 general.page.php:642
 msgid ""
@@ -1207,11 +1202,11 @@ msgstr ""
 "Nome de usuário usado para autenticar com o servidor de retransmissão TURN. "
 "Esta opção está desativada por padrão."
 
-#: chanpj.page.php:306
+#: chanpj.page.php:307
 msgid "Verify Client"
 msgstr "Verificar Cliente"
 
-#: chanpj.page.php:327
+#: chanpj.page.php:328
 msgid "Verify Server"
 msgstr "Verificar Servidor"
 
@@ -1260,7 +1255,7 @@ msgid "Whether to enable or disable UDP checksums on RTP traffic"
 msgstr ""
 
 #: chanpj.page.php:59 chanpj.page.php:174 chanpj.page.php:197
-#: chanpj.page.php:311 chanpj.page.php:332 chansip.page.php:308
+#: chanpj.page.php:312 chanpj.page.php:333 chansip.page.php:308
 #: chansip.page.php:374 chansip.page.php:404 chansip.page.php:491
 #: chansip.page.php:518 chansip.page.php:675 chansip.page.php:703
 #: chansip.page.php:757 chansip.page.php:950 chansip.page.php:976
@@ -1285,7 +1280,7 @@ msgstr "Sim, sem correção de erros"
 msgid "You can change this on the Advanced Settings Page"
 msgstr "Você pode alterar isso na página Configurações Avançadas"
 
-#: chanpj.page.php:354
+#: chanpj.page.php:355
 #, php-format
 msgid ""
 "You have Asterisk %s which no longer needs to be restarted for transport "
@@ -1317,7 +1312,7 @@ msgid ""
 msgstr ""
 "Você pode usar isso para definir uma rede local adicional por interface."
 
-#: install.php:118
+#: install.php:113
 msgid "already exists"
 msgstr "já existe"
 
@@ -1329,7 +1324,7 @@ msgstr "chan_pjsip e chan_sip"
 msgid "checking for sipsettings table.."
 msgstr "verificando por tabela sipsettings..."
 
-#: install.php:102
+#: install.php:97
 msgid "fatal error occurred populating defaults, check module"
 msgstr "erro fatal ao preencher os padrões, verifique o módulo"
 
@@ -1345,11 +1340,11 @@ msgstr "nunca"
 msgid "no"
 msgstr "não"
 
-#: install.php:71
+#: install.php:66
 msgid "none, creating table"
 msgstr "nenhuma, criando tabela"
 
-#: install.php:79
+#: install.php:74
 msgid "populating default codecs.."
 msgstr "preenchendo codecs padrão..."
 
@@ -1361,18 +1356,30 @@ msgstr "rota"
 msgid "rtpholdtimeout must be higher than rtptimeout"
 msgstr "rtpholdtimeout deve ser maior do que rtptimeout"
 
-#: install.php:132 install.php:146
+#: install.php:127 install.php:141
 #, php-format
 msgid "saving previous value of %s"
 msgstr ""
 
-#: install.php:104
+#: install.php:99
 msgid "ulaw, alaw, gsm, g726 added"
 msgstr "adicionado ulaw, alaw, gsm, g726"
 
 #: chansip.page.php:160 chansip.page.php:431
 msgid "yes"
 msgstr "sim"
+
+#~ msgid ""
+#~ "Use to configure Various Asterisk SIP Settings in the General section of "
+#~ "sip.conf. Also includes an auto-configuration tool to determine NAT "
+#~ "settings. The module assumes Asterisk version 1.4 or higher. Some "
+#~ "settings may not exist in Asterisk 1.2 and will be ignored by Asterisk."
+#~ msgstr ""
+#~ "Use para configurar Várias Configurações SIP do Asterisk na seção Geral "
+#~ "de sip.conf. Também inclui uma ferramenta de auto-configuração para "
+#~ "determinar configurações de NAT. O módulo suporta o Asterisk versão 1.4 "
+#~ "ou superior. Algumas configurações podem não existir no Asterisk 1.2 e "
+#~ "serão ignoradas pelo Asterisk."
 
 #~ msgid ""
 #~ "Also be warned: After you enable/disable a transport, asterisk needs to "
