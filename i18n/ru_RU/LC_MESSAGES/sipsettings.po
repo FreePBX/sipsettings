@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-15 19:42-0400\n"
+"POT-Creation-Date: 2018-12-05 22:57-0500\n"
 "PO-Revision-Date: 2015-12-05 10:05+0200\n"
 "Last-Translator: Andrew <andrew.nagy@the159.com>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/"
@@ -117,7 +117,7 @@ msgstr ""
 "умолчанию. Если этот контекст изменен вручную, этот параметр может быть "
 "бесполезен и лучше установить его в НЕТ."
 
-#: chanpj.page.php:352
+#: chanpj.page.php:353
 msgid ""
 "Also be warned: After you enable/disable a transport, asterisk needs to be "
 "<strong>restarted</strong>, not just reloaded."
@@ -350,7 +350,7 @@ msgstr "Дефолтный контекст"
 msgid "Default TLS Port Assignment"
 msgstr ""
 
-#: install.php:77
+#: install.php:72
 #, php-format
 msgid "Default bind port for CHAN_PJSIP is: %s, CHAN_SIP is: %s"
 msgstr "Привязка порта по умолчанию для CHAN_PJSIP: %s, CHAN_SIP: %s"
@@ -621,7 +621,7 @@ msgstr ""
 "dynDNS для хоста с динамическим ИП.<br/>Параметры автоматической "
 "конфигурации часто указываются в sip_nat.conf"
 
-#: chanpj.page.php:285 chanpj.page.php:286 chanpj.page.php:287
+#: chanpj.page.php:286 chanpj.page.php:287 chanpj.page.php:288
 #: chansip.page.php:554 chansip.page.php:555
 msgid "Insecure"
 msgstr ""
@@ -735,7 +735,7 @@ msgstr "Максимально разрешённое время для вход
 msgid "Maximum bitrate for video calls in kb/s"
 msgstr "Максимальная полоса пропускания для видео звонков в кбит/сек"
 
-#: chanpj.page.php:294
+#: chanpj.page.php:295
 msgid ""
 "Method of SSL transport (TLS ONLY). The default is currently TLSv1, but may "
 "change with future releases."
@@ -747,27 +747,27 @@ msgid ""
 "change with future releases."
 msgstr ""
 
-#: install.php:124
+#: install.php:119
 msgid "Migrate rtp.conf values if needed and initialize"
 msgstr "Перенос и инициализация значений rtp.conf, если нужно"
 
-#: install.php:222
+#: install.php:217
 msgid "Migrating Audio Codecs"
 msgstr "Перемещение аудио кодеков"
 
-#: install.php:175
+#: install.php:170
 msgid "Migrating LocalNets and Netmasks"
 msgstr "Перемещение локальных сетей и масок подсети"
 
-#: install.php:242
+#: install.php:237
 msgid "Migrating Video Codecs"
 msgstr "Перемещение видео кодеков"
 
-#: install.php:150
+#: install.php:145
 msgid "Migrating rtpend Setting from Old Format to BMO Object"
 msgstr "Перемещение настроек rtpend из старого формата в объект BMO"
 
-#: install.php:136
+#: install.php:131
 msgid "Migrating rtpstart Setting from Old Format to BMO Object"
 msgstr "Перемещение настроек rtpstart из старого формата в объект BMO"
 
@@ -788,7 +788,7 @@ msgid "NAT Settings"
 msgstr "Настройки NAT"
 
 #: chanpj.page.php:56 chanpj.page.php:172 chanpj.page.php:195
-#: chanpj.page.php:309 chanpj.page.php:330 chansip.page.php:344
+#: chanpj.page.php:310 chanpj.page.php:331 chansip.page.php:344
 #: chansip.page.php:369 chansip.page.php:511 chansip.page.php:577
 #: chansip.page.php:739 chansip.page.php:766 chansip.page.php:923
 #: chansip.page.php:951 chansip.page.php:1005 chansip.page.php:1198
@@ -808,7 +808,7 @@ msgid ""
 "want to use IPv6, it is recommended to use PJSip for those devices or trunks."
 msgstr ""
 
-#: chanpj.page.php:347
+#: chanpj.page.php:348
 msgid ""
 "Note that the interface is only displayed for your information, and is not "
 "referenced by asterisk."
@@ -942,11 +942,11 @@ msgstr "Таймаут регистрации"
 msgid "Reinvite Behavior"
 msgstr "Поведение Reinvite"
 
-#: chanpj.page.php:315
+#: chanpj.page.php:316
 msgid "Require verification of client certificate (TLS ONLY)."
 msgstr ""
 
-#: chanpj.page.php:336
+#: chanpj.page.php:337
 msgid "Require verification of server certificate (TLS ONLY)."
 msgstr ""
 
@@ -1106,7 +1106,7 @@ msgstr ""
 "прекращения зависшего вызова в результате пропадания телефона из сети, как "
 "например пропадание электрическтва или замыкания в кабеле."
 
-#: install.php:77
+#: install.php:72
 #, php-format
 msgid ""
 "The default bind ports for %s have changed. Please keep this is mind while "
@@ -1167,7 +1167,7 @@ msgstr ""
 "Это отбросит пакеты RTP, которые приходят не из указанного адреса источника "
 "потока RTP. При обычной эксплуатации это опция не отключается"
 
-#: chanpj.page.php:343
+#: chanpj.page.php:344
 msgid "Transports"
 msgstr "Транспорты"
 
@@ -1198,15 +1198,10 @@ msgstr "Использовать "
 #: sipsettings.i18n.php:8
 msgid ""
 "Use to configure Various Asterisk SIP Settings in the General section of sip."
-"conf. Also includes an auto-configuration tool to determine NAT settings. "
+"conf. Also includes an auto-configuration tool    to determine NAT settings. "
 "The module assumes Asterisk version 1.4 or higher. Some settings may not "
-"exist in Asterisk 1.2 and will be ignored by Asterisk."
+"exist in Asterisk    1.2 and will be ignored by Asterisk."
 msgstr ""
-"Используется для конфигурации различных параметров SIP в Астериск в секции "
-"[general] файла sip.conf. Также содержит параметры автоконфигурации для "
-"распознавания настроек NAT. Модуль предполагает наличие Asterisk версий 1.4 "
-"и выше. Некоторые параметры просто не существуют в версии 1.2 и будут "
-"игнорироваться Asterisk."
 
 #: general.page.php:337 general.page.php:522
 msgid ""
@@ -1216,11 +1211,11 @@ msgstr ""
 "Имя пользователя, используемое для аутентификации на TURN сервере. Эта опция "
 "отключена по умолчанию."
 
-#: chanpj.page.php:302
+#: chanpj.page.php:303
 msgid "Verify Client"
 msgstr ""
 
-#: chanpj.page.php:323
+#: chanpj.page.php:324
 msgid "Verify Server"
 msgstr ""
 
@@ -1276,7 +1271,7 @@ msgid "Whether to enable or disable UDP checksums on RTP traffic"
 msgstr "Если включить или отключить UDP контрольные суммы RTP трафика"
 
 #: chanpj.page.php:54 chanpj.page.php:170 chanpj.page.php:193
-#: chanpj.page.php:307 chanpj.page.php:328 chansip.page.php:342
+#: chanpj.page.php:308 chanpj.page.php:329 chansip.page.php:342
 #: chansip.page.php:370 chansip.page.php:509 chansip.page.php:575
 #: chansip.page.php:737 chansip.page.php:764 chansip.page.php:921
 #: chansip.page.php:949 chansip.page.php:1003 chansip.page.php:1196
@@ -1301,7 +1296,7 @@ msgstr "Да, без коррекции ошибок"
 msgid "You can change this on the Advanced Settings Page"
 msgstr "Вы можете изменить это на странице дополнительных настроек"
 
-#: chanpj.page.php:350
+#: chanpj.page.php:351
 #, php-format
 msgid ""
 "You have Asterisk %s which no longer needs to be restarted for transport "
@@ -1332,7 +1327,7 @@ msgstr ""
 "Вы можете использовать это, чтобы определить дополнительные локальные сети "
 "на интерфейсе."
 
-#: install.php:118
+#: install.php:113
 msgid "already exists"
 msgstr "уже существует"
 
@@ -1344,7 +1339,7 @@ msgstr ""
 msgid "checking for sipsettings table.."
 msgstr "проверяем таблицу sipsettings.."
 
-#: install.php:102
+#: install.php:97
 msgid "fatal error occurred populating defaults, check module"
 msgstr ""
 "произошла неустранимая ошибка при указании дефолтных значений, проверьте "
@@ -1362,11 +1357,11 @@ msgstr "никогда"
 msgid "no"
 msgstr "нет"
 
-#: install.php:71
+#: install.php:66
 msgid "none, creating table"
 msgstr "отсутствует, создание таблицы"
 
-#: install.php:79
+#: install.php:74
 msgid "populating default codecs.."
 msgstr "указание кодеков по умолчанию.."
 
@@ -1378,18 +1373,30 @@ msgstr "route"
 msgid "rtpholdtimeout must be higher than rtptimeout"
 msgstr "rtpholdtimeout должен быть больше чем rtptimeout"
 
-#: install.php:132 install.php:146
+#: install.php:127 install.php:141
 #, php-format
 msgid "saving previous value of %s"
 msgstr "сохранение предыдущего значения из %s"
 
-#: install.php:104
+#: install.php:99
 msgid "ulaw, alaw, gsm, g726 added"
 msgstr "ulaw, alaw, gsm, g726 добавлены"
 
 #: chansip.page.php:192 chansip.page.php:605
 msgid "yes"
 msgstr "да"
+
+#~ msgid ""
+#~ "Use to configure Various Asterisk SIP Settings in the General section of "
+#~ "sip.conf. Also includes an auto-configuration tool to determine NAT "
+#~ "settings. The module assumes Asterisk version 1.4 or higher. Some "
+#~ "settings may not exist in Asterisk 1.2 and will be ignored by Asterisk."
+#~ msgstr ""
+#~ "Используется для конфигурации различных параметров SIP в Астериск в "
+#~ "секции [general] файла sip.conf. Также содержит параметры "
+#~ "автоконфигурации для распознавания настроек NAT. Модуль предполагает "
+#~ "наличие Asterisk версий 1.4 и выше. Некоторые параметры просто не "
+#~ "существуют в версии 1.2 и будут игнорироваться Asterisk."
 
 #~ msgid "Regitration Maximum Expiry"
 #~ msgstr "Максимальный срок регистрации"
