@@ -4,7 +4,7 @@
   <candisable>no</candisable>
   <canuninstall>no</canuninstall>
   <name>Asterisk SIP Settings</name>
-  <version>15.0.4</version>
+  <version>15.0.5</version>
   <publisher>Sangoma Technologies Corporation</publisher>
   <license>AGPLv3+</license>
   <licenselink>https://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
@@ -26,11 +26,12 @@
     1.2 and will be ignored by Asterisk.
   </description>
   <changelog>
+		*15.0.5* FREEPBX-18597 SSL Method includes TLSV1.1 and 1.2 
     *15.0.4* FREEPBX-17871 Allow setting keep_alive_interval in PJSIP global section
     *15.0.3* FREEPBX-18165 pjsip allow reload should be defaulted to yes
     *15.0.2* Packaging of ver 15.0.2
     *15.0.1* Backup 15
-  </changelog>
+	</changelog>
   <depends>
     <module>core ge 15.0.3.5</module>
   </depends>

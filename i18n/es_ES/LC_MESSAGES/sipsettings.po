@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-29 18:55-0400\n"
+"POT-Creation-Date: 2018-12-05 23:02-0500\n"
 "PO-Revision-Date: 2016-12-12 02:44+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/"
@@ -66,7 +66,7 @@ msgstr "Agregar Campo Red Local"
 msgid "Advanced General Settings"
 msgstr "Configuraciones Avanzadas Generales"
 
-#: chanpj.page.php:400
+#: chanpj.page.php:401
 msgid ""
 "After you enable/disable a transport, asterisk needs to be "
 "<strong>restarted</strong>, not just reloaded."
@@ -334,7 +334,7 @@ msgstr "Contexto Por Defecto"
 msgid "Default TLS Port Assignment"
 msgstr "Asignación de puerto TLS predeterminada"
 
-#: install.php:67
+#: install.php:62
 #, php-format
 msgid "Default bind port for CHAN_PJSIP is: %s, CHAN_SIP is: %s"
 msgstr ""
@@ -609,7 +609,7 @@ msgstr ""
 "puede especificar un host dynamicDNS Nombre bajo IP dinámico. <br/> "
 "Configuración automática de lo que a menudo se pone en sip_nat.conf"
 
-#: chanpj.page.php:333 chanpj.page.php:334 chanpj.page.php:335
+#: chanpj.page.php:334 chanpj.page.php:335 chanpj.page.php:336
 #: chansip.page.php:354 chansip.page.php:355
 msgid "Insecure"
 msgstr ""
@@ -734,7 +734,7 @@ msgstr "Velocidad máxima para las llamadas de vídeo en kb/s"
 msgid "Media Transport Settings"
 msgstr ""
 
-#: chanpj.page.php:342
+#: chanpj.page.php:343
 msgid ""
 "Method of SSL transport (TLS ONLY). The default is currently TLSv1, but may "
 "change with future releases."
@@ -748,27 +748,27 @@ msgid ""
 "change with future releases."
 msgstr ""
 
-#: install.php:114
+#: install.php:109
 msgid "Migrate rtp.conf values if needed and initialize"
 msgstr "Migrar valores rtp.conf si es necesario e inicializar"
 
-#: install.php:212
+#: install.php:207
 msgid "Migrating Audio Codecs"
 msgstr "Migración de Audio Codecs"
 
-#: install.php:165
+#: install.php:160
 msgid "Migrating LocalNets and Netmasks"
 msgstr "Migrando LocalNets y máscaras de red"
 
-#: install.php:232
+#: install.php:227
 msgid "Migrating Video Codecs"
 msgstr "Migrando Video Codecs"
 
-#: install.php:140
+#: install.php:135
 msgid "Migrating rtpend Setting from Old Format to BMO Object"
 msgstr "Migrando Ajuste rtpend desde el antiguo formato de Objeto BMO"
 
-#: install.php:126
+#: install.php:121
 msgid "Migrating rtpstart Setting from Old Format to BMO Object"
 msgstr "Migrando Ajuste rtpstart desde el antiguo formato a Objeto BMO"
 
@@ -789,7 +789,7 @@ msgid "NAT Settings"
 msgstr "Configuraciones NAT"
 
 #: chanpj.page.php:61 chanpj.page.php:177 chanpj.page.php:200
-#: chanpj.page.php:243 chanpj.page.php:357 chanpj.page.php:378
+#: chanpj.page.php:243 chanpj.page.php:358 chanpj.page.php:379
 #: chansip.page.php:311 chansip.page.php:377 chansip.page.php:407
 #: chansip.page.php:494 chansip.page.php:521 chansip.page.php:678
 #: chansip.page.php:706 chansip.page.php:760 chansip.page.php:953
@@ -814,7 +814,7 @@ msgstr ""
 "desea utilizar IPv6, se recomienda utilizar PJSip para esos dispositivos o "
 "troncales."
 
-#: chanpj.page.php:395
+#: chanpj.page.php:396
 msgid ""
 "Note that the interface is only displayed for your information, and is not "
 "referenced by asterisk."
@@ -949,11 +949,11 @@ msgstr "Tiempo de espera de registro"
 msgid "Reinvite Behavior"
 msgstr "Comportamiento Reinvite"
 
-#: chanpj.page.php:363
+#: chanpj.page.php:364
 msgid "Require verification of client certificate (TLS ONLY)."
 msgstr "Requiere verificación del certificado de cliente (TLS SOLAMENTE)."
 
-#: chanpj.page.php:384
+#: chanpj.page.php:385
 msgid "Require verification of server certificate (TLS ONLY)."
 msgstr "Requiere verificación del certificado del servidor (TLS SOLAMENTE)."
 
@@ -1126,7 +1126,7 @@ msgstr ""
 "es para poder interrumpir una llamada en el caso de un teléfono que "
 "desaparece de la red, como un powerloss o alguien tropezó con un cable."
 
-#: install.php:67
+#: install.php:62
 #, php-format
 msgid ""
 "The default bind ports for %s have changed. Please keep this is mind while "
@@ -1210,7 +1210,7 @@ msgstr ""
 "Esto dejará caer paquetes RTP que no provienen de la fuente de stream RTP. "
 "Es inusual desactivar esta opción"
 
-#: chanpj.page.php:391
+#: chanpj.page.php:392
 msgid "Transports"
 msgstr "Transportes"
 
@@ -1254,11 +1254,11 @@ msgstr ""
 "Nombre de usuario utilizado para autenticarse con el servidor de "
 "retransmisión TURN. Esta opción está desactivada por defecto."
 
-#: chanpj.page.php:350
+#: chanpj.page.php:351
 msgid "Verify Client"
 msgstr "Verificar Cliente"
 
-#: chanpj.page.php:371
+#: chanpj.page.php:372
 msgid "Verify Server"
 msgstr "Verificar Server"
 
@@ -1316,7 +1316,7 @@ msgstr ""
 "RTP"
 
 #: chanpj.page.php:59 chanpj.page.php:175 chanpj.page.php:198
-#: chanpj.page.php:241 chanpj.page.php:355 chanpj.page.php:376
+#: chanpj.page.php:241 chanpj.page.php:356 chanpj.page.php:377
 #: chansip.page.php:309 chansip.page.php:375 chansip.page.php:405
 #: chansip.page.php:492 chansip.page.php:519 chansip.page.php:676
 #: chansip.page.php:704 chansip.page.php:758 chansip.page.php:951
@@ -1342,7 +1342,7 @@ msgstr "Si sin corrección de error"
 msgid "You can change this on the Advanced Settings Page"
 msgstr "Usted puede cambiar esto en la pagina Configuración Avanzada"
 
-#: chanpj.page.php:398
+#: chanpj.page.php:399
 #, php-format
 msgid ""
 "You have Asterisk %s which no longer needs to be restarted for transport "
@@ -1373,7 +1373,7 @@ msgid ""
 msgstr ""
 "Usted puede usar esto para definir una red local adicional por interfaz."
 
-#: install.php:108
+#: install.php:103
 msgid "already exists"
 msgstr "ya existe"
 
@@ -1385,7 +1385,7 @@ msgstr "chan_pjsip y chan_sip"
 msgid "checking for sipsettings table.."
 msgstr "verificando para tabla sipsettings.."
 
-#: install.php:92
+#: install.php:87
 msgid "fatal error occurred populating defaults, check module"
 msgstr "error fatal ocurrido insertando valores por defecto, verifique módulo"
 
@@ -1401,11 +1401,11 @@ msgstr "nunca"
 msgid "no"
 msgstr "no"
 
-#: install.php:61
+#: install.php:56
 msgid "none, creating table"
 msgstr "ninguna, creando tabla"
 
-#: install.php:69
+#: install.php:64
 msgid "populating default codecs.."
 msgstr "insertando los codecs por defecto.."
 
@@ -1417,12 +1417,12 @@ msgstr "ruta"
 msgid "rtpholdtimeout must be higher than rtptimeout"
 msgstr "rtpholdtimeout debe ser superior a rtptimeout"
 
-#: install.php:122 install.php:136
+#: install.php:117 install.php:131
 #, php-format
 msgid "saving previous value of %s"
 msgstr "guardando valores previos de %s"
 
-#: install.php:94
+#: install.php:89
 msgid "ulaw, alaw, gsm, g726 added"
 msgstr "añadido ulaw, alaw, gsm, g726"
 
