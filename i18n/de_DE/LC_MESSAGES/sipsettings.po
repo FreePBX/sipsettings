@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-10-16 15:15-0400\n"
-"PO-Revision-Date: 2018-09-12 14:00+0000\n"
+"PO-Revision-Date: 2018-11-06 10:25+0000\n"
 "Last-Translator: Bastian Mertgen <b.mertgen@bastian-mertgen.de>\n"
 "Language-Team: German <http://*/projects/freepbx/sipsettings/de/>\n"
 "Language: de_DE\n"
@@ -60,7 +60,7 @@ msgstr "Feld hinzufügen"
 
 #: chansip.page.php:37 general.page.php:19
 msgid "Add Local Network Field"
-msgstr ""
+msgstr "Feld für lokales Netzwerk hinzufügen"
 
 #: chansip.page.php:823
 msgid "Advanced General Settings"
@@ -71,6 +71,8 @@ msgid ""
 "After you enable/disable a transport, asterisk needs to be "
 "<strong>restarted</strong>, not just reloaded."
 msgstr ""
+"Nach dem Aktivieren/Deaktivieren eines Transports muss Asterisk <strong>neu "
+"gestartet</strong> werden, ein erneutes Laden der Konfiguration genügt nicht."
 
 #: general.page.php:52
 msgid "Allow Anonymous Inbound SIP Calls"
@@ -889,7 +891,7 @@ msgstr ""
 
 #: chansip.page.php:278
 msgid "Seconds"
-msgstr ""
+msgstr "Sekunden"
 
 #: general.page.php:44
 msgid "Security Settings"
@@ -922,7 +924,7 @@ msgstr ""
 
 #: chanpj.page.php:192 chanpj.page.php:205
 msgid "Show Advanced Settings"
-msgstr ""
+msgstr "Erweiterte Einstellungen anzeigen"
 
 #: general.page.php:241
 msgid "Start"
@@ -930,11 +932,11 @@ msgstr ""
 
 #: chansip.page.php:193
 msgid "Static IP"
-msgstr ""
+msgstr "Statische IP"
 
 #: general.page.php:295
 msgid "Strict RTP"
-msgstr ""
+msgstr "Striktes RTP"
 
 #: Sipsettings.class.php:635
 msgid "Submit"
@@ -942,7 +944,7 @@ msgstr "Absenden"
 
 #: chansip.page.php:38 general.page.php:20
 msgid "Submit Changes"
-msgstr ""
+msgstr "Änderungen bestätigen"
 
 #: general.page.php:498
 msgid ""
@@ -975,19 +977,19 @@ msgstr ""
 
 #: chanpj.page.php:213 chansip.page.php:296
 msgid "TLS/SSL/SRTP Settings"
-msgstr ""
+msgstr "TLS-/SSL-SRTP-Einstellungen"
 
 #: general.page.php:421 general.page.php:606
 msgid "TURN Server Address"
-msgstr ""
+msgstr "TURN-Server-Adresse"
 
 #: general.page.php:469 general.page.php:654
 msgid "TURN Server Password"
-msgstr ""
+msgstr "TURN-Server-Passwort"
 
 #: general.page.php:445 general.page.php:630
 msgid "TURN Server Username"
-msgstr ""
+msgstr "TURN-Server-Benutzername"
 
 #: general.page.php:356
 msgid ""
@@ -1038,11 +1040,13 @@ msgstr ""
 
 #: general.page.php:500 general.page.php:544
 msgid "This is most commonly used for WebRTC"
-msgstr ""
+msgstr "Dies wird in der Regel für WebRTC verwendet"
 
 #: general.page.php:717
 msgid "This is the default Codec setting for new Trunks and Extensions."
 msgstr ""
+"Dies ist die Standard-Codec-Einstellungen für neue Amtsleitungen und "
+"Nebenstellen."
 
 #: general.page.php:146
 msgid ""
@@ -1060,7 +1064,7 @@ msgstr ""
 
 #: chanpj.page.php:347
 msgid "Transports"
-msgstr ""
+msgstr "Transporte"
 
 #: chanpj.page.php:90
 msgid ""
@@ -1078,11 +1082,11 @@ msgstr ""
 
 #: Sipsettings.class.php:442 Sipsettings.class.php:529
 msgid "Unknown Type"
-msgstr ""
+msgstr "Unbekannter Typ"
 
 #: chanpj.page.php:68
 msgid "Use "
-msgstr ""
+msgstr "Verwende "
 
 #: sipsettings.i18n.php:8
 msgid ""
@@ -1100,23 +1104,23 @@ msgstr ""
 
 #: chanpj.page.php:306
 msgid "Verify Client"
-msgstr ""
+msgstr "Client verifizieren"
 
 #: chanpj.page.php:327
 msgid "Verify Server"
-msgstr ""
+msgstr "Server verifizieren"
 
 #: general.page.php:804 general.page.php:842 general.page.php:876
 msgid "Video Codecs"
-msgstr ""
+msgstr "Video-Codecs"
 
 #: general.page.php:814
 msgid "Video Support"
-msgstr ""
+msgstr "Video-Unterstützung"
 
 #: general.page.php:572
 msgid "WebRTC Settings"
-msgstr ""
+msgstr "WebRTC-Einstellungen"
 
 #: general.page.php:494
 msgid "What is ICE Blacklist?"
@@ -1149,6 +1153,7 @@ msgstr ""
 #: general.page.php:285
 msgid "Whether to enable or disable UDP checksums on RTP traffic"
 msgstr ""
+"Ob UDP-Prüfsummen für RTP-Verkehr aktiviert oder deaktiviert werden sollen"
 
 #: chanpj.page.php:59 chanpj.page.php:174 chanpj.page.php:197
 #: chanpj.page.php:311 chanpj.page.php:332 chansip.page.php:308
@@ -1162,19 +1167,19 @@ msgstr "Ja"
 
 #: general.page.php:690
 msgid "Yes with FEC"
-msgstr ""
+msgstr "Ja, mit FEC"
 
 #: general.page.php:691
 msgid "Yes with Redundancy"
-msgstr ""
+msgstr "Ja, mit Redundanz"
 
 #: general.page.php:692
 msgid "Yes with no error correction"
-msgstr ""
+msgstr "Ja, ohne Fehlerkorrektur"
 
 #: Sipsettings.class.php:178
 msgid "You can change this on the Advanced Settings Page"
-msgstr ""
+msgstr "Sie können dies in den erweiterten Einstellungen ändern"
 
 #: chanpj.page.php:354
 #, php-format
@@ -1184,6 +1189,11 @@ msgid ""
 "Transports Reload' is set to 'Yes' reloading after changing transports does "
 "have the possibility to drop calls."
 msgstr ""
+"Sie verwenden Asterisk %s, ein Neustart bei Transport-Änderungen ist nicht "
+"länger erforderlich, wenn „Neuladen von Transporten zulassen“ oben auf „Ja“ "
+"gestellt ist. Hinweis: Wenn „Neuladen von Transporten zulassen“ oben auf „Ja“"
+" gestellt ist, kann ein Neuladen der Konfiguration nach Transport-Änderungen "
+"zu Gesprächsabbrüchen führen."
 
 #: chansip.page.php:1064
 msgid ""
@@ -1210,7 +1220,7 @@ msgstr "chan_pjsip und chan_sip"
 
 #: install.php:21
 msgid "checking for sipsettings table.."
-msgstr ""
+msgstr "prüfe auf <i>sipsettings</i>-Tabelle.."
 
 #: install.php:102
 msgid "fatal error occurred populating defaults, check module"
@@ -1240,7 +1250,7 @@ msgstr ""
 
 #: chansip.page.php:166
 msgid "route"
-msgstr ""
+msgstr "Route"
 
 #: functions.inc.php:367
 msgid "rtpholdtimeout must be higher than rtptimeout"
