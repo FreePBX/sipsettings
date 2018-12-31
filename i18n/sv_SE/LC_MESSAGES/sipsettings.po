@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX sipsettings\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-05 23:02-0500\n"
+"POT-Creation-Date: 2018-12-31 14:37-0500\n"
 "PO-Revision-Date: 2011-03-20 00:00+0100\n"
 "Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
 "Language-Team: Swedish\n"
@@ -115,7 +115,7 @@ msgid ""
 "An Error occurred trying fetch network configuration and external IP address"
 msgstr ""
 
-#: Sipsettings.class.php:909
+#: Sipsettings.class.php:893
 msgid ""
 "An unknown port conflict has been detected in PJSIP. Please check and "
 "validate your PJSIP Ports to ensure they're not overlapping"
@@ -225,15 +225,15 @@ msgstr ""
 msgid "CA Chain File"
 msgstr ""
 
-#: Sipsettings.class.php:923
+#: Sipsettings.class.php:907
 msgid "CHANSIP Port Moved"
 msgstr ""
 
-#: Sipsettings.class.php:933
+#: Sipsettings.class.php:917
 msgid "CHANSIP TCP Disabled"
 msgstr ""
 
-#: Sipsettings.class.php:944
+#: Sipsettings.class.php:928
 msgid "CHANSIP TLS Port Moved"
 msgstr ""
 
@@ -257,21 +257,21 @@ msgstr ""
 msgid "Chan SIP"
 msgstr ""
 
-#: Sipsettings.class.php:944
+#: Sipsettings.class.php:928
 #, php-format
 msgid ""
 "Chansip was assigned a port that was already in use for TLS traffic. The "
 "Chansip TLS port has been changed to %s"
 msgstr ""
 
-#: Sipsettings.class.php:933
+#: Sipsettings.class.php:917
 msgid ""
 "Chansip was assigned the same port as pjsip for TCP traffic. Chansip has had "
 "the tcpenable setting removed, and is no longer listening for TCP "
 "connections."
 msgstr ""
 
-#: Sipsettings.class.php:923
+#: Sipsettings.class.php:907
 #, php-format
 msgid ""
 "Chansip was assigned the same port as pjsip for UDP traffic. The Chansip "
@@ -314,7 +314,7 @@ msgstr "Standard sammanhang"
 msgid "Default TLS Port Assignment"
 msgstr ""
 
-#: install.php:62
+#: install.php:38
 #, php-format
 msgid "Default bind port for CHAN_PJSIP is: %s, CHAN_SIP is: %s"
 msgstr ""
@@ -681,27 +681,27 @@ msgid ""
 "change with future releases."
 msgstr ""
 
-#: install.php:109
+#: install.php:83
 msgid "Migrate rtp.conf values if needed and initialize"
 msgstr ""
 
-#: install.php:207
+#: install.php:181
 msgid "Migrating Audio Codecs"
 msgstr ""
 
-#: install.php:160
+#: install.php:134
 msgid "Migrating LocalNets and Netmasks"
 msgstr ""
 
-#: install.php:227
+#: install.php:201
 msgid "Migrating Video Codecs"
 msgstr ""
 
-#: install.php:135
+#: install.php:109
 msgid "Migrating rtpend Setting from Old Format to BMO Object"
 msgstr ""
 
-#: install.php:121
+#: install.php:95
 msgid "Migrating rtpstart Setting from Old Format to BMO Object"
 msgstr ""
 
@@ -720,6 +720,10 @@ msgstr "NAT"
 #: chansip.page.php:146 general.page.php:155
 msgid "NAT Settings"
 msgstr "NAT-inställningar"
+
+#: install.php:22
+msgid "New SIPSettings installation detected. Initializing default settings"
+msgstr ""
 
 #: chanpj.page.php:61 chanpj.page.php:177 chanpj.page.php:200
 #: chanpj.page.php:243 chanpj.page.php:358 chanpj.page.php:379
@@ -874,7 +878,7 @@ msgstr ""
 msgid "Require verification of server certificate (TLS ONLY)."
 msgstr ""
 
-#: Sipsettings.class.php:641
+#: Sipsettings.class.php:625
 msgid "Reset"
 msgstr ""
 
@@ -959,7 +963,7 @@ msgstr "Statisk IP-adress"
 msgid "Strict RTP"
 msgstr ""
 
-#: Sipsettings.class.php:646
+#: Sipsettings.class.php:630
 msgid "Submit"
 msgstr ""
 
@@ -1026,7 +1030,7 @@ msgid ""
 "tripping over a cable."
 msgstr ""
 
-#: install.php:62
+#: install.php:38
 #, php-format
 msgid ""
 "The default bind ports for %s have changed. Please keep this is mind while "
@@ -1111,11 +1115,11 @@ msgstr ""
 msgid "Unknown Error"
 msgstr ""
 
-#: Sipsettings.class.php:909
+#: Sipsettings.class.php:893
 msgid "Unknown Port Conflict"
 msgstr ""
 
-#: Sipsettings.class.php:453 Sipsettings.class.php:540
+#: Sipsettings.class.php:437 Sipsettings.class.php:524
 msgid "Unknown Type"
 msgstr ""
 
@@ -1246,7 +1250,7 @@ msgid ""
 "You may use this to to define an additional local network per interface."
 msgstr ""
 
-#: install.php:103
+#: install.php:77
 msgid "already exists"
 msgstr "finns redan"
 
@@ -1254,11 +1258,7 @@ msgstr "finns redan"
 msgid "chan_pjsip and chan_sip"
 msgstr ""
 
-#: install.php:11
-msgid "checking for sipsettings table.."
-msgstr "kontrollerar tabellen sipsettings.."
-
-#: install.php:87
+#: install.php:63
 msgid "fatal error occurred populating defaults, check module"
 msgstr ""
 "allvarligt fel inträffade när standardvärde skrevs, kontrollera modulen"
@@ -1275,11 +1275,7 @@ msgstr ""
 msgid "no"
 msgstr "nej"
 
-#: install.php:56
-msgid "none, creating table"
-msgstr "ingen hittad, skapar tabell"
-
-#: install.php:64
+#: install.php:40
 msgid "populating default codecs.."
 msgstr "skriver standard codecs.."
 
@@ -1291,18 +1287,24 @@ msgstr ""
 msgid "rtpholdtimeout must be higher than rtptimeout"
 msgstr "rtpholdtimeout måste vara högre än rtptimeout"
 
-#: install.php:117 install.php:131
+#: install.php:91 install.php:105
 #, php-format
 msgid "saving previous value of %s"
 msgstr ""
 
-#: install.php:89
+#: install.php:65
 msgid "ulaw, alaw, gsm, g726 added"
 msgstr ""
 
 #: chansip.page.php:161 chansip.page.php:432
 msgid "yes"
 msgstr "ja"
+
+#~ msgid "checking for sipsettings table.."
+#~ msgstr "kontrollerar tabellen sipsettings.."
+
+#~ msgid "none, creating table"
+#~ msgstr "ingen hittad, skapar tabell"
 
 #~ msgid ""
 #~ "Use to configure Various Asterisk SIP Settings in the General section of "
