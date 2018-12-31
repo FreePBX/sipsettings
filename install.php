@@ -1,4 +1,7 @@
 <?php
+use Symfony\Component\Process\Process;
+use Symfony\Component\Process\Exception\ProcessFailedException;
+
 // vim: set ai ts=4 sw=4 ft=php:
 if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 
@@ -8,54 +11,27 @@ global $version;
 $FreePBX = FreePBX::Create();
 $ss = $FreePBX->Sipsettings;
 
-outn(_("checking for sipsettings table.."));
-$tsql = "SELECT * FROM `sipsettings` limit 1";
-$check = $db->getRow($tsql, DB_FETCHMODE_ASSOC);
+$pjsip_port = 5060;
+$pjsiptls_port = 5061;
+$chansip_port = 5160;
+$chansiptls_port = 5161;
 
-// Figure out if we're using asterisk 11 or 12.
-$version = $FreePBX->Config->get('ASTVERSION');
-if (!empty($version)) {
-	// Woo, we have a version
-	if (version_compare($version, "12.2.0", ">=")) {
-		$haspjsip = true;
-	} else {
-		$haspjsip = false;
-	}
-} else {
-	$lastline = exec("asterisk -rx 'core show version' 2>&1", $tmpout, $ret);
-	$astver = $tmpout[0];
-	if (preg_match('/^Asterisk (?:SVN-|GIT-)?(?:branch-)?(\d+(\.\d+)*)(-?(.*)) built/', $astver, $matches) && !empty($matches[1])) {
-		if($FreePBX->Config->conf_setting_exists('ASTVERSION')) {
-			$FreePBX->Config->update('ASTVERSION', $matches[1]);
+$rows = \FreePBX::Database()->query("SELECT * from `sipsettings`")->fetchAll(\PDO::FETCH_ASSOC);
+
+if(empty($rows)) {
+	out(_("New SIPSettings installation detected. Initializing default settings"));
+
+	$process = new Process('fwconsole extip');
+	$process->run();
+
+	// executes after the command finishes
+	if ($process->isSuccessful()) {
+		$extip = trim($process->getOutput());
+		if(!empty($extip)) {
+			$ss->setConfig('externip',$extip);
 		}
-		if (version_compare($matches[1], "12.2.0", ">=")) {
-			$haspjsip = true;
-		} else {
-			$haspjsip = false;
-		}
-	} else {
-		// Well. I don't know what version of Asterisk I'm running.
-		// Assume less than 12.
-		$haspjsip = false;
 	}
-}
 
-if ($haspjsip) {
-	$pjsip_port = 5060;
-	$pjsiptls_port = 5061;
-	$chansip_port = 5160;
-	$chansiptls_port = 5161;
-} else {
-	$pjsip_port = 5160;
-	$pjsiptls_port = 5161;
-	$chansip_port = 5060;
-	$chansiptls_port = 5061;
-}
-
-if(DB::IsError($check)) {
-	out(_("none, creating table"));
-	// table does not exist, create it
-	sql($sql);
 
 	$brand = $FreePBX->Config->get('DASHBOARD_FREEPBX_BRAND');
 	$nt = notifications::create();
@@ -89,16 +65,14 @@ if(DB::IsError($check)) {
 		out(_("ulaw, alaw, gsm, g726 added"));
 	}
 
-	if ($haspjsip) {
-		$FreePBX->Config->set_conf_values(array('ASTSIPDRIVER' => 'both'), true, true);
-	} else {
-		$FreePBX->Config->set_conf_values(array('ASTSIPDRIVER' => 'chansip'), true, true);
-	}
-
 	$ss->setConfig("udpport-0.0.0.0", $pjsip_port);
 	$ss->setConfig("tcpport-0.0.0.0", $pjsip_port);
 	$ss->setConfig("tlsport-0.0.0.0", $pjsiptls_port);
 	$ss->setConfig("binds", array("udp" => array("0.0.0.0" => "on")));
+
+	$ss->setConfig('verify_client','yes');
+	$ss->setConfig('verify_server', 'yes');
+	$ss->setConfig('method', 'default');
 } else {
 	out(_("already exists"));
 }

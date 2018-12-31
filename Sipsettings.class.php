@@ -230,6 +230,8 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 			return;
 		}
 
+		$ignoreImportedVars = [];
+		$ignoreImportedRegExp = [];
 
 		if (isset($_POST['ice_blacklist_count'])) {
 			$ice_blacklist = array();
@@ -242,6 +244,9 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 					);
 				}
 			}
+			$ignoreImportedVars[] = 'ice_blacklist_count';
+			$ignoreImportedRegExp[] = 'ice_blacklist_ip_(.+)$';
+			$ignoreImportedRegExp[] = 'ice_blacklist_subnet_(.+)$';
 			$this->setConfig('ice-blacklist',$ice_blacklist);
 		}
 
@@ -256,6 +261,9 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 					);
 				}
 			}
+			$ignoreImportedVars[] = 'ice_host_candidates_count';
+			$ignoreImportedRegExp[] = 'ice_host_candidates_local_(.+)$';
+			$ignoreImportedRegExp[] = 'ice_host_candidates_advertised_(.+)$';
 			$this->setConfig('ice-host-candidates',$ice_host_candidates);
 		}
 
@@ -284,7 +292,7 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 			}
 
 			// Finished. Unset it, and continue on.
-			unset($_REQUEST['voicecodecs']);
+			$ignoreImportedVars[] = 'voicecodecs';
 		}
 
 		// Video Codecs
@@ -313,57 +321,16 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 			}
 
 			// Finished. Unset it, and continue on.
-			unset($_REQUEST['vcodec']);
+			$ignoreImportedVars[] = 'vcodec';
 		}
 
-		// Ignore empty/invalid localnet settings
-		if (isset($_REQUEST['localnets'])) {
-			foreach ($_REQUEST['localnets'] as $i => $arr) {
-				if (empty($arr['net']) || empty($arr['mask'])) {
-					unset($_REQUEST['localnets'][$i]);
-				}
-			}
-			// Renumber the array
-			if (!empty($_REQUEST['localnets'])) {
-				$_REQUEST['localnets'] = array_values($_REQUEST['localnets']);
-			}
-		}
+		$ignoreImportedVars[] = 'localnets';
+		$ignoreImportedRegExp[] = '(.+)bindip-(.+)$';
 
-		// Grab the global externalip, if it's there
-		if (isset($_REQUEST['externip'])) {
-			$this->setConfig('externip', $_REQUEST['externip']);
-		}
-
-		if (isset($_REQUEST['pjsipcertid'])) {
-			$this->setConfig('pjsipcertid', $_REQUEST['pjsipcertid']);
-		}
-
-		if (isset($_REQUEST['method'])) {
-			$this->setConfig('method', $_REQUEST['method']);
-		}
-
-		if (isset($_REQUEST['verify_client'])) {
-			$this->setConfig('verify_client', $_REQUEST['verify_client']);
-		}
-
-		if (isset($_REQUEST['allow_reload'])) {
-			$this->setConfig('pjsip_allow_reload', $_REQUEST['allow_reload']);
-		}
-
-		if (isset($_REQUEST['pjsip_debug'])) {
-			$this->setConfig('pjsip_debug', $_REQUEST['pjsip_debug']);
-		}
-
-		if (isset($_REQUEST['pjsip_keep_alive_interval'])) {
-			$this->setConfig('pjsip_keep_alive_interval', $_REQUEST['pjsip_keep_alive_interval']);
-		}
-
-		if (isset($_REQUEST['verify_server'])) {
-			$this->setConfig('verify_server', $_REQUEST['verify_server']);
-		}
+		$ignoreImportedVars = array_merge($ignoreImportedVars,["display", "type", "category", "Submit"]);
 
 		// This is in Request_Helper.class.php
-		$ignored = $this->importRequest(null, "/(.+)bindip-(.+)$/");
+		$ignored = $this->importRequest($ignoreImportedVars, "/(".implode("|",$ignoreImportedRegExp).")/");
 		// There may be binds that matched..
 		$binds = array();
 		foreach ($ignored as $key => $var) {
@@ -376,6 +343,23 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 
 		if (!empty($binds)) {
 			$this->setConfig("binds", $binds);
+		}
+
+		// Ignore empty/invalid localnet settings
+		if (isset($_REQUEST['localnets'])) {
+			foreach ($_REQUEST['localnets'] as $i => $arr) {
+				if (empty($arr['net']) || empty($arr['mask'])) {
+					unset($_REQUEST['localnets'][$i]);
+				}
+			}
+		}
+
+		// Renumber the array
+		if (!empty($_REQUEST['localnets'])) {
+			$localnets = array_values($_REQUEST['localnets']);
+			$this->setConfig('localnets',$localnets);
+		} else {
+			$this->delConfig('localnets');
 		}
 
 		needreload();
