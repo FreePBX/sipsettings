@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-31 14:37-0500\n"
+"POT-Creation-Date: 2019-02-20 01:25-0500\n"
 "PO-Revision-Date: 2017-12-01 23:47+0200\n"
 "Last-Translator: CATTAN Jérémie <jeremie@famillecattan.com>\n"
 "Language-Team: French <http://weblate.freepbx.org/projects/freepbx/"
@@ -667,19 +667,19 @@ msgstr ""
 msgid "Migrate rtp.conf values if needed and initialize"
 msgstr ""
 
-#: install.php:181
+#: install.php:185
 msgid "Migrating Audio Codecs"
 msgstr ""
 
-#: install.php:134
+#: install.php:138
 msgid "Migrating LocalNets and Netmasks"
 msgstr ""
 
-#: install.php:201
+#: install.php:205
 msgid "Migrating Video Codecs"
 msgstr ""
 
-#: install.php:109
+#: install.php:111
 msgid "Migrating rtpend Setting from Old Format to BMO Object"
 msgstr ""
 
@@ -1116,11 +1116,7 @@ msgid "Use "
 msgstr ""
 
 #: sipsettings.i18n.php:8
-msgid ""
-"Use to configure Various Asterisk SIP Settings in the General section of sip."
-"conf. Also includes an auto-configuration tool    to determine NAT settings. "
-"The module assumes Asterisk version 1.4 or higher. Some settings may not "
-"exist in Asterisk    1.2 and will be ignored by Asterisk."
+msgid "Use to configure Various Asterisk SIP and PJSIP Settings"
 msgstr ""
 
 #: general.page.php:460 general.page.php:645
@@ -1268,7 +1264,7 @@ msgstr "route"
 msgid "rtpholdtimeout must be higher than rtptimeout"
 msgstr ""
 
-#: install.php:91 install.php:105
+#: install.php:91 install.php:107
 #, php-format
 msgid "saving previous value of %s"
 msgstr ""

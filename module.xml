@@ -4,7 +4,7 @@
   <candisable>no</candisable>
   <canuninstall>no</canuninstall>
   <name>Asterisk SIP Settings</name>
-  <version>15.0.6.2</version>
+  <version>15.0.6.3</version>
   <publisher>Sangoma Technologies Corporation</publisher>
   <license>AGPLv3+</license>
   <licenselink>https://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
@@ -21,11 +21,10 @@
     </table>
   </database>
   <description>
-    Use to configure Various Asterisk SIP Settings in the General section of sip.conf. Also includes an auto-configuration tool
-    to determine NAT settings. The module assumes Asterisk version 1.4 or higher. Some settings may not exist in Asterisk
-    1.2 and will be ignored by Asterisk.
+      Use to configure Various Asterisk SIP and PJSIP Settings
   </description>
   <changelog>
+    *15.0.6.3* Set RTP Defaults
     *15.0.6.2* FREEPBX-19505
     *15.0.6.1* Backup
     *15.0.6* FREEPBX-18811
