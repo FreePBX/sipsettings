@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-20 00:54-0500\n"
+"POT-Creation-Date: 2019-02-20 01:20-0500\n"
 "PO-Revision-Date: 2017-03-08 19:50+0200\n"
 "Last-Translator: Kingvoice <suporte@kingvoice.com.br>\n"
 "Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
@@ -738,19 +738,19 @@ msgstr ""
 msgid "Migrate rtp.conf values if needed and initialize"
 msgstr "Migrar valores rtp.conf caso necessário e inicializar"
 
-#: install.php:217
+#: install.php:221
 msgid "Migrating Audio Codecs"
 msgstr "Migrando Codecs de Áudio"
 
-#: install.php:170
+#: install.php:174
 msgid "Migrating LocalNets and Netmasks"
 msgstr "Migrando LocalNets e Máscaras de Rede"
 
-#: install.php:237
+#: install.php:241
 msgid "Migrating Video Codecs"
 msgstr "Migrando Codecs de Vídeo"
 
-#: install.php:145
+#: install.php:147
 msgid "Migrating rtpend Setting from Old Format to BMO Object"
 msgstr "Migrando a Configuração de rtpend do Formato Antigo para o Objeto BMO"
 
@@ -1186,17 +1186,8 @@ msgid "Use "
 msgstr "Usar "
 
 #: sipsettings.i18n.php:8
-msgid ""
-"Use to configure Various Asterisk SIP Settings in the General section of sip."
-"conf. Also includes an auto-configuration tool to determine NAT settings. "
-"The module assumes Asterisk version 1.4 or higher. Some settings may not "
-"exist in Asterisk 1.2 and will be ignored by Asterisk."
+msgid "Use to configure Various Asterisk SIP and PJSIP Settings"
 msgstr ""
-"Use para configurar Várias Configurações SIP do Asterisk na seção Geral de "
-"sip.conf. Também inclui uma ferramenta de auto-configuração para determinar "
-"configurações de NAT. O módulo suporta o Asterisk versão 1.4 ou superior. "
-"Algumas configurações podem não existir no Asterisk 1.2 e serão ignoradas "
-"pelo Asterisk."
 
 #: general.page.php:337 general.page.php:522
 msgid ""
@@ -1362,7 +1353,7 @@ msgstr "rota"
 msgid "rtpholdtimeout must be higher than rtptimeout"
 msgstr "rtpholdtimeout deve ser maior do que rtptimeout"
 
-#: install.php:127 install.php:141
+#: install.php:127 install.php:143
 #, php-format
 msgid "saving previous value of %s"
 msgstr ""
@@ -1374,6 +1365,18 @@ msgstr "adicionado ulaw, alaw, gsm, g726"
 #: chansip.page.php:192 chansip.page.php:605
 msgid "yes"
 msgstr "sim"
+
+#~ msgid ""
+#~ "Use to configure Various Asterisk SIP Settings in the General section of "
+#~ "sip.conf. Also includes an auto-configuration tool to determine NAT "
+#~ "settings. The module assumes Asterisk version 1.4 or higher. Some "
+#~ "settings may not exist in Asterisk 1.2 and will be ignored by Asterisk."
+#~ msgstr ""
+#~ "Use para configurar Várias Configurações SIP do Asterisk na seção Geral "
+#~ "de sip.conf. Também inclui uma ferramenta de auto-configuração para "
+#~ "determinar configurações de NAT. O módulo suporta o Asterisk versão 1.4 "
+#~ "ou superior. Algumas configurações podem não existir no Asterisk 1.2 e "
+#~ "serão ignoradas pelo Asterisk."
 
 #~ msgid ""
 #~ "Method of SSL transport (TLS ONLY). The default is currently sslv2, but "

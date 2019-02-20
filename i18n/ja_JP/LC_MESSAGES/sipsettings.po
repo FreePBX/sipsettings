@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-20 00:54-0500\n"
+"POT-Creation-Date: 2019-02-20 01:20-0500\n"
 "PO-Revision-Date: 2017-05-23 13:16+0200\n"
 "Last-Translator: Kenichi <k.fukaumi@qloog.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/"
@@ -698,19 +698,19 @@ msgstr ""
 msgid "Migrate rtp.conf values if needed and initialize"
 msgstr "必要に応じてrtf.confの値を移行して初期化する"
 
-#: install.php:217
+#: install.php:221
 msgid "Migrating Audio Codecs"
 msgstr ""
 
-#: install.php:170
+#: install.php:174
 msgid "Migrating LocalNets and Netmasks"
 msgstr ""
 
-#: install.php:237
+#: install.php:241
 msgid "Migrating Video Codecs"
 msgstr ""
 
-#: install.php:145
+#: install.php:147
 msgid "Migrating rtpend Setting from Old Format to BMO Object"
 msgstr ""
 
@@ -1112,16 +1112,8 @@ msgid "Use "
 msgstr ""
 
 #: sipsettings.i18n.php:8
-msgid ""
-"Use to configure Various Asterisk SIP Settings in the General section of sip."
-"conf. Also includes an auto-configuration tool to determine NAT settings. "
-"The module assumes Asterisk version 1.4 or higher. Some settings may not "
-"exist in Asterisk 1.2 and will be ignored by Asterisk."
+msgid "Use to configure Various Asterisk SIP and PJSIP Settings"
 msgstr ""
-"sip.conf内のGeneralセクションの様々なAsterisk SIP設定を行うために使います。"
-"NATの設定を決定するための自動設定ツールも含まれています。このモジュールは、"
-"Asteriskのバージョン1.4以降を想定しています。いくつかの設定は、Asterisk1.2で"
-"は存在しない場合があり、Asteriskに無視されます。"
 
 #: general.page.php:337 general.page.php:522
 msgid ""
@@ -1281,7 +1273,7 @@ msgstr ""
 msgid "rtpholdtimeout must be higher than rtptimeout"
 msgstr "rtpholdtimeoutは、rtptimeoutより大きい値に設定しなければなりません。"
 
-#: install.php:127 install.php:141
+#: install.php:127 install.php:143
 #, php-format
 msgid "saving previous value of %s"
 msgstr "%sの前の値を保存中…"
@@ -1293,6 +1285,17 @@ msgstr ""
 #: chansip.page.php:192 chansip.page.php:605
 msgid "yes"
 msgstr "はい"
+
+#~ msgid ""
+#~ "Use to configure Various Asterisk SIP Settings in the General section of "
+#~ "sip.conf. Also includes an auto-configuration tool to determine NAT "
+#~ "settings. The module assumes Asterisk version 1.4 or higher. Some "
+#~ "settings may not exist in Asterisk 1.2 and will be ignored by Asterisk."
+#~ msgstr ""
+#~ "sip.conf内のGeneralセクションの様々なAsterisk SIP設定を行うために使いま"
+#~ "す。NATの設定を決定するための自動設定ツールも含まれています。このモジュー"
+#~ "ルは、Asteriskのバージョン1.4以降を想定しています。いくつかの設定は、"
+#~ "Asterisk1.2では存在しない場合があり、Asteriskに無視されます。"
 
 #~ msgid ""
 #~ "Asterisk 1.8 all supports IPv6. An address of '::' will listen on both "
