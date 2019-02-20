@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-20 00:58-0500\n"
+"POT-Creation-Date: 2019-02-20 01:23-0500\n"
 "PO-Revision-Date: 2017-06-29 16:27-0400\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -639,19 +639,19 @@ msgstr ""
 msgid "Migrate rtp.conf values if needed and initialize"
 msgstr ""
 
-#: install.php:217
+#: install.php:221
 msgid "Migrating Audio Codecs"
 msgstr ""
 
-#: install.php:170
+#: install.php:174
 msgid "Migrating LocalNets and Netmasks"
 msgstr ""
 
-#: install.php:237
+#: install.php:241
 msgid "Migrating Video Codecs"
 msgstr ""
 
-#: install.php:145
+#: install.php:147
 msgid "Migrating rtpend Setting from Old Format to BMO Object"
 msgstr ""
 
@@ -1051,11 +1051,7 @@ msgid "Use "
 msgstr ""
 
 #: sipsettings.i18n.php:8
-msgid ""
-"Use to configure Various Asterisk SIP Settings in the General section of sip."
-"conf. Also includes an auto-configuration tool to determine NAT settings. "
-"The module assumes Asterisk version 1.4 or higher. Some settings may not "
-"exist in Asterisk 1.2 and will be ignored by Asterisk."
+msgid "Use to configure Various Asterisk SIP and PJSIP Settings"
 msgstr ""
 
 #: general.page.php:457 general.page.php:642
@@ -1210,7 +1206,7 @@ msgstr ""
 msgid "rtpholdtimeout must be higher than rtptimeout"
 msgstr ""
 
-#: install.php:127 install.php:141
+#: install.php:127 install.php:143
 #, php-format
 msgid "saving previous value of %s"
 msgstr ""
