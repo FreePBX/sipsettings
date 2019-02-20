@@ -3,13 +3,13 @@
 # For licensing information, please see the file named LICENSE located in the module directory
 #
 # FreePBX language template for sipsettings
-# Copyright (C) 2008-2018 Sangoma Technologies, Inc.
+# Copyright (C) 2008-2019 Sangoma Technologies, Inc.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-05 22:57-0500\n"
+"POT-Creation-Date: 2019-02-20 00:58-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1093,9 +1093,9 @@ msgstr ""
 #: sipsettings.i18n.php:8
 msgid ""
 "Use to configure Various Asterisk SIP Settings in the General section of sip."
-"conf. Also includes an auto-configuration tool    to determine NAT settings. "
+"conf. Also includes an auto-configuration tool to determine NAT settings. "
 "The module assumes Asterisk version 1.4 or higher. Some settings may not "
-"exist in Asterisk    1.2 and will be ignored by Asterisk."
+"exist in Asterisk 1.2 and will be ignored by Asterisk."
 msgstr ""
 
 #: general.page.php:457
