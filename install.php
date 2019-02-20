@@ -245,7 +245,7 @@ sql("DELETE FROM sipsettings WHERE type = 2");
 
 
 if(!$ss->getConfig("allowanon")) {
-	$sql = "SELECT `data` FROM `admin` WHERE `variable` = 'ALLOW_SIP_ANON'";
+	$sql = "SELECT `value` FROM `admin` WHERE `variable` = 'ALLOW_SIP_ANON'";
 	$aa = sql($sql,'getOne');
 	$aa = (!empty($aa) && $aa == 'Yes') ? $aa : 'No';
 	$ss->setConfig("allowanon",$aa);
