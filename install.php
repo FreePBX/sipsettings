@@ -94,6 +94,8 @@ if(!$ss->getConfig('rtpstart') || !$ss->getConfig('rtpend')) {
 	if ($rtpstart) {
 		out(_('Migrating rtpstart Setting from Old Format to BMO Object'));
 		$ss->setConfig('rtpstart',$rtpstart);
+	} elseif(!$ss->getConfig('rtpstart')) {
+		$ss->setConfig('rtpstart',10000);
 	}
 
 	$sql = "SELECT data FROM sipsettings WHERE keyword = 'rtpend'";
@@ -108,6 +110,8 @@ if(!$ss->getConfig('rtpstart') || !$ss->getConfig('rtpend')) {
 	if ($rtpend) {
 		out(_('Migrating rtpend Setting from Old Format to BMO Object'));
 		$ss->setConfig('rtpend',$rtpend);
+	} elseif(!$ss->getConfig('rtpend')) {
+		$ss->setConfig('rtpend',20000);
 	}
 }
 // One way or another we've converted so we remove the interim variable from admin && sipsettings
