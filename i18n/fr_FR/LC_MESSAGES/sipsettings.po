@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-20 01:20-0500\n"
+"POT-Creation-Date: 2019-02-20 13:27-0500\n"
 "PO-Revision-Date: 2017-12-01 23:47+0200\n"
 "Last-Translator: CATTAN Jérémie <jeremie@famillecattan.com>\n"
 "Language-Team: French <http://weblate.freepbx.org/projects/freepbx/"
@@ -651,19 +651,19 @@ msgstr ""
 msgid "Migrate rtp.conf values if needed and initialize"
 msgstr ""
 
-#: install.php:221
+#: install.php:217
 msgid "Migrating Audio Codecs"
 msgstr ""
 
-#: install.php:174
+#: install.php:170
 msgid "Migrating LocalNets and Netmasks"
 msgstr ""
 
-#: install.php:241
+#: install.php:237
 msgid "Migrating Video Codecs"
 msgstr ""
 
-#: install.php:147
+#: install.php:145
 msgid "Migrating rtpend Setting from Old Format to BMO Object"
 msgstr ""
 
@@ -1225,7 +1225,7 @@ msgstr "route"
 msgid "rtpholdtimeout must be higher than rtptimeout"
 msgstr ""
 
-#: install.php:127 install.php:143
+#: install.php:127 install.php:141
 #, php-format
 msgid "saving previous value of %s"
 msgstr ""
