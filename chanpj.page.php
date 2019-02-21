@@ -1,6 +1,13 @@
 <?php
 global $currentcomponent;
 $sa = $this->getConfig('showadvanced');
+$pjsip_identifers_order_default = array(0=>'ip',1=>'username',2=>'anonymous',3=>'header',4=>'auth_username');
+$pjsip_identifers_json = $this->getConfig("pjsip_identifers_order");
+if($pjsip_identifers_json != ""){
+	$pjsip_identifers_order = json_decode($pjsip_identifers_json, true);
+} else {
+	$pjsip_identifers_order = $pjsip_identifers_order_default;
+}
 
 $interfaces['auto'] = array('0.0.0.0', 'All', '0');
 
@@ -250,6 +257,33 @@ foreach ($protocols as $p) {
 			</div>
 		</div>
 	</div>
+	 <div class="element-container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="row">
+              <div class="form-group">
+                <div class="col-md-3">
+                  <label class="control-label" for="pjsip_identifers_sortable"><?php echo _("Endpoint Identifier Order ")?></label>
+                  <i class="fa fa-question-circle fpbx-help-icon" data-for="pjsip_identifers_sortable"></i>
+                </div>
+                <div class="col-md-9">
+                  <ul id="pjsip_identifers_sortable">
+                  <?php foreach($pjsip_identifers_order as $order) {?>
+				  <!-- -->
+                  <li class="ui-state-default btn" id="EI_<?php echo $order?>" ><?php echo $order?></li>
+                  <?php } ?>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <span id="pjsip_identifers_sortable-help" class="help-block fpbx-help-block"><?php echo _("Endpoint Identifier Order . The Default order is as follows:<ul><li>ip</li><li>username</li><li>anonymous</li><li>header</li><li>auth_username</li></ul><ul>Note : Changing this to get affected  may require asterisk restart</ul>")?></span>
+          </div>
+        </div>
+      </div>
 	<!--END Show Advanced Settings-->
 </div>
 

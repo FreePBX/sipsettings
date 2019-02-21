@@ -61,7 +61,7 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 	public static function myDialplanHooks() {
 		// Yes, we want to hook into dialplan generation,
 		// and we don't care where.
-		return true;
+		return 900;
 		// When we define this, you also need to create a function
 		// 'doDialplanHook()', to actually do the hooking.
 	}
@@ -324,8 +324,23 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 			$ignoreImportedVars[] = 'vcodec';
 		}
 
+
 		$ignoreImportedVars[] = 'localnets';
 		$ignoreImportedRegExp[] = '(.+)bindip-(.+)$';
+
+		// get and set pjsip_identifers_order
+		if (isset($_REQUEST['pjsip_identifers_order'])) {
+			$pjsip_identifers_json =  html_entity_decode($_REQUEST['pjsip_identifers_order']);
+			$pjsip_identifers = json_decode($pjsip_identifers_json,true);
+			$pjsip_identifers_filtered = array();
+			foreach($pjsip_identifers as $k=>$val){
+				$pjsip_identifers_filtered[$k] = substr($val,3);//stripping EI_ from sorted order values
+			}
+			//convert to json
+			$pjsip_identifers_order = json_encode($pjsip_identifers_filtered);
+			$this->setConfig('pjsip_identifers_order', $pjsip_identifers_order);
+		}
+
 
 		$ignoreImportedVars = array_merge($ignoreImportedVars,["display", "type", "category", "Submit"]);
 
@@ -401,7 +416,6 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 		foreach($ice_host_candidates as $item) {
 			$retvar['rtp_additional.conf']['ice_host_candidates'][] = $item['local']." => ".$item['advertised'];
 		}
-
 		return $retvar;
 	}
 
@@ -412,6 +426,15 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 
 	public function doDialplanHook(&$ext, $null, $null_) {
 		$ext->addGlobal('ALLOW_SIP_ANON', strtolower($this->getConfig("allowanon")));
+		$driver = $this->FreePBX->Config->get_conf_setting('ASTSIPDRIVER');
+		if ($driver == "chan_pjsip" || $driver == "both") {
+			$pjsip_identifers_json = $this->getConfig("pjsip_identifers_order");
+			if($pjsip_identifers_json != ""){
+				$pjsip_identifers_order = json_decode($pjsip_identifers_json, true);
+			}
+			$endpoint_identifier_order = implode(',',$pjsip_identifers_order);
+			\FreePBX::Core()->getDriver('pjsip')->addGlobal('endpoint_identifier_order',$endpoint_identifier_order);
+		}
 	}
 
 	/**
