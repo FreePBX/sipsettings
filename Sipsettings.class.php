@@ -416,7 +416,7 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 
 	/**
 	 * Retrieve Active Codecs
-	 * @param {string} $type               The Codec Type
+	 * @param {string} $type			   The Codec Type
 	 * @param {bool} $showDefaults=false Whether to show defaults or not
 	 */
 	public function getCodecs($type,$showDefaults=false) {
@@ -493,7 +493,7 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 
 	/**
 	 * Update or Set Codecs
-	 * @param {string} $type           Codec Type
+	 * @param {string} $type		   Codec Type
 	 * @param {array} $codecs=array() The codecs with order, if blank set defaults
 	 */
 	public function setCodecs($type,$codecs=array()) {
@@ -540,7 +540,7 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 		foreach ($raw_settings as $var) {
 			switch ($var['type']) {
 			case self::SIP_NORMAL:
-				$sip_settings[$var['keyword']]                 = $var['data'];
+				$sip_settings[$var['keyword']]				 = $var['data'];
 				break;
 			case self::SIP_CUSTOM:
 				// Check if this is 'tcpenable' and return this as part of the array,
@@ -1144,36 +1144,26 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 			}
 		}
 		return $interfaces;
-    }
-    public function dumpDbConfigs(){
-        return $this->Database->query('SELECT * FROM sipsettings')
-            ->fetchAll(PDO::FETCH_ASSOC);
-    }
-
-    public function loadDbConfigs($configs){
-        $stmt = $this->Database->prepare("REPLACE INTO sipsettings (keyword, data, seq, type) VALUES (:keyword, :data, :seq, :type)");
-	if (!empty($configs)) {
-	        foreach ($configs as $conf) {
-	            if(count($conf) !== 4){
-	                continue;
-	            }
-	            $stmt->execute([
-	                ':keyword' => $conf['keyword'],
-	                ':data' => $conf['data'],
-	                ':seq' => $conf['seq'],
-	                ':type' => $conf['type'],
-	            ]);
-	        }
 	}
-    }
-
-	public function setDatabase($pdo){
-		$this->Database = $pdo;
-		return $this;
+	public function dumpDbConfigs(){
+		return $this->Database->query('SELECT * FROM sipsettings')
+			->fetchAll(PDO::FETCH_ASSOC);
 	}
 
-	public function resetDatabase(){
-		$this->Database = $this->FreePBX->Database;
-		return $this;
+	public function loadDbConfigs($configs){
+		$stmt = $this->Database->prepare("REPLACE INTO sipsettings (keyword, data, seq, type) VALUES (:keyword, :data, :seq, :type)");
+		if (!empty($configs)) {
+				foreach ($configs as $conf) {
+					if(count($conf) !== 4){
+						continue;
+					}
+					$stmt->execute([
+						':keyword' => $conf['keyword'],
+						':data' => $conf['data'],
+						':seq' => $conf['seq'],
+						':type' => $conf['type'],
+					]);
+				}
+		}
 	}
 }
