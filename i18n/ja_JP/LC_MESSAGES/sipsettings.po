@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-20 14:03-0500\n"
+"POT-Creation-Date: 2019-03-01 17:16+0530\n"
 "PO-Revision-Date: 2017-05-23 13:16+0200\n"
 "Last-Translator: Kenichi <k.fukaumi@qloog.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/"
@@ -92,7 +92,7 @@ msgstr "ローカルネットワークフィールドを追加"
 msgid "Advanced General Settings"
 msgstr "高度な一般設定"
 
-#: chanpj.page.php:401
+#: chanpj.page.php:435
 msgid ""
 "After you enable/disable a transport, asterisk needs to be "
 "<strong>restarted</strong>, not just reloaded."
@@ -106,11 +106,11 @@ msgstr "匿名のインバウンドSIP着信を許可する"
 msgid "Allow SIP Guests"
 msgstr "SIPゲストを許可"
 
-#: chanpj.page.php:170
+#: chanpj.page.php:177
 msgid "Allow Transports Reload"
 msgstr ""
 
-#: chanpj.page.php:183
+#: chanpj.page.php:190
 msgid "Allow transports to be reloaded when the PBX is reloaded"
 msgstr ""
 
@@ -142,7 +142,7 @@ msgid ""
 "An Error occurred trying fetch network configuration and external IP address"
 msgstr "ネットワーク設定及び外部IPアドレスを取出し中にエラーが発生しました。"
 
-#: Sipsettings.class.php:893
+#: Sipsettings.class.php:916
 msgid ""
 "An unknown port conflict has been detected in PJSIP. Please check and "
 "validate your PJSIP Ports to ensure they're not overlapping"
@@ -247,19 +247,19 @@ msgstr "バインドポート"
 msgid "Bind Port (bindport) must be between 1024 and 65535"
 msgstr ""
 
-#: chanpj.page.php:265
+#: chanpj.page.php:299
 msgid "CA Chain File"
 msgstr ""
 
-#: Sipsettings.class.php:907
+#: Sipsettings.class.php:930
 msgid "CHANSIP Port Moved"
 msgstr ""
 
-#: Sipsettings.class.php:917
+#: Sipsettings.class.php:940
 msgid "CHANSIP TCP Disabled"
 msgstr ""
 
-#: Sipsettings.class.php:928
+#: Sipsettings.class.php:951
 msgid "CHANSIP TLS Port Moved"
 msgstr ""
 
@@ -271,11 +271,11 @@ msgstr "コールイベント"
 msgid "Candidates"
 msgstr ""
 
-#: chanpj.page.php:277
+#: chanpj.page.php:311
 msgid "Certificate File"
 msgstr ""
 
-#: chanpj.page.php:302 chansip.page.php:325
+#: chanpj.page.php:336 chansip.page.php:325
 msgid "Certificate Manager"
 msgstr ""
 
@@ -283,21 +283,21 @@ msgstr ""
 msgid "Chan SIP"
 msgstr ""
 
-#: Sipsettings.class.php:928
+#: Sipsettings.class.php:951
 #, php-format
 msgid ""
 "Chansip was assigned a port that was already in use for TLS traffic. The "
 "Chansip TLS port has been changed to %s"
 msgstr ""
 
-#: Sipsettings.class.php:917
+#: Sipsettings.class.php:940
 msgid ""
 "Chansip was assigned the same port as pjsip for TCP traffic. Chansip has had "
 "the tcpenable setting removed, and is no longer listening for TCP "
 "connections."
 msgstr ""
 
-#: Sipsettings.class.php:907
+#: Sipsettings.class.php:930
 #, php-format
 msgid ""
 "Chansip was assigned the same port as pjsip for UDP traffic. The Chansip "
@@ -329,7 +329,7 @@ msgstr ""
 "既に使用中（INUSE）のサブスクリプションに別の呼び出しがある場合に、RINGINGを"
 "送信するかどうか。BLFを使用する場合に便利。"
 
-#: chanpj.page.php:331
+#: chanpj.page.php:365
 msgid "Default"
 msgstr ""
 
@@ -366,7 +366,7 @@ msgstr ""
 msgid "Disabled"
 msgstr "無効"
 
-#: chanpj.page.php:90
+#: chanpj.page.php:97
 msgid "Domain the transport comes from"
 msgstr ""
 
@@ -402,7 +402,7 @@ msgstr "エラー"
 msgid "Edit Settings"
 msgstr "設定を編集"
 
-#: chanpj.page.php:193
+#: chanpj.page.php:200
 msgid "Enable Debug"
 msgstr ""
 
@@ -426,7 +426,7 @@ msgstr ""
 msgid "Enable server for incoming TLS (secure) connections."
 msgstr ""
 
-#: chanpj.page.php:206
+#: chanpj.page.php:213
 msgid "Enable/Disable SIP debug logging."
 msgstr ""
 
@@ -454,12 +454,24 @@ msgstr ""
 msgid "End"
 msgstr ""
 
-#: assets/js/sipsettings.js:246 assets/js/sipsettings.js:249
-#: assets/js/sipsettings.js:258
+#: chanpj.page.php:266
+msgid "Endpoint Identifier Order "
+msgstr ""
+
+#: chanpj.page.php:283
+msgid ""
+"Endpoint Identifier Order . The Default order is as follows:<ul><li>ip</"
+"li><li>username</li><li>anonymous</li><li>header</li><li>auth_username</li></"
+"ul><ul>Note : Changing this to get affected  may require asterisk restart</"
+"ul>"
+msgstr ""
+
+#: assets/js/sipsettings.js:258 assets/js/sipsettings.js:261
+#: assets/js/sipsettings.js:270
 msgid "Enter IP Address"
 msgstr ""
 
-#: assets/js/sipsettings.js:254 assets/js/sipsettings.js:257
+#: assets/js/sipsettings.js:266 assets/js/sipsettings.js:269
 #, perl-format
 msgid "Error: %s"
 msgstr ""
@@ -474,7 +486,7 @@ msgid ""
 "e.g. mydomain.example.com. (asterisk: externhost)"
 msgstr ""
 
-#: chanpj.page.php:91
+#: chanpj.page.php:98
 msgid "External IP Address"
 msgstr ""
 
@@ -568,7 +580,7 @@ msgstr ""
 msgid "IP Configuration"
 msgstr "IP設定"
 
-#: chanpj.page.php:91
+#: chanpj.page.php:98
 msgid "If blank, will use the default settings"
 msgstr ""
 
@@ -585,7 +597,7 @@ msgid ""
 "is often put in sip_nat.conf"
 msgstr ""
 
-#: chanpj.page.php:334 chanpj.page.php:335 chanpj.page.php:336
+#: chanpj.page.php:368 chanpj.page.php:369 chanpj.page.php:370
 #: chansip.page.php:354 chansip.page.php:355
 msgid "Insecure"
 msgstr ""
@@ -621,11 +633,11 @@ msgid ""
 "to disable."
 msgstr ""
 
-#: chanpj.page.php:216
+#: chanpj.page.php:223
 msgid "Keep Alive Interval"
 msgstr ""
 
-#: assets/js/sipsettings.js:239
+#: assets/js/sipsettings.js:251
 msgid "Loading"
 msgstr ""
 
@@ -647,7 +659,7 @@ msgid ""
 "bind port to 5060, but new installs set it to 5160."
 msgstr ""
 
-#: chanpj.page.php:92
+#: chanpj.page.php:99
 msgid "Local network"
 msgstr ""
 
@@ -698,7 +710,7 @@ msgstr "ビデオコールの最大ビットレート (kb/s)"
 msgid "Media Transport Settings"
 msgstr ""
 
-#: chanpj.page.php:343
+#: chanpj.page.php:377
 msgid ""
 "Method of SSL transport (TLS ONLY). The default is currently TLSv1, but may "
 "change with future releases."
@@ -738,7 +750,7 @@ msgstr ""
 msgid "Minimum length of registrations/subscriptions."
 msgstr ""
 
-#: chanpj.page.php:162
+#: chanpj.page.php:169
 msgid "Misc PJSip Settings"
 msgstr ""
 
@@ -754,8 +766,8 @@ msgstr "NAT設定"
 msgid "New SIPSettings installation detected. Initializing default settings"
 msgstr ""
 
-#: chanpj.page.php:61 chanpj.page.php:177 chanpj.page.php:200
-#: chanpj.page.php:243 chanpj.page.php:358 chanpj.page.php:379
+#: chanpj.page.php:68 chanpj.page.php:184 chanpj.page.php:207
+#: chanpj.page.php:250 chanpj.page.php:392 chanpj.page.php:413
 #: chansip.page.php:311 chansip.page.php:377 chansip.page.php:407
 #: chansip.page.php:494 chansip.page.php:521 chansip.page.php:678
 #: chansip.page.php:706 chansip.page.php:760 chansip.page.php:953
@@ -776,7 +788,7 @@ msgid ""
 "want to use IPv6, it is recommended to use PJSip for those devices or trunks."
 msgstr ""
 
-#: chanpj.page.php:396
+#: chanpj.page.php:430
 msgid ""
 "Note that the interface is only displayed for your information, and is not "
 "referenced by asterisk."
@@ -815,7 +827,7 @@ msgstr "その他のSIP設定"
 msgid "Override External IP"
 msgstr ""
 
-#: assets/js/sipsettings.js:227
+#: assets/js/sipsettings.js:239
 msgid "PJSIP transport port conflicts with SIP port"
 msgstr ""
 
@@ -829,7 +841,7 @@ msgid ""
 "disabled by default."
 msgstr ""
 
-#: chanpj.page.php:89
+#: chanpj.page.php:96
 msgid "Port to Listen On"
 msgstr ""
 
@@ -839,7 +851,7 @@ msgid ""
 "Config"
 msgstr ""
 
-#: chanpj.page.php:289
+#: chanpj.page.php:323
 msgid "Private Key File"
 msgstr ""
 
@@ -899,15 +911,15 @@ msgstr ""
 msgid "Reinvite Behavior"
 msgstr "Re-Inviteの挙動"
 
-#: chanpj.page.php:364
+#: chanpj.page.php:398
 msgid "Require verification of client certificate (TLS ONLY)."
 msgstr ""
 
-#: chanpj.page.php:385
+#: chanpj.page.php:419
 msgid "Require verification of server certificate (TLS ONLY)."
 msgstr ""
 
-#: Sipsettings.class.php:625
+#: Sipsettings.class.php:648
 msgid "Reset"
 msgstr ""
 
@@ -933,7 +945,7 @@ msgstr ""
 msgid "SIP driver information"
 msgstr ""
 
-#: chanpj.page.php:326 chansip.page.php:348
+#: chanpj.page.php:360 chansip.page.php:348
 msgid "SSL Method"
 msgstr ""
 
@@ -949,11 +961,11 @@ msgstr ""
 msgid "Security Settings"
 msgstr ""
 
-#: chanpj.page.php:307 chansip.page.php:330
+#: chanpj.page.php:341 chansip.page.php:330
 msgid "Select a Certificate"
 msgstr ""
 
-#: chanpj.page.php:317 chansip.page.php:340
+#: chanpj.page.php:351 chansip.page.php:340
 msgid ""
 "Select a certificate to use for the TLS transport. These are configured in "
 "the module Certificate Manager"
@@ -976,7 +988,7 @@ msgstr ""
 "%s の設定はこちらの設定をオーバーライドできます。重複する設定を削除してくださ"
 "い。"
 
-#: chanpj.page.php:236 chanpj.page.php:249
+#: chanpj.page.php:243 chanpj.page.php:256
 msgid "Show Advanced Settings"
 msgstr ""
 
@@ -992,7 +1004,7 @@ msgstr "静的IP"
 msgid "Strict RTP"
 msgstr ""
 
-#: Sipsettings.class.php:630
+#: Sipsettings.class.php:653
 msgid "Submit"
 msgstr ""
 
@@ -1029,7 +1041,7 @@ msgstr ""
 msgid "TLS Bind Port"
 msgstr ""
 
-#: chanpj.page.php:257 chansip.page.php:297
+#: chanpj.page.php:291 chansip.page.php:297
 msgid "TLS/SSL/SRTP Settings"
 msgstr ""
 
@@ -1076,13 +1088,13 @@ msgid ""
 "The format for these overrides is: [local address] => [advertised address]>"
 msgstr ""
 
-#: chanpj.page.php:226
+#: chanpj.page.php:233
 msgid ""
 "The interval (in seconds) to send keepalives to active connection-oriented "
 "transports."
 msgstr ""
 
-#: chanpj.page.php:89
+#: chanpj.page.php:96
 msgid "The port that this transport should listen on"
 msgstr ""
 
@@ -1094,7 +1106,7 @@ msgstr ""
 msgid "These settings apply only to SIP Legacy [chan_sip]"
 msgstr ""
 
-#: chanpj.page.php:160
+#: chanpj.page.php:167
 msgid "These settings apply only to SIP [chan_pjsip]"
 msgstr ""
 
@@ -1130,11 +1142,11 @@ msgid ""
 "stream. It is unusual to turn this off"
 msgstr ""
 
-#: chanpj.page.php:392
+#: chanpj.page.php:426
 msgid "Transports"
 msgstr ""
 
-#: chanpj.page.php:90
+#: chanpj.page.php:97
 msgid ""
 "Typically used with SIP calling. Example user@domain, where domain is the "
 "value that would be entered here"
@@ -1144,15 +1156,15 @@ msgstr ""
 msgid "Unknown Error"
 msgstr ""
 
-#: Sipsettings.class.php:893
+#: Sipsettings.class.php:916
 msgid "Unknown Port Conflict"
 msgstr ""
 
-#: Sipsettings.class.php:437 Sipsettings.class.php:524
+#: Sipsettings.class.php:460 Sipsettings.class.php:547
 msgid "Unknown Type"
 msgstr ""
 
-#: chanpj.page.php:68
+#: chanpj.page.php:75
 msgid "Use "
 msgstr ""
 
@@ -1166,11 +1178,11 @@ msgid ""
 "disabled by default."
 msgstr ""
 
-#: chanpj.page.php:351
+#: chanpj.page.php:385
 msgid "Verify Client"
 msgstr ""
 
-#: chanpj.page.php:372
+#: chanpj.page.php:406
 msgid "Verify Server"
 msgstr ""
 
@@ -1218,8 +1230,8 @@ msgstr ""
 msgid "Whether to enable or disable UDP checksums on RTP traffic"
 msgstr ""
 
-#: chanpj.page.php:59 chanpj.page.php:175 chanpj.page.php:198
-#: chanpj.page.php:241 chanpj.page.php:356 chanpj.page.php:377
+#: chanpj.page.php:66 chanpj.page.php:182 chanpj.page.php:205
+#: chanpj.page.php:248 chanpj.page.php:390 chanpj.page.php:411
 #: chansip.page.php:309 chansip.page.php:375 chansip.page.php:405
 #: chansip.page.php:492 chansip.page.php:519 chansip.page.php:676
 #: chansip.page.php:704 chansip.page.php:758 chansip.page.php:951
@@ -1245,7 +1257,7 @@ msgstr ""
 msgid "You can change this on the Advanced Settings Page"
 msgstr ""
 
-#: chanpj.page.php:399
+#: chanpj.page.php:433
 #, php-format
 msgid ""
 "You have Asterisk %s which no longer needs to be restarted for transport "
@@ -1269,7 +1281,7 @@ msgstr ""
 "を追加するには、「フィールド追加」ボタンをクリックしてください。空のボックス"
 "は設定適用時に削除します。"
 
-#: chanpj.page.php:92
+#: chanpj.page.php:99
 msgid ""
 "You may use this to to define an additional local network per interface."
 msgstr ""

@@ -4,7 +4,7 @@
   <candisable>no</candisable>
   <canuninstall>no</canuninstall>
   <name>Asterisk SIP Settings</name>
-  <version>15.0.6.5</version>
+  <version>15.0.6.6</version>
   <publisher>Sangoma Technologies Corporation</publisher>
   <license>AGPLv3+</license>
   <licenselink>https://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
@@ -24,6 +24,7 @@
       Use to configure Various Asterisk SIP and PJSIP Settings
   </description>
   <changelog>
+		*15.0.6.6* FREEPBX-17803 Allow changing of Endpoint identification matching priority in PJSIP 
 		*15.0.6.5* fixing legacy restore 
     *15.0.6.4* Revert setting RTP defaults
     *15.0.6.3* Set RTP Defaults
