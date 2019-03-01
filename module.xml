@@ -4,7 +4,7 @@
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<name>Asterisk SIP Settings</name>
-	<version>14.0.27.10</version>
+	<version>14.0.27.11</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>AGPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
@@ -16,6 +16,7 @@
 		Use to configure Various Asterisk SIP and PJSIP Settings
 	</description>
 	<changelog>
+		*14.0.27.11* FREEPBX-17803 Allow changing of Endpoint identification matching priority in PJSIP 
 		*14.0.27.10* Revert RTP Defaults
 		*14.0.27.9* Set RTP defaults
 		*14.0.27.8* FREEPBX-19505
