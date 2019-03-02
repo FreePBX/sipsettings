@@ -431,11 +431,11 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 		$driver = $this->FreePBX->Config->get_conf_setting('ASTSIPDRIVER');
 		if ($driver == "chan_pjsip" || $driver == "both") {
 			$pjsip_identifers_json = $this->getConfig("pjsip_identifers_order");
-			if($pjsip_identifers_json != ""){
+			if ($pjsip_identifers_json != "") {
 				$pjsip_identifers_order = json_decode($pjsip_identifers_json, true);
+				$endpoint_identifier_order = implode(',',$pjsip_identifers_order);
+				\FreePBX::Core()->getDriver('pjsip')->addGlobal('endpoint_identifier_order',$endpoint_identifier_order);
 			}
-			$endpoint_identifier_order = implode(',',$pjsip_identifers_order);
-			\FreePBX::Core()->getDriver('pjsip')->addGlobal('endpoint_identifier_order',$endpoint_identifier_order);
 		}
 	}
 
