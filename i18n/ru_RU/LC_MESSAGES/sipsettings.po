@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-01 17:16+0530\n"
+"POT-Creation-Date: 2019-04-24 20:57+0530\n"
 "PO-Revision-Date: 2015-12-05 10:05+0200\n"
 "Last-Translator: Andrew <andrew.nagy@the159.com>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/"
@@ -51,12 +51,12 @@ msgstr ""
 " Смотрите в текущую версию Астериск для ограничения по функциональности SRV "
 "запросов."
 
-#: functions.inc.php:349
+#: functions.inc.php:354
 #, php-format
 msgid "%s must be a non-negative integer"
 msgstr "%s должен быть неотрицательным целым числом"
 
-#: functions.inc.php:393
+#: functions.inc.php:398
 #, php-format
 msgid "%s must be alphanumeric"
 msgstr "%s должен быть буквенным"
@@ -237,7 +237,7 @@ msgstr "Автоматическая конфигурация"
 msgid "Bind Address"
 msgstr "Связывание с адресом"
 
-#: functions.inc.php:353
+#: functions.inc.php:358
 msgid "Bind Address (bindaddr) must be an IP address."
 msgstr "Адрес (bindaddr) должен быть в виде четырёх октетов ИП адреса."
 
@@ -245,7 +245,7 @@ msgstr "Адрес (bindaddr) должен быть в виде четырёх �
 msgid "Bind Port"
 msgstr "Порт"
 
-#: functions.inc.php:359
+#: functions.inc.php:364
 msgid "Bind Port (bindport) must be between 1024 and 65535"
 msgstr "Порт привязки (bindport). Адрес порта должен быть между 1024 и 65535"
 
@@ -394,7 +394,7 @@ msgstr "Динамический хост"
 msgid "Dynamic Host Refresh"
 msgstr "Динамическое обновление хоста"
 
-#: functions.inc.php:419
+#: functions.inc.php:424
 msgid "Dynamic Host can not be blank"
 msgstr "Динамическое значение имени хоста не может быть пустым"
 
@@ -501,7 +501,7 @@ msgstr ""
 msgid "External IP Address"
 msgstr "Внешний IP адрес"
 
-#: functions.inc.php:409 assets/js/sipsettings.js:20
+#: functions.inc.php:414 assets/js/sipsettings.js:20
 msgid ""
 "External IP can not be blank when NAT Mode is set to Static and no default "
 "IP address provided on the main page"
@@ -713,13 +713,13 @@ msgstr ""
 "более, чем одной подсетью используйте кнопку 'Добавить локальную сеть', "
 "чтобы добавить полей. Пустые поля будут игнорированы."
 
-#: functions.inc.php:470
+#: functions.inc.php:475
 msgid "Localnet netmask must be formatted properly (e.g. 255.255.255.0 or 24)"
 msgstr ""
 "Маска локальной сети должна быть указана в правильном формате (например "
 "255.255.255.0 или 24)"
 
-#: functions.inc.php:465
+#: functions.inc.php:470
 msgid "Localnet setting must be an IP address"
 msgstr "Параметр Localnet должен быть в виде ИП адреса сети"
 
@@ -825,8 +825,8 @@ msgstr "Нестандартный g726"
 #: chansip.page.php:853
 msgid ""
 "Note that chan_sip does not support IPv6 for UDP protocols. An address of "
-"'[::]' will listen on both IPv4 and IPv6, but is not recommended. If you "
-"want to use IPv6, it is recommended to use PJSip for those devices or trunks."
+"'::' will listen on both IPv4 and IPv6, but is not recommended. If you want "
+"to use IPv6, it is recommended to use PJSip for those devices or trunks."
 msgstr ""
 
 #: chanpj.page.php:430
@@ -1085,7 +1085,7 @@ msgstr "Прозрачное пропускание T38"
 
 #: chansip.page.php:914
 msgid ""
-"TCP Port to listen on for TLS (Encrypted) connections. Defaults to '[::]', "
+"TCP Port to listen on for TLS (Encrypted) connections. Defaults to '::', "
 "which listens on all interfaces for both IPv4 and IPv6 connections. Note "
 "that PJSip is preferable for all IPv6 communications."
 msgstr ""
@@ -1224,7 +1224,7 @@ msgstr ""
 "Обычно используется при SIP вызовах. Пример: user@domain, где домен - "
 "значение, которое надо указать здесь"
 
-#: Natget.class.php:29
+#: Natget.class.php:39
 msgid "Unknown Error"
 msgstr "Неизвестная ошибка"
 
@@ -1404,7 +1404,7 @@ msgstr "указание кодеков по умолчанию.."
 msgid "route"
 msgstr "route"
 
-#: functions.inc.php:367
+#: functions.inc.php:372
 msgid "rtpholdtimeout must be higher than rtptimeout"
 msgstr "rtpholdtimeout должен быть больше чем rtptimeout"
 

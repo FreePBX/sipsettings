@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX sipsettings\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-01 17:16+0530\n"
+"POT-Creation-Date: 2019-04-24 20:57+0530\n"
 "PO-Revision-Date: 2011-03-20 00:00+0100\n"
 "Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
 "Language-Team: Swedish\n"
@@ -44,12 +44,12 @@ msgstr ""
 msgid " See current version of Asterisk for limitations on SRV functionality."
 msgstr ""
 
-#: functions.inc.php:349
+#: functions.inc.php:354
 #, php-format
 msgid "%s must be a non-negative integer"
 msgstr "%s måste vara ett positivt heltal"
 
-#: functions.inc.php:393
+#: functions.inc.php:398
 #, php-format
 msgid "%s must be alphanumeric"
 msgstr "%s måste vara ett alfanumeriskt värde"
@@ -209,7 +209,7 @@ msgstr "Automatisk konfiguration"
 msgid "Bind Address"
 msgstr "Bindadress"
 
-#: functions.inc.php:353
+#: functions.inc.php:358
 msgid "Bind Address (bindaddr) must be an IP address."
 msgstr "Bindadress (bindaddr) måste vara en IP-adress."
 
@@ -217,7 +217,7 @@ msgstr "Bindadress (bindaddr) måste vara en IP-adress."
 msgid "Bind Port"
 msgstr "Bindport"
 
-#: functions.inc.php:359
+#: functions.inc.php:364
 msgid "Bind Port (bindport) must be between 1024 and 65535"
 msgstr ""
 
@@ -359,7 +359,7 @@ msgstr "Dynamisk host"
 msgid "Dynamic Host Refresh"
 msgstr ""
 
-#: functions.inc.php:419
+#: functions.inc.php:424
 msgid "Dynamic Host can not be blank"
 msgstr "Dynamisk host kan inte vara tomt"
 
@@ -463,7 +463,7 @@ msgstr ""
 msgid "External IP Address"
 msgstr ""
 
-#: functions.inc.php:409 assets/js/sipsettings.js:20
+#: functions.inc.php:414 assets/js/sipsettings.js:20
 msgid ""
 "External IP can not be blank when NAT Mode is set to Static and no default "
 "IP address provided on the main page"
@@ -643,13 +643,13 @@ msgid ""
 "more fields. Blank fields will be ignored."
 msgstr ""
 
-#: functions.inc.php:470
+#: functions.inc.php:475
 msgid "Localnet netmask must be formatted properly (e.g. 255.255.255.0 or 24)"
 msgstr ""
 "Nätmasken för localnet måste vara korrekt formaterat (t.ex. 255.255.255.0 "
 "eller 24)"
 
-#: functions.inc.php:465
+#: functions.inc.php:470
 msgid "Localnet setting must be an IP address"
 msgstr "Localnet måste vara en IP-adress"
 
@@ -755,8 +755,8 @@ msgstr "Icke-standard g726"
 #: chansip.page.php:853
 msgid ""
 "Note that chan_sip does not support IPv6 for UDP protocols. An address of "
-"'[::]' will listen on both IPv4 and IPv6, but is not recommended. If you "
-"want to use IPv6, it is recommended to use PJSip for those devices or trunks."
+"'::' will listen on both IPv4 and IPv6, but is not recommended. If you want "
+"to use IPv6, it is recommended to use PJSip for those devices or trunks."
 msgstr ""
 
 #: chanpj.page.php:430
@@ -999,7 +999,7 @@ msgstr "T38 Pass-Through"
 
 #: chansip.page.php:914
 msgid ""
-"TCP Port to listen on for TLS (Encrypted) connections. Defaults to '[::]', "
+"TCP Port to listen on for TLS (Encrypted) connections. Defaults to '::', "
 "which listens on all interfaces for both IPv4 and IPv6 connections. Note "
 "that PJSip is preferable for all IPv6 communications."
 msgstr ""
@@ -1123,7 +1123,7 @@ msgid ""
 "value that would be entered here"
 msgstr ""
 
-#: Natget.class.php:29
+#: Natget.class.php:39
 msgid "Unknown Error"
 msgstr ""
 
@@ -1291,7 +1291,7 @@ msgstr "skriver standard codecs.."
 msgid "route"
 msgstr ""
 
-#: functions.inc.php:367
+#: functions.inc.php:372
 msgid "rtpholdtimeout must be higher than rtptimeout"
 msgstr "rtpholdtimeout måste vara högre än rtptimeout"
 
