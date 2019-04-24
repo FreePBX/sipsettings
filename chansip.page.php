@@ -850,7 +850,7 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 	<!--END Default Context-->
 	<?php
 		$tt = _("Asterisk: bindaddr. The IP address to bind to and listen for calls on the Bind Port. If set to 0.0.0.0 Asterisk will listen on all addresses. It is recommended to leave this blank.");
-		$tt .= ' ' . _("Note that chan_sip does not support IPv6 for UDP protocols. An address of '[::]' will listen on both IPv4 and IPv6, but is not recommended. If you want to use IPv6, it is recommended to use PJSip for those devices or trunks.");
+		$tt .= ' ' . _("Note that chan_sip does not support IPv6 for UDP protocols. An address of '::' will listen on both IPv4 and IPv6, but is not recommended. If you want to use IPv6, it is recommended to use PJSip for those devices or trunks.");
 	?>
 	<!--Bind Address-->
 	<div class="element-container">
@@ -905,13 +905,13 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 					<i class="fa fa-question-circle fpbx-help-icon" data-for="tlsbindaddr"></i>
 				</div>
 				<div class="col-md-9">
-					<input type="text" class="form-control validate-ip" id="tlsbindaddr" name="tlsbindaddr" placeholder='[::]' value="<?php echo $tlsbindaddr ?>">
+					<input type="text" class="form-control validate-ip" id="tlsbindaddr" name="tlsbindaddr" placeholder='::' value="<?php echo $tlsbindaddr ?>">
 				</div>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-md-12">
-				<span id="tlsbindaddr-help" class="help-block fpbx-help-block"><?php echo _("TCP Port to listen on for TLS (Encrypted) connections. Defaults to '[::]', which listens on all interfaces for both IPv4 and IPv6 connections. Note that PJSip is preferable for all IPv6 communications."); ?></span>
+				<span id="tlsbindaddr-help" class="help-block fpbx-help-block"><?php echo _("TCP Port to listen on for TLS (Encrypted) connections. Defaults to '::', which listens on all interfaces for both IPv4 and IPv6 connections. Note that PJSip is preferable for all IPv6 communications."); ?></span>
 			</div>
 		</div>
 	</div>

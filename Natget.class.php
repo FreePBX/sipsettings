@@ -9,15 +9,25 @@ class NatGet {
 	 */
 	public function getVisibleIP() {
 		$ip = false;
-		try {
-			$pest = new \PestXML("http://myip.freepbx.org:5060");
-			$thing = $pest->get('/whatismyip.php');
-		} catch(\Exception $e) {
-			return array(
-				"status" => false,
-				"message" => $e->getMessage()
-			);
+		foreach(["http://myip.freepbx.org:5060","http://myip.freepbx.org"] as $url) {
+			try {
+				$pest = new \PestXML($url);
+				$pest->curl_opts[CURLOPT_TIMEOUT] = 4;
+				$pest->curl_opts[CURLOPT_CONNECTTIMEOUT] = 1;
+				$thing = $pest->get('/whatismyip.php');
+				break;
+			} catch(\Exception $e) {
+				$thing = array(
+					"status" => false,
+					"message" => $e->getMessage()
+				);
+			}
 		}
+
+		if(is_array($thing)) {
+			return $thing;
+		}
+
 		if(!empty($thing->ipaddress) && filter_var((string)$thing->ipaddress, FILTER_VALIDATE_IP)) {
 			return array(
 				"status" => true,

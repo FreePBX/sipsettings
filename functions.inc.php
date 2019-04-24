@@ -179,7 +179,7 @@ function sipsettings_hookGet_config($engine) {
       	}
 
       	if(!empty($interim_settings['tlsbindaddr'])) {
-      		$interim_settings['tlsbindaddr'] = $interim_settings['tlsbindaddr'].":".$interim_settings['tlsbindport'];
+      		$interim_settings['tlsbindaddr'] = ($interim_settings['tlsbindaddr'] === '::' ? '[::]' : $interim_settings['tlsbindaddr']).":".$interim_settings['tlsbindport'];
       	} else {
       		// [::] means 'listen on all interfaces, both ipv4 and ipv6' when in sipsettings.
       		$interim_settings['tlsbindaddr'] = "[::]:".$interim_settings['tlsbindport'];
@@ -274,6 +274,8 @@ function sipsettings_hookGet_config($engine) {
 		case "webrtcturnaddr":
 		case "webrtcturnpassword":
 		case "webrtcturnusername":
+		case "bindport":
+		case "bindaddr":
 		break;
 		default:
 			// Ignore localnet settings from chansip sipsettings, they're now in general
@@ -285,6 +287,9 @@ function sipsettings_hookGet_config($engine) {
 			break;
 		}
 	}
+
+	$udpbindaddrr = (!empty($interim_settings['bindaddr']) ? ($interim_settings['bindaddr'] === '::' ? '[::]' : $interim_settings['bindaddr']) : '0.0.0.0').":".(!empty($interim_settings['bindport']) ? $interim_settings['bindport'] : '5060');
+	$sip_settings[] = array('udpbindaddr', $udpbindaddrr);
 
 	if(FreePBX::Modules()->moduleHasMethod("certman","getCABundle")) {
 		$cafile = FreePBX::Certman()->getCABundle();
@@ -309,16 +314,16 @@ function sipsettings_hookGet_config($engine) {
 			$sip_settings[] = array("localnet", $arr['net']."/".$arr['mask']);
 		}
 	}
-        	global $version;
-        	$core_conf->addSipGeneral('context','from-sip-external');
-        	$core_conf->addSipGeneral('callerid','Unknown');
-        	$core_conf->addSipGeneral('notifyringing','yes');
-        	$core_conf->addSipGeneral('notifyhold','yes');
-        	$core_conf->addSipGeneral('tos_sip','cs3');		// Recommended setting from doc/ip-tos.txt
-        	$core_conf->addSipGeneral('tos_audio','ef');	 // Recommended setting from doc/ip-tos.txt
-        	$core_conf->addSipGeneral('tos_video','af41'); // Recommended setting from doc/ip-tos.txt
-        	$core_conf->addSipGeneral('alwaysauthreject','yes');
-        	$core_conf->addSipGeneral('limitonpeers','yes');
+					global $version;
+					$core_conf->addSipGeneral('context','from-sip-external');
+					$core_conf->addSipGeneral('callerid','Unknown');
+					$core_conf->addSipGeneral('notifyringing','yes');
+					$core_conf->addSipGeneral('notifyhold','yes');
+					$core_conf->addSipGeneral('tos_sip','cs3');		// Recommended setting from doc/ip-tos.txt
+					$core_conf->addSipGeneral('tos_audio','ef');	 // Recommended setting from doc/ip-tos.txt
+					$core_conf->addSipGeneral('tos_video','af41'); // Recommended setting from doc/ip-tos.txt
+					$core_conf->addSipGeneral('alwaysauthreject','yes');
+					$core_conf->addSipGeneral('limitonpeers','yes');
 					unset($interim_settings);
 					if (is_array($sip_settings)) foreach ($sip_settings as $entry) {
 						if ($entry[1] != '') {
