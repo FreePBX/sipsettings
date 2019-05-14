@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-14 17:47+0530\n"
+"POT-Creation-Date: 2019-05-14 17:55+0530\n"
 "PO-Revision-Date: 2016-12-12 02:44+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/"
@@ -113,7 +113,7 @@ msgstr ""
 "cambia de arriba a algo personalizado esta configuración puede ser inútil, "
 "así como si 'Permitir Invitados SIP' se establecer en NO."
 
-#: assets/js/sipsettings.js:169
+#: assets/js/sipsettings.js:168
 msgid ""
 "An Error occurred trying fetch network configuration and external IP address"
 msgstr ""
@@ -464,12 +464,12 @@ msgid ""
 "ul>"
 msgstr ""
 
-#: assets/js/sipsettings.js:258 assets/js/sipsettings.js:261
-#: assets/js/sipsettings.js:270
+#: assets/js/sipsettings.js:257 assets/js/sipsettings.js:260
+#: assets/js/sipsettings.js:269
 msgid "Enter IP Address"
 msgstr "Entre Dirección IP"
 
-#: assets/js/sipsettings.js:266 assets/js/sipsettings.js:269
+#: assets/js/sipsettings.js:265 assets/js/sipsettings.js:268
 #, perl-format
 msgid "Error: %s"
 msgstr "Error: %s"
@@ -670,7 +670,7 @@ msgstr ""
 msgid "Keep Alive Interval"
 msgstr ""
 
-#: assets/js/sipsettings.js:251
+#: assets/js/sipsettings.js:250
 msgid "Loading"
 msgstr "Cargando"
 
@@ -873,7 +873,7 @@ msgstr "Otras Configuraciones SIP"
 msgid "Override External IP"
 msgstr "Sobreescribir IP Externa"
 
-#: assets/js/sipsettings.js:239
+#: assets/js/sipsettings.js:238
 msgid "PJSIP transport port conflicts with SIP port"
 msgstr "El puerto de transporte PJSIP entra en conflicto con el puerto SIP"
 

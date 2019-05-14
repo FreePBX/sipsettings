@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-14 17:47+0530\n"
+"POT-Creation-Date: 2019-05-14 17:55+0530\n"
 "PO-Revision-Date: 2018-07-31 15:00+0000\n"
 "Last-Translator: Bastian Mertgen <b.mertgen@bastian-mertgen.de>\n"
 "Language-Team: German <http://*/projects/freepbx/sipsettings/de/>\n"
@@ -97,7 +97,7 @@ msgid ""
 "rendered useless as well as if 'Allow SIP Guests' is set to no."
 msgstr ""
 
-#: assets/js/sipsettings.js:169
+#: assets/js/sipsettings.js:168
 msgid ""
 "An Error occurred trying fetch network configuration and external IP address"
 msgstr ""
@@ -404,12 +404,12 @@ msgid ""
 "ul>"
 msgstr ""
 
-#: assets/js/sipsettings.js:258 assets/js/sipsettings.js:261
-#: assets/js/sipsettings.js:270
+#: assets/js/sipsettings.js:257 assets/js/sipsettings.js:260
+#: assets/js/sipsettings.js:269
 msgid "Enter IP Address"
 msgstr ""
 
-#: assets/js/sipsettings.js:266 assets/js/sipsettings.js:269
+#: assets/js/sipsettings.js:265 assets/js/sipsettings.js:268
 #, perl-format
 msgid "Error: %s"
 msgstr "Fehler: %s"
@@ -571,7 +571,7 @@ msgstr ""
 msgid "Keep Alive Interval"
 msgstr ""
 
-#: assets/js/sipsettings.js:251
+#: assets/js/sipsettings.js:250
 msgid "Loading"
 msgstr ""
 
@@ -757,7 +757,7 @@ msgstr ""
 msgid "Override External IP"
 msgstr ""
 
-#: assets/js/sipsettings.js:239
+#: assets/js/sipsettings.js:238
 msgid "PJSIP transport port conflicts with SIP port"
 msgstr ""
 
