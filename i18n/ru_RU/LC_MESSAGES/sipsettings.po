@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-14 17:46+0530\n"
+"POT-Creation-Date: 2019-05-14 17:53+0530\n"
 "PO-Revision-Date: 2015-12-05 10:05+0200\n"
 "Last-Translator: Andrew <andrew.nagy@the159.com>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/"
@@ -127,7 +127,7 @@ msgstr ""
 "умолчанию. Если этот контекст изменен вручную, этот параметр может быть "
 "бесполезен и лучше установить его в НЕТ."
 
-#: assets/js/sipsettings.js:169
+#: assets/js/sipsettings.js:168
 msgid ""
 "An Error occurred trying fetch network configuration and external IP address"
 msgstr "Ошибка получения сетевой конфигурации и внешний IP-адреса"
@@ -474,12 +474,12 @@ msgid ""
 "ul>"
 msgstr ""
 
-#: assets/js/sipsettings.js:258 assets/js/sipsettings.js:261
-#: assets/js/sipsettings.js:270
+#: assets/js/sipsettings.js:257 assets/js/sipsettings.js:260
+#: assets/js/sipsettings.js:269
 msgid "Enter IP Address"
 msgstr "Введите ИП адрес"
 
-#: assets/js/sipsettings.js:266 assets/js/sipsettings.js:269
+#: assets/js/sipsettings.js:265 assets/js/sipsettings.js:268
 #, perl-format
 msgid "Error: %s"
 msgstr "Ошибка: %s"
@@ -673,7 +673,7 @@ msgstr ""
 "потерянных меток времени, обычно посланных с экхотических устройств и "
 "програм.Можно установить в -1 для отключения."
 
-#: assets/js/sipsettings.js:251
+#: assets/js/sipsettings.js:250
 msgid "Loading"
 msgstr "Загружается"
 
@@ -866,7 +866,7 @@ msgstr "Другие настройки SIP"
 msgid "Override External IP"
 msgstr "Переопределить внешний IP"
 
-#: assets/js/sipsettings.js:239
+#: assets/js/sipsettings.js:238
 msgid "PJSIP transport port conflicts with SIP port"
 msgstr "Порт транспорта канала PJSIP конфликтует с портом канала SIP"
 
