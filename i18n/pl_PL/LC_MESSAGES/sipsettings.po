@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-24 20:57+0530\n"
+"POT-Creation-Date: 2019-05-14 17:47+0530\n"
 "PO-Revision-Date: 2017-06-07 15:50+0200\n"
 "Last-Translator: Michal <mboltz@tlen.pl>\n"
 "Language-Team: Polish (Polish) <http://weblate.freepbx.org/projects/freepbx/"
@@ -38,12 +38,12 @@ msgstr ""
 " Zobacz aktualną wersję Asterisk ze względu na ograniczenia dotyczące "
 "funkcjonalności SRV."
 
-#: functions.inc.php:354
+#: functions.inc.php:364
 #, php-format
 msgid "%s must be a non-negative integer"
 msgstr "%s musi stanowić nieujemną liczbę całkowitą"
 
-#: functions.inc.php:398
+#: functions.inc.php:408
 #, php-format
 msgid "%s must be alphanumeric"
 msgstr "%s musi być alfanumeryczne"
@@ -123,7 +123,7 @@ msgstr ""
 "Podczas próby pobrania konfiguracji sieci i zewnętrznego adresu IP wystąpił "
 "błąd"
 
-#: Sipsettings.class.php:916
+#: Sipsettings.class.php:917
 msgid ""
 "An unknown port conflict has been detected in PJSIP. Please check and "
 "validate your PJSIP Ports to ensure they're not overlapping"
@@ -146,7 +146,7 @@ msgstr ""
 msgid "Asterisk SIP Settings"
 msgstr "Asterisk SIP ustawienia"
 
-#: Sipsettings.class.php:175
+#: Sipsettings.class.php:176
 #, php-format
 msgid "Asterisk is currently using %s for SIP Traffic."
 msgstr "Asterisk jest obecnie używana przez %s dla ruchu SIP."
@@ -228,7 +228,7 @@ msgstr "Automatycznie skonfiguruj"
 msgid "Bind Address"
 msgstr "Powiązać adres (złączyć adres)"
 
-#: functions.inc.php:358
+#: functions.inc.php:368
 msgid "Bind Address (bindaddr) must be an IP address."
 msgstr "Powiązany adres musi być adresem IP."
 
@@ -236,7 +236,7 @@ msgstr "Powiązany adres musi być adresem IP."
 msgid "Bind Port"
 msgstr "Powiązać port"
 
-#: functions.inc.php:364
+#: functions.inc.php:374
 msgid "Bind Port (bindport) must be between 1024 and 65535"
 msgstr "Powiązany port (bindport) musi wynosić od 1024 do 65535"
 
@@ -244,15 +244,15 @@ msgstr "Powiązany port (bindport) musi wynosić od 1024 do 65535"
 msgid "CA Chain File"
 msgstr "Plik łańcucha CA"
 
-#: Sipsettings.class.php:930
+#: Sipsettings.class.php:931
 msgid "CHANSIP Port Moved"
 msgstr "Przesunięty port CHANSIP"
 
-#: Sipsettings.class.php:940
+#: Sipsettings.class.php:941
 msgid "CHANSIP TCP Disabled"
 msgstr "Wyłączono CHANSIP TCP"
 
-#: Sipsettings.class.php:951
+#: Sipsettings.class.php:952
 msgid "CHANSIP TLS Port Moved"
 msgstr "Przesunięto port CHANSIP TLS"
 
@@ -276,7 +276,7 @@ msgstr "Menedżer certyfikatów"
 msgid "Chan SIP"
 msgstr "Jeżeli change SIP to zmiana SIP"
 
-#: Sipsettings.class.php:951
+#: Sipsettings.class.php:952
 #, php-format
 msgid ""
 "Chansip was assigned a port that was already in use for TLS traffic. The "
@@ -285,7 +285,7 @@ msgstr ""
 "Chansip został przydzielony do portu, który był już używany w ruchu TLS. "
 "Port TLS dla portu Chansip został zmieniony na% s"
 
-#: Sipsettings.class.php:940
+#: Sipsettings.class.php:941
 msgid ""
 "Chansip was assigned the same port as pjsip for TCP traffic. Chansip has had "
 "the tcpenable setting removed, and is no longer listening for TCP "
@@ -294,7 +294,7 @@ msgstr ""
 "Chansipowi przypisano ten sam port co plik pjsip dla ruchu TCP. Chansip "
 "został usunięty z tcpenable setting i nie słucha już połączeń T."
 
-#: Sipsettings.class.php:930
+#: Sipsettings.class.php:931
 #, php-format
 msgid ""
 "Chansip was assigned the same port as pjsip for UDP traffic. The Chansip "
@@ -388,7 +388,7 @@ msgstr "Dynamiczny host"
 msgid "Dynamic Host Refresh"
 msgstr "Odświeżanie dynamicznego hosta"
 
-#: functions.inc.php:424
+#: functions.inc.php:434
 msgid "Dynamic Host can not be blank"
 msgstr "Dynamiczny host nie może być pusty"
 
@@ -494,7 +494,7 @@ msgstr ""
 msgid "External IP Address"
 msgstr "Zewnętrzny adres IP"
 
-#: functions.inc.php:414 assets/js/sipsettings.js:20
+#: functions.inc.php:424 assets/js/sipsettings.js:20
 msgid ""
 "External IP can not be blank when NAT Mode is set to Static and no default "
 "IP address provided on the main page"
@@ -541,7 +541,7 @@ msgstr ""
 "Częstotliwość w sekundach w celu sprawdzenia, czy stan MWI zmienił się i "
 "informował rówieśników."
 
-#: Sipsettings.class.php:192
+#: Sipsettings.class.php:193
 msgid "General SIP Settings"
 msgstr "Ogólne ustawienia SIP"
 
@@ -714,13 +714,13 @@ msgstr ""
 "przypadku sieci z więcej niż 1 podsieci LAN, użyj pola Dodaj lokalne pole "
 "sieciowe, aby uzyskać więcej pól. Puste pola zostaną zignorowane."
 
-#: functions.inc.php:475
+#: functions.inc.php:485
 msgid "Localnet netmask must be formatted properly (e.g. 255.255.255.0 or 24)"
 msgstr ""
 "Netmask sieci lokalnej musi być prawidłowo sformatowany (np. 255.255.255.0 "
 "lub 24)"
 
-#: functions.inc.php:470
+#: functions.inc.php:480
 msgid "Localnet setting must be an IP address"
 msgstr "Ustawienie Lokalny musi być adresem IP"
 
@@ -963,7 +963,7 @@ msgstr ""
 msgid "Require verification of server certificate (TLS ONLY)."
 msgstr ""
 
-#: Sipsettings.class.php:648
+#: Sipsettings.class.php:649
 msgid "Reset"
 msgstr ""
 
@@ -973,7 +973,7 @@ msgid ""
 "or until registrationattempts tries have been made."
 msgstr ""
 
-#: Sipsettings.class.php:206
+#: Sipsettings.class.php:207
 msgid "SIP Legacy Settings [chan_sip]"
 msgstr ""
 
@@ -981,7 +981,7 @@ msgstr ""
 msgid "SIP Settings"
 msgstr ""
 
-#: Sipsettings.class.php:199
+#: Sipsettings.class.php:200
 msgid "SIP Settings [chan_pjsip]"
 msgstr ""
 
@@ -1046,7 +1046,7 @@ msgstr ""
 msgid "Strict RTP"
 msgstr ""
 
-#: Sipsettings.class.php:653
+#: Sipsettings.class.php:654
 msgid "Submit"
 msgstr ""
 
@@ -1198,11 +1198,11 @@ msgstr ""
 msgid "Unknown Error"
 msgstr ""
 
-#: Sipsettings.class.php:916
+#: Sipsettings.class.php:917
 msgid "Unknown Port Conflict"
 msgstr ""
 
-#: Sipsettings.class.php:460 Sipsettings.class.php:547
+#: Sipsettings.class.php:461 Sipsettings.class.php:548
 msgid "Unknown Type"
 msgstr ""
 
@@ -1295,7 +1295,7 @@ msgstr ""
 msgid "Yes with no error correction"
 msgstr ""
 
-#: Sipsettings.class.php:181
+#: Sipsettings.class.php:182
 msgid "You can change this on the Advanced Settings Page"
 msgstr ""
 
@@ -1327,7 +1327,7 @@ msgstr ""
 msgid "already exists"
 msgstr ""
 
-#: Sipsettings.class.php:177
+#: Sipsettings.class.php:178
 msgid "chan_pjsip and chan_sip"
 msgstr ""
 
@@ -1355,7 +1355,7 @@ msgstr ""
 msgid "route"
 msgstr ""
 
-#: functions.inc.php:372
+#: functions.inc.php:382
 msgid "rtpholdtimeout must be higher than rtptimeout"
 msgstr ""
 
