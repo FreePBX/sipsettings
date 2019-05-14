@@ -4,7 +4,7 @@
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<name>Asterisk SIP Settings</name>
-	<version>14.0.27.12</version>
+	<version>14.0.27.13</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>AGPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
@@ -16,6 +16,7 @@
 		Use to configure Various Asterisk SIP and PJSIP Settings
 	</description>
 	<changelog>
+		*14.0.27.13* FREEI-513 Can't Change The Default TLS Port Assignment to PJSIP 
 		*14.0.27.12* Fixing FREEPBX-19484 Reload issue 
 		*14.0.27.11* FREEPBX-17803 Allow changing of Endpoint identification matching priority in PJSIP 
 		*14.0.27.10* Revert RTP Defaults
