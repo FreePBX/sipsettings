@@ -24,11 +24,10 @@ $(document).ready(function() {
 		}
 		return checkBindConflicts();
 	});
-	$("#editSip #bindaddr").bind('input propertychange', function() {
+	$("#sip #bindaddr").bind('input propertychange', function() {
 		changed = true;
-		console.log(changed);
 	});
-	$("#editSip #bindport").bind('input propertychange', function() {
+	$("#sip #bindport").bind('input propertychange', function() {
 		changed = true;
 	})
 	$(".port").bind('input propertychange', function() {
@@ -224,15 +223,15 @@ function addCustomField(key, val) {
  * @return {bool} true if we can proceed, false otherwise
  */
 function checkBindConflicts() {
-	if($("#editSip").length > 0 && $("#pjsipform").length > 0) {
-		var sipaddr = $("#editSip #bindaddr").val(),
-				sipport = $("#editSip #bindport").val(),
-				submit = true;
+	if($("#sip").length > 0 && $("#pjsip").length > 0) {
+		var sipaddr = $("#sip #bindaddr").val(),
+			sipport = $("#sip #bindport").val(),
+			submit = true;
 
 		sipaddr = (sipaddr.trim() != "") ? sipaddr : '0.0.0.0';
 		sipport = (sipport.trim() != "") ? sipport : '5060';
 
-		$(".port").each(function() {
+		$(".port").each(function() {			
 			var ip = $(this).data("ip");
 			if(sipaddr == ip && sipport == $(this).val()) {
 				submit = false;
