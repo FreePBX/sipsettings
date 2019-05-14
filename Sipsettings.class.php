@@ -68,16 +68,17 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 	}
 
 	public function doConfigPageInit($display) {
-		// Before we hand off to the general POST,
-		// if someone has posted from the main page, the
-		// 'tlsportowner' will be set. If it is, make
-		// sure we do have it set correctly before the
-		// page is rendered.
-		if (isset($_REQUEST['tlsportowner'])) {
-			$this->updateTlsOwner($_REQUEST['tlsportowner']);
-		}
+		// we have to call this function before
+		//otherwise it will change the value which is
+		//inserted by updateTlsOwner.
+		$dbowner = $this->getTlsPortOwner();
+		set_prev_owner($dbowner);
 
 		$this->doGeneralPost();
+
+		if (isset($_REQUEST['tlsportowner']) && $dbowner != $_REQUEST['tlsportowner']) {
+			$this->updateTlsOwner($_REQUEST['tlsportowner']);
+		}
 
 		// Whenever someone visits the sipsettings page, we want to
 		// make sure there's no port conflicts.
@@ -1007,6 +1008,7 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 					if ($p == 5061) {
 						// It's a conflict. move to 5161
 						$this->setConfig($pjproto."port-".$ip, 5161);
+						needreload();
 					}
 				}
 			}
