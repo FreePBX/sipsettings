@@ -14,6 +14,12 @@ define('SIP_CODEC','1');
 define('SIP_VIDEO_CODEC','2');
 define('SIP_CUSTOM','9');
 
+
+function set_prev_owner($owner) {
+	global $prev_owner;
+	$prev_owner = $owner;
+}
+
 function sipsettings_process_errors($errors) {
 	foreach($errors as $error) {
 		$error_display[] = array(
@@ -345,8 +351,12 @@ function sipsettings_get($raw=false) {
 function sipsettings_edit($sip_settings) {
 	global $db;
 	global $amp_conf;
+	global $prev_owner;
 	$save_settings = array();
 	$save_to_admin = array(); // Used only by ALLOW_SIP_ANON for now
+	$chansip_val =  FreePBX::create()->Sipsettings()->getChanSipSettings();
+	$dbbindport = $chansip_val['tlsbindport'];
+	$req_owner = $_REQUEST['tlsportowner'];
 	$vd = new	sipsettings_validate();
 
 	// TODO: this is where I will build validation before saving
@@ -480,7 +490,11 @@ function sipsettings_edit($sip_settings) {
 			} else if (substr($key,0,15) == "sip_custom_val_") {
 				// skip it, we will seek it out when we see the sip_custom_key
 			} else {
-				$save_settings[] = array($key,$val,'0',SIP_NORMAL);
+				if (($key == 'tlsbindport') && ($req_owner == "sip") && (!(isset($prev_owner)) || ($prev_owner == "none"))) {
+					$save_settings[] = array($key,$dbbindport,'0',SIP_NORMAL);
+				} else {
+					$save_settings[] = array($key,$val,'0',SIP_NORMAL);
+				}
 			}
 		}
 	}
