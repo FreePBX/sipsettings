@@ -820,7 +820,7 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 					if ($p !== "udp") {
 						continue;
 					} else {
-						if ((int) $port === 5060) {
+						if ((int) $port === 5062) {
 							return "pjsip";
 						}
 					}
