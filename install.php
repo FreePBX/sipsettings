@@ -76,7 +76,8 @@ if(empty($rows)) {
 } else {
 	out(_("already exists"));
 }
-
+//let update the kvstore
+sql("UPDATE kvstore_Sipsettings SET type='json-arr' WHERE `key` ='pjsip_identifers_order'");
 //OK let's do some migrating for BMO
 $ss = $FreePBX->Sipsettings;
 if(!$ss->getConfig('rtpstart') || !$ss->getConfig('rtpend')) {
