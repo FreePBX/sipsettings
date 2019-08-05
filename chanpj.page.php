@@ -2,9 +2,10 @@
 global $currentcomponent;
 $sa = $this->getConfig('showadvanced');
 $pjsip_identifers_order_default = array(0=>'ip',1=>'username',2=>'anonymous',3=>'header',4=>'auth_username');
-$pjsip_identifers_json = $this->getConfig("pjsip_identifers_order");
-if($pjsip_identifers_json != ""){
-	$pjsip_identifers_order = json_decode($pjsip_identifers_json, true);
+$pjsip_identifers = $this->getConfig("pjsip_identifers_order");
+
+if(is_array($pjsip_identifers)){
+	$pjsip_identifers_order = $pjsip_identifers;
 } else {
 	$pjsip_identifers_order = $pjsip_identifers_order_default;
 }

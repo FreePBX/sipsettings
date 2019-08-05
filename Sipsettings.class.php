@@ -340,9 +340,7 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 			foreach($pjsip_identifers as $k=>$val){
 				$pjsip_identifers_filtered[$k] = substr($val,3);//stripping EI_ from sorted order values
 			}
-			//convert to json
-			$pjsip_identifers_order = json_encode($pjsip_identifers_filtered);
-			$this->setConfig('pjsip_identifers_order', $pjsip_identifers_order);
+			$this->setConfig('pjsip_identifers_order', $pjsip_identifers_filtered);
 		}
 		if (isset($_REQUEST['pjsipcertid'])) {
 			$this->setConfig('pjsipcertid', $_REQUEST['pjsipcertid']);
@@ -431,9 +429,8 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 		$ext->addGlobal('ALLOW_SIP_ANON', strtolower($this->getConfig("allowanon")));
 		$driver = $this->FreePBX->Config->get_conf_setting('ASTSIPDRIVER');
 		if ($driver == "chan_pjsip" || $driver == "both") {
-			$pjsip_identifers_json = $this->getConfig("pjsip_identifers_order");
-			if ($pjsip_identifers_json != "") {
-				$pjsip_identifers_order = json_decode($pjsip_identifers_json, true);
+			$pjsip_identifers_order = $this->getConfig("pjsip_identifers_order");
+			if (is_array($pjsip_identifers_order)) {
 				$endpoint_identifier_order = implode(',',$pjsip_identifers_order);
 				\FreePBX::Core()->getDriver('pjsip')->addGlobal('endpoint_identifier_order',$endpoint_identifier_order);
 			}
