@@ -4,7 +4,7 @@ $sa = $this->getConfig('showadvanced');
 $pjsip_identifers_order_default = array(0=>'ip',1=>'username',2=>'anonymous',3=>'header',4=>'auth_username');
 $pjsip_identifers = $this->getConfig("pjsip_identifers_order");
 
-if(is_array($pjsip_identifers)){
+if (is_array($pjsip_identifers) && !empty($pjsip_identifers)) {
 	$pjsip_identifers_order = $pjsip_identifers;
 } else {
 	$pjsip_identifers_order = $pjsip_identifers_order_default;
