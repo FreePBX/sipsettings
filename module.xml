@@ -4,7 +4,7 @@
   <candisable>no</candisable>
   <canuninstall>no</canuninstall>
   <name>Asterisk SIP Settings</name>
-  <version>15.0.6.12</version>
+  <version>15.0.6.13</version>
   <publisher>Sangoma Technologies Corporation</publisher>
   <license>AGPLv3+</license>
   <licenselink>https://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
@@ -24,6 +24,7 @@
       Use to configure Various Asterisk SIP and PJSIP Settings
   </description>
   <changelog>
+		*15.0.6.13* Related to FREEPBX-20414: removed $jobid from runRestore() 
 		*15.0.6.12* Fixing FREEPBX-20469 
 		*15.0.6.11* FREEPBX-20354 sipsettings setconfig json-arr error correction 
 		*15.0.6.10* FREEPBX-19942 Changing driver from chan_sip to both rewrites chan_sip ports 
