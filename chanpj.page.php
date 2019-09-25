@@ -186,7 +186,7 @@ foreach ($protocols as $p) {
 		</div>
 		<div class="row">
 			<div class="col-md-12">
-				<span id="allow_reload-help" class="help-block fpbx-help-block"><?php echo _("Allow transports to be reloaded when the PBX is reloaded")?></span>
+				<span id="allow_reload-help" class="help-block fpbx-help-block"><?php echo _("Allow transports to be reloaded when the PBX is reloaded.  Enabling this is not recommended, and may lead to issues.")?></span>
 			</div>
 		</div>
 	</div>
