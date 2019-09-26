@@ -4,7 +4,7 @@
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<name>Asterisk SIP Settings</name>
-	<version>14.0.27.16</version>
+	<version>14.0.27.17</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>AGPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
@@ -16,6 +16,7 @@
 		Use to configure Various Asterisk SIP and PJSIP Settings
 	</description>
 	<changelog>
+		*14.0.27.17* FREEI-733: Change allow_reload for pjsip to be No by default. 
 		*14.0.27.16* Fixing FREEPBX-20469 
 		*14.0.27.15* FREEPBX-20354 sipsettings setconfig json-arr error correction 
 		*14.0.27.14* FREEPBX-19942 Changing driver from chan_sip to both rewrites chan_sip ports 

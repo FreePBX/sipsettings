@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-05 12:00+0530\n"
+"POT-Creation-Date: 2019-09-26 10:14+0530\n"
 "PO-Revision-Date: 2019-05-11 16:00+0000\n"
 "Last-Translator: florian alberts <alberts@ar-systems.de>\n"
 "Language-Team: German <http://*/projects/freepbx/sipsettings/de/>\n"
@@ -87,10 +87,10 @@ msgid "Allow Transports Reload"
 msgstr "Erlaube Transport neu laden"
 
 #: chanpj.page.php:190
-msgid "Allow transports to be reloaded when the PBX is reloaded"
+msgid ""
+"Allow transports to be reloaded when the PBX is reloaded.  Enabling this is "
+"not recommended, and may lead to issues."
 msgstr ""
-"Erlaube, dass Transporte neu geladen werden, wenn PBX neu geladen wird "
-"(fwconsole -r)"
 
 #: general.page.php:65
 msgid ""
@@ -1278,6 +1278,11 @@ msgstr "ulaw, alaw, gsm, g726 hinzugefügt"
 #: chansip.page.php:160 chansip.page.php:431
 msgid "yes"
 msgstr "ja"
+
+#~ msgid "Allow transports to be reloaded when the PBX is reloaded"
+#~ msgstr ""
+#~ "Erlaube, dass Transporte neu geladen werden, wenn PBX neu geladen wird "
+#~ "(fwconsole -r)"
 
 #~ msgid "Allow Guests"
 #~ msgstr "Gäste zulassen"
