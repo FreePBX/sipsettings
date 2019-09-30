@@ -27,7 +27,7 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 		"tcpport-0.0.0.0" => "5160", // Defaults, only used if this is an upgrade
 		"udpport-0.0.0.0" => "5061",
 		"tlsport-0.0.0.0" => "5161",
-		"allow_reload" => "yes",
+		"allow_reload" => "no",
 		"debug" => "no",
 		"keep_alive_interval" => 90
 	);
@@ -340,6 +340,9 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 			$this->setConfig('pjsip_identifers_order', $pjsip_identifers_filtered);
 		}
 
+        if (isset($_REQUEST['allow_reload'])) {
+            $this->setConfig('pjsip_allow_reload', $_REQUEST['allow_reload']);
+        }
 
 		$ignoreImportedVars = array_merge($ignoreImportedVars,["display", "type", "category", "Submit"]);
 
