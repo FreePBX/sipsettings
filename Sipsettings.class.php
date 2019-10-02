@@ -344,6 +344,14 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
             $this->setConfig('pjsip_allow_reload', $_REQUEST['allow_reload']);
         }
 
+        if (isset($_REQUEST['verify_client'])) {
+            $this->setConfig('verify_client', $_REQUEST['verify_client']);
+        }
+
+        if (isset($_REQUEST['verify_server'])) {
+            $this->setConfig('verify_server', $_REQUEST['verify_server']);
+        }
+
 		$ignoreImportedVars = array_merge($ignoreImportedVars,["display", "type", "category", "Submit"]);
 
 		// This is in Request_Helper.class.php
