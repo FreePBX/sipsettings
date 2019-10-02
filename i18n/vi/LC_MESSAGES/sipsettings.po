@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-01 14:52+0530\n"
+"POT-Creation-Date: 2019-10-02 19:17+0530\n"
 "PO-Revision-Date: 2017-06-29 16:27-0400\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -103,7 +103,7 @@ msgid ""
 "An Error occurred trying fetch network configuration and external IP address"
 msgstr ""
 
-#: Sipsettings.class.php:917
+#: Sipsettings.class.php:925
 msgid ""
 "An unknown port conflict has been detected in PJSIP. Please check and "
 "validate your PJSIP Ports to ensure they're not overlapping"
@@ -195,15 +195,15 @@ msgstr ""
 msgid "CA Chain File"
 msgstr ""
 
-#: Sipsettings.class.php:931
+#: Sipsettings.class.php:939
 msgid "CHANSIP Port Moved"
 msgstr ""
 
-#: Sipsettings.class.php:941
+#: Sipsettings.class.php:949
 msgid "CHANSIP TCP Disabled"
 msgstr ""
 
-#: Sipsettings.class.php:952
+#: Sipsettings.class.php:960
 msgid "CHANSIP TLS Port Moved"
 msgstr ""
 
@@ -227,21 +227,21 @@ msgstr ""
 msgid "Chan SIP"
 msgstr ""
 
-#: Sipsettings.class.php:952
+#: Sipsettings.class.php:960
 #, php-format
 msgid ""
 "Chansip was assigned a port that was already in use for TLS traffic. The "
 "Chansip TLS port has been changed to %s"
 msgstr ""
 
-#: Sipsettings.class.php:941
+#: Sipsettings.class.php:949
 msgid ""
 "Chansip was assigned the same port as pjsip for TCP traffic. Chansip has had "
 "the tcpenable setting removed, and is no longer listening for TCP "
 "connections."
 msgstr ""
 
-#: Sipsettings.class.php:931
+#: Sipsettings.class.php:939
 #, php-format
 msgid ""
 "Chansip was assigned the same port as pjsip for UDP traffic. The Chansip "
@@ -850,7 +850,7 @@ msgstr ""
 msgid "Require verification of server certificate (TLS ONLY)."
 msgstr ""
 
-#: Sipsettings.class.php:649
+#: Sipsettings.class.php:657
 msgid "Reset"
 msgstr ""
 
@@ -933,7 +933,7 @@ msgstr ""
 msgid "Strict RTP"
 msgstr ""
 
-#: Sipsettings.class.php:654
+#: Sipsettings.class.php:662
 msgid "Submit"
 msgstr ""
 
@@ -1085,11 +1085,11 @@ msgstr ""
 msgid "Unknown Error"
 msgstr ""
 
-#: Sipsettings.class.php:917
+#: Sipsettings.class.php:925
 msgid "Unknown Port Conflict"
 msgstr ""
 
-#: Sipsettings.class.php:461 Sipsettings.class.php:548
+#: Sipsettings.class.php:469 Sipsettings.class.php:556
 msgid "Unknown Type"
 msgstr ""
 
