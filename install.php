@@ -113,7 +113,15 @@ if(DB::IsError($check)) {
 	out(_("already exists"));
 }
 //let update the kvstore
-sql("UPDATE kvstore_Sipsettings SET type='json-arr' WHERE `key` ='pjsip_identifers_order'");
+$db 	= FreePBX::Database();
+$stm 	= $db->prepare("SELECT `TABLE_NAME` FROM information_schema.TABLES WHERE `TABLE_NAME` = 'kvstore_Sipsettings'");
+$stm->execute();
+$ret 	= $stm->fetch(\PDO::FETCH_ASSOC);
+if(!empty($ret["TABLE_NAME"])){
+	out(_("Updating kvstore_Sipsettings"));
+	sql("UPDATE kvstore_Sipsettings SET type='json-arr' WHERE `key` ='pjsip_identifers_order'");
+}
+
 //OK let's do some migrating for BMO
 $ss = FreePBX::Sipsettings();
 if(!$ss->getConfig('rtpstart') || !$ss->getConfig('rtpend')) {
