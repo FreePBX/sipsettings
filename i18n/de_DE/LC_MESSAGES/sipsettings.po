@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-26 10:14+0530\n"
+"POT-Creation-Date: 2019-11-09 21:09+0530\n"
 "PO-Revision-Date: 2019-05-11 16:00+0000\n"
 "Last-Translator: florian alberts <alberts@ar-systems.de>\n"
 "Language-Team: German <http://*/projects/freepbx/sipsettings/de/>\n"
@@ -685,27 +685,27 @@ msgid ""
 "change with future releases."
 msgstr ""
 
-#: install.php:120
+#: install.php:128
 msgid "Migrate rtp.conf values if needed and initialize"
 msgstr ""
 
-#: install.php:218
+#: install.php:226
 msgid "Migrating Audio Codecs"
 msgstr ""
 
-#: install.php:171
+#: install.php:179
 msgid "Migrating LocalNets and Netmasks"
 msgstr ""
 
-#: install.php:238
+#: install.php:246
 msgid "Migrating Video Codecs"
 msgstr ""
 
-#: install.php:146
+#: install.php:154
 msgid "Migrating rtpend Setting from Old Format to BMO Object"
 msgstr ""
 
-#: install.php:132
+#: install.php:140
 msgid "Migrating rtpstart Setting from Old Format to BMO Object"
 msgstr ""
 
@@ -1098,6 +1098,10 @@ msgstr ""
 msgid "Unknown Type"
 msgstr "Unbekannter Typ"
 
+#: install.php:121
+msgid "Updating kvstore_Sipsettings"
+msgstr ""
+
 #: chanpj.page.php:76
 msgid "Use "
 msgstr "Verwende "
@@ -1266,7 +1270,7 @@ msgstr "Route"
 msgid "rtpholdtimeout must be higher than rtptimeout"
 msgstr "rtpholdtimeout muss höher als rtptimeout sein"
 
-#: install.php:128 install.php:142
+#: install.php:136 install.php:150
 #, php-format
 msgid "saving previous value of %s"
 msgstr "speichere den vorherigen Wert von %s"
