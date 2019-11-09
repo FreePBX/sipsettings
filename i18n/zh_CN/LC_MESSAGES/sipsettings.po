@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-02 19:17+0530\n"
+"POT-Creation-Date: 2019-11-09 21:13+0530\n"
 "PO-Revision-Date: 2015-02-20 20:00-0500\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -652,27 +652,27 @@ msgid ""
 "change with future releases."
 msgstr ""
 
-#: install.php:84
+#: install.php:92
 msgid "Migrate rtp.conf values if needed and initialize"
 msgstr ""
 
-#: install.php:182
+#: install.php:190
 msgid "Migrating Audio Codecs"
 msgstr ""
 
-#: install.php:135
+#: install.php:143
 msgid "Migrating LocalNets and Netmasks"
 msgstr ""
 
-#: install.php:202
+#: install.php:210
 msgid "Migrating Video Codecs"
 msgstr ""
 
-#: install.php:110
+#: install.php:118
 msgid "Migrating rtpend Setting from Old Format to BMO Object"
 msgstr ""
 
-#: install.php:96
+#: install.php:104
 msgid "Migrating rtpstart Setting from Old Format to BMO Object"
 msgstr ""
 
@@ -1092,6 +1092,10 @@ msgstr ""
 msgid "Unknown Type"
 msgstr ""
 
+#: install.php:85
+msgid "Updating kvstore_Sipsettings"
+msgstr ""
+
 #: chanpj.page.php:76
 msgid "Use "
 msgstr ""
@@ -1245,7 +1249,7 @@ msgstr ""
 msgid "rtpholdtimeout must be higher than rtptimeout"
 msgstr ""
 
-#: install.php:92 install.php:106
+#: install.php:100 install.php:114
 #, php-format
 msgid "saving previous value of %s"
 msgstr ""
