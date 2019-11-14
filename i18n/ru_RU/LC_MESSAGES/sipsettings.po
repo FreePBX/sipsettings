@@ -827,7 +827,7 @@ msgid ""
 "Note that the interface is only displayed for your information, and is not "
 "referenced by asterisk."
 msgstr ""
-"Обратите внимание на то, что интерфейс только показан для информации и не "
+"Обратите внимание на то, что интерфейс показан только для информации и не "
 "ссылается на Астериск."
 
 #: chansip.page.php:234
@@ -855,7 +855,7 @@ msgid ""
 "outages."
 msgstr ""
 "Количество попыток регистрации после чего они будут прекращены. Значение 0 "
-"означает, что попытки регистрации будут делаться постоянно. Обычно это "
+"означает, что попытки регистрации будут выполняться постоянно. Обычно "
 "всегда ставится в 0 чтобы Астериск всё время продолжал попытки до тех пор, "
 "пока не зарегистрируется, это эффективно при отказах в сети или "
 "неработоспособности шлюза."
@@ -881,7 +881,7 @@ msgid ""
 "Password used to authenticate with TURN relay server. This option is "
 "disabled by default."
 msgstr ""
-"Пароль, используемый для аутентификации на TURN релей сервере. Эта опция "
+"Пароль, используемый для аутентификации на TURN сервере. Эта опция "
 "отключена по умолчанию."
 
 #: chanpj.page.php:97
@@ -938,11 +938,11 @@ msgstr "Время действия регистрации по умолчани
 
 #: chansip.page.php:617
 msgid "Registration Maximum Expiry"
-msgstr ""
+msgstr "Максимальный срок действия регистрации"
 
 #: chansip.page.php:593
 msgid "Registration Minimum Expiry"
-msgstr ""
+msgstr "Минимальный срок действия регистрации"
 
 #: chansip.page.php:535
 msgid "Registration Settings"
@@ -987,7 +987,7 @@ msgstr "Информация о SIP драйвере"
 
 #: chanpj.page.php:317 chansip.page.php:347
 msgid "SSL Method"
-msgstr ""
+msgstr "Метод SSL"
 
 #: general.page.php:397 general.page.php:582
 msgid "STUN Server Address"
@@ -1003,13 +1003,15 @@ msgstr "Настройки безопасности"
 
 #: chanpj.page.php:298 chansip.page.php:329
 msgid "Select a Certificate"
-msgstr ""
+msgstr "Выбор сертификата"
 
 #: chanpj.page.php:308 chansip.page.php:339
 msgid ""
 "Select a certificate to use for the TLS transport. These are configured in "
 "the module Certificate Manager"
 msgstr ""
+"Выберите сертификат, который будет использоваться для транспорта TLS. Они настраиваются "
+"в модуле Certificate Manager"
 
 #: general.page.php:380
 msgid ""
@@ -1048,11 +1050,11 @@ msgstr "Строгий RTP"
 
 #: Sipsettings.class.php:653
 msgid "Submit"
-msgstr "Сохранить"
+msgstr "Применить"
 
 #: chansip.page.php:38 general.page.php:20
 msgid "Submit Changes"
-msgstr "Сохранить изменения"
+msgstr "Применить изменения"
 
 #: general.page.php:498
 msgid ""
@@ -1077,15 +1079,15 @@ msgstr ""
 
 #: chansip.page.php:903
 msgid "TLS Bind Address"
-msgstr ""
+msgstr "Адрес привязки TLS"
 
 #: chansip.page.php:923
 msgid "TLS Bind Port"
-msgstr ""
+msgstr "Порт привязки TLS"
 
 #: chanpj.page.php:248 chansip.page.php:296
 msgid "TLS/SSL/SRTP Settings"
-msgstr ""
+msgstr "Настройки TLS/SSL/SRTP"
 
 #: general.page.php:421 general.page.php:606
 msgid "TURN Server Address"
@@ -1159,11 +1161,11 @@ msgstr ""
 
 #: general.page.php:500 general.page.php:544
 msgid "This is most commonly used for WebRTC"
-msgstr ""
+msgstr "Это чаще всего используется для WebRTC"
 
 #: general.page.php:717
 msgid "This is the default Codec setting for new Trunks and Extensions."
-msgstr "Это значение кодека по умолчанию для новых внешних и внутренних линий."
+msgstr "Значение настроек кодека по умолчанию для новых внешних и внутренних линий."
 
 #: general.page.php:146
 msgid ""
@@ -1199,7 +1201,7 @@ msgstr "Неизвестная ошибка"
 
 #: Sipsettings.class.php:916
 msgid "Unknown Port Conflict"
-msgstr ""
+msgstr "Неизвестный конфликт портов"
 
 #: Sipsettings.class.php:460 Sipsettings.class.php:547
 msgid "Unknown Type"
@@ -1227,11 +1229,11 @@ msgstr ""
 
 #: chanpj.page.php:342
 msgid "Verify Client"
-msgstr ""
+msgstr "Проверка клиента"
 
 #: chanpj.page.php:363
 msgid "Verify Server"
-msgstr ""
+msgstr "Проверка сервера"
 
 #: general.page.php:804 general.page.php:842 general.page.php:876
 msgid "Video Codecs"
@@ -1243,15 +1245,15 @@ msgstr "Поддержка видео"
 
 #: general.page.php:572
 msgid "WebRTC Settings"
-msgstr ""
+msgstr "Настройки WebRTC"
 
 #: general.page.php:494
 msgid "What is ICE Blacklist?"
-msgstr ""
+msgstr "Что такое Черный список ICE?"
 
 #: general.page.php:537
 msgid "What is ICE Host Candidates?"
-msgstr ""
+msgstr "Кто такие хосты-кандидаты ICE?"
 
 #: general.page.php:541
 msgid ""
@@ -1348,7 +1350,7 @@ msgstr "уже существует"
 
 #: Sipsettings.class.php:175
 msgid "chan_pjsip and chan_sip"
-msgstr ""
+msgstr "chan_pjsip и chan_sip"
 
 #: install.php:21
 msgid "checking for sipsettings table.."
@@ -1382,7 +1384,7 @@ msgstr "указание кодеков по умолчанию.."
 
 #: chansip.page.php:166
 msgid "route"
-msgstr "route"
+msgstr "маршрут"
 
 #: functions.inc.php:377
 msgid "rtpholdtimeout must be higher than rtptimeout"
@@ -1462,12 +1464,12 @@ msgstr "да"
 #~ "messages. In the past CHAN_SIP was defaulted to port 5060, in new "
 #~ "installs this is defaulted to 5061"
 #~ msgstr ""
-#~ "Локальный порт UDP для входящих сигнальных сообщений SIP, на котором "
+#~ "Локальный порт UDP для входящих сигнальных сообщений SIP, который "
 #~ "слушает Астериск. В прошлом для CHAN_SIP по умолчанию был 5060, в новых "
 #~ "инсталляциях теперь это 5061 по умолчанию"
 
 #~ msgid "chan_pjsip support NOT FOUND."
-#~ msgstr "Поддержка chan_pjsip не найдена."
+#~ msgstr "Поддержка chan_pjsip НЕ НАЙДЕНА."
 
 #~ msgid "chan_pjsip support detected. Enabling."
 #~ msgstr "Поддержка chan_pjsip обнаружена. Включено."
@@ -1485,7 +1487,7 @@ msgstr "да"
 #~ "Asterisk 1.8 all supports IPv6. An address of '::' will listen on both "
 #~ "IPv4 and IPv6."
 #~ msgstr ""
-#~ "Asterisk 1.8 поддерживает IPv6. Адрес '::' используется для одноврменной "
+#~ "Asterisk 1.8 поддерживает IPv6. Адрес '::' используется для одновременной "
 #~ "работы IPv4 и IPv6."
 
 #~ msgid ""
@@ -1497,8 +1499,8 @@ msgstr "да"
 #~ "the call attempts and debug incoming calls that may be mis-configured and "
 #~ "appearing as guests."
 #~ msgstr ""
-#~ "Астериск: allowguest. Когда установлено, Астериск разрешит гостям SIP "
-#~ "вызовы и отправит их в контекст по умолчанию SIP. Отключение позволит "
+#~ "Астериск: allowguest. Когда установлено, Астериск разрешит гостевые SIP "
+#~ "вызовы и отправит их в контекст по умолчанию для SIP. Отключение позволит "
 #~ "удержать анонимные SIP звонки от входа в систему. Это можно так же "
 #~ "остановить отключением 'Разрешить анонимные входящие SIP звонки'. "
 #~ "Разрешая гостевые звонки, но отвергая анонимные SIP звонки, вы можете "
@@ -1539,7 +1541,7 @@ msgstr "да"
 #~ "the Allow Anonymous SIP calls. If you change this you will effect that "
 #~ "behavior. It is recommended to leave this blank."
 #~ msgstr ""
-#~ "Параметр Asterisk: context. Дефолтный контекст для входящих звонков если "
+#~ "Параметр Asterisk: context. Контекст по-умолчанию для входящих звонков если "
 #~ "не указан во FreePBX на from-sip-external, в котором обрабатываются "
 #~ "входяшие в соответствии с опцией Разрешить анонимные SIP звонки."
 
