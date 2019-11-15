@@ -1183,6 +1183,18 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 			->fetchAll(PDO::FETCH_ASSOC);
 	}
 
+	public function dumpKVStore($ids=false) {
+		if(!is_array($ids)) {
+			$ids = $this->getAllids();
+			$ids[] = 'noid';
+		}
+		$final = [];
+		foreach($ids as $id) {
+			$final[$id] = $this->getAll($id);
+		}
+		return $final;
+	}
+
 	public function loadDbConfigs($configs){
 		$stmt = $this->Database->prepare("REPLACE INTO sipsettings (keyword, data, seq, type) VALUES (:keyword, :data, :seq, :type)");
 		if (!empty($configs)) {
