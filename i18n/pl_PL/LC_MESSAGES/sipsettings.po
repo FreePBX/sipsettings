@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-09 21:13+0530\n"
+"POT-Creation-Date: 2019-11-15 09:56+0530\n"
 "PO-Revision-Date: 2017-06-07 15:50+0200\n"
 "Last-Translator: Michal <mboltz@tlen.pl>\n"
 "Language-Team: Polish (Polish) <http://weblate.freepbx.org/projects/freepbx/"
@@ -479,6 +479,18 @@ msgstr "Wprowadź adres IP"
 #, perl-format
 msgid "Error: %s"
 msgstr "Błąd: %s"
+
+#: Restore.php:17
+msgid "Excluding Bind address"
+msgstr ""
+
+#: Restore.php:29
+msgid "Excluding Nat settings 'externip' "
+msgstr ""
+
+#: Restore.php:25
+msgid "Excluding Nat settings 'localnets' "
+msgstr ""
 
 #: general.page.php:165
 msgid "External Address"
@@ -1372,6 +1384,10 @@ msgstr ""
 
 #: install.php:65
 msgid "ulaw, alaw, gsm, g726 added"
+msgstr ""
+
+#: Restore.php:12
+msgid "warmspare enabled"
 msgstr ""
 
 #: chansip.page.php:161 chansip.page.php:432

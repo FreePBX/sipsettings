@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-09 21:13+0530\n"
+"POT-Creation-Date: 2019-11-15 09:56+0530\n"
 "PO-Revision-Date: 2017-05-23 13:16+0200\n"
 "Last-Translator: Kenichi <k.fukaumi@qloog.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/"
@@ -476,6 +476,18 @@ msgstr ""
 #: assets/js/sipsettings.js:265 assets/js/sipsettings.js:268
 #, perl-format
 msgid "Error: %s"
+msgstr ""
+
+#: Restore.php:17
+msgid "Excluding Bind address"
+msgstr ""
+
+#: Restore.php:29
+msgid "Excluding Nat settings 'externip' "
+msgstr ""
+
+#: Restore.php:25
+msgid "Excluding Nat settings 'localnets' "
 msgstr ""
 
 #: general.page.php:165
@@ -1337,6 +1349,10 @@ msgstr "%sの前の値を保存中…"
 
 #: install.php:65
 msgid "ulaw, alaw, gsm, g726 added"
+msgstr ""
+
+#: Restore.php:12
+msgid "warmspare enabled"
 msgstr ""
 
 #: chansip.page.php:161 chansip.page.php:432

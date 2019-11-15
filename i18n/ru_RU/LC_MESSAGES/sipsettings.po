@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-09 21:13+0530\n"
+"POT-Creation-Date: 2019-11-15 09:56+0530\n"
 "PO-Revision-Date: 2015-12-05 10:05+0200\n"
 "Last-Translator: Andrew <andrew.nagy@the159.com>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/"
@@ -485,6 +485,18 @@ msgstr "Введите ИП адрес"
 #, perl-format
 msgid "Error: %s"
 msgstr "Ошибка: %s"
+
+#: Restore.php:17
+msgid "Excluding Bind address"
+msgstr ""
+
+#: Restore.php:29
+msgid "Excluding Nat settings 'externip' "
+msgstr ""
+
+#: Restore.php:25
+msgid "Excluding Nat settings 'localnets' "
+msgstr ""
 
 #: general.page.php:165
 msgid "External Address"
@@ -1422,6 +1434,10 @@ msgstr "сохранение предыдущего значения из %s"
 #: install.php:65
 msgid "ulaw, alaw, gsm, g726 added"
 msgstr "ulaw, alaw, gsm, g726 добавлены"
+
+#: Restore.php:12
+msgid "warmspare enabled"
+msgstr ""
 
 #: chansip.page.php:161 chansip.page.php:432
 msgid "yes"
