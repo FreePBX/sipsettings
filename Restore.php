@@ -14,8 +14,33 @@ class Restore Extends Base\RestoreBase{
 				//bindaddress settings
 				if($backupinfo['warmspare_remotebind'] =='yes') {
 					if($key == 'bindaddr') {
-						$this->log(_("Excluding Bind address"));
-						$settings['database']['bindaddr'] = $localsettings['database']['bindaddr'];
+						$settings['kvstore']['noid'][$key] = $localsettings['kvstore']['noid'][$key];
+					}
+					if($key == 'bindport') {
+						$settings['kvstore']['noid'][$key] = $localsettings['kvstore']['noid'][$key];
+					}
+					if($key == 'tlsbindaddr') {
+						$settings['kvstore']['noid'][$key] = $localsettings['kvstore']['noid'][$key];
+					}
+					if($key == 'tlsbindport') {
+						$settings['kvstore']['noid'][$key] = $localsettings['kvstore']['noid'][$key];
+					}
+					if($key == 'tcpextip-0.0.0.0') {
+						$settings['kvstore']['noid'][$key] = $localsettings['kvstore']['noid'][$key];
+					}
+					if($key == 'tcplocalnet-0.0.0.0') {
+						$settings['kvstore']['noid'][$key] = $localsettings['kvstore']['noid'][$key];
+					}
+					if($key == 'tcpport-0.0.0.0') {
+						$settings['kvstore']['noid'][$key] = $localsettings['kvstore']['noid'][$key];
+					}
+					if($key == 'udpextip-0.0.0.0') {
+						$settings['kvstore']['noid'][$key] = $localsettings['kvstore']['noid'][$key];
+					}
+					if($key == 'udplocalnet-0.0.0.0') {
+						$settings['kvstore']['noid'][$key] = $localsettings['kvstore']['noid'][$key];
+					}
+					if($key == 'udpport-0.0.0.0') {
 						$settings['kvstore']['noid'][$key] = $localsettings['kvstore']['noid'][$key];
 					}
 				}
@@ -28,6 +53,31 @@ class Restore Extends Base\RestoreBase{
 					if($key == 'externip') {
 						$this->log(_("Excluding Nat settings 'externip' "));
 						$settings['kvstore']['noid'][$key] = $localsettings['kvstore']['noid'][$key];
+					}
+				}
+			}
+			//get the local values
+			$localsdbbinds = [];
+			foreach($localsettings['database'] as $key => $val) {
+				$localsdbbinds[$val['keyword']] = $val['data'];
+			}
+			foreach($settings['database'] as $key => $val) {
+				if($backupinfo['warmspare_remotebind'] =='yes') {
+					if($val['keyword'] == 'bindaddr') {
+						$val['data'] = $localsdbbinds[$val['keyword']];
+						$settings['database'][$key] = $val;
+					}
+					if($val['keyword'] == 'tlsbindaddr') {
+						$val['data'] = $localsdbbinds[$val['keyword']];
+						$settings['database'][$key] = $val;
+					}
+					if($val['keyword'] == 'tlsbindport') {
+						$val['data'] = $localsdbbinds[$val['keyword']];
+						$settings['database'][$key] = $val;
+					}
+					if($val['keyword'] == 'bindport') {
+						$val['data'] = $localsdbbinds[$val['keyword']];
+						$settings['database'][$key] = $val;
 					}
 				}
 			}
