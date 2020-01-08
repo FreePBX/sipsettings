@@ -88,6 +88,9 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 		// the post handler above, so it fixes things that users may have
 		// entered incorrectly.
 		$this->validateNoPortConflicts();
+		//Check PJSIP Allow Transports Reload value and display the
+		// notification on dashboard.
+		$this->checkPjsipTpReload();
 	}
 
 	/**
@@ -1168,5 +1171,15 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 			}
 		}
 		return $interfaces;
+	}
+
+	private function checkPjsipTpReload() {
+		$reloadValue = $this->getConfig("pjsip_allow_reload");
+		if($reloadValue == "yes") {
+			$this->FreePBX->Notifications->add_error("sipsettings", "PJSIPTPRELOAD", _("PJSIP 'Allow Transports Reload' option is set to yes."), _("It is recommended that this option remain disabled"),"config.php?display=sipsettings",true);
+		}
+		else {
+			$this->FreePBX->Notifications->delete("sipsettings","PJSIPTPRELOAD");
+		}
 	}
 }
