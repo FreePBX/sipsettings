@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-08 14:31+0530\n"
+"POT-Creation-Date: 2020-01-10 16:11+0530\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -556,7 +556,7 @@ msgid "Insecure"
 msgstr ""
 
 #: Sipsettings.class.php:1221
-msgid "It is recommended that this option remain disabled"
+msgid "It is recommended that this option remain set to no."
 msgstr ""
 
 #: chansip.page.php:753
