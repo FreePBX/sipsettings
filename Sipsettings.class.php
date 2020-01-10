@@ -1218,7 +1218,7 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 	private function checkPjsipTpReload() {
 		$reloadValue = $this->getConfig("pjsip_allow_reload");
 		if($reloadValue == "yes") {
-			$this->FreePBX->Notifications->add_error("sipsettings", "PJSIPTPRELOAD", _("PJSIP 'Allow Transports Reload' option is set to yes."), _("It is recommended that this option remain disabled"),"config.php?display=sipsettings",true);
+			$this->FreePBX->Notifications->add_error("sipsettings", "PJSIPTPRELOAD", _("PJSIP 'Allow Transports Reload' option is set to yes."), _("It is recommended that this option remain set to no."),"config.php?display=sipsettings",true);
 		}
 		else {
 			$this->FreePBX->Notifications->delete("sipsettings","PJSIPTPRELOAD");
