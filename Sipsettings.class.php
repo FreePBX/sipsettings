@@ -628,6 +628,15 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 		// Delete the key we want to change
 		$del = $db->prepare('DELETE FROM `sipsettings` WHERE `keyword`=? AND `data`=? AND `type`=9');
 		$del->execute(array($key, $val));
+		// need to rearrange the seq
+		 $sql = "SELECT `keyword`, `data`, `type`, `seq` FROM `sipsettings` WHERE type = 9 ORDER BY `type`, `seq`";
+		$raw_settings = sql($sql,"getAll",DB_FETCHMODE_ASSOC);
+		$del = $db->prepare('DELETE FROM `sipsettings` WHERE `type`=9');
+		$del->execute(array(9));
+		foreach($raw_settings as $seq=>$row) {
+			$ins = $db->prepare('INSERT INTO `sipsettings` (`keyword`, `data`, `type`, `seq`) VALUES (?, ?, ?, ?)');
+			$ins->execute(array($row['keyword'], $row['data'], 9, $seq));
+		}
 	}
 
 	// BMO Hooks.
