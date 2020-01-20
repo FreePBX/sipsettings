@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-10 16:06+0530\n"
+"POT-Creation-Date: 2020-01-20 19:00+0530\n"
 "PO-Revision-Date: 2015-12-05 10:05+0200\n"
 "Last-Translator: Andrew <andrew.nagy@the159.com>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/"
@@ -134,7 +134,7 @@ msgid ""
 "An Error occurred trying fetch network configuration and external IP address"
 msgstr "Ошибка получения сетевой конфигурации и внешний IP-адреса"
 
-#: Sipsettings.class.php:919
+#: Sipsettings.class.php:928
 msgid ""
 "An unknown port conflict has been detected in PJSIP. Please check and "
 "validate your PJSIP Ports to ensure they're not overlapping"
@@ -255,15 +255,15 @@ msgstr "Порт привязки (bindport). Адрес порта должен
 msgid "CA Chain File"
 msgstr ""
 
-#: Sipsettings.class.php:933
+#: Sipsettings.class.php:942
 msgid "CHANSIP Port Moved"
 msgstr ""
 
-#: Sipsettings.class.php:943
+#: Sipsettings.class.php:952
 msgid "CHANSIP TCP Disabled"
 msgstr ""
 
-#: Sipsettings.class.php:954
+#: Sipsettings.class.php:963
 msgid "CHANSIP TLS Port Moved"
 msgstr ""
 
@@ -295,21 +295,21 @@ msgstr ""
 msgid "Chan SIP Settings"
 msgstr "Установки канала SIP"
 
-#: Sipsettings.class.php:954
+#: Sipsettings.class.php:963
 #, php-format
 msgid ""
 "Chansip was assigned a port that was already in use for TLS traffic. The "
 "Chansip TLS port has been changed to %s"
 msgstr ""
 
-#: Sipsettings.class.php:943
+#: Sipsettings.class.php:952
 msgid ""
 "Chansip was assigned the same port as pjsip for TCP traffic. Chansip has had "
 "the tcpenable setting removed, and is no longer listening for TCP "
 "connections."
 msgstr ""
 
-#: Sipsettings.class.php:933
+#: Sipsettings.class.php:942
 #, php-format
 msgid ""
 "Chansip was assigned the same port as pjsip for UDP traffic. The Chansip "
@@ -636,7 +636,7 @@ msgstr ""
 msgid "Insecure"
 msgstr ""
 
-#: Sipsettings.class.php:1179
+#: Sipsettings.class.php:1188
 msgid "It is recommended that this option remain set to no."
 msgstr ""
 
@@ -872,7 +872,7 @@ msgstr "Другие настройки SIP"
 msgid "Override External IP"
 msgstr "Переопределить внешний IP"
 
-#: Sipsettings.class.php:1179
+#: Sipsettings.class.php:1188
 msgid "PJSIP 'Allow Transports Reload' option is set to yes."
 msgstr ""
 
@@ -972,7 +972,7 @@ msgstr ""
 msgid "Require verification of server certificate (TLS ONLY)."
 msgstr ""
 
-#: Sipsettings.class.php:651
+#: Sipsettings.class.php:660
 msgid "Reset"
 msgstr "Сброс"
 
@@ -1054,7 +1054,7 @@ msgstr "Статический ИП"
 msgid "Strict RTP"
 msgstr "Строгий RTP"
 
-#: Sipsettings.class.php:656
+#: Sipsettings.class.php:665
 msgid "Submit"
 msgstr "Сохранить"
 
@@ -1205,7 +1205,7 @@ msgstr ""
 msgid "Unknown Error"
 msgstr "Неизвестная ошибка"
 
-#: Sipsettings.class.php:919
+#: Sipsettings.class.php:928
 msgid "Unknown Port Conflict"
 msgstr ""
 

@@ -4,7 +4,7 @@
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<name>Asterisk SIP Settings</name>
-	<version>14.0.27.22</version>
+	<version>14.0.27.23</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>AGPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
@@ -16,6 +16,7 @@
 		Use to configure Various Asterisk SIP and PJSIP Settings
 	</description>
 	<changelog>
+		*14.0.27.23* FREEPBX-20853 Deleting items from "Other SIP Settings" 
 		*14.0.27.22* FREEI-1061 PJSIP 'Allow Transports Reload' dashboard warning 
 		*14.0.27.21* FREEI-1061 PJSIP 'Allow Transports Reload' dashboard warning 
 		*14.0.27.20* Fixing FREEPBX-20933 
