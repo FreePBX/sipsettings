@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-20 19:00+0530\n"
-"PO-Revision-Date: 2020-02-01 18:00+0000\n"
-"Last-Translator: hammer125 <auswertung@mariner.at>\n"
+"PO-Revision-Date: 2020-02-05 11:00+0000\n"
+"Last-Translator: florian alberts <alberts@ar-systems.de>\n"
 "Language-Team: German <http://*/projects/freepbx/sipsettings/de/>\n"
 "Language: de_DE\n"
 "MIME-Version: 1.0\n"
@@ -107,6 +107,19 @@ msgid ""
 "If that context is changed above to something custom this setting may be "
 "rendered useless as well as if 'Allow SIP Guests' is set to no."
 msgstr ""
+"Das Zulassen anonymer eingehender SIP-Anrufe bedeutet, dass Sie zulassen, "
+"dass alle Anrufe, die von einer unbekannten IP-Quelle eingehen, an die \"von-"
+"pstn\"/\"from-pstn\" -Seite Ihres Wählplans geleitet werden. Hier kommen "
+"eingehende Anrufe ins Spiel. Obwohl FreePBX den Zugriff auf den internen "
+"Wählplan stark einschränkt, führt das Zulassen von anonymen SIP-Anrufen zu "
+"zusätzlichen Sicherheitsrisiken. Wenn Sie die SIP-URI-Anwahl für Ihre TK-"
+"Anlage zulassen oder Dienste wie ENUM verwenden, müssen Sie diese "
+"Einstellung auf Ja setzen, damit eingehender Datenverkehr funktioniert. Dies "
+"ist KEINE Asterisk-sip.conf-Einstellung, sie wird im Wählplan in Verbindung "
+"mit dem Standardkontext verwendet. Wenn dieser Kontext in einen "
+"benutzerdefinierten Kontext geändert wird, wird diese Einstellung "
+"möglicherweise unbrauchbar und wenn \"SIP-Gäste zulassen\" auf \"Nein\" "
+"gesetzt ist."
 
 #: assets/js/sipsettings.js:168
 msgid ""
@@ -237,7 +250,7 @@ msgstr "Zertifikat-Datei"
 
 #: chanpj.page.php:293 chansip.page.php:324
 msgid "Certificate Manager"
-msgstr "Zertifikatverwaltung"
+msgstr "Zertifikatsverwaltung"
 
 #: Sipsettings.class.php:207
 msgid "Chan PJSIP Settings"
@@ -845,7 +858,7 @@ msgstr ""
 
 #: general.page.php:225
 msgid "RTP Settings"
-msgstr ""
+msgstr "RTP-Einstellungen"
 
 #: general.page.php:320
 msgid "RTP Timeout"
@@ -899,7 +912,7 @@ msgstr ""
 
 #: page.sipsettings.php:15
 msgid "SIP Settings"
-msgstr ""
+msgstr "SIP-Einstellungen"
 
 #: page.sipsettings.php:16
 msgid "SIP driver information"
@@ -919,7 +932,7 @@ msgstr "Sekunden"
 
 #: general.page.php:44
 msgid "Security Settings"
-msgstr ""
+msgstr "Sicherheitseinstellungen"
 
 #: chanpj.page.php:298 chansip.page.php:329
 msgid "Select a Certificate"
@@ -952,7 +965,7 @@ msgstr "Erweiterte Einstellungen anzeigen"
 
 #: general.page.php:241
 msgid "Start"
-msgstr ""
+msgstr "Start"
 
 #: chansip.page.php:193
 msgid "Static IP"
@@ -979,6 +992,14 @@ msgid ""
 "necessary for ICE. Multiple subnets may be listed. If left unconfigured, all "
 "discovered host addresses are used."
 msgstr ""
+"Subnetze, die von der ICE-Host-, SRFLX- und Relay-Erkennung ausgeschlossen "
+"werden sollen. Dies ist nützlich, um den ICE-Prozess zu optimieren, wenn ein "
+"System über mehrere Hostadressbereiche und / oder physische Schnittstellen "
+"verfügt und von einigen nicht erwartet wird, dass sie für RTP verwendet "
+"werden. Beispielsweise sind VPNs und lokale Verbindungen möglicherweise "
+"nicht für ICE geeignet oder erforderlich. Es können mehrere Subnetze "
+"aufgelistet sein. Wenn nicht konfiguriert, werden alle erkannten "
+"Hostadressen verwendet."
 
 #: general.page.php:683
 msgid "T38 Pass-Through"
@@ -1028,6 +1049,11 @@ msgid ""
 "case of a phone disappearing from the net, like a powerloss or someone "
 "tripping over a cable."
 msgstr ""
+"Beenden Sie den Anruf, wenn keine RTP- oder RTCP-Aktivität(rtptimeout "
+"seconds) auf dem Audiokanal vorhanden ist und das Zeitlimit überschritten "
+"wurde, wenn wir nicht in der Warteschleife sind. Dies ist in der Lage, einen "
+"Anruf zu beenden, wenn ein Telefon aus dem Netz verschwindet, wie ein "
+"Stromausfall oder jemand, der über ein Kabel stolpert."
 
 #: install.php:72
 #, php-format
@@ -1048,7 +1074,7 @@ msgstr ""
 
 #: chanpj.page.php:97
 msgid "The port that this transport should listen on"
-msgstr ""
+msgstr "Der Port, den dieser Transport überwachen soll"
 
 #: general.page.php:262
 msgid "The starting and ending RTP port range"
@@ -1061,6 +1087,8 @@ msgstr ""
 #: general.page.php:175
 msgid "This address will be provided to clients if NAT is enabled and detected"
 msgstr ""
+"Diese Adresse wird den Clients zur Verfügung gestellt, wenn NAT aktiviert "
+"und erkannt wird"
 
 #: general.page.php:500 general.page.php:544
 msgid "This is most commonly used for WebRTC"
@@ -1079,6 +1107,11 @@ msgid ""
 "that protocol is not enabled, or, that protocol does not have TLS enabled. "
 "If you change this, you will have to restart Asterisk"
 msgstr ""
+"Auf diese Weise können Sie das SIP-Protokoll, das den Standard-SIP-TLS-Port "
+"(5061) überwacht, explizit steuern. Wenn eine Option nicht verfügbar ist, "
+"liegt dies daran, dass dieses Protokoll nicht aktiviert ist oder TLS für "
+"dieses Protokoll nicht aktiviert ist. Wenn Sie dies ändern, müssen Sie "
+"Asterisk neu starten"
 
 #: general.page.php:308
 msgid ""
@@ -1163,6 +1196,13 @@ msgid ""
 "peer. To help hide the topology of your internal network, you can override "
 "the host candidates that Asterisk will send to the remote peer."
 msgstr ""
+"Wenn sich Asterisk hinter einem statischen Eins-zu-Eins-NAT befindet und ICE "
+"verwendet wird, macht ICE die interne IP-Adresse des Servers als einen der "
+"Hostkandidaten verfügbar. Obwohl die Verwendung von STUN (siehe die "
+"Konfigurationsoption 'stunaddr') eine öffentlich zugängliche IP-Adresse "
+"bereitstellt, wird die interne IP-Adresse weiterhin an den Remote-Peer "
+"gesendet. Um die Topologie Ihres internen Netzwerks auszublenden, können Sie "
+"die Hostkandidaten überschreiben, die Asterisk an den Remote-Peer sendet."
 
 #: general.page.php:92
 msgid ""
@@ -1173,6 +1213,13 @@ msgid ""
 "below will enable you to see the call attempts and debug incoming calls that "
 "may be mis-configured and appearing as guests."
 msgstr ""
+"Wenn festgelegt, lässt Asterisk Gast-SIP-Anrufe zu und sendet sie an den "
+"Standard-SIP-Kontext. Durch Deaktivieren dieser Option wird verhindert, dass "
+"anonyme SIP-Anrufe in das System gelangen. Dies führt auch dazu, dass \""
+"Anonyme eingehende SIP-Anrufe zulassen\" nicht mehr funktioniert. Wenn Sie "
+"Gastanrufe zulassen, aber die folgenden anonymen SIP-Anrufe ablehnen, können "
+"Sie die Anrufversuche anzeigen und eingehende Anrufe debuggen, die "
+"möglicherweise falsch konfiguriert sind und als Gäste angezeigt werden."
 
 #: general.page.php:285
 msgid "Whether to enable or disable UDP checksums on RTP traffic"
@@ -1228,11 +1275,20 @@ msgid ""
 "Add Field box to add additional fields. Blank boxes will be deleted when "
 "submitted."
 msgstr ""
+"Sie können alle anderen hier nicht vorhandenen SIP-Einstellungen vornehmen, "
+"die im Bereich Allgemein der sip.conf konfiguriert werden dürfen. Bei diesen "
+"Einstellungen wird kein Fehler festgestellt. Überprüfen Sie sie daher "
+"sorgfältig. Sie sollten wie folgt eingegeben werden: <br/> [Einstellung] = "
+"[Wert] <br/> in den Feldern unten. Klicken Sie auf das Feld Feld hinzufügen, "
+"um zusätzliche Felder hinzuzufügen. Leere Felder werden beim Absenden "
+"gelöscht."
 
 #: chanpj.page.php:100
 msgid ""
 "You may use this to to define an additional local network per interface."
 msgstr ""
+"Hiermit können Sie ein zusätzliches lokales Netzwerk pro Schnittstelle "
+"definieren."
 
 #: install.php:113
 msgid "already exists"
