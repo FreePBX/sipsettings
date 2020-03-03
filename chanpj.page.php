@@ -192,6 +192,36 @@ foreach ($protocols as $p) {
 		</div>
 	</div>
 	<!--END Allow reload-->
+	<?php 
+	$ver_list=array("13.24.0", "16.1.0", "17.0.0");
+	if(version_min(\FreePBX::Config()->get('ASTVERSION'),$ver_list) == true) { ?>
+	?>
+	<!--Caller ID into Contact Header-->
+	<div class="element-container">
+		<div class="row">
+			<div class="form-group">
+				<div class="col-md-3">
+					<label class="control-label" for="use_callerid_contact"><?php echo _("Caller ID into Contact Header") ?></label>
+					<i class="fa fa-question-circle fpbx-help-icon" data-for="use_callerid_contact"></i>
+				</div>
+				<div class="col-md-9 radioset">
+					<input type="radio" name="use_callerid_contact" id="use_callerid_contactyes" value="yes" <?php echo ( $this->getConfig("pjsip_use_callerid_contact") == "yes"?"CHECKED":"") ?>>
+					<label for="use_callerid_contactyes"><?php echo _("Yes");?></label>
+					<input type="radio" name="use_callerid_contact" id="use_callerid_contactno" value="no" <?php echo ( $this->getConfig("pjsip_use_callerid_contact") == "yes"?"":"CHECKED") ?>>
+					<label for="use_callerid_contactno"><?php echo _("No");?></label>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<span id="use_callerid_contact-help" class="help-block fpbx-help-block"><?php echo "<i>use_callerid_contact</i> : "._("Place caller-id information into Contact header. Default: no.")?></span>
+			</div>
+		</div>
+	</div>
+	<!--END Caller ID into Contact Header-->
+	<?php 
+	}
+	?>	
 	<!--Show Advanced Settings-->
 	<div class="element-container">
 		<div class="row">

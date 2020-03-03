@@ -360,6 +360,11 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 		if (isset($_REQUEST['allow_reload'])) {
 			$this->setConfig('pjsip_allow_reload', $_REQUEST['allow_reload']);
 		}
+		
+		$ver_list=array("13.24.0", "16.1.0", "17.0.0");
+		if (isset($_REQUEST['use_callerid_contact']) && version_min($this->freepbx->Config->get('ASTVERSION'), $ver_list) == true) {
+			$this->setConfig('pjsip_use_callerid_contact', $_REQUEST['use_callerid_contact']);
+		}
 
 		if (isset($_REQUEST['verify_server'])) {
 			$this->setConfig('verify_server', $_REQUEST['verify_server']);
