@@ -4,7 +4,7 @@
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<name>Asterisk SIP Settings</name>
-	<version>14.0.27.25</version>
+	<version>14.0.27.26</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>AGPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
@@ -16,6 +16,7 @@
 		Use to configure Various Asterisk SIP and PJSIP Settings
 	</description>
 	<changelog>
+		*14.0.27.26* FREEI-1405 
 		*14.0.27.25* bump 
 		*14.0.27.24* FREEI-1181 Setting the Contact Header part dynamically with the Caller ID value 
 		*14.0.27.23* FREEPBX-20853 Deleting items from "Other SIP Settings" 
