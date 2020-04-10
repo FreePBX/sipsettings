@@ -21,11 +21,12 @@
 # Use iconv sipsettings.pot -f UTF-8 -t ISO-8859-5 -o sipsettings.po
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-09 21:09+0530\n"
-"PO-Revision-Date: 2015-12-05 10:05+0200\n"
-"Last-Translator: Andrew <andrew.nagy@the159.com>\n"
+"PO-Revision-Date: 2020-04-11 01:26+0500\n"
+"Previous-Translator: Andrew <andrew.nagy@the159.com>\n"
+"Last-Translator: Dmitriy Q <dmitry@atsip.ru>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/"
 "sipsettings/ru_RU/>\n"
 "Language: ru_RU\n"
@@ -34,7 +35,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 2.2-dev\n"
+"X-Generator: Poedit 2.3\n"
 
 #: general.page.php:829
 msgid ""
@@ -67,7 +68,7 @@ msgstr "Адаптивный"
 
 #: general.page.php:520 general.page.php:562
 msgid "Add Address"
-msgstr ""
+msgstr "Добавить адрес"
 
 #: chansip.page.php:35
 msgid "Add Field"
@@ -97,7 +98,7 @@ msgstr "Разрешить SIP вызовы без аутентификации"
 
 #: chanpj.page.php:177
 msgid "Allow Transports Reload"
-msgstr ""
+msgstr "Разрешить перезагрузку транспортов"
 
 #: chanpj.page.php:190
 msgid ""
@@ -245,7 +246,7 @@ msgstr "Адрес (bindaddr) должен быть в виде четырёх �
 
 #: chansip.page.php:883
 msgid "Bind Port"
-msgstr "Порт"
+msgstr "Порт привязки"
 
 #: functions.inc.php:369
 msgid "Bind Port (bindport) must be between 1024 and 65535"
@@ -257,15 +258,15 @@ msgstr ""
 
 #: Sipsettings.class.php:930
 msgid "CHANSIP Port Moved"
-msgstr ""
+msgstr "CHANSIP порт сменился"
 
 #: Sipsettings.class.php:940
 msgid "CHANSIP TCP Disabled"
-msgstr ""
+msgstr "CHANSIP TCP отключен"
 
 #: Sipsettings.class.php:951
 msgid "CHANSIP TLS Port Moved"
-msgstr ""
+msgstr "CHANSIP TLS-порт сменился"
 
 #: chansip.page.php:997
 msgid "Call Events"
@@ -273,15 +274,15 @@ msgstr "События вызова"
 
 #: general.page.php:553
 msgid "Candidates"
-msgstr ""
+msgstr "Кандидаты"
 
 #: chanpj.page.php:268
 msgid "Certificate File"
-msgstr ""
+msgstr "Файл сертификата"
 
 #: chanpj.page.php:293 chansip.page.php:324
 msgid "Certificate Manager"
-msgstr ""
+msgstr "Управление сертификатами"
 
 #: Sipsettings.class.php:204
 msgid "Chan PJSIP Settings"
@@ -289,7 +290,7 @@ msgstr "Установки канала PJSIP"
 
 #: general.page.php:107
 msgid "Chan SIP"
-msgstr ""
+msgstr "Канал SIP"
 
 #: Sipsettings.class.php:197
 msgid "Chan SIP Settings"
@@ -344,11 +345,11 @@ msgstr ""
 
 #: chanpj.page.php:322
 msgid "Default"
-msgstr ""
+msgstr "По умолчанию"
 
 #: chansip.page.php:833
 msgid "Default Context"
-msgstr "Дефолтный контекст"
+msgstr "Контекст по умолчанию"
 
 #: general.page.php:102
 msgid "Default TLS Port Assignment"
@@ -430,11 +431,11 @@ msgstr "Включиьт сервис поиска SRV"
 
 #: chansip.page.php:971 chansip.page.php:986
 msgid "Enable TCP"
-msgstr ""
+msgstr "Включить TCP"
 
 #: chansip.page.php:303
 msgid "Enable TLS"
-msgstr ""
+msgstr "Включить TLS"
 
 #: chansip.page.php:316
 msgid "Enable server for incoming TLS (secure) connections."
@@ -603,7 +604,7 @@ msgstr ""
 
 #: general.page.php:509
 msgid "IP Addresses"
-msgstr ""
+msgstr "IP-адреса"
 
 #: chansip.page.php:186
 msgid "IP Configuration"
@@ -634,7 +635,7 @@ msgstr ""
 #: chanpj.page.php:325 chanpj.page.php:326 chanpj.page.php:327
 #: chansip.page.php:353 chansip.page.php:354
 msgid "Insecure"
-msgstr ""
+msgstr "Небезопасный"
 
 #: chansip.page.php:752
 msgid "Jitter Buffer Logging"
@@ -642,7 +643,7 @@ msgstr "Журналирование джиттер-буфера"
 
 #: chansip.page.php:779
 msgid "Jitter Buffer Max Size"
-msgstr "Vfrcbvfkmysq hfpvth l;bnnth-,eathf"
+msgstr "Максимальный размер джиттер-буфера"
 
 #: chansip.page.php:803
 msgid "Jitter Buffer Resync Threshold"
@@ -1243,7 +1244,7 @@ msgstr "Поддержка видео"
 
 #: general.page.php:572
 msgid "WebRTC Settings"
-msgstr ""
+msgstr "Настройки WebRTC"
 
 #: general.page.php:494
 msgid "What is ICE Blacklist?"
@@ -1348,7 +1349,7 @@ msgstr "уже существует"
 
 #: Sipsettings.class.php:175
 msgid "chan_pjsip and chan_sip"
-msgstr ""
+msgstr "chan_pjsip и chan_sip"
 
 #: install.php:21
 msgid "checking for sipsettings table.."
@@ -1382,7 +1383,7 @@ msgstr "указание кодеков по умолчанию.."
 
 #: chansip.page.php:166
 msgid "route"
-msgstr "route"
+msgstr "маршрут"
 
 #: functions.inc.php:377
 msgid "rtpholdtimeout must be higher than rtptimeout"
