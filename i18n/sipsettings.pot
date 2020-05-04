@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-19 10:44+0530\n"
+"POT-Creation-Date: 2020-05-04 23:29+0530\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -99,7 +99,7 @@ msgid ""
 "rendered useless as well as if 'Allow SIP Guests' is set to no."
 msgstr ""
 
-#: assets/js/sipsettings.js:168
+#: assets/js/sipsettings.js:174
 msgid ""
 "An Error occurred trying fetch network configuration and external IP address"
 msgstr ""
@@ -413,14 +413,18 @@ msgid ""
 "ul>"
 msgstr ""
 
-#: assets/js/sipsettings.js:257
-#: assets/js/sipsettings.js:260
-#: assets/js/sipsettings.js:269
+#: assets/js/sipsettings.js:263
+#: assets/js/sipsettings.js:266
+#: assets/js/sipsettings.js:275
 msgid "Enter IP Address"
 msgstr ""
 
-#: assets/js/sipsettings.js:265
-#: assets/js/sipsettings.js:268
+#: assets/js/sipsettings.js:16
+msgid "Equal Sign (=) not allowed. Please enter a valid TURN Server Password."
+msgstr ""
+
+#: assets/js/sipsettings.js:271
+#: assets/js/sipsettings.js:274
 #, perl-format
 msgid "Error: %s"
 msgstr ""
@@ -440,7 +444,7 @@ msgid "External IP Address"
 msgstr ""
 
 #: functions.inc.php:419
-#: assets/js/sipsettings.js:20
+#: assets/js/sipsettings.js:26
 msgid ""
 "External IP can not be blank when NAT Mode is set to Static and no default "
 "IP address provided on the main page"
@@ -588,7 +592,7 @@ msgid ""
 "to disable."
 msgstr ""
 
-#: assets/js/sipsettings.js:250
+#: assets/js/sipsettings.js:256
 msgid "Loading"
 msgstr ""
 
@@ -789,7 +793,7 @@ msgstr ""
 msgid "PJSIP 'Allow Transports Reload' option is set to yes."
 msgstr ""
 
-#: assets/js/sipsettings.js:238
+#: assets/js/sipsettings.js:244
 msgid "PJSIP transport port conflicts with SIP port"
 msgstr ""
 
@@ -812,7 +816,7 @@ msgstr ""
 msgid "Port to Listen On"
 msgstr ""
 
-#: assets/js/sipsettings.js:14
+#: assets/js/sipsettings.js:20
 msgid ""
 "Port/Bind Address has changed. This requires an Asterisk restart after Apply "
 "Config"

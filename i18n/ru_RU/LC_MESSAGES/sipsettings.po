@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-03 16:10+0530\n"
+"POT-Creation-Date: 2020-05-04 23:29+0530\n"
 "PO-Revision-Date: 2015-12-05 10:05+0200\n"
 "Last-Translator: Andrew <andrew.nagy@the159.com>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/"
@@ -129,7 +129,7 @@ msgstr ""
 "умолчанию. Если этот контекст изменен вручную, этот параметр может быть "
 "бесполезен и лучше установить его в НЕТ."
 
-#: assets/js/sipsettings.js:168
+#: assets/js/sipsettings.js:174
 msgid ""
 "An Error occurred trying fetch network configuration and external IP address"
 msgstr "Ошибка получения сетевой конфигурации и внешний IP-адреса"
@@ -480,12 +480,16 @@ msgid ""
 "ul>"
 msgstr ""
 
-#: assets/js/sipsettings.js:257 assets/js/sipsettings.js:260
-#: assets/js/sipsettings.js:269
+#: assets/js/sipsettings.js:263 assets/js/sipsettings.js:266
+#: assets/js/sipsettings.js:275
 msgid "Enter IP Address"
 msgstr "Введите ИП адрес"
 
-#: assets/js/sipsettings.js:265 assets/js/sipsettings.js:268
+#: assets/js/sipsettings.js:16
+msgid "Equal Sign (=) not allowed. Please enter a valid TURN Server Password."
+msgstr ""
+
+#: assets/js/sipsettings.js:271 assets/js/sipsettings.js:274
 #, perl-format
 msgid "Error: %s"
 msgstr "Ошибка: %s"
@@ -507,7 +511,7 @@ msgstr ""
 msgid "External IP Address"
 msgstr "Внешний IP адрес"
 
-#: functions.inc.php:419 assets/js/sipsettings.js:20
+#: functions.inc.php:419 assets/js/sipsettings.js:26
 msgid ""
 "External IP can not be blank when NAT Mode is set to Static and no default "
 "IP address provided on the main page"
@@ -683,7 +687,7 @@ msgstr ""
 "потерянных меток времени, обычно посланных с экхотических устройств и "
 "програм.Можно установить в -1 для отключения."
 
-#: assets/js/sipsettings.js:250
+#: assets/js/sipsettings.js:256
 msgid "Loading"
 msgstr "Загружается"
 
@@ -881,7 +885,7 @@ msgstr "Переопределить внешний IP"
 msgid "PJSIP 'Allow Transports Reload' option is set to yes."
 msgstr ""
 
-#: assets/js/sipsettings.js:238
+#: assets/js/sipsettings.js:244
 msgid "PJSIP transport port conflicts with SIP port"
 msgstr "Порт транспорта канала PJSIP конфликтует с портом канала SIP"
 
@@ -905,7 +909,7 @@ msgstr ""
 msgid "Port to Listen On"
 msgstr "Порт для прослушивания"
 
-#: assets/js/sipsettings.js:14
+#: assets/js/sipsettings.js:20
 msgid ""
 "Port/Bind Address has changed. This requires an Asterisk restart after Apply "
 "Config"
