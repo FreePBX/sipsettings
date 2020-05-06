@@ -10,12 +10,6 @@ $(document).ready(function() {
 	   }
 	});
 	$("form").submit(function() {
-		if($("#turnpassword").val().length > 0) {
-			var turnpwd = $("#turnpassword").val();
-			if(turnpwd.indexOf('=') > -1) {
-				return warnInvalid($("#turnpassword"), _("Equal Sign (=) not allowed. Please enter a valid TURN Server Password."));
-			}
-		}
 		if(changed) {
 			alert(_("Port/Bind Address has changed. This requires an Asterisk restart after Apply Config"));
 		}
