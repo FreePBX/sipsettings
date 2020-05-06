@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-04 23:29+0530\n"
+"POT-Creation-Date: 2020-05-06 14:45+0530\n"
 "PO-Revision-Date: 2017-06-07 15:50+0200\n"
 "Last-Translator: Michal <mboltz@tlen.pl>\n"
 "Language-Team: Polish (Polish) <http://weblate.freepbx.org/projects/freepbx/"
@@ -118,7 +118,7 @@ msgstr ""
 "może być bezużyteczne, a także, jeśli \"Zezwalaj użytkownikom SIP\" na "
 "wartość nie."
 
-#: assets/js/sipsettings.js:174
+#: assets/js/sipsettings.js:168
 msgid ""
 "An Error occurred trying fetch network configuration and external IP address"
 msgstr ""
@@ -474,16 +474,12 @@ msgid ""
 "ul>"
 msgstr ""
 
-#: assets/js/sipsettings.js:263 assets/js/sipsettings.js:266
-#: assets/js/sipsettings.js:275
+#: assets/js/sipsettings.js:257 assets/js/sipsettings.js:260
+#: assets/js/sipsettings.js:269
 msgid "Enter IP Address"
 msgstr "Wprowadź adres IP"
 
-#: assets/js/sipsettings.js:16
-msgid "Equal Sign (=) not allowed. Please enter a valid TURN Server Password."
-msgstr ""
-
-#: assets/js/sipsettings.js:271 assets/js/sipsettings.js:274
+#: assets/js/sipsettings.js:265 assets/js/sipsettings.js:268
 #, perl-format
 msgid "Error: %s"
 msgstr "Błąd: %s"
@@ -504,7 +500,7 @@ msgstr ""
 msgid "External IP Address"
 msgstr "Zewnętrzny adres IP"
 
-#: functions.inc.php:419 assets/js/sipsettings.js:26
+#: functions.inc.php:419 assets/js/sipsettings.js:20
 msgid ""
 "External IP can not be blank when NAT Mode is set to Static and no default "
 "IP address provided on the main page"
@@ -681,7 +677,7 @@ msgstr ""
 "złamanymi znacznikami czasu, zazwyczaj wysyłanymi z egzotycznych urządzeń i "
 "programów. Można wyłączyć wartość -1."
 
-#: assets/js/sipsettings.js:256
+#: assets/js/sipsettings.js:250
 msgid "Loading"
 msgstr "Ładuję"
 
@@ -881,7 +877,7 @@ msgstr ""
 msgid "PJSIP 'Allow Transports Reload' option is set to yes."
 msgstr ""
 
-#: assets/js/sipsettings.js:244
+#: assets/js/sipsettings.js:238
 msgid "PJSIP transport port conflicts with SIP port"
 msgstr ""
 
@@ -903,7 +899,7 @@ msgstr ""
 msgid "Port to Listen On"
 msgstr ""
 
-#: assets/js/sipsettings.js:20
+#: assets/js/sipsettings.js:14
 msgid ""
 "Port/Bind Address has changed. This requires an Asterisk restart after Apply "
 "Config"

@@ -4,7 +4,7 @@
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<name>Asterisk SIP Settings</name>
-	<version>14.0.27.27</version>
+	<version>14.0.27.28</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>AGPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
@@ -16,6 +16,7 @@
 		Use to configure Various Asterisk SIP and PJSIP Settings
 	</description>
 	<changelog>
+		*14.0.27.28* FREEI-1541 Revert back commit 9723a2142f6 it is not required here we are handling this in sipstation 
 		*14.0.27.27* FREEI-1541 Equals in turnpassword breaks SIPStation config page 
 		*14.0.27.26* FREEI-1405 
 		*14.0.27.25* bump 

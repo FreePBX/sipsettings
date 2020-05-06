@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-04 23:29+0530\n"
+"POT-Creation-Date: 2020-05-06 14:45+0530\n"
 "PO-Revision-Date: 2017-03-08 19:50+0200\n"
 "Last-Translator: Kingvoice <suporte@kingvoice.com.br>\n"
 "Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
@@ -117,7 +117,7 @@ msgstr ""
 "configuração poderá se tornar inútil, assim como se \"Permitir Convidados SIP"
 "\" estiver definido como não."
 
-#: assets/js/sipsettings.js:174
+#: assets/js/sipsettings.js:168
 msgid ""
 "An Error occurred trying fetch network configuration and external IP address"
 msgstr "Erro ao tentar buscar configuração da rede e endereço IP externo"
@@ -472,16 +472,12 @@ msgid ""
 "ul>"
 msgstr ""
 
-#: assets/js/sipsettings.js:263 assets/js/sipsettings.js:266
-#: assets/js/sipsettings.js:275
+#: assets/js/sipsettings.js:257 assets/js/sipsettings.js:260
+#: assets/js/sipsettings.js:269
 msgid "Enter IP Address"
 msgstr "Insira o Endereço IP"
 
-#: assets/js/sipsettings.js:16
-msgid "Equal Sign (=) not allowed. Please enter a valid TURN Server Password."
-msgstr ""
-
-#: assets/js/sipsettings.js:271 assets/js/sipsettings.js:274
+#: assets/js/sipsettings.js:265 assets/js/sipsettings.js:268
 #, perl-format
 msgid "Error: %s"
 msgstr "Erro: %s"
@@ -502,7 +498,7 @@ msgstr ""
 msgid "External IP Address"
 msgstr "Endereço IP Externo"
 
-#: functions.inc.php:419 assets/js/sipsettings.js:26
+#: functions.inc.php:419 assets/js/sipsettings.js:20
 msgid ""
 "External IP can not be blank when NAT Mode is set to Static and no default "
 "IP address provided on the main page"
@@ -671,7 +667,7 @@ msgid ""
 "to disable."
 msgstr ""
 
-#: assets/js/sipsettings.js:256
+#: assets/js/sipsettings.js:250
 msgid "Loading"
 msgstr "Carregando"
 
@@ -876,7 +872,7 @@ msgstr "Substituir o IP Externo"
 msgid "PJSIP 'Allow Transports Reload' option is set to yes."
 msgstr ""
 
-#: assets/js/sipsettings.js:244
+#: assets/js/sipsettings.js:238
 msgid "PJSIP transport port conflicts with SIP port"
 msgstr "Porta de transporte PJSIP entra em conflito com porta SIP"
 
@@ -900,7 +896,7 @@ msgstr ""
 msgid "Port to Listen On"
 msgstr "Porta para Ouvir"
 
-#: assets/js/sipsettings.js:20
+#: assets/js/sipsettings.js:14
 msgid ""
 "Port/Bind Address has changed. This requires an Asterisk restart after Apply "
 "Config"
