@@ -1026,7 +1026,7 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 			<div class="form-group form-inline" id="sc_$idx">
 				<input type="text" id="sip_custom_key_$idx" name="sip_custom_key_$idx" class="sip-custom" value="{$$var_sip_custom_key}" tabindex="$tabindex"> =
 				<input type="text" id="sip_custom_val_$idx" name="sip_custom_val_$idx" value="{$$var_sip_custom_val}" tabindex="$tabindex">
-				<a href="config.php?display=sipsettings&action=delete&key={$$var_sip_custom_key}&val={$$var_sip_custom_val}" onclick="return confirm( _('Are you sure you want to delete this item?') );"><i class="fa fa-trash" ></i></a>
+				<a href="config.php?display=sipsettings&action=delete&key={$$var_sip_custom_key}&val={$$var_sip_custom_val}" onclick="return confirm( _('Are you sure you want to delete this item?') );"><i class="fa fa-trash-o" ></i></a>
 			</div>
 END;
 		}
@@ -1049,7 +1049,7 @@ END;
 							<div class="form-group form-inline" id="sc_0">
 								<input type="text" id="sip_custom_key_0" name="sip_custom_key_0" class="sip-custom" value="<?php echo $sip_custom_key_0 ?>" > =
 								<input type="text" id="sip_custom_val_0" name="sip_custom_val_0" value="<?php echo $sip_custom_val_0 ?>" >
-								<?php if(!empty($sip_custom_val_0) && !empty($sip_custom_key_0)){ ?><a href="config.php?display=sipsettings&action=delete&key=<?php echo $sip_custom_key_0 ?>&val=<?php echo $sip_custom_val_0 ?>" onclick="return confirm(_('Are you sure you want to delete this item?'));"><i class="fa fa-trash" ></i></a><?php }?>
+								<?php if(!empty($sip_custom_val_0) && !empty($sip_custom_key_0)){ ?><a href="config.php?display=sipsettings&action=delete&key=<?php echo $sip_custom_key_0 ?>&val=<?php echo $sip_custom_val_0 ?>" onclick="return confirm(_('Are you sure you want to delete this item?'));"><i class="fa fa-trash-o" ></i></a><?php }?>
 							</div>
 							<?php echo $csotherinputs?>
 							<div id="sip-custom-buttons">

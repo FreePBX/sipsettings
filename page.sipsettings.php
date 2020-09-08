@@ -13,7 +13,18 @@ $ss = FreePBX::create()->Sipsettings;
 <form autocomplete="off" action="" method="post" class="fpbx-submit" id="sipconfig" name="sipconfig" >
 	<div class="container-fluid">
 		<h1><?php echo _("SIP Settings")?></h1>
-		<?php echo \show_help($ss->getActiveModules(),_("SIP driver information"),True, True, "info"); ?>
+		<div class="panel panel-info">
+                  <div class="panel-heading">
+                    <div class="panel-title">
+			  <a href="#" data-toggle="collapse" data-target="#moreinfo">
+                            <i class="glyphicon glyphicon-info-sign"></i>
+                          </a>&nbsp;&nbsp;&nbsp;<?php echo _("SIP driver informations")?>
+		    </div>
+                  </div>
+                  <div class="panel-body collapse" id="moreinfo">
+			<p><?php echo _($ss->getActiveModules())?></p>
+		  </div>
+               </div>
 		<div class="row">
 			<div class="col-sm-12">
 				<div class="fpbx-container">
