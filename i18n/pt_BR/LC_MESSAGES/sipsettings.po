@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-06 14:47+0530\n"
+"POT-Creation-Date: 2020-09-08 06:41+0000\n"
 "PO-Revision-Date: 2017-03-08 19:50+0200\n"
 "Last-Translator: Kingvoice <suporte@kingvoice.com.br>\n"
 "Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
@@ -1007,9 +1007,9 @@ msgstr "Configurações SIP"
 msgid "SIP Settings [chan_pjsip]"
 msgstr ""
 
-#: page.sipsettings.php:16
-msgid "SIP driver information"
-msgstr "informação do driver SIP"
+#: page.sipsettings.php:21
+msgid "SIP driver informations"
+msgstr ""
 
 #: chanpj.page.php:391 chansip.page.php:348
 msgid "SSL Method"
@@ -1430,6 +1430,9 @@ msgstr ""
 #: chansip.page.php:161 chansip.page.php:432
 msgid "yes"
 msgstr "sim"
+
+#~ msgid "SIP driver information"
+#~ msgstr "informação do driver SIP"
 
 #~ msgid ""
 #~ "Note that chan_sip does not support IPv6 for UDP protocols. An address of "

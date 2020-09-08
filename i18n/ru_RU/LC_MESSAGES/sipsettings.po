@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-06 14:47+0530\n"
+"POT-Creation-Date: 2020-09-08 06:41+0000\n"
 "PO-Revision-Date: 2015-12-05 10:05+0200\n"
 "Last-Translator: Andrew <andrew.nagy@the159.com>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/"
@@ -1022,9 +1022,9 @@ msgstr "Настройки SIP"
 msgid "SIP Settings [chan_pjsip]"
 msgstr ""
 
-#: page.sipsettings.php:16
-msgid "SIP driver information"
-msgstr "Информация о SIP драйвере"
+#: page.sipsettings.php:21
+msgid "SIP driver informations"
+msgstr ""
 
 #: chanpj.page.php:391 chansip.page.php:348
 msgid "SSL Method"
@@ -1454,6 +1454,9 @@ msgstr ""
 #: chansip.page.php:161 chansip.page.php:432
 msgid "yes"
 msgstr "да"
+
+#~ msgid "SIP driver information"
+#~ msgstr "Информация о SIP драйвере"
 
 #~ msgid "checking for sipsettings table.."
 #~ msgstr "проверяем таблицу sipsettings.."

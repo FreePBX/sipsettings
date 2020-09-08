@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-06 14:47+0530\n"
+"POT-Creation-Date: 2020-09-08 06:41+0000\n"
 "PO-Revision-Date: 2017-06-29 16:27-0400\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -896,8 +896,8 @@ msgstr ""
 msgid "SIP Settings [chan_pjsip]"
 msgstr ""
 
-#: page.sipsettings.php:16
-msgid "SIP driver information"
+#: page.sipsettings.php:21
+msgid "SIP driver informations"
 msgstr ""
 
 #: chanpj.page.php:391 chansip.page.php:348
