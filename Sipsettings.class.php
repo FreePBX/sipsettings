@@ -356,12 +356,16 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
         }
 
 
-	$ver_list=array("13.24.0", "16.1.0", "17.0.0");
+		$ver_list=array("13.24.0", "16.1.0", "17.0.0");
 
-	if (isset($_REQUEST['use_callerid_contact']) && version_min($this->FreePBX->Config->get('ASTVERSION'), $ver_list) == true) {
-		$this->setConfig('pjsip_use_callerid_contact', $_REQUEST['use_callerid_contact']);
-	}
+		if (isset($_REQUEST['use_callerid_contact']) && version_min($this->FreePBX->Config->get('ASTVERSION'), $ver_list) == true) {
+			$this->setConfig('pjsip_use_callerid_contact', $_REQUEST['use_callerid_contact']);
+		}
 
+		if (isset($_REQUEST['taskprocessor_overload_trigger'])) {
+			$this->setConfig('taskprocessor_overload_trigger', $_REQUEST['taskprocessor_overload_trigger']);
+		}
+		
 		$ignoreImportedVars = array_merge($ignoreImportedVars,["display", "type", "category", "Submit"]);
 
 		// This is in Request_Helper.class.php
