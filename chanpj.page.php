@@ -266,6 +266,37 @@ foreach ($protocols as $p) {
 	<?php 
 	}
 	?>	
+
+	<!--Taskprocessor Overload Trigger-->
+	<div class="element-container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="row">
+					<div class="form-group">
+						<div class="col-md-3">
+							<label class="control-label" for="taskprocessor_overload_trigger"><?php echo _("Taskprocessor Overload Trigger")?></label>
+							<i class="fa fa-question-circle fpbx-help-icon" data-for="taskprocessor_overload_trigger"></i>
+						</div>
+						<div class="col-md-9 radioset">
+							<input id="taskprocessor_overload_trigger-global" type="radio" name="taskprocessor_overload_trigger" value="global" <?php echo $this->getConfig("taskprocessor_overload_trigger")=="global"?"checked=\"global\"":""?>/>
+							<label for="taskprocessor_overload_trigger-global"><?php echo _("global") ?></label>
+							<input id="taskprocessor_overload_trigger-pjsip_only" type="radio" name="taskprocessor_overload_trigger" value="pjsip_only" <?php echo (empty($this->getConfig("taskprocessor_overload_trigger")) || $this->getConfig("taskprocessor_overload_trigger")=="pjsip_only")?"checked=\"pjsip_only\"":""?>/>
+							<label for="taskprocessor_overload_trigger-pjsip_only"><?php echo _("pjsip_only") ?></label>
+							<input id="taskprocessor_overload_trigger-none" type="radio" name="taskprocessor_overload_trigger" value="none" <?php echo $this->getConfig("taskprocessor_overload_trigger")=="none"?"checked=\"none\"":""?>/>
+							<label for="taskprocessor_overload_trigger-none">none</label>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<span id="taskprocessor_overload_trigger-help" class="help-block fpbx-help-block"><?php echo _("This option specifies the trigger the distributor will use for detecting taskprocessor overloads. When it detects an overload condition, the distrubutor will stop accepting new requests until the overload is cleared.<br /> global - (default) Any taskprocessor overload will trigger.<br /> pjsip_only - Only pjsip taskprocessor overloads will trigger.<br /> none - No overload detection will be performed.")?></span>
+			</div>
+		</div>
+	</div>
+	<!--Taskprocessor Overload Trigger-->
+
 	<!--Show Advanced Settings-->
 	<div class="element-container">
 		<div class="row">
