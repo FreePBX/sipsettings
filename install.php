@@ -46,7 +46,7 @@ if (!empty($version)) {
 	} else {
 		// Well. I don't know what version of Asterisk I'm running.
 		// Assume less than 12.
-		$haspjsip = false;
+		$haspjsip = true;
 	}
 }
 
