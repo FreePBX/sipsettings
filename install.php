@@ -15,12 +15,24 @@ $pjsip_port = 5060;
 $pjsiptls_port = 5061;
 $chansip_port = 5160;
 $chansiptls_port = 5161;
+function is_connected() {
+    $connected = @fsockopen("www.google.com", 80); 
+    if ($connected){
+        $is_conn = true; //action when connected
+        fclose($connected);
+    }else{
+        $is_conn = false; //action in connection failure
+    }
+    return $is_conn;
+}
 
 $rows = \FreePBX::Database()->query("SELECT * from `sipsettings`")->fetchAll(\PDO::FETCH_ASSOC);
 
 if(empty($rows)) {
 	out(_("New SIPSettings installation detected. Initializing default settings"));
-
+	$internet = is_connected();
+	if($internet) {
+	out(' Internet Connected !!!!!!!!!!!!!!!!!');
 	$process = new Process('fwconsole extip');
 	$process->run();
 
@@ -31,7 +43,7 @@ if(empty($rows)) {
 			$ss->setConfig('externip',$extip);
 		}
 	}
-
+	}
 
 	$brand = $FreePBX->Config->get('DASHBOARD_FREEPBX_BRAND');
 	$nt = notifications::create();
