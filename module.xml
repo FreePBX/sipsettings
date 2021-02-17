@@ -4,7 +4,7 @@
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<name>Asterisk SIP Settings</name>
-	<version>14.0.27.29</version>
+	<version>14.0.27.30</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>AGPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
@@ -17,6 +17,7 @@
 	</description>
   	<more-info>https://wiki.freepbx.org/display/F2/Asterisk+SIP+Settings</more-info>
 	<changelog>
+		*14.0.27.30* FREEI-2761 White spaces provokes transports going off 
 		*14.0.27.29* Packaging of ver 14.0.27.29
 		*14.0.27.28* FREEI-1541 Revert back commit 9723a2142f6 it is not required here we are handling this in sipstation 
 		*14.0.27.27* FREEI-1541 Equals in turnpassword breaks SIPStation config page 
