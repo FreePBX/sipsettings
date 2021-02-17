@@ -317,7 +317,9 @@ function sipsettings_hookGet_config($engine) {
 	$localnets = FreePBX::create()->Sipsettings->getConfig('localnets');
 	if(!empty($localnets) && is_array($localnets)) {
 		foreach ($localnets as $arr) {
-			$sip_settings[] = array("localnet", $arr['net']."/".$arr['mask']);
+			$net = trim($arr['net']);
+			$mask = trim($arr['mask']);
+			$sip_settings[] = array("localnet", $net."/".$mask);
 		}
 	}
 					global $version;
