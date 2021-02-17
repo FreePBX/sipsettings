@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-04 07:44+0000\n"
+"POT-Creation-Date: 2021-02-17 12:52+0000\n"
 "PO-Revision-Date: 2017-03-08 19:50+0200\n"
 "Last-Translator: Kingvoice <suporte@kingvoice.com.br>\n"
 "Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
@@ -37,12 +37,12 @@ msgstr ""
 " Consulte a versão atual do Asterisk para ver as limitações da "
 "funcionalidade SRV."
 
-#: functions.inc.php:364
+#: functions.inc.php:366
 #, php-format
 msgid "%s must be a non-negative integer"
 msgstr "%s deve ser um número inteiro não negativo"
 
-#: functions.inc.php:408
+#: functions.inc.php:410
 #, php-format
 msgid "%s must be alphanumeric"
 msgstr "%s deve ser alfanumérico"
@@ -228,7 +228,7 @@ msgstr "Auto Configurar"
 msgid "Bind Address"
 msgstr "Endereço Bind"
 
-#: functions.inc.php:368
+#: functions.inc.php:370
 msgid "Bind Address (bindaddr) must be an IP address."
 msgstr "Endereço Bind (bindaddr) precisa ser um endereço IP."
 
@@ -236,7 +236,7 @@ msgstr "Endereço Bind (bindaddr) precisa ser um endereço IP."
 msgid "Bind Port"
 msgstr "Porta Bind"
 
-#: functions.inc.php:374
+#: functions.inc.php:376
 msgid "Bind Port (bindport) must be between 1024 and 65535"
 msgstr "Porta Bind (bindport) precisa estar entre 1024 e 65535"
 
@@ -392,7 +392,7 @@ msgstr "Host Dinâmico"
 msgid "Dynamic Host Refresh"
 msgstr "Atualização de Host Dinâmico"
 
-#: functions.inc.php:434
+#: functions.inc.php:436
 msgid "Dynamic Host can not be blank"
 msgstr "Host Dinâmico não pode estar em branco"
 
@@ -506,7 +506,7 @@ msgstr ""
 msgid "External IP Address"
 msgstr "Endereço IP Externo"
 
-#: functions.inc.php:424 assets/js/sipsettings.js:20
+#: functions.inc.php:426 assets/js/sipsettings.js:20
 msgid ""
 "External IP can not be blank when NAT Mode is set to Static and no default "
 "IP address provided on the main page"
@@ -717,13 +717,13 @@ msgstr ""
 "com mais de 1 sub-redes LAN, use o botão Adicionar Campo de Rede Local para "
 "mais campos. Campos em branco serão ignorados."
 
-#: functions.inc.php:485
+#: functions.inc.php:487
 msgid "Localnet netmask must be formatted properly (e.g. 255.255.255.0 or 24)"
 msgstr ""
 "Máscara de rede localnet deve ser formatada corretamente (por exemplo, "
 "255.255.255.0 ou 24)"
 
-#: functions.inc.php:480
+#: functions.inc.php:482
 msgid "Localnet setting must be an IP address"
 msgstr "Configuração localnet precisa ser um endereço IP"
 
@@ -1432,7 +1432,7 @@ msgstr "preenchendo codecs padrão..."
 msgid "route"
 msgstr "rota"
 
-#: functions.inc.php:382
+#: functions.inc.php:384
 msgid "rtpholdtimeout must be higher than rtptimeout"
 msgstr "rtpholdtimeout deve ser maior do que rtptimeout"
 
