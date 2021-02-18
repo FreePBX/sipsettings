@@ -319,9 +319,12 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 
 		// Ignore empty/invalid localnet settings
 		if (isset($_REQUEST['localnets'])) {
-			foreach ($_REQUEST['localnets'] as $i => $arr) {
+			foreach ($_REQUEST['localnets'] as $i => &$arr) {
 				if (empty($arr['net']) || empty($arr['mask'])) {
 					unset($_REQUEST['localnets'][$i]);
+				}else {
+					$arr['net'] = trim($arr['net']);
+					$arr['mask'] = trim($arr['mask']);
 				}
 			}
 			// Renumber the array
