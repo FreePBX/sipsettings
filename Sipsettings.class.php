@@ -396,7 +396,10 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 		// Renumber the array
 		if (!empty($_REQUEST['localnets'])) {
 			$localnets = array_values($_REQUEST['localnets']);
-			$this->setConfig('localnets',$localnets);
+			foreach($localnets as $nets){
+				$timedlocalnets[] = array_map('trim',$nets);
+			}
+			$this->setConfig('localnets',$timedlocalnets);
 		} else {
 			$this->delConfig('localnets');
 		}
