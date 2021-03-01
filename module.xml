@@ -4,7 +4,7 @@
   <candisable>no</candisable>
   <canuninstall>no</canuninstall>
   <name>Asterisk SIP Settings</name>
-  <version>16.0.6</version>
+  <version>16.0.7</version>
   <publisher>Sangoma Technologies Corporation</publisher>
   <license>AGPLv3+</license>
   <licenselink>https://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
@@ -25,6 +25,7 @@
   </description>
   <more-info>https://wiki.freepbx.org/display/F2/Asterisk+SIP+Settings</more-info>
   <changelog>
+		*16.0.7* FREEI-2761  white space issue 
 		*16.0.6* FREEI-2761 White spaces provokes transports going off 
 		*16.0.5* FREEPBX-21970 taskprocessor_overload_trigger in pjsip.conf 
 		*16.0.4* Packaging of ver 16.0.4
