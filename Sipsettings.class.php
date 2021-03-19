@@ -355,6 +355,9 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
             $this->setConfig('verify_server', $_REQUEST['verify_server']);
         }
 
+		if (isset($_REQUEST['pjsip_debug'])) {
+			$this->setConfig('pjsip_debug', $_REQUEST['pjsip_debug']);
+		}
 
 		$ver_list=array("13.24.0", "16.1.0", "17.0.0");
 
