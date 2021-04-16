@@ -231,7 +231,7 @@ foreach ($protocols as $p) {
 		</div>
 		<div class="row">
 			<div class="col-md-12">
-				<span id="pjsip_keep_alive_interval-help" class="help-block fpbx-help-block"><?php echo _("The interval (in seconds) to send keepalives to active connection-oriented transports.")?></span>
+				<span id="pjsip_keep_alive_interval-help" class="help-block fpbx-help-block"><?php echo _("The interval (in seconds) to send keepalives to active connection-oriented transports. <br> Default is 90. </br>")?></span>
 			</div>
 		</div>
 	</div>
