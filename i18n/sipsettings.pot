@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-22 08:42+0000\n"
+"POT-Creation-Date: 2021-04-16 05:44+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -104,7 +104,7 @@ msgid ""
 "An Error occurred trying fetch network configuration and external IP address"
 msgstr ""
 
-#: Sipsettings.class.php:954
+#: Sipsettings.class.php:958
 msgid ""
 "An unknown port conflict has been detected in PJSIP. Please check and "
 "validate your PJSIP Ports to ensure they're not overlapping"
@@ -197,15 +197,15 @@ msgstr ""
 msgid "CA Chain File"
 msgstr ""
 
-#: Sipsettings.class.php:968
+#: Sipsettings.class.php:972
 msgid "CHANSIP Port Moved"
 msgstr ""
 
-#: Sipsettings.class.php:978
+#: Sipsettings.class.php:982
 msgid "CHANSIP TCP Disabled"
 msgstr ""
 
-#: Sipsettings.class.php:989
+#: Sipsettings.class.php:993
 msgid "CHANSIP TLS Port Moved"
 msgstr ""
 
@@ -234,21 +234,21 @@ msgstr ""
 msgid "Chan SIP"
 msgstr ""
 
-#: Sipsettings.class.php:989
+#: Sipsettings.class.php:993
 #, php-format
 msgid ""
 "Chansip was assigned a port that was already in use for TLS traffic. The "
 "Chansip TLS port has been changed to %s"
 msgstr ""
 
-#: Sipsettings.class.php:978
+#: Sipsettings.class.php:982
 msgid ""
 "Chansip was assigned the same port as pjsip for TCP traffic. Chansip has had "
 "the tcpenable setting removed, and is no longer listening for TCP "
 "connections."
 msgstr ""
 
-#: Sipsettings.class.php:968
+#: Sipsettings.class.php:972
 #, php-format
 msgid ""
 "Chansip was assigned the same port as pjsip for UDP traffic. The Chansip "
@@ -561,7 +561,7 @@ msgstr ""
 msgid "Insecure"
 msgstr ""
 
-#: Sipsettings.class.php:1247
+#: Sipsettings.class.php:1251
 msgid "It is recommended that this option remain set to no."
 msgstr ""
 
@@ -802,7 +802,7 @@ msgstr ""
 msgid "Override External IP"
 msgstr ""
 
-#: Sipsettings.class.php:1247
+#: Sipsettings.class.php:1251
 msgid "PJSIP 'Allow Transports Reload' option is set to yes."
 msgstr ""
 
@@ -903,7 +903,7 @@ msgstr ""
 msgid "Require verification of server certificate (TLS ONLY)."
 msgstr ""
 
-#: Sipsettings.class.php:686
+#: Sipsettings.class.php:690
 msgid "Reset"
 msgstr ""
 
@@ -991,7 +991,7 @@ msgstr ""
 msgid "Strict RTP"
 msgstr ""
 
-#: Sipsettings.class.php:691
+#: Sipsettings.class.php:695
 msgid "Submit"
 msgstr ""
 
@@ -1087,7 +1087,7 @@ msgstr ""
 #: chanpj.page.php:234
 msgid ""
 "The interval (in seconds) to send keepalives to active connection-oriented "
-"transports."
+"transports. <br> Default is 90. </br>"
 msgstr ""
 
 #: chanpj.page.php:97
@@ -1163,12 +1163,12 @@ msgstr ""
 msgid "Unknown Error"
 msgstr ""
 
-#: Sipsettings.class.php:954
+#: Sipsettings.class.php:958
 msgid "Unknown Port Conflict"
 msgstr ""
 
-#: Sipsettings.class.php:489
-#: Sipsettings.class.php:576
+#: Sipsettings.class.php:493
+#: Sipsettings.class.php:580
 msgid "Unknown Type"
 msgstr ""
 
