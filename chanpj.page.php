@@ -238,7 +238,7 @@ foreach ($protocols as $p) {
 	<!--END Allow reload-->
 
 	<?php 
-	$ver_list=array("13.24.0", "16.1.0", "17.0.0");
+	$ver_list=array("13.24.0", "16.1.0", "17.0.0", "18.0.0");
 	if (version_min(\FreePBX::Config()->get('ASTVERSION'),$ver_list) == true) { ?>
 	<!--Caller ID into Contact Header-->
 	<div class="element-container">
