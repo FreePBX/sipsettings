@@ -79,4 +79,37 @@ class NatGet {
 		}
 		return $routes;
 	}
+	
+	/**
+	 * setConfigurations
+	 *
+	 * @param  mixed $key
+	 * @param  mixed $type
+	 * @param  mixed $freepbx
+	 * @return void
+	 */
+	public function setConfigurations($key,$type,$freepbx){
+		$existingConfig = $this->getConfigurations($type,$freepbx);
+		if($type == "externip"){
+			$nat  = $key[0];
+		}
+		elseif (!empty($existingConfig)) {
+			array_push($existingConfig,$key[0]);
+			$nat = array_values($existingConfig);
+		} else {
+			$nat = array_values($key);
+		}
+		$freepbx->sipsettings->setConfig($type,$nat);
+	}
+	
+	/**
+	 * getConfigurations
+	 *
+	 * @param  mixed $type
+	 * @param  mixed $freepbx
+	 * @return void
+	 */
+	public function getConfigurations($type,$freepbx){
+		return $freepbx->sipsettings->getConfig($type);
+	}
 }
