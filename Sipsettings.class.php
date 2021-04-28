@@ -11,6 +11,7 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 	private $pagename = null;
 	private $pagedata = null;
 	private $tlsCache = null;
+	private static $natObj = false;
 
 	public static $dbDefaults = array(
 		"rtpstart" => "10000", "rtpend" => "20000",
@@ -1253,5 +1254,30 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 		else {
 			$this->FreePBX->Notifications->delete("sipsettings","PJSIPTPRELOAD");
 		}
+	}
+	
+	/**
+	 * setNatObj
+	 *
+	 * @param  mixed $obj
+	 * @return void
+	 */
+	public function setNatObj($obj){
+		return self::$natObj = $obj; 
+	}
+	
+	/**
+	 * getNatObj
+	 *
+	 * @return void
+	 */
+	public function getNatObj(){
+		if (!self::$natObj) {
+			if (!class_exists('FreePBX\Modules\Sipsettings\NatGet')) {
+				include __DIR__."/Natget.class.php";
+			}
+			self::$natObj = new \FreePBX\Modules\Sipsettings\NatGet();
+		}
+		return self::$natObj;
 	}
 }
