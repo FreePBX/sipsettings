@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-16 05:44+0000\n"
+"POT-Creation-Date: 2021-04-28 05:00+0000\n"
 "PO-Revision-Date: 2017-03-08 19:50+0200\n"
 "Last-Translator: Kingvoice <suporte@kingvoice.com.br>\n"
 "Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
@@ -47,6 +47,14 @@ msgstr "%s deve ser um número inteiro não negativo"
 msgid "%s must be alphanumeric"
 msgstr "%s deve ser alfanumérico"
 
+#: Api/Gql/SipSettings.php:104
+msgid "API message response"
+msgstr ""
+
+#: Api/Gql/SipSettings.php:100
+msgid "API status"
+msgstr ""
+
 #: chansip.page.php:733
 msgid "Adaptive"
 msgstr "Adaptativo"
@@ -62,6 +70,10 @@ msgstr "Adicionar Campo"
 #: chansip.page.php:37 general.page.php:19
 msgid "Add Local Network Field"
 msgstr "Adicionar Campo de Rede Local"
+
+#: Api/Gql/SipSettings.php:38
+msgid "Adding a Local IP network and mask"
+msgstr ""
 
 #: chansip.page.php:824
 msgid "Advanced General Settings"
@@ -122,7 +134,7 @@ msgid ""
 "An Error occurred trying fetch network configuration and external IP address"
 msgstr "Erro ao tentar buscar configuração da rede e endereço IP externo"
 
-#: Sipsettings.class.php:958
+#: Sipsettings.class.php:959
 msgid ""
 "An unknown port conflict has been detected in PJSIP. Please check and "
 "validate your PJSIP Ports to ensure they're not overlapping"
@@ -145,7 +157,7 @@ msgstr ""
 msgid "Asterisk SIP Settings"
 msgstr "Configurações Asterisk SIP"
 
-#: Sipsettings.class.php:179
+#: Sipsettings.class.php:180
 #, php-format
 msgid "Asterisk is currently using %s for SIP Traffic."
 msgstr "O Asterisk está usando atualmente %s para Tráfego SIP."
@@ -244,15 +256,15 @@ msgstr "Porta Bind (bindport) precisa estar entre 1024 e 65535"
 msgid "CA Chain File"
 msgstr "Arquivo de encadeamento CA"
 
-#: Sipsettings.class.php:972
+#: Sipsettings.class.php:973
 msgid "CHANSIP Port Moved"
 msgstr "CHANSIP Porta Movida"
 
-#: Sipsettings.class.php:982
+#: Sipsettings.class.php:983
 msgid "CHANSIP TCP Disabled"
 msgstr "CHANSIP TCP Desabilitado"
 
-#: Sipsettings.class.php:993
+#: Sipsettings.class.php:994
 msgid "CHANSIP TLS Port Moved"
 msgstr "CHANSIP TLS Porta Movida"
 
@@ -280,7 +292,7 @@ msgstr "Gerenciador de Certificado"
 msgid "Chan SIP"
 msgstr "Chan SIP"
 
-#: Sipsettings.class.php:993
+#: Sipsettings.class.php:994
 #, php-format
 msgid ""
 "Chansip was assigned a port that was already in use for TLS traffic. The "
@@ -289,7 +301,7 @@ msgstr ""
 "Chansip atribuiu uma porta que já estava em uso para tráfego TLS. A porta "
 "Chansip TLS foi alterada para %s"
 
-#: Sipsettings.class.php:982
+#: Sipsettings.class.php:983
 msgid ""
 "Chansip was assigned the same port as pjsip for TCP traffic. Chansip has had "
 "the tcpenable setting removed, and is no longer listening for TCP "
@@ -298,7 +310,7 @@ msgstr ""
 "Chansip atribuiu a mesma porta como pjsip para o tráfego TCP. O Chansip teve "
 "a configuração tcpenable removida e não está mais ouvindo conexões TCP."
 
-#: Sipsettings.class.php:972
+#: Sipsettings.class.php:973
 #, php-format
 msgid ""
 "Chansip was assigned the same port as pjsip for UDP traffic. The Chansip "
@@ -514,6 +526,10 @@ msgstr ""
 "O IP externo não pode ficar em branco quando o Modo NAT estiver definido "
 "como Estático e nenhum endereço IP padrão for fornecido na página principal"
 
+#: Api/Gql/SipSettings.php:227
+msgid "External IP has been updated successfully"
+msgstr ""
+
 #: chansip.page.php:235
 msgid ""
 "External Static IP or FQDN as seen on the WAN side of the router. (asterisk: "
@@ -553,7 +569,7 @@ msgstr ""
 "Freqüência em segundos para verificar se o estado do MWI mudou e informar os "
 "pares."
 
-#: Sipsettings.class.php:196
+#: Sipsettings.class.php:197
 msgid "General SIP Settings"
 msgstr "Configurações Gerais SIP"
 
@@ -636,7 +652,7 @@ msgstr ""
 msgid "Insecure"
 msgstr ""
 
-#: Sipsettings.class.php:1251
+#: Sipsettings.class.php:1252
 msgid "It is recommended that this option remain set to no."
 msgstr ""
 
@@ -679,9 +695,21 @@ msgstr ""
 msgid "Keep Alive Interval"
 msgstr ""
 
+#: Api/Gql/SipSettings.php:198
+msgid "List of External and Local IPs"
+msgstr ""
+
+#: Api/Gql/SipSettings.php:178
+msgid "Lists the External IPs"
+msgstr ""
+
 #: assets/js/sipsettings.js:250
 msgid "Loading"
 msgstr "Carregando"
+
+#: Api/Gql/SipSettings.php:216
+msgid "Local IP has been added successfully"
+msgstr ""
 
 #: general.page.php:204
 msgid "Local Networks"
@@ -753,6 +781,10 @@ msgstr "Taxa de bits máxima para chamadas de vídeo em kb/s"
 
 #: general.page.php:390
 msgid "Media Transport Settings"
+msgstr ""
+
+#: Api/Gql/SipSettings.php:133 Api/Gql/SipSettings.php:170
+msgid "Message for the request"
 msgstr ""
 
 #: chanpj.page.php:439
@@ -881,7 +913,7 @@ msgstr "Outras Configurações SIP"
 msgid "Override External IP"
 msgstr "Substituir o IP Externo"
 
-#: Sipsettings.class.php:1251
+#: Sipsettings.class.php:1252
 msgid "PJSIP 'Allow Transports Reload' option is set to yes."
 msgstr ""
 
@@ -985,7 +1017,7 @@ msgstr "Exigir a verificação do certificado do cliente (SOMENTE TLS)."
 msgid "Require verification of server certificate (TLS ONLY)."
 msgstr "Exigir a verificação do certificado do servidor (SOMENTE TLS)."
 
-#: Sipsettings.class.php:690
+#: Sipsettings.class.php:691
 msgid "Reset"
 msgstr "Reiniciar"
 
@@ -995,7 +1027,15 @@ msgid ""
 "or until registrationattempts tries have been made."
 msgstr ""
 
-#: Sipsettings.class.php:210
+#: Api/Gql/SipSettings.php:137
+msgid "Returns the network IP"
+msgstr ""
+
+#: Api/Gql/SipSettings.php:141
+msgid "Returns the network mask"
+msgstr ""
+
+#: Sipsettings.class.php:211
 msgid "SIP Legacy Settings [chan_sip]"
 msgstr ""
 
@@ -1003,7 +1043,7 @@ msgstr ""
 msgid "SIP Settings"
 msgstr "Configurações SIP"
 
-#: Sipsettings.class.php:203
+#: Sipsettings.class.php:204
 msgid "SIP Settings [chan_pjsip]"
 msgstr ""
 
@@ -1062,6 +1102,10 @@ msgstr ""
 msgid "Show Advanced Settings"
 msgstr "Mostrar Configurações Avançadas"
 
+#: Api/Gql/SipSettings.php:116
+msgid "Sipsettings management"
+msgstr ""
+
 #: general.page.php:244
 msgid "Start"
 msgstr "Início"
@@ -1070,11 +1114,19 @@ msgstr "Início"
 msgid "Static IP"
 msgstr "IP Estático"
 
+#: Api/Gql/SipSettings.php:174
+msgid "Status for the request"
+msgstr ""
+
+#: Api/Gql/SipSettings.php:129
+msgid "Status of the request"
+msgstr ""
+
 #: general.page.php:298
 msgid "Strict RTP"
 msgstr "RTP Estrito"
 
-#: Sipsettings.class.php:695
+#: Sipsettings.class.php:696
 msgid "Submit"
 msgstr "Enviar"
 
@@ -1171,6 +1223,14 @@ msgid ""
 "transports. <br> Default is 90. </br>"
 msgstr ""
 
+#: Api/Gql/SipSettings.php:68
+msgid "The network IP address"
+msgstr ""
+
+#: Api/Gql/SipSettings.php:72
+msgid "The network mask"
+msgstr ""
+
 #: chanpj.page.php:97
 msgid "The port that this transport should listen on"
 msgstr "Porta que este transporte deve ouvir"
@@ -1253,13 +1313,17 @@ msgstr ""
 msgid "Unknown Error"
 msgstr "Erro Desconhecido"
 
-#: Sipsettings.class.php:958
+#: Sipsettings.class.php:959
 msgid "Unknown Port Conflict"
 msgstr "Conflito de Porta Desconhecido"
 
-#: Sipsettings.class.php:493 Sipsettings.class.php:580
+#: Sipsettings.class.php:494 Sipsettings.class.php:581
 msgid "Unknown Type"
 msgstr "Tipo Desconhecido"
+
+#: Api/Gql/SipSettings.php:47
+msgid "Updating External IP network and mask"
+msgstr ""
 
 #: install.php:85
 msgid "Updating kvstore_Sipsettings"
@@ -1356,7 +1420,7 @@ msgstr "Sim, com Redundância"
 msgid "Yes with no error correction"
 msgstr "Sim, sem correção de erros"
 
-#: Sipsettings.class.php:185
+#: Sipsettings.class.php:186
 msgid "You can change this on the Advanced Settings Page"
 msgstr "Você pode alterar isso na página Configurações Avançadas"
 
@@ -1392,13 +1456,21 @@ msgid ""
 msgstr ""
 "Você pode usar isso para definir uma rede local adicional por interface."
 
+#: Api/Gql/SipSettings.php:37
+msgid "addSipNatLocalIp"
+msgstr ""
+
 #: install.php:77
 msgid "already exists"
 msgstr "já existe"
 
-#: Sipsettings.class.php:181
+#: Sipsettings.class.php:182
 msgid "chan_pjsip and chan_sip"
 msgstr "chan_pjsip e chan_sip"
+
+#: Api/Gql/SipSettings.php:86
+msgid "ertyuiop"
+msgstr ""
 
 #: install.php:63
 msgid "fatal error occurred populating defaults, check module"
@@ -1411,6 +1483,14 @@ msgstr ""
 #: general.page.php:897
 msgid "kb/s"
 msgstr "kb/s"
+
+#: Api/Gql/SipSettings.php:150
+msgid "list of local IP saved"
+msgstr ""
+
+#: Api/Gql/SipSettings.php:160
+msgid "list the route configured"
+msgstr ""
 
 #: chansip.page.php:165
 msgid "never"
@@ -1444,6 +1524,10 @@ msgstr ""
 #: install.php:65
 msgid "ulaw, alaw, gsm, g726 added"
 msgstr "adicionado ulaw, alaw, gsm, g726"
+
+#: Api/Gql/SipSettings.php:46
+msgid "updateSipNatExternalIp"
+msgstr ""
 
 #: Restore.php:12
 msgid "warmspare enabled"

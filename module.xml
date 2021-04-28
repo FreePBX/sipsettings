@@ -4,7 +4,7 @@
   <candisable>no</candisable>
   <canuninstall>no</canuninstall>
   <name>Asterisk SIP Settings</name>
-  <version>15.0.6.36</version>
+  <version>15.0.6.37</version>
   <publisher>Sangoma Technologies Corporation</publisher>
   <license>AGPLv3+</license>
   <licenselink>https://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
@@ -25,6 +25,7 @@
   </description>
   <more-info>https://wiki.freepbx.org/display/FPG/Asterisk+SIP+Settings</more-info>
   <changelog>
+		*15.0.6.37* FREEI-3260 new GQL api's for Asterisk SIP NAT settings 
 		*15.0.6.36* FREEPBX-22361 Asterisk 18 integration 
 		*15.0.6.35* FREEI-3073 Error - Pjsip Keep alive Interval button not working (Sipsetting) 
 		*15.0.6.34* FREEI-2827 Add pjsip logger toggle to Asterisk Logfile settings 
