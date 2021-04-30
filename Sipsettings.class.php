@@ -732,7 +732,7 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 			$cerid = $this->getConfig('pjsipcertid');
 			$cert = $this->FreePBX->Certman->getCertificateDetails($cerid);
 			if(!empty($cert['files']['crt']) && !empty($cert['files']['key'])) {
-				$this->tlsCache['cert_file'] = $cert['files']['fullchain'];
+				$this->tlsCache['cert_file'] = isset($cert['files']['fullchain'])?$cert['files']['fullchain']:$cert['files']['crt'];
 				$this->tlsCache['priv_key_file'] = $cert['files']['key'];
 			}
 		} else {
