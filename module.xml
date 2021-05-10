@@ -4,7 +4,7 @@
   <candisable>no</candisable>
   <canuninstall>no</canuninstall>
   <name>Asterisk SIP Settings</name>
-  <version>16.0.12</version>
+  <version>16.0.13</version>
   <publisher>Sangoma Technologies Corporation</publisher>
   <license>AGPLv3+</license>
   <licenselink>https://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
@@ -25,6 +25,7 @@
   </description>
   <more-info>https://wiki.freepbx.org/display/F2/Asterisk+SIP+Settings</more-info>
   <changelog>
+		*16.0.13* FREEPBX-20610 PJSIP should use cert+chain file not pem file with key 
 		*16.0.12* FREEI-3260 new GQL api's for Asterisk SIP NAT settings 
 		*16.0.11* FREEPBX-22361 Asterisk 18 integration 
 		*16.0.10* FREEI-3073 Error - Pjsip Keep alive Interval button not working (Sipsetting) 
