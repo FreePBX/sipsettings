@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-28 05:00+0000\n"
+"POT-Creation-Date: 2021-05-12 15:23+0000\n"
 "PO-Revision-Date: 2015-12-05 10:05+0200\n"
 "Last-Translator: Andrew <andrew.nagy@the159.com>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/"
@@ -93,7 +93,7 @@ msgstr ""
 msgid "Advanced General Settings"
 msgstr "Дополнительные основные настройки"
 
-#: chanpj.page.php:497
+#: chanpj.page.php:501
 msgid ""
 "After you enable/disable a transport, asterisk needs to be "
 "<strong>restarted</strong>, not just reloaded."
@@ -146,7 +146,7 @@ msgid ""
 "An Error occurred trying fetch network configuration and external IP address"
 msgstr "Ошибка получения сетевой конфигурации и внешний IP-адреса"
 
-#: Sipsettings.class.php:959
+#: Sipsettings.class.php:960
 msgid ""
 "An unknown port conflict has been detected in PJSIP. Please check and "
 "validate your PJSIP Ports to ensure they're not overlapping"
@@ -263,19 +263,19 @@ msgstr "Порт"
 msgid "Bind Port (bindport) must be between 1024 and 65535"
 msgstr "Порт привязки (bindport). Адрес порта должен быть между 1024 и 65535"
 
-#: chanpj.page.php:361
+#: chanpj.page.php:365
 msgid "CA Chain File"
 msgstr ""
 
-#: Sipsettings.class.php:973
+#: Sipsettings.class.php:974
 msgid "CHANSIP Port Moved"
 msgstr ""
 
-#: Sipsettings.class.php:983
+#: Sipsettings.class.php:984
 msgid "CHANSIP TCP Disabled"
 msgstr ""
 
-#: Sipsettings.class.php:994
+#: Sipsettings.class.php:995
 msgid "CHANSIP TLS Port Moved"
 msgstr ""
 
@@ -291,11 +291,11 @@ msgstr ""
 msgid "Candidates"
 msgstr ""
 
-#: chanpj.page.php:373
+#: chanpj.page.php:377
 msgid "Certificate File"
 msgstr ""
 
-#: chanpj.page.php:398 chansip.page.php:325
+#: chanpj.page.php:402 chansip.page.php:325
 msgid "Certificate Manager"
 msgstr ""
 
@@ -303,21 +303,21 @@ msgstr ""
 msgid "Chan SIP"
 msgstr ""
 
-#: Sipsettings.class.php:994
+#: Sipsettings.class.php:995
 #, php-format
 msgid ""
 "Chansip was assigned a port that was already in use for TLS traffic. The "
 "Chansip TLS port has been changed to %s"
 msgstr ""
 
-#: Sipsettings.class.php:983
+#: Sipsettings.class.php:984
 msgid ""
 "Chansip was assigned the same port as pjsip for TCP traffic. Chansip has had "
 "the tcpenable setting removed, and is no longer listening for TCP "
 "connections."
 msgstr ""
 
-#: Sipsettings.class.php:973
+#: Sipsettings.class.php:974
 #, php-format
 msgid ""
 "Chansip was assigned the same port as pjsip for UDP traffic. The Chansip "
@@ -350,7 +350,7 @@ msgstr ""
 "RINGING если уже принят один звонок. Удобно при использовании BLF - Busy "
 "Lamp Functionality."
 
-#: chanpj.page.php:427
+#: chanpj.page.php:431
 msgid "Default"
 msgstr ""
 
@@ -480,11 +480,11 @@ msgstr ""
 msgid "End"
 msgstr "Конец"
 
-#: chanpj.page.php:328
+#: chanpj.page.php:332
 msgid "Endpoint Identifier Order "
 msgstr ""
 
-#: chanpj.page.php:345
+#: chanpj.page.php:349
 msgid ""
 "Endpoint Identifier Order . The Default order is as follows:<ul><li>ip</"
 "li><li>username</li><li>anonymous</li><li>header</li><li>auth_username</li></"
@@ -659,12 +659,12 @@ msgstr ""
 "dynDNS для хоста с динамическим ИП.<br/>Параметры автоматической "
 "конфигурации часто указываются в sip_nat.conf"
 
-#: chanpj.page.php:430 chanpj.page.php:431 chanpj.page.php:432
+#: chanpj.page.php:434 chanpj.page.php:435 chanpj.page.php:436
 #: chansip.page.php:354 chansip.page.php:355
 msgid "Insecure"
 msgstr ""
 
-#: Sipsettings.class.php:1252
+#: Sipsettings.class.php:1253
 msgid "It is recommended that this option remain set to no."
 msgstr ""
 
@@ -801,7 +801,7 @@ msgstr ""
 msgid "Message for the request"
 msgstr ""
 
-#: chanpj.page.php:439
+#: chanpj.page.php:443
 msgid ""
 "Method of SSL transport (TLS ONLY). The default is currently TLSv1, but may "
 "change with future releases."
@@ -858,8 +858,8 @@ msgid "New SIPSettings installation detected. Initializing default settings"
 msgstr ""
 
 #: chanpj.page.php:69 chanpj.page.php:185 chanpj.page.php:208
-#: chanpj.page.php:255 chanpj.page.php:312 chanpj.page.php:454
-#: chanpj.page.php:475 chansip.page.php:311 chansip.page.php:377
+#: chanpj.page.php:255 chanpj.page.php:316 chanpj.page.php:458
+#: chanpj.page.php:479 chansip.page.php:311 chansip.page.php:377
 #: chansip.page.php:407 chansip.page.php:494 chansip.page.php:521
 #: chansip.page.php:678 chansip.page.php:706 chansip.page.php:760
 #: chansip.page.php:953 chansip.page.php:979 chansip.page.php:1005
@@ -879,7 +879,7 @@ msgid ""
 "to use IPv6, it is recommended to use PJSip for those devices or trunks."
 msgstr ""
 
-#: chanpj.page.php:492
+#: chanpj.page.php:496
 msgid ""
 "Note that the interface is only displayed for your information, and is not "
 "referenced by asterisk."
@@ -925,7 +925,7 @@ msgstr "Другие настройки SIP"
 msgid "Override External IP"
 msgstr "Переопределить внешний IP"
 
-#: Sipsettings.class.php:1252
+#: Sipsettings.class.php:1253
 msgid "PJSIP 'Allow Transports Reload' option is set to yes."
 msgstr ""
 
@@ -961,7 +961,7 @@ msgstr ""
 "Привязка адреса/порта была изменена. Это потребует рестарта Астериск после "
 "нажатия кнопки Применить конфигурацию"
 
-#: chanpj.page.php:385
+#: chanpj.page.php:389
 msgid "Private Key File"
 msgstr ""
 
@@ -1021,15 +1021,15 @@ msgstr "Таймаут регистрации"
 msgid "Reinvite Behavior"
 msgstr "Поведение Reinvite"
 
-#: chanpj.page.php:460
+#: chanpj.page.php:464
 msgid "Require verification of client certificate (TLS ONLY)."
 msgstr ""
 
-#: chanpj.page.php:481
+#: chanpj.page.php:485
 msgid "Require verification of server certificate (TLS ONLY)."
 msgstr ""
 
-#: Sipsettings.class.php:691
+#: Sipsettings.class.php:692
 msgid "Reset"
 msgstr "Сброс"
 
@@ -1066,7 +1066,7 @@ msgstr ""
 msgid "SIP driver informations"
 msgstr ""
 
-#: chanpj.page.php:422 chansip.page.php:348
+#: chanpj.page.php:426 chansip.page.php:348
 msgid "SSL Method"
 msgstr ""
 
@@ -1082,11 +1082,11 @@ msgstr "Секунд"
 msgid "Security Settings"
 msgstr "Настройки безопасности"
 
-#: chanpj.page.php:403 chansip.page.php:330
+#: chanpj.page.php:407 chansip.page.php:330
 msgid "Select a Certificate"
 msgstr ""
 
-#: chanpj.page.php:413 chansip.page.php:340
+#: chanpj.page.php:417 chansip.page.php:340
 msgid ""
 "Select a certificate to use for the TLS transport. These are configured in "
 "the module Certificate Manager"
@@ -1111,7 +1111,7 @@ msgstr ""
 "Параметры, установленные в %s будет перебивать указанные здесь ниже. Они "
 "должны быть удалены."
 
-#: chanpj.page.php:305 chanpj.page.php:318
+#: chanpj.page.php:309 chanpj.page.php:322
 msgid "Show Advanced Settings"
 msgstr "Показать дополнительные настройки"
 
@@ -1139,7 +1139,7 @@ msgstr ""
 msgid "Strict RTP"
 msgstr "Строгий RTP"
 
-#: Sipsettings.class.php:696
+#: Sipsettings.class.php:697
 msgid "Submit"
 msgstr "Сохранить"
 
@@ -1176,7 +1176,7 @@ msgstr ""
 msgid "TLS Bind Port"
 msgstr ""
 
-#: chanpj.page.php:353 chansip.page.php:297
+#: chanpj.page.php:357 chansip.page.php:297
 msgid "TLS/SSL/SRTP Settings"
 msgstr ""
 
@@ -1192,7 +1192,7 @@ msgstr "Пароль сервера TURN"
 msgid "TURN Server Username"
 msgstr "Имя пользователя сервера TURN"
 
-#: chanpj.page.php:277
+#: chanpj.page.php:280
 msgid "Taskprocessor Overload Trigger"
 msgstr ""
 
@@ -1294,7 +1294,7 @@ msgid ""
 "If you change this, you will have to restart Asterisk"
 msgstr ""
 
-#: chanpj.page.php:294
+#: chanpj.page.php:297
 msgid ""
 "This option specifies the trigger the distributor will use for detecting "
 "taskprocessor overloads. When it detects an overload condition, the "
@@ -1312,7 +1312,7 @@ msgstr ""
 "Это отбросит пакеты RTP, которые приходят не из указанного адреса источника "
 "потока RTP. При обычной эксплуатации это опция не отключается"
 
-#: chanpj.page.php:488
+#: chanpj.page.php:492
 msgid "Transports"
 msgstr "Транспорты"
 
@@ -1328,11 +1328,11 @@ msgstr ""
 msgid "Unknown Error"
 msgstr "Неизвестная ошибка"
 
-#: Sipsettings.class.php:959
+#: Sipsettings.class.php:960
 msgid "Unknown Port Conflict"
 msgstr ""
 
-#: Sipsettings.class.php:494 Sipsettings.class.php:581
+#: Sipsettings.class.php:495 Sipsettings.class.php:582
 msgid "Unknown Type"
 msgstr "Неизвестный тип"
 
@@ -1360,11 +1360,11 @@ msgstr ""
 "Имя пользователя, используемое для аутентификации на TURN сервере. Эта опция "
 "отключена по умолчанию."
 
-#: chanpj.page.php:447
+#: chanpj.page.php:451
 msgid "Verify Client"
 msgstr ""
 
-#: chanpj.page.php:468
+#: chanpj.page.php:472
 msgid "Verify Server"
 msgstr ""
 
@@ -1420,8 +1420,8 @@ msgid "Whether to enable or disable UDP checksums on RTP traffic"
 msgstr "Если включить или отключить UDP контрольные суммы RTP трафика"
 
 #: chanpj.page.php:67 chanpj.page.php:183 chanpj.page.php:206
-#: chanpj.page.php:253 chanpj.page.php:310 chanpj.page.php:452
-#: chanpj.page.php:473 chansip.page.php:309 chansip.page.php:375
+#: chanpj.page.php:253 chanpj.page.php:314 chanpj.page.php:456
+#: chanpj.page.php:477 chansip.page.php:309 chansip.page.php:375
 #: chansip.page.php:405 chansip.page.php:492 chansip.page.php:519
 #: chansip.page.php:676 chansip.page.php:704 chansip.page.php:758
 #: chansip.page.php:951 chansip.page.php:977 chansip.page.php:1003
@@ -1446,7 +1446,7 @@ msgstr "Да, без коррекции ошибок"
 msgid "You can change this on the Advanced Settings Page"
 msgstr "Вы можете изменить это на странице дополнительных настроек"
 
-#: chanpj.page.php:495
+#: chanpj.page.php:499
 #, php-format
 msgid ""
 "You have Asterisk %s which no longer needs to be restarted for transport "
@@ -1500,7 +1500,7 @@ msgstr ""
 "произошла неустранимая ошибка при указании дефолтных значений, проверьте "
 "модуль"
 
-#: chanpj.page.php:282
+#: chanpj.page.php:285
 msgid "global"
 msgstr ""
 
@@ -1524,7 +1524,7 @@ msgstr "никогда"
 msgid "no"
 msgstr "нет"
 
-#: chanpj.page.php:284
+#: chanpj.page.php:287
 msgid "pjsip_only"
 msgstr ""
 
