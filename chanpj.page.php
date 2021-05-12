@@ -266,8 +266,11 @@ foreach ($protocols as $p) {
 	<?php 
 	}
 	?>	
-
+	
 	<!--Taskprocessor Overload Trigger-->
+	<?php 
+	$asteriskVersions=array("13.25.0", "16.2.0", "17.0.0", "18.0.0");
+	if (version_min(\FreePBX::Config()->get('ASTVERSION'),$asteriskVersions) == true) { ?>
 	<div class="element-container">
 		<div class="row">
 			<div class="col-md-12">
@@ -295,6 +298,7 @@ foreach ($protocols as $p) {
 			</div>
 		</div>
 	</div>
+	<?php } ?>
 	<!--Taskprocessor Overload Trigger-->
 
 	<!--Show Advanced Settings-->
