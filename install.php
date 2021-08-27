@@ -34,8 +34,6 @@ if(empty($rows)) {
 
 
 	$brand = $FreePBX->Config->get('DASHBOARD_FREEPBX_BRAND');
-	$nt = notifications::create();
-	$nt->add_notice('sipsettings', 'BINDPORT', sprintf(_("Default bind port for CHAN_PJSIP is: %s, CHAN_SIP is: %s"), $pjsip_port, $chansip_port), sprintf(_("The default bind ports for %s have changed. Please keep this is mind while configuring your devices. You can change this in SIP Settings. CHAN_PJSIP is: %s, CHAN_SIP is: %s"), $brand, $pjsip_port, $chansip_port), "https://wiki.freepbx.org/display/HTGS/CHAN_PJSIP+vs+CHAN_SIP", true, true);
 
 	outn(_("populating default codecs.."));
 	$sip_settings =  array(
