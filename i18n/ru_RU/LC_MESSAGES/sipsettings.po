@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-12 15:23+0000\n"
+"POT-Creation-Date: 2021-08-30 10:26+0000\n"
 "PO-Revision-Date: 2015-12-05 10:05+0200\n"
 "Last-Translator: Andrew <andrew.nagy@the159.com>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/"
@@ -361,11 +361,6 @@ msgstr "Дефолтный контекст"
 #: general.page.php:105
 msgid "Default TLS Port Assignment"
 msgstr ""
-
-#: install.php:38
-#, php-format
-msgid "Default bind port for CHAN_PJSIP is: %s, CHAN_SIP is: %s"
-msgstr "Привязка порта по умолчанию для CHAN_PJSIP: %s, CHAN_SIP: %s"
 
 #: chansip.page.php:846
 msgid ""
@@ -813,27 +808,27 @@ msgid ""
 "change with future releases."
 msgstr ""
 
-#: install.php:92
+#: install.php:90
 msgid "Migrate rtp.conf values if needed and initialize"
 msgstr "Перенос и инициализация значений rtp.conf, если нужно"
 
-#: install.php:190
+#: install.php:188
 msgid "Migrating Audio Codecs"
 msgstr "Перемещение аудио кодеков"
 
-#: install.php:143
+#: install.php:141
 msgid "Migrating LocalNets and Netmasks"
 msgstr "Перемещение локальных сетей и масок подсети"
 
-#: install.php:210
+#: install.php:208
 msgid "Migrating Video Codecs"
 msgstr "Перемещение видео кодеков"
 
-#: install.php:118
+#: install.php:116
 msgid "Migrating rtpend Setting from Old Format to BMO Object"
 msgstr "Перемещение настроек rtpend из старого формата в объект BMO"
 
-#: install.php:104
+#: install.php:102
 msgid "Migrating rtpstart Setting from Old Format to BMO Object"
 msgstr "Перемещение настроек rtpstart из старого формата в объект BMO"
 
@@ -1217,17 +1212,6 @@ msgstr ""
 "прекращения зависшего вызова в результате пропадания телефона из сети, как "
 "например пропадание электрическтва или замыкания в кабеле."
 
-#: install.php:38
-#, php-format
-msgid ""
-"The default bind ports for %s have changed. Please keep this is mind while "
-"configuring your devices. You can change this in SIP Settings. CHAN_PJSIP "
-"is: %s, CHAN_SIP is: %s"
-msgstr ""
-"Порт по умолчанию для %s был изменён. Имейте это ввиду при конфигурировании "
-"ваших устройств. Вы можете это изменить в SIP настройках. CHAN_PJSIP: %s, "
-"CHAN_SIP: %s"
-
 #: general.page.php:502
 msgid "The format for these overrides is: [address] / [subnet]"
 msgstr ""
@@ -1340,7 +1324,7 @@ msgstr "Неизвестный тип"
 msgid "Updating External IP network and mask"
 msgstr ""
 
-#: install.php:85
+#: install.php:83
 msgid "Updating kvstore_Sipsettings"
 msgstr ""
 
@@ -1482,7 +1466,7 @@ msgstr ""
 msgid "addSipNatLocalIp"
 msgstr ""
 
-#: install.php:77
+#: install.php:75
 msgid "already exists"
 msgstr "уже существует"
 
@@ -1494,7 +1478,7 @@ msgstr ""
 msgid "ertyuiop"
 msgstr ""
 
-#: install.php:63
+#: install.php:61
 msgid "fatal error occurred populating defaults, check module"
 msgstr ""
 "произошла неустранимая ошибка при указании дефолтных значений, проверьте "
@@ -1528,7 +1512,7 @@ msgstr "нет"
 msgid "pjsip_only"
 msgstr ""
 
-#: install.php:40
+#: install.php:38
 msgid "populating default codecs.."
 msgstr "указание кодеков по умолчанию.."
 
@@ -1540,12 +1524,12 @@ msgstr "route"
 msgid "rtpholdtimeout must be higher than rtptimeout"
 msgstr "rtpholdtimeout должен быть больше чем rtptimeout"
 
-#: install.php:100 install.php:114
+#: install.php:98 install.php:112
 #, php-format
 msgid "saving previous value of %s"
 msgstr "сохранение предыдущего значения из %s"
 
-#: install.php:65
+#: install.php:63
 msgid "ulaw, alaw, gsm, g726 added"
 msgstr "ulaw, alaw, gsm, g726 добавлены"
 
@@ -1560,6 +1544,18 @@ msgstr ""
 #: chansip.page.php:161 chansip.page.php:432
 msgid "yes"
 msgstr "да"
+
+#~ msgid "Default bind port for CHAN_PJSIP is: %s, CHAN_SIP is: %s"
+#~ msgstr "Привязка порта по умолчанию для CHAN_PJSIP: %s, CHAN_SIP: %s"
+
+#~ msgid ""
+#~ "The default bind ports for %s have changed. Please keep this is mind "
+#~ "while configuring your devices. You can change this in SIP Settings. "
+#~ "CHAN_PJSIP is: %s, CHAN_SIP is: %s"
+#~ msgstr ""
+#~ "Порт по умолчанию для %s был изменён. Имейте это ввиду при "
+#~ "конфигурировании ваших устройств. Вы можете это изменить в SIP "
+#~ "настройках. CHAN_PJSIP: %s, CHAN_SIP: %s"
 
 #~ msgid "SIP driver information"
 #~ msgstr "Информация о SIP драйвере"

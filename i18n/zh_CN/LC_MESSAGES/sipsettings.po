@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-12 15:23+0000\n"
+"POT-Creation-Date: 2021-08-30 10:26+0000\n"
 "PO-Revision-Date: 2015-02-20 20:00-0500\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -293,11 +293,6 @@ msgstr ""
 
 #: general.page.php:105
 msgid "Default TLS Port Assignment"
-msgstr ""
-
-#: install.php:38
-#, php-format
-msgid "Default bind port for CHAN_PJSIP is: %s, CHAN_SIP is: %s"
 msgstr ""
 
 #: chansip.page.php:846
@@ -700,27 +695,27 @@ msgid ""
 "change with future releases."
 msgstr ""
 
-#: install.php:92
+#: install.php:90
 msgid "Migrate rtp.conf values if needed and initialize"
 msgstr ""
 
-#: install.php:190
+#: install.php:188
 msgid "Migrating Audio Codecs"
 msgstr ""
 
-#: install.php:143
+#: install.php:141
 msgid "Migrating LocalNets and Netmasks"
 msgstr ""
 
-#: install.php:210
+#: install.php:208
 msgid "Migrating Video Codecs"
 msgstr ""
 
-#: install.php:118
+#: install.php:116
 msgid "Migrating rtpend Setting from Old Format to BMO Object"
 msgstr ""
 
-#: install.php:104
+#: install.php:102
 msgid "Migrating rtpstart Setting from Old Format to BMO Object"
 msgstr ""
 
@@ -1079,14 +1074,6 @@ msgid ""
 "tripping over a cable."
 msgstr ""
 
-#: install.php:38
-#, php-format
-msgid ""
-"The default bind ports for %s have changed. Please keep this is mind while "
-"configuring your devices. You can change this in SIP Settings. CHAN_PJSIP "
-"is: %s, CHAN_SIP is: %s"
-msgstr ""
-
 #: general.page.php:502
 msgid "The format for these overrides is: [address] / [subnet]"
 msgstr ""
@@ -1194,7 +1181,7 @@ msgstr ""
 msgid "Updating External IP network and mask"
 msgstr ""
 
-#: install.php:85
+#: install.php:83
 msgid "Updating kvstore_Sipsettings"
 msgstr ""
 
@@ -1319,7 +1306,7 @@ msgstr ""
 msgid "addSipNatLocalIp"
 msgstr ""
 
-#: install.php:77
+#: install.php:75
 msgid "already exists"
 msgstr ""
 
@@ -1331,7 +1318,7 @@ msgstr ""
 msgid "ertyuiop"
 msgstr ""
 
-#: install.php:63
+#: install.php:61
 msgid "fatal error occurred populating defaults, check module"
 msgstr ""
 
@@ -1363,7 +1350,7 @@ msgstr ""
 msgid "pjsip_only"
 msgstr ""
 
-#: install.php:40
+#: install.php:38
 msgid "populating default codecs.."
 msgstr ""
 
@@ -1375,12 +1362,12 @@ msgstr ""
 msgid "rtpholdtimeout must be higher than rtptimeout"
 msgstr ""
 
-#: install.php:100 install.php:114
+#: install.php:98 install.php:112
 #, php-format
 msgid "saving previous value of %s"
 msgstr ""
 
-#: install.php:65
+#: install.php:63
 msgid "ulaw, alaw, gsm, g726 added"
 msgstr ""
 
