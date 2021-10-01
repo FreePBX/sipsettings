@@ -67,7 +67,7 @@ $(document).ready(function() {
 			<div class="form-group form-inline">\
 				<input type="hidden" id="ice_blacklist_count" name="ice_blacklist_count[]" value="'+idx+'"> \
 				<input type="text" id="ice_blacklist_ip_'+idx+'" name="ice_blacklist_ip_'+idx+'" class="form-control ice-blacklist" value=""> /\
-				<input type="text" id="ice_blacklist_subnet_'+idx+'" name="ice_blacklist_subnet_'+idx+'" class="form-control ice-blacklist" value=""> \
+				<input type="text" id="ice_blacklist_subnet_'+idx+'" name="ice_blacklist_subnet_'+idx+'" class="form-control ice-blacklist subnet-field" value=""> \
 			</div>\
 		');
 	});
@@ -307,8 +307,23 @@ function addLocalnet(net, cidr) {
 
 	var html = "<div class = 'lnet form-group form-inline' data-nextid="+nextid+">";
 	html += "<input type='text' name='localnets["+ourid+"][net]' class='form-control localnet network validate-ip' value='"+net+"'> / ";
-	html += "<input type='text' name='localnets["+ourid+"][mask]' class='form-control localnet cidr validate-netmask' value='"+cidr+"'>";
+	html += "<input type='text' name='localnets["+ourid+"][mask]' class='form-control localnet cidr validate-netmask subnet-field' value='"+cidr+"'>";
 	html += "</div>\n";
 
 	last.after(html);
 }
+
+$(document).on("change", ".subnet-field", function() {
+
+	var subnetRegex = new RegExp(/[^0-9.]/);
+	var validValue = $(this).data('valid-value');
+	var currentValue = $(this).val();
+	if(subnetRegex.test(currentValue)) {
+		$(this).val(validValue);
+		var msg = _("Enter a valid Netmask/CIDR value. Only numbers[0-9] and dot[.] allowed. Eg: 255.255.255.255 or 21");
+		fpbxToast(msg, _('Error'), 'error');
+	} else {
+		$(this).data('valid-value', currentValue);
+		$(this).val(currentValue);
+	}
+})
