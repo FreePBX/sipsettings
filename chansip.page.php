@@ -73,7 +73,7 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 	$sip_settings['context']           = isset($_POST['context']) ? htmlspecialchars($_POST['context']) : '';
 	$sip_settings['bindaddr']          = isset($_POST['bindaddr']) ? htmlspecialchars($_POST['bindaddr']) : '';
 	$sip_settings['bindport']          = isset($_POST['bindport']) ? htmlspecialchars($_POST['bindport']) : '';
-	$sip_settings['allowguest']        = isset($_POST['allowguest']) ? $_POST['allowguest'] : 'yes';
+	$sip_settings['allowguest']        = isset($_POST['allowguest']) ? $_POST['allowguest'] : 'no';
 	$sip_settings['srvlookup']         = isset($_POST['srvlookup']) ? $_POST['srvlookup'] : 'no';
 	$sip_settings['tcpenable']         = isset($_POST['tcpenable']) ? $_POST['tcpenable'] : 'no';
 	$sip_settings['callevents']        = isset($_POST['callevents']) ? $_POST['callevents'] : 'no';
