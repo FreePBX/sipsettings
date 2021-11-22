@@ -24,17 +24,17 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-06-01 07:31+0000\n"
-"PO-Revision-Date: 2015-12-05 10:05+0200\n"
-"Last-Translator: Andrew <andrew.nagy@the159.com>\n"
+"PO-Revision-Date: 2021-11-23 08:01+0000\n"
+"Last-Translator: Dmitriy Q <krotesk@ya.ru>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/"
-"sipsettings/ru_RU/>\n"
+"sipsettings/ru/>\n"
 "Language: ru_RU\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 2.2-dev\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 3.0.1\n"
 
 #: general.page.php:829
 msgid ""
@@ -1065,11 +1065,11 @@ msgstr "Строгий RTP"
 
 #: Sipsettings.class.php:674
 msgid "Submit"
-msgstr "Сохранить"
+msgstr "Применить"
 
 #: chansip.page.php:38 general.page.php:20
 msgid "Submit Changes"
-msgstr "Сохранить изменения"
+msgstr "Применить изменения"
 
 #: general.page.php:498
 msgid ""
