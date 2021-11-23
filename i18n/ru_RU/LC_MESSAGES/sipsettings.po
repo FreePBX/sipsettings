@@ -24,7 +24,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-06-01 07:31+0000\n"
-"PO-Revision-Date: 2021-11-23 08:01+0000\n"
+"PO-Revision-Date: 2021-11-24 15:00+0000\n"
 "Last-Translator: Dmitriy Q <krotesk@ya.ru>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/"
 "sipsettings/ru/>\n"
@@ -466,7 +466,7 @@ msgstr ""
 
 #: general.page.php:249
 msgid "End"
-msgstr "Конец"
+msgstr "Завершение"
 
 #: chanpj.page.php:252
 msgid "Endpoint Identifier Order "
