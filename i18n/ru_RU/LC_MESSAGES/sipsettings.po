@@ -24,7 +24,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-06-01 07:31+0000\n"
-"PO-Revision-Date: 2021-11-26 14:00+0000\n"
+"PO-Revision-Date: 2021-11-29 06:58+0000\n"
 "Last-Translator: Dmitriy Q <krotesk@ya.ru>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/"
 "sipsettings/ru/>\n"
@@ -1023,11 +1023,11 @@ msgstr "Поведение Reinvite"
 
 #: chanpj.page.php:384
 msgid "Require verification of client certificate (TLS ONLY)."
-msgstr ""
+msgstr "Требуется проверка клиентского сертификата (ТОЛЬКО TLS)."
 
 #: chanpj.page.php:405
 msgid "Require verification of server certificate (TLS ONLY)."
-msgstr ""
+msgstr "Требуется проверка серверного сертификата (ТОЛЬКО TLS)."
 
 #: Sipsettings.class.php:669
 msgid "Reset"
@@ -1052,7 +1052,7 @@ msgstr "Информация о SIP драйвере"
 
 #: chanpj.page.php:346 chansip.page.php:347
 msgid "SSL Method"
-msgstr ""
+msgstr "Метод SSL"
 
 #: general.page.php:397 general.page.php:582
 msgid "STUN Server Address"
@@ -1068,13 +1068,15 @@ msgstr "Настройки безопасности"
 
 #: chanpj.page.php:327 chansip.page.php:329
 msgid "Select a Certificate"
-msgstr ""
+msgstr "Выберите сертификат"
 
 #: chanpj.page.php:337 chansip.page.php:339
 msgid ""
 "Select a certificate to use for the TLS transport. These are configured in "
 "the module Certificate Manager"
 msgstr ""
+"Выберите сертификат, который будет использоваться для транспорта TLS. Они "
+"настраиваются в модуле Управление сертификатами"
 
 #: general.page.php:380
 msgid ""
@@ -1128,6 +1130,13 @@ msgid ""
 "necessary for ICE. Multiple subnets may be listed. If left unconfigured, all "
 "discovered host addresses are used."
 msgstr ""
+"Подсети для исключения из ICE-хоста, srflx и обнаружения ретрансляции. Это "
+"полезно для оптимизации процесса ICE, когда система имеет несколько "
+"диапазонов адресов хостов и/или физических интерфейсов, и некоторые из них, "
+"как ожидается, не будут использоваться для RTP. Например, VPN и локальные "
+"соединения могут быть неподходящими или необходимыми для ICE. В списке может "
+"быть несколько подсетей. Если не задано - используются все обнаруженные "
+"адреса хостов."
 
 #: general.page.php:683
 msgid "T38 Pass-Through"
@@ -1139,18 +1148,22 @@ msgid ""
 "which listens on all interfaces for both IPv4 and IPv6 connections. Note "
 "that PJSip is preferable for all IPv6 communications."
 msgstr ""
+"TCP-порт для прослушивания TLS (зашифрованных) соединений. По умолчанию "
+"используется значение \"[::]\", которое прослушивает все интерфейсы как для "
+"соединений IPv4, так и для IPv6. Обратите внимание, что PJSip предпочтителен "
+"для всех соединений IPv6."
 
 #: chansip.page.php:903
 msgid "TLS Bind Address"
-msgstr ""
+msgstr "Адрес привязки TLS"
 
 #: chansip.page.php:923
 msgid "TLS Bind Port"
-msgstr ""
+msgstr "Порт привязки TLS"
 
 #: chanpj.page.php:277 chansip.page.php:296
 msgid "TLS/SSL/SRTP Settings"
-msgstr ""
+msgstr "Настройки TLS/SSL/SRTP"
 
 #: general.page.php:421 general.page.php:606
 msgid "TURN Server Address"
@@ -1198,12 +1211,13 @@ msgstr ""
 
 #: general.page.php:499
 msgid "The format for these overrides is: [address] / [subnet]"
-msgstr ""
+msgstr "Формат для этих переопределений: [адрес] / [подсеть]"
 
 #: general.page.php:543
 msgid ""
 "The format for these overrides is: [local address] => [advertised address]>"
 msgstr ""
+"Формат для этих переопределений: [локальный адрес] => [объявленный адрес]>"
 
 #: chanpj.page.php:97
 msgid "The port that this transport should listen on"
@@ -1224,7 +1238,7 @@ msgstr ""
 
 #: general.page.php:500 general.page.php:544
 msgid "This is most commonly used for WebRTC"
-msgstr ""
+msgstr "Это чаще всего используется для WebRTC"
 
 #: general.page.php:717
 msgid "This is the default Codec setting for new Trunks and Extensions."
@@ -1237,6 +1251,10 @@ msgid ""
 "that protocol is not enabled, or, that protocol does not have TLS enabled. "
 "If you change this, you will have to restart Asterisk"
 msgstr ""
+"Это позволяет вам явно управлять протоколом SIP, прослушивающим порт SIP TLS "
+"по умолчанию (5061). Если опция недоступна - это связано с тем, что этот "
+"протокол не включен или в этом протоколе не включен протокол TLS. Если вы "
+"измените это - вам придется перезапустить Asterisk"
 
 #: general.page.php:308
 msgid ""
@@ -1264,7 +1282,7 @@ msgstr "Неизвестная ошибка"
 
 #: Sipsettings.class.php:937
 msgid "Unknown Port Conflict"
-msgstr ""
+msgstr "Конфликт неизвестных портов"
 
 #: Sipsettings.class.php:472 Sipsettings.class.php:559
 msgid "Unknown Type"
@@ -1272,7 +1290,7 @@ msgstr "Неизвестный тип"
 
 #: install.php:121
 msgid "Updating kvstore_Sipsettings"
-msgstr ""
+msgstr "Обновление настроек kvstore_Sip"
 
 #: chanpj.page.php:76
 msgid "Use "
@@ -1280,7 +1298,7 @@ msgstr "Использовать "
 
 #: sipsettings.i18n.php:8
 msgid "Use to configure Various Asterisk SIP and PJSIP Settings"
-msgstr ""
+msgstr "Используется для настройки различных параметров Asterisk SIP и PJSIP"
 
 #: general.page.php:457 general.page.php:642
 msgid ""
@@ -1292,11 +1310,11 @@ msgstr ""
 
 #: chanpj.page.php:371
 msgid "Verify Client"
-msgstr ""
+msgstr "Проверка клиента"
 
 #: chanpj.page.php:392
 msgid "Verify Server"
-msgstr ""
+msgstr "Проверка сервера"
 
 #: general.page.php:804 general.page.php:842 general.page.php:876
 msgid "Video Codecs"
@@ -1308,15 +1326,15 @@ msgstr "Поддержка видео"
 
 #: general.page.php:572
 msgid "WebRTC Settings"
-msgstr ""
+msgstr "Настройки WebRTC"
 
 #: general.page.php:494
 msgid "What is ICE Blacklist?"
-msgstr ""
+msgstr "Что такое черный список ICE?"
 
 #: general.page.php:537
 msgid "What is ICE Host Candidates?"
-msgstr ""
+msgstr "Что такое узлы-кандидаты ICE?"
 
 #: general.page.php:541
 msgid ""
@@ -1327,6 +1345,13 @@ msgid ""
 "peer. To help hide the topology of your internal network, you can override "
 "the host candidates that Asterisk will send to the remote peer."
 msgstr ""
+"Когда Asterisk находится за статическим NAT один-к-одному и используется "
+"ICE, ICE предоставит внутренний IP-адрес сервера в качестве одного из узлов-"
+"кандидатов. Хотя использование STUN (см. параметр конфигурации \"stunaddr\") "
+"обеспечит общедоступный IP-адрес, внутренний IP-адрес все равно будет "
+"отправлен удаленному узлу. Чтобы скрыть топологию вашей внутренней сети, вы "
+"можете переопределить узлы-кандидаты, которые Asterisk отправит удаленному "
+"узлу."
 
 #: general.page.php:92
 msgid ""
@@ -1384,6 +1409,11 @@ msgid ""
 "Transports Reload' is set to 'Yes' reloading after changing transports does "
 "have the possibility to drop calls."
 msgstr ""
+"У вас есть Asterisk %s, который больше не нужно перезапускать для изменений "
+"транспорта, если \"Разрешить перезагрузку транспортов\" установлено в \"Да\" "
+"выше. Примечание: Если для параметра \"Разрешить перезагрузку транспортов\" "
+"установлено значение \"Да\" - перезагрузка после смены транспортов имеет "
+"особенность отбрасывать вызовы."
 
 #: chansip.page.php:1064
 msgid ""
@@ -1414,7 +1444,7 @@ msgstr "уже существует"
 
 #: Sipsettings.class.php:178
 msgid "chan_pjsip and chan_sip"
-msgstr ""
+msgstr "chan_pjsip и chan_sip"
 
 #: install.php:21
 msgid "checking for sipsettings table.."
