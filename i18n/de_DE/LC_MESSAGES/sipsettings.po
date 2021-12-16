@@ -10,9 +10,10 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-06-01 07:31+0000\n"
-"PO-Revision-Date: 2020-06-06 15:00+0000\n"
-"Last-Translator: Bastian Mertgen <b.mertgen@bastian-mertgen.de>\n"
-"Language-Team: German <http://*/projects/freepbx/sipsettings/de/>\n"
+"PO-Revision-Date: 2021-12-16 18:00+0000\n"
+"Last-Translator: florian alberts <alberts@ar-systems.de>\n"
+"Language-Team: German <http://weblate.freepbx.org/projects/freepbx/"
+"sipsettings/de/>\n"
 "Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -161,6 +162,9 @@ msgid ""
 "Bind Port. If set to 0.0.0.0 Asterisk will listen on all addresses. It is "
 "recommended to leave this blank."
 msgstr ""
+"Asterisk: bindaddr. Die IP-Adresse, an die der Bind-Port gebunden und auf "
+"Anrufe überwacht werden soll. Wenn auf 0.0.0.0 gesetzt, hört Asterisk auf "
+"allen Adressen. Es wird empfohlen, dieses Feld leer zu lassen."
 
 #: chansip.page.php:445
 msgid ""
@@ -212,23 +216,23 @@ msgstr "Audio-Codecs"
 
 #: chansip.page.php:36
 msgid "Auto Configure"
-msgstr ""
+msgstr "Automatische Konfiguration"
 
 #: chansip.page.php:861
 msgid "Bind Address"
-msgstr ""
+msgstr "Bind Adresse"
 
 #: functions.inc.php:365
 msgid "Bind Address (bindaddr) must be an IP address."
-msgstr ""
+msgstr "Bind Adresse (bindaddr) muss IP Addresse sein."
 
 #: chansip.page.php:883
 msgid "Bind Port"
-msgstr ""
+msgstr "Bind Port"
 
 #: functions.inc.php:371
 msgid "Bind Port (bindport) must be between 1024 and 65535"
-msgstr ""
+msgstr "Bind Port (bindport) muss zwischen 1024 and 65535 sein"
 
 #: chanpj.page.php:285
 msgid "CA Chain File"
@@ -333,7 +337,7 @@ msgstr "Standard"
 
 #: chansip.page.php:833
 msgid "Default Context"
-msgstr ""
+msgstr "Standardkontext"
 
 #: general.page.php:102
 msgid "Default TLS Port Assignment"
@@ -351,6 +355,10 @@ msgid ""
 "calls. If you change this you will effect that behavior. It is recommended "
 "to leave this blank."
 msgstr ""
+"Standardkontext für eingehende Anrufe, wenn nicht angegeben. FreePBX setzt "
+"dies auf from-sip-external, was in Verbindung mit Anonyme SIP-Anrufe "
+"zulassen verwendet wird. Wenn Sie dies ändern, werden Sie dieses Verhalten "
+"beeinflussen. Es wird empfohlen, dieses Feld leer zu lassen."
 
 #: chansip.page.php:653
 msgid "Default length of incoming and outgoing registrations."
@@ -366,7 +374,7 @@ msgstr "Deaktiviert"
 
 #: chanpj.page.php:98
 msgid "Domain the transport comes from"
-msgstr ""
+msgstr "Domain, aus der der Transport stammt"
 
 #: chansip.page.php:382
 msgid "Don't Require verification of server certificate (TLS ONLY)."
@@ -426,7 +434,7 @@ msgstr "Aktiviert"
 
 #: chansip.page.php:767
 msgid "Enables jitter buffer frame logging."
-msgstr ""
+msgstr "Aktiviert die Jitter-Buffer-Frame-Protokollierung."
 
 #: chansip.page.php:685
 msgid ""
@@ -439,10 +447,20 @@ msgid ""
 "be used when sending to a SIP endpoint since they usually have their own "
 "jitter buffers. See jbforce to force its use always."
 msgstr ""
+"Ermöglicht die Verwendung eines Jitterbuffers auf der Empfangsseite eines "
+"SIP-Kanals. Ein aktivierter Jitterbuffer wird nur verwendet, wenn die "
+"sendende Seite Jitter erzeugen kann und die empfangende Seite keinen Jitter "
+"akzeptieren kann. Der SIP-Kanal kann Jitter akzeptieren, daher wird ein "
+"Jitterbuffer auf der SIP-Empfangsseite nur verwendet, wenn er erzwungen und "
+"aktiviert ist. Ein Beispiel ist, dass beim Empfang von einem Jitter-Kanal an "
+"Voicemail der Jitter-Puffer verwendet wird, wenn er aktiviert ist. Es wird "
+"jedoch nicht verwendet, wenn an einen SIP-Endpunkt gesendet wird, da diese "
+"normalerweise über eigene Jitter-Puffer verfügen. Siehe jbforce, um seine "
+"Verwendung immer zu erzwingen."
 
 #: general.page.php:249
 msgid "End"
-msgstr ""
+msgstr "Ende"
 
 #: chanpj.page.php:252
 msgid "Endpoint Identifier Order "
@@ -516,6 +534,12 @@ msgid ""
 "force the use of the jitter buffer before sending the stream on. This is not "
 "typically desired as it adds additional latency into the stream."
 msgstr ""
+"Erzwingt die Verwendung eines Jitterbuffers auf der Empfangsseite eines SIP-"
+"Kanals. Normalerweise wird der Jitter-Puffer nicht verwendet, wenn ein "
+"Jitter-Kanal empfangen, aber an einen anderen Kanal gesendet wird, z. "
+"Dadurch wird die Verwendung des Jitter-Puffers erzwungen, bevor der Stream "
+"weitergesendet wird. Dies ist normalerweise nicht erwünscht, da es dem "
+"Stream zusätzliche Latenzzeit hinzufügt."
 
 #: chansip.page.php:474
 msgid ""
@@ -532,7 +556,7 @@ msgstr ""
 
 #: general.page.php:717
 msgid "Helpful Information"
-msgstr ""
+msgstr "Hilfreiche Information"
 
 #: general.page.php:409 general.page.php:594
 msgid ""
@@ -604,7 +628,7 @@ msgstr "Unsicher"
 
 #: Sipsettings.class.php:1197
 msgid "It is recommended that this option remain set to no."
-msgstr ""
+msgstr "Es wird empfohlen, diese Option auf Nein zu setzen."
 
 #: chansip.page.php:752
 msgid "Jitter Buffer Logging"
@@ -636,10 +660,15 @@ msgid ""
 "timestamps, usually sent from exotic devices and programs. Can be set to -1 "
 "to disable."
 msgstr ""
+"Springen Sie in die Frame-Zeitstempel, über die der Jitterbuffer "
+"resynchronisiert wird. Nützlich, um die Sprachqualität zu verbessern, mit "
+"großen Sprüngen in / unterbrochenen Zeitstempeln, die normalerweise von "
+"exotischen Geräten und Programmen gesendet werden. Kann zum Deaktivieren auf "
+"-1 gesetzt werden."
 
 #: assets/js/sipsettings.js:250
 msgid "Loading"
-msgstr ""
+msgstr "Lade"
 
 #: general.page.php:201
 msgid "Local Networks"
@@ -696,11 +725,11 @@ msgstr ""
 
 #: chansip.page.php:629
 msgid "Maximum allowed time of incoming registrations"
-msgstr ""
+msgstr "Maximal zulässige Zeit für eingehende Anmeldungen"
 
 #: general.page.php:903
 msgid "Maximum bitrate for video calls in kb/s"
-msgstr ""
+msgstr "Maximum bitrate für video calls in kb/s"
 
 #: general.page.php:387
 msgid "Media Transport Settings"
@@ -724,7 +753,7 @@ msgstr ""
 
 #: install.php:226
 msgid "Migrating Audio Codecs"
-msgstr ""
+msgstr "Migriere Audio Codecs"
 
 #: install.php:179
 msgid "Migrating LocalNets and Netmasks"
@@ -732,7 +761,7 @@ msgstr ""
 
 #: install.php:246
 msgid "Migrating Video Codecs"
-msgstr ""
+msgstr "Migriere Video Codecs"
 
 #: install.php:154
 msgid "Migrating rtpend Setting from Old Format to BMO Object"
@@ -744,7 +773,7 @@ msgstr ""
 
 #: chansip.page.php:605
 msgid "Minimum length of registrations/subscriptions."
-msgstr ""
+msgstr "Minimale Länge der Registrierungen/Abonnements."
 
 #: chanpj.page.php:169
 msgid "Misc PJSip Settings"
@@ -785,11 +814,15 @@ msgid ""
 "Note that the interface is only displayed for your information, and is not "
 "referenced by asterisk."
 msgstr ""
+"Beachten Sie, dass die Schnittstelle nur zu Ihrer Information angezeigt wird "
+"und nicht von Asterisk referenziert wird."
 
 #: chansip.page.php:234
 msgid ""
 "Note that this will, by default, inherit the settings from the General page"
 msgstr ""
+"Beachten Sie, dass dies standardmäßig die Einstellungen von der Seite "
+"„Allgemein“ übernimmt"
 
 #: chansip.page.php:452
 msgid "Notification & MWI"
@@ -828,8 +861,9 @@ msgid "PJSIP transport port conflicts with SIP port"
 msgstr ""
 
 #: general.page.php:107
+#, fuzzy
 msgid "PJSip"
-msgstr ""
+msgstr "PJSip"
 
 #: general.page.php:481 general.page.php:666
 msgid ""
@@ -885,7 +919,7 @@ msgstr ""
 
 #: chansip.page.php:569
 msgid "Registration Attempts"
-msgstr ""
+msgstr "Registrierungsversuche"
 
 #: chansip.page.php:641
 msgid "Registration Default Expiry"
@@ -905,7 +939,7 @@ msgstr ""
 
 #: chansip.page.php:545
 msgid "Registration Timeout"
-msgstr ""
+msgstr "Registrierungs-Timeout"
 
 #: chansip.page.php:426
 msgid "Reinvite Behavior"
@@ -928,6 +962,9 @@ msgid ""
 "Retry registration attempts every registertimeout seconds until successful "
 "or until registrationattempts tries have been made."
 msgstr ""
+"Wiederholen Sie die Registrierungsversuche bei jeder "
+"Registrierungszeitüberschreitung in Sekunden, bis die Registrierung "
+"erfolgreich war oder bis Registrierungsversuche unternommen wurden."
 
 #: page.sipsettings.php:15
 msgid "SIP Settings"
@@ -935,7 +972,7 @@ msgstr "SIP-Einstellungen"
 
 #: page.sipsettings.php:16
 msgid "SIP driver information"
-msgstr ""
+msgstr "SIP Treiberinformationen"
 
 #: chanpj.page.php:346 chansip.page.php:347
 msgid "SSL Method"
@@ -962,6 +999,8 @@ msgid ""
 "Select a certificate to use for the TLS transport. These are configured in "
 "the module Certificate Manager"
 msgstr ""
+"Wählen Sie ein Zertifikat aus, das für den TLS-Transport verwendet werden "
+"soll. Diese werden im Modul Certificate Manager konfiguriert"
 
 #: general.page.php:380
 msgid ""
@@ -1154,7 +1193,7 @@ msgstr "Unbekannter Fehler"
 
 #: Sipsettings.class.php:937
 msgid "Unknown Port Conflict"
-msgstr ""
+msgstr "Unbekannter Port Konflikt"
 
 #: Sipsettings.class.php:472 Sipsettings.class.php:559
 msgid "Unknown Type"
