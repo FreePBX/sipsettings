@@ -21,17 +21,7 @@ $rows = \FreePBX::Database()->query("SELECT * from `sipsettings`")->fetchAll(\PD
 if(empty($rows)) {
 	out(_("New SIPSettings installation detected. Initializing default settings"));
 
-	$process = new Process('fwconsole extip');
-	$process->run();
-
-	// executes after the command finishes
-	if ($process->isSuccessful()) {
-		$extip = trim($process->getOutput());
-		if(!empty($extip)) {
-			$ss->setConfig('externip',$extip);
-		}
-	}
-
+	$ss->setExternIP();
 
 	$brand = $FreePBX->Config->get('DASHBOARD_FREEPBX_BRAND');
 
@@ -155,6 +145,13 @@ if (isset($extip[0])) {
 		$ss->setConfig('externip', $extip[0]['data']);
 	}
 }
+
+// FREEI-4452 If externip not set on fresh iso or installation then set it
+if (!$ss->getConfig('externip')) {
+	$ss->setExternIP();	
+	outn(_("Configured externip to ..".$ss->getConfig('externip')));
+}
+ 
 
 $sql = "SELECT * from sipsettings where keyword='tlsbindport'";
 $tlsbp = sql($sql,'getAll',DB_FETCHMODE_ASSOC);

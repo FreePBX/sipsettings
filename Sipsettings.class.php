@@ -33,6 +33,19 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 		"keep_alive_interval" => 90
 	);
 
+	public function setExternIP() {
+		$process = new Process('fwconsole extip');
+		$process->run();
+
+		// executes after the command finishes
+		if ($process->isSuccessful()) {
+			$extip = trim($process->getOutput());
+			if(!empty($extip)) {
+				$this->setConfig('externip',$extip);
+			}
+		}
+	}
+
 	public function ajaxRequest($req, &$setting) {
 		// We're happy to do Ajax
 		return true;
