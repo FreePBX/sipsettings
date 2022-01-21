@@ -1,5 +1,8 @@
 <?php
 // vim: set ai ts=4 sw=4 ft=php:
+use Symfony\Component\Process\Process;
+use Symfony\Component\Process\Exception\ProcessFailedException;
+
 
 class Sipsettings extends FreePBX_Helpers implements BMO {
 
