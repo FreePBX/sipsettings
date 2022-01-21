@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-08-30 10:26+0000\n"
+"POT-Creation-Date: 2022-01-21 03:57+0000\n"
 "PO-Revision-Date: 2017-06-07 15:50+0200\n"
 "Last-Translator: Michal <mboltz@tlen.pl>\n"
 "Language-Team: Polish (Polish) <http://weblate.freepbx.org/projects/freepbx/"
@@ -137,7 +137,7 @@ msgstr ""
 "Podczas próby pobrania konfiguracji sieci i zewnętrznego adresu IP wystąpił "
 "błąd"
 
-#: Sipsettings.class.php:960
+#: Sipsettings.class.php:973
 msgid ""
 "An unknown port conflict has been detected in PJSIP. Please check and "
 "validate your PJSIP Ports to ensure they're not overlapping"
@@ -160,7 +160,7 @@ msgstr ""
 msgid "Asterisk SIP Settings"
 msgstr "Asterisk SIP ustawienia"
 
-#: Sipsettings.class.php:180
+#: Sipsettings.class.php:193
 #, php-format
 msgid "Asterisk is currently using %s for SIP Traffic."
 msgstr "Asterisk jest obecnie używana przez %s dla ruchu SIP."
@@ -258,15 +258,15 @@ msgstr "Powiązany port (bindport) musi wynosić od 1024 do 65535"
 msgid "CA Chain File"
 msgstr "Plik łańcucha CA"
 
-#: Sipsettings.class.php:974
+#: Sipsettings.class.php:987
 msgid "CHANSIP Port Moved"
 msgstr "Przesunięty port CHANSIP"
 
-#: Sipsettings.class.php:984
+#: Sipsettings.class.php:997
 msgid "CHANSIP TCP Disabled"
 msgstr "Wyłączono CHANSIP TCP"
 
-#: Sipsettings.class.php:995
+#: Sipsettings.class.php:1008
 msgid "CHANSIP TLS Port Moved"
 msgstr "Przesunięto port CHANSIP TLS"
 
@@ -294,7 +294,7 @@ msgstr "Menedżer certyfikatów"
 msgid "Chan SIP"
 msgstr "Jeżeli change SIP to zmiana SIP"
 
-#: Sipsettings.class.php:995
+#: Sipsettings.class.php:1008
 #, php-format
 msgid ""
 "Chansip was assigned a port that was already in use for TLS traffic. The "
@@ -303,7 +303,7 @@ msgstr ""
 "Chansip został przydzielony do portu, który był już używany w ruchu TLS. "
 "Port TLS dla portu Chansip został zmieniony na% s"
 
-#: Sipsettings.class.php:984
+#: Sipsettings.class.php:997
 msgid ""
 "Chansip was assigned the same port as pjsip for TCP traffic. Chansip has had "
 "the tcpenable setting removed, and is no longer listening for TCP "
@@ -312,7 +312,7 @@ msgstr ""
 "Chansipowi przypisano ten sam port co plik pjsip dla ruchu TCP. Chansip "
 "został usunięty z tcpenable setting i nie słucha już połączeń T."
 
-#: Sipsettings.class.php:974
+#: Sipsettings.class.php:987
 #, php-format
 msgid ""
 "Chansip was assigned the same port as pjsip for UDP traffic. The Chansip "
@@ -328,6 +328,10 @@ msgstr "Zaznacz, aby włączyć, a następnie wybierz dozwolone kodeki."
 #: general.page.php:717
 msgid "Codecs"
 msgstr "Kodeki"
+
+#: install.php:152
+msgid "Configured externip to .."
+msgstr ""
 
 #: chansip.page.php:529
 msgid ""
@@ -566,7 +570,7 @@ msgstr ""
 "Częstotliwość w sekundach w celu sprawdzenia, czy stan MWI zmienił się i "
 "informował rówieśników."
 
-#: Sipsettings.class.php:197
+#: Sipsettings.class.php:210
 msgid "General SIP Settings"
 msgstr "Ogólne ustawienia SIP"
 
@@ -654,7 +658,7 @@ msgstr ""
 msgid "Insecure"
 msgstr ""
 
-#: Sipsettings.class.php:1253
+#: Sipsettings.class.php:1266
 msgid "It is recommended that this option remain set to no."
 msgstr ""
 
@@ -811,27 +815,27 @@ msgid ""
 "change with future releases."
 msgstr ""
 
-#: install.php:90
+#: install.php:80
 msgid "Migrate rtp.conf values if needed and initialize"
 msgstr "Migracja wartości rtp.conf w razie potrzeby i zainicjowanie"
 
-#: install.php:188
+#: install.php:185
 msgid "Migrating Audio Codecs"
 msgstr "Migracja koderów kodeksów audio"
 
-#: install.php:141
+#: install.php:131
 msgid "Migrating LocalNets and Netmasks"
 msgstr "Migrowanie adresów i masek sieciowych"
 
-#: install.php:208
+#: install.php:205
 msgid "Migrating Video Codecs"
 msgstr "Migrowanie adresów i masek sieciowych"
 
-#: install.php:116
+#: install.php:106
 msgid "Migrating rtpend Setting from Old Format to BMO Object"
 msgstr "Migracja rtpend Ustawienie z starego formatu na obiekt BMO"
 
-#: install.php:102
+#: install.php:92
 msgid "Migrating rtpstart Setting from Old Format to BMO Object"
 msgstr "Migracja rtpstart Ustawienie z starego formatu na obiekt BMO"
 
@@ -916,7 +920,7 @@ msgstr ""
 msgid "Override External IP"
 msgstr ""
 
-#: Sipsettings.class.php:1253
+#: Sipsettings.class.php:1266
 msgid "PJSIP 'Allow Transports Reload' option is set to yes."
 msgstr ""
 
@@ -1016,7 +1020,7 @@ msgstr ""
 msgid "Require verification of server certificate (TLS ONLY)."
 msgstr ""
 
-#: Sipsettings.class.php:692
+#: Sipsettings.class.php:705
 msgid "Reset"
 msgstr ""
 
@@ -1034,7 +1038,7 @@ msgstr ""
 msgid "Returns the network mask"
 msgstr ""
 
-#: Sipsettings.class.php:211
+#: Sipsettings.class.php:224
 msgid "SIP Legacy Settings [chan_sip]"
 msgstr ""
 
@@ -1042,7 +1046,7 @@ msgstr ""
 msgid "SIP Settings"
 msgstr ""
 
-#: Sipsettings.class.php:204
+#: Sipsettings.class.php:217
 msgid "SIP Settings [chan_pjsip]"
 msgstr ""
 
@@ -1119,7 +1123,7 @@ msgstr ""
 msgid "Strict RTP"
 msgstr ""
 
-#: Sipsettings.class.php:697
+#: Sipsettings.class.php:710
 msgid "Submit"
 msgstr ""
 
@@ -1285,11 +1289,11 @@ msgstr ""
 msgid "Unknown Error"
 msgstr ""
 
-#: Sipsettings.class.php:960
+#: Sipsettings.class.php:973
 msgid "Unknown Port Conflict"
 msgstr ""
 
-#: Sipsettings.class.php:495 Sipsettings.class.php:582
+#: Sipsettings.class.php:508 Sipsettings.class.php:595
 msgid "Unknown Type"
 msgstr ""
 
@@ -1297,7 +1301,7 @@ msgstr ""
 msgid "Updating External IP network and mask"
 msgstr ""
 
-#: install.php:83
+#: install.php:73
 msgid "Updating kvstore_Sipsettings"
 msgstr ""
 
@@ -1390,7 +1394,7 @@ msgstr ""
 msgid "Yes with no error correction"
 msgstr ""
 
-#: Sipsettings.class.php:186
+#: Sipsettings.class.php:199
 msgid "You can change this on the Advanced Settings Page"
 msgstr ""
 
@@ -1422,11 +1426,11 @@ msgstr ""
 msgid "addSipNatLocalIp"
 msgstr ""
 
-#: install.php:75
+#: install.php:65
 msgid "already exists"
 msgstr ""
 
-#: Sipsettings.class.php:182
+#: Sipsettings.class.php:195
 msgid "chan_pjsip and chan_sip"
 msgstr ""
 
@@ -1434,7 +1438,7 @@ msgstr ""
 msgid "ertyuiop"
 msgstr ""
 
-#: install.php:61
+#: install.php:51
 msgid "fatal error occurred populating defaults, check module"
 msgstr ""
 
@@ -1466,7 +1470,7 @@ msgstr ""
 msgid "pjsip_only"
 msgstr ""
 
-#: install.php:38
+#: install.php:28
 msgid "populating default codecs.."
 msgstr ""
 
@@ -1478,12 +1482,12 @@ msgstr ""
 msgid "rtpholdtimeout must be higher than rtptimeout"
 msgstr ""
 
-#: install.php:98 install.php:112
+#: install.php:88 install.php:102
 #, php-format
 msgid "saving previous value of %s"
 msgstr ""
 
-#: install.php:63
+#: install.php:53
 msgid "ulaw, alaw, gsm, g726 added"
 msgstr ""
 
