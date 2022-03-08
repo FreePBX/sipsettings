@@ -202,4 +202,180 @@ class SipSettingsGqlApiTest extends ApiBaseTestCase {
          
       $this->assertEquals(200, $response->getStatusCode());
    }
+   
+   /**
+    * test_fetchWSSettings_should_return_values
+    *
+    * @return void
+    */
+   public function test_fetchWSSettings_should_return_values(){
+
+      $mockobj = $this->getMockBuilder('FreePBX\Modules\Sipsettings')
+         ->setMethods(array('getConfig'))
+         ->getMock();
+
+      $mockobj->method('getConfig')
+         ->with('binds')
+         ->willReturn([
+            "ws" => [
+               "0.0.0.0" => "on",
+               "192.168.1.9" => "off"
+            ],
+            "wss" => [
+               "0.0.0.0" => "off",
+               "192.168.1.9" => "on"
+            ]
+         ]);
+         
+      self::$freepbx->sipsettings = $mockobj; 
+
+      $response = $this->request("query {
+         fetchWSSettings {
+            status
+            message
+            ws {
+               interface
+               state
+            }
+            wss {
+               interface
+               state
+            }
+         }
+      }");
+
+      $json = (string)$response->getBody();
+      $this->assertEquals('{"data":{"fetchWSSettings":{"status":true,"message":"Web Socket Settings","ws":[{"interface":"0.0.0.0","state":"on"},{"interface":"192.168.1.9","state":"off"}],"wss":[{"interface":"0.0.0.0","state":"off"},{"interface":"192.168.1.9","state":"on"}]}}}',$json);
+         
+      $this->assertEquals(200, $response->getStatusCode());
+   }
+   
+   /**
+    * test_updateWSSettings_with_proper_values_should_return_success
+    *
+    * @return void
+    */
+   public function test_updateWSSettings_with_proper_values_should_return_success(){
+
+      $mockobj = $this->getMockBuilder('FreePBX\Modules\Sipsettings')
+         ->setMethods(array('getConfig', 'setConfig'))
+         ->getMock();
+
+      $mockobj->method('getConfig')
+         ->with('binds')
+         ->willReturn([
+            "ws" => [
+               "0.0.0.0" => "on",
+               "192.168.1.9" => "off"
+            ],
+            "wss" => [
+               "0.0.0.0" => "off",
+               "192.168.1.9" => "on"
+            ]
+         ]);
+
+      $mockobj->method('setConfig')
+         ->willReturn(null);
+         
+      self::$freepbx->sipsettings = $mockobj; 
+
+      $response = $this->request("mutation {
+         updateWSSettings(input: {
+            ws: \"{'0.0.0.0': 'off','192.168.1.9':'on'}\"
+            wss: \"{'0.0.0.0': 'on','192.168.1.9':'off'}\"
+         }) {
+            status
+            message
+         }
+       }");
+
+      $json = (string)$response->getBody();
+      $this->assertEquals('{"data":{"updateWSSettings":{"status":true,"message":"Web Socket settings updated successfully"}}}',$json);
+         
+      $this->assertEquals(200, $response->getStatusCode());
+   }
+   
+   /**
+    * test_updateWSSettings_with_invalid_values_should_return_error
+    *
+    * @return void
+    */
+   public function test_updateWSSettings_with_invalid_values_should_return_error(){
+
+      $mockobj = $this->getMockBuilder('FreePBX\Modules\Sipsettings')
+         ->setMethods(array('getConfig', 'setConfig'))
+         ->getMock();
+
+      $mockobj->method('getConfig')
+         ->with('binds')
+         ->willReturn([
+            "ws" => [
+               "0.0.0.0" => "on",
+               "192.168.1.9" => "off"
+            ],
+            "wss" => [
+               "0.0.0.0" => "off",
+               "192.168.1.9" => "on"
+            ]
+         ]);
+         
+      self::$freepbx->sipsettings = $mockobj; 
+
+      $response = $this->request("mutation {
+         updateWSSettings(input: {
+            ws: \"{'0.0.0.0': 'on','192.168.1.9':'on'}\"
+            wss: \"{'0.0.0.0': 'on','192.168.1.9':'off'}\"
+         }) {
+            status
+            message
+         }
+       }");
+
+      $json = (string)$response->getBody();
+      $this->assertEquals('{"errors":[{"message":"Other ws settings can not be enabled along with settings for \'All\' (0.0.0.0).\n","status":false}]}',$json);
+         
+      $this->assertEquals(400, $response->getStatusCode());
+   }
+   
+   /**
+    * test_updateWSSettings_with_invalid_ips_should_return_error
+    *
+    * @return void
+    */
+   public function test_updateWSSettings_with_invalid_ips_should_return_error(){
+
+      $mockobj = $this->getMockBuilder('FreePBX\Modules\Sipsettings')
+         ->setMethods(array('getConfig', 'setConfig'))
+         ->getMock();
+
+      $mockobj->method('getConfig')
+         ->with('binds')
+         ->willReturn([
+            "ws" => [
+               "0.0.0.0" => "on",
+               "192.168.1.9" => "off"
+            ],
+            "wss" => [
+               "0.0.0.0" => "off",
+               "192.168.1.9" => "on"
+            ]
+         ]);
+         
+      self::$freepbx->sipsettings = $mockobj; 
+
+      $response = $this->request("mutation {
+         updateWSSettings(input: {
+            ws: \"{'0.0.0.0': 'off','192.168.1.9':'on'}\"
+            wss: \"{'0.0.0.0': 'on','192.168.1.98':'off'}\"
+         }) {
+            status
+            message
+         }
+       }");
+
+      $json = (string)$response->getBody();
+      $this->assertEquals('{"errors":[{"message":"Invalid IP value \'192.168.1.98\'\n","status":false}]}',$json);
+         
+      $this->assertEquals(400, $response->getStatusCode());
+   }
 }
