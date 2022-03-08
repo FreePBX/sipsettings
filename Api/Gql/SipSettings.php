@@ -24,6 +24,12 @@ class SipSettings extends Base {
 							return $this->getNetworkSettings();
 						}
 					],
+					'fetchWSSettings' => [
+						'type' => $this->typeContainer->get('sipsettings')->getConnectionType(),
+						'resolve' =>  function() {
+							return $this->getWSSettings();
+						}
+					]
             ];
 			};
 	   }
@@ -49,6 +55,19 @@ class SipSettings extends Base {
 						'outputFields' => $this->getOutputFields(),
 						'mutateAndGetPayload' => function($input){
 							return $this->updateExternalIP($input);
+						}
+					]),
+					'updateWSSettings' => Relay::mutationWithClientMutationId([
+						'name' => _('updateWSSettings'),
+						'description' => _('Updating Web Socket Settings'),
+						'inputFields' => $this->getWSFields(),
+						'outputFields' => $this->getOutputFields(),
+						'mutateAndGetPayload' => function($input) {
+							$ret = $this->validateWSFields($input);
+							if($ret['status'] == 0) {
+								return ['message' => $ret['message'], 'status' => false];
+							}
+							return $this->updateWSSettings($input);
 						}
 					])
 				];
@@ -139,6 +158,14 @@ class SipSettings extends Base {
 			'mask' =>[
 				'type' => Type::String(),
 				'description' => _('Returns the network mask')
+			],
+			'interface' =>[
+				'type' => Type::String(),
+				'description' => _('Returns the interface')
+			],
+			'state' =>[
+				'type' => Type::String(),
+				'description' => _('Returns the current state')
 			]
 		];
 	});
@@ -176,7 +203,35 @@ class SipSettings extends Base {
 			'externIP' =>[
 				'type' => Type::String(),
 				'description' => _('Lists the External IPs')
-				]
+			],
+			'ws' => [
+				'type' =>  Type::listOf($this->typeContainer->get('sipsettings')->getObject()),
+				'description' => _('List the WS settings'),
+				'resolve' => function($root, $args) {
+					$data = [];
+					foreach ($root['ws'] as $key => $val) {
+						$data[] = [
+							'interface' => $key,
+							'state' => $val
+						];
+					}
+					return $data;
+				}
+			],
+			'wss' => [
+				'type' =>  Type::listOf($this->typeContainer->get('sipsettings')->getObject()),
+				'description' => _('List the WSS settings'),
+				'resolve' => function($root, $args) {
+					$data = [];
+					foreach ($root['wss'] as $key => $val) {
+						$data[] = [
+							'interface' => $key,
+							'state' => $val
+						];
+					}
+					return $data;
+				}
+			],
 		   ];
 	   });
    }
@@ -225,5 +280,132 @@ class SipSettings extends Base {
 	private function updateExternalIP($input){
 		$respose = $this->freepbx->sipsettings->getNatObj()->setConfigurations(array($input['net']),"externip",$this->freepbx);
 		return['message' => _('External IP has been updated successfully'),'status' => true];
+	}
+	
+	/**
+	 * getWSSettings
+	 *
+	 * @return void
+	 */
+	public function getWSSettings(){
+		try {
+			$allBinds = $this->freepbx->sipsettings->getConfig('binds');
+			$settings = [];
+			$types = ['ws', 'wss'];
+			if (is_array($allBinds)) {
+				foreach ($types as $type) {
+					$settings[$type] = isset($allBinds[$type]) ? $allBinds[$type] : [];
+				}
+			}
+			$retarr = array("message" => _("Web Socket Settings"), "status" => true, "ws" => $settings['ws'], "wss" => $settings['wss']);
+		} catch(\Exception $e) {
+			$retarr = array("status" => false, "message" => $e->getMessage());
+		}
+		return $retarr;
+	}
+	
+	/**
+	 * getWSFields
+	 *
+	 * @return array
+	 */
+	private function getWSFields() {
+		return [
+			'ws' => [
+			   'name' => 'ws',
+			   'type' => Type::nonNull(Type::string())
+		   ],
+		 	'wss' => [
+				'name' => 'wss',
+				'type' => Type::nonNull(Type::string())
+			]
+		];
+	}
+
+	/**
+	 * validateWSFields
+	 *
+	 * @param  array $input
+	 * @return array
+	 */
+	private function validateWSFields($input) {
+		$allBinds = $this->freepbx->sipsettings->getConfig('binds');
+		$ret = ['status' => 1, 'message' => ''];
+		$types = ['ws', 'wss'];
+		$modes = ['on', 'off'];
+		foreach ($input as $type => $val) {
+			if (!in_array($type, $types)) {
+				$ret['status'] = 0;
+				$ret['message'] = $ret['message']._("Invalid key '" . $type . "'. Only the following are allowed: " . implode(",", $types)) . "\n";
+				continue;
+			}
+			if (!empty($val)) {
+				$data = json_decode(str_replace("'", '"', $val), true);
+				if (is_array($data)) {
+					$onCount = 0;
+					foreach ($data as $ip => $state) {
+						if (!in_array($state, $modes)) {
+							$ret['status'] = 0;
+							$ret['message'] = $ret['message']._("Invalid mode '" . $state . "'. Only the following are allowed: " . implode(",", $modes)) . "\n";
+							continue;
+						}
+						if (!isset($allBinds[$type][$ip])) {
+							$ret['status'] = 0;
+							$ret['message'] = $ret['message']._("Invalid IP value '" . $ip . "'")."\n";
+							continue;
+						}
+						if ($state == "on") {
+							$onCount++;
+						}
+					}
+					if ($onCount > 0) {
+						if (!isset($data["0.0.0.0"])) {
+							if (isset($allBinds[$type]["0.0.0.0"]) && $allBinds[$type]["0.0.0.0"] == "on") {
+								$ret['status'] = 0;
+								$ret['message'] = $ret['message']._($type . " settings for 'All' (0.0.0.0) must be disabled before enabling any other settings.")."\n";
+							}
+						} else {
+							if ($onCount > 1 && $data["0.0.0.0"] == "on") {
+								$ret['status'] = 0;
+								$ret['message'] = $ret['message']._("Other " . $type . " settings can not be enabled along with settings for 'All' (0.0.0.0).")."\n";
+							}
+						}
+					}
+				}
+			}
+		}
+		return $ret;
+	}
+	
+	/**
+	 * updateWSSettings
+	 *
+	 * @param  array $input
+	 * @return array 
+	 */
+	private function updateWSSettings($input) {
+		$allBinds = $this->freepbx->sipsettings->getConfig('binds');
+		foreach ($input as $type => $val) {
+			if (!empty($val)) {
+				$data = json_decode(str_replace("'", '"', $val), true);
+				if (is_array($data) && isset($allBinds[$type])) {
+					if (isset($data["0.0.0.0"]) && $data["0.0.0.0"] == "on") {
+						$allBinds[$type]["0.0.0.0"] = "on";
+						foreach ($allBinds[$type] as $ipaddr => $mode) {
+							if ($ipaddr != "0.0.0.0") {
+								$allBinds[$type][$ipaddr] = 'off';
+							}
+						}
+					} else {
+						foreach ($data as $ip => $state) {
+							$allBinds[$type][$ip] = $state;
+						}
+					}
+				}
+			}
+		}
+
+		$this->freepbx->sipsettings->setConfig('binds', $allBinds);
+		return['message' => _('Web Socket settings updated successfully'),'status' => true];
 	}
 }
