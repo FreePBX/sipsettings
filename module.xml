@@ -4,7 +4,7 @@
   <candisable>no</candisable>
   <canuninstall>no</canuninstall>
   <name>Asterisk SIP Settings</name>
-  <version>15.0.6.39</version>
+  <version>15.0.6.40</version>
   <publisher>Sangoma Technologies Corporation</publisher>
   <license>AGPLv3+</license>
   <licenselink>https://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
@@ -25,6 +25,7 @@
   </description>
   <more-info>https://wiki.freepbx.org/display/FPG/Asterisk+SIP+Settings</more-info>
   <changelog>
+		*15.0.6.40* SCD-223 created gql api to modify ws settings 
 		*15.0.6.39* FREEI-3303 allowing taskprocessor for asterisk version greater than 13.35.0 or 16.2.0 and higher 
 		*15.0.6.38* FREEPBX-20610 PJSIP should use cert+chain file not pem file with key 
 		*15.0.6.37* FREEI-3260 new GQL api's for Asterisk SIP NAT settings 
