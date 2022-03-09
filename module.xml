@@ -4,7 +4,7 @@
   <candisable>no</candisable>
   <canuninstall>no</canuninstall>
   <name>Asterisk SIP Settings</name>
-  <version>16.0.17</version>
+  <version>16.0.18</version>
   <publisher>Sangoma Technologies Corporation</publisher>
   <license>AGPLv3+</license>
   <licenselink>https://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
@@ -25,6 +25,7 @@
   </description>
   <more-info>https://wiki.freepbx.org/display/F2/Asterisk+SIP+Settings</more-info>
   <changelog>
+		*16.0.18* SCD-223 created gql api to modify ws settings 
 		*16.0.17* Packaging of ver 16.0.17
 		*16.0.16* FREEPBX-22914 
 		*16.0.15* FREEPBX-22741 removed sip/pjsip port notification in the dashboard 

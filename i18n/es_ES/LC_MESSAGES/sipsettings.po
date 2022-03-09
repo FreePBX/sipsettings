@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-21 03:59+0000\n"
+"POT-Creation-Date: 2022-03-09 02:51+0000\n"
 "PO-Revision-Date: 2016-12-12 02:44+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/"
@@ -36,6 +36,12 @@ msgstr ""
 " Consulte la versión actual de Asterisk para conocer las limitaciones de la "
 "funcionalidad SRV."
 
+#: Api/Gql/SipSettings.php:365
+msgid ""
+" settings for 'All' (0.0.0.0) must be disabled before enabling any other "
+"settings."
+msgstr ""
+
 #: functions.inc.php:366
 #, php-format
 msgid "%s must be a non-negative integer"
@@ -46,11 +52,11 @@ msgstr "%s debe ser un entero no negativo"
 msgid "%s must be alphanumeric"
 msgstr "%s debe ser un valor alfanumérico"
 
-#: Api/Gql/SipSettings.php:104
+#: Api/Gql/SipSettings.php:123
 msgid "API message response"
 msgstr ""
 
-#: Api/Gql/SipSettings.php:100
+#: Api/Gql/SipSettings.php:119
 msgid "API status"
 msgstr ""
 
@@ -70,7 +76,7 @@ msgstr "Agregar Campo"
 msgid "Add Local Network Field"
 msgstr "Agregar Campo Red Local"
 
-#: Api/Gql/SipSettings.php:38
+#: Api/Gql/SipSettings.php:44
 msgid "Adding a Local IP network and mask"
 msgstr ""
 
@@ -522,7 +528,7 @@ msgstr ""
 "IP externa no puede estar en blanco cuando el modo NAT está configurado en "
 "estático y ninguna dirección IP predeterminada aparece en la página principal"
 
-#: Api/Gql/SipSettings.php:227
+#: Api/Gql/SipSettings.php:282
 msgid "External IP has been updated successfully"
 msgstr ""
 
@@ -654,6 +660,18 @@ msgstr ""
 msgid "Insecure"
 msgstr ""
 
+#: Api/Gql/SipSettings.php:354
+msgid "Invalid IP value '"
+msgstr ""
+
+#: Api/Gql/SipSettings.php:339
+msgid "Invalid key '"
+msgstr ""
+
+#: Api/Gql/SipSettings.php:349
+msgid "Invalid mode '"
+msgstr ""
+
 #: Sipsettings.class.php:1269
 msgid "It is recommended that this option remain set to no."
 msgstr ""
@@ -702,11 +720,19 @@ msgstr ""
 msgid "Keep Alive Interval"
 msgstr ""
 
-#: Api/Gql/SipSettings.php:198
+#: Api/Gql/SipSettings.php:253
 msgid "List of External and Local IPs"
 msgstr ""
 
-#: Api/Gql/SipSettings.php:178
+#: Api/Gql/SipSettings.php:209
+msgid "List the WS settings"
+msgstr ""
+
+#: Api/Gql/SipSettings.php:223
+msgid "List the WSS settings"
+msgstr ""
+
+#: Api/Gql/SipSettings.php:205
 msgid "Lists the External IPs"
 msgstr ""
 
@@ -714,7 +740,7 @@ msgstr ""
 msgid "Loading"
 msgstr "Cargando"
 
-#: Api/Gql/SipSettings.php:216
+#: Api/Gql/SipSettings.php:271
 msgid "Local IP has been added successfully"
 msgstr ""
 
@@ -790,7 +816,7 @@ msgstr "Velocidad máxima para las llamadas de vídeo en kb/s"
 msgid "Media Transport Settings"
 msgstr ""
 
-#: Api/Gql/SipSettings.php:133 Api/Gql/SipSettings.php:170
+#: Api/Gql/SipSettings.php:152 Api/Gql/SipSettings.php:197
 msgid "Message for the request"
 msgstr ""
 
@@ -912,6 +938,10 @@ msgstr ""
 "de 0 significa seguir intentando para siempre. Normalmente, esto debería "
 "establecerse en 0 para que Asterisk continúe registrándose hasta que tenga "
 "éxito en el caso de interrupciones en la red o en el gateway."
+
+#: Api/Gql/SipSettings.php:370
+msgid "Other "
+msgstr ""
 
 #: chansip.page.php:1045
 msgid "Other SIP Settings"
@@ -1038,11 +1068,19 @@ msgstr ""
 "hasta que haya sido satisfactorio o hasta que se ha completado los intentos "
 "indicados en  registrationattempts."
 
-#: Api/Gql/SipSettings.php:137
+#: Api/Gql/SipSettings.php:168
+msgid "Returns the current state"
+msgstr ""
+
+#: Api/Gql/SipSettings.php:164
+msgid "Returns the interface"
+msgstr ""
+
+#: Api/Gql/SipSettings.php:156
 msgid "Returns the network IP"
 msgstr ""
 
-#: Api/Gql/SipSettings.php:141
+#: Api/Gql/SipSettings.php:160
 msgid "Returns the network mask"
 msgstr ""
 
@@ -1112,7 +1150,7 @@ msgstr "Ajustes en %s pueden anular estos. Estos valores deben ser eliminados."
 msgid "Show Advanced Settings"
 msgstr "Mostrar configuración avanzada"
 
-#: Api/Gql/SipSettings.php:116
+#: Api/Gql/SipSettings.php:135
 msgid "Sipsettings management"
 msgstr ""
 
@@ -1124,11 +1162,11 @@ msgstr "Inicio"
 msgid "Static IP"
 msgstr "IP Estática"
 
-#: Api/Gql/SipSettings.php:174
+#: Api/Gql/SipSettings.php:201
 msgid "Status for the request"
 msgstr ""
 
-#: Api/Gql/SipSettings.php:129
+#: Api/Gql/SipSettings.php:148
 msgid "Status of the request"
 msgstr ""
 
@@ -1229,11 +1267,11 @@ msgid ""
 "transports. <br> Default is 90. </br>"
 msgstr ""
 
-#: Api/Gql/SipSettings.php:68
+#: Api/Gql/SipSettings.php:87
 msgid "The network IP address"
 msgstr ""
 
-#: Api/Gql/SipSettings.php:72
+#: Api/Gql/SipSettings.php:91
 msgid "The network mask"
 msgstr ""
 
@@ -1329,8 +1367,12 @@ msgstr "Conflicto de puerto desconocido"
 msgid "Unknown Type"
 msgstr "Tipo Desconocido"
 
-#: Api/Gql/SipSettings.php:47
+#: Api/Gql/SipSettings.php:53
 msgid "Updating External IP network and mask"
+msgstr ""
+
+#: Api/Gql/SipSettings.php:62
+msgid "Updating Web Socket Settings"
 msgstr ""
 
 #: install.php:73
@@ -1368,6 +1410,14 @@ msgstr "Códecs de Video"
 #: general.page.php:817
 msgid "Video Support"
 msgstr "Soporte Vídeo"
+
+#: Api/Gql/SipSettings.php:300
+msgid "Web Socket Settings"
+msgstr ""
+
+#: Api/Gql/SipSettings.php:409
+msgid "Web Socket settings updated successfully"
+msgstr ""
 
 #: general.page.php:575
 msgid "WebRTC Settings"
@@ -1472,7 +1522,7 @@ msgid ""
 msgstr ""
 "Usted puede usar esto para definir una red local adicional por interfaz."
 
-#: Api/Gql/SipSettings.php:37
+#: Api/Gql/SipSettings.php:43
 msgid "addSipNatLocalIp"
 msgstr ""
 
@@ -1484,7 +1534,7 @@ msgstr "ya existe"
 msgid "chan_pjsip and chan_sip"
 msgstr "chan_pjsip y chan_sip"
 
-#: Api/Gql/SipSettings.php:86
+#: Api/Gql/SipSettings.php:105
 msgid "ertyuiop"
 msgstr ""
 
@@ -1500,11 +1550,11 @@ msgstr ""
 msgid "kb/s"
 msgstr "kb/s"
 
-#: Api/Gql/SipSettings.php:150
+#: Api/Gql/SipSettings.php:177
 msgid "list of local IP saved"
 msgstr ""
 
-#: Api/Gql/SipSettings.php:160
+#: Api/Gql/SipSettings.php:187
 msgid "list the route configured"
 msgstr ""
 
@@ -1541,8 +1591,12 @@ msgstr "guardando valores previos de %s"
 msgid "ulaw, alaw, gsm, g726 added"
 msgstr "añadido ulaw, alaw, gsm, g726"
 
-#: Api/Gql/SipSettings.php:46
+#: Api/Gql/SipSettings.php:52
 msgid "updateSipNatExternalIp"
+msgstr ""
+
+#: Api/Gql/SipSettings.php:61
+msgid "updateWSSettings"
 msgstr ""
 
 #: Restore.php:12
