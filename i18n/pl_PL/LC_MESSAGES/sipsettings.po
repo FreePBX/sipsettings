@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-09 02:50+0000\n"
+"POT-Creation-Date: 2022-04-06 05:47+0000\n"
 "PO-Revision-Date: 2017-06-07 15:50+0200\n"
 "Last-Translator: Michal <mboltz@tlen.pl>\n"
 "Language-Team: Polish (Polish) <http://weblate.freepbx.org/projects/freepbx/"
@@ -501,14 +501,6 @@ msgstr "Wprowadź adres IP"
 #, perl-format
 msgid "Error: %s"
 msgstr "Błąd: %s"
-
-#: Restore.php:54
-msgid "Excluding Nat settings 'externip' "
-msgstr ""
-
-#: Restore.php:50
-msgid "Excluding Nat settings 'localnets' "
-msgstr ""
 
 #: general.page.php:165
 msgid "External Address"
@@ -1550,6 +1542,16 @@ msgstr ""
 msgid "ulaw, alaw, gsm, g726 added"
 msgstr ""
 
+#: Restore.php:116
+#, php-format
+msgid "update preserved data in kvstore_Sipsettings table : %s"
+msgstr ""
+
+#: Restore.php:124
+#, php-format
+msgid "update preserved data in sipsettings table : %s"
+msgstr ""
+
 #: Api/Gql/SipSettings.php:52
 msgid "updateSipNatExternalIp"
 msgstr ""
@@ -1558,8 +1560,20 @@ msgstr ""
 msgid "updateWSSettings"
 msgstr ""
 
-#: Restore.php:12
-msgid "warmspare enabled"
+#: Restore.php:149
+msgid "user passed option for skip NAT settings section"
+msgstr ""
+
+#: Restore.php:145
+msgid "user passed option for skip bind address section"
+msgstr ""
+
+#: Restore.php:137
+msgid "warmspare remotebind option enabled"
+msgstr ""
+
+#: Restore.php:141
+msgid "warmspare remotenat option enabled"
 msgstr ""
 
 #: chansip.page.php:161 chansip.page.php:432
