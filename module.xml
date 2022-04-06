@@ -4,7 +4,7 @@
   <candisable>no</candisable>
   <canuninstall>no</canuninstall>
   <name>Asterisk SIP Settings</name>
-  <version>16.0.18</version>
+  <version>16.0.19</version>
   <publisher>Sangoma Technologies Corporation</publisher>
   <license>AGPLv3+</license>
   <licenselink>https://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
@@ -25,6 +25,7 @@
   </description>
   <more-info>https://wiki.freepbx.org/display/F2/Asterisk+SIP+Settings</more-info>
   <changelog>
+		*16.0.19* FREEI-4436 - Restore - Ability to select modules to ignore 
 		*16.0.18* SCD-223 created gql api to modify ws settings 
 		*16.0.17* Packaging of ver 16.0.17
 		*16.0.16* FREEPBX-22914 
@@ -45,7 +46,8 @@
    *16.0.1alpha* 16.0.1 alpha release
 	</changelog>
   <depends>
-    <module>core ge 15.0.3.5</module>
+    <module>core ge 16.0.61</module>
+    <module>backup ge 16.0.51</module>
   </depends>
   <supported>
     <version>16.0</version>
