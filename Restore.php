@@ -2,93 +2,153 @@
 namespace FreePBX\modules\Sipsettings;
 use FreePBX\modules\Backup as Base;
 class Restore Extends Base\RestoreBase{
-	public function runRestore(){
+	public function runRestore() {
 		$settings = $this->getConfigs();
 		$backupinfo = $this->getBackupInfo();
-		if ($backupinfo['warmspareenabled'] == 'yes') {
-			//lets take a copy of local sipsettings
-			$localsettings['kvstore'] = $this->FreePBX->Sipsettings->dumpKVStore();
-			$localsettings['database'] = $this->FreePBX->Sipsettings->dumpDbConfigs();
-			$this->log(_("warmspare enabled"));
-			foreach($settings['kvstore']['noid'] as $key => $val) {
-				//bindaddress settings
-				if($backupinfo['warmspare_remotebind'] =='yes') {
-					if($key == 'bindaddr') {
-						$settings['kvstore']['noid'][$key] = $localsettings['kvstore']['noid'][$key];
-					}
-					if($key == 'bindport') {
-						$settings['kvstore']['noid'][$key] = $localsettings['kvstore']['noid'][$key];
-					}
-					if($key == 'tlsbindaddr') {
-						$settings['kvstore']['noid'][$key] = $localsettings['kvstore']['noid'][$key];
-					}
-					if($key == 'tlsbindport') {
-						$settings['kvstore']['noid'][$key] = $localsettings['kvstore']['noid'][$key];
-					}
-					if($key == 'tcpextip-0.0.0.0') {
-						$settings['kvstore']['noid'][$key] = $localsettings['kvstore']['noid'][$key];
-					}
-					if($key == 'tcplocalnet-0.0.0.0') {
-						$settings['kvstore']['noid'][$key] = $localsettings['kvstore']['noid'][$key];
-					}
-					if($key == 'tcpport-0.0.0.0') {
-						$settings['kvstore']['noid'][$key] = $localsettings['kvstore']['noid'][$key];
-					}
-					if($key == 'udpextip-0.0.0.0') {
-						$settings['kvstore']['noid'][$key] = $localsettings['kvstore']['noid'][$key];
-					}
-					if($key == 'udplocalnet-0.0.0.0') {
-						$settings['kvstore']['noid'][$key] = $localsettings['kvstore']['noid'][$key];
-					}
-					if($key == 'udpport-0.0.0.0') {
-						$settings['kvstore']['noid'][$key] = $localsettings['kvstore']['noid'][$key];
-					}
-				}
-				//nat settings
-				if($backupinfo['warmspare_remotenat'] =='yes') {
-					if($key == 'localnets') {
-						$this->log(_("Excluding Nat settings 'localnets' "));
-						$settings['kvstore']['noid'][$key] = $localsettings['kvstore']['noid'][$key];
-					}
-					if($key == 'externip') {
-						$this->log(_("Excluding Nat settings 'externip' "));
-						$settings['kvstore']['noid'][$key] = $localsettings['kvstore']['noid'][$key];
-					}
-				}
+		$skipoptions = $this->getCliarguments();
+		$preserevdata = array();
+		if ($backupinfo['warmspareenabled'] == 'yes' || $skipoptions['skipbindport'] || $skipoptions['skipremotenat']) {
+			if ($backupinfo['warmspare_remotebind'] =='yes') {
+				$skipoptions['skipbindport'] =1;
 			}
-			//get the local values
-			$localsdbbinds = [];
-			foreach($localsettings['database'] as $key => $val) {
-				$localsdbbinds[$val['keyword']] = $val['data'];
+			if ($backupinfo['warmspare_remotenat'] =='yes') {
+				$skipoptions['skipremotenat'] =1;
 			}
-			foreach($settings['database'] as $key => $val) {
-				if($backupinfo['warmspare_remotebind'] =='yes') {
-					if($val['keyword'] == 'bindaddr') {
-						$val['data'] = $localsdbbinds[$val['keyword']];
-						$settings['database'][$key] = $val;
-					}
-					if($val['keyword'] == 'tlsbindaddr') {
-						$val['data'] = $localsdbbinds[$val['keyword']];
-						$settings['database'][$key] = $val;
-					}
-					if($val['keyword'] == 'tlsbindport') {
-						$val['data'] = $localsdbbinds[$val['keyword']];
-						$settings['database'][$key] = $val;
-					}
-					if($val['keyword'] == 'bindport') {
-						$val['data'] = $localsdbbinds[$val['keyword']];
-						$settings['database'][$key] = $val;
-					}
-				}
-			}
+			$preserevdata = $this->get_sipsettings_data();
 		}
 		foreach ($settings['kvstore'] as $key => $value) {
-				$this->FreePBX->Sipsettings->setMultiConfig($value, $key);
+			$this->FreePBX->Sipsettings->setMultiConfig($value, $key);
 		}
 		$this->FreePBX->Sipsettings->loadDbConfigs($settings['database']);
+		if ($backupinfo['warmspareenabled'] == 'yes' || $skipoptions['skipbindport'] || $skipoptions['skipremotenat']) {
+			$this->update_sipsettings_data($preserevdata,$skipoptions);
+		}
+	}
+	
+	
+	public function processLegacy($pdo, $data, $tables, $unknownTables) {
+		$skipoptions = $this->getCliarguments();
+		if ($skipoptions['skipbindport'] || $skipoptions['skipremotenat']) {
+			$preserevdata = $this->get_sipsettings_data();
+		}
+		$this->restoreLegacyDatabaseKvstore($pdo);
+		if ($skipoptions['skipbindport'] || $skipoptions['skipremotenat']) {
+			$this->update_sipsettings_data($preserevdata,$skipoptions);
+		}
 	}
 
-	public function processLegacy($pdo, $data, $tables, $unknownTables){
-		$this->restoreLegacyDatabaseKvstore($pdo);
+	public function get_sipsettings_data() {
+		$response = array();
+		$stmt=$this->FreePBX->Database->prepare("select `key`, `val`,`type`,`id` from kvstore_Sipsettings where id=:id");
+		$stmt->execute([':id' => 'noid']);
+		$response['kvstore_sipsettings'] = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+		$stmt=$this->FreePBX->Database->prepare("select `key`, `val`,`type`,`id` from kvstore_Sipsettings where `id`=:id and `key`=:key");
+		$stmt->execute([':id' => 'noid',':key' => 'binds']);
+		$response['binds'] = $stmt->fetch(\PDO::FETCH_ASSOC);
+		$stmt = $this->FreePBX->Database->prepare("select `keyword`, `seq`,`type`,`data` from sipsettings");
+		$stmt->execute();
+		$response['sipsettings'] = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+		return $response;
+	}
+
+	public function update_sipsettings_data($preservedata,$skipoptions) {
+		if (is_array($preservedata)) {
+			$skip_fields = array();
+			$binds_dynamic_column = array();
+			if ($skipoptions['skipbindport']) {
+				$skip_fields = array('binds','bindaddr','bindport','tlsbindaddr','tlsbindport');
+				if (is_array($preservedata['binds']) && isset($preservedata['binds']['val']) && $preservedata['binds']['val'] !='') {
+					$binds = json_decode($preservedata['binds']['val'], true);
+					if (is_array($binds) && count($binds) >0) {
+						foreach ($binds as $jsonkey=>$jsonvalue) {
+							if (is_array($jsonvalue) && count($jsonvalue) >0) {
+								foreach ($jsonvalue as $key=>$val) {
+									if (!in_array($key,$binds_dynamic_column)) {
+										array_push($binds_dynamic_column,$key);
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			if ($skipoptions['skipremotenat']) {
+				array_push($skip_fields,'localnets','externip');
+			}
+			$bindport_sipsettings_fields = array('bindaddr','tlsbindaddr','tlsbindport','bindport');
+			$params = array();
+			$params_sipsettings = array();
+			if (is_array($preservedata['kvstore_sipsettings'])) {
+				foreach ($preservedata['kvstore_sipsettings'] as $key=>$val) {
+					if (in_array($val['key'],$skip_fields)) {
+						$data = array();
+						$data['val'] = $val['val'];
+						$data['id'] = $val['id'];
+						$data['type'] = $val['type'];
+						$params[$val['key']] = $data;
+					}
+					foreach($binds_dynamic_column as $k=>$v) {
+						if (strpos($val['key'],$v) !== false) {
+							$data = array();
+							$data['val'] = $val['val'];
+							$data['id'] = $val['id'];
+							$data['type'] = $val['type'];
+							$params[$val['key']] = $data;
+						}
+					}
+				}
+			}
+
+			if(is_array($preservedata['sipsettings']) && $skipoptions['skipbindport']) {
+				foreach ($preservedata['sipsettings'] as $key=>$val) {
+					if (in_array($val['keyword'],$bindport_sipsettings_fields)) {
+						$data = array();
+						$data['data'] = $val['data'];
+						$data['seq'] = $val['seq'];
+						$data['type'] = $val['type'];
+						$params_sipsettings[$val['keyword']] = $data;
+					}
+				}
+			}
+
+			if(count($params) >0) {
+				foreach($params as $key=>$val) {
+					$this->log(sprintf(_("update preserved data in kvstore_Sipsettings table : %s"),$key),'INFO');
+					$stmt=$this->FreePBX->Database->prepare("REPLACE INTO kvstore_Sipsettings (`key`,`val`,`id`,`type`) values (:key,:value,:id,:type)");
+					$stmt->execute([':key' => $key,':value'=>$val['val'],':id'=>$val['id'],':type'=>$val['type']]);
+				}
+			}
+
+			if(count($params_sipsettings) >0) {
+				foreach($params_sipsettings as $key=>$val) {
+					$this->log(sprintf(_("update preserved data in sipsettings table : %s"),$key),'INFO');
+					$stmt=$this->FreePBX->Database->prepare("REPLACE INTO sipsettings (`keyword`,`data`,`seq`,`type`) values (:keyword,:data,:seq,:type)");
+					$stmt->execute([':keyword' => $key,':data'=>$val['data'],':seq'=>$val['seq'],':type'=>$val['type']]);
+				}
+			}
+		}
+	}
+
+	public function getResetInfo() {
+		$skipoptions = $this->getCliarguments();
+		$backupinfo = $this->getBackupInfo();
+		$return = false;
+		if ($backupinfo['warmspareenabled'] == 'yes' && $backupinfo['warmspare_remotebind'] == 'yes') {
+			$this->log(_("warmspare remotebind option enabled"));
+			$return = true;
+		}
+		if ($backupinfo['warmspareenabled'] == 'yes' && $backupinfo['warmspare_remotenat'] == 'yes') {
+			$this->log(_("warmspare remotenat option enabled"));
+			$return = true;
+		}
+		if ($skipoptions['skipbindport']) {
+			$this->log(_("user passed option for skip bind address section"));
+			$return = true;
+		}
+		if ($skipoptions['skipremotenat']) {
+			$this->log(_("user passed option for skip NAT settings section"));
+			$return = true;
+		}
+		return $return;
 	}
 }
