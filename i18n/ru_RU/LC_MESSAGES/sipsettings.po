@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-09 21:09+0530\n"
-"PO-Revision-Date: 2022-04-19 05:28+0000\n"
+"PO-Revision-Date: 2022-04-19 15:03+0000\n"
 "Last-Translator: Dmitriy Q <krotesk@ya.ru>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/"
 "sipsettings/ru/>\n"
@@ -974,7 +974,7 @@ msgstr "Холд RTP таймаут"
 
 #: general.page.php:368
 msgid "RTP Keep Alive"
-msgstr "RTP Keep Alive"
+msgstr "Поддержка сеанса RTP"
 
 #: general.page.php:235
 msgid "RTP Port Ranges"
