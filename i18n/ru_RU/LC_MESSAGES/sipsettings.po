@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-09 21:09+0530\n"
-"PO-Revision-Date: 2022-04-19 15:03+0000\n"
+"PO-Revision-Date: 2022-04-21 09:01+0000\n"
 "Last-Translator: Dmitriy Q <krotesk@ya.ru>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/"
 "sipsettings/ru/>\n"
@@ -1110,7 +1110,7 @@ msgstr "Строгий RTP"
 
 #: Sipsettings.class.php:674
 msgid "Submit"
-msgstr "Сохранить"
+msgstr "Принять"
 
 #: chansip.page.php:38 general.page.php:20
 msgid "Submit Changes"
