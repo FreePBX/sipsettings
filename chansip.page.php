@@ -150,8 +150,8 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 	<div class="element-container">
 		<div class="row">
 			<div class="col-md-12">
-				<div class="row">
-					<div class="form-group">
+				<div class="">
+					<div class="row form-group">
 						<div class="col-md-3">
 							<label class="control-label" for="nat"><?php echo _("NAT") ?></label>
 							<i class="fa fa-question-circle fpbx-help-icon" data-for="nat"></i>
@@ -181,8 +181,8 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 	<div class="element-container">
 		<div class="row">
 			<div class="col-md-12">
-				<div class="row">
-					<div class="form-group">
+				<div class="">
+					<div class="row form-group">
 						<div class="col-md-3">
 							<label class="control-label" for="nat_mode"><?php echo _("IP Configuration") ?></label>
 							<i class="fa fa-question-circle fpbx-help-icon" data-for="nat_mode"></i>
@@ -211,8 +211,8 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 		<div class="element-container">
 			<div class="row">
 				<div class="col-md-12">
-					<div class="row">
-						<div class="form-group">
+					<div class="">
+						<div class="row form-group">
 							<div class="col-md-3">
 								<label class="control-label" for="externip_val"><?php echo _("Override External IP") ?></label>
 								<i class="fa fa-question-circle fpbx-help-icon" data-for="externip_val"></i>
@@ -243,8 +243,8 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 		<div class="element-container">
 			<div class="row">
 				<div class="col-md-12">
-					<div class="row">
-						<div class="form-group">
+					<div class="">
+						<div class="row form-group">
 							<div class="col-md-3">
 								<label class="control-label" for="externhost_val"><?php echo _("Dynamic Host") ?></label>
 								<i class="fa fa-question-circle fpbx-help-icon" data-for="externhost_val"></i>
@@ -267,8 +267,8 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 		<div class="element-container">
 			<div class="row">
 				<div class="col-md-12">
-					<div class="row">
-						<div class="form-group">
+					<div class="">
+						<div class="row form-group">
 							<div class="col-md-3">
 								<label class="control-label" for="externhostrefresh"><?php echo _("Dynamic Host Refresh") ?></label>
 								<i class="fa fa-question-circle fpbx-help-icon" data-for="externhostrefresh"></i>
@@ -298,8 +298,8 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 	</div>
 	<div class="section" data-id="csiptls">
 		<div class="element-container">
-			<div class="row">
-				<div class="form-group">
+			<div class="">
+				<div class="row form-group">
 					<div class="col-md-3">
 						<label class="control-label" for="tlsenable"><?php echo _("Enable TLS") ?></label>
 						<i class="fa fa-question-circle fpbx-help-icon" data-for="tlsenable"></i>
@@ -319,8 +319,8 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 			</div>
 		</div>
 		<div class="element-container">
-			<div class="row">
-				<div class="form-group">
+			<div class="">
+				<div class="row form-group">
 					<div class="col-md-3">
 						<label class="control-label" for="csipcalistfile"><?php echo _("Certificate Manager") ?></label>
 						<i class="fa fa-question-circle fpbx-help-icon" data-for="csipcalistfile"></i>
@@ -342,8 +342,8 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 			</div>
 		</div>
 		<div class="element-container">
-			<div class="row">
-				<div class="form-group">
+			<div class="">
+				<div class="row form-group">
 					<div class="col-md-3">
 						<label class="control-label" for="tlsclientmethod"><?php echo _("SSL Method") ?></label>
 						<i class="fa fa-question-circle fpbx-help-icon" data-for="tlsclientmethod"></i>
@@ -364,8 +364,8 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 			</div>
 		</div>
 		<div class="element-container">
-			<div class="row">
-				<div class="form-group">
+			<div class="">
+				<div class="row form-group">
 					<div class="col-md-3">
 						<label class="control-label" for="tlsdontverifyserver"><?php echo _("Don't Verify Server") ?></label>
 						<i class="fa fa-question-circle fpbx-help-icon" data-for="tlsdontverifyserver"></i>
@@ -394,8 +394,8 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 	<div class="element-container">
 		<div class="row">
 			<div class="col-md-12">
-				<div class="row">
-					<div class="form-group">
+				<div class="">
+					<div class="row form-group">
 						<div class="col-md-3">
 							<label class="control-label" for="g726nonstandard"><?php echo _("Non-Standard g726") ?></label>
 							<i class="fa fa-question-circle fpbx-help-icon" data-for="g726nonstandard"></i>
@@ -421,8 +421,8 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 	<div class="element-container">
 		<div class="row">
 			<div class="col-md-12">
-				<div class="row">
-					<div class="form-group">
+				<div class="">
+					<div class="row form-group">
 						<div class="col-md-3">
 							<label class="control-label" for="canreinvite"><?php echo _("Reinvite Behavior") ?></label>
 							<i class="fa fa-question-circle fpbx-help-icon" data-for="canreinvite"></i>
@@ -457,8 +457,8 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 	<div class="element-container">
 		<div class="row">
 			<div class="col-md-12">
-				<div class="row">
-					<div class="form-group">
+				<div class="">
+					<div class="row form-group">
 						<div class="col-md-3">
 							<label class="control-label" for="checkmwi"><?php echo _("MWI Polling Freq") ?></label>
 							<i class="fa fa-question-circle fpbx-help-icon" data-for="checkmwi"></i>
@@ -481,8 +481,8 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 	<div class="element-container">
 		<div class="row">
 			<div class="col-md-12">
-				<div class="row">
-					<div class="form-group">
+				<div class="">
+					<div class="row form-group">
 						<div class="col-md-3">
 							<label class="control-label" for="notifyringing"><?php echo _("Notify Ringing") ?></label>
 							<i class="fa fa-question-circle fpbx-help-icon" data-for="notifyringing"></i>
@@ -508,8 +508,8 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 	<div class="element-container">
 		<div class="row">
 			<div class="col-md-12">
-				<div class="row">
-					<div class="form-group">
+				<div class="">
+					<div class="row form-group">
 						<div class="col-md-3">
 							<label class="control-label" for="notifyhold"><?php echo _("Notify Hold") ?></label>
 							<i class="fa fa-question-circle fpbx-help-icon" data-for="notifyhold"></i>
@@ -540,8 +540,8 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 	<div class="element-container">
 		<div class="row">
 			<div class="col-md-12">
-				<div class="row">
-					<div class="form-group">
+				<div class="">
+					<div class="row form-group">
 						<div class="col-md-3">
 							<label class="control-label" for="registertimeout"><?php echo _("Registration Timeout") ?></label>
 							<i class="fa fa-question-circle fpbx-help-icon" data-for="registertimeout"></i>
@@ -564,8 +564,8 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 	<div class="element-container">
 		<div class="row">
 			<div class="col-md-12">
-				<div class="row">
-					<div class="form-group">
+				<div class="">
+					<div class="row form-group">
 						<div class="col-md-3">
 							<label class="control-label" for="registerattempts"><?php echo _("Registration Attempts") ?></label>
 							<i class="fa fa-question-circle fpbx-help-icon" data-for="registerattempts"></i>
@@ -588,8 +588,8 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 	<div class="element-container">
 		<div class="row">
 			<div class="col-md-12">
-				<div class="row">
-					<div class="form-group">
+				<div class="">
+					<div class="row form-group">
 						<div class="col-md-3">
 							<label class="control-label" for="minexpiry"><?php echo _("Registration Minimum Expiry") ?></label>
 							<i class="fa fa-question-circle fpbx-help-icon" data-for="minexpiry"></i>
@@ -612,8 +612,8 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 	<div class="element-container">
 		<div class="row">
 			<div class="col-md-12">
-				<div class="row">
-					<div class="form-group">
+				<div class="">
+					<div class="row form-group">
 						<div class="col-md-3">
 							<label class="control-label" for="maxexpiry"><?php echo _("Registration Maximum Expiry") ?></label>
 							<i class="fa fa-question-circle fpbx-help-icon" data-for="maxexpiry"></i>
@@ -636,8 +636,8 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 	<div class="element-container">
 		<div class="row">
 			<div class="col-md-12">
-				<div class="row">
-					<div class="form-group">
+				<div class="">
+					<div class="row form-group">
 						<div class="col-md-3">
 							<label class="control-label" for="defaultexpiry"><?php echo _("Registration Default Expiry") ?></label>
 							<i class="fa fa-question-circle fpbx-help-icon" data-for="defaultexpiry"></i>
@@ -665,8 +665,8 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 	<div class="element-container">
 		<div class="row">
 			<div class="col-md-12">
-				<div class="row">
-					<div class="form-group">
+				<div class="">
+					<div class="row form-group">
 						<div class="col-md-3">
 							<label class="control-label" for="jbenable"><?php echo _("Enable Jitter Buffer") ?></label>
 							<i class="fa fa-question-circle fpbx-help-icon" data-for="jbenable"></i>
@@ -693,8 +693,8 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 		<div class="element-container">
 			<div class="row">
 				<div class="col-md-12">
-					<div class="row">
-						<div class="form-group">
+					<div class="">
+						<div class="row form-group">
 							<div class="col-md-3">
 								<label class="control-label" for="jbforce"><?php echo _("Force Jitter Buffer") ?></label>
 								<i class="fa fa-question-circle fpbx-help-icon" data-for="jbforce"></i>
@@ -720,8 +720,8 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 		<div class="element-container">
 			<div class="row">
 				<div class="col-md-12">
-					<div class="row">
-						<div class="form-group">
+					<div class="">
+						<div class="row form-group">
 							<div class="col-md-3">
 								<label class="control-label" for="jbimpl"><?php echo _("Implementation") ?></label>
 								<i class="fa fa-question-circle fpbx-help-icon" data-for="jbimpl"></i>
@@ -747,8 +747,8 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 		<div class="element-container">
 			<div class="row">
 				<div class="col-md-12">
-					<div class="row">
-						<div class="form-group">
+					<div class="">
+						<div class="row form-group">
 							<div class="col-md-3">
 								<label class="control-label" for="jblog"><?php echo _("Jitter Buffer Logging") ?></label>
 								<i class="fa fa-question-circle fpbx-help-icon" data-for="jblog"></i>
@@ -774,8 +774,8 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 		<div class="element-container">
 			<div class="row">
 				<div class="col-md-12">
-					<div class="row">
-						<div class="form-group">
+					<div class="">
+						<div class="row form-group">
 							<div class="col-md-3">
 								<label class="control-label" for="jbmaxsize"><?php echo _("Jitter Buffer Max Size") ?></label>
 								<i class="fa fa-question-circle fpbx-help-icon" data-for="jbmaxsize"></i>
@@ -798,8 +798,8 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 		<div class="element-container">
 			<div class="row">
 				<div class="col-md-12">
-					<div class="row">
-						<div class="form-group">
+					<div class="">
+						<div class="row form-group">
 							<div class="col-md-3">
 								<label class="control-label" for="jbresyncthreshold"><?php echo _("Jitter Buffer Resync Threshold") ?></label>
 								<i class="fa fa-question-circle fpbx-help-icon" data-for="jbresyncthreshold"></i>
@@ -828,8 +828,8 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 	<div class="element-container">
 		<div class="row">
 			<div class="col-md-12">
-				<div class="row">
-					<div class="form-group">
+				<div class="">
+					<div class="row form-group">
 						<div class="col-md-3">
 							<label class="control-label" for="context"><?php echo _("Default Context") ?></label>
 							<i class="fa fa-question-circle fpbx-help-icon" data-for="context"></i>
@@ -856,8 +856,8 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 	<div class="element-container">
 		<div class="row">
 			<div class="col-md-12">
-				<div class="row">
-					<div class="form-group">
+				<div class="">
+					<div class="row form-group">
 						<div class="col-md-3">
 							<label class="control-label" for="bindaddr"><?php echo _("Bind Address") ?></label>
 							<i class="fa fa-question-circle fpbx-help-icon" data-for="bindaddr"></i>
@@ -878,8 +878,8 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 	<!--END Bind Address-->
 	<!--Bind Port-->
 	<div class="element-container">
-		<div class="row">
-			<div class="form-group">
+		<div class="">
+			<div class="row form-group">
 				<div class="col-md-3">
 					<label class="control-label" for="bindport"><?php echo _("Bind Port") ?></label>
 					<i class="fa fa-question-circle fpbx-help-icon" data-for="bindport"></i>
@@ -898,8 +898,8 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 	<!--END Bind Port-->
 	<!--Bind Address-->
 	<div class="element-container">
-		<div class="row">
-			<div class="form-group">
+		<div class="">
+			<div class="row form-group">
 				<div class="col-md-3">
 					<label class="control-label" for="tlsbindaddr"><?php echo _("TLS Bind Address") ?></label>
 					<i class="fa fa-question-circle fpbx-help-icon" data-for="tlsbindaddr"></i>
@@ -918,8 +918,8 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 	<!--END Bind Address-->
 	<!--Bind Port-->
 	<div class="element-container">
-		<div class="row">
-			<div class="form-group">
+		<div class="">
+			<div class="row form-group">
 				<div class="col-md-3">
 					<label class="control-label" for="tlsbindport"><?php echo _("TLS Bind Port") ?></label>
 					<i class="fa fa-question-circle fpbx-help-icon" data-for="tlsbindport"></i>
@@ -940,8 +940,8 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 	<div class="element-container">
 		<div class="row">
 			<div class="col-md-12">
-				<div class="row">
-					<div class="form-group">
+				<div class="">
+					<div class="row form-group">
 						<div class="col-md-3">
 							<label class="control-label" for="srvlookup"><?php echo _("Enable SRV Lookup") ?></label>
 							<i class="fa fa-question-circle fpbx-help-icon" data-for="srvlookup"></i>
@@ -966,8 +966,8 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 	<div class="element-container">
 		<div class="row">
 			<div class="col-md-12">
-				<div class="row">
-					<div class="form-group">
+				<div class="">
+					<div class="row form-group">
 						<div class="col-md-3">
 							<label class="control-label" for="tcpenable"><?php echo _("Enable TCP") ?></label>
 							<i class="fa fa-question-circle fpbx-help-icon" data-for="tcpenable"></i>
@@ -992,8 +992,8 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 	<div class="element-container">
 		<div class="row">
 			<div class="col-md-12">
-				<div class="row">
-					<div class="form-group">
+				<div class="">
+					<div class="row form-group">
 						<div class="col-md-3">
 							<label class="control-label" for="callevents"><?php echo _("Call Events") ?></label>
 							<i class="fa fa-question-circle fpbx-help-icon" data-for="callevents"></i>
@@ -1039,8 +1039,8 @@ END;
 	<div class="element-container">
 		<div class="row">
 			<div class="col-md-12">
-				<div class="row">
-					<div class="form-group">
+				<div class="">
+					<div class="row form-group">
 						<div class="col-md-3">
 							<label class="control-label" for="otherw"><?php echo _("Other SIP Settings") ?></label>
 							<i class="fa fa-question-circle fpbx-help-icon" data-for="otherw"></i>
