@@ -30,12 +30,12 @@ $ss = FreePBX::create()->Sipsettings;
 				<div class="fpbx-container">
 					<div class="display no-border">
 						<div class="nav-container">
-							<div class="scroller scroller-left"><i class="glyphicon glyphicon-chevron-left"></i></div>
-							<div class="scroller scroller-right"><i class="glyphicon glyphicon-chevron-right"></i></div>
+							<div class="scroller scroller-left"><i class="fa fa-chevron-left"></i></div>
+							<div class="scroller scroller-right"><i class="fa fa-chevron-right"></i></div>
 							<div class="wrapper">
-								<ul class="nav nav-tabs list" role="tablist">
+								<ul class="nav nav-tabs list pb-0" role="tablist">
 									<?php foreach($ss->myShowPage() as $key => $page) { ?>
-										<li data-name="<?php echo $key?>" class="change-tab <?php echo $key == 'general' ? 'active' : ''?>"><a href="#<?php echo $key?>" aria-controls="<?php echo $key?>" role="tab" data-toggle="tab"><?php echo $page['name']?></a></li>
+										<li data-name="<?php echo $key?>" class="change-tab"><a href="#<?php echo $key?>" aria-controls="<?php echo $key?>" role="tab" data-toggle="tab" class="<?php echo $key == 'general' ? 'active' : ''?> nav-link" ><?php echo $page['name']?></a></li>
 									<?php } ?>
 								</ul>
 							</div>
