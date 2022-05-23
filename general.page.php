@@ -49,8 +49,8 @@
 <div class="section" data-id="sssecurity">
 	<!--Allow Anonymous Inbound SIP Calls-->
 	<div class="element-container">
-		<div class="">
-			<div class="row form-group">
+		<div class="row">
+			<div class="form-group">
 				<div class="col-md-3">
 					<label class="control-label" for="allowanon"><?php echo _("Allow Anonymous Inbound SIP Calls") ?></label>
 					<i class="fa fa-question-circle fpbx-help-icon" data-for="allowanon"></i>
@@ -74,8 +74,8 @@
 	<div class="element-container">
 		<div class="row">
 			<div class="col-md-12">
-				<div class="">
-					<div class="row form-group">
+				<div class="row">
+					<div class="form-group">
 						<div class="col-md-3">
 							<label class="control-label" for="allowguest"><?php echo _("Allow SIP Guests") ?></label>
 							<i class="fa fa-question-circle fpbx-help-icon" data-for="allowguest"></i>
@@ -99,8 +99,8 @@
 	<!--END Allow SIP Guests-->
 	<!-- TLS Port Settings -->
 	<div class="element-container">
-		<div class="">
-			<div class="row form-group">
+		<div class="row">
+			<div class="form-group">
 				<div class="col-md-3">
 					<label class="control-label" for="tlsowner"><?php echo _("Default TLS Port Assignment") ?></label>
 					<i class="fa fa-question-circle fpbx-help-icon" data-for="tlsowner"></i>
@@ -159,8 +159,8 @@ foreach ($tlsowners as $chan => $txt) {
 	<div class="element-container">
 		<div class="row">
 			<div class="col-md-12">
-				<div class="">
-					<div class="row form-group">
+				<div class="row">
+					<div class="form-group">
 						<div class="col-md-3">
 							<label class="control-label" for="externip"><?php echo _("External Address") ?></label>
 							<i class="fa fa-question-circle fpbx-help-icon" data-for="externip"></i>
@@ -198,8 +198,8 @@ foreach ($tlsowners as $chan => $txt) {
 	<div class="element-container">
 		<div class="row">
 			<div class="col-md-12">
-				<div class="">
-					<div class="row form-group">
+				<div class="row">
+					<div class="form-group">
 						<div class="col-md-3">
 							<label class="control-label" for="localbnetsw"><?php echo _("Local Networks") ?></label>
 							<i class="fa fa-question-circle fpbx-help-icon" data-for="localbnetsw"></i>
@@ -232,8 +232,8 @@ foreach ($tlsowners as $chan => $txt) {
 	<div class="element-container">
 		<div class="row">
 			<div class="col-md-12">
-				<div class="">
-					<div class="row form-group">
+				<div class="row">
+					<div class="form-group">
 						<div class="col-md-3">
 							<label class="control-label" for="rtpw"><?php echo _("RTP Port Ranges") ?></label>
 							<i class="fa fa-question-circle fpbx-help-icon" data-for="rtpw"></i>
@@ -269,8 +269,8 @@ foreach ($tlsowners as $chan => $txt) {
 	<!--END RTP Port Ranges-->
 	<!--RTP Checksums-->
 	<div class="element-container">
-		<div class="">
-			<div class="row form-group">
+		<div class="row">
+			<div class="form-group">
 				<div class="col-md-3">
 					<label class="control-label" for="rtpchecksums"><?php echo _("RTP Checksums") ?></label>
 					<i class="fa fa-question-circle fpbx-help-icon" data-for="rtpchecksums"></i>
@@ -292,8 +292,8 @@ foreach ($tlsowners as $chan => $txt) {
 	<!--END RTP Checksums-->
 	<!--Strict RTP-->
 	<div class="element-container">
-		<div class="">
-			<div class="row form-group">
+		<div class="row">
+			<div class="form-group">
 				<div class="col-md-3 radioset">
 					<label class="control-label" for="strictrtp"><?php echo _("Strict RTP") ?></label>
 					<i class="fa fa-question-circle fpbx-help-icon" data-for="strictrtp"></i>
@@ -317,8 +317,8 @@ foreach ($tlsowners as $chan => $txt) {
 	<div class="element-container">
 		<div class="row">
 			<div class="col-md-12">
-				<div class="">
-					<div class="row form-group">
+				<div class="row">
+					<div class="form-group">
 						<div class="col-md-3">
 							<label class="control-label" for="rtptimeout"><?php echo _("RTP Timeout") ?></label>
 							<i class="fa fa-question-circle fpbx-help-icon" data-for="rtptimeout"></i>
@@ -341,8 +341,8 @@ foreach ($tlsowners as $chan => $txt) {
 	<div class="element-container">
 		<div class="row">
 			<div class="col-md-12">
-				<div class="">
-					<div class="row form-group">
+				<div class="row">
+					<div class="form-group">
 						<div class="col-md-3">
 							<label class="control-label" for="rtpholdtimeout"><?php echo _("RTP Hold Timeout") ?></label>
 							<i class="fa fa-question-circle fpbx-help-icon" data-for="rtpholdtimeout"></i>
@@ -365,8 +365,8 @@ foreach ($tlsowners as $chan => $txt) {
 	<div class="element-container">
 		<div class="row">
 			<div class="col-md-12">
-				<div class="">
-					<div class="row form-group">
+				<div class="row">
+					<div class="form-group">
 						<div class="col-md-3">
 							<label class="control-label" for="rtpkeepalive"><?php echo _("RTP Keep Alive") ?></label>
 							<i class="fa fa-question-circle fpbx-help-icon" data-for="rtpkeepalive"></i>
@@ -394,8 +394,8 @@ foreach ($tlsowners as $chan => $txt) {
 	<div class="element-container">
 		<div class="row">
 			<div class="col-md-12">
-				<div class="">
-					<div class="row form-group">
+				<div class="row">
+					<div class="form-group">
 						<div class="col-md-3">
 							<label class="control-label" for="stunaddr"><?php echo _("STUN Server Address") ?></label>
 							<i class="fa fa-question-circle fpbx-help-icon" data-for="stunaddr"></i>
@@ -418,8 +418,8 @@ foreach ($tlsowners as $chan => $txt) {
 	<div class="element-container">
 		<div class="row">
 			<div class="col-md-12">
-				<div class="">
-					<div class="row form-group">
+				<div class="row">
+					<div class="form-group">
 						<div class="col-md-3">
 							<label class="control-label" for="turnaddr"><?php echo _("TURN Server Address") ?></label>
 							<i class="fa fa-question-circle fpbx-help-icon" data-for="turnaddr"></i>
@@ -442,8 +442,8 @@ foreach ($tlsowners as $chan => $txt) {
 	<div class="element-container">
 		<div class="row">
 			<div class="col-md-12">
-				<div class="">
-					<div class="row form-group">
+				<div class="row">
+					<div class="form-group">
 						<div class="col-md-3">
 							<label class="control-label" for="turnusername"><?php echo _("TURN Server Username") ?></label>
 							<i class="fa fa-question-circle fpbx-help-icon" data-for="turnusername"></i>
@@ -466,8 +466,8 @@ foreach ($tlsowners as $chan => $txt) {
 	<div class="element-container">
 		<div class="row">
 			<div class="col-md-12">
-				<div class="">
-					<div class="row form-group">
+				<div class="row">
+					<div class="form-group">
 						<div class="col-md-3">
 							<label class="control-label" for="turnpassword"><?php echo _("TURN Server Password") ?></label>
 							<i class="fa fa-question-circle fpbx-help-icon" data-for="turnpassword"></i>
@@ -506,8 +506,8 @@ foreach ($tlsowners as $chan => $txt) {
 	<div class="element-container">
 		<div class="row">
 			<div class="col-md-12">
-				<div class="">
-					<div class="row form-group">
+				<div class="row">
+					<div class="form-group">
 						<div class="col-md-3">
 							<label class="control-label" for=""><?php echo _("IP Addresses")?></label>
 						</div>
@@ -550,8 +550,8 @@ foreach ($tlsowners as $chan => $txt) {
 	<div class="element-container">
 		<div class="row">
 			<div class="col-md-12">
-				<div class="">
-					<div class="row form-group">
+				<div class="row">
+					<div class="form-group">
 						<div class="col-md-3">
 							<label class="control-label" for=""><?php echo _("Candidates")?></label>
 						</div>
@@ -579,8 +579,8 @@ foreach ($tlsowners as $chan => $txt) {
 	<div class="element-container">
 		<div class="row">
 			<div class="col-md-12">
-				<div class="">
-					<div class="row form-group">
+				<div class="row">
+					<div class="form-group">
 						<div class="col-md-3">
 							<label class="control-label" for="webrtcstunaddr"><?php echo _("STUN Server Address") ?></label>
 							<i class="fa fa-question-circle fpbx-help-icon" data-for="webrtcstunaddr"></i>
@@ -603,8 +603,8 @@ foreach ($tlsowners as $chan => $txt) {
 	<div class="element-container">
 		<div class="row">
 			<div class="col-md-12">
-				<div class="">
-					<div class="row form-group">
+				<div class="row">
+					<div class="form-group">
 						<div class="col-md-3">
 							<label class="control-label" for="webrtcturnaddr"><?php echo _("TURN Server Address") ?></label>
 							<i class="fa fa-question-circle fpbx-help-icon" data-for="webrtcturnaddr"></i>
@@ -627,8 +627,8 @@ foreach ($tlsowners as $chan => $txt) {
 	<div class="element-container">
 		<div class="row">
 			<div class="col-md-12">
-				<div class="">
-					<div class="row form-group">
+				<div class="row">
+					<div class="form-group">
 						<div class="col-md-3">
 							<label class="control-label" for="webrtcturnusername"><?php echo _("TURN Server Username") ?></label>
 							<i class="fa fa-question-circle fpbx-help-icon" data-for="webrtcturnusername"></i>
@@ -651,8 +651,8 @@ foreach ($tlsowners as $chan => $txt) {
 	<div class="element-container">
 		<div class="row">
 			<div class="col-md-12">
-				<div class="">
-					<div class="row form-group">
+				<div class="row">
+					<div class="form-group">
 						<div class="col-md-3">
 							<label class="control-label" for="webrtcturnpassword"><?php echo _("TURN Server Password") ?></label>
 							<i class="fa fa-question-circle fpbx-help-icon" data-for="webrtcturnpassword"></i>
@@ -680,8 +680,8 @@ foreach ($tlsowners as $chan => $txt) {
 	<div class="element-container">
 		<div class="row">
 			<div class="col-md-12">
-				<div class="">
-					<div class="row form-group">
+				<div class="row">
+					<div class="form-group">
 						<div class="col-md-3">
 							<label class="control-label" for="t38pt_udptl"><?php echo _("T38 Pass-Through") ?></label>
 							<i class="fa fa-question-circle fpbx-help-icon" data-for="t38pt_udptl"></i>
@@ -711,8 +711,8 @@ foreach ($tlsowners as $chan => $txt) {
 	<div class="element-container">
 		<div class="row">
 			<div class="col-md-12">
-				<div class="">
-					<div class="row form-group">
+				<div class="row">
+					<div class="form-group">
 						<div class="col-md-3">
 							<label class="control-label" for="codecw"><?php echo _("Codecs") ?></label>
 						</div>
@@ -811,8 +811,8 @@ foreach ($tlsowners as $chan => $txt) {
 	<div class="element-container">
 		<div class="row">
 			<div class="col-md-12">
-				<div class="">
-					<div class="row form-group">
+				<div class="row">
+					<div class="form-group">
 						<div class="col-md-3">
 							<label class="control-label" for="videosupport"><?php echo _("Video Support") ?></label>
 							<i class="fa fa-question-circle fpbx-help-icon" data-for="videosupport"></i>
@@ -839,8 +839,8 @@ foreach ($tlsowners as $chan => $txt) {
 		<div class="element-container">
 			<div class="row">
 				<div class="col-md-12">
-					<div class="">
-						<div class="row form-group">
+					<div class="row">
+						<div class="form-group">
 							<div class="col-md-3">
 								<label class="control-label" for="vcwrap"><?php echo _("Video Codecs") ?></label>
 								<i class="fa fa-question-circle fpbx-help-icon" data-for="vcwrap"></i>
@@ -885,8 +885,8 @@ foreach ($tlsowners as $chan => $txt) {
 		<div class="element-container">
 			<div class="row">
 				<div class="col-md-12">
-					<div class="">
-						<div class="row form-group">
+					<div class="row">
+						<div class="form-group">
 							<div class="col-md-3">
 								<label class="control-label" for="maxcallbitrate"><?php echo _("Max Bit Rate") ?></label>
 								<i class="fa fa-question-circle fpbx-help-icon" data-for="maxcallbitrate"></i>
