@@ -19,3 +19,6 @@ div.sip-errors p {
 .nav-container .wrapper .list {
 	margin-top: 2px !important;
 }
+.form-group {
+	margin-bottom: 15px !important;
+}
