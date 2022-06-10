@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-06 05:50+0000\n"
+"POT-Creation-Date: 2022-06-10 04:00+0000\n"
 "PO-Revision-Date: 2015-12-05 10:05+0200\n"
 "Last-Translator: Andrew <andrew.nagy@the159.com>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/"
@@ -152,6 +152,12 @@ msgid ""
 "An Error occurred trying fetch network configuration and external IP address"
 msgstr "Ошибка получения сетевой конфигурации и внешний IP-адреса"
 
+#: Restore.php:47
+msgid ""
+"An error occurred fixing bindport. Please check Advanced SIP Settings "
+"modules."
+msgstr ""
+
 #: Sipsettings.class.php:976
 msgid ""
 "An unknown port conflict has been detected in PJSIP. Please check and "
@@ -269,6 +275,11 @@ msgstr "Порт"
 msgid "Bind Port (bindport) must be between 1024 and 65535"
 msgstr "Порт привязки (bindport). Адрес порта должен быть между 1024 и 65535"
 
+#: Restore.php:68
+#, php-format
+msgid "Bindport set to %s."
+msgstr ""
+
 #: chanpj.page.php:365
 msgid "CA Chain File"
 msgstr ""
@@ -307,6 +318,10 @@ msgstr ""
 
 #: general.page.php:110
 msgid "Chan SIP"
+msgstr ""
+
+#: Restore.php:51
+msgid "Chan_sip must be selected only. No update."
 msgstr ""
 
 #: Sipsettings.class.php:1011
@@ -1129,6 +1144,10 @@ msgstr ""
 "Посылает пакеты keepalives в потоке RTP поддерживая открытой трансляцию NAT "
 "в течение отсутствия потока RTP (как например при удержании - Hold)."
 
+#: Restore.php:40
+msgid "Setting up chan_sip only."
+msgstr ""
+
 #: sipsettings.i18n.php:6
 msgid "Settings"
 msgstr "Настройки"
@@ -1362,6 +1381,10 @@ msgstr ""
 msgid "Updating Web Socket Settings"
 msgstr ""
 
+#: Restore.php:45
+msgid "Updating bindport."
+msgstr ""
+
 #: install.php:73
 msgid "Updating kvstore_Sipsettings"
 msgstr ""
@@ -1579,12 +1602,12 @@ msgstr "сохранение предыдущего значения из %s"
 msgid "ulaw, alaw, gsm, g726 added"
 msgstr "ulaw, alaw, gsm, g726 добавлены"
 
-#: Restore.php:116
+#: Restore.php:156
 #, php-format
 msgid "update preserved data in kvstore_Sipsettings table : %s"
 msgstr ""
 
-#: Restore.php:124
+#: Restore.php:164
 #, php-format
 msgid "update preserved data in sipsettings table : %s"
 msgstr ""
@@ -1597,19 +1620,19 @@ msgstr ""
 msgid "updateWSSettings"
 msgstr ""
 
-#: Restore.php:149
+#: Restore.php:189
 msgid "user passed option for skip NAT settings section"
 msgstr ""
 
-#: Restore.php:145
+#: Restore.php:185
 msgid "user passed option for skip bind address section"
 msgstr ""
 
-#: Restore.php:137
+#: Restore.php:177
 msgid "warmspare remotebind option enabled"
 msgstr ""
 
-#: Restore.php:141
+#: Restore.php:181
 msgid "warmspare remotenat option enabled"
 msgstr ""
 
