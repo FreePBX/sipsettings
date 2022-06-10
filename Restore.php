@@ -35,6 +35,46 @@ class Restore Extends Base\RestoreBase{
 		if ($skipoptions['skipbindport'] || $skipoptions['skipremotenat']) {
 			$this->update_sipsettings_data($preserevdata,$skipoptions);
 		}
+
+		if(version_compare($this->data["pbx_version"], "2.12", "<")){
+			$this->log(_("Setting up chan_sip only."), "INFO");
+			$this->FreePBX->Database->prepare("UPDATE freepbx_settings SET `value` = 'chan_sip' WHERE `keyword` = 'ASTSIPDRIVER'")->execute();
+			$driver = $this->FreePBX->Config()->get_conf_setting('ASTSIPDRIVER');
+			
+			if(in_array("sipsettings", $tables) && $driver == "chan_sip"){
+				$this->log(_("Updating bindport."), "INFO");
+				if(!$this->fixSipSettingsTableLeacy()){
+					$this->log(_("An error occurred fixing bindport. Please check Advanced SIP Settings modules."), "WARNING");
+				}						
+			}
+			elseif(in_array("sipsettings", $tables) && $driver != "chan_sip") {
+				$this->log(_("Chan_sip must be selected only. No update."), "WARNING");
+			}
+		}
+	}
+
+	/**
+	 * fixSipSettingsTableLeacy
+	 *
+	 * @return bool
+	 */
+	public function fixSipSettingsTableLeacy(){
+		$status = true;
+		try {
+			$query = "SELECT data AS port FROM `sipsettings` WHERE `keyword` = 'bindport'";
+			$sipSet = $this->FreePBX->Database->query($query)->fetchall(\PDO::FETCH_ASSOC);
+
+			$bindport = empty($sipSet) || $sipSet["port"] == "" ? "5060" : $sipSet["port"];
+			$this->log(sprintf(_("Bindport set to %s."),$bindport), 'INFO');
+			
+			$query = "UPDATE `sipsettings` SET `data` = :port WHERE `keyword` = 'bindport'";
+			$this->FreePBX->Database->prepare($query)->execute(array(":port" => $bindport));
+		} catch(\Exception $e) {
+			$this->log($e->getMessage(),'ERROR');
+			$status = false;
+		}
+		
+		return $status;
 	}
 
 	public function get_sipsettings_data() {
