@@ -76,7 +76,7 @@
 	</changelog>
   <depends>
     <module>core ge 15.0.3.5</module>
-    <module>backup ge 15.0.13</module>
+    <module>backup ge 15.0.19</module>
   </depends>
   <supported>
     <version>15.0</version>
