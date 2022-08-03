@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-10 04:00+0000\n"
+"POT-Creation-Date: 2022-08-03 11:41+0000\n"
 "PO-Revision-Date: 2015-12-05 10:05+0200\n"
 "Last-Translator: Andrew <andrew.nagy@the159.com>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/"
@@ -352,10 +352,6 @@ msgstr "Отметить если необходимо, и затем выбра
 #: general.page.php:717
 msgid "Codecs"
 msgstr "Кодеки"
-
-#: install.php:152
-msgid "Configured externip to .."
-msgstr ""
 
 #: chansip.page.php:529
 msgid ""
@@ -849,7 +845,7 @@ msgstr ""
 msgid "Migrate rtp.conf values if needed and initialize"
 msgstr "Перенос и инициализация значений rtp.conf, если нужно"
 
-#: install.php:185
+#: install.php:179
 msgid "Migrating Audio Codecs"
 msgstr "Перемещение аудио кодеков"
 
@@ -857,7 +853,7 @@ msgstr "Перемещение аудио кодеков"
 msgid "Migrating LocalNets and Netmasks"
 msgstr "Перемещение локальных сетей и масок подсети"
 
-#: install.php:205
+#: install.php:199
 msgid "Migrating Video Codecs"
 msgstr "Перемещение видео кодеков"
 

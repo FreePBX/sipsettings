@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX sipsettings\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-10 04:00+0000\n"
+"POT-Creation-Date: 2022-08-03 11:41+0000\n"
 "PO-Revision-Date: 2011-03-20 00:00+0100\n"
 "Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
 "Language-Team: Swedish\n"
@@ -324,10 +324,6 @@ msgstr "Markera för att aktivera, välj sedan tillåtna codecs."
 #: general.page.php:717
 msgid "Codecs"
 msgstr "Codec"
-
-#: install.php:152
-msgid "Configured externip to .."
-msgstr ""
 
 #: chansip.page.php:529
 msgid ""
@@ -779,7 +775,7 @@ msgstr ""
 msgid "Migrate rtp.conf values if needed and initialize"
 msgstr ""
 
-#: install.php:185
+#: install.php:179
 msgid "Migrating Audio Codecs"
 msgstr ""
 
@@ -787,7 +783,7 @@ msgstr ""
 msgid "Migrating LocalNets and Netmasks"
 msgstr ""
 
-#: install.php:205
+#: install.php:199
 msgid "Migrating Video Codecs"
 msgstr ""
 

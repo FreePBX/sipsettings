@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-10 04:00+0000\n"
+"POT-Creation-Date: 2022-08-03 11:41+0000\n"
 "PO-Revision-Date: 2017-05-23 13:16+0200\n"
 "Last-Translator: Kenichi <k.fukaumi@qloog.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/"
@@ -351,10 +351,6 @@ msgstr ""
 #: general.page.php:717
 msgid "Codecs"
 msgstr "コーデック"
-
-#: install.php:152
-msgid "Configured externip to .."
-msgstr ""
 
 #: chansip.page.php:529
 msgid ""
@@ -808,7 +804,7 @@ msgstr ""
 msgid "Migrate rtp.conf values if needed and initialize"
 msgstr "必要に応じてrtf.confの値を移行して初期化する"
 
-#: install.php:185
+#: install.php:179
 msgid "Migrating Audio Codecs"
 msgstr ""
 
@@ -816,7 +812,7 @@ msgstr ""
 msgid "Migrating LocalNets and Netmasks"
 msgstr ""
 
-#: install.php:205
+#: install.php:199
 msgid "Migrating Video Codecs"
 msgstr ""
 

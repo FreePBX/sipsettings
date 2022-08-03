@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-10 04:00+0000\n"
+"POT-Creation-Date: 2022-08-03 11:41+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -301,10 +301,6 @@ msgstr ""
 
 #: general.page.php:717
 msgid "Codecs"
-msgstr ""
-
-#: install.php:152
-msgid "Configured externip to .."
 msgstr ""
 
 #: chansip.page.php:529
@@ -747,7 +743,7 @@ msgstr ""
 msgid "Migrate rtp.conf values if needed and initialize"
 msgstr ""
 
-#: install.php:185
+#: install.php:179
 msgid "Migrating Audio Codecs"
 msgstr ""
 
@@ -755,7 +751,7 @@ msgstr ""
 msgid "Migrating LocalNets and Netmasks"
 msgstr ""
 
-#: install.php:205
+#: install.php:199
 msgid "Migrating Video Codecs"
 msgstr ""
 

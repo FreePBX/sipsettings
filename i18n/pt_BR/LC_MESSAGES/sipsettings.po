@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-10 04:00+0000\n"
+"POT-Creation-Date: 2022-08-03 11:41+0000\n"
 "PO-Revision-Date: 2017-03-08 19:50+0200\n"
 "Last-Translator: Kingvoice <suporte@kingvoice.com.br>\n"
 "Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
@@ -347,10 +347,6 @@ msgstr "Selecione para habilitar e, em seguida, escolha os codecs permitidos."
 #: general.page.php:717
 msgid "Codecs"
 msgstr "Codecs"
-
-#: install.php:152
-msgid "Configured externip to .."
-msgstr ""
 
 #: chansip.page.php:529
 msgid ""
@@ -837,7 +833,7 @@ msgstr ""
 msgid "Migrate rtp.conf values if needed and initialize"
 msgstr "Migrar valores rtp.conf caso necessário e inicializar"
 
-#: install.php:185
+#: install.php:179
 msgid "Migrating Audio Codecs"
 msgstr "Migrando Codecs de Áudio"
 
@@ -845,7 +841,7 @@ msgstr "Migrando Codecs de Áudio"
 msgid "Migrating LocalNets and Netmasks"
 msgstr "Migrando LocalNets e Máscaras de Rede"
 
-#: install.php:205
+#: install.php:199
 msgid "Migrating Video Codecs"
 msgstr "Migrando Codecs de Vídeo"
 
