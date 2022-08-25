@@ -28,6 +28,9 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 		"tcpport-0.0.0.0" => "5160", // Defaults, only used if this is an upgrade
 		"udpport-0.0.0.0" => "5061",
 		"tlsport-0.0.0.0" => "5161",
+		"tcpextport-0.0.0.0" => "5160", // Defaults, only used if this is an upgrade
+		"udpextport-0.0.0.0" => "5061",
+		"tlsextport-0.0.0.0" => "5161",
 		"allow_reload" => "no",
 		"debug" => "no",
 		"keep_alive_interval" => 90
