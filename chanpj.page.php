@@ -97,6 +97,7 @@ foreach ($protocols as $p) {
 			$p."port-$ip" => array(_("Port to Listen On"),_("The port that this transport should listen on"),"port", $ip),
 			$p."domain-$ip" => array(_("Domain the transport comes from"),_("Typically used with SIP calling. Example user@domain, where domain is the value that would be entered here"),"domain", $ip),
 			$p."extip-$ip" => array(_("External IP Address"), _("If blank, will use the default settings"), "extip", $ip),
+			$p."extport-$ip" => array(_("External Signaling Port"), _("External Signaling Port"), "extport", $ip),
 			$p."localnet-$ip" => array(_("Local network"), _("You may use this to to define an additional local network per interface."), "localnet", $ip),
 		);
 		foreach ($vars as $v => $t) {
