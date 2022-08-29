@@ -4,7 +4,7 @@
   <candisable>no</candisable>
   <canuninstall>no</canuninstall>
   <name>Asterisk SIP Settings</name>
-  <version>15.0.9</version>
+  <version>15.0.10</version>
   <publisher>Sangoma Technologies Corporation</publisher>
   <license>AGPLv3+</license>
   <licenselink>https://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
@@ -25,6 +25,7 @@
   </description>
   <more-info>https://wiki.freepbx.org/display/FPG/Asterisk+SIP+Settings</more-info>
   <changelog>
+		*15.0.10* FREEPBX-23656 
 		*15.0.9* Packaging of ver 15.0.9
 		*15.0.8* FREEPBX-21423 SIP and PJSIP ports odd after Legacy restore from 2.10 
 		*15.0.7*    FREEI-4436 - Restore - Ability to select modules to ignore  
