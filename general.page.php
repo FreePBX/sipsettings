@@ -494,7 +494,7 @@ foreach ($tlsowners as $chan => $txt) {
 	<div class="panel panel-info">
 		<div class="panel-heading">
 			<div class="panel-title">
-				<a data-toggle="collapse" data-target="#moreinfo-ice-blacklist" style="cursor:pointer;"><i class="glyphicon glyphicon-info-sign"></i></a>&nbsp;&nbsp;&nbsp;<?php echo _("What is ICE Blacklist?")?></div>
+				<a data-toggle="collapse" data-target="#moreinfo-ice-blacklist" style="cursor:pointer;"><i class="fa fa-info-circle"></i></a>&nbsp;&nbsp;&nbsp;<?php echo _("What is ICE Blacklist?")?></div>
 		</div>
 		<!--At some point we can probably kill this... Maybe make is a 1 time panel that may be dismissed-->
 		<div class="panel-body collapse" id="moreinfo-ice-blacklist">
@@ -537,7 +537,7 @@ foreach ($tlsowners as $chan => $txt) {
 	<div class="panel panel-info">
 		<div class="panel-heading">
 			<div class="panel-title">
-				<a data-toggle="collapse" data-target="#moreinfo-ice-host-candidates" style="cursor:pointer;"><i class="glyphicon glyphicon-info-sign"></i></a>&nbsp;&nbsp;&nbsp;<?php echo _("What is ICE Host Candidates?")?></div>
+				<a data-toggle="collapse" data-target="#moreinfo-ice-host-candidates" style="cursor:pointer;"><i class="fa fa-info-circle"></i></a>&nbsp;&nbsp;&nbsp;<?php echo _("What is ICE Host Candidates?")?></div>
 		</div>
 		<!--At some point we can probably kill this... Maybe make is a 1 time panel that may be dismissed-->
 		<div class="panel-body collapse" id="moreinfo-ice-host-candidates">

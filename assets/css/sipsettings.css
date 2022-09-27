@@ -25,3 +25,9 @@ div.sip-errors p {
 .form-group {
 	margin-bottom: 15px !important;
 }
+#ice-blacklist-buttons,
+#ice-host-candidates-buttons,
+#autodetect,
+#localnet-add {
+	margin-top: 1rem;
+}

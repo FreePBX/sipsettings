@@ -17,7 +17,7 @@ $ss = FreePBX::create()->Sipsettings;
                   <div class="panel-heading">
                     <div class="panel-title">
 			  <a href="#" data-toggle="collapse" data-target="#moreinfo">
-                            <i class="glyphicon glyphicon-info-sign"></i>
+                            <i class="fa fa-info-circle"></i>
                           </a>&nbsp;&nbsp;&nbsp;<?php echo _("SIP driver informations")?>
 		    </div>
                   </div>
@@ -30,8 +30,8 @@ $ss = FreePBX::create()->Sipsettings;
 				<div class="fpbx-container">
 					<div class="display no-border">
 						<div class="nav-container">
-							<div class="scroller scroller-left"><i class="glyphicon glyphicon-chevron-left"></i></div>
-							<div class="scroller scroller-right"><i class="glyphicon glyphicon-chevron-right"></i></div>
+							<div class="scroller scroller-left"><i class="fa fa-chevron-left"></i></div>
+							<div class="scroller scroller-right"><i class="fa fa-chevron-right"></i></div>
 							<div class="wrapper">
 								<ul class="nav nav-tabs list" role="tablist">
 									<?php foreach($ss->myShowPage() as $key => $page) { ?>
