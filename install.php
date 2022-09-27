@@ -146,12 +146,6 @@ if (isset($extip[0])) {
 	}
 }
 
-// FREEI-4452 If externip not set on fresh iso or installation then set it
-if (!$ss->getConfig('externip')) {
-	$ss->setExternIP();	
-	outn(_("Configured externip to ..".$ss->getConfig('externip')));
-}
- 
 
 $sql = "SELECT * from sipsettings where keyword='tlsbindport'";
 $tlsbp = sql($sql,'getAll',DB_FETCHMODE_ASSOC);
