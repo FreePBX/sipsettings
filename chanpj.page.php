@@ -56,8 +56,8 @@ foreach ($protocols as $p) {
 		$cbs .= '
 		<!--'.$thisTitle.'-->
 		<div class="element-container">
-			<div class="">
-				<div class="row form-group">
+			<div class="row">
+				<div class="form-group">
 					<div class="col-md-3">
 						<label class="control-label" for="'.$thisID.'">'. $thisTitle .'</label>
 						<i class="fa fa-question-circle fpbx-help-icon" data-for="'.$thisID.'"></i>
@@ -97,6 +97,7 @@ foreach ($protocols as $p) {
 			$p."port-$ip" => array(_("Port to Listen On"),_("The port that this transport should listen on"),"port", $ip),
 			$p."domain-$ip" => array(_("Domain the transport comes from"),_("Typically used with SIP calling. Example user@domain, where domain is the value that would be entered here"),"domain", $ip),
 			$p."extip-$ip" => array(_("External IP Address"), _("If blank, will use the default settings"), "extip", $ip),
+			$p."extport-$ip" => array(_("External Signaling Port"), _("External Signaling Port"), "extport", $ip),
 			$p."localnet-$ip" => array(_("Local network"), _("You may use this to to define an additional local network per interface."), "localnet", $ip),
 		);
 		foreach ($vars as $v => $t) {
@@ -107,8 +108,8 @@ foreach ($protocols as $p) {
 				<div class="element-container">
 					<div class="row">
 						<div class="col-md-12">
-							<div class="">
-								<div class="row form-group">
+							<div class="row">
+								<div class="form-group">
 									<div class="col-md-3">
 										<label class="control-label" for="'.$thisID.'">'. $t[0] .'</label>
 										<i class="fa fa-question-circle fpbx-help-icon" data-for="'.$thisID.'"></i>
@@ -134,8 +135,8 @@ foreach ($protocols as $p) {
 				<div class="element-container">
 					<div class="row">
 						<div class="col-md-12">
-							<div class="">
-								<div class="row form-group">
+							<div class="row">
+								<div class="form-group">
 									<div class="col-md-3">
 										<label class="control-label" for="'.$thisID.'">'. $t[0] .'</label>
 									</div>
@@ -172,8 +173,8 @@ foreach ($protocols as $p) {
 <div class="section" data-id="pjsmisc">
 	<!--Allow reload-->
 	<div class="element-container">
-		<div class="">
-			<div class="row form-group">
+		<div class="row">
+			<div class="form-group">
 				<div class="col-md-3">
 					<label class="control-label" for="allow_reload"><?php echo _("Allow Transports Reload") ?></label>
 					<i class="fa fa-question-circle fpbx-help-icon" data-for="allow_reload"></i>
@@ -195,8 +196,8 @@ foreach ($protocols as $p) {
 	<!--END Allow reload-->
 	<!--Enable Debug-->
 	<div class="element-container">
-		<div class="">
-			<div class="row form-group">
+		<div class="row">
+			<div class="form-group">
 				<div class="col-md-3">
 					<label class="control-label" for="pjsip_debug"><?php echo _("Enable Debug") ?></label>
 					<i class="fa fa-question-circle fpbx-help-icon" data-for="pjsip_debug"></i>
@@ -218,8 +219,8 @@ foreach ($protocols as $p) {
 	<!--END Enable Debug-->
 	<!--Allow reload-->
 	<div class="element-container">
-		<div class="">
-			<div class="row form-group">
+		<div class="row">
+			<div class="form-group">
 				<div class="col-md-3">
 					<label class="control-label" for="pjsip_keep_alive_interval"><?php echo _("Keep Alive Interval") ?></label>
 					<i class="fa fa-question-circle fpbx-help-icon" data-for="pjsip_keep_alive_interval"></i>
@@ -242,8 +243,8 @@ foreach ($protocols as $p) {
 	if (version_min(\FreePBX::Config()->get('ASTVERSION'),$ver_list) == true) { ?>
 	<!--Caller ID into Contact Header-->
 	<div class="element-container">
-		<div class="">
-			<div class="row form-group">
+		<div class="row">
+			<div class="form-group">
 				<div class="col-md-3">
 					<label class="control-label" for="use_callerid_contact"><?php echo _("Caller ID into Contact Header") ?></label>
 					<i class="fa fa-question-circle fpbx-help-icon" data-for="use_callerid_contact"></i>
@@ -274,8 +275,8 @@ foreach ($protocols as $p) {
 	<div class="element-container">
 		<div class="row">
 			<div class="col-md-12">
-				<div class="">
-					<div class="row form-group">
+				<div class="row">
+					<div class="form-group">
 						<div class="col-md-3">
 							<label class="control-label" for="taskprocessor_overload_trigger"><?php echo _("Taskprocessor Overload Trigger")?></label>
 							<i class="fa fa-question-circle fpbx-help-icon" data-for="taskprocessor_overload_trigger"></i>
@@ -303,8 +304,8 @@ foreach ($protocols as $p) {
 
 	<!--Show Advanced Settings-->
 	<div class="element-container">
-		<div class="">
-			<div class="row form-group">
+		<div class="row">
+			<div class="form-group">
 				<div class="col-md-3">
 					<label class="control-label" for="showadvanced"><?php echo _("Show Advanced Settings") ?></label>
 					<i class="fa fa-question-circle fpbx-help-icon" data-for="showadvanced"></i>
@@ -326,8 +327,8 @@ foreach ($protocols as $p) {
 	 <div class="element-container">
         <div class="row">
           <div class="col-md-12">
-            <div class="">
-              <div class="row form-group">
+            <div class="row">
+              <div class="form-group">
                 <div class="col-md-3">
                   <label class="control-label" for="pjsip_identifers_sortable"><?php echo _("Endpoint Identifier Order ")?></label>
                   <i class="fa fa-question-circle fpbx-help-icon" data-for="pjsip_identifers_sortable"></i>
@@ -359,8 +360,8 @@ foreach ($protocols as $p) {
 	<div class="section" data-id="pjtls">
 	<?php if(!\FreePBX::Modules()->moduleHasMethod("certman","getDefaultCertDetails")) {?>
 			<div class="element-container">
-				<div class="">
-					<div class="row form-group">
+				<div class="row">
+					<div class="form-group">
 						<div class="col-md-3">
 							<label class="control-label" for="calistfile"><?php echo _("CA Chain File") ?></label>
 						</div>
@@ -371,8 +372,8 @@ foreach ($protocols as $p) {
 				</div>
 			</div>
 			<div class="element-container">
-				<div class="">
-					<div class="row form-group">
+				<div class="row">
+					<div class="form-group">
 						<div class="col-md-3">
 							<label class="control-label" for="certfile"><?php echo _("Certificate File") ?></label>
 						</div>
@@ -383,8 +384,8 @@ foreach ($protocols as $p) {
 				</div>
 			</div>
 			<div class="element-container">
-				<div class="">
-					<div class="row form-group">
+				<div class="row">
+					<div class="form-group">
 						<div class="col-md-3">
 							<label class="control-label" for="privkeyfile"><?php echo _("Private Key File") ?></label>
 						</div>
@@ -396,8 +397,8 @@ foreach ($protocols as $p) {
 			</div>
 		<?php } else { ?>
 			<div class="element-container">
-				<div class="">
-					<div class="row form-group">
+				<div class="row">
+					<div class="form-group">
 						<div class="col-md-3">
 							<label class="control-label" for="pjsipcalistfile"><?php echo _("Certificate Manager") ?></label>
 							<i class="fa fa-question-circle fpbx-help-icon" data-for="pjsipcalistfile"></i>
@@ -420,8 +421,8 @@ foreach ($protocols as $p) {
 			</div>
 		<?php } ?>
 		<div class="element-container">
-			<div class="">
-				<div class="row form-group">
+			<div class="row">
+				<div class="form-group">
 					<div class="col-md-3">
 						<label class="control-label" for="method"><?php echo _("SSL Method") ?></label>
 						<i class="fa fa-question-circle fpbx-help-icon" data-for="method"></i>
@@ -445,8 +446,8 @@ foreach ($protocols as $p) {
 			</div>
 		</div>
 		<div class="element-container">
-			<div class="">
-				<div class="row form-group">
+			<div class="row">
+				<div class="form-group">
 					<div class="col-md-3">
 						<label class="control-label" for="verify_client"><?php echo _("Verify Client") ?></label>
 						<i class="fa fa-question-circle fpbx-help-icon" data-for="verify_client"></i>
@@ -466,8 +467,8 @@ foreach ($protocols as $p) {
 			</div>
 		</div>
 		<div class="element-container">
-			<div class="">
-				<div class="row form-group">
+			<div class="row">
+				<div class="form-group">
 					<div class="col-md-3">
 						<label class="control-label" for="verify_server"><?php echo _("Verify Server") ?></label>
 						<i class="fa fa-question-circle fpbx-help-icon" data-for="verify_server"></i>

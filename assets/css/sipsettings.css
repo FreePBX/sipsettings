@@ -1,24 +1,33 @@
 input.validation-error {
-	border:2px solid red;
+	border: 2px solid red;
 }
+
 div.sip-errors {
-	border:3px solid red;
+	border: 3px solid red;
 	background-repeat: repeat-x;
 }
+
 div.sip-errors p {
-	text-align:center;
-	color:red;
-	font-weight:bold;
-	text-decoration:underline;
+	text-align: center;
+	color: red;
+	font-weight: bold;
+	text-decoration: underline;
 }
 
 .sipsettings-wrapper input[type="number"] {
-	width:60px;
+	width: 60px;
 }
 
 .nav-container .wrapper .list {
 	margin-top: 2px !important;
 }
+
 .form-group {
 	margin-bottom: 15px !important;
+}
+#ice-blacklist-buttons,
+#ice-host-candidates-buttons,
+#autodetect,
+#localnet-add {
+	margin-top: 1rem;
 }

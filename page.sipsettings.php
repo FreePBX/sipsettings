@@ -17,7 +17,7 @@ $ss = FreePBX::create()->Sipsettings;
                   <div class="panel-heading">
                     <div class="panel-title">
 			  <a href="#" data-toggle="collapse" data-target="#moreinfo">
-                            <i class="glyphicon glyphicon-info-sign"></i>
+                            <i class="fa fa-info-circle"></i>
                           </a>&nbsp;&nbsp;&nbsp;<?php echo _("SIP driver informations")?>
 		    </div>
                   </div>
@@ -33,9 +33,9 @@ $ss = FreePBX::create()->Sipsettings;
 							<div class="scroller scroller-left"><i class="fa fa-chevron-left"></i></div>
 							<div class="scroller scroller-right"><i class="fa fa-chevron-right"></i></div>
 							<div class="wrapper">
-								<ul class="nav nav-tabs list pb-0" role="tablist">
+								<ul class="nav nav-tabs list" role="tablist">
 									<?php foreach($ss->myShowPage() as $key => $page) { ?>
-										<li data-name="<?php echo $key?>" class="change-tab"><a href="#<?php echo $key?>" aria-controls="<?php echo $key?>" role="tab" data-toggle="tab" class="<?php echo $key == 'general' ? 'active' : ''?> nav-link" ><?php echo $page['name']?></a></li>
+										<li data-name="<?php echo $key?>" class="change-tab <?php echo $key == 'general' ? 'active' : ''?>"><a href="#<?php echo $key?>" aria-controls="<?php echo $key?>" role="tab" data-toggle="tab"><?php echo $page['name']?></a></li>
 									<?php } ?>
 								</ul>
 							</div>
