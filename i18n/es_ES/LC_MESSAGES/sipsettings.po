@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-06-01 07:31+0000\n"
-"PO-Revision-Date: 2022-12-23 13:16+0000\n"
+"PO-Revision-Date: 2022-12-24 14:01+0000\n"
 "Last-Translator: Santiago Pioli <spioli@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/"
 "sipsettings/es/>\n"
@@ -27,7 +27,7 @@ msgid ""
 "each addition, they will be added in order which will effect the codec "
 "priority."
 msgstr ""
-"Si desactiva cada códec y luego los agrega de uno en uno, asumiendo cada "
+" Si desactiva cada códec y luego los agrega de uno en uno, asumiendo cada "
 "adición, estos se sumarán en orden a fin de que afecte la prioridad."
 
 #: chansip.page.php:960
@@ -963,7 +963,7 @@ msgstr "Tiempo de espera de retención RTP"
 
 #: general.page.php:368
 msgid "RTP Keep Alive"
-msgstr "RTP Keep Alive"
+msgstr "Mantener Vivo RTP"
 
 #: general.page.php:235
 msgid "RTP Port Ranges"
@@ -1138,11 +1138,11 @@ msgstr ""
 
 #: chansip.page.php:903
 msgid "TLS Bind Address"
-msgstr "TLS Bind Address"
+msgstr "Dirección de Enlace TLS"
 
 #: chansip.page.php:923
 msgid "TLS Bind Port"
-msgstr "TLS Bind Port"
+msgstr "Puerto de Enlace TLS"
 
 #: chanpj.page.php:277 chansip.page.php:296
 msgid "TLS/SSL/SRTP Settings"
