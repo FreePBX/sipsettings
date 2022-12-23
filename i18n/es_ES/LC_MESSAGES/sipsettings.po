@@ -10,16 +10,16 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-06-01 07:31+0000\n"
-"PO-Revision-Date: 2016-12-12 02:44+0200\n"
-"Last-Translator: Ernesto <ecasas@sangoma.com>\n"
+"PO-Revision-Date: 2022-12-23 13:16+0000\n"
+"Last-Translator: Santiago Pioli <spioli@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/"
-"sipsettings/es_ES/>\n"
+"sipsettings/es/>\n"
 "Language: es_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.4\n"
+"X-Generator: Weblate 3.0.1\n"
 
 #: general.page.php:829
 msgid ""
@@ -52,7 +52,7 @@ msgstr "Adaptado"
 
 #: general.page.php:520 general.page.php:562
 msgid "Add Address"
-msgstr ""
+msgstr "Agregar Dirección"
 
 #: chansip.page.php:35
 msgid "Add Field"
@@ -71,6 +71,8 @@ msgid ""
 "After you enable/disable a transport, asterisk needs to be "
 "<strong>restarted</strong>, not just reloaded."
 msgstr ""
+"Luego de habilitar/deshabilitar un transporte, Asterisk necesita ser "
+"<strong>reiniciado</strong>, no solo recargado."
 
 #: general.page.php:52
 msgid "Allow Anonymous Inbound SIP Calls"
@@ -82,13 +84,15 @@ msgstr "Permitir SIP Invitados"
 
 #: chanpj.page.php:177
 msgid "Allow Transports Reload"
-msgstr ""
+msgstr "Permitir Recarga de Transporte"
 
 #: chanpj.page.php:190
 msgid ""
 "Allow transports to be reloaded when the PBX is reloaded.  Enabling this is "
 "not recommended, and may lead to issues."
 msgstr ""
+"Permitir que los transportes se recarguen cuando se recargue la PBX. "
+"Habilitar esto no es recomendable, y puede llevar a problemas."
 
 #: general.page.php:65
 msgid ""
@@ -259,11 +263,11 @@ msgstr "Eventos de Llamada"
 
 #: chanpj.page.php:203
 msgid "Caller ID into Contact Header"
-msgstr ""
+msgstr "ID de Llamante en el Encabezado de Contacto"
 
 #: general.page.php:553
 msgid "Candidates"
-msgstr ""
+msgstr "Candidatos"
 
 #: chanpj.page.php:297
 msgid "Certificate File"
@@ -453,6 +457,15 @@ msgid ""
 "be used when sending to a SIP endpoint since they usually have their own "
 "jitter buffers. See jbforce to force its use always."
 msgstr ""
+"Habilita el uso de un búfer de fluctuaciones en el lado receptor de un canal "
+"SIP. Un búfer de  fluctuaciones será usado solo si el lado enviador puede "
+"crar y el lado receptor no puede aceptar fluctuaciones. El canal SIP puede "
+"aceptar fluctuaciones, por lo tanto un búfer de  fluctuaciones en el lado "
+"receptor SIP será utilizado solo si es forzado y habilitado. Un ejemplo es "
+"si se recibe de un canal con fluctuaciones al correo de voz, se usará el "
+"búfer de fluctuaciones si está habilitado. Sin embargo, no se usará cuando "
+"se envíe a un punto final SIP, ya que generalmente tienen sus propios "
+"búferes de fluctuación. Ver jbforce para forzar su uso siempre."
 
 #: general.page.php:249
 msgid "End"
@@ -460,7 +473,7 @@ msgstr "Fin"
 
 #: chanpj.page.php:252
 msgid "Endpoint Identifier Order "
-msgstr ""
+msgstr "Orden de Identificador de Punto Final "
 
 #: chanpj.page.php:269
 msgid ""
@@ -469,11 +482,15 @@ msgid ""
 "ul><ul>Note : Changing this to get affected  may require asterisk restart</"
 "ul>"
 msgstr ""
+"Orden de Identificador de Punto Final. El orden por defecto es el siguiente: "
+"<ul><li>IP</li><li>Nombre de Usuario</li><li>Anónimo</li><li>Encabezado</li><"
+"li>Auth_nombredeusuario</li></ul><ul>Nota: para que los cambien surtan "
+"efecto, puede requerir un reinicio de Asterisk</ul>"
 
 #: assets/js/sipsettings.js:257 assets/js/sipsettings.js:260
 #: assets/js/sipsettings.js:269
 msgid "Enter IP Address"
-msgstr "Entre Dirección IP"
+msgstr "Ingrese Dirección IP"
 
 #: assets/js/sipsettings.js:265 assets/js/sipsettings.js:268
 #, perl-format
@@ -556,7 +573,7 @@ msgstr ""
 
 #: general.page.php:717
 msgid "Helpful Information"
-msgstr ""
+msgstr "Información Útil"
 
 #: general.page.php:409 general.page.php:594
 msgid ""
@@ -583,11 +600,11 @@ msgstr ""
 
 #: general.page.php:488
 msgid "ICE Blacklist"
-msgstr ""
+msgstr "Lista negra ICE"
 
 #: general.page.php:531
 msgid "ICE Host Candidates"
-msgstr ""
+msgstr "Host Candidatos ICE"
 
 #: general.page.php:542
 msgid ""
@@ -596,10 +613,14 @@ msgid ""
 "here, you almost certainly will NOT want to specify 'stunaddr' or 'turnaddr' "
 "above."
 msgstr ""
+"IMPORTANTE: solo use esta funcionalidad cuando su servidor Asterisk se "
+"encuentra detrás de un NAT uno-a-uno y sabe lo que está haciendo. Se define "
+"algo aquí, es casi seguro que NO querrá especificar 'stunaddr' o 'turnaddr' "
+"arriba."
 
 #: general.page.php:509
 msgid "IP Addresses"
-msgstr ""
+msgstr "Direcciones IP"
 
 #: chansip.page.php:186
 msgid "IP Configuration"
@@ -630,11 +651,11 @@ msgstr ""
 #: chanpj.page.php:354 chanpj.page.php:355 chanpj.page.php:356
 #: chansip.page.php:353 chansip.page.php:354
 msgid "Insecure"
-msgstr ""
+msgstr "Inseguro"
 
 #: Sipsettings.class.php:1197
 msgid "It is recommended that this option remain set to no."
-msgstr ""
+msgstr "Es recomendado que esta opción permanezca en no."
 
 #: chansip.page.php:752
 msgid "Jitter Buffer Logging"
@@ -699,6 +720,11 @@ msgid ""
 "installs (when only a single SIP driver was present) would set the chan_sip "
 "bind port to 5060, but new installs set it to 5160."
 msgstr ""
+"Puerto UDP entrante local (y TCP si está habilitado) al que Asterisk se "
+"vinculará y escucha para mensajes chan_SIP. Si se deja en blanco, utilizará "
+"el puerto por defecto 5060. Instalaciones antiguas (cuando solo un "
+"controlador SIP estaba presente) configurarían el puerto de enlace chan_sip "
+"a 5060, pero las nuevas instalaciones lo configuran al 5160."
 
 #: chanpj.page.php:100
 msgid "Local network"
@@ -750,7 +776,7 @@ msgstr "Velocidad máxima para las llamadas de vídeo en kb/s"
 
 #: general.page.php:387
 msgid "Media Transport Settings"
-msgstr ""
+msgstr "Ajustes de Transporte de Medios"
 
 #: chanpj.page.php:363
 msgid ""
@@ -765,6 +791,8 @@ msgid ""
 "Method of SSL transport (TLS ONLY). The default is currently tlsv1, but may "
 "change with future releases."
 msgstr ""
+"Método de transporte SSL (SOLO TLS). El por defecto es actualmente tlsv1, "
+"pero puede cambiar en futuros lanzamientos."
 
 #: install.php:128
 msgid "Migrate rtp.conf values if needed and initialize"
@@ -881,7 +909,7 @@ msgstr "Sobreescribir IP Externa"
 
 #: Sipsettings.class.php:1197
 msgid "PJSIP 'Allow Transports Reload' option is set to yes."
-msgstr ""
+msgstr "La opción PJSIP 'Permitir Recarga de Transportes' está en SI."
 
 #: assets/js/sipsettings.js:238
 msgid "PJSIP transport port conflicts with SIP port"
@@ -902,6 +930,8 @@ msgstr ""
 #: chanpj.page.php:216
 msgid "Place caller-id information into Contact header. Default: no."
 msgstr ""
+"Colocar la información de ID de Llamante en el Encabezado de Contacto. Por "
+"defecto: no."
 
 #: chanpj.page.php:97
 msgid "Port to Listen On"
@@ -957,11 +987,11 @@ msgstr "Expiración de Registro Predeterminada"
 
 #: chansip.page.php:617
 msgid "Registration Maximum Expiry"
-msgstr ""
+msgstr "Caducidad Máxima de Registro"
 
 #: chansip.page.php:593
 msgid "Registration Minimum Expiry"
-msgstr ""
+msgstr "Caducidad Mínima de Registro"
 
 #: chansip.page.php:535
 msgid "Registration Settings"
@@ -1083,6 +1113,13 @@ msgid ""
 "necessary for ICE. Multiple subnets may be listed. If left unconfigured, all "
 "discovered host addresses are used."
 msgstr ""
+"Subredes a excluir del host ICE, srflx y descubrimiento de relés. Esto es "
+"útil para optimizar el proceso ICE cuando un sistema tiene múltiples rango "
+"de direcciones de hosts y/o interfaces físicas y alguna de ellas no se "
+"espera que se utilicen para RTP. Por ejemplo, VPNs e interconexiones locales "
+"pueden no ser apropiadas o necesarias para ICE. Múltiples subredes puede ser "
+"listadas. Si se deja sin configurar, todas las direcciones de host "
+"descubiertas serán utilizadas."
 
 #: general.page.php:683
 msgid "T38 Pass-Through"
@@ -1157,12 +1194,14 @@ msgstr ""
 
 #: general.page.php:499
 msgid "The format for these overrides is: [address] / [subnet]"
-msgstr ""
+msgstr "El formato de estas anulaciones es: [dirección] / [subred]"
 
 #: general.page.php:543
 msgid ""
 "The format for these overrides is: [local address] => [advertised address]>"
 msgstr ""
+"El formato de estas anulaciones es: [dirección local ] => [dirección "
+"anunciada]>"
 
 #: chanpj.page.php:97
 msgid "The port that this transport should listen on"
@@ -1184,7 +1223,7 @@ msgstr ""
 
 #: general.page.php:500 general.page.php:544
 msgid "This is most commonly used for WebRTC"
-msgstr ""
+msgstr "Esto es más comunmente usado para WebRTC"
 
 #: general.page.php:717
 msgid "This is the default Codec setting for new Trunks and Extensions."
@@ -1238,7 +1277,7 @@ msgstr "Tipo Desconocido"
 
 #: install.php:121
 msgid "Updating kvstore_Sipsettings"
-msgstr ""
+msgstr "Actualizando kvstore_Sipsettings"
 
 #: chanpj.page.php:76
 msgid "Use "
@@ -1246,7 +1285,7 @@ msgstr "Usar "
 
 #: sipsettings.i18n.php:8
 msgid "Use to configure Various Asterisk SIP and PJSIP Settings"
-msgstr ""
+msgstr "Utilizado para configurar varios Ajustes SIP y PJSIP de Asterisk"
 
 #: general.page.php:457 general.page.php:642
 msgid ""
@@ -1278,11 +1317,11 @@ msgstr "Configuración WebRTC"
 
 #: general.page.php:494
 msgid "What is ICE Blacklist?"
-msgstr ""
+msgstr "¿Qué es la Lista Negra ICE?"
 
 #: general.page.php:537
 msgid "What is ICE Host Candidates?"
-msgstr ""
+msgstr "¿Qué son los Host Candidatos ICE?"
 
 #: general.page.php:541
 msgid ""
@@ -1293,6 +1332,12 @@ msgid ""
 "peer. To help hide the topology of your internal network, you can override "
 "the host candidates that Asterisk will send to the remote peer."
 msgstr ""
+"Cuando Asterisk está detrás de un NAT estático uno-a-uno y ICE está en uso, "
+"ICE expondrá la dirección IP interna del servidor como uno de los host "
+"candidatos. Aunque usando STUN (vea la opción de configuración 'stunaddr') "
+"proveerá una dirección pública accesible, la dirección IP interna aún se "
+"enviará al par remoto. Para ayudar a ocultar la topología de su red interna, "
+"puede anular los Hosts Candidatos que Asterisk enviará al par remoto."
 
 #: general.page.php:92
 msgid ""
@@ -1352,6 +1397,11 @@ msgid ""
 "Transports Reload' is set to 'Yes' reloading after changing transports does "
 "have the possibility to drop calls."
 msgstr ""
+"Tiene Asterisk %s que ya no necesita ser reiniciado para cambios de "
+"transporte si 'Permitir Recarga de Transportes' es configurado en 'SI' "
+"arriba. Nota: si 'Permitir Recarga de Transportes' es configurado en 'SI' "
+"recargar luego de modificar los transportes tiene la posibilidad de hacer "
+"caer llamadas."
 
 #: chansip.page.php:1064
 msgid ""
