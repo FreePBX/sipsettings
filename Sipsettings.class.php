@@ -40,7 +40,8 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 	);
 
 	public function setExternIP() {
-		$process = new Process('fwconsole extip');
+ 
+		$process = new Process(['fwconsole extip']);
 		$process->run();
 
 		// executes after the command finishes
@@ -435,7 +436,7 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 		needreload();
 	}
 
-	private function radioset($id, $name, $help = "", $values, $current) {
+	private function radioset($id, $name, $values, $current, $help = "") {
 		$out =  "<tr><td><a class='info'>$name<span>$help</span></a></td>\n";
 		$out .= "<td><span class='radioset'>\n";
 		foreach ($values as $k => $v) {
