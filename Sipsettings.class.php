@@ -41,7 +41,7 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 
 	public function setExternIP() {
  
-		$process = new Process(['fwconsole extip']);
+		$process = new Process(['fwconsole', 'extip']);
 		$process->run();
 
 		// executes after the command finishes
