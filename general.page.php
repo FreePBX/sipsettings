@@ -2,7 +2,7 @@
 // vim: set ai ts=4 sw=4 ft=phtml:
 	$localnets 				= $this->getConfig('localnets');
 	if (!$localnets) {
-		$localnets 			= array();
+		$localnets 			= [];
 	}
 
 	$externip = $this->getConfig('externip');
@@ -12,9 +12,9 @@
 
 
 	$ice_blacklist 			= $this->getConfig('ice-blacklist');
-	$ice_blacklist 			= !empty($ice_blacklist) ? $ice_blacklist : array(array("address" => "","subnet" => ""));
+	$ice_blacklist 			= !empty($ice_blacklist) ? $ice_blacklist : [["address" => "", "subnet" => ""]];
 	$ice_host_candidates 	= $this->getConfig('ice-host-candidates');
-	$ice_host_candidates 	= !empty($ice_host_candidates) ? $ice_host_candidates : array(array("local" => "","advertised" => ""));
+	$ice_host_candidates 	= !empty($ice_host_candidates) ? $ice_host_candidates : [["local" => "", "advertised" => ""]];
 
 	$add_local_network_field= _("Add Local Network Field");
 	$submit_changes 		= _("Submit Changes");
@@ -24,17 +24,17 @@
 	// With the new sorting, the vars should come to us in the sorted order so just use that
 	//
 
-	$sip_settings['videosupport']     	= isset($_POST['videosupport']) 	? $_POST['videosupport'] 						: $sip_settings['videosupport'];
-	$sip_settings['maxcallbitrate']    	= isset($_POST['maxcallbitrate']) 	? htmlspecialchars($_POST['maxcallbitrate']) 	: $sip_settings['maxcallbitrate'];
-	$sip_settings['g726nonstandard']   	= isset($_POST['g726nonstandard']) 	? $_POST['g726nonstandard'] 					: $sip_settings['g726nonstandard'];
-	$sip_settings['t38pt_udptl']       	= isset($_POST['t38pt_udptl']) 		? $_POST['t38pt_udptl'] 						: $sip_settings['t38pt_udptl'];
-	$sip_settings['allowguest']        	= isset($_POST['allowguest']) 		? $_POST['allowguest'] 							: $sip_settings['allowguest'];
-	$sip_settings['rtptimeout']        	= isset($_POST['rtptimeout']) 		? htmlspecialchars($_POST['rtptimeout']) 		: $sip_settings['rtptimeout'];
-	$sip_settings['rtpholdtimeout']    	= isset($_POST['rtpholdtimeout']) 	? htmlspecialchars($_POST['rtpholdtimeout']) 	: $sip_settings['rtpholdtimeout'];
-	$sip_settings['rtpkeepalive']      	= isset($_POST['rtpkeepalive']) 	? htmlspecialchars($_POST['rtpkeepalive']) 		: $sip_settings['rtpkeepalive'];
-	$sip_settings['rtpstart']      	    = isset($_POST['rtpstart']) 		? htmlspecialchars($_POST['rtpstart']) 			: '10000';
-	$sip_settings['rtpend']             = isset($_POST['rtpend']) 			? htmlspecialchars($_POST['rtpend']) 			: '20000';
-	$action 							= isset($_POST['Submit'])			? $_POST['Submit']								: '';
+	$sip_settings['videosupport']     	= $_POST['videosupport'] ?? $sip_settings['videosupport'];
+	$sip_settings['maxcallbitrate']    	= isset($_POST['maxcallbitrate']) 	? htmlspecialchars((string) $_POST['maxcallbitrate']) 	: $sip_settings['maxcallbitrate'];
+	$sip_settings['g726nonstandard']   	= $_POST['g726nonstandard'] ?? $sip_settings['g726nonstandard'];
+	$sip_settings['t38pt_udptl']       	= $_POST['t38pt_udptl'] ?? $sip_settings['t38pt_udptl'];
+	$sip_settings['allowguest']        	= $_POST['allowguest'] ?? $sip_settings['allowguest'];
+	$sip_settings['rtptimeout']        	= isset($_POST['rtptimeout']) 		? htmlspecialchars((string) $_POST['rtptimeout']) 		: $sip_settings['rtptimeout'];
+	$sip_settings['rtpholdtimeout']    	= isset($_POST['rtpholdtimeout']) 	? htmlspecialchars((string) $_POST['rtpholdtimeout']) 	: $sip_settings['rtpholdtimeout'];
+	$sip_settings['rtpkeepalive']      	= isset($_POST['rtpkeepalive']) 	? htmlspecialchars((string) $_POST['rtpkeepalive']) 		: $sip_settings['rtpkeepalive'];
+	$sip_settings['rtpstart']      	    = isset($_POST['rtpstart']) 		? htmlspecialchars((string) $_POST['rtpstart']) 			: '10000';
+	$sip_settings['rtpend']             = isset($_POST['rtpend']) 			? htmlspecialchars((string) $_POST['rtpend']) 			: '20000';
+	$action 							= $_POST['Submit'] ?? '';
 	extract($sip_settings);
 	$driverType = $this->FreePBX->Config->get_conf_setting('ASTSIPDRIVER');
 ?>
@@ -107,7 +107,7 @@
 				</div>
 				<div class="col-md-9 radioset">
 <?php
-$tlsowners = array("sip" => _("Chan SIP"), "pjsip" => _("PJSip"));
+$tlsowners = ["sip" => _("Chan SIP"), "pjsip" => _("PJSip")];
 $owner = $this->getTlsPortOwner();
 $binds = $this->getBinds();
 foreach ($tlsowners as $chan => $txt) {
@@ -206,8 +206,8 @@ foreach ($tlsowners as $chan => $txt) {
 						</div>
 						<div class="col-md-9">
 							<div class = "lnet form-group form-inline" data-nextid=1>
-								<input type="text" name="localnets[0][net]" class="form-control localnet network validate-ip"  value="<?php echo isset($localnets[0]['net']) ? $localnets[0]['net'] : '' ?>"> /
-								<input type="text" name="localnets[0][mask]" class="form-control netmask cidr validate-netmask" value="<?php echo isset($localnets[0]['mask']) ? $localnets[0]['mask'] : ''?>">
+								<input type="text" name="localnets[0][net]" class="form-control localnet network validate-ip"  value="<?php echo $localnets[0]['net'] ?? '' ?>"> /
+								<input type="text" name="localnets[0][mask]" class="form-control netmask cidr validate-netmask" value="<?php echo $localnets[0]['mask'] ?? ''?>">
 							</div>
 							<?php echo $lnhtm?>
 							<input type="button" id="localnet-add" value="<?php echo $add_local_network_field ?>" />
@@ -276,9 +276,9 @@ foreach ($tlsowners as $chan => $txt) {
 					<i class="fa fa-question-circle fpbx-help-icon" data-for="rtpchecksums"></i>
 				</div>
 				<div class="col-md-9 radioset">
-					<input type="radio" name="rtpchecksums" id="rtpchecksumsyes" value="yes" <?php echo (strtolower($this->getConfig("rtpchecksums")) == "yes"?"checked":"") ?>>
+					<input type="radio" name="rtpchecksums" id="rtpchecksumsyes" value="yes" <?php echo (strtolower((string) $this->getConfig("rtpchecksums")) == "yes"?"checked":"") ?>>
 					<label for="rtpchecksumsyes"><?php echo _("Yes");?></label>
-					<input type="radio" name="rtpchecksums" id="rtpchecksumsno" value="No" <?php echo (strtolower($this->getConfig("rtpchecksums")) != "yes"?"checked":"") ?>>
+					<input type="radio" name="rtpchecksums" id="rtpchecksumsno" value="No" <?php echo (strtolower((string) $this->getConfig("rtpchecksums")) != "yes"?"checked":"") ?>>
 					<label for="rtpchecksumsno"><?php echo _("No");?></label>
 				</div>
 			</div>
@@ -299,9 +299,9 @@ foreach ($tlsowners as $chan => $txt) {
 					<i class="fa fa-question-circle fpbx-help-icon" data-for="strictrtp"></i>
 				</div>
 				<div class="col-md-9 radioset">
-					<input type="radio" name="strictrtp" id="strictrtpyes" value="Yes" <?php echo (strtolower($this->getConfig("strictrtp")) == "yes"?"checked":"") ?>>
+					<input type="radio" name="strictrtp" id="strictrtpyes" value="Yes" <?php echo (strtolower((string) $this->getConfig("strictrtp")) == "yes"?"checked":"") ?>>
 					<label for="strictrtpyes"><?php echo _("Yes");?></label>
-					<input type="radio" name="strictrtp" id="strictrtpno" value="No" <?php echo (strtolower($this->getConfig("strictrtp")) != "yes"?"checked":"") ?>>
+					<input type="radio" name="strictrtp" id="strictrtpno" value="No" <?php echo (strtolower((string) $this->getConfig("strictrtp")) != "yes"?"checked":"") ?>>
 					<label for="strictrtpno"><?php echo _("No");?></label>
 				</div>
 			</div>
@@ -762,9 +762,9 @@ foreach ($tlsowners as $chan => $txt) {
 	foreach($video_codecs as $key => $value){
 		$v_codecs[$key] = "";
 	}
-	$post_video_codecs 	= isset($_POST['vcodec']) ? $_POST['vcodec'] : array();
+	$post_video_codecs 	= $_POST['vcodec'] ?? [];
 	$seq 				= 1;
-	$newvcodecs			= array();
+	$newvcodecs			= [];
 	$vcodec = false;
 	foreach ($post_video_codecs as $key => $value) {
 		$newvcodecs[$key] = $seq++;
@@ -849,6 +849,7 @@ foreach ($tlsowners as $chan => $txt) {
 								<?php
 								$seq = 0;
 								echo '<ul  class="sortable video-codecs">';
+								$tabindex =0;
 									 foreach ($video_codecs as $codec => $codec_state) {
 										$tabindex++;
 										$codec_trans = _($codec);
