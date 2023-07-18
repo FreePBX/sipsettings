@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-13 12:01+0000\n"
+"POT-Creation-Date: 2023-07-18 09:04+0000\n"
 "PO-Revision-Date: 2017-05-23 13:16+0200\n"
 "Last-Translator: Kenichi <k.fukaumi@qloog.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/"
@@ -68,12 +68,12 @@ msgid ""
 "settings."
 msgstr ""
 
-#: functions.inc.php:366
+#: functions.inc.php:364
 #, php-format
 msgid "%s must be a non-negative integer"
 msgstr "%s は非負の整数でなければなりません。"
 
-#: functions.inc.php:410
+#: functions.inc.php:408
 #, php-format
 msgid "%s must be alphanumeric"
 msgstr "%s には数字とアルファベットしか使えません。"
@@ -261,7 +261,7 @@ msgstr "自動設定"
 msgid "Bind Address"
 msgstr "バインドIPアドレス"
 
-#: functions.inc.php:370
+#: functions.inc.php:368
 msgid "Bind Address (bindaddr) must be an IP address."
 msgstr "バインドアドレス (bindaddr) はIPアドレスでなければなりません"
 
@@ -269,7 +269,7 @@ msgstr "バインドアドレス (bindaddr) はIPアドレスでなければな�
 msgid "Bind Port"
 msgstr "バインドポート"
 
-#: functions.inc.php:376
+#: functions.inc.php:374
 msgid "Bind Port (bindport) must be between 1024 and 65535"
 msgstr ""
 
@@ -420,7 +420,7 @@ msgstr "ダイナミックホスト"
 msgid "Dynamic Host Refresh"
 msgstr ""
 
-#: functions.inc.php:436
+#: functions.inc.php:434
 msgid "Dynamic Host can not be blank"
 msgstr "ダイナミックホストを空にすることはできません。"
 
@@ -524,7 +524,7 @@ msgstr ""
 msgid "External IP Address"
 msgstr ""
 
-#: functions.inc.php:426 assets/js/sipsettings.js:20
+#: functions.inc.php:424 assets/js/sipsettings.js:20
 msgid ""
 "External IP can not be blank when NAT Mode is set to Static and no default "
 "IP address provided on the main page"
@@ -748,13 +748,13 @@ msgid ""
 "more fields. Blank fields will be ignored."
 msgstr ""
 
-#: functions.inc.php:487
+#: functions.inc.php:485
 msgid "Localnet netmask must be formatted properly (e.g. 255.255.255.0 or 24)"
 msgstr ""
 "ローカルネットワークマスクを正しいフォーマットで入力してください（例: "
 "255.255.255.0 または 24）。"
 
-#: functions.inc.php:482
+#: functions.inc.php:480
 msgid "Localnet setting must be an IP address"
 msgstr ""
 "ローカルネットワーク (localnet) 設定は、IPアドレスを設定しなければなりませ"
@@ -768,7 +768,7 @@ msgstr "メディアとRTP設定"
 msgid "MWI Polling Freq"
 msgstr "MWIポーリング間隔"
 
-#: general.page.php:891
+#: general.page.php:892
 msgid "Max Bit Rate"
 msgstr "最大ビットレート"
 
@@ -780,7 +780,7 @@ msgstr ""
 msgid "Maximum allowed time of incoming registrations"
 msgstr ""
 
-#: general.page.php:906
+#: general.page.php:907
 msgid "Maximum bitrate for video calls in kb/s"
 msgstr "ビデオコールの最大ビットレート (kb/s)"
 
@@ -1342,7 +1342,7 @@ msgstr ""
 msgid "Verify Server"
 msgstr ""
 
-#: general.page.php:807 general.page.php:845 general.page.php:879
+#: general.page.php:807 general.page.php:845 general.page.php:880
 msgid "Video Codecs"
 msgstr "ビデオコーデック"
 
@@ -1476,7 +1476,7 @@ msgstr ""
 msgid "global"
 msgstr ""
 
-#: general.page.php:897
+#: general.page.php:898
 msgid "kb/s"
 msgstr "kb/s"
 
@@ -1508,7 +1508,7 @@ msgstr "デフォールトコーデック追加中..."
 msgid "route"
 msgstr ""
 
-#: functions.inc.php:384
+#: functions.inc.php:382
 msgid "rtpholdtimeout must be higher than rtptimeout"
 msgstr "rtpholdtimeoutは、rtptimeoutより大きい値に設定しなければなりません。"
 

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-13 12:01+0000\n"
+"POT-Creation-Date: 2023-07-18 09:04+0000\n"
 "PO-Revision-Date: 2016-12-12 02:44+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/"
@@ -42,12 +42,12 @@ msgid ""
 "settings."
 msgstr ""
 
-#: functions.inc.php:366
+#: functions.inc.php:364
 #, php-format
 msgid "%s must be a non-negative integer"
 msgstr "%s debe ser un entero no negativo"
 
-#: functions.inc.php:410
+#: functions.inc.php:408
 #, php-format
 msgid "%s must be alphanumeric"
 msgstr "%s debe ser un valor alfanumérico"
@@ -249,7 +249,7 @@ msgstr "Auto Configurar"
 msgid "Bind Address"
 msgstr "Dirección de Escucha"
 
-#: functions.inc.php:370
+#: functions.inc.php:368
 msgid "Bind Address (bindaddr) must be an IP address."
 msgstr "Dirección Enlace (bindaddr) debe ser una dirección IP."
 
@@ -257,7 +257,7 @@ msgstr "Dirección Enlace (bindaddr) debe ser una dirección IP."
 msgid "Bind Port"
 msgstr "Puerto de Escucha"
 
-#: functions.inc.php:376
+#: functions.inc.php:374
 msgid "Bind Port (bindport) must be between 1024 and 65535"
 msgstr "Bind Port (bindport) debe estar entre 1024 y 65535"
 
@@ -417,7 +417,7 @@ msgstr "Host Dinámico"
 msgid "Dynamic Host Refresh"
 msgstr "Actualización dinámica del host"
 
-#: functions.inc.php:436
+#: functions.inc.php:434
 msgid "Dynamic Host can not be blank"
 msgstr "Host Dinámico NO puede quedar en blanco"
 
@@ -523,7 +523,7 @@ msgstr ""
 msgid "External IP Address"
 msgstr "Dirección IP Externa"
 
-#: functions.inc.php:426 assets/js/sipsettings.js:20
+#: functions.inc.php:424 assets/js/sipsettings.js:20
 msgid ""
 "External IP can not be blank when NAT Mode is set to Static and no default "
 "IP address provided on the main page"
@@ -785,13 +785,13 @@ msgstr ""
 "redes con más de 1 subredes LAN, utilice el botón Añadir Campo de Red Local "
 "para más campos. Los campos en blanco se ignoran."
 
-#: functions.inc.php:487
+#: functions.inc.php:485
 msgid "Localnet netmask must be formatted properly (e.g. 255.255.255.0 or 24)"
 msgstr ""
 "Máscara de red local debe tener el formato correcto (por ejemplo, "
 "255.255.255.0 o 24)"
 
-#: functions.inc.php:482
+#: functions.inc.php:480
 msgid "Localnet setting must be an IP address"
 msgstr "Configuración 'localnet' debe ser una dirección IP"
 
@@ -803,7 +803,7 @@ msgstr "Configuraciones MEDIA & RTP"
 msgid "MWI Polling Freq"
 msgstr "Frecuencia Sondeo MWI"
 
-#: general.page.php:891
+#: general.page.php:892
 msgid "Max Bit Rate"
 msgstr "Max velocidad de bits"
 
@@ -815,7 +815,7 @@ msgstr "Longitud máxima del jitterbuffer en milisegundos."
 msgid "Maximum allowed time of incoming registrations"
 msgstr "Tiempo máximo permitido de registraciones entrantes"
 
-#: general.page.php:906
+#: general.page.php:907
 msgid "Maximum bitrate for video calls in kb/s"
 msgstr "Velocidad máxima para las llamadas de vídeo en kb/s"
 
@@ -1418,7 +1418,7 @@ msgstr "Verificar Cliente"
 msgid "Verify Server"
 msgstr "Verificar Server"
 
-#: general.page.php:807 general.page.php:845 general.page.php:879
+#: general.page.php:807 general.page.php:845 general.page.php:880
 msgid "Video Codecs"
 msgstr "Códecs de Video"
 
@@ -1561,7 +1561,7 @@ msgstr "error fatal ocurrido insertando valores por defecto, verifique módulo"
 msgid "global"
 msgstr ""
 
-#: general.page.php:897
+#: general.page.php:898
 msgid "kb/s"
 msgstr "kb/s"
 
@@ -1593,7 +1593,7 @@ msgstr "insertando los codecs por defecto.."
 msgid "route"
 msgstr "ruta"
 
-#: functions.inc.php:384
+#: functions.inc.php:382
 msgid "rtpholdtimeout must be higher than rtptimeout"
 msgstr "rtpholdtimeout debe ser superior a rtptimeout"
 

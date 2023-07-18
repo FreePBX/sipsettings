@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-13 12:01+0000\n"
+"POT-Creation-Date: 2023-07-18 09:04+0000\n"
 "PO-Revision-Date: 2015-12-05 10:05+0200\n"
 "Last-Translator: Andrew <andrew.nagy@the159.com>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/"
@@ -57,12 +57,12 @@ msgid ""
 "settings."
 msgstr ""
 
-#: functions.inc.php:366
+#: functions.inc.php:364
 #, php-format
 msgid "%s must be a non-negative integer"
 msgstr "%s должен быть неотрицательным целым числом"
 
-#: functions.inc.php:410
+#: functions.inc.php:408
 #, php-format
 msgid "%s must be alphanumeric"
 msgstr "%s должен быть буквенным"
@@ -263,7 +263,7 @@ msgstr "Автоматическая конфигурация"
 msgid "Bind Address"
 msgstr "Связывание с адресом"
 
-#: functions.inc.php:370
+#: functions.inc.php:368
 msgid "Bind Address (bindaddr) must be an IP address."
 msgstr "Адрес (bindaddr) должен быть в виде четырёх октетов ИП адреса."
 
@@ -271,7 +271,7 @@ msgstr "Адрес (bindaddr) должен быть в виде четырёх �
 msgid "Bind Port"
 msgstr "Порт"
 
-#: functions.inc.php:376
+#: functions.inc.php:374
 msgid "Bind Port (bindport) must be between 1024 and 65535"
 msgstr "Порт привязки (bindport). Адрес порта должен быть между 1024 и 65535"
 
@@ -428,7 +428,7 @@ msgstr "Динамический хост"
 msgid "Dynamic Host Refresh"
 msgstr "Динамическое обновление хоста"
 
-#: functions.inc.php:436
+#: functions.inc.php:434
 msgid "Dynamic Host can not be blank"
 msgstr "Динамическое значение имени хоста не может быть пустым"
 
@@ -535,7 +535,7 @@ msgstr ""
 msgid "External IP Address"
 msgstr "Внешний IP адрес"
 
-#: functions.inc.php:426 assets/js/sipsettings.js:20
+#: functions.inc.php:424 assets/js/sipsettings.js:20
 msgid ""
 "External IP can not be blank when NAT Mode is set to Static and no default "
 "IP address provided on the main page"
@@ -791,13 +791,13 @@ msgstr ""
 "более, чем одной подсетью используйте кнопку 'Добавить локальную сеть', "
 "чтобы добавить полей. Пустые поля будут игнорированы."
 
-#: functions.inc.php:487
+#: functions.inc.php:485
 msgid "Localnet netmask must be formatted properly (e.g. 255.255.255.0 or 24)"
 msgstr ""
 "Маска локальной сети должна быть указана в правильном формате (например "
 "255.255.255.0 или 24)"
 
-#: functions.inc.php:482
+#: functions.inc.php:480
 msgid "Localnet setting must be an IP address"
 msgstr "Параметр Localnet должен быть в виде ИП адреса сети"
 
@@ -809,7 +809,7 @@ msgstr "Установки Медиа и RTP"
 msgid "MWI Polling Freq"
 msgstr "Частота запросов MWI"
 
-#: general.page.php:891
+#: general.page.php:892
 msgid "Max Bit Rate"
 msgstr "Макимальная полоса пропускания"
 
@@ -821,7 +821,7 @@ msgstr "Максимальный размер джиттер-буфера в м�
 msgid "Maximum allowed time of incoming registrations"
 msgstr "Максимально разрешённое время для входящих регистраций"
 
-#: general.page.php:906
+#: general.page.php:907
 msgid "Maximum bitrate for video calls in kb/s"
 msgstr "Максимальная полоса пропускания для видео звонков в кбит/сек"
 
@@ -1413,7 +1413,7 @@ msgstr ""
 msgid "Verify Server"
 msgstr ""
 
-#: general.page.php:807 general.page.php:845 general.page.php:879
+#: general.page.php:807 general.page.php:845 general.page.php:880
 msgid "Video Codecs"
 msgstr "Видео кодеки"
 
@@ -1557,7 +1557,7 @@ msgstr ""
 msgid "global"
 msgstr ""
 
-#: general.page.php:897
+#: general.page.php:898
 msgid "kb/s"
 msgstr "кбит/сек"
 
@@ -1589,7 +1589,7 @@ msgstr "указание кодеков по умолчанию.."
 msgid "route"
 msgstr "route"
 
-#: functions.inc.php:384
+#: functions.inc.php:382
 msgid "rtpholdtimeout must be higher than rtptimeout"
 msgstr "rtpholdtimeout должен быть больше чем rtptimeout"
 
