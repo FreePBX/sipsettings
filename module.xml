@@ -4,7 +4,7 @@
   <candisable>no</candisable>
   <canuninstall>no</canuninstall>
   <name>Asterisk SIP Settings</name>
-  <version>17.0.2</version>
+  <version>17.0.3</version>
   <publisher>Sangoma Technologies Corporation</publisher>
   <license>AGPLv3+</license>
   <licenselink>https://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
@@ -25,6 +25,7 @@
   </description>
   <more-info>https://wiki.freepbx.org/display/F2/Asterisk+SIP+Settings</more-info>
   <changelog>
+		*17.0.3* Packaging of ver 17.0.3
 		*17.0.2* Packaging of ver 17.0.2
   *17.0.1alpha* 17.0.1 alpha release
 	</changelog>
