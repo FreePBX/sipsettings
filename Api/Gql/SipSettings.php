@@ -16,46 +16,35 @@ class SipSettings extends Base {
 	 */
 	public function queryCallback() {
 		if($this->checkAllReadScope()) {
-			return function() {
-				return [
+			return fn() => [
 					'fetchSipNatNetworkSettings' => [
 						'type' => $this->typeContainer->get('sipsettings')->getConnectionType(),
-						'resolve' =>  function() {
-							return $this->getNetworkSettings();
-						}
+						'resolve' =>  fn() => $this->getNetworkSettings()
 					],
 					'fetchWSSettings' => [
 						'type' => $this->typeContainer->get('sipsettings')->getConnectionType(),
-						'resolve' =>  function() {
-							return $this->getWSSettings();
-						}
+						'resolve' =>  fn() => $this->getWSSettings()
 					]
-            ];
-			};
+           ];
 	   }
 	}
 	
 	public function mutationCallback() {
 		if($this->checkAllWriteScope()) {
-			return function() {
-				return [
+			return fn() => [
 					'addSipNatLocalIp' => Relay::mutationWithClientMutationId([
 						'name' => _('addSipNatLocalIp'),
 						'description' => _('Adding a Local IP network and mask'),
 						'inputFields' => $this->getInputFields(),
 						'outputFields' => $this->getOutputFields(),
-						'mutateAndGetPayload' => function($input){
-							return $this->addLocalIP($input);
-						}
+						'mutateAndGetPayload' => fn($input) => $this->addLocalIP($input)
 					]),
 					'updateSipNatExternalIp' => Relay::mutationWithClientMutationId([
 						'name' => _('updateSipNatExternalIp'),
 						'description' => _('Updating External IP network and mask'),
 						'inputFields' => $this->getUpdateField(),
 						'outputFields' => $this->getOutputFields(),
-						'mutateAndGetPayload' => function($input){
-							return $this->updateExternalIP($input);
-						}
+						'mutateAndGetPayload' => fn($input) => $this->updateExternalIP($input)
 					]),
 					'updateWSSettings' => Relay::mutationWithClientMutationId([
 						'name' => _('updateWSSettings'),
@@ -71,7 +60,6 @@ class SipSettings extends Base {
 						}
 					])
 				];
-			};
 		}
 	}
 	
@@ -134,51 +122,42 @@ class SipSettings extends Base {
 		$sipsettings = $this->typeContainer->create('sipsettings');
 		$sipsettings->setDescription(_('Sipsettings management'));
 
-		$sipsettings->addInterfaceCallback(function() {
-			return [$this->getNodeDefinition()['nodeInterface']];
-		});
+		$sipsettings->addInterfaceCallback(fn() => [$this->getNodeDefinition()['nodeInterface']]);
 
-	   $sipsettings->addFieldCallback(function() {
-		 return [
-			'id' => Relay::globalIdField('sipsettings', function($row) {
-				return isset($row['id']) ? $row['id'] : null;
-			}),
-			'status' =>[
-				'type' => Type::boolean(),
-				'description' => _('Status of the request')
-			],
-			'message' =>[
-				'type' => Type::String(),
-				'description' => _('Message for the request')
-			],
-			'net' =>[
-				'type' => Type::String(),
-				'description' => _('Returns the network IP')
-			],
-			'mask' =>[
-				'type' => Type::String(),
-				'description' => _('Returns the network mask')
-			],
-			'interface' =>[
-				'type' => Type::String(),
-				'description' => _('Returns the interface')
-			],
-			'state' =>[
-				'type' => Type::String(),
-				'description' => _('Returns the current state')
-			]
-		];
-	});
+	   $sipsettings->addFieldCallback(fn() => [
+ 			'id' => Relay::globalIdField('sipsettings', fn($row) => $row['id'] ?? null),
+ 			'status' =>[
+ 				'type' => Type::boolean(),
+ 				'description' => _('Status of the request')
+ 			],
+ 			'message' =>[
+ 				'type' => Type::String(),
+ 				'description' => _('Message for the request')
+ 			],
+ 			'net' =>[
+ 				'type' => Type::String(),
+ 				'description' => _('Returns the network IP')
+ 			],
+ 			'mask' =>[
+ 				'type' => Type::String(),
+ 				'description' => _('Returns the network mask')
+ 			],
+ 			'interface' =>[
+ 				'type' => Type::String(),
+ 				'description' => _('Returns the interface')
+ 			],
+ 			'state' =>[
+ 				'type' => Type::String(),
+ 				'description' => _('Returns the current state')
+ 			]
+ 		]);
 
-	$sipsettings->setConnectionFields(function() {
-		return [
+	$sipsettings->setConnectionFields(fn() => [
 			'localIP' => [
 				'type' =>  Type::listOf($this->typeContainer->get('sipsettings')->getObject()),
 				'description' => _('list of local IP saved'),
 				'resolve' => function($root, $args) {
-					$data = array_map(function($row){
-						return $row;
-					},isset($root['localIP']) ? $root['localIP'] : []);
+					$data = array_map(fn($row) => $row,$root['localIP'] ?? []);
 						return $data;
 					}
 				],
@@ -186,9 +165,7 @@ class SipSettings extends Base {
 				'type' =>  Type::listOf($this->typeContainer->get('sipsettings')->getObject()),
 				'description' => _('list the route configured'),
 				'resolve' => function($root, $args) {
-					$data = array_map(function($row){
-						return $row;
-					},isset($root['routes']) ? $root['routes'] : []);
+					$data = array_map(fn($row) => $row,$root['routes'] ?? []);
 						return $data;
 					}
 				],
@@ -232,8 +209,7 @@ class SipSettings extends Base {
 					return $data;
 				}
 			],
-		   ];
-	   });
+		   ]);
    }
 	
 	/**
@@ -245,40 +221,38 @@ class SipSettings extends Base {
 		try {
 			$ip = $this->freepbx->sipsettings->getNatObj()->getVisibleIP();
 			$routeArr = $this->freepbx->sipsettings->getNatObj()->getRoutes();
-			$routes = array();
+			$routes = [];
 			foreach($routeArr as $res){
-				array_push($routes,array('net' => $res[0],'mask' => $res[1]));
+				array_push($routes,['net' => $res[0], 'mask' => $res[1]]);
 			}
 			if($ip['status']) {
-				$retarr = array("message" => _("List of External and Local IPs"), "status" => true, "externIP" => $ip['address'], "routes" => $routes,'localIP' => $this->freepbx->sipsettings->getNatObj()->getConfigurations('localnets',$this->freepbx));
+				$retarr = ["message" => _("List of External and Local IPs"), "status" => true, "externIP" => $ip['address'], "routes" => $routes, 'localIP' => $this->freepbx->sipsettings->getNatObj()->getConfigurations('localnets',$this->freepbx)];
 			} else {
-				$retarr = array("message" => $ip['message'], "status" => true, "externIP" => false, "routes" => $routes , 'localIP' => $this->freepbx->sipsettings->getNatObj()->getConfigurations('localnets',$this->freepbx));
+				$retarr = ["message" => $ip['message'], "status" => true, "externIP" => false, "routes" => $routes, 'localIP' => $this->freepbx->sipsettings->getNatObj()->getConfigurations('localnets',$this->freepbx)];
 			}
 		} catch(\Exception $e) {
-			$retarr = array("status" => false, "message" => $e->getMessage());
+			$retarr = ["status" => false, "message" => $e->getMessage()];
 		}
 		return $retarr;
 	}
 	
 	/**
-	 * addLocalIP
-	 *
-	 * @param  mixed $input
-	 * @return void
-	 */
-	private function addLocalIP($input){
-		$respose = $this->freepbx->sipsettings->getNatObj()->setConfigurations(array($input),"localnets",$this->freepbx);
+  * addLocalIP
+  *
+  * @return void
+  */
+ private function addLocalIP(mixed $input){
+		$respose = $this->freepbx->sipsettings->getNatObj()->setConfigurations([$input],"localnets",$this->freepbx);
 		return['message' => _('Local IP has been added successfully'),'status' => true];
 	}
 	
 	/**
-	 * updateExternalIP
-	 *
-	 * @param  mixed $input
-	 * @return void
-	 */
-	private function updateExternalIP($input){
-		$respose = $this->freepbx->sipsettings->getNatObj()->setConfigurations(array($input['net']),"externip",$this->freepbx);
+  * updateExternalIP
+  *
+  * @return void
+  */
+ private function updateExternalIP(mixed $input){
+		$respose = $this->freepbx->sipsettings->getNatObj()->setConfigurations([$input['net']],"externip",$this->freepbx);
 		return['message' => _('External IP has been updated successfully'),'status' => true];
 	}
 	
@@ -294,12 +268,12 @@ class SipSettings extends Base {
 			$types = ['ws', 'wss'];
 			if (is_array($allBinds)) {
 				foreach ($types as $type) {
-					$settings[$type] = isset($allBinds[$type]) ? $allBinds[$type] : [];
+					$settings[$type] = $allBinds[$type] ?? [];
 				}
 			}
-			$retarr = array("message" => _("Web Socket Settings"), "status" => true, "ws" => $settings['ws'], "wss" => $settings['wss']);
+			$retarr = ["message" => _("Web Socket Settings"), "status" => true, "ws" => $settings['ws'], "wss" => $settings['wss']];
 		} catch(\Exception $e) {
-			$retarr = array("status" => false, "message" => $e->getMessage());
+			$retarr = ["status" => false, "message" => $e->getMessage()];
 		}
 		return $retarr;
 	}
@@ -340,7 +314,7 @@ class SipSettings extends Base {
 				continue;
 			}
 			if (!empty($val)) {
-				$data = json_decode(str_replace("'", '"', $val), true);
+				$data = json_decode(str_replace("'", '"', (string) $val), true, 512, JSON_THROW_ON_ERROR);
 				if (is_array($data)) {
 					$onCount = 0;
 					foreach ($data as $ip => $state) {
@@ -387,7 +361,7 @@ class SipSettings extends Base {
 		$allBinds = $this->freepbx->sipsettings->getConfig('binds');
 		foreach ($input as $type => $val) {
 			if (!empty($val)) {
-				$data = json_decode(str_replace("'", '"', $val), true);
+				$data = json_decode(str_replace("'", '"', (string) $val), true, 512, JSON_THROW_ON_ERROR);
 				if (is_array($data) && isset($allBinds[$type])) {
 					if (isset($data["0.0.0.0"]) && $data["0.0.0.0"] == "on") {
 						$allBinds[$type]["0.0.0.0"] = "on";

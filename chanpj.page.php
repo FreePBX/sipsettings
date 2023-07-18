@@ -1,7 +1,7 @@
 <?php
 global $currentcomponent;
 $sa = $this->getConfig('showadvanced');
-$pjsip_identifers_order_default = array(0=>'ip',1=>'username',2=>'anonymous',3=>'header',4=>'auth_username');
+$pjsip_identifers_order_default = [0=>'ip', 1=>'username', 2=>'anonymous', 3=>'header', 4=>'auth_username'];
 $pjsip_identifers = $this->getConfig("pjsip_identifers_order");
 
 if (is_array($pjsip_identifers) && !empty($pjsip_identifers)) {
@@ -10,7 +10,7 @@ if (is_array($pjsip_identifers) && !empty($pjsip_identifers)) {
 	$pjsip_identifers_order = $pjsip_identifers_order_default;
 }
 
-$interfaces['auto'] = array('0.0.0.0', 'All', '0');
+$interfaces['auto'] = ['0.0.0.0', 'All', '0'];
 
 if ($sa != "no") {
 	exec("/sbin/ip -o addr", $result, $ret);
@@ -21,7 +21,7 @@ $protocols = $this->getConfig("protocols");
 $protohtml = $udphtml = $bindhtml = '';
 foreach ($protocols as $p) {
 	$allBinds = $this->getConfig("binds");
-	$binds = !empty($allBinds[$p]) && is_array($allBinds[$p]) ? $allBinds[$p] : array();
+	$binds = !empty($allBinds[$p]) && is_array($allBinds[$p]) ? $allBinds[$p] : [];
 	$cbs = '';
 	$lastproto="";
 	foreach ($interfaces as $i) {
@@ -52,7 +52,7 @@ foreach ($protocols as $p) {
 				<div class="section" data-id="pjs.'.$p.'">
 			';
 		}
-		$binds[$i[0]] = isset($binds[$i[0]])?$binds[$i[0]]:'off';
+		$binds[$i[0]] ??= 'off';
 		$cbs .= '
 		<!--'.$thisTitle.'-->
 		<div class="element-container">
@@ -90,18 +90,12 @@ foreach ($protocols as $p) {
 			continue;
 		}
 		// ws and wss are not configurable
-		if (strpos($p, "ws") === 0) {
+		if (str_starts_with((string) $p, "ws")) {
 			continue;
 		}
-		$vars = array(
-			$p."port-$ip" => array(_("Port to Listen On"),_("The port that this transport should listen on"),"port", $ip),
-			$p."domain-$ip" => array(_("Domain the transport comes from"),_("Typically used with SIP calling. Example user@domain, where domain is the value that would be entered here"),"domain", $ip),
-			$p."extip-$ip" => array(_("External IP Address"), _("If blank, will use the default settings"), "extip", $ip),
-			$p."extport-$ip" => array(_("External Signaling Port"), _("External Signaling Port"), "extport", $ip),
-			$p."localnet-$ip" => array(_("Local network"), _("You may use this to to define an additional local network per interface."), "localnet", $ip),
-		);
+		$vars = [$p."port-$ip" => [_("Port to Listen On"), _("The port that this transport should listen on"), "port", $ip], $p."domain-$ip" => [_("Domain the transport comes from"), _("Typically used with SIP calling. Example user@domain, where domain is the value that would be entered here"), "domain", $ip], $p."extip-$ip" => [_("External IP Address"), _("If blank, will use the default settings"), "extip", $ip], $p."extport-$ip" => [_("External Signaling Port"), _("External Signaling Port"), "extport", $ip], $p."localnet-$ip" => [_("Local network"), _("You may use this to to define an additional local network per interface."), "localnet", $ip]];
 		foreach ($vars as $v => $t) {
-			$thisID = str_replace(array('.', '-'), '' , $v);
+			$thisID = str_replace(['.', '-'], '' , $v);
 			if (!empty($t[1])) {
 				$udphtml  .= '
 				<!--'.$t[0].'-->
@@ -226,7 +220,7 @@ foreach ($protocols as $p) {
 					<i class="fa fa-question-circle fpbx-help-icon" data-for="pjsip_keep_alive_interval"></i>
 				</div>
 				<div class="col-md-9 radioset">
-					<input type="number" class="form-control" name="pjsip_keep_alive_interval" id="pjsip_keep_alive_interval" value="<?php echo ( $this->getConfig("pjsip_keep_alive_interval")?$this->getConfig("pjsip_keep_alive_interval"):"90") ?>">
+					<input type="number" class="form-control" name="pjsip_keep_alive_interval" id="pjsip_keep_alive_interval" value="<?php echo ( $this->getConfig("pjsip_keep_alive_interval") ?: "90") ?>">
 				</div>
 			</div>
 		</div>
@@ -239,7 +233,7 @@ foreach ($protocols as $p) {
 	<!--END Allow reload-->
 
 	<?php 
-	$ver_list=array("13.24.0", "16.1.0", "17.0.0", "18.0.0");
+	$ver_list=["13.24.0", "16.1.0", "17.0.0", "18.0.0"];
 	if (version_min(\FreePBX::Config()->get('ASTVERSION'),$ver_list) == true) { ?>
 	<!--Caller ID into Contact Header-->
 	<div class="element-container">
@@ -270,7 +264,7 @@ foreach ($protocols as $p) {
 	
 	<!--Taskprocessor Overload Trigger-->
 	<?php 
-	$asteriskVersions=array("13.25.0", "16.2.0", "17.0.0", "18.0.0");
+	$asteriskVersions=["13.25.0", "16.2.0", "17.0.0", "18.0.0"];
 	if (version_min(\FreePBX::Config()->get('ASTVERSION'),$asteriskVersions) == true) { ?>
 	<div class="element-container">
 		<div class="row">

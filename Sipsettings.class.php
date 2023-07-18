@@ -6,38 +6,41 @@ use Symfony\Component\Process\Exception\ProcessFailedException;
 
 class Sipsettings extends FreePBX_Helpers implements BMO {
 
-	const SIP_NORMAL = 0;
-	const SIP_CODEC = 1;
-	const SIP_VIDEO_CODEC = 2;
-	const SIP_CUSTOM = 9;
+	final public const SIP_NORMAL = 0;
+	final public const SIP_CODEC = 1;
+	final public const SIP_VIDEO_CODEC = 2;
+	final public const SIP_CUSTOM = 9;
 
 	private $pagename = null;
-	private $pagedata = null;
-	private $tlsCache = null;
+	private ?array $pagedata = null;
+	private ?array $tlsCache = null;
 	private static $natObj = false;
 
-	public static $dbDefaults = array(
-		"rtpstart" => "10000", "rtpend" => "20000",
-		"stunaddr" => "",
-		"turnaddr" => "",
-		"turnusername" => "",
-		"turnpassword" => "",
-		"protocols" => array("udp", "tcp", "tls", "ws", "wss"),
-		"rtpchecksums" => "Yes",
-		"strictrtp" => "Yes",
-		"allowguest" => "no",
-		"allowanon" => "No",
-		"showadvanced" => "no",
-		"tcpport-0.0.0.0" => "5160", // Defaults, only used if this is an upgrade
-		"udpport-0.0.0.0" => "5061",
-		"tlsport-0.0.0.0" => "5161",
-		"tcpextport-0.0.0.0" => "", // Defaults, only used if this is an upgrade
-		"udpextport-0.0.0.0" => "",
-		"tlsextport-0.0.0.0" => "",
-		"allow_reload" => "no",
-		"debug" => "no",
-		"keep_alive_interval" => 90
-	);
+	public static $dbDefaults = [
+     "rtpstart" => "10000",
+     "rtpend" => "20000",
+     "stunaddr" => "",
+     "turnaddr" => "",
+     "turnusername" => "",
+     "turnpassword" => "",
+     "protocols" => ["udp", "tcp", "tls", "ws", "wss"],
+     "rtpchecksums" => "Yes",
+     "strictrtp" => "Yes",
+     "allowguest" => "no",
+     "allowanon" => "No",
+     "showadvanced" => "no",
+     "tcpport-0.0.0.0" => "5160",
+     // Defaults, only used if this is an upgrade
+     "udpport-0.0.0.0" => "5061",
+     "tlsport-0.0.0.0" => "5161",
+     "tcpextport-0.0.0.0" => "",
+     // Defaults, only used if this is an upgrade
+     "udpextport-0.0.0.0" => "",
+     "tlsextport-0.0.0.0" => "",
+     "allow_reload" => "no",
+     "debug" => "no",
+     "keep_alive_interval" => 90,
+ ];
 
 	public function setExternIP() {
  
@@ -46,7 +49,7 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 
 		// executes after the command finishes
 		if ($process->isSuccessful()) {
-			$extip = trim($process->getOutput());
+			$extip = trim((string) $process->getOutput());
 			if(!empty($extip)) {
 				$this->setConfig('externip',$extip);
 			}
@@ -60,19 +63,19 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 
 	public function ajaxHandler() {
 		if ($_REQUEST['command'] == "getnetworking") {
-			if (!class_exists('FreePBX\Modules\Sipsettings\NatGet')) {
+			if (!class_exists(\FreePBX\Modules\Sipsettings\NatGet::class)) {
 				include __DIR__."/Natget.class.php";
 			}
 			try {
 				$nat = new \FreePBX\Modules\Sipsettings\NatGet();
 				$ip = $nat->getVisibleIP();
 				if($ip['status']) {
-					$retarr = array("status" => true, "externip" => $ip['address'], "routes" => $nat->getRoutes());
+					$retarr = ["status" => true, "externip" => $ip['address'], "routes" => $nat->getRoutes()];
 				} else {
-					$retarr = array("status" => true, "externip" => false, "routes" => $nat->getRoutes(), "externipmesg" => $ip['message']);
+					$retarr = ["status" => true, "externip" => false, "routes" => $nat->getRoutes(), "externipmesg" => $ip['message']];
 				}
 			} catch(\Exception $e) {
-				$retarr = array("status" => false, "message" => $e->getMessage());
+				$retarr = ["status" => false, "message" => $e->getMessage()];
 			}
 			return $retarr;
 		}
@@ -130,7 +133,7 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 	 * @return array
 	 */
 	public function getBinds($flatten = false) {
-		$binds = array();
+		$binds = [];
 
 		// Note that verifyNoPortConflicts relies on this being constructed
 		// with pjsip first, then chansip. Don't change the order.
@@ -138,7 +141,7 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 		$driver = $this->FreePBX->Config->get_conf_setting('ASTSIPDRIVER');
 		if ($driver == "both" || $driver == "chan_pjsip") {
 			$b = $this->getConfig("binds");
-			$b = is_array($b) ? $b : array();
+			$b = is_array($b) ? $b : [];
 			foreach($b as $protocol => $bind) {
 				foreach($bind as $ip => $state) {
 					if($state != "on") {
@@ -153,7 +156,7 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 				}
 			}
 		} else {
-			$binds['pjsip'] = array("0.0.0.0" => array());
+			$binds['pjsip'] = ["0.0.0.0" => []];
 		}
 
 		if ($driver == "both" || $driver == "chan_sip") {
@@ -188,7 +191,7 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 				$binds['sip'][$tlslistenaddr]['tls'] = $tlsport;
 			}
 		} else {
-			$binds['sip'] = array("0.0.0.0" => array());
+			$binds['sip'] = ["0.0.0.0" => []];
 		}
 		return $binds;
 	}
@@ -212,25 +215,14 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 		if(empty($this->pagedata)) {
 			$driver = $this->FreePBX->Config->get_conf_setting('ASTSIPDRIVER');
 
-			$this->pagedata = array(
-				"general" => array(
-					"name" => _("General SIP Settings"),
-					"page" => 'general.page.php'
-				)
-			);
+			$this->pagedata = ["general" => ["name" => _("General SIP Settings"), "page" => 'general.page.php']];
 
 			if ($driver == "chan_pjsip" || $driver == "both") {
-				$this->pagedata['pjsip'] = array(
-					"name" => _("SIP Settings [chan_pjsip]"),
-					"page" => 'chanpj.page.php'
-				);
+				$this->pagedata['pjsip'] = ["name" => _("SIP Settings [chan_pjsip]"), "page" => 'chanpj.page.php'];
 			}
 
 			if ($driver == "chan_sip" || $driver == "both") {
-				$this->pagedata['sip'] = array(
-					"name" => _("SIP Legacy Settings [chan_sip]"),
-					"page" => 'chansip.page.php'
-				);
+				$this->pagedata['sip'] = ["name" => _("SIP Legacy Settings [chan_sip]"), "page" => 'chansip.page.php'];
 			}
 
 			foreach($this->pagedata as &$page) {
@@ -246,7 +238,11 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 
 	public function doGeneralPost() {
 
-		if(isset($_REQUEST['action']) && $_REQUEST['action'] == "delete"){
+		$newcodecs = [];
+  $vcodecsValid = null;
+  $newvcodecs = [];
+  $timedlocalnets = [];
+  if(isset($_REQUEST['action']) && $_REQUEST['action'] == "delete"){
 			$ret = $this->deleteChanSipSettings($_REQUEST['key'],$_REQUEST['val']);
 			needreload();
 		}
@@ -259,14 +255,11 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 		$ignoreImportedRegExp = [];
 
 		if (isset($_POST['ice_blacklist_count'])) {
-			$ice_blacklist = array();
-			$count = !empty($_POST['ice_blacklist_count']) ? $_POST['ice_blacklist_count'] : array();
+			$ice_blacklist = [];
+			$count = !empty($_POST['ice_blacklist_count']) ? $_POST['ice_blacklist_count'] : [];
 			foreach($count as $c) {
 				if(!empty($_POST['ice_blacklist_ip_'.$c]) && !empty($_POST['ice_blacklist_subnet_'.$c])) {
-					$ice_blacklist[] = array(
-						"address" => $_POST['ice_blacklist_ip_'.$c],
-						"subnet" => $_POST['ice_blacklist_subnet_'.$c]
-					);
+					$ice_blacklist[] = ["address" => $_POST['ice_blacklist_ip_'.$c], "subnet" => $_POST['ice_blacklist_subnet_'.$c]];
 				}
 			}
 			$ignoreImportedVars[] = 'ice_blacklist_count';
@@ -276,14 +269,11 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 		}
 
 		if (isset($_POST['ice_host_candidates_count'])) {
-			$ice_host_candidates = array();
-			$count = !empty($_POST['ice_host_candidates_count']) ? $_POST['ice_host_candidates_count'] : array();
+			$ice_host_candidates = [];
+			$count = !empty($_POST['ice_host_candidates_count']) ? $_POST['ice_host_candidates_count'] : [];
 			foreach($count as $c) {
 				if(!empty($_POST['ice_host_candidates_local_'.$c]) && !empty($_POST['ice_host_candidates_advertised_'.$c])) {
-					$ice_host_candidates[] = array(
-						"local" => $_POST['ice_host_candidates_local_'.$c],
-						"advertised" => $_POST['ice_host_candidates_advertised_'.$c]
-					);
+					$ice_host_candidates[] = ["local" => $_POST['ice_host_candidates_local_'.$c], "advertised" => $_POST['ice_host_candidates_advertised_'.$c]];
 				}
 			}
 			$ignoreImportedVars[] = 'ice_host_candidates_count';
@@ -355,11 +345,11 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 
 		// get and set pjsip_identifers_order
 		if (isset($_REQUEST['pjsip_identifers_order'])) {
-			$pjsip_identifers_json =  html_entity_decode($_REQUEST['pjsip_identifers_order']);
-			$pjsip_identifers = json_decode($pjsip_identifers_json,true);
-			$pjsip_identifers_filtered = array();
+			$pjsip_identifers_json =  html_entity_decode((string) $_REQUEST['pjsip_identifers_order']);
+			$pjsip_identifers = json_decode($pjsip_identifers_json,true, 512, JSON_THROW_ON_ERROR);
+			$pjsip_identifers_filtered = [];
 			foreach($pjsip_identifers as $k=>$val){
-				$pjsip_identifers_filtered[$k] = substr($val,3);//stripping EI_ from sorted order values
+				$pjsip_identifers_filtered[$k] = substr((string) $val,3);//stripping EI_ from sorted order values
 			}
 			$this->setConfig('pjsip_identifers_order', $pjsip_identifers_filtered);
 		}
@@ -384,13 +374,13 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 			$this->setConfig('pjsip_keep_alive_interval', $_REQUEST['pjsip_keep_alive_interval']);
 		}
 
-		$ver_list=array("13.24.0", "16.1.0", "17.0.0", "18.0.0");
+		$ver_list=["13.24.0", "16.1.0", "17.0.0", "18.0.0"];
 
 		if (isset($_REQUEST['use_callerid_contact']) && version_min($this->FreePBX->Config->get('ASTVERSION'), $ver_list) == true) {
 			$this->setConfig('pjsip_use_callerid_contact', $_REQUEST['use_callerid_contact']);
 		}
 
-		$asteriskVersions =array("13.25.0", "16.2.0", "17.0.0", "18.0.0");
+		$asteriskVersions =["13.25.0", "16.2.0", "17.0.0", "18.0.0"];
 		if (isset($_REQUEST['taskprocessor_overload_trigger']) && version_min($this->FreePBX->Config->get('ASTVERSION'), $asteriskVersions) == true) {
 			$this->setConfig('taskprocessor_overload_trigger', $_REQUEST['taskprocessor_overload_trigger']);
 		}
@@ -400,9 +390,9 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 		// This is in Request_Helper.class.php
 		$ignored = $this->importRequest($ignoreImportedVars, "/(".implode("|",$ignoreImportedRegExp).")/");
 		// There may be binds that matched..
-		$binds = array();
+		$binds = [];
 		foreach ($ignored as $key => $var) {
-			if (preg_match("/(.+)bindip-(.+)$/", $key, $match)) {
+			if (preg_match("/(.+)bindip-(.+)$/", (string) $key, $match)) {
 				$ip = str_replace("_", ".", $match[2]);
 				$binds[$match[1]][$ip] = $var;
 				continue;  // Don't save them
@@ -453,22 +443,23 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 
 	public function genConfig() {
 
-		// RTP Configuration
-		$ssvars = array("rtpstart", "rtpend", "rtpchecksums", "strictrtp", "dtmftimeout", "probation", "stunaddr", "turnaddr", "turnusername", "turnpassword");
+		$retvar = [];
+  // RTP Configuration
+		$ssvars = ["rtpstart", "rtpend", "rtpchecksums", "strictrtp", "dtmftimeout", "probation", "stunaddr", "turnaddr", "turnusername", "turnpassword"];
 		foreach ($ssvars as $v) {
 			$res = $this->getConfig($v);
-			if ($res && trim($res) != "") {
-				$retvar['rtp_additional.conf']['general'][$v] = strtolower($res);
+			if ($res && trim((string) $res) != "") {
+				$retvar['rtp_additional.conf']['general'][$v] = strtolower((string) $res);
 			}
 		}
 
 		$ice_blacklist = $this->getConfig('ice-blacklist');
-		$ice_blacklist = !empty($ice_blacklist) ? $ice_blacklist : array();
+		$ice_blacklist = !empty($ice_blacklist) ? $ice_blacklist : [];
 		foreach($ice_blacklist as $item) {
 			$retvar['rtp_additional.conf']['general']['ice_blacklist'][] = $item['address']."/".$item['subnet'];
 		}
 		$ice_host_candidates = $this->getConfig('ice-host-candidates');
-		$ice_host_candidates = !empty($ice_host_candidates) ? $ice_host_candidates : array();
+		$ice_host_candidates = !empty($ice_host_candidates) ? $ice_host_candidates : [];
 		foreach($ice_host_candidates as $item) {
 			$retvar['rtp_additional.conf']['ice_host_candidates'][] = $item['local']." => ".$item['advertised'];
 		}
@@ -481,7 +472,7 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 
 
 	public function doDialplanHook(&$ext, $null, $null_) {
-		$ext->addGlobal('ALLOW_SIP_ANON', strtolower($this->getConfig("allowanon")));
+		$ext->addGlobal('ALLOW_SIP_ANON', strtolower((string) $this->getConfig("allowanon")));
 		$driver = $this->FreePBX->Config->get_conf_setting('ASTSIPDRIVER');
 		if ($driver == "chan_pjsip" || $driver == "both") {
 			$pjsip_identifers_order = $this->getConfig("pjsip_identifers_order");
@@ -498,23 +489,13 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 	 * @param {bool} $showDefaults=false Whether to show defaults or not
 	 */
 	public function getCodecs($type,$showDefaults=false) {
-		switch($type) {
-			case 'audio':
-				$codecs = $this->getConfig('voicecodecs');
-			break;
-			case 'video':
-				$codecs = $this->getConfig('videocodecs');
-			break;
-			case 'text':
-				$codecs = $this->getConfig('textcodecs');
-			break;
-			case 'image':
-				$codecs = $this->getConfig('imagecodecs');
-			break;
-			default:
-				throw new Exception(_('Unknown Type'));
-			break;
-		}
+		$codecs = match ($type) {
+      'audio' => $this->getConfig('voicecodecs'),
+      'video' => $this->getConfig('videocodecs'),
+      'text' => $this->getConfig('textcodecs'),
+      'image' => $this->getConfig('imagecodecs'),
+      default => throw new Exception(_('Unknown Type')),
+  };
 
 		if(empty($codecs) || !is_array($codecs)) {
 			switch($type) {
@@ -557,9 +538,9 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 			return $codecs;
 		} else {
 			//Remove all non digits
-			$final = array();
+			$final = [];
 			foreach($codecs as $codec => $order) {
-				$order = trim($order);
+				$order = trim((string) $order);
 				if(ctype_digit($order)) {
 					$final[$codec] = $order;
 				}
@@ -574,7 +555,7 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 	 * @param {string} $type		   Codec Type
 	 * @param {array} $codecs=array() The codecs with order, if blank set defaults
 	 */
-	public function setCodecs($type,$codecs=array()) {
+	public function setCodecs($type,$codecs=[]) {
 		$default = empty($codecs) ? true : false;
 		switch($type) {
 			case 'audio':
@@ -586,7 +567,7 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 					$codecs = $default ? $this->FreePBX->Codecs->getVideo(true) : $codecs;
 				}
 				else{
-					$codecs = array();
+					$codecs = [];
 				}
 				$this->setConfig("videocodecs", $codecs);
 			break;
@@ -642,13 +623,7 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 	}
 
 	public function getChanSipDefaults() {
-		$arr = array ( 'nat' => 'yes', 'nat_mode' => 'externip', 'externrefresh' => '120', 'g726nonstandard' => 'no',
-			't38pt_udptl' => 'no', 'videosupport' => 'no', 'maxcallbitrate' => '384', 'canreinvite' => 'no', 'rtptimeout' => '30',
-			'rtpholdtimeout' => '300', 'rtpkeepalive' => '0', 'checkmwi' => '10', 'notifyringing' => 'yes', 'notifyhold' => 'yes',
-			'registertimeout' => '20', 'registerattempts' => '0', 'maxexpiry' => '3600', 'minexpiry' => '60', 'defaultexpiry' => '120',
-			'jbenable' => 'no', 'jbforce' => 'no', 'jbimpl' => 'fixed', 'jbmaxsize' => '200', 'jbresyncthreshold' => '1000', 'jblog' => 'no',
-			'context' => 'from-sip-external', 'ALLOW_SIP_ANON' => 'no', 'bindaddr' => '', 'bindport' => '', 'allowguest' => 'no',
-			'srvlookup' => 'no', 'callevents' => 'no', 'sip_custom_key_0' => '', 'sip_custom_val_0' => '', 'tcpenable' => 'no', 'callerid' => 'Unknown');
+		$arr = ['nat' => 'yes', 'nat_mode' => 'externip', 'externrefresh' => '120', 'g726nonstandard' => 'no', 't38pt_udptl' => 'no', 'videosupport' => 'no', 'maxcallbitrate' => '384', 'canreinvite' => 'no', 'rtptimeout' => '30', 'rtpholdtimeout' => '300', 'rtpkeepalive' => '0', 'checkmwi' => '10', 'notifyringing' => 'yes', 'notifyhold' => 'yes', 'registertimeout' => '20', 'registerattempts' => '0', 'maxexpiry' => '3600', 'minexpiry' => '60', 'defaultexpiry' => '120', 'jbenable' => 'no', 'jbforce' => 'no', 'jbimpl' => 'fixed', 'jbmaxsize' => '200', 'jbresyncthreshold' => '1000', 'jblog' => 'no', 'context' => 'from-sip-external', 'ALLOW_SIP_ANON' => 'no', 'bindaddr' => '', 'bindport' => '', 'allowguest' => 'no', 'srvlookup' => 'no', 'callevents' => 'no', 'sip_custom_key_0' => '', 'sip_custom_val_0' => '', 'tcpenable' => 'no', 'callerid' => 'Unknown'];
 
 		return $arr;
 	}
@@ -657,12 +632,12 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 		$db = \FreePBX::Database();
 		// Delete the key we want to change
 		$del = $db->prepare('DELETE FROM `sipsettings` WHERE `keyword`=? AND `type`=?');
-		$del->execute(array($key, $type));
+		$del->execute([$key, $type]);
 
 		// If val is not EXACTLY false, add it back in
 		if ($val !== false) {
 			$ins = $db->prepare('INSERT INTO `sipsettings` (`keyword`, `data`, `type`, `seq`) VALUES (?, ?, ?, ?)');
-			$ins->execute(array($key, $val, $type, $seq));
+			$ins->execute([$key, $val, $type, $seq]);
 		}
 	}
 
@@ -670,15 +645,15 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 		$db = \FreePBX::Database();
 		// Delete the key we want to change
 		$del = $db->prepare('DELETE FROM `sipsettings` WHERE `keyword`=? AND `data`=? AND `type`=9');
-		$del->execute(array($key, $val));
+		$del->execute([$key, $val]);
 		// need to rearrange the seq
 		 $sql = "SELECT `keyword`, `data`, `type`, `seq` FROM `sipsettings` WHERE type = 9 ORDER BY `type`, `seq`";
 		$raw_settings = sql($sql,"getAll",DB_FETCHMODE_ASSOC);
 		$del = $db->prepare('DELETE FROM `sipsettings` WHERE `type`=9');
-		$del->execute(array(9));
+		$del->execute([9]);
 		foreach($raw_settings as $seq=>$row) {
 			$ins = $db->prepare('INSERT INTO `sipsettings` (`keyword`, `data`, `type`, `seq`) VALUES (?, ?, ?, ?)');
-			$ins->execute(array($row['keyword'], $row['data'], 9, $seq));
+			$ins->execute([$row['keyword'], $row['data'], 9, $seq]);
 		}
 	}
 
@@ -702,21 +677,10 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 		return 32-log(($long ^ $base)+1,2);
 	}
 	public function getActionBar($request) {
-		$buttons = array();
+		$buttons = [];
 		switch($request['display']) {
 			case 'sipsettings':
-				$buttons = array(
-					'reset' => array(
-						'name' => 'reset',
-						'id' => 'reset',
-						'value' => _('Reset')
-					),
-					'submit' => array(
-						'name' => 'submit',
-						'id' => 'submit',
-						'value' => _('Submit')
-					)
-				);
+				$buttons = ['reset' => ['name' => 'reset', 'id' => 'reset', 'value' => _('Reset')], 'submit' => ['name' => 'submit', 'id' => 'submit', 'value' => _('Submit')]];
 			break;
 		}
 		return $buttons;
@@ -741,7 +705,7 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 			return $this->tlsCache;
 		}
 
-		$this->tlsCache = array();
+		$this->tlsCache = [];
 		if($this->FreePBX->Modules->moduleHasMethod("certman","getCABundle")) {
 			$cafile = $this->FreePBX->Certman->getCABundle();
 			if(!empty($cafile)) {
@@ -753,21 +717,15 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 			$cerid = $this->getConfig('pjsipcertid');
 			$cert = $this->FreePBX->Certman->getCertificateDetails($cerid);
 			if(!empty($cert['files']['crt']) && !empty($cert['files']['key'])) {
-				$this->tlsCache['cert_file'] = isset($cert['files']['fullchain'])?$cert['files']['fullchain']:$cert['files']['crt'];
+				$this->tlsCache['cert_file'] = $cert['files']['fullchain'] ?? $cert['files']['crt'];
 				$this->tlsCache['priv_key_file'] = $cert['files']['key'];
 			}
 		} else {
-			$defaults = array(
-				"cert_file" => "/etc/asterisk/keys/integration/webserver.crt",
-				"priv_key_file" => "/etc/asterisk/keys/integration/webserver.key",
-			);
+			$defaults = ["cert_file" => "/etc/asterisk/keys/integration/webserver.crt", "priv_key_file" => "/etc/asterisk/keys/integration/webserver.key"];
 
-			$map = array(
-				"certfile" => "cert_file",
-				"privkeyfile" => "priv_key_file",
-			);
+			$map = ["certfile" => "cert_file", "privkeyfile" => "priv_key_file"];
 
-			$retarr = array();
+			$retarr = [];
 
 			foreach ($map as $k => $v) {
 				$tmp = $this->getConfig($k);
@@ -779,8 +737,8 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 					} else {
 						// Pointed to a file that doesn't exist? No TLS.
 						// TODO: Notification?
-						$cache = array();
-						return array();
+						$cache = [];
+						return [];
 					}
 				} else {
 					// Notset. Does the default file exist?
@@ -788,15 +746,15 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 						$retarr[$v] = $defaults[$v];
 					} else {
 						// No default file.
-						$cache = array();
-						return array();
+						$cache = [];
+						return [];
 					}
 				}
 			}
 			$this->tlsCache = $retarr;
 		}
 		if(!empty($this->tlsCache)) {
-			$check = array('method','verify_client','verify_server');
+			$check = ['method', 'verify_client', 'verify_server'];
 			foreach($check as $i) {
 				$v = $this->getConfig($i);
 				if(!empty($v)) {
@@ -949,7 +907,7 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 		// Get all of our binds
 		$binds = $this->getBinds(true);
 
-		$allports = array("tcp" => array(), "udp" => array());
+		$allports = ["tcp" => [], "udp" => []];
 		foreach ($binds as $driver => $listenarr) {
 			// We explicitly don't care about interfaces. Having
 			// chansip on 5060 on int1 and pjsip on 5060 on int2
@@ -985,7 +943,7 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 						if ($proto == "udp") {
 							// Try a couple of ports until we find a spare. Default is first,
 							// just in case we have a conflict on 5061 or something.
-							$attempts = array(5060, 5062, 5161, 5199, 5260, 15060);
+							$attempts = [5060, 5062, 5161, 5199, 5260, 15060];
 							foreach ($attempts as $portattempt) {
 								if (!isset($allports['udp'][$portattempt])) {
 									// Yes. Found a spare.
@@ -1006,7 +964,7 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 							continue;
 						} elseif ($proto == "tls") {
 							// TLS is conflicting with PJSIP. Try to find a spare port
-							$attempts = array(5061, 5161, 5162, 5199, 5261, 15061);
+							$attempts = [5061, 5161, 5162, 5199, 5261, 15061];
 							foreach ($attempts as $portattempt) {
 								if (!isset($allports['tcp'][$portattempt])) {
 									// Yes. Found a spare.
@@ -1054,7 +1012,7 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 
 			// If pjsip is listening on 5061, move it to 5161
 			$pjsipbinds = $this->getConfig("binds");
-			$pjsipbinds = is_array($pjsipbinds) ? $pjsipbinds : array();
+			$pjsipbinds = is_array($pjsipbinds) ? $pjsipbinds : [];
 
 			foreach($pjsipbinds as $pjproto => $binds) {
 				// Skip if not tls
@@ -1085,7 +1043,7 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 
 			// Update all tls listeners for pjsip to listen on 5061
 			$pjsipbinds = $this->getConfig("binds");
-			$pjsipbinds = is_array($pjsipbinds) ? $pjsipbinds : array();
+			$pjsipbinds = is_array($pjsipbinds) ? $pjsipbinds : [];
 			foreach($pjsipbinds as $pjproto => $binds) {
 				// Skip if not tls
 				if ($pjproto !== "tls") {
@@ -1115,10 +1073,10 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 		$certman = \FreePBX::Certman();
 		$allcerts = $certman->getAllManagedCertificates();
 		if (!$allcerts) {
-			return array("result" => false, "message" => "No certificates available. Create or install one in Certman");
+			return ["result" => false, "message" => "No certificates available. Create or install one in Certman"];
 		}
 
-		$retarr = array("result" => true, "message" => "");
+		$retarr = ["result" => true, "message" => ""];
 
 		// Return our cert info
 		foreach ($allcerts as $cert) {
@@ -1133,7 +1091,7 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 		// And return the chansip settings.
 		$chansip = $this->getChanSipSettings();
 
-		$defaults = array("tlsenable" => "no", "tlsclientmethod" => "", "tlsdontverifyserver" => "", "tlsbindport" => "");
+		$defaults = ["tlsenable" => "no", "tlsclientmethod" => "", "tlsdontverifyserver" => "", "tlsbindport" => ""];
 		$retarr['chansip'] = $defaults;
 		foreach ($defaults as $k => $v) {
 			if (!empty($chansip[$k])) {
@@ -1152,7 +1110,7 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 
 		$this->updateTlsOwner("sip");
 
-		$settings = array("tlsenable" => "yes", "tlsclientmethod" => "tlsv1", "tlsdontverifyserver" => "yes");
+		$settings = ["tlsenable" => "yes", "tlsclientmethod" => "tlsv1", "tlsdontverifyserver" => "yes"];
 
 		// Get our default certificate
 		$defaultcert = \FreePBX::Certman()->getDefaultCertDetails();
@@ -1168,10 +1126,10 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 
 	public function parseIpAddr($ipaddr, $interfaces = false) {
 		if (!is_array($interfaces)) {
-			$interfaces = array ( 'auto' => array('0.0.0.0', 'All', '0') );
+			$interfaces = ['auto' => ['0.0.0.0', 'All', '0']];
 		}
 		foreach ($ipaddr as $line) {
-			$vals = preg_split("/\s+/", $line);
+			$vals = preg_split("/\s+/", (string) $line);
 
 			if (empty($vals[1]) || $vals[1] == "lo" || $vals[1] == "lo:") {
 				continue;
@@ -1186,7 +1144,7 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 				// It's a network definition.
 				// This won't clobber an exsiting one, as it always comes
 				// before the IP addresses.
-				$interfaces[$res[1]] = array();
+				$interfaces[$res[1]] = [];
 				continue;
 			}
 
@@ -1201,13 +1159,13 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 				if (isset($vals[9])) {
 					$intname = $vals[9];
 					if (!isset($interfaces[$intname])) {
-						$interfaces[$intname] = array();
+						$interfaces[$intname] = [];
 					}
 				} else {
 					// Whatevs. I don't care. Fine. Be unnamed.
 					$intname = $vals[1];
 				}
-			} else if (strpos($vals[8], ":") !== false) {
+			} else if (str_contains($vals[8], ":")) {
 				// this is an UNNAMED secondary, eg eth0:0
 				$intname = trim($vals[8]);
 
@@ -1215,7 +1173,7 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 				$intname = rtrim($intname, '\\');
 
 				if (!isset($interfaces[$intname])) {
-					$interfaces[$intname] = array();
+					$interfaces[$intname] = [];
 				}
 			} else {
 				$intname = $vals[1];
@@ -1227,7 +1185,7 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 			if ($ip) {
 				// If we already know about this interface, don't clobber it.
 				if (empty($interfaces[$intname])) {
-					$interfaces[$intname] = array($ip[1], $intname, $ip[2]);
+					$interfaces[$intname] = [$ip[1], $intname, $ip[2]];
 				}
 			}
 		}
@@ -1254,7 +1212,7 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 		$stmt = $this->Database->prepare("REPLACE INTO sipsettings (keyword, data, seq, type) VALUES (:keyword, :data, :seq, :type)");
 		if (!empty($configs)) {
 				foreach ($configs as $conf) {
-					if(count($conf) !== 4){
+					if((is_countable($conf) ? count($conf) : 0) !== 4){
 						continue;
 					}
 					$stmt->execute([
@@ -1278,12 +1236,11 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 	}
 	
 	/**
-	 * setNatObj
-	 *
-	 * @param  mixed $obj
-	 * @return void
-	 */
-	public function setNatObj($obj){
+  * setNatObj
+  *
+  * @return void
+  */
+ public function setNatObj(mixed $obj){
 		return self::$natObj = $obj; 
 	}
 	
@@ -1294,7 +1251,7 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 	 */
 	public function getNatObj(){
 		if (!self::$natObj) {
-			if (!class_exists('FreePBX\Modules\Sipsettings\NatGet')) {
+			if (!class_exists(\FreePBX\Modules\Sipsettings\NatGet::class)) {
 				include __DIR__."/Natget.class.php";
 			}
 			self::$natObj = new \FreePBX\Modules\Sipsettings\NatGet();

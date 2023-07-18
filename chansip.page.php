@@ -23,13 +23,13 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 	$cols_per_row   = 4;
 	$width          = (100.0 / $cols_per_row);
 	$tabindex       = 0;
-	$error_displays = array();
-	$action                            = isset($_POST['action'])?$_POST['action']:'';
-	$sip_settings['nat']               = isset($_POST['nat']) ? $_POST['nat'] : 'yes';
-	$sip_settings['nat_mode']          = isset($_POST['nat_mode']) ? $_POST['nat_mode'] : 'externip';
-	$sip_settings['externip_val']      = isset($_POST['externip_val']) ? htmlspecialchars($_POST['externip_val']) : '';
-	$sip_settings['externhost_val']    = isset($_POST['externhost_val']) ? htmlspecialchars($_POST['externhost_val']) : '';
-	$sip_settings['externrefresh']     = isset($_POST['externhostrefresh']) ? htmlspecialchars($_POST['externhostrefresh']) : '120';
+	$error_displays = [];
+	$action                            = $_POST['action'] ?? '';
+	$sip_settings['nat']               = $_POST['nat'] ?? 'yes';
+	$sip_settings['nat_mode']          = $_POST['nat_mode'] ?? 'externip';
+	$sip_settings['externip_val']      = isset($_POST['externip_val']) ? htmlspecialchars((string) $_POST['externip_val']) : '';
+	$sip_settings['externhost_val']    = isset($_POST['externhost_val']) ? htmlspecialchars((string) $_POST['externhost_val']) : '';
+	$sip_settings['externrefresh']     = isset($_POST['externhostrefresh']) ? htmlspecialchars((string) $_POST['externhostrefresh']) : '120';
 
 	// QaD fix for localization, xgettext does not pickup the localization string in the code
 	$add_field 					= _("Add Field");
@@ -40,8 +40,8 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 	$n_idx 						= 0;
 	while (isset($_POST["localnet_$p_idx"])) {
 		if ($_POST["localnet_$p_idx"] != '') {
-			$sip_settings["localnet_$n_idx"] = htmlspecialchars($_POST["localnet_$p_idx"]);
-			$sip_settings["netmask_$n_idx"]  = htmlspecialchars($_POST["netmask_$p_idx"]);
+			$sip_settings["localnet_$n_idx"] = htmlspecialchars((string) $_POST["localnet_$p_idx"]);
+			$sip_settings["netmask_$n_idx"]  = htmlspecialchars((string) $_POST["netmask_$p_idx"]);
 			$n_idx++;
 		}
 		$p_idx++;
@@ -51,47 +51,47 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 	// With the new sorting, the vars should come to us in the sorted order so just use that
 	//
 
-	$sip_settings['canreinvite']       = isset($_POST['canreinvite']) ? $_POST['canreinvite'] : 'no';
+	$sip_settings['canreinvite']       = $_POST['canreinvite'] ?? 'no';
 
-	$sip_settings['checkmwi']          = isset($_POST['checkmwi']) ? htmlspecialchars($_POST['checkmwi']) : '10';
-	$sip_settings['notifyringing']     = isset($_POST['notifyringing']) ? $_POST['notifyringing'] : 'yes';
-	$sip_settings['notifyhold']        = isset($_POST['notifyhold']) ? $_POST['notifyhold'] : 'yes';
+	$sip_settings['checkmwi']          = isset($_POST['checkmwi']) ? htmlspecialchars((string) $_POST['checkmwi']) : '10';
+	$sip_settings['notifyringing']     = $_POST['notifyringing'] ?? 'yes';
+	$sip_settings['notifyhold']        = $_POST['notifyhold'] ?? 'yes';
 
-	$sip_settings['registertimeout']   = isset($_POST['registertimeout']) ? htmlspecialchars($_POST['registertimeout']) : '20';
-	$sip_settings['registerattempts']  = isset($_POST['registerattempts']) ? htmlspecialchars($_POST['registerattempts']) : '0';
-	$sip_settings['maxexpiry']         = isset($_POST['maxexpiry']) ? htmlspecialchars($_POST['maxexpiry']) : '3600';
-	$sip_settings['minexpiry']         = isset($_POST['minexpiry']) ? htmlspecialchars($_POST['minexpiry']) : '60';
-	$sip_settings['defaultexpiry']     = isset($_POST['defaultexpiry']) ? htmlspecialchars($_POST['defaultexpiry']) : '120';
+	$sip_settings['registertimeout']   = isset($_POST['registertimeout']) ? htmlspecialchars((string) $_POST['registertimeout']) : '20';
+	$sip_settings['registerattempts']  = isset($_POST['registerattempts']) ? htmlspecialchars((string) $_POST['registerattempts']) : '0';
+	$sip_settings['maxexpiry']         = isset($_POST['maxexpiry']) ? htmlspecialchars((string) $_POST['maxexpiry']) : '3600';
+	$sip_settings['minexpiry']         = isset($_POST['minexpiry']) ? htmlspecialchars((string) $_POST['minexpiry']) : '60';
+	$sip_settings['defaultexpiry']     = isset($_POST['defaultexpiry']) ? htmlspecialchars((string) $_POST['defaultexpiry']) : '120';
 
-	$sip_settings['jbenable']          = isset($_POST['jbenable']) ? $_POST['jbenable'] : 'no';
-	$sip_settings['jbforce']           = isset($_POST['jbforce']) ? $_POST['jbforce'] : 'no';
-	$sip_settings['jbimpl']            = isset($_POST['jbimpl']) ? $_POST['jbimpl'] : 'fixed';
-	$sip_settings['jbmaxsize']         = isset($_POST['jbmaxsize']) ? htmlspecialchars($_POST['jbmaxsize']) : '200';
-	$sip_settings['jbresyncthreshold'] = isset($_POST['jbresyncthreshold']) ? htmlspecialchars($_POST['jbresyncthreshold']) : '1000';
-	$sip_settings['jblog']             = isset($_POST['jblog']) ? $_POST['jblog'] : 'no';
+	$sip_settings['jbenable']          = $_POST['jbenable'] ?? 'no';
+	$sip_settings['jbforce']           = $_POST['jbforce'] ?? 'no';
+	$sip_settings['jbimpl']            = $_POST['jbimpl'] ?? 'fixed';
+	$sip_settings['jbmaxsize']         = isset($_POST['jbmaxsize']) ? htmlspecialchars((string) $_POST['jbmaxsize']) : '200';
+	$sip_settings['jbresyncthreshold'] = isset($_POST['jbresyncthreshold']) ? htmlspecialchars((string) $_POST['jbresyncthreshold']) : '1000';
+	$sip_settings['jblog']             = $_POST['jblog'] ?? 'no';
 
-	$sip_settings['context']           = isset($_POST['context']) ? htmlspecialchars($_POST['context']) : '';
-	$sip_settings['bindaddr']          = isset($_POST['bindaddr']) ? htmlspecialchars($_POST['bindaddr']) : '';
-	$sip_settings['bindport']          = isset($_POST['bindport']) ? htmlspecialchars($_POST['bindport']) : '';
-	$sip_settings['allowguest']        = isset($_POST['allowguest']) ? $_POST['allowguest'] : 'no';
-	$sip_settings['srvlookup']         = isset($_POST['srvlookup']) ? $_POST['srvlookup'] : 'no';
-	$sip_settings['tcpenable']         = isset($_POST['tcpenable']) ? $_POST['tcpenable'] : 'no';
-	$sip_settings['callevents']        = isset($_POST['callevents']) ? $_POST['callevents'] : 'no';
+	$sip_settings['context']           = isset($_POST['context']) ? htmlspecialchars((string) $_POST['context']) : '';
+	$sip_settings['bindaddr']          = isset($_POST['bindaddr']) ? htmlspecialchars((string) $_POST['bindaddr']) : '';
+	$sip_settings['bindport']          = isset($_POST['bindport']) ? htmlspecialchars((string) $_POST['bindport']) : '';
+	$sip_settings['allowguest']        = $_POST['allowguest'] ?? 'no';
+	$sip_settings['srvlookup']         = $_POST['srvlookup'] ?? 'no';
+	$sip_settings['tcpenable']         = $_POST['tcpenable'] ?? 'no';
+	$sip_settings['callevents']        = $_POST['callevents'] ?? 'no';
 
-	$sip_settings['tlsenable']         = isset($_POST['tlsenable']) ? $_POST['tlsenable'] : 'no';
-	$sip_settings['csipcertid']        = isset($_POST['csipcertid']) ? $_POST['csipcertid'] : '';
-	$sip_settings['tlsclientmethod']   = isset($_POST['tlsclientmethod']) ? $_POST['tlsclientmethod'] : 'tlsv1';
-	$sip_settings['tlsdontverifyserver']        = isset($_POST['tlsdontverifyserver']) ? $_POST['tlsdontverifyserver'] : '';
-	$sip_settings['tlsbindaddr']       = isset($_POST['tlsbindaddr']) ? htmlspecialchars($_POST['tlsbindaddr']) : '';
-	$sip_settings['tlsbindport']       = isset($_POST['tlsbindport']) ? htmlspecialchars($_POST['tlsbindport']) : '';
+	$sip_settings['tlsenable']         = $_POST['tlsenable'] ?? 'no';
+	$sip_settings['csipcertid']        = $_POST['csipcertid'] ?? '';
+	$sip_settings['tlsclientmethod']   = $_POST['tlsclientmethod'] ?? 'tlsv1';
+	$sip_settings['tlsdontverifyserver']        = $_POST['tlsdontverifyserver'] ?? '';
+	$sip_settings['tlsbindaddr']       = isset($_POST['tlsbindaddr']) ? htmlspecialchars((string) $_POST['tlsbindaddr']) : '';
+	$sip_settings['tlsbindport']       = isset($_POST['tlsbindport']) ? htmlspecialchars((string) $_POST['tlsbindport']) : '';
 
 
 	$p_idx = 0;
 	$n_idx = 0;
 	while (isset($_POST["sip_custom_key_$p_idx"])) {
 		if ($_POST["sip_custom_key_$p_idx"] != '') {
-			$sip_settings["sip_custom_key_$n_idx"] = htmlspecialchars($_POST["sip_custom_key_$p_idx"]);
-			$sip_settings["sip_custom_val_$n_idx"] = htmlspecialchars($_POST["sip_custom_val_$p_idx"]);
+			$sip_settings["sip_custom_key_$n_idx"] = htmlspecialchars((string) $_POST["sip_custom_key_$p_idx"]);
+			$sip_settings["sip_custom_val_$n_idx"] = htmlspecialchars((string) $_POST["sip_custom_val_$p_idx"]);
 			$n_idx++;
 		}
 		$p_idx++;
@@ -224,7 +224,7 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 										$placeholder = "Enter IP Address";
 									}
 								?>
-								<input type="text" class="form-control" id="externip_val" name="externip_val" value="<?php echo isset($externip_val) ? $externip_val : '' ?>" placeholder="<?php echo $placeholder; ?>">
+								<input type="text" class="form-control" id="externip_val" name="externip_val" value="<?php echo $externip_val ?? '' ?>" placeholder="<?php echo $placeholder; ?>">
 							</div>
 						</div>
 					</div>
@@ -250,7 +250,7 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 								<i class="fa fa-question-circle fpbx-help-icon" data-for="externhost_val"></i>
 							</div>
 							<div class="col-md-9">
-								<input type="text" class="form-control" id="externhost_val" name="externhost_val" value="<?php echo isset($externhost_val) ? $externhost_val : '' ?>">
+								<input type="text" class="form-control" id="externhost_val" name="externhost_val" value="<?php echo $externhost_val ?? '' ?>">
 							</div>
 						</div>
 					</div>
@@ -275,7 +275,7 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 							</div>
 							<div class="col-md-9">
 								<div class="input-group">
-									<input type="number" class="form-control" id="externhostrefresh" name="externhostrefresh" value="<?php echo isset($externrefresh) ? $externrefresh : ''?>">
+									<input type="number" class="form-control" id="externhostrefresh" name="externhostrefresh" value="<?php echo $externrefresh ?? ''?>">
 									<span class="input-group-addon"><?php echo _("Seconds")?></span>
 								</div>
 							</div>
@@ -905,7 +905,7 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 					<i class="fa fa-question-circle fpbx-help-icon" data-for="tlsbindaddr"></i>
 				</div>
 				<div class="col-md-9">
-					<input type="text" class="form-control validate-ip" id="tlsbindaddr" name="tlsbindaddr" placeholder='::' value="<?php echo $tlsbindaddr ?>">
+					<input type="text" class="form-control validate-ip" id="tlsbindaddr" name="tlsbindaddr" placeholder='::' value="<?php echo $tlsbindaddr ?? '' ?>">
 				</div>
 			</div>
 		</div>
@@ -1020,13 +1020,13 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 	$var_sip_custom_key = "sip_custom_key_$idx";
 	$var_sip_custom_val = "sip_custom_val_$idx";
 	$csotherinputs = '';
-	while (isset($$var_sip_custom_key)) {
-		if ($$var_sip_custom_key != '') {
+	while (isset(${$var_sip_custom_key})) {
+		if (${$var_sip_custom_key} != '') {
 			$csotherinputs .= <<< END
 			<div class="form-group form-inline" id="sc_$idx">
-				<input type="text" id="sip_custom_key_$idx" name="sip_custom_key_$idx" class="sip-custom" value="{$$var_sip_custom_key}" tabindex="$tabindex"> =
-				<input type="text" id="sip_custom_val_$idx" name="sip_custom_val_$idx" value="{$$var_sip_custom_val}" tabindex="$tabindex">
-				<a href="config.php?display=sipsettings&action=delete&key={$$var_sip_custom_key}&val={$$var_sip_custom_val}" onclick="return confirm( _('Are you sure you want to delete this item?') );"><i class="fa fa-trash-o" ></i></a>
+				<input type="text" id="sip_custom_key_$idx" name="sip_custom_key_$idx" class="sip-custom" value="{${$var_sip_custom_key}}" tabindex="$tabindex"> =
+				<input type="text" id="sip_custom_val_$idx" name="sip_custom_val_$idx" value="{${$var_sip_custom_val}}" tabindex="$tabindex">
+				<a href="config.php?display=sipsettings&action=delete&key={${$var_sip_custom_key}}&val={${$var_sip_custom_val}}" onclick="return confirm( _('Are you sure you want to delete this item?') );"><i class="fa fa-trash-o" ></i></a>
 			</div>
 END;
 		}
@@ -1089,8 +1089,9 @@ $(document).ready(function(){
 
 
 function sipsettings_check_custom_files() {
-	global $amp_conf;
-	$errors = array();
+	$custom_files = [];
+ global $amp_conf;
+	$errors = [];
 
 	$custom_files[] = "sip_nat.conf";
 	$custom_files[] = "sip_general_custom.conf";
@@ -1099,13 +1100,13 @@ function sipsettings_check_custom_files() {
 	foreach ($custom_files as $file) {
 		if (file_exists($amp_conf['ASTETCDIR']."/".$file)) {
 			$sip_conf = \FreePBX::LoadConfig()->getConfig($file);
-			$sip_conf = is_array($sip_conf) ? $sip_conf : array();
+			$sip_conf = is_array($sip_conf) ? $sip_conf : [];
 			foreach ($sip_conf as $section => $item) {
 				// If setting is an array, then it is a subsection
 				//
 				if (!is_array($item)) {
 					$msg =  sprintf(_("Settings in %s may override these. Those settings should be removed."),"<b>$file</b>");
-					$errors[] = array( 'js' => '', 'div' => $msg);
+					$errors[] = ['js' => '', 'div' => $msg];
 					break;
 				}
 			}

@@ -6,7 +6,7 @@ class Restore Extends Base\RestoreBase{
 		$settings = $this->getConfigs();
 		$backupinfo = $this->getBackupInfo();
 		$skipoptions = $this->getCliarguments();
-		$preserevdata = array();
+		$preserevdata = [];
 		if ($backupinfo['warmspareenabled'] == 'yes' || $skipoptions['skipbindport'] || $skipoptions['skipremotenat']) {
 			if ($backupinfo['warmspare_remotebind'] =='yes') {
 				$skipoptions['skipbindport'] =1;
@@ -27,7 +27,8 @@ class Restore Extends Base\RestoreBase{
 	
 	
 	public function processLegacy($pdo, $data, $tables, $unknownTables) {
-		$skipoptions = $this->getCliarguments();
+		$preserevdata = null;
+  $skipoptions = $this->getCliarguments();
 		if ($skipoptions['skipbindport'] || $skipoptions['skipremotenat']) {
 			$preserevdata = $this->get_sipsettings_data();
 		}
@@ -68,7 +69,7 @@ class Restore Extends Base\RestoreBase{
 			$this->log(sprintf(_("Bindport set to %s."),$bindport), 'INFO');
 			
 			$query = "UPDATE `sipsettings` SET `data` = :port WHERE `keyword` = 'bindport'";
-			$this->FreePBX->Database->prepare($query)->execute(array(":port" => $bindport));
+			$this->FreePBX->Database->prepare($query)->execute([":port" => $bindport]);
 		} catch(\Exception $e) {
 			$this->log($e->getMessage(),'ERROR');
 			$status = false;
@@ -78,7 +79,7 @@ class Restore Extends Base\RestoreBase{
 	}
 
 	public function get_sipsettings_data() {
-		$response = array();
+		$response = [];
 		$stmt=$this->FreePBX->Database->prepare("select `key`, `val`,`type`,`id` from kvstore_Sipsettings where id=:id");
 		$stmt->execute([':id' => 'noid']);
 		$response['kvstore_sipsettings'] = $stmt->fetchAll(\PDO::FETCH_ASSOC);
@@ -93,12 +94,12 @@ class Restore Extends Base\RestoreBase{
 
 	public function update_sipsettings_data($preservedata,$skipoptions) {
 		if (is_array($preservedata)) {
-			$skip_fields = array();
-			$binds_dynamic_column = array();
+			$skip_fields = [];
+			$binds_dynamic_column = [];
 			if ($skipoptions['skipbindport']) {
-				$skip_fields = array('binds','bindaddr','bindport','tlsbindaddr','tlsbindport');
+				$skip_fields = ['binds', 'bindaddr', 'bindport', 'tlsbindaddr', 'tlsbindport'];
 				if (is_array($preservedata['binds']) && isset($preservedata['binds']['val']) && $preservedata['binds']['val'] !='') {
-					$binds = json_decode($preservedata['binds']['val'], true);
+					$binds = json_decode((string) $preservedata['binds']['val'], true, 512, JSON_THROW_ON_ERROR);
 					if (is_array($binds) && count($binds) >0) {
 						foreach ($binds as $jsonkey=>$jsonvalue) {
 							if (is_array($jsonvalue) && count($jsonvalue) >0) {
@@ -115,21 +116,21 @@ class Restore Extends Base\RestoreBase{
 			if ($skipoptions['skipremotenat']) {
 				array_push($skip_fields,'localnets','externip');
 			}
-			$bindport_sipsettings_fields = array('bindaddr','tlsbindaddr','tlsbindport','bindport');
-			$params = array();
-			$params_sipsettings = array();
+			$bindport_sipsettings_fields = ['bindaddr', 'tlsbindaddr', 'tlsbindport', 'bindport'];
+			$params = [];
+			$params_sipsettings = [];
 			if (is_array($preservedata['kvstore_sipsettings'])) {
 				foreach ($preservedata['kvstore_sipsettings'] as $key=>$val) {
 					if (in_array($val['key'],$skip_fields)) {
-						$data = array();
+						$data = [];
 						$data['val'] = $val['val'];
 						$data['id'] = $val['id'];
 						$data['type'] = $val['type'];
 						$params[$val['key']] = $data;
 					}
 					foreach($binds_dynamic_column as $k=>$v) {
-						if (strpos($val['key'],$v) !== false) {
-							$data = array();
+						if (str_contains((string) $val['key'],$v)) {
+							$data = [];
 							$data['val'] = $val['val'];
 							$data['id'] = $val['id'];
 							$data['type'] = $val['type'];
@@ -142,7 +143,7 @@ class Restore Extends Base\RestoreBase{
 			if(is_array($preservedata['sipsettings']) && $skipoptions['skipbindport']) {
 				foreach ($preservedata['sipsettings'] as $key=>$val) {
 					if (in_array($val['keyword'],$bindport_sipsettings_fields)) {
-						$data = array();
+						$data = [];
 						$data['data'] = $val['data'];
 						$data['seq'] = $val['seq'];
 						$data['type'] = $val['type'];

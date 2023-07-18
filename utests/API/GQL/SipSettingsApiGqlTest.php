@@ -41,18 +41,18 @@ class SipSettingsGqlApiTest extends ApiBaseTestCase {
     */
    public function test_fetchSipNatNetworkSettings_should_return_sipNatsettings(){
 
-   $mockobj = $this->getMockBuilder('FreePBX\Modules\Sipsettings\NatGet')
-		->setMethods(array('getVisibleIP','getRoutes','getConfigurations'))
+   $mockobj = $this->getMockBuilder(\FreePBX\Modules\Sipsettings\NatGet::class)
+		->setMethods(['getVisibleIP', 'getRoutes', 'getConfigurations'])
       ->getMock();
 
 	$mockobj->method('getVisibleIP')
-		->willReturn(array('status' => true, 'address' => "88.88.80.80"));
+		->willReturn(['status' => true, 'address' => "88.88.80.80"]);
    
    $mockobj->method('getRoutes')
-		->willReturn(array(array("100.100.100.100","21")));
+		->willReturn([["100.100.100.100", "21"]]);
 
    $mockobj->method('getConfigurations')
-		->willReturn(array(array("net" => "101.101.101.101","mask" => "21"),array("net" => "10.120.102.101","mask" => "22")));
+		->willReturn([["net" => "101.101.101.101", "mask" => "21"], ["net" => "10.120.102.101", "mask" => "22"]]);
       
    self::$freepbx->sipsettings->setNatObj($mockobj); 
 
@@ -84,18 +84,18 @@ class SipSettingsGqlApiTest extends ApiBaseTestCase {
     */
    public function test_fetchSipNatNetworkSettings_Should_return_true_when_external_ip_return_false_with_message(){
 
-   $mockobj = $this->getMockBuilder('FreePBX\Modules\Sipsettings\NatGet')
-		->setMethods(array('getVisibleIP','getRoutes','getConfigurations'))
+   $mockobj = $this->getMockBuilder(\FreePBX\Modules\Sipsettings\NatGet::class)
+		->setMethods(['getVisibleIP', 'getRoutes', 'getConfigurations'])
       ->getMock();
 
 	$mockobj->method('getVisibleIP')
-		->willReturn(array('status' => false, 'message' => "Something went wrong"));
+		->willReturn(['status' => false, 'message' => "Something went wrong"]);
    
    $mockobj->method('getRoutes')
-		->willReturn(array(array("100.100.100.100","21")));
+		->willReturn([["100.100.100.100", "21"]]);
 
    $mockobj->method('getConfigurations')
-		->willReturn(array(array("net" => "101.101.101.101","mask" => "21"),array("net" => "10.120.102.101","mask" => "22")));
+		->willReturn([["net" => "101.101.101.101", "mask" => "21"], ["net" => "10.120.102.101", "mask" => "22"]]);
       
    self::$freepbx->sipsettings->setNatObj($mockobj); 
 
@@ -126,8 +126,8 @@ class SipSettingsGqlApiTest extends ApiBaseTestCase {
     */
    public function test_addSipNatLocalIp_Should_addSipNat_and_should_return_true(){
 
-      $mockobj = $this->getMockBuilder('FreePBX\Modules\Sipsettings\NatGet')
-         ->setMethods(array('setConfigurations'))
+      $mockobj = $this->getMockBuilder(\FreePBX\Modules\Sipsettings\NatGet::class)
+         ->setMethods(['setConfigurations'])
          ->getMock();
 
       $mockobj->method('setConfigurations')
@@ -154,8 +154,8 @@ class SipSettingsGqlApiTest extends ApiBaseTestCase {
     */
    public function test_updateSipNatExternalIp_Should_addSipNat_and_should_return_true(){
 
-      $mockobj = $this->getMockBuilder('FreePBX\Modules\Sipsettings\NatGet')
-         ->setMethods(array('setConfigurations'))
+      $mockobj = $this->getMockBuilder(\FreePBX\Modules\Sipsettings\NatGet::class)
+         ->setMethods(['setConfigurations'])
          ->getMock();
 
       $mockobj->method('setConfigurations')
@@ -182,8 +182,8 @@ class SipSettingsGqlApiTest extends ApiBaseTestCase {
     */
    public function test_updateSipNatExternalIp_should_return_fasle_when_paramater_not_sent(){
 
-      $mockobj = $this->getMockBuilder('FreePBX\Modules\Sipsettings\NatGet')
-         ->setMethods(array('setConfigurations'))
+      $mockobj = $this->getMockBuilder(\FreePBX\Modules\Sipsettings\NatGet::class)
+         ->setMethods(['setConfigurations'])
          ->getMock();
 
       $mockobj->method('setConfigurations')
@@ -211,7 +211,7 @@ class SipSettingsGqlApiTest extends ApiBaseTestCase {
    public function test_fetchWSSettings_should_return_values(){
 
       $mockobj = $this->getMockBuilder('FreePBX\Modules\Sipsettings')
-         ->setMethods(array('getConfig'))
+         ->setMethods(['getConfig'])
          ->getMock();
 
       $mockobj->method('getConfig')
@@ -258,7 +258,7 @@ class SipSettingsGqlApiTest extends ApiBaseTestCase {
    public function test_updateWSSettings_with_proper_values_should_return_success(){
 
       $mockobj = $this->getMockBuilder('FreePBX\Modules\Sipsettings')
-         ->setMethods(array('getConfig', 'setConfig'))
+         ->setMethods(['getConfig', 'setConfig'])
          ->getMock();
 
       $mockobj->method('getConfig')
@@ -303,7 +303,7 @@ class SipSettingsGqlApiTest extends ApiBaseTestCase {
    public function test_updateWSSettings_with_invalid_values_should_return_error(){
 
       $mockobj = $this->getMockBuilder('FreePBX\Modules\Sipsettings')
-         ->setMethods(array('getConfig', 'setConfig'))
+         ->setMethods(['getConfig', 'setConfig'])
          ->getMock();
 
       $mockobj->method('getConfig')
@@ -345,7 +345,7 @@ class SipSettingsGqlApiTest extends ApiBaseTestCase {
    public function test_updateWSSettings_with_invalid_ips_should_return_error(){
 
       $mockobj = $this->getMockBuilder('FreePBX\Modules\Sipsettings')
-         ->setMethods(array('getConfig', 'setConfig'))
+         ->setMethods(['getConfig', 'setConfig'])
          ->getMock();
 
       $mockobj->method('getConfig')

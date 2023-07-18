@@ -26,23 +26,7 @@ if(empty($rows)) {
 	$brand = $FreePBX->Config->get('DASHBOARD_FREEPBX_BRAND');
 
 	outn(_("populating default codecs.."));
-	$sip_settings =  array(
-		array('ulaw'    ,'1', '0', '1'),
-		array('alaw'    ,'2', '1', '1'),
-		array('slin'    ,'' , '2', '1'),
-		array('gsm'     ,'4', '3', '1'),
-		array('g726'    ,'5', '4', '1'),
-		array('g729'    ,'' , '5', '1'),
-		array('ilbc'    ,'' , '6', '1'),
-		array('g723'    ,'' , '7', '1'),
-		array('g726aal2','' , '8', '1'),
-		array('adpcm'   ,'' , '9', '1'),
-		array('lpc10'   ,'' ,'10', '1'),
-		array('speex'   ,'' ,'11', '1'),
-		array('g722'    ,'3' ,'12', '1'),
-		array('bindport',$chansip_port, '1', '0'),
-		array('tlsbindport',$chansiptls_port, '1', '0'),
-	);
+	$sip_settings =  [['ulaw', '1', '0', '1'], ['alaw', '2', '1', '1'], ['slin', '', '2', '1'], ['gsm', '4', '3', '1'], ['g726', '5', '4', '1'], ['g729', '', '5', '1'], ['ilbc', '', '6', '1'], ['g723', '', '7', '1'], ['g726aal2', '', '8', '1'], ['adpcm', '', '9', '1'], ['lpc10', '', '10', '1'], ['speex', '', '11', '1'], ['g722', '3', '12', '1'], ['bindport', $chansip_port, '1', '0'], ['tlsbindport', $chansiptls_port, '1', '0']];
 
 	// Now insert minimal codec rows
 	$compiled = $db->prepare("INSERT INTO sipsettings (keyword, data, seq, type) values (?,?,?,?)");
@@ -56,7 +40,7 @@ if(empty($rows)) {
 	$ss->setConfig("udpport-0.0.0.0", $pjsip_port);
 	$ss->setConfig("tcpport-0.0.0.0", $pjsip_port);
 	$ss->setConfig("tlsport-0.0.0.0", $pjsiptls_port);
-	$ss->setConfig("binds", array("udp" => array("0.0.0.0" => "on")));
+	$ss->setConfig("binds", ["udp" => ["0.0.0.0" => "on"]]);
 
 	$ss->setConfig('verify_client','yes');
 	$ss->setConfig('verify_server', 'yes');
@@ -113,18 +97,18 @@ sql("DELETE FROM sipsettings WHERE keyword IN ('rtpstart', 'rtpend')");
 
 //attempt to migrate all old localnets && netmasks
 if(!$ss->getConfig('localnets')) {
-	$localnetworks = array();
+	$localnetworks = [];
 	$sql = "SELECT * from sipsettings where keyword LIKE 'localnet_%'";
 	$localnets = sql($sql,'getAll',DB_FETCHMODE_ASSOC);
 	foreach($localnets as $nets) {
-		$break = explode("_",$nets['keyword']);
+		$break = explode("_",(string) $nets['keyword']);
 		$localnetworks[$break[1]]['net'] = $nets['data'];
 	}
 	$sql = "SELECT * from sipsettings where keyword LIKE 'netmask_%'";
 	$netmasks = sql($sql,'getAll',DB_FETCHMODE_ASSOC);
 	foreach($netmasks as $nets) {
-		$break = explode("_",$nets['keyword']);
-		$localnetworks[$break[1]]['mask'] = (preg_match('/\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b/',$nets['data'])) ? $ss->mask2cidr($nets['data']) : $nets['data'];
+		$break = explode("_",(string) $nets['keyword']);
+		$localnetworks[$break[1]]['mask'] = (preg_match('/\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b/',(string) $nets['data'])) ? $ss->mask2cidr($nets['data']) : $nets['data'];
 	}
 
 	if(!empty($localnetworks)) {
@@ -151,9 +135,7 @@ $sql = "SELECT * from sipsettings where keyword='tlsbindport'";
 $tlsbp = sql($sql,'getAll',DB_FETCHMODE_ASSOC);
 if (!isset($tlsbp)) {
 	print_r("run");
-	$sip_settings =  array(
-		array('tlsbindport',$chansiptls_port, '1', '0'),
-	);
+	$sip_settings =  [['tlsbindport', $chansiptls_port, '1', '0']];
 
 	// Now insert minimal codec rows
 	$compiled = $db->prepare("INSERT INTO sipsettings (keyword, data, seq, type) values (?,?,?,?)");
@@ -225,7 +207,7 @@ $sql = "UPDATE `sipsettings` SET `type` = 0 WHERE `keyword` = 'tcpenable'";
 $sth = FREEPBX::Database()->prepare($sql);
 try {
 	$sth->execute();
-} catch(\Exception $e) {
+} catch(\Exception) {
 	$sql = "DELETE FROM `sipsettings` WHERE `type` != 0 AND `keyword` = 'tcpenable'";
 	$sth = FREEPBX::Database()->prepare($sql);
 	$sth->execute();

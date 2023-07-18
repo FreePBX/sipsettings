@@ -17,10 +17,7 @@ class NatGet {
 				$thing = $pest->get('/whatismyip.php');
 				break;
 			} catch(\Exception $e) {
-				$thing = array(
-					"status" => false,
-					"message" => $e->getMessage()
-				);
+				$thing = ["status" => false, "message" => $e->getMessage()];
 			}
 		}
 
@@ -29,15 +26,9 @@ class NatGet {
 		}
 
 		if(!empty($thing->ipaddress) && filter_var((string)$thing->ipaddress, FILTER_VALIDATE_IP)) {
-			return array(
-				"status" => true,
-				"address" => (string)$thing->ipaddress
-			);
+			return ["status" => true, "address" => (string)$thing->ipaddress];
 		} else {
-			return array(
-				"status" => false,
-				"message" => _("Unknown Error")
-			);
+			return ["status" => false, "message" => _("Unknown Error")];
 		}
 	}
 
@@ -49,20 +40,20 @@ class NatGet {
 		// Return a list of routes the machine knows about.
 		$route = fpbx_which('route');
 		if(empty($route)) {
-			return array();
+			return [];
 		}
 		exec("$route -nv",$output,$retcode);
 		if($retcode != 0 || empty($output)) {
-			return array();
+			return [];
 		}
 		// Drop the first two lines, which are just headers..
 		array_shift($output);
 		array_shift($output);
 		// Now loop through whatever's left
-		$routes = array();
+		$routes = [];
 		foreach ($output as $line) {
 			$arr = preg_split('/\s+/', $line);
-			if(count($arr) < 3) {
+			if((is_countable($arr) ? count($arr) : 0) < 3) {
 				//some strange value we dont understand
 				continue;
 			}
@@ -70,25 +61,22 @@ class NatGet {
 				// Don't care about default or host routes
 				continue;
 			}
-			if (substr($arr[0], 0, 7) == "169.254") {
+			if (str_starts_with($arr[0], "169.254")) {
 				// Ignore ipv4 link-local addresses. See RFC3927
 				continue;
 			}
-			$cidr = 32-log((ip2long($arr[2])^4294967295)+1,2);
-			$routes[] = array($arr[0], $cidr);
+			$cidr = 32-log((ip2long($arr[2])^4_294_967_295)+1,2);
+			$routes[] = [$arr[0], $cidr];
 		}
 		return $routes;
 	}
 	
 	/**
-	 * setConfigurations
-	 *
-	 * @param  mixed $key
-	 * @param  mixed $type
-	 * @param  mixed $freepbx
-	 * @return void
-	 */
-	public function setConfigurations($key,$type,$freepbx){
+  * setConfigurations
+  *
+  * @return void
+  */
+ public function setConfigurations(mixed $key,mixed $type,mixed $freepbx){
 		$existingConfig = $this->getConfigurations($type,$freepbx);
 		if($type == "externip"){
 			$nat  = $key[0];
@@ -103,13 +91,11 @@ class NatGet {
 	}
 	
 	/**
-	 * getConfigurations
-	 *
-	 * @param  mixed $type
-	 * @param  mixed $freepbx
-	 * @return void
-	 */
-	public function getConfigurations($type,$freepbx){
+  * getConfigurations
+  *
+  * @return void
+  */
+ public function getConfigurations(mixed $type,mixed $freepbx){
 		return $freepbx->sipsettings->getConfig($type);
 	}
 }

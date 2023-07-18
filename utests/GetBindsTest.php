@@ -27,7 +27,7 @@ class GetBindsTest extends PHPUnit_Framework_TestCase {
 		$driver = self::$f->Config->get_conf_setting('ASTSIPDRIVER');
 		if ($driver !== "both" && $driver !== "pjsip") {
 			// I should get an empty array back for pjsip
-			$this->assertEquals(array(), $binds['pjsip']['[::]'], "Didn't get an empty array when pjsip is not enabled");
+			$this->assertEquals([], $binds['pjsip']['[::]'], "Didn't get an empty array when pjsip is not enabled");
 		} else {
 			// I should get, at least, udp back with a port.
 			$this->assertTrue(isset($binds['pjsip']['[::]']['udp']), "UDP not returned when PJSIP is enabled");
@@ -40,7 +40,7 @@ class GetBindsTest extends PHPUnit_Framework_TestCase {
 		$driver = self::$f->Config->get_conf_setting('ASTSIPDRIVER');
 		if ($driver !== "both" && $driver !== "sip") {
 			// I should get an empty array back for pjsip
-			$this->assertEquals(array(), $binds['sip']['[::]'], "Didn't get an empty array when pjsip is not enabled");
+			$this->assertEquals([], $binds['sip']['[::]'], "Didn't get an empty array when pjsip is not enabled");
 		} else {
 			// I should get, at least, udp back with a port.
 			$this->assertTrue(isset($binds['sip']['[::]']['udp']), "UDP not returned when SIP is enabled");
