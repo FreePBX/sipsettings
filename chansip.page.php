@@ -305,7 +305,7 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 						<i class="fa fa-question-circle fpbx-help-icon" data-for="tlsenable"></i>
 					</div>
 					<div class="col-md-9 radioset">
-						<input type="radio" name="tlsenable" id="tlsenableyes" value="yes" <?php echo ($tlsenable == "yes"?"CHECKED":"") ?>>
+						<input type="radio" name="tlsenable" id="tlsenableyes" value="yes" <?php $tlsenable = $tlsenable ?? ''; echo ($tlsenable == "yes"?"CHECKED":"") ?>>
 						<label for="tlsenableyes"><?php echo _("Yes");?></label>
 						<input type="radio" name="tlsenable" id="tlsenableno" value="no" <?php echo ($tlsenable == "no"?"CHECKED":"") ?>>
 						<label for="tlsenableno"><?php echo _("No");?></label>
@@ -328,7 +328,7 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 					<div class="col-md-9">
 						<select class="form-control" id="csipcalistfile" name="csipcertid">
 							<option value=""><?php echo "--"._("Select a Certificate")."--"?></option>
-							<?php foreach(\FreePBX::Certman()->getAllManagedCertificates() as $cert) { ?>
+							<?php $csipcertid = $csipcertid ?? ''; foreach(\FreePBX::Certman()->getAllManagedCertificates() as $cert) { ?>
 								<option value="<?php echo $cert['cid']?>" <?php echo $csipcertid == $cert['cid'] ? 'selected' : ''?>><?php echo $cert['basename']?></option>
 							<?php } ?>
 						</select>
@@ -349,6 +349,7 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 						<i class="fa fa-question-circle fpbx-help-icon" data-for="tlsclientmethod"></i>
 					</div>
 					<div class="col-md-9 radioset">
+						<?php $tlsclientmethod = $tlsclientmethod ?? ''; ?>
 						<select class="form-control" id="tlsclientmethod" name="tlsclientmethod">
 							<option value="tlsv1" <?php echo ($tlsclientmethod == "tlsv1"?"selected":"") ?>>tlsv1</option>
 							<option value="sslv2" <?php echo ($tlsclientmethod == "sslv2"?"selected":"") ?>>sslv2 (<?php echo _('Insecure')?>)</option>
@@ -370,6 +371,7 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 						<label class="control-label" for="tlsdontverifyserver"><?php echo _("Don't Verify Server") ?></label>
 						<i class="fa fa-question-circle fpbx-help-icon" data-for="tlsdontverifyserver"></i>
 					</div>
+					<?php $tlsdontverifyserver = $tlsdontverifyserver ?? ''; ?>
 					<div class="col-md-9 radioset">
 						<input type="radio" name="tlsdontverifyserver" id="tlsdontverifyserveryes" value="yes" <?php echo ($tlsdontverifyserver == "yes"?"CHECKED":"") ?>>
 						<label for="tlsdontverifyserveryes"><?php echo _("Yes");?></label>
