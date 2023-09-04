@@ -18,8 +18,8 @@ if ($sa != "no") {
 }
 
 $protocols = $this->getConfig("protocols");
+$protohtml = $udphtml = $bindhtml = '';
 foreach ($protocols as $p) {
-	$protohtml = $udphtml = $bindhtml = '';
 	$allBinds = $this->getConfig("binds");
 	$binds = !empty($allBinds[$p]) && is_array($allBinds[$p]) ? $allBinds[$p] : [];
 	$cbs = '';
