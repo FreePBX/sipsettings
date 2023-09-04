@@ -154,7 +154,7 @@ foreach ($protocols as $p) {
 			'.$udphtml.'
 			</div>
 		';
-		unset($udphtml);
+		$udphtml='';
 	}
 }
 ?>
