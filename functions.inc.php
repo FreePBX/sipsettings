@@ -510,7 +510,7 @@ function sipsettings_edit($sip_settings) {
 					$fvcodecs[$codec] = $seq++;
 			}
 		}
-		if ($_REQUEST['category'] == "general" && $_REQUEST['Submit'] == "Submit"){
+		if ((isset($_REQUEST['category']) && $_REQUEST['category'] == "general") && $_REQUEST['Submit'] == "Submit"){
 			FreePBX::Sipsettings()->setCodecs('video',$fvcodecs);
 		}
 
