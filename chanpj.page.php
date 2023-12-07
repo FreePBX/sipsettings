@@ -39,7 +39,7 @@ foreach ($protocols as $p) {
 		} else {
 			$isall = "btn-notall btn-proto-$p";
 		}
-		$thisTitle = "$p - ${i[0]} - ${i[1]}";
+		$thisTitle = "$p - {$i[0]} - {$i[1]}";
 		$thisID = $p."bindip-".$i[0];
 		if($lastproto != $p){
 			if($lastproto != ""){
