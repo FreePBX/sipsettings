@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX sipsettings\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-31 10:52+0000\n"
+"POT-Creation-Date: 2023-12-08 09:16+0000\n"
 "PO-Revision-Date: 2011-03-20 00:00+0100\n"
 "Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
 "Language-Team: Swedish\n"
@@ -156,10 +156,6 @@ msgstr ""
 "Asterisk NAT-inställningar:<br /> yes = Ignorera alltid info och förutsätt "
 "NAT<br /> no = Använd NAT-läge enligt RFC3581 <br /> never = Använd aldrig "
 "NAT-läge eller RFC3581 <br /> route = Förutsätt NAT, sänd inte rport "
-
-#: sipsettings.i18n.php:4 sipsettings.i18n.php:10
-msgid "Asterisk SIP Settings"
-msgstr "Asterisk SIP-inställningar"
 
 #: Sipsettings.class.php:203
 #, php-format
@@ -1062,10 +1058,6 @@ msgstr ""
 msgid "Setting up chan_sip only."
 msgstr ""
 
-#: sipsettings.i18n.php:6
-msgid "Settings"
-msgstr ""
-
 #: chansip.page.php:1110
 #, php-format
 msgid "Settings in %s may override these. Those settings should be removed."
@@ -1293,10 +1285,6 @@ msgstr ""
 
 #: chanpj.page.php:76
 msgid "Use "
-msgstr ""
-
-#: sipsettings.i18n.php:8
-msgid "Use to configure Various Asterisk SIP and PJSIP Settings"
 msgstr ""
 
 #: general.page.php:460 general.page.php:645
@@ -1529,6 +1517,9 @@ msgstr ""
 #: chansip.page.php:161 chansip.page.php:434
 msgid "yes"
 msgstr "ja"
+
+#~ msgid "Asterisk SIP Settings"
+#~ msgstr "Asterisk SIP-inställningar"
 
 #~ msgid "checking for sipsettings table.."
 #~ msgstr "kontrollerar tabellen sipsettings.."

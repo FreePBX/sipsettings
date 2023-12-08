@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-31 10:52+0000\n"
+"POT-Creation-Date: 2023-12-08 09:16+0000\n"
 "PO-Revision-Date: 2015-12-05 10:05+0200\n"
 "Last-Translator: Andrew <andrew.nagy@the159.com>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/"
@@ -174,10 +174,6 @@ msgstr ""
 "предполагать NAT<br /> no = Использовать режим NAT в соостветствии с RFC3581 "
 "<br /> never = Никогда не пытаться использовать NAT или RFC3581 <br /> route "
 "= предполагая NAT не указывать rport"
-
-#: sipsettings.i18n.php:4 sipsettings.i18n.php:10
-msgid "Asterisk SIP Settings"
-msgstr "Установки Asterisk для SIP"
 
 #: Sipsettings.class.php:203
 #, php-format
@@ -1148,10 +1144,6 @@ msgstr ""
 msgid "Setting up chan_sip only."
 msgstr ""
 
-#: sipsettings.i18n.php:6
-msgid "Settings"
-msgstr "Настройки"
-
 #: chansip.page.php:1110
 #, php-format
 msgid "Settings in %s may override these. Those settings should be removed."
@@ -1392,10 +1384,6 @@ msgstr ""
 #: chanpj.page.php:76
 msgid "Use "
 msgstr "Использовать "
-
-#: sipsettings.i18n.php:8
-msgid "Use to configure Various Asterisk SIP and PJSIP Settings"
-msgstr ""
 
 #: general.page.php:460 general.page.php:645
 msgid ""
@@ -1639,6 +1627,12 @@ msgstr ""
 #: chansip.page.php:161 chansip.page.php:434
 msgid "yes"
 msgstr "да"
+
+#~ msgid "Asterisk SIP Settings"
+#~ msgstr "Установки Asterisk для SIP"
+
+#~ msgid "Settings"
+#~ msgstr "Настройки"
 
 #~ msgid "Default bind port for CHAN_PJSIP is: %s, CHAN_SIP is: %s"
 #~ msgstr "Привязка порта по умолчанию для CHAN_PJSIP: %s, CHAN_SIP: %s"

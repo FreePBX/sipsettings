@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-31 10:52+0000\n"
+"POT-Creation-Date: 2023-12-08 09:16+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -148,10 +148,6 @@ msgid ""
 "Asterisk NAT setting:<br /> yes = Always ignore info and assume NAT<br /> no "
 "= Use NAT mode only according to RFC3581 <br /> never = Never attempt NAT "
 "mode or RFC3581 <br /> route = Assume NAT, don't send rport"
-msgstr ""
-
-#: sipsettings.i18n.php:4 sipsettings.i18n.php:10
-msgid "Asterisk SIP Settings"
 msgstr ""
 
 #: Sipsettings.class.php:203
@@ -1030,10 +1026,6 @@ msgstr ""
 msgid "Setting up chan_sip only."
 msgstr ""
 
-#: sipsettings.i18n.php:6
-msgid "Settings"
-msgstr ""
-
 #: chansip.page.php:1110
 #, php-format
 msgid "Settings in %s may override these. Those settings should be removed."
@@ -1259,10 +1251,6 @@ msgstr ""
 
 #: chanpj.page.php:76
 msgid "Use "
-msgstr ""
-
-#: sipsettings.i18n.php:8
-msgid "Use to configure Various Asterisk SIP and PJSIP Settings"
 msgstr ""
 
 #: general.page.php:460 general.page.php:645
