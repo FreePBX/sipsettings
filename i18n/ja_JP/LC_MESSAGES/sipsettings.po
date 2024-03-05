@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-08 09:16+0000\n"
+"POT-Creation-Date: 2024-03-05 02:36-0500\n"
 "PO-Revision-Date: 2017-05-23 13:16+0200\n"
 "Last-Translator: Kenichi <k.fukaumi@qloog.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/"
@@ -168,7 +168,7 @@ msgid ""
 "modules."
 msgstr ""
 
-#: Sipsettings.class.php:938
+#: Sipsettings.class.php:941
 msgid ""
 "An unknown port conflict has been detected in PJSIP. Please check and "
 "validate your PJSIP Ports to ensure they're not overlapping"
@@ -184,7 +184,11 @@ msgstr ""
 "RFC3581に従って、NATモードを使用 <br/> never = RFC3581とNATモードを使わない "
 "<br/> route = NATを前提として、rportを送信しない"
 
-#: Sipsettings.class.php:203
+#: sipsettings.i18n.php:4 sipsettings.i18n.php:10
+msgid "Asterisk SIP Settings"
+msgstr "Asterisk SIP 設定"
+
+#: Sipsettings.class.php:204
 #, php-format
 msgid "Asterisk is currently using %s for SIP Traffic."
 msgstr ""
@@ -278,15 +282,15 @@ msgstr ""
 msgid "CA Chain File"
 msgstr ""
 
-#: Sipsettings.class.php:952
+#: Sipsettings.class.php:955
 msgid "CHANSIP Port Moved"
 msgstr ""
 
-#: Sipsettings.class.php:962
+#: Sipsettings.class.php:965
 msgid "CHANSIP TCP Disabled"
 msgstr ""
 
-#: Sipsettings.class.php:973
+#: Sipsettings.class.php:976
 msgid "CHANSIP TLS Port Moved"
 msgstr ""
 
@@ -318,21 +322,21 @@ msgstr ""
 msgid "Chan_sip must be selected only. No update."
 msgstr ""
 
-#: Sipsettings.class.php:973
+#: Sipsettings.class.php:976
 #, php-format
 msgid ""
 "Chansip was assigned a port that was already in use for TLS traffic. The "
 "Chansip TLS port has been changed to %s"
 msgstr ""
 
-#: Sipsettings.class.php:962
+#: Sipsettings.class.php:965
 msgid ""
 "Chansip was assigned the same port as pjsip for TCP traffic. Chansip has had "
 "the tcpenable setting removed, and is no longer listening for TCP "
 "connections."
 msgstr ""
 
-#: Sipsettings.class.php:952
+#: Sipsettings.class.php:955
 #, php-format
 msgid ""
 "Chansip was assigned the same port as pjsip for UDP traffic. The Chansip "
@@ -565,7 +569,7 @@ msgid ""
 "Frequency in seconds to check if MWI state has changed and inform peers."
 msgstr "MWI の状態変更をチェックして、ピアに通知する頻度（秒）"
 
-#: Sipsettings.class.php:218
+#: Sipsettings.class.php:219
 msgid "General SIP Settings"
 msgstr ""
 
@@ -652,7 +656,7 @@ msgstr ""
 msgid "Invalid mode '"
 msgstr ""
 
-#: Sipsettings.class.php:1231
+#: Sipsettings.class.php:1234
 msgid "It is recommended that this option remain set to no."
 msgstr ""
 
@@ -909,7 +913,7 @@ msgstr "その他のSIP設定"
 msgid "Override External IP"
 msgstr ""
 
-#: Sipsettings.class.php:1231
+#: Sipsettings.class.php:1234
 msgid "PJSIP 'Allow Transports Reload' option is set to yes."
 msgstr ""
 
@@ -1009,7 +1013,7 @@ msgstr ""
 msgid "Require verification of server certificate (TLS ONLY)."
 msgstr ""
 
-#: Sipsettings.class.php:683
+#: Sipsettings.class.php:686
 msgid "Reset"
 msgstr ""
 
@@ -1035,7 +1039,7 @@ msgstr ""
 msgid "Returns the network mask"
 msgstr ""
 
-#: Sipsettings.class.php:225
+#: Sipsettings.class.php:226
 msgid "SIP Legacy Settings [chan_sip]"
 msgstr ""
 
@@ -1043,7 +1047,7 @@ msgstr ""
 msgid "SIP Settings"
 msgstr ""
 
-#: Sipsettings.class.php:221
+#: Sipsettings.class.php:222
 msgid "SIP Settings [chan_pjsip]"
 msgstr ""
 
@@ -1087,6 +1091,10 @@ msgstr ""
 msgid "Setting up chan_sip only."
 msgstr ""
 
+#: sipsettings.i18n.php:6
+msgid "Settings"
+msgstr "設定"
+
 #: chansip.page.php:1110
 #, php-format
 msgid "Settings in %s may override these. Those settings should be removed."
@@ -1122,7 +1130,7 @@ msgstr ""
 msgid "Strict RTP"
 msgstr ""
 
-#: Sipsettings.class.php:683
+#: Sipsettings.class.php:686
 msgid "Submit"
 msgstr ""
 
@@ -1288,11 +1296,11 @@ msgstr ""
 msgid "Unknown Error"
 msgstr ""
 
-#: Sipsettings.class.php:938
+#: Sipsettings.class.php:941
 msgid "Unknown Port Conflict"
 msgstr ""
 
-#: Sipsettings.class.php:497 Sipsettings.class.php:583
+#: Sipsettings.class.php:498 Sipsettings.class.php:584
 msgid "Unknown Type"
 msgstr ""
 
@@ -1314,6 +1322,10 @@ msgstr ""
 
 #: chanpj.page.php:76
 msgid "Use "
+msgstr ""
+
+#: sipsettings.i18n.php:8
+msgid "Use to configure Various Asterisk SIP and PJSIP Settings"
 msgstr ""
 
 #: general.page.php:460 general.page.php:645
@@ -1405,7 +1417,7 @@ msgstr ""
 msgid "Yes with no error correction"
 msgstr ""
 
-#: Sipsettings.class.php:209
+#: Sipsettings.class.php:210
 msgid "You can change this on the Advanced Settings Page"
 msgstr ""
 
@@ -1446,7 +1458,7 @@ msgstr ""
 msgid "already exists"
 msgstr "既に既存します。"
 
-#: Sipsettings.class.php:205
+#: Sipsettings.class.php:206
 msgid "chan_pjsip and chan_sip"
 msgstr ""
 
@@ -1546,12 +1558,6 @@ msgstr ""
 #: chansip.page.php:161 chansip.page.php:434
 msgid "yes"
 msgstr "はい"
-
-#~ msgid "Asterisk SIP Settings"
-#~ msgstr "Asterisk SIP 設定"
-
-#~ msgid "Settings"
-#~ msgstr "設定"
 
 #~ msgid "checking for sipsettings table.."
 #~ msgstr "sipsettings が存在するかどうかをチェック中..."
