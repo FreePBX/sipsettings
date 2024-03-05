@@ -10,6 +10,7 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 	final public const SIP_CODEC = 1;
 	final public const SIP_VIDEO_CODEC = 2;
 	final public const SIP_CUSTOM = 9;
+	final public const SIP_T38UDPTL = 10;
 
 	private $pagename = null;
 	private ?array $pagedata = null;
@@ -598,6 +599,8 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 
 		foreach ($raw_settings as $var) {
 			switch ($var['type']) {
+			case self::SIP_T38UDPTL:
+				break;
 			case self::SIP_NORMAL:
 				$sip_settings[$var['keyword']]				 = $var['data'];
 				break;
