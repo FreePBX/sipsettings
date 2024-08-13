@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-20 03:42-0400\n"
+"POT-Creation-Date: 2024-08-12 23:41-0400\n"
 "PO-Revision-Date: 2017-06-07 15:50+0200\n"
 "Last-Translator: Michal <mboltz@tlen.pl>\n"
 "Language-Team: Polish (Polish) <http://weblate.freepbx.org/projects/freepbx/"
@@ -86,7 +86,7 @@ msgstr ""
 msgid "Advanced General Settings"
 msgstr "Zaawansowane ustawienia ogólne"
 
-#: chanpj.page.php:484
+#: chanpj.page.php:485
 msgid ""
 "After you enable/disable a transport, asterisk needs to be "
 "<strong>restarted</strong>, not just reloaded."
@@ -666,7 +666,7 @@ msgstr ""
 "Automatyczna konfiguracja tego, co jest często umieszczane w pliku sip_nat."
 "conf"
 
-#: chanpj.page.php:417 chanpj.page.php:418 chanpj.page.php:419
+#: chanpj.page.php:418 chanpj.page.php:419 chanpj.page.php:420
 #: chansip.page.php:355 chansip.page.php:356
 msgid "Insecure"
 msgstr ""
@@ -834,7 +834,7 @@ msgstr ""
 msgid "Message for the request"
 msgstr ""
 
-#: chanpj.page.php:426
+#: chanpj.page.php:427
 msgid ""
 "Method of SSL transport (TLS ONLY). The default is currently TLSv1, but may "
 "change with future releases."
@@ -893,8 +893,8 @@ msgid "New SIPSettings installation detected. Initializing default settings"
 msgstr ""
 
 #: chanpj.page.php:69 chanpj.page.php:180 chanpj.page.php:203
-#: chanpj.page.php:247 chanpj.page.php:299 chanpj.page.php:441
-#: chanpj.page.php:462 chansip.page.php:311 chansip.page.php:379
+#: chanpj.page.php:247 chanpj.page.php:299 chanpj.page.php:442
+#: chanpj.page.php:463 chansip.page.php:311 chansip.page.php:379
 #: chansip.page.php:409 chansip.page.php:496 chansip.page.php:523
 #: chansip.page.php:680 chansip.page.php:708 chansip.page.php:762
 #: chansip.page.php:955 chansip.page.php:981 chansip.page.php:1007
@@ -914,7 +914,7 @@ msgid ""
 "to use IPv6, it is recommended to use PJSip for those devices or trunks."
 msgstr ""
 
-#: chanpj.page.php:479
+#: chanpj.page.php:480
 msgid ""
 "Note that the interface is only displayed for your information, and is not "
 "referenced by asterisk."
@@ -1049,11 +1049,11 @@ msgstr ""
 msgid "Reinvite Behavior"
 msgstr ""
 
-#: chanpj.page.php:447
+#: chanpj.page.php:448
 msgid "Require verification of client certificate (TLS ONLY)."
 msgstr ""
 
-#: chanpj.page.php:468
+#: chanpj.page.php:469
 msgid "Require verification of server certificate (TLS ONLY)."
 msgstr ""
 
@@ -1324,7 +1324,7 @@ msgid ""
 "stream. It is unusual to turn this off"
 msgstr ""
 
-#: chanpj.page.php:475
+#: chanpj.page.php:476
 msgid "Transports"
 msgstr ""
 
@@ -1376,11 +1376,11 @@ msgid ""
 "disabled by default."
 msgstr ""
 
-#: chanpj.page.php:434
+#: chanpj.page.php:435
 msgid "Verify Client"
 msgstr ""
 
-#: chanpj.page.php:455
+#: chanpj.page.php:456
 msgid "Verify Server"
 msgstr ""
 
@@ -1437,8 +1437,8 @@ msgid "Whether to enable or disable UDP checksums on RTP traffic"
 msgstr ""
 
 #: chanpj.page.php:67 chanpj.page.php:178 chanpj.page.php:201
-#: chanpj.page.php:245 chanpj.page.php:297 chanpj.page.php:439
-#: chanpj.page.php:460 chansip.page.php:309 chansip.page.php:377
+#: chanpj.page.php:245 chanpj.page.php:297 chanpj.page.php:440
+#: chanpj.page.php:461 chansip.page.php:309 chansip.page.php:377
 #: chansip.page.php:407 chansip.page.php:494 chansip.page.php:521
 #: chansip.page.php:678 chansip.page.php:706 chansip.page.php:760
 #: chansip.page.php:953 chansip.page.php:979 chansip.page.php:1005
@@ -1463,7 +1463,7 @@ msgstr ""
 msgid "You can change this on the Advanced Settings Page"
 msgstr ""
 
-#: chanpj.page.php:482
+#: chanpj.page.php:483
 #, php-format
 msgid ""
 "You have Asterisk %s which no longer needs to be restarted for transport "

@@ -4,7 +4,7 @@
   <candisable>no</candisable>
   <canuninstall>no</canuninstall>
   <name>Asterisk SIP Settings</name>
-  <version>17.0.6.8</version>
+  <version>17.0.6.9</version>
   <publisher>Sangoma Technologies Corporation</publisher>
   <license>AGPLv3+</license>
   <licenselink>https://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
@@ -25,9 +25,9 @@
   </description>
   <more-info>https://sangomakb.atlassian.net/wiki/spaces/PG/pages/26640481/Asterisk+SIP+Settings</more-info>
   <changelog>
-		*17.0.6.8* Packaging of ver 17.0.6.8
+	  *17.0.6.9* Packaging of ver 17.0.6.9
 	  *17.0.1alpha* 17.0.1 alpha release
-	</changelog>
+  </changelog>
   <depends>
     <module>core ge 17.0.1</module>
     <module>backup ge 17.0.1</module>
