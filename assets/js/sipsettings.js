@@ -10,6 +10,10 @@ $(document).ready(function() {
 	   }
 	});
 	$("form").submit(function() {
+		var isPjsipPortValid  = checkPjsipPortSettings();
+		if (!isPjsipPortValid) {
+			return isPjsipPortValid;
+		}
 		if(changed) {
 			alert(_("Port/Bind Address has changed. This requires an Asterisk restart after Apply Config"));
 		}
@@ -311,4 +315,42 @@ function addLocalnet(net, cidr) {
 	html += "</div>\n";
 
 	last.after(html);
+}
+
+/*
+ * Check PJSIP Port Settings
+*/
+function checkPjsipPortSettings() {
+	let isValid = true;
+	$('input[type="radio"][data-proto="udp"]:checked').each(function () {
+		if ($(this).val() === 'on'  && isValid) {
+			const udpPortInput = $('[id^="udpport"]');
+			const udpElement = $('[data-id="pjsbind.udp"]');
+			if ((udpElement.length > 0) && (udpPortInput.length > 0 && udpPortInput.val().trim() === '')) {
+				warnInvalid($(udpPortInput), _('A valid port number must be provided for UDP transport.'));
+				isValid = false;
+			}
+		}
+	});
+	$('input[type="radio"][data-proto="tcp"]:checked').each(function () {
+		if ($(this).val() === 'on' && isValid) {
+			const tcpPortInput = $('[id^="tcpport"]');
+			const tcpElement = $('[data-id="pjsbind.tcp"]');
+			if ((tcpElement.length > 0) && (tcpPortInput.length > 0 && tcpPortInput.val().trim() === '')) {
+				warnInvalid($(tcpPortInput), _('A valid port number must be provided for TCP transport.'));
+				isValid = false;
+			}
+		}
+	});
+	$('input[type="radio"][data-proto="tls"]:checked').each(function () {
+		if ($(this).val() === 'on' && isValid) {
+			const tlsPortInput = $('[id^="tlsport"]');
+			const tlsElement = $('[data-id="pjsbind.tls"]');
+			if ((tlsElement.length > 0 ) && (tlsPortInput.length > 0 && tlsPortInput.val().trim() === '')) {
+				warnInvalid($(tlsPortInput), _('A valid port number must be provided for TLS transport.'));
+				isValid = false;
+			}
+		}
+	});
+	return isValid;
 }
