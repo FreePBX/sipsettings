@@ -413,8 +413,18 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 		// Renumber the array
 		if (!empty($_REQUEST['localnets'])) {
 			$localnets = array_values($_REQUEST['localnets']);
-			foreach($localnets as $nets){
-				$timedlocalnets[] = array_map('trim',$nets);
+			$timedlocalnets = [];
+			foreach ($localnets as $nets) {
+				$net = trim($nets['net'], " /"); // remove spaces and trailing slash
+				$mask = trim($nets['mask']);
+
+				// Validate the IP address
+				if (filter_var($net, FILTER_VALIDATE_IP)) {
+					$timedlocalnets[] = [
+						'net' => $net,
+						'mask' => $mask
+					];
+				}
 			}
 			$this->setConfig('localnets',$timedlocalnets);
 		} else {
