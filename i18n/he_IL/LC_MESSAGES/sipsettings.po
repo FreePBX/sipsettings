@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-29 03:01+0000\n"
+"POT-Creation-Date: 2025-07-11 03:56+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -126,7 +126,7 @@ msgid ""
 "rendered useless as well as if 'Allow SIP Guests' is set to no."
 msgstr ""
 
-#: assets/js/sipsettings.js:168
+#: assets/js/sipsettings.js:172
 msgid ""
 "An Error occurred trying fetch network configuration and external IP address"
 msgstr ""
@@ -137,7 +137,7 @@ msgid ""
 "modules."
 msgstr ""
 
-#: Sipsettings.class.php:979
+#: Sipsettings.class.php:989
 msgid ""
 "An unknown port conflict has been detected in PJSIP. Please check and "
 "validate your PJSIP Ports to ensure they're not overlapping"
@@ -234,15 +234,15 @@ msgstr ""
 msgid "CA Chain File"
 msgstr ""
 
-#: Sipsettings.class.php:993
+#: Sipsettings.class.php:1003
 msgid "CHANSIP Port Moved"
 msgstr ""
 
-#: Sipsettings.class.php:1003
+#: Sipsettings.class.php:1013
 msgid "CHANSIP TCP Disabled"
 msgstr ""
 
-#: Sipsettings.class.php:1014
+#: Sipsettings.class.php:1024
 msgid "CHANSIP TLS Port Moved"
 msgstr ""
 
@@ -274,21 +274,21 @@ msgstr ""
 msgid "Chan_sip must be selected only. No update."
 msgstr ""
 
-#: Sipsettings.class.php:1014
+#: Sipsettings.class.php:1024
 #, php-format
 msgid ""
 "Chansip was assigned a port that was already in use for TLS traffic. The "
 "Chansip TLS port has been changed to %s"
 msgstr ""
 
-#: Sipsettings.class.php:1003
+#: Sipsettings.class.php:1013
 msgid ""
 "Chansip was assigned the same port as pjsip for TCP traffic. Chansip has had "
 "the tcpenable setting removed, and is no longer listening for TCP "
 "connections."
 msgstr ""
 
-#: Sipsettings.class.php:993
+#: Sipsettings.class.php:1003
 #, php-format
 msgid ""
 "Chansip was assigned the same port as pjsip for UDP traffic. The Chansip "
@@ -447,12 +447,12 @@ msgid ""
 "ul>"
 msgstr ""
 
-#: assets/js/sipsettings.js:257 assets/js/sipsettings.js:260
-#: assets/js/sipsettings.js:269
+#: assets/js/sipsettings.js:261 assets/js/sipsettings.js:264
+#: assets/js/sipsettings.js:273
 msgid "Enter IP Address"
 msgstr ""
 
-#: assets/js/sipsettings.js:265 assets/js/sipsettings.js:268
+#: assets/js/sipsettings.js:269 assets/js/sipsettings.js:272
 #, perl-format
 msgid "Error: %s"
 msgstr ""
@@ -471,7 +471,7 @@ msgstr ""
 msgid "External IP Address"
 msgstr ""
 
-#: functions.inc.php:426 assets/js/sipsettings.js:20
+#: functions.inc.php:426 assets/js/sipsettings.js:24
 msgid ""
 "External IP can not be blank when NAT Mode is set to Static and no default "
 "IP address provided on the main page"
@@ -599,7 +599,7 @@ msgstr ""
 msgid "Invalid mode '"
 msgstr ""
 
-#: Sipsettings.class.php:1272
+#: Sipsettings.class.php:1282
 msgid "It is recommended that this option remain set to no."
 msgstr ""
 
@@ -654,7 +654,7 @@ msgstr ""
 msgid "Lists the External IPs"
 msgstr ""
 
-#: assets/js/sipsettings.js:250
+#: assets/js/sipsettings.js:254
 msgid "Loading"
 msgstr ""
 
@@ -852,11 +852,11 @@ msgstr ""
 msgid "Override External IP"
 msgstr ""
 
-#: Sipsettings.class.php:1272
+#: Sipsettings.class.php:1282
 msgid "PJSIP 'Allow Transports Reload' option is set to yes."
 msgstr ""
 
-#: assets/js/sipsettings.js:238
+#: assets/js/sipsettings.js:242
 msgid "PJSIP transport port conflicts with SIP port"
 msgstr ""
 
@@ -878,7 +878,7 @@ msgstr ""
 msgid "Port to Listen On"
 msgstr ""
 
-#: assets/js/sipsettings.js:14
+#: assets/js/sipsettings.js:18
 msgid ""
 "Port/Bind Address has changed. This requires an Asterisk restart after Apply "
 "Config"
@@ -952,7 +952,7 @@ msgstr ""
 msgid "Require verification of server certificate (TLS ONLY)."
 msgstr ""
 
-#: Sipsettings.class.php:711
+#: Sipsettings.class.php:721
 msgid "Reset"
 msgstr ""
 
@@ -1067,7 +1067,7 @@ msgstr ""
 msgid "Strict RTP"
 msgstr ""
 
-#: Sipsettings.class.php:716
+#: Sipsettings.class.php:726
 msgid "Submit"
 msgstr ""
 
@@ -1233,11 +1233,11 @@ msgstr ""
 msgid "Unknown Error"
 msgstr ""
 
-#: Sipsettings.class.php:979
+#: Sipsettings.class.php:989
 msgid "Unknown Port Conflict"
 msgstr ""
 
-#: Sipsettings.class.php:514 Sipsettings.class.php:601
+#: Sipsettings.class.php:524 Sipsettings.class.php:611
 msgid "Unknown Type"
 msgstr ""
 

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-29 03:01+0000\n"
+"POT-Creation-Date: 2025-07-11 03:56+0000\n"
 "PO-Revision-Date: 2016-12-12 02:44+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/"
@@ -133,7 +133,7 @@ msgstr ""
 "cambia de arriba a algo personalizado esta configuración puede ser inútil, "
 "así como si 'Permitir Invitados SIP' se establecer en NO."
 
-#: assets/js/sipsettings.js:168
+#: assets/js/sipsettings.js:172
 msgid ""
 "An Error occurred trying fetch network configuration and external IP address"
 msgstr ""
@@ -145,7 +145,7 @@ msgid ""
 "modules."
 msgstr ""
 
-#: Sipsettings.class.php:979
+#: Sipsettings.class.php:989
 msgid ""
 "An unknown port conflict has been detected in PJSIP. Please check and "
 "validate your PJSIP Ports to ensure they're not overlapping"
@@ -270,15 +270,15 @@ msgstr ""
 msgid "CA Chain File"
 msgstr "Archivo de cadenas de CA"
 
-#: Sipsettings.class.php:993
+#: Sipsettings.class.php:1003
 msgid "CHANSIP Port Moved"
 msgstr "CHANSIP Puerto Movido"
 
-#: Sipsettings.class.php:1003
+#: Sipsettings.class.php:1013
 msgid "CHANSIP TCP Disabled"
 msgstr "CHANSIP TCP Deshabilitado"
 
-#: Sipsettings.class.php:1014
+#: Sipsettings.class.php:1024
 msgid "CHANSIP TLS Port Moved"
 msgstr "CHANSIP TLS Puerto Movido"
 
@@ -310,7 +310,7 @@ msgstr "Chan SIP"
 msgid "Chan_sip must be selected only. No update."
 msgstr ""
 
-#: Sipsettings.class.php:1014
+#: Sipsettings.class.php:1024
 #, php-format
 msgid ""
 "Chansip was assigned a port that was already in use for TLS traffic. The "
@@ -319,7 +319,7 @@ msgstr ""
 "Chansip recibió un puerto que ya estaba en uso para el tráfico TLS. El "
 "puerto Chansip TLS se ha cambiado a %s"
 
-#: Sipsettings.class.php:1003
+#: Sipsettings.class.php:1013
 msgid ""
 "Chansip was assigned the same port as pjsip for TCP traffic. Chansip has had "
 "the tcpenable setting removed, and is no longer listening for TCP "
@@ -328,7 +328,7 @@ msgstr ""
 "Chansip se asignó el mismo puerto que pjsip para el tráfico TCP. Chansip ha "
 "eliminado el ajuste tcpenable y ya no está escuchando las conexiones TCP."
 
-#: Sipsettings.class.php:993
+#: Sipsettings.class.php:1003
 #, php-format
 msgid ""
 "Chansip was assigned the same port as pjsip for UDP traffic. The Chansip "
@@ -497,12 +497,12 @@ msgid ""
 "ul>"
 msgstr ""
 
-#: assets/js/sipsettings.js:257 assets/js/sipsettings.js:260
-#: assets/js/sipsettings.js:269
+#: assets/js/sipsettings.js:261 assets/js/sipsettings.js:264
+#: assets/js/sipsettings.js:273
 msgid "Enter IP Address"
 msgstr "Entre Dirección IP"
 
-#: assets/js/sipsettings.js:265 assets/js/sipsettings.js:268
+#: assets/js/sipsettings.js:269 assets/js/sipsettings.js:272
 #, perl-format
 msgid "Error: %s"
 msgstr "Error: %s"
@@ -523,7 +523,7 @@ msgstr ""
 msgid "External IP Address"
 msgstr "Dirección IP Externa"
 
-#: functions.inc.php:426 assets/js/sipsettings.js:20
+#: functions.inc.php:426 assets/js/sipsettings.js:24
 msgid ""
 "External IP can not be blank when NAT Mode is set to Static and no default "
 "IP address provided on the main page"
@@ -679,7 +679,7 @@ msgstr ""
 msgid "Invalid mode '"
 msgstr ""
 
-#: Sipsettings.class.php:1272
+#: Sipsettings.class.php:1282
 msgid "It is recommended that this option remain set to no."
 msgstr ""
 
@@ -743,7 +743,7 @@ msgstr ""
 msgid "Lists the External IPs"
 msgstr ""
 
-#: assets/js/sipsettings.js:250
+#: assets/js/sipsettings.js:254
 msgid "Loading"
 msgstr "Cargando"
 
@@ -958,11 +958,11 @@ msgstr "Otras Configuraciones SIP"
 msgid "Override External IP"
 msgstr "Sobreescribir IP Externa"
 
-#: Sipsettings.class.php:1272
+#: Sipsettings.class.php:1282
 msgid "PJSIP 'Allow Transports Reload' option is set to yes."
 msgstr ""
 
-#: assets/js/sipsettings.js:238
+#: assets/js/sipsettings.js:242
 msgid "PJSIP transport port conflicts with SIP port"
 msgstr "El puerto de transporte PJSIP entra en conflicto con el puerto SIP"
 
@@ -986,7 +986,7 @@ msgstr ""
 msgid "Port to Listen On"
 msgstr "Puerto para escuchar en"
 
-#: assets/js/sipsettings.js:14
+#: assets/js/sipsettings.js:18
 msgid ""
 "Port/Bind Address has changed. This requires an Asterisk restart after Apply "
 "Config"
@@ -1062,7 +1062,7 @@ msgstr "Requiere verificación del certificado de cliente (TLS SOLAMENTE)."
 msgid "Require verification of server certificate (TLS ONLY)."
 msgstr "Requiere verificación del certificado del servidor (TLS SOLAMENTE)."
 
-#: Sipsettings.class.php:711
+#: Sipsettings.class.php:721
 msgid "Reset"
 msgstr "Reinicio"
 
@@ -1185,7 +1185,7 @@ msgstr ""
 msgid "Strict RTP"
 msgstr "Estricto RTP"
 
-#: Sipsettings.class.php:716
+#: Sipsettings.class.php:726
 msgid "Submit"
 msgstr "Enviar"
 
@@ -1370,11 +1370,11 @@ msgstr ""
 msgid "Unknown Error"
 msgstr "Error desconocido"
 
-#: Sipsettings.class.php:979
+#: Sipsettings.class.php:989
 msgid "Unknown Port Conflict"
 msgstr "Conflicto de puerto desconocido"
 
-#: Sipsettings.class.php:514 Sipsettings.class.php:601
+#: Sipsettings.class.php:524 Sipsettings.class.php:611
 msgid "Unknown Type"
 msgstr "Tipo Desconocido"
 
