@@ -3,13 +3,13 @@
 # For licensing information, please see the file named LICENSE located in the module directory
 #
 # FreePBX language template for sipsettings
-# Copyright (C) 2008-2024 Sangoma Technologies, Inc.
+# Copyright (C) 2008-2025 Sangoma Technologies, Inc.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-12 23:41-0400\n"
+"POT-Creation-Date: 2025-07-10 23:56-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -117,7 +117,7 @@ msgid ""
 "rendered useless as well as if 'Allow SIP Guests' is set to no."
 msgstr ""
 
-#: assets/js/sipsettings.js:168
+#: assets/js/sipsettings.js:172
 msgid ""
 "An Error occurred trying fetch network configuration and external IP address"
 msgstr ""
@@ -128,7 +128,7 @@ msgid ""
 "modules."
 msgstr ""
 
-#: Sipsettings.class.php:938
+#: Sipsettings.class.php:948
 msgid ""
 "An unknown port conflict has been detected in PJSIP. Please check and "
 "validate your PJSIP Ports to ensure they're not overlapping"
@@ -226,15 +226,15 @@ msgstr ""
 msgid "CA Chain File"
 msgstr ""
 
-#: Sipsettings.class.php:952
+#: Sipsettings.class.php:962
 msgid "CHANSIP Port Moved"
 msgstr ""
 
-#: Sipsettings.class.php:962
+#: Sipsettings.class.php:972
 msgid "CHANSIP TCP Disabled"
 msgstr ""
 
-#: Sipsettings.class.php:973
+#: Sipsettings.class.php:983
 msgid "CHANSIP TLS Port Moved"
 msgstr ""
 
@@ -267,21 +267,21 @@ msgstr ""
 msgid "Chan_sip must be selected only. No update."
 msgstr ""
 
-#: Sipsettings.class.php:973
+#: Sipsettings.class.php:983
 #, php-format
 msgid ""
 "Chansip was assigned a port that was already in use for TLS traffic. The "
 "Chansip TLS port has been changed to %s"
 msgstr ""
 
-#: Sipsettings.class.php:962
+#: Sipsettings.class.php:972
 msgid ""
 "Chansip was assigned the same port as pjsip for TCP traffic. Chansip has had "
 "the tcpenable setting removed, and is no longer listening for TCP "
 "connections."
 msgstr ""
 
-#: Sipsettings.class.php:952
+#: Sipsettings.class.php:962
 #, php-format
 msgid ""
 "Chansip was assigned the same port as pjsip for UDP traffic. The Chansip "
@@ -441,14 +441,14 @@ msgid ""
 "ul>"
 msgstr ""
 
-#: assets/js/sipsettings.js:257
-#: assets/js/sipsettings.js:260
-#: assets/js/sipsettings.js:269
+#: assets/js/sipsettings.js:261
+#: assets/js/sipsettings.js:264
+#: assets/js/sipsettings.js:273
 msgid "Enter IP Address"
 msgstr ""
 
-#: assets/js/sipsettings.js:265
-#: assets/js/sipsettings.js:268
+#: assets/js/sipsettings.js:269
+#: assets/js/sipsettings.js:272
 #, perl-format
 msgid "Error: %s"
 msgstr ""
@@ -468,7 +468,7 @@ msgid "External IP Address"
 msgstr ""
 
 #: functions.inc.php:424
-#: assets/js/sipsettings.js:20
+#: assets/js/sipsettings.js:24
 msgid ""
 "External IP can not be blank when NAT Mode is set to Static and no default "
 "IP address provided on the main page"
@@ -529,7 +529,8 @@ msgid ""
 "Hostname or address for the STUN server used when determining the external "
 "IP address and port an RTP session can be reached at. The port number is "
 "optional. If omitted the default value of 3478 will be used. This option is "
-"blank by default. (A list of STUN servers: http://wiki.freepbx.org/x/YQCUAg)"
+"blank by default. (A list of STUN servers: https://sangomakb.atlassian.net/"
+"wiki/spaces/PG/pages/25824149/PBX+GUI+-+STUN+Servers)"
 msgstr ""
 
 #: general.page.php:441
@@ -601,7 +602,7 @@ msgstr ""
 msgid "Invalid mode '"
 msgstr ""
 
-#: Sipsettings.class.php:1231
+#: Sipsettings.class.php:1241
 msgid "It is recommended that this option remain set to no."
 msgstr ""
 
@@ -656,7 +657,7 @@ msgstr ""
 msgid "Lists the External IPs"
 msgstr ""
 
-#: assets/js/sipsettings.js:250
+#: assets/js/sipsettings.js:254
 msgid "Loading"
 msgstr ""
 
@@ -871,11 +872,11 @@ msgstr ""
 msgid "Override External IP"
 msgstr ""
 
-#: Sipsettings.class.php:1231
+#: Sipsettings.class.php:1241
 msgid "PJSIP 'Allow Transports Reload' option is set to yes."
 msgstr ""
 
-#: assets/js/sipsettings.js:238
+#: assets/js/sipsettings.js:242
 msgid "PJSIP transport port conflicts with SIP port"
 msgstr ""
 
@@ -898,7 +899,7 @@ msgstr ""
 msgid "Port to Listen On"
 msgstr ""
 
-#: assets/js/sipsettings.js:14
+#: assets/js/sipsettings.js:18
 msgid ""
 "Port/Bind Address has changed. This requires an Asterisk restart after Apply "
 "Config"
@@ -972,7 +973,7 @@ msgstr ""
 msgid "Require verification of server certificate (TLS ONLY)."
 msgstr ""
 
-#: Sipsettings.class.php:683
+#: Sipsettings.class.php:693
 msgid "Reset"
 msgstr ""
 
@@ -1092,7 +1093,7 @@ msgstr ""
 msgid "Strict RTP"
 msgstr ""
 
-#: Sipsettings.class.php:683
+#: Sipsettings.class.php:693
 msgid "Submit"
 msgstr ""
 
@@ -1264,12 +1265,12 @@ msgstr ""
 msgid "Unknown Error"
 msgstr ""
 
-#: Sipsettings.class.php:938
+#: Sipsettings.class.php:948
 msgid "Unknown Port Conflict"
 msgstr ""
 
-#: Sipsettings.class.php:495
-#: Sipsettings.class.php:581
+#: Sipsettings.class.php:505
+#: Sipsettings.class.php:591
 msgid "Unknown Type"
 msgstr ""
 
