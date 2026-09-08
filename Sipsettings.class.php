@@ -12,6 +12,7 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 	final public const SIP_CUSTOM = 9;
 	final public const SIP_T38UDPTL = 10;
 
+	public \FreePBX $FreePBX;
 	private $pagename = null;
 	private ?array $pagedata = null;
 	private ?array $tlsCache = null;
@@ -63,7 +64,7 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 	}
 
 	public function ajaxHandler() {
-		if ($_REQUEST['command'] == "getnetworking") {
+		if (($_REQUEST['command'] ?? '') === "getnetworking") {
 			if (!class_exists(\FreePBX\Modules\Sipsettings\NatGet::class)) {
 				include __DIR__."/Natget.class.php";
 			}
@@ -243,8 +244,8 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
   $vcodecsValid = null;
   $newvcodecs = [];
   $timedlocalnets = [];
-  if(isset($_REQUEST['action']) && $_REQUEST['action'] == "delete"){
-			$ret = $this->deleteChanSipSettings($_REQUEST['key'],$_REQUEST['val']);
+		if (isset($_REQUEST['action']) && $_REQUEST['action'] === "delete") {
+			$this->deleteChanSipSettings($_REQUEST['key'] ?? '', $_REQUEST['val'] ?? '');
 			needreload();
 		}
 
@@ -571,7 +572,7 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 				$this->setConfig("voicecodecs", $codecs);
 			break;
 			case 'video':
-				if($_REQUEST['videosupport'] == "yes"){
+				if(($_REQUEST['videosupport'] ?? '') === "yes"){
 					$codecs = $default ? $this->FreePBX->Codecs->getVideo(true) : $codecs;
 				}
 				else{
@@ -660,7 +661,7 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 		 $sql = "SELECT `keyword`, `data`, `type`, `seq` FROM `sipsettings` WHERE type = 9 ORDER BY `type`, `seq`";
 		$raw_settings = sql($sql,"getAll",DB_FETCHMODE_ASSOC);
 		$del = $db->prepare('DELETE FROM `sipsettings` WHERE `type`=9');
-		$del->execute([9]);
+		$del->execute();
 		foreach($raw_settings as $seq=>$row) {
 			$ins = $db->prepare('INSERT INTO `sipsettings` (`keyword`, `data`, `type`, `seq`) VALUES (?, ?, ?, ?)');
 			$ins->execute([$row['keyword'], $row['data'], 9, $seq]);
@@ -969,7 +970,7 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 							// in chansip settings.  We just turn it off, as chansip can't move its tcp
 							// port.
 							$this->updateChanSipSettings("tcpenable");
-							$n->add_critical("sipsettings", "siptcpdisabled", _("CHANSIP TCP Disabled"), _("Chansip was assigned the same port as pjsip for TCP traffic. Chansip has had the tcpenable setting removed, and is no longer listening for TCP connections."), true, true);
+							$n->add_critical("sipsettings", "siptcpdisabled", _("CHANSIP TCP Disabled"), _("Chansip was assigned the same port as pjsip for TCP traffic. Chansip has had the tcpenable setting removed, and is no longer listening for TCP connections."), "", true, true);
 							needreload();
 							continue;
 						} elseif ($proto == "tls") {
@@ -1041,7 +1042,7 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 					}
 				}
 			}
-		} elseif ($driver = "pjsip") {
+		} elseif ($driver === "pjsip") {
 			// We're setting pjsip to own 5061. Does chansip think it
 			// owns it?
 			$chansip = $this->getChanSipSettings();
@@ -1202,7 +1203,7 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 		return $interfaces;
 	}
 	public function dumpDbConfigs(){
-		return $this->Database->query('SELECT * FROM sipsettings')
+		return $this->FreePBX->Database->query('SELECT * FROM sipsettings')
 			->fetchAll(PDO::FETCH_ASSOC);
 	}
 
@@ -1219,7 +1220,7 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 	}
 
 	public function loadDbConfigs($configs){
-		$stmt = $this->Database->prepare("REPLACE INTO sipsettings (keyword, data, seq, type) VALUES (:keyword, :data, :seq, :type)");
+		$stmt = $this->FreePBX->Database->prepare("REPLACE INTO sipsettings (keyword, data, seq, type) VALUES (:keyword, :data, :seq, :type)");
 		if (!empty($configs)) {
 				foreach ($configs as $conf) {
 					if((is_countable($conf) ? count($conf) : 0) !== 4){

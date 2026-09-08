@@ -1,5 +1,4 @@
-var changed = false,
-		theForm = document.editSip;
+var changed = false;
 
 $(document).ready(function() {
 	$('.sortable').sortable(	{
@@ -50,7 +49,7 @@ $(document).ready(function() {
 
 	$("#ice-host-candidates-add").click(function(e){
 		e.preventDefault();
-		var idx = $(".ice-host-candidate").size(),
+		var idx = $(".ice-host-candidate").length,
 				idxp = idx - 1;
 
 		$("#ice-host-candidates-buttons").before('\
@@ -64,7 +63,7 @@ $(document).ready(function() {
 
 	$("#ice-blacklist-add").click(function(e){
 		e.preventDefault();
-		var idx = $(".ice-blacklist").size(),
+		var idx = $(".ice-blacklist").length,
 				idxp = idx - 1;
 
 		$("#ice-blacklist-buttons").before('\
@@ -138,44 +137,6 @@ $(document).ready(function() {
 		// This assumes the module name is the first param.
 		window.modulename = window.location.search.split(/\?|&/)[1].split('=')[1];
 
-	$("#nat-auto-configure").click(function(){
-		$.ajax({
-			type: 'POST',
-			url: "config.php",
-			data: "quietmode=1&skip_astman=1&handler=file&module=sipsettings&file=natget.html.php",
-			dataType: 'json',
-			timeout: 10000,
-			success: function(data) {
-				if (data.status == 'success') {
-					$('.netmask').attr("value","");
-					$('.localnet').attr("value","");
-					$('#externip_val').attr("value",data.externip);
-					/*  Iterate through each localnet:netmask pair. Put them into any fields on the form
-					 *  until we have no more, than create new ones
-					 */
-					var fields = $(".localnet").size();
-					var cnt = 0;
-					$.each(data.localnet, function(loc,mask){
-						if (cnt < fields) {
-							$('#localnet_'+cnt).attr("value",loc);
-							$('#netmask_'+cnt).attr("value",mask);
-						} else {
-							//addLocalnet(loc,mask);
-						}
-						cnt++;
-					});
-				} else {
-					alert(data.status);
-				}
-			},
-			error: function(data) {
-				alert(_("An Error occurred trying fetch network configuration and external IP address"));
-			},
-		});
-		return false;
-	});
-
-
 	// If someone clicks on a '0.0.0.0' pjsip selector, we automatically turn off
 	// any OTHER selectors for that protocol, as pjsip ignores them once 0.0.0.0 is
 	// enabled.
@@ -211,7 +172,7 @@ $(document).ready(function() {
  * @param {string} val The custom field value
  */
 function addCustomField(key, val) {
-	var idx = $(".sip-custom").size(),
+	var idx = $(".sip-custom").length,
 			idxp = idx - 1;
 
 	$("#sip-custom-buttons").before('\
@@ -227,10 +188,10 @@ function addCustomField(key, val) {
  * @return {bool} true if we can proceed, false otherwise
  */
 function checkBindConflicts() {
+	var submit = true;
 	if($("#sip").length > 0 && $("#pjsip").length > 0) {
 		var sipaddr = $("#sip #bindaddr").val(),
-			sipport = $("#sip #bindport").val(),
-			submit = true;
+			sipport = $("#sip #bindport").val();
 
 		sipaddr = (sipaddr.trim() != "") ? sipaddr : '0.0.0.0';
 		sipport = (sipport.trim() != "") ? sipport : '5060';

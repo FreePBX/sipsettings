@@ -4,8 +4,15 @@ use FreePBX\modules\Backup as Base;
 class Restore Extends Base\RestoreBase{
 	public function runRestore() {
 		$settings = $this->getConfigs();
-		$backupinfo = $this->getBackupInfo();
-		$skipoptions = $this->getCliarguments();
+		$backupinfo = array_merge([
+			'warmspareenabled' => 'no',
+			'warmspare_remotebind' => 'no',
+			'warmspare_remotenat' => 'no',
+		], $this->getBackupInfo());
+		$skipoptions = array_merge([
+			'skipbindport' => false,
+			'skipremotenat' => false,
+		], $this->getCliarguments());
 		$preserevdata = [];
 		if ($backupinfo['warmspareenabled'] == 'yes' || $skipoptions['skipbindport'] || $skipoptions['skipremotenat']) {
 			if ($backupinfo['warmspare_remotebind'] =='yes') {
@@ -28,7 +35,10 @@ class Restore Extends Base\RestoreBase{
 	
 	public function processLegacy($pdo, $data, $tables, $unknownTables) {
 		$preserevdata = null;
-  $skipoptions = $this->getCliarguments();
+		$skipoptions = array_merge([
+			'skipbindport' => false,
+			'skipremotenat' => false,
+		], $this->getCliarguments());
 		if ($skipoptions['skipbindport'] || $skipoptions['skipremotenat']) {
 			$preserevdata = $this->get_sipsettings_data();
 		}
@@ -63,9 +73,8 @@ class Restore Extends Base\RestoreBase{
 		$status = true;
 		try {
 			$query = "SELECT data AS port FROM `sipsettings` WHERE `keyword` = 'bindport'";
-			$sipSet = $this->FreePBX->Database->query($query)->fetchall(\PDO::FETCH_ASSOC);
-
-			$bindport = empty($sipSet) || $sipSet["port"] == "" ? "5060" : $sipSet["port"];
+			$sipSet = $this->FreePBX->Database->query($query)->fetch(\PDO::FETCH_ASSOC);
+			$bindport = empty($sipSet['port']) ? '5060' : $sipSet['port'];
 			$this->log(sprintf(_("Bindport set to %s."),$bindport), 'INFO');
 			
 			$query = "UPDATE `sipsettings` SET `data` = :port WHERE `keyword` = 'bindport'";
@@ -171,8 +180,15 @@ class Restore Extends Base\RestoreBase{
 	}
 
 	public function getResetInfo() {
-		$skipoptions = $this->getCliarguments();
-		$backupinfo = $this->getBackupInfo();
+		$skipoptions = array_merge([
+			'skipbindport' => false,
+			'skipremotenat' => false,
+		], $this->getCliarguments());
+		$backupinfo = array_merge([
+			'warmspareenabled' => 'no',
+			'warmspare_remotebind' => 'no',
+			'warmspare_remotenat' => 'no',
+		], $this->getBackupInfo());
 		$return = false;
 		if (isset($backupinfo['warmspareenabled']) && isset($backupinfo['warmspare_remotebind']) && $backupinfo['warmspareenabled'] == 'yes' && $backupinfo['warmspare_remotebind'] == 'yes') {
 			$this->log(_("warmspare remotebind option enabled"));
