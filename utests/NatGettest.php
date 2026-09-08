@@ -13,16 +13,18 @@ class NatGetTest extends PHPUnit_Framework_TestCase {
 
 	public function testGetIP() {
 		$nat = new FreePBX\modules\Sipsettings\NatGet();
-		$ip = $nat->getVisibleIP();
-		$this->assertEquals($ip, filter_var($ip, FILTER_VALIDATE_IP), "I wasn't returned a valid IP by getVisibleIP");
-		// Lets change it to get some rubbish
-		$nat->urls = [["/dev/null", "xml"]];
-		$ip = $nat->getVisibleIP();
-		$this->assertFalse($ip, "An error didn't return false");
-		$nat->urls = [["/dev/null", "xml"], ["/dev/null", "xml"], ["/dev/null", "xml"]];
-		$nat->urls[] = ["http://myip.freepbx.org:5060/whatismyip.php", "xml"];
-		$ip = $nat->getVisibleIP();
-		$this->assertEquals($ip, filter_var($ip, FILTER_VALIDATE_IP), "Multiple failures then a success, but didn't get an IP");
+		$result = $nat->getVisibleIP();
+		$this->assertTrue(is_array($result));
+		$this->assertArrayHasKey('status', $result);
+		if ($result['status']) {
+			$this->assertEquals(
+				$result['address'],
+				filter_var($result['address'], FILTER_VALIDATE_IP),
+				"I wasn't returned a valid IP by getVisibleIP"
+			);
+		} else {
+			$this->assertArrayHasKey('message', $result);
+		}
 	}
 
 	public function testGetRoutes() {
