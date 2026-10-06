@@ -734,7 +734,7 @@ foreach ($tlsowners as $chan => $txt) {
 									$codec_trans = _($codec);
 									$codec_checked = $codec_state ? 'checked' : '';
 									echo '<li><a >'
-										. '<img src="assets/sipsettings/images/arrow_up_down.png" height="16" width="16" border="0" alt="move" style="float:none; margin-left:-6px; margin-bottom:-3px;cursor:move" /> '
+										. '<i class="fa fa-arrows-v" aria-hidden="true" style="cursor:move"></i> '
 										. '<input type="checkbox" '
 										. ($codec_checked ? 'value="'. $seq++ . '" ' : '')
 										. 'name="voicecodecs[' . $codec . ']" '
@@ -860,7 +860,7 @@ foreach ($tlsowners as $chan => $txt) {
 										$codec_trans = _($codec);
 										$codec_checked = $codec_state ? 'checked' : '';
 										echo '<li><a >'
-											. '<img src="assets/sipsettings/images/arrow_up_down.png" height="16" width="16" border="0" alt="move" style="float:none; margin-left:-6px; margin-bottom:-3px;cursor:move" /> '
+											. '<i class="fa fa-arrows-v" aria-hidden="true" style="cursor:move"></i> '
 											. '<input type="checkbox" '
 											. ($codec_checked ? 'value="'. $seq++ . '" ' : '')
 											. 'name="vcodec[' . $codec . ']" '

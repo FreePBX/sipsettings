@@ -186,7 +186,7 @@ class SipSettings extends Base {
 				'description' => _('List the WS settings'),
 				'resolve' => function($root, $args) {
 					$data = [];
-					foreach ($root['ws'] as $key => $val) {
+					foreach ($root['ws'] ?? [] as $key => $val) {
 						$data[] = [
 							'interface' => $key,
 							'state' => $val
@@ -200,7 +200,7 @@ class SipSettings extends Base {
 				'description' => _('List the WSS settings'),
 				'resolve' => function($root, $args) {
 					$data = [];
-					foreach ($root['wss'] as $key => $val) {
+					foreach ($root['wss'] ?? [] as $key => $val) {
 						$data[] = [
 							'interface' => $key,
 							'state' => $val
@@ -264,7 +264,7 @@ class SipSettings extends Base {
 	public function getWSSettings(){
 		try {
 			$allBinds = $this->freepbx->sipsettings->getConfig('binds');
-			$settings = [];
+			$settings = ['ws' => [], 'wss' => []];
 			$types = ['ws', 'wss'];
 			if (is_array($allBinds)) {
 				foreach ($types as $type) {
@@ -304,6 +304,7 @@ class SipSettings extends Base {
 	 */
 	private function validateWSFields($input) {
 		$allBinds = $this->freepbx->sipsettings->getConfig('binds');
+		$allBinds = is_array($allBinds) ? $allBinds : [];
 		$ret = ['status' => 1, 'message' => ''];
 		$types = ['ws', 'wss'];
 		$modes = ['on', 'off'];
@@ -359,6 +360,7 @@ class SipSettings extends Base {
 	 */
 	private function updateWSSettings($input) {
 		$allBinds = $this->freepbx->sipsettings->getConfig('binds');
+		$allBinds = is_array($allBinds) ? $allBinds : [];
 		foreach ($input as $type => $val) {
 			if (!empty($val)) {
 				$data = json_decode(str_replace("'", '"', (string) $val), true, 512, JSON_THROW_ON_ERROR);

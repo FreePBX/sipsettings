@@ -133,8 +133,7 @@ if (isset($extip[0])) {
 
 $sql = "SELECT * from sipsettings where keyword='tlsbindport'";
 $tlsbp = sql($sql,'getAll',DB_FETCHMODE_ASSOC);
-if (!isset($tlsbp)) {
-	print_r("run");
+if (empty($tlsbp)) {
 	$sip_settings =  [['tlsbindport', $chansiptls_port, '1', '0']];
 
 	// Now insert minimal codec rows

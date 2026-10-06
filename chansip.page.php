@@ -46,7 +46,9 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 		}
 		$p_idx++;
 	}
-	$general_sip_settings 				= sipsettings_get();
+	// Preserve values written by the General tab's handler before this legacy
+	// tab performs its full-table update.
+	$sip_settings = array_replace(sipsettings_get(), $sip_settings);
 
 	// With the new sorting, the vars should come to us in the sorted order so just use that
 	//
