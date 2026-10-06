@@ -4,7 +4,7 @@
   <candisable>no</candisable>
   <canuninstall>no</canuninstall>
   <name>Asterisk SIP Settings</name>
-  <version>18.0.1</version>
+  <version>18.0.1.1</version>
   <publisher>Sangoma Technologies Corporation</publisher>
   <license>AGPLv3+</license>
   <licenselink>https://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
@@ -25,8 +25,9 @@
   </description>
   <more-info>https://sangomakb.atlassian.net/wiki/spaces/PG/pages/26640481/Asterisk+SIP+Settings</more-info>
   <changelog>
+		*18.0.1.1* Packaging of ver 18.0.1.1
   	*18.0.1* initial release
-  </changelog>
+	</changelog>
   <depends>
     <module>core ge 18.0.1</module>
     <module>backup ge 18.0.1</module>
