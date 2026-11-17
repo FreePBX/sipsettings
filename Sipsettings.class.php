@@ -92,8 +92,11 @@ class Sipsettings extends FreePBX_Helpers implements BMO {
 		// 'doDialplanHook()', to actually do the hooking.
 	}
 
-	public function __construct($freepbx) {
-		$this->FreePBX = $freepbx;
+	public function __construct($freepbx = null) {
+		// Ajax::doRequest() constructs modules with the Ajax object, which is
+		// not a FreePBX instance. The BMO singleton is the object this property
+		// and the rest of the module expect.
+		$this->FreePBX = ($freepbx instanceof \FreePBX) ? $freepbx : \FreePBX::create();
 	}
 
 	public function doConfigPageInit($display) {
