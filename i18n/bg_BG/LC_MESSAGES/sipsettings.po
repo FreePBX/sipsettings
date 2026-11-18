@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-06 07:21-0400\n"
+"POT-Creation-Date: 2026-11-18 05:46-0500\n"
 "PO-Revision-Date: 2014-07-22 16:07+0200\n"
 "Last-Translator: Chavdar <chavdar_75@yahoo.com>\n"
 "Language-Team: Bulgarian <http://git.freepbx.org/projects/freepbx/"
@@ -135,7 +135,7 @@ msgid ""
 "modules."
 msgstr ""
 
-#: Sipsettings.class.php:949
+#: Sipsettings.class.php:952
 msgid ""
 "An unknown port conflict has been detected in PJSIP. Please check and "
 "validate your PJSIP Ports to ensure they're not overlapping"
@@ -152,7 +152,7 @@ msgstr ""
 msgid "Asterisk SIP Settings"
 msgstr ""
 
-#: Sipsettings.class.php:205
+#: Sipsettings.class.php:208
 #, php-format
 msgid "Asterisk is currently using %s for SIP Traffic."
 msgstr ""
@@ -232,15 +232,15 @@ msgstr ""
 msgid "CA Chain File"
 msgstr ""
 
-#: Sipsettings.class.php:963
+#: Sipsettings.class.php:966
 msgid "CHANSIP Port Moved"
 msgstr ""
 
-#: Sipsettings.class.php:973
+#: Sipsettings.class.php:976
 msgid "CHANSIP TCP Disabled"
 msgstr ""
 
-#: Sipsettings.class.php:984
+#: Sipsettings.class.php:987
 msgid "CHANSIP TLS Port Moved"
 msgstr ""
 
@@ -272,21 +272,21 @@ msgstr ""
 msgid "Chan_sip must be selected only. No update."
 msgstr ""
 
-#: Sipsettings.class.php:984
+#: Sipsettings.class.php:987
 #, php-format
 msgid ""
 "Chansip was assigned a port that was already in use for TLS traffic. The "
 "Chansip TLS port has been changed to %s"
 msgstr ""
 
-#: Sipsettings.class.php:973
+#: Sipsettings.class.php:976
 msgid ""
 "Chansip was assigned the same port as pjsip for TCP traffic. Chansip has had "
 "the tcpenable setting removed, and is no longer listening for TCP "
 "connections."
 msgstr ""
 
-#: Sipsettings.class.php:963
+#: Sipsettings.class.php:966
 #, php-format
 msgid ""
 "Chansip was assigned the same port as pjsip for UDP traffic. The Chansip "
@@ -512,7 +512,7 @@ msgid ""
 "Frequency in seconds to check if MWI state has changed and inform peers."
 msgstr ""
 
-#: Sipsettings.class.php:220
+#: Sipsettings.class.php:223
 msgid "General SIP Settings"
 msgstr ""
 
@@ -598,7 +598,7 @@ msgstr ""
 msgid "Invalid mode '"
 msgstr ""
 
-#: Sipsettings.class.php:1242
+#: Sipsettings.class.php:1245
 msgid "It is recommended that this option remain set to no."
 msgstr ""
 
@@ -851,7 +851,7 @@ msgstr ""
 msgid "Override External IP"
 msgstr ""
 
-#: Sipsettings.class.php:1242
+#: Sipsettings.class.php:1245
 msgid "PJSIP 'Allow Transports Reload' option is set to yes."
 msgstr ""
 
@@ -951,7 +951,7 @@ msgstr ""
 msgid "Require verification of server certificate (TLS ONLY)."
 msgstr ""
 
-#: Sipsettings.class.php:694
+#: Sipsettings.class.php:697
 msgid "Reset"
 msgstr ""
 
@@ -977,7 +977,7 @@ msgstr ""
 msgid "Returns the network mask"
 msgstr ""
 
-#: Sipsettings.class.php:227
+#: Sipsettings.class.php:230
 msgid "SIP Legacy Settings [chan_sip]"
 msgstr ""
 
@@ -985,7 +985,7 @@ msgstr ""
 msgid "SIP Settings"
 msgstr ""
 
-#: Sipsettings.class.php:223
+#: Sipsettings.class.php:226
 msgid "SIP Settings [chan_pjsip]"
 msgstr ""
 
@@ -1066,7 +1066,7 @@ msgstr ""
 msgid "Strict RTP"
 msgstr ""
 
-#: Sipsettings.class.php:694
+#: Sipsettings.class.php:697
 msgid "Submit"
 msgstr ""
 
@@ -1232,11 +1232,11 @@ msgstr ""
 msgid "Unknown Error"
 msgstr ""
 
-#: Sipsettings.class.php:949
+#: Sipsettings.class.php:952
 msgid "Unknown Port Conflict"
 msgstr ""
 
-#: Sipsettings.class.php:506 Sipsettings.class.php:592
+#: Sipsettings.class.php:509 Sipsettings.class.php:595
 msgid "Unknown Type"
 msgstr ""
 
@@ -1353,7 +1353,7 @@ msgstr ""
 msgid "Yes with no error correction"
 msgstr ""
 
-#: Sipsettings.class.php:211
+#: Sipsettings.class.php:214
 msgid "You can change this on the Advanced Settings Page"
 msgstr ""
 
@@ -1389,7 +1389,7 @@ msgstr ""
 msgid "already exists"
 msgstr ""
 
-#: Sipsettings.class.php:207
+#: Sipsettings.class.php:210
 msgid "chan_pjsip and chan_sip"
 msgstr ""
 
