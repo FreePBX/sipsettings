@@ -31,3 +31,12 @@ div.sip-errors p {
 #localnet-add {
 	margin-top: 1rem;
 }
+.lnet {
+	display: flex;
+	align-items: center;
+	flex-wrap: nowrap;
+	gap: 4px;
+}
+.lnet .form-control {
+	width: auto;
+}
